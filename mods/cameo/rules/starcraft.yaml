@@ -2464,57 +2464,6 @@ sc_zerg_larva:
 		MinMoveDelay: 150
 		MaxMoveDelay: 750
 	RenderSprites:
-	GrantConditionOnProduction@producezergling:
-		Actors: sczergling
-		Condition: producezergling
-		Duration: 1
-	GrantConditionOnProduction@producescourge:
-		Actors: scscourge
-		Condition: producescourge
-		Duration: 1
-	GrantConditionOnProduction@producetalon:
-		Actors: sctalon
-		Condition: producetalon
-		Duration: 1
-	GrantConditionOnProduction@producespithid:
-		Actors: scspithid
-		Condition: producespithid
-		Duration: 1
-	GrantConditionOnProduction@produceshriek:
-		Actors: scshriek
-		Condition: produceshriek
-		Duration: 1
-	FreeActor@sczergling:
-		Actor: sczergling
-		SpawnOffset: 0,0
-		Facing: 256
-		AllowRespawn: True
-		RequiresCondition: producezergling
-	FreeActor@scscourge:
-		Actor: scscourge
-		SpawnOffset: 0,0
-		Facing: 256
-		AllowRespawn: True
-		RequiresCondition: producescourge
-	FreeActor@sctalon:
-		Actor: sctalon
-		SpawnOffset: 0,0
-		Facing: 256
-		AllowRespawn: True
-		RequiresCondition: producetalon
-	FreeActor@scspithid:
-		Actor: scspithid
-		SpawnOffset: 0,0
-		Facing: 256
-		AllowRespawn: True
-		RequiresCondition: producespithid
-	FreeActor@scshriek:
-		Actor: scshriek
-		SpawnOffset: 0,0
-		Facing: 256
-		AllowRespawn: True
-		RequiresCondition: produceshriek
-	RenderSprites:
 		PlayerPalette: player_rgba
 
 SCCREEPCOLONY:
@@ -8050,6 +7999,8 @@ upidol:
 ^ZergDoubleSpawner:
 	ProductionCostMultiplier@ZergDoubleSpawner:
 		Multiplier: 200
+	Buildable:
+		BuildAmount: 2
 
 ^BasicZerg:
 	Inherits: ^DefaultSoldier
