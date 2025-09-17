@@ -936,6 +936,7 @@ ra_conscript_ak:
 		BuildPaletteOrder: 10
 		Prerequisites: ~ra_doctrine_conscription
 		Queue: Infantry, RAInfantry
+		AdditionalActors: ra_cons_molo
 		Description: actor-e2.description
 	Mobile:
 		Speed: 71
@@ -7121,16 +7122,6 @@ BARR:
 		PlayerPalette: raplayer
 	WithDeathAnimation:
 		DeathSequencePalette: raplayer
-	GrantConditionOnProduction@produceconscript:
-		Actors: ra_conscript_ak
-		Condition: produceconscript
-		Duration: 1
-	FreeActor@ra_cons_molo:
-		Actor: ra_cons_molo
-		SpawnOffset: 0,2
-		Facing: 256
-		AllowRespawn: True
-		RequiresCondition: produceconscript
 
 TENT:
 	Inherits: ^BaseBuilding
