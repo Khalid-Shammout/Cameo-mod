@@ -1207,7 +1207,7 @@ tkmrocketeer:
 	Inherits: ^Soldier
 	Inherits@Template: ^ScoutInfantryTemplate
 	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
 	Inherits@vo: ^AttackFrontalVoice
@@ -1908,7 +1908,7 @@ tkmzaza:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 22
-		Prerequisites: ~tkmfactory, ~uptitanarsenal, ~tkmtechcenter, ~!tkmheavydutyarmor
+		Prerequisites: ~tkmfactory, ~uptitanarsenal, ~tkmtechcenter
 		Queue: Vehicle, RAVehicle
 		Description: actor-jeep.description
 	Mobile:
@@ -2777,6 +2777,17 @@ tkmrepairtruck:
 		TargetRelationships: Ally
 		ForceTargetRelationships: Ally
 		LocalOffset: 240,160,240
+		PauseOnCondition: !ammo
+	AmmoPool:
+		Ammo: 10
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 10
+		Count: 1
+		ResetOnFire: true
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
 	AutoTarget:
 		ScanRadius: 10
 		InitialStance: AttackAnything
@@ -2936,7 +2947,7 @@ tkmsuicidedrone:
 	Tooltip:
 		Name: Wraith Drone
 	Valued:
-		Cost: 1000
+		Cost: 100
 	Hovers:
 	Aircraft:
 		AltitudeVelocity: 120

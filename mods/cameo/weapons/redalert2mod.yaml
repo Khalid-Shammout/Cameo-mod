@@ -2748,43 +2748,29 @@ SteelQuantumTurretRailEMP:
 		Damage: 8000
 
 SteelInspectorIonCannon:
+	Inherits: TDIonCannonDamage
+	ValidTargets: Ground, Water, Air
+	AirThreshold: 10000
 	Range: 2500
-	MinRange: 500
-	ReloadDelay: 125
+	#MinRange: 500
+	ReloadDelay: 25
 	TargetActorCenter: true
-	ValidTargets: Ground, Water, Trees, Air
-	Warhead@Beam1: FireFragment
-		Delay: 6
-		Offsets: 0, 0, 25460
-		Weapon: SteelIonCannonBeam2
-		ValidTargets: Ground, Water, Air
-		ImpactActors: false
-		AirThreshold: 11c0
-	Warhead@Beam2: FireFragment
-		Delay: 6
-		Offsets: 0, 0, 25460
-		Weapon: SteelIonCannonBeam
-		ValidTargets: Ground, Water, Air
-		ImpactActors: false
-		AirThreshold: 11c0
-	Warhead@10Effect: CreateEffect
-		Explosions: steel_ionexplosionsmall
-		ExplosionPalette: ra2effect
+	Projectile: InstantExplode
+	Warhead@Beam: CreateEffect
+		Explosions: steel_empressstationbeam
 		ImpactSounds: ion1.aud
 		ValidTargets: Ground, Water, Air
 		ImpactActors: false
-		AirThreshold: 11c0
-		Delay: 5
-	Warhead@5BeamDam: FireFragment
-		Delay: 5
+	Warhead@Damage: FireFragment
 		Weapon: SteelInspectorIonCannonDamage
 		ValidTargets: Ground, Water, Air
 		ImpactActors: false
-		AirThreshold: 11c0
+		AirThreshold: 10000
 
 SteelInspectorIonCannonDamage:
-	Inherits: IonCannon
-	AirThreshold: 11c0
+	Inherits: TDIonCannonDamage
+	ValidTargets: Ground, Water, Air
+	AirThreshold: 10000
 
 SteelIonCannon:
 	AirThreshold: 8c0
@@ -3588,7 +3574,7 @@ NaxiWW2MachinegunTopAA:
 
 NaxiWW2Machinegunner:
 	Inherits: NaxiWW2Machinegun
-	Range: 7085
+	Range: 8970
 	ReloadDelay: 90
 	Burst: 10
 	BurstDelays: 5
@@ -3596,7 +3582,7 @@ NaxiWW2Machinegunner:
 
 NaxiWW2MachinegunnerElite:
 	Inherits: NaxiWW2Machinegunner
-	Range: 8085
+	Range: 9970
 	Report: nax_mgun3.wav
 	Burst: 20
 	BurstDelays: 3
@@ -3606,7 +3592,7 @@ NaxiWW2MachinegunnerElite:
 
 NaxiWW2MachinegunnerTargeting:
 	Inherits: ^deploytargeting
-	Range: 8085
+	Range: 8970
 
 NaxiRifle:
 	Inherits: ^SmallArms
@@ -4437,12 +4423,14 @@ NaxQuadCannon:
 	Inherits: ^HeavyMissile
 	Inherits: ^Chaingun
 	Inherits: ^RA2FlakWeapon
+	ValidTargets: Ground, Water, Trees
 	ReloadDelay: 47
 	Burst: 6
 	BurstDelays: 4
 	Range: 5368
 	Report: nax_aa1.wav
-	ValidTargets: Ground, Water, Trees
+	Projectile: Bullet
+		-LaunchAngle:
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Trees
 		Damage: 2000
@@ -6234,6 +6222,7 @@ RA2RTruckRocket:
 		Damage: 1
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_large_explosion
+		ExplosionPalette: ra2effect
 		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
 		ValidTargets: Ground, Water, Air
 
@@ -6301,6 +6290,7 @@ RA2RBurritoRocket:
 	-Warhead@Effect2:
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_large_explosion
+		ExplosionPalette: ra2effect
 		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
 	Warhead@2: FireShrapnel
 		InvalidTargets: FireImmune
@@ -6369,6 +6359,7 @@ RA2LarsRocket:
 	-Warhead@Effect2:
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_large_explosion
+		ExplosionPalette: ra2effect
 		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
 
 RA2Gren60mm:
@@ -6789,6 +6780,7 @@ LatinBuggyRocket:
 		Damage: 5
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_large_explosion
+		ExplosionPalette: ra2effect
 		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
 
 LatinBuggyRocketE:
@@ -7276,6 +7268,7 @@ RA2APCRocket:
 		ValidTargets: Ground, Water, Air
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_large_explosion
+		ExplosionPalette: ra2effect
 		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
 		ValidTargets: Ground, Water, Air
 
@@ -7448,20 +7441,20 @@ Future_Wheel_MG:
 	Inherits: ^RA2SmallArms
 	Inherits: ^RA2Chaingun
 	ValidTargets: Ground, Water, Trees
-	ReloadDelay: 32
+	ReloadDelay: 40
 	Burst: 4
 	BurstDelays: 2
-	Range: 6000
+	Range: 5806
 	Report: heavy_mgun1_3.wav
 	Warhead@SmallArms: SpreadDamage
-		ValidTargets: Ground, Water, Trees
-		Damage: 1500
-	Warhead@Chaingun: SpreadDamage
-		ValidTargets: Ground, Water, Trees
-		Damage: 1500
-	Warhead@ChaingunPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees
+		Damage: 2000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
 		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 1
+
 Future_Robot_Shotgun:
 	Inherits: ^RA2SmallArms
 	ReloadDelay: 52

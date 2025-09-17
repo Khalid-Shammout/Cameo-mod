@@ -3879,6 +3879,9 @@ explosion:
 		ZOffset: 2046
 	steel_ionexplosionsmall:
 		Filename: steel_ionexplosionsmall.shp
+	steel_empressstationbeam:
+		Filename: EmpressStationBeam.png
+		Tick: 24
 	nax_corr_ex:
 		Filename: nax_corr_ex.shp
 	nax_corr_frag:
@@ -4508,6 +4511,9 @@ steel_inspect:
 		Length: 32
 	move:
 		Length: 32
+	muzzle:
+		Filename: EmpressStationMuzzle.png
+		Length: *
 	icon:
 		Filename: steel_inspect_icon.shp
 		AddExtension: False

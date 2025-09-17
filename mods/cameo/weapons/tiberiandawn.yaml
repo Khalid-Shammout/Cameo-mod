@@ -3125,19 +3125,20 @@ TDIonBeam:
 TDIonCannonDamage:
 	Inherits: IonCannon
 	Warhead@TeslaChargedWeapon: SpreadDamage
-		Spread: 600
+		Spread: 300
 	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
-		Spread: 6000
+		Spread: 4000
 	Warhead@TeslaChargedExtraDamage: SpreadDamage
-		Spread: 600
+		Spread: 300
 	Warhead@TeslaWeapon: SpreadDamage
-		Spread: 1100
+		Spread: 300
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
-		Spread: 6000
+		Spread: 4000
 	Warhead@TeslaExtraDamage: SpreadDamage
-		Spread: 600
+		Spread: 300
 	Warhead@IonCannon: SpreadDamage
-		Range: 0, 600, 1400, 2000, 2820
+		Range: 0, 600, 1200, 1800, 2400, 3000
+		Falloff: 1000, 800, 600, 400, 200, 0
 	Warhead@IonCannonPercentage: HealthPercentageDamage
 		Spread: 4000
 	-Warhead@2Smu_impact:

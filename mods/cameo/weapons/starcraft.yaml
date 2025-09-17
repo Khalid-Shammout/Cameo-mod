@@ -2514,14 +2514,14 @@ UltraliskHusk:
 GoremawClaw:
 	Inherits: ^SwordWeapon
 	Report: zulatt00.aud,zulatt01.aud,zulatt02.aud
-	ReloadDelay: 10
+	ReloadDelay: 30
 	Range: 1250
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 10000
+		Damage: 30000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 5000
+		Damage: 15000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 5
+		Damage: 15
 	Warhead@Effect: CreateEffect
 		ImpactSounds: zulhit00.aud,zulhit01.aud
 
@@ -2907,14 +2907,16 @@ Psi-blades:
 	Inherits: ^SwordWeapon
 	Report: pzehit00.aud
 	SoundVolume: 3
-	ReloadDelay: 18
+	ReloadDelay: 16
+	Burst: 2
+	BurstDelays: 2
 	Range: 1335
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 8000
-	Warhead@SwordWeaponFriendlyFire: SpreadDamage
 		Damage: 4000
+	Warhead@SwordWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 4
+		Damage: 2
 	Warhead@Effect: CreateEffect
 		ImpactSounds: zulhit00.aud,zulhit01.aud
 
@@ -3180,14 +3182,12 @@ SCVRepair:
 	Inherits: ^RepairWeapon
 	ReloadDelay: 5
 	Range: 2000
-	Burst: 1
 
 RavenRepair:
 	Inherits: ^RepairWeapon
 	ValidTargets: SpecialRepair, Repairing, Repair, lockdowned, plagued, ivanattached
 	ReloadDelay: 5
 	Range: 5000
-	Burst: 1
 
 RavenTurretSpawner:
 	ValidTargets: Air, Ground, Water
@@ -3770,20 +3770,19 @@ ScienceVesselEMP:
 
 ^WorkerAttack:
 	Inherits: ^SwordWeapon
-	Range: 2000
-	ReloadDelay: 30
+	Range: 1500
+	ReloadDelay: 25
 	Report: repair11.aud
 	TargetActorCenter: True
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 4000
+		Damage: 10000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 2000
+		Damage: 5000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 2
+		Damage: 5
 
 SCVAttack:
 	Inherits: ^WorkerAttack
-	ReloadDelay: 20
 	Projectile: LaserZap
 		Color: 8888FF
 
@@ -3795,6 +3794,7 @@ DroneAttack:
 
 ProbeAttack:
 	Inherits: ^WorkerAttack
+	Projectile: TeslaZap
 
 DarkSwarmSpawn:
 	ReloadDelay: 100

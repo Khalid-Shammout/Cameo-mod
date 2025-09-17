@@ -79,12 +79,12 @@
 	Inherits: ^HeavyMissile
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_large_clsn
-		ExplosionPalette: ra2effect
+		ExplosionPalette: tseffect
 		ImpactSounds: gexp14a.wav
 		ValidTargets: Ground, Ship, Trees
 	Warhead@EffectWater: CreateEffect
 		Explosions: ra2_small_watersplash
-		ExplosionPalette: ra2effect
+		ExplosionPalette: tseffect
 		ImpactSounds: gexpwasa.wav
 		ValidTargets: Water, Underwater
 		InvalidTargets: Ship, Structure, Bridge
@@ -1812,7 +1812,7 @@ SonicZapFriendly:
 RA2IFVRepair:
 	Inherits: ^RepairWeapon
 	Range: 5000
-	ReloadDelay: 30
+	ReloadDelay: 50
 
 RA2CoilBolt:
 	Inherits: ^TeslaWeapon
@@ -2382,6 +2382,19 @@ RA2PSIAtomic:
 		Multiplier: 1,1
 		AirThreshold: 11c0
 		Delay: 50
+	Warhead@2Own: MindControl
+		Range: 5000
+		ChangeOwnerValidRelationships: Neutral, Enemy
+		ChangeOwnerValidTargets: Infantry, Vehicle, Ship, Submarine
+		ChangeOwnerInvalidTargets: Hero, MCImmune
+		Delay: 50
+		ValidTargets: Ground, Air, Water
+	Warhead@3Own: GrantExternalCondition
+		Duration: 0
+		Range: 5000
+		Condition: prevent-mindcontrol
+		Delay: 50
+		ValidRelationships: Ally
 
 RA2PSIAtomicDamage:
 	AirThreshold: 11c0
@@ -2401,19 +2414,6 @@ RA2PSIAtomicDamage:
 		Size: 5
 		AirThreshold: 11c0
 		Delay: 60
-	Warhead@2Own: MindControl
-		Range: 5000
-		ChangeOwnerValidRelationships: Neutral, Enemy
-		ChangeOwnerValidTargets: Infantry, Vehicle, Ship, Submarine
-		ChangeOwnerInvalidTargets: Hero, MCImmune
-		Delay: 50
-		ValidTargets: Ground, Air, Water
-	Warhead@3Own: GrantExternalCondition
-		Duration: 0
-		Range: 5000
-		Condition: prevent-mindcontrol
-		Delay: 50
-		ValidRelationships: Ally
 
 ####################################################################################################
 #		Missiles
@@ -2549,6 +2549,7 @@ MigMissiles:
 	-Warhead@Effect2:
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_large_explosion
+		ExplosionPalette: ra2effect
 		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
 
 MigMissilesE:
@@ -2732,7 +2733,6 @@ RA2SCUD:
 	Warhead@Effect: CreateEffect
 		ImpactSounds: gexp14a.wav
 		ValidTargets: Ground, Air
-		ExplosionPalette: ra2effect
 
 RA2SCUD_rad:
 	Inherits: RA2SCUD
@@ -2822,7 +2822,6 @@ YRBoomerSCUD:
 		Damage: 10
 	Warhead@Effect: CreateEffect
 		ValidTargets: Ground, Air
-		ExplosionPalette: ra2effect
 	Warhead@EffectWater: CreateEffect
 		Explosions: ra2_large_watersplash
 		ExplosionPalette: ra2effect
@@ -2871,7 +2870,6 @@ YRBoomerTorpedo:
 	-Warhead@Smudge: LeaveSmudge
 	Warhead@Effect: CreateEffect
 		ValidTargets: Ship, Structure, Bridge, Ground
-		ExplosionPalette: ra2effect
 		ImpactActors: true
 	-Warhead@EffectAir: CreateEffect
 	Warhead@EffectWater: CreateEffect
@@ -3147,7 +3145,7 @@ RA2CRM60H:
 	Inherits: ^HeavyCannon
 	Inherits: ^RA2Chaingun
 	Inherits: ^SniperWeapon
-	ValidTargets: Ground, Water, Trees
+	ValidTargets: Ground, Water, Trees, Air
 	Report: iseaatta.wav, iseaattb.wav
 	ReloadDelay: 10
 	Range: 4692
@@ -3161,18 +3159,25 @@ RA2CRM60H:
 		ContrailLength: 7
 		ContrailEndColorUsePlayerColor: false
 	Warhead@HeavyCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@ChaingunPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@SniperWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@SniperWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 
 RA2FLAKAG:
@@ -3330,6 +3335,16 @@ RA2DoublePistolsE:
 	Inherits: RA2DoublePistols
 	Range: 9000
 	Burst: 4
+
+RA2DoublePistolsIFV:
+	Inherits: RA2DoublePistols
+	ValidTargets: Ground, Water, Trees, Air
+	Warhead@SniperWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@SniperWeaponExtraDamage: OpenToppedDamage
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@SniperWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
 
 RA2AWP:
 	Inherits: ^SniperWeapon

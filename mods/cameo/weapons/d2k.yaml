@@ -1071,9 +1071,8 @@ IxRailgunDroneBullet:
 ResonanceDroneRepair:
 	Inherits: ^RepairWeapon
 	ValidTargets: SpecialRepair, Repairing, Repair, lockdowned, plagued, ivanattached
-	ReloadDelay: 10
+	ReloadDelay: 5
 	Range: 4500
-	Burst: 1
 
 IxianEmpBomb:
 	Inherits: ^MediumFlameWeapon

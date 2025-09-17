@@ -264,16 +264,16 @@
 		Modifier: 60
 	ReloadAmmoDelayMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
-		Modifier: 85
+		Modifier: 90
 	ReloadAmmoDelayMultiplier@RANK-2:
 		RequiresCondition: rank-veteran == 2
-		Modifier: 70
+		Modifier: 80
 	ReloadAmmoDelayMultiplier@RANK-3:
 		RequiresCondition: rank-veteran == 3
-		Modifier: 55
+		Modifier: 70
 	ReloadAmmoDelayMultiplier@RANK-ELITE:
 		RequiresCondition: rank-elite
-		Modifier: 40
+		Modifier: 60
 	RangeMultiplier@RANK-1:
 		RequiresCondition: rank-veteran == 1
 		Modifier: 105
@@ -912,6 +912,7 @@
 		RequiresCondition: tankbunkered
 
 ^ArtilleryBuffs:
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Inherits@IxianTechnology: ^D2K_AdvancedIxianTechnologyTeamUpgrade
 
@@ -964,6 +965,16 @@
 		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 10
+
+^FireActor:
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	TooltipExtras@FireActor:
+		Description: Fire Weapon
+
+^FireInfantry:
+	Inherits@FireActor: ^FireActor
+	GrantExternalConditionToTransport:
+		Condition: ifv-fire
 
 ^MedicTemplate:
 	Inherits@EXPERIENCE: ^GainsExperienceInfantry
@@ -1046,6 +1057,7 @@
 	Inherits@EXPERIENCE: ^GainsExperienceInfantry
 	Inherits@EXT: ^ExternalConditions
 	Inherits@InfantryBuffs: ^InfantryBuffs
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Armor:
 		Type: None
@@ -1062,6 +1074,7 @@
 	Inherits@EXPERIENCE: ^GainsExperienceInfantry
 	Inherits@EXT: ^ExternalConditions
 	Inherits@InfantryBuffs: ^InfantryBuffs
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Armor:
 		Type: None
@@ -4218,6 +4231,8 @@
 ^PropagandaEffectBuff:
 	ExternalCondition@PropagandaEffect:
 		Condition: PropagandaEffect
+	ExternalCondition@upsubliminal:
+		Condition: upsubliminal
 	GrantConditionOnPrerequisite@upsubliminal:
 		Condition: upsubliminal
 		Prerequisites: upsubliminal
@@ -4248,18 +4263,30 @@
 	SpeedMultiplier@usasearchndestroy:
 		RequiresCondition: usasearchndestroy
 		Modifier: 110
+	FirepowerMultiplier@PropagandaEffect:
+		RequiresCondition: PropagandaEffect
+		Modifier: 110
+	FirepowerMultiplier@upsubliminal:
+		RequiresCondition: PropagandaEffect && upsubliminal
+		Modifier: 110
+	DamageMultiplier@PropagandaEffect:
+		RequiresCondition: PropagandaEffect
+		Modifier: 90
+	DamageMultiplier@upsubliminal:
+		RequiresCondition: PropagandaEffect && upsubliminal
+		Modifier: 90
 	SpeedMultiplier@PropagandaEffect:
-		Modifier: 120
 		RequiresCondition: PropagandaEffect
+		Modifier: 110
 	SpeedMultiplier@upsubliminal:
-		Modifier: 120
 		RequiresCondition: PropagandaEffect && upsubliminal
+		Modifier: 110
 	ReloadDelayMultiplier@PropagandaEffect:
-		Modifier: 80
 		RequiresCondition: PropagandaEffect
+		Modifier: 90
 	ReloadDelayMultiplier@upsubliminal:
-		Modifier: 80
 		RequiresCondition: PropagandaEffect && upsubliminal
+		Modifier: 90
 	ChangesHealth@PROPAGANDA1:
 		Step: 20
 		Delay: 1
@@ -4292,8 +4319,11 @@
 		BlinkInterval: 25
 		BlinkPattern: On, Off
 	WithColoredOverlay@PropagandaEffect:
-		RequiresCondition: PropagandaEffect
+		RequiresCondition: PropagandaEffect && !upsubliminal
 		Color: FF880044
+	WithColoredOverlay@upsubliminal:
+		RequiresCondition: PropagandaEffect && upsubliminal
+		Color: FF444444
 
 ^AdvancedTargeting:
 	ExternalCondition@AdvancedTargeting:
@@ -6348,11 +6378,13 @@ CPQDEBUGDUMMY:
 		Sequence: shield-complete
 		StartSequence: shield-starts
 		Palette: shield30
+		IsDecoration: True
 	WithIdleOverlay@shield_damage:
 		RequiresCondition: !disabled && shielded && shieldhit
 		Image: energyshields
 		Sequence: shield-complete
 		Palette: shield60
+		IsDecoration: True
 	Targetable@Shielded:
 		TargetTypes: Shielded
 		RequiresCondition: shielded
@@ -7805,8 +7837,8 @@ CPQDEBUGDUMMY:
 ^IFVConditions:
 	ExternalCondition@mg:
 		Condition: ifv-mg
-	ExternalCondition@hvmg:
-		Condition: ifv-hvmg
+	ExternalCondition@hmg:
+		Condition: ifv-hmg
 	ExternalCondition@cannon:
 		Condition: ifv-cannon
 	ExternalCondition@repair:

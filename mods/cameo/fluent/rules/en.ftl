@@ -1991,6 +1991,19 @@ ra_doctrine_nuclearwar =
       Unlocks Kotin Nuclear Tank
       Unlocks Unstable Isotopes, Thermonuclear Rockets and Nuclear Tank Shells Upgrades
 
+ra_promotion_superoptics =
+   .description = Promotion Upgrade (Only affects units of own faction)
+      Increases Infantry Vision and Stealth Detection by 20%.
+      Increases Infantry Weapon Range by 10%.
+
+ra_promotion_targetingcomputer =
+   .description = Promotion Upgrade (Only affects units of own faction)
+      Allows Mammoth Tanks to use both Cannons and Missiles for all Ground and Water Targets.
+
+ra_promotion_hurricanerocketpod =
+   .description = Promotion Upgrade (Only affects units of own faction)
+      Doubles the amount of Missiles that Hind and Kamov can fire.
+
 template-mcv =
    .description = Deploys into another Construction Yard.
       Unarmed

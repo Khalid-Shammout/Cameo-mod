@@ -3073,47 +3073,21 @@ rafix:
 		Offset: 0,-2
 	icon:
 		Filename: rafixicon.png
-rafixj:
+
+rafixa:
+	Inherits: rafix
 	Defaults:
-		Filename: rafixj.png
-	idle:
-		Length: 1
-		Offset: 0,2
-		ZOffset: -1c511
-	damaged-idle:
-		Length: 1
-		Offset: 0,2
-		ZOffset: -1c511
-	active:
-		Length: 1
-		Offset: 0,2
-		ZOffset: -1c511
-	damaged-active:
-		Length: 1
-		Offset: 0,2
-		ZOffset: -1c511
-	make:
-		Filename: rafixmake.shp
-		Length: *
-		Offset: 0,2
-	dead:
-	bib:
-		Filename: mbFIX.tem
-		TilesetFilenames:
-			DESERT: mbFIX.des
-			WINTER: mbFIX.win
-			SNOW: mbFIX.sno
-			BARREN: mbFIX.bar
-			JUNGLE: mbFIX.jun
-			RA_SNOW: mbFIX.sno
-			RA_DESERT: mbFIX.des
-			RA_INTERIOR: mbFIX.int
-			ARRAKIS: mbFIX.des
-			ARRAKIS2: mbFIX.des
-		Length: *
-		Offset: 0,-2
-	icon:
-		Filename: rafixjicon.shp
+		Filename: rafixa.shp
+
+rafixs:
+	Inherits: rafix
+	Defaults:
+		Filename: rafixs.shp
+
+rafixj:
+	Inherits: rafix
+	Defaults:
+		Filename: rafixj.shp
 
 ragun:
 	Defaults:

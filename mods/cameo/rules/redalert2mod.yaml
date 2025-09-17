@@ -658,6 +658,7 @@ aa_cgairf:
 aa_cgflam:
 	Inherits: ^RA2Defense
 	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@FireActor: ^FireActor
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@sell: ^AASpawnActorsOnSell
@@ -1526,6 +1527,7 @@ aa_plast:
 aa_flam:
 	Inherits: ^Soldier
 	Inherits@Template: ^HeavyInfantryTemplate
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -1571,8 +1573,6 @@ aa_flam:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: AsianFlametroopVoice
-	GrantExternalConditionToTransport:
-		Condition: ifv-fire
 
 aa_japrif:
 	Inherits: ^Soldier
@@ -2261,15 +2261,135 @@ aa_pulv:
 	ReloadDelayMultiplier@GattlingSpeed10:
 		RequiresCondition: gatling >= 10
 		Modifier: 90
+	RangeMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 102
+	SpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	TurretTurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 250
+		RevokeDelay: 60
 		MaximumInstances: 10
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 500
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		RevokeDelay: 30
 		MaximumInstances: 10
 	AttackTurreted:
 	WithMuzzleOverlay:
@@ -2590,12 +2710,12 @@ aa_mlrs:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 250
+		RevokeDelay: 80
 		MaximumInstances: 10
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 500
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		RevokeDelay: 40
 		MaximumInstances: 10
 	Voiced:
 		VoiceSet: AsianAllianceVehicleVoice
@@ -2674,6 +2794,7 @@ aa_hotwi:
 aa_ftnk:
 	Inherits: ^Tank
 	Inherits@Template: ^LineBreakerTemplate
+	Inherits@FireActor: ^FireActor
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
@@ -2888,12 +3009,12 @@ aa_mecha:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 250
+		RevokeDelay: 50
 		MaximumInstances: 10
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 500
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		RevokeDelay: 25
 		MaximumInstances: 10
 	AttackFrontal:
 		FacingTolerance: 20
@@ -4819,13 +4940,13 @@ latin_ngdshktur:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 250
+		RevokeDelay: 60
 		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 500
+		RevokeDelay: 30
 		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
@@ -5055,14 +5176,14 @@ latin_aatur:
 		Modifier: 102
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 250
-		MaximumInstances: 10
+		RequiredShotsPerInstance: 4,8,12,16,20,24,28,32,36,40
+		RevokeDelay: 100
+		MaximumInstances: 40
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 500
+		RevokeDelay: 25
 		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
@@ -5144,7 +5265,7 @@ latinscrapcar_driveby:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Cargo:
-		InitialUnits: latin_narco, latin_fthrow, latin_fthrow
+		InitialUnits: latin_mili, latin_narco, latin_fthrow
 	RenderSprites:
 		Image: latinscrapcar
 		PlayerPalette: playerra2
@@ -5177,7 +5298,7 @@ latinscrapcar2_driveby:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Cargo:
-		InitialUnits: latin_mili, latin_fftr, latin_fftr
+		InitialUnits: latin_mili, latin_monkey, latin_tkiller
 	RenderSprites:
 		Image: latinscrapcar2
 		PlayerPalette: playerra2
@@ -5404,13 +5525,13 @@ latin_mili:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 250
+		RevokeDelay: 150
 		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 500
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		RevokeDelay: 75
 		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 
@@ -5491,9 +5612,11 @@ latin_monkey:
 		Step: 30
 	Armament@PRIMARY:
 		Weapon: LatinMonkeyGrenade
+		LocalOffset: 128,0,256
 		RequiresCondition: !rank-elite
 	Armament@ELITE:
 		Weapon: LatinMonkeyGrenadeE
+		LocalOffset: 128,0,256
 		RequiresCondition: rank-elite
 	Armament@GARRISONED:
 		Name: garrisoned
@@ -5536,6 +5659,7 @@ latin_monkey:
 latin_fthrow:
 	Inherits: ^Soldier
 	Inherits@Template: ^HeavyInfantryTemplate
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -5561,9 +5685,11 @@ latin_fthrow:
 		Step: 55
 	Armament@PRIMARY:
 		Weapon: SyndicateFireballLauncher
+		LocalOffset: 128,0,256
 		RequiresCondition: !rank-elite
 	Armament@ELITE:
 		Weapon: SyndicateFireballLauncherE
+		LocalOffset: 128,0,256
 		RequiresCondition: rank-elite
 	Armament@GARRISONED:
 		Name: garrisoned
@@ -5590,8 +5716,6 @@ latin_fthrow:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: ConscriptVoice
-	GrantExternalConditionToTransport:
-		Condition: ifv-fire
 
 latin_narco:
 	Inherits: ^Soldier
@@ -5620,9 +5744,11 @@ latin_narco:
 		Step: 28
 	Armament@PRIMARY:
 		Weapon: RA2NarcoPistol
+		LocalOffset: 128,0,256
 		RequiresCondition: !rank-elite
 	Armament@ELITE:
 		Weapon: RA2NarcoPistolsE
+		LocalOffset: 128,0,256
 		RequiresCondition: rank-elite
 	Armament@SECONDARY:
 		Weapon: NarcoGrenade
@@ -5690,16 +5816,20 @@ latin_fftr:
 		Step: 77
 	Armament@PRIMARY:
 		Weapon: RA2FreedomAK47
+		LocalOffset: 128,0,256
 		RequiresCondition: !rank-elite
 	Armament@ELITE:
 		Weapon: RA2FreedomAK47E
+		LocalOffset: 128,0,256
 		RequiresCondition: rank-elite
 	Armament@ROCKET:
 		Weapon: RA2FreedomRocket
+		LocalOffset: 250,0,400
 		Name: secondary
 		RequiresCondition: !rank-elite
 	Armament@ROCKETELITE:
 		Weapon: RA2FreedomRocketE
+		LocalOffset: 250,0,400
 		Name: secondary
 		RequiresCondition: rank-elite
 	Armament@GARRISONED:
@@ -5986,13 +6116,13 @@ latin_buggy:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 250
+		RevokeDelay: 30
 		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 500
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		RevokeDelay: 15
 		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
@@ -6451,13 +6581,13 @@ latin_diablo:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 250
+		RevokeDelay: 80
 		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 500
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		RevokeDelay: 40
 		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
@@ -7236,13 +7366,13 @@ latin_yakolev:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 250
+		RevokeDelay: 50
 		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 500
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		RevokeDelay: 25
 		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
@@ -10359,7 +10489,7 @@ steel_inspect:
 	Inherits@Epic: ^EpicAirUnitTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@announce: ^AnnounceGlobal
 	Inherits@COMMANDOSKULL: ^CommandoSkull
 	Inherits@shield: ^HasShieldGenerator
@@ -10382,22 +10512,24 @@ steel_inspect:
 		RepulsionSpeed: 25
 		CanSlide: False
 	Health:
-		HP: 500000
+		HP: 1500000
 	ChangesHealth@SelfHealing:
-		Step: 200
+		Step: 600
 	Shielded:
 		MaxPercentageStrength: 100
 		DamageRegenDelay: 125
-		RegenAmount: 400
+		RegenAmount: 1200
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
 		RequiresCondition: !disabled
 		SelectionBarColor: 8888FFFF
 	Armament@PRIMARY:
 		Weapon: SteelInspectorIonCannon
-		LocalOffset: 256,0,-512
+		LocalOffset: 0,0,-512
+		MuzzleSequence: muzzle
 	FirepowerMultiplier@IonCannon:
-		Modifier: 25
+		Modifier: 10
+	WithMuzzleOverlay:
 	AttackAircraft:
 		Voice: Attack
 		AttackType: Strafe #Hover
@@ -10422,6 +10554,7 @@ steel_inspect:
 		Sequence: shield-complete-big
 	ActorStatValues:
 		Upgrades: upsteel_shielresistance
+
 steel_inspect.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
@@ -13247,6 +13380,7 @@ nax_mp40:
 nax_fcons:
 	Inherits: ^Soldier
 	Inherits@Template: ^HeavyInfantryTemplate
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -13292,6 +13426,7 @@ nax_fcons:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: NaxiEngVoice
+
 nax_merc:
 	Inherits: ^Soldier
 	Inherits@Template: ^SniperInfantryTemplate
@@ -13784,7 +13919,7 @@ nax_hmg:
 	Inherits@bot: ^BotAutoDeploySwitchMode
 	Inherits@AntiVeh: ^PrioritizeInfantry
 	Valued:
-		Cost: 500
+		Cost: 600
 	Tooltip:
 		Name: Naxi Machinegunners
 	Buildable:
@@ -13802,10 +13937,7 @@ nax_hmg:
 		HP: 60000
 	ChangesHealth@SelfHealing:
 		Step: 60
-	RangeMultiplier@deployed:
-		Modifier: 125
-		RequiresCondition: deployed
-	RevealsShroudMultiplier@shrouded:
+	RevealsShroudMultiplier@deployed:
 		Modifier: 125
 		RequiresCondition: deployed
 	DamageMultiplier@deployed:
@@ -13938,7 +14070,7 @@ nax_quadflak:
 		HP: 12000
 	ChangesHealth@SelfHealing:
 		Step: 12
-	RevealsShroudMultiplier@shrouded:
+	RevealsShroudMultiplier@deployed:
 		Modifier: 125
 		RequiresCondition: deployed
 	DamageMultiplier@deployed:
@@ -14475,7 +14607,7 @@ nax2_armor_harv:
 
 nax2_engi:
 	Inherits: ^Walker
-	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -14485,7 +14617,7 @@ nax2_engi:
 	Selectable:
 		Bounds: 600, 600, 0, -125
 	Valued:
-		Cost: 500
+		Cost: 800
 	Tooltip:
 		Name: Engineering Armor
 	Buildable:
@@ -14500,9 +14632,9 @@ nax2_engi:
 	Health:
 		HP: 50000
 	Repairable:
-		HpPerStep: 6500
+		HpPerStep: 2500
 	ChangesHealth@SelfHealing:
-		Step: 52
+		Step: 20
 	Armor:
 		Type: Plate
 	Armament:
@@ -14510,6 +14642,18 @@ nax2_engi:
 		Weapon: RA2IFVRepair
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
+		PauseOnCondition: !ammo
+	AmmoPool:
+		Ammo: 10
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 10
+		Count: 1
+		ResetOnFire: true
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 5
 	AttackFrontal:
 		FacingTolerance: 20
 	WithInfantryBody:
@@ -15356,7 +15500,7 @@ nax2_lasert:
 		Weapon: NaxiTank2LaserAA
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 512,1,80, 512,-1,80
+		LocalOffset: 850,150,-60, 850,-150,-60
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: !upnax2_ylaser
@@ -15365,7 +15509,7 @@ nax2_lasert:
 		Weapon: Lunar_YellowTank2Laser
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 512,1,80, 512,-1,80
+		LocalOffset: 850,150,-60, 850,-150,-60
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: upnax2_ylaser
@@ -15374,7 +15518,7 @@ nax2_lasert:
 		Weapon: Lunar_YellowTank2LaserAA
 		Recoil: 128
 		RecoilRecovery: 38
-		LocalOffset: 512,1,80, 512,-1,80
+		LocalOffset: 850,150,-60, 850,-150,-60
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: upnax2_ylaser
@@ -16217,6 +16361,17 @@ nax_eng:
 		Weapon: RA2IFVRepair
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
+		PauseOnCondition: !ammo
+	AmmoPool:
+		Ammo: 10
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 10
+		Count: 1
+		ResetOnFire: true
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -18794,7 +18949,7 @@ futu_wheel:
 	Selectable:
 		Bounds: 600, 600, 0, -125
 	Valued:
-		Cost: 150
+		Cost: 200
 	Tooltip:
 		Name: Scout Robot
 	Buildable:
@@ -18807,13 +18962,11 @@ futu_wheel:
 		TurnSpeed: 28
 		Locomotor: chem
 	Health:
-		HP: 10000
+		HP: 30000
 	Repairable:
-		HpPerStep: 6500
+		HpPerStep: 1500
 	ChangesHealth@SelfHealing:
-		Step: 52
-	Armor:
-		Type: Plate
+		Step: 12
 	Armament@1:
 		Weapon: Future_Wheel_MG
 		LocalOffset: 200,300,500, 200,-300,500
@@ -18837,6 +18990,82 @@ futu_wheel:
 		PlayerPalette: playerra2
 	GrantExternalConditionToTransport:
 		Condition: ifv-mg
+
+futu_engi:
+	Inherits: ^Walker
+	Inherits@Template: ^SupportVehicleTemplate
+	Inherits@anim: ^RA2Vehicle
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	Inherits@MC: ^MCImmune
+	Selectable:
+		Bounds: 600, 600, 0, -125
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Engineering Armor
+	Buildable:
+		BuildPaletteOrder: 75
+		Prerequisites: ~futu_egpile
+		Queue: Infantry, RAInfantry
+		Description: actor-aamecha.description
+	Mobile:
+		Speed: 40
+		TurnSpeed: 16
+		Locomotor: tracked
+	Health:
+		HP: 50000
+	Repairable:
+		HpPerStep: 2500
+	ChangesHealth@SelfHealing:
+		Step: 20
+	Armor:
+		Type: Plate
+	Armament:
+		Name: primary
+		Weapon: RA2IFVRepair
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
+		PauseOnCondition: !ammo
+	AmmoPool:
+		Ammo: 10
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 10
+		Count: 1
+		ResetOnFire: true
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 5
+	AttackFrontal:
+		FacingTolerance: 20
+	WithInfantryBody:
+		IdleSequences: idle1, idle2
+		MinIdleDelay: 90
+		MaxIdleDelay: 270
+		DefaultAttackSequence: shoot
+	BodyOrientation:
+		QuantizedFacings: 32
+	-QuantizeFacingsFromSequence:
+	Passenger:
+		Weight: 1
+	Voiced:
+		VoiceSet: NaxiRobotVoice
+	RenderSprites:
+		PlayerPalette: playerra2
+	Captures:
+		CaptureTypes: building, tech
+		PlayerExperience: 500
+		CaptureDelay: 375
+		ConsumedByCapture: False
+		EnterCursor: ability
+		EnterBlockedCursor: move-blocked
+		Voice: Move
+	RenderSprites:
+		Image: nax2_engi
 
 eur_spy:
 	Inherits: ^Soldier
@@ -19161,6 +19390,7 @@ futu_mbt:
 		Modifier: 150
 	RenderSprites:
 		PlayerPalette: player_rgba
+
 futu_hvrt:
 	Inherits: ^Tank
 	Inherits@Template: ^SupportVehicleTemplate

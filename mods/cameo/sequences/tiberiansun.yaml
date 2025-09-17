@@ -1343,27 +1343,31 @@ tsgtpowr:
 		Filename: tsgtpowr_b.shp
 		Length: 12
 		Tick: 200
-		Offset: -30, -12, 24
+		Offset: -48, -12, 0
 	damaged-idle-powrupa:
 		Filename: tsgtpowr_b.shp
 		Length: 12
 		Tick: 200
-		Offset: -30, -12, 24
+		Offset: -48, -12, 0
 	idle-powrupb:
 		Filename: tsgtpowr_b.shp
 		Length: 12
 		Tick: 200
-		Offset: -16, -6, 24
+		Offset: -24, 0, 0
 	damaged-idle-powrupb:
 		Filename: tsgtpowr_b.shp
 		Length: 12
 		Tick: 200
-		Offset: -16, -6, 24
+		Offset: -24, 0, 0
 	make:
 	icon:
 		Filename: tspowerplanticon.png
 		Offset: 0, 0
 		UseTilesetCode: false
+
+tsgtpowrup:
+	icon:
+		Filename: tsturbicon.png
 
 drplasma2:
 	Defaults:

@@ -665,6 +665,7 @@ E4:
 	Inherits: ^Soldier
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@explode: ^ExplodingInfantry
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
@@ -717,8 +718,6 @@ E4:
 		PlayerPalette: raplayer
 	ActorStatValues:
 		Upgrades: up_guerillatactics, up_advancedguerillatactics, up_elementalwarfare, up_tiberiuminfusion, up_cyberneticmodifications
-	GrantExternalConditionToTransport:
-		Condition: ifv-fire
 
 E5:
 	Inherits: ^Soldier
@@ -1213,6 +1212,7 @@ ARTY:
 FTNK:
 	Inherits: ^Tank
 	Inherits@Template: ^LineBreakerTemplate
+	Inherits@FireActor: ^FireActor
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
@@ -4877,6 +4877,7 @@ nodltnk2:
 nodftnk2:
 	Inherits: ^Tank
 	Inherits@Template: ^LineBreakerTemplate
+	Inherits@FireActor: ^FireActor
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -4979,6 +4980,7 @@ tsblackhandflamer:
 	Inherits: ^Soldier
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^HeavyInfantryTemplate
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove

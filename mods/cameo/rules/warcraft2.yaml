@@ -407,6 +407,8 @@ Player:
 	DeathSounds:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
+	Targetable@Monster:
+		TargetTypes: Monster
 	RenderSprites:
 	Inherits@WC2BLOODLUST: ^wc2_o_bloodlust_status
 	Inherits@WC2HASTE: ^wc2_o_haste_status
@@ -1043,11 +1045,11 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	ParallelProductionQueue@INFANTRY:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@wc2:
-		Multiplier: 200
+		Multiplier: 120
 	ProductionTimeMultiplier@wc2:
-		Multiplier: 200
+		Multiplier: 120
 	DamageMultiplier@wc2:
-		Modifier: 50
+		Modifier: 80
 
 ^wc2_lumber_mill:
 	Inherits@ref: ^Refinery
@@ -1074,8 +1076,6 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 		DragOffset: -554,512,0
 		DragLength: 12
 		TickRate: 15
-	WithResourceLevelOverlay:
-		RequiresCondition: !build-incomplete
 	ProvidesPrerequisite:
 		Prerequisite: Refinery
 	ProvidesPrerequisite@buildingname:
@@ -1144,11 +1144,11 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	ParallelProductionQueue@VEHICLE:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@wc2:
-		Multiplier: 200
+		Multiplier: 120
 	ProductionTimeMultiplier@wc2:
-		Multiplier: 200
+		Multiplier: 120
 	DamageMultiplier@wc2:
-		Modifier: 50
+		Modifier: 80
 
 ^wc2_stables:
 	Inherits@shape: ^3x3Shape
@@ -1263,11 +1263,11 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	ParallelProductionQueue@AIRCRAFT:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@wc2:
-		Multiplier: 200
+		Multiplier: 120
 	ProductionTimeMultiplier@wc2:
-		Multiplier: 200
+		Multiplier: 120
 	DamageMultiplier@wc2:
-		Modifier: 50
+		Modifier: 80
 
 ^wc2_shipyard:
 	Inherits@shipyard: ^IsShipyard
@@ -3041,9 +3041,9 @@ wc2_human_footman:
 	Tooltip:
 		Name: Footman
 	Valued:
-		Cost: 300
+		Cost: 500
 	Power:
-		Amount: -15
+		Amount: -25
 	Health:
 		HP: 50000
 	ChangesHealth@SelfHealing:
@@ -3057,7 +3057,7 @@ wc2_human_footman:
 		Description: Basic melee infantry. Slow but can take some damage.
 	Armament:
 		Weapon: wc2footmanslice
-		FireDelay: 7
+		FireDelay: 5
 	Targetable@dog:
 		TargetTypes: DogImmune
 	Voiced:
@@ -3151,6 +3151,8 @@ wc2_human_knight:
 		HP: 300000
 	ChangesHealth@SelfHealing:
 		Step: 120
+	Armor:
+		Type: Medium
 	Mobile:
 		Speed: 110
 		TurnSpeed: 88
@@ -3700,6 +3702,7 @@ wc2_human_gryphon_rider:
 		HP: 125000
 	ChangesHealth@SelfHealing:
 		Step: 50
+	-Integrity:
 	Aircraft:
 		Speed: 145
 		TurnSpeed: 29
@@ -4128,16 +4131,16 @@ wc2_orc_troll_lumber_mill:
 		Prerequisites: ~wc2_orc_pigfarm
 		Queue: Building, RABuilding
 		Description: Dropoff point for gold. (Tiberium)\nCan store up to 1000 resource\nProduces axes enabling Axethrowers.\nProvides upgrades for Axethrowers.\nUnlocks Guard Tower upgrade.
-	Refinery:
-	DockHost:
-		DockAngle: 448
-		DockOffset: -1c0, 1c0, 0
 	FreeActor@1:
 		Actor: wc2_orc_peon
 	FreeActor@2:
 		Actor: wc2_orc_peon
 	SpawnActorsOnSell:
 		ActorTypes: wc2_orc_troll_axethrower
+	Refinery:
+	DockHost:
+		DockAngle: 448
+		DockOffset: -1c0, 1c0, 0
 	Voiced:
 		VoiceSet: wc2orclumbermillvoice
 
@@ -4760,9 +4763,9 @@ wc2_orc_grunt:
 	Tooltip:
 		Name: Grunt
 	Valued:
-		Cost: 300
+		Cost: 500
 	Power:
-		Amount: -15
+		Amount: -25
 	Health:
 		HP: 60000
 	ChangesHealth@SelfHealing:
@@ -4776,7 +4779,7 @@ wc2_orc_grunt:
 		Description: Basic melee infantry. Slow but can take some damage. Lok'tar!
 	Armament:
 		Weapon: wc2gruntslice
-		FireDelay: 7
+		FireDelay: 5
 	Targetable@dog:
 		TargetTypes: DogImmune
 	Voiced:
@@ -5510,6 +5513,7 @@ wc2_orc_dragon:
 		HP: 150000
 	ChangesHealth@SelfHealing:
 		Step: 60
+	-Integrity:
 	Aircraft:
 		Speed: 125
 		TurnSpeed: 25

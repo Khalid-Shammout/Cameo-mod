@@ -155,14 +155,32 @@ ConscriptAK47:
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		Damage: 1
 
-VengeanceActivator:
+VengeanceActivator1:
 	Projectile: InstantExplode
-	Warhead@Condition: GrantExternalCondition
+	Warhead@PropagandaEffect: GrantExternalCondition
 		Range: 5000
 		Condition: PropagandaEffect
 		Duration: 100
 		ValidRelationships: Ally
-	Warhead@Condition: GrantExternalCondition
+	Warhead@HealingField: GrantExternalCondition
+		Range: 5000
+		Condition: HealingField
+		Duration: 100
+		ValidRelationships: Ally
+
+VengeanceActivator2:
+	Projectile: InstantExplode
+	Warhead@upsubliminal: GrantExternalCondition
+		Range: 5000
+		Condition: upsubliminal
+		Duration: 100
+		ValidRelationships: Ally
+	Warhead@PropagandaEffect: GrantExternalCondition
+		Range: 5000
+		Condition: PropagandaEffect
+		Duration: 100
+		ValidRelationships: Ally
+	Warhead@HealingField: GrantExternalCondition
 		Range: 5000
 		Condition: HealingField
 		Duration: 100
@@ -2570,6 +2588,37 @@ FLAK-23-AA:
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Air
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Air
+
+BTRMachineGun:
+	Inherits: ^SmallArms
+	Inherits: ^Chaingun
+	ValidTargets: Ground, Water, Trees
+	ReloadDelay: 20
+	Burst: 4
+	BurstDelays: 4
+	Range: 5454
+	Report: mgun11.aud
+	Warhead@SmallArms: SpreadDamage
+		Damage: 2000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 1
+
+BTRMachineGunAA:
+	Inherits: BTRMachineGun
+	Range: 8181
+	ValidTargets: Air
+	Warhead@SmallArms: SpreadDamage
+		ValidTargets: Air
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Air
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Air
+	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Air
 
 RAVulcan:
@@ -5532,24 +5581,6 @@ VolkovMagneticWeapon:
 		Explosions: poof
 		ImpactSounds: kaboom25.aud
 
-BTRMachineGun:
-	Inherits: ^SmallArms
-	Inherits: ^Chaingun
-	ValidTargets: Ground, Water, Trees, Air
-	ReloadDelay: 20
-	Burst: 4
-	BurstDelays: 4
-	Range: 5453
-	Report: mgun11.aud
-	Warhead@SmallArms: SpreadDamage
-		Damage: 2000
-	Warhead@SmallArmsPercentage: HealthPercentageDamage
-		Damage: 1
-	Warhead@Chaingun: SpreadDamage
-		Damage: 2000
-	Warhead@ChaingunPercentage: HealthPercentageDamage
-		Damage: 1
-
 ParaBomb:
 	Inherits: ^HeavyBomb
 	Inherits: ^HeavyFlameWeapon
@@ -5781,10 +5812,10 @@ Heal:
 	Report: heal2.aud
 	Projectile: InstantExplode
 	Warhead@HealingWeapon: SpreadDamage
-		Spread: 5000
+		Spread: 1000
 		Damage: -2000
 	Warhead@ExtraHealing: SpreadDamage
-		Spread: 2500
+		Spread: 500
 		Damage: -1000
 	Warhead@HealingWeaponPercentage: HealthPercentageDamage
 		Spread: 5000
@@ -5813,10 +5844,10 @@ Repair:
 	Report: fixit1.aud
 	Projectile: InstantExplode
 	Warhead@RepairWeapon: SpreadDamage
-		Spread: 5000
+		Spread: 1000
 		Damage: -2000
 	Warhead@ExtraRepair: SpreadDamage
-		Spread: 2500
+		Spread: 500
 		Damage: -1000
 	Warhead@RepairWeaponPercentage: HealthPercentageDamage
 		Spread: 5000

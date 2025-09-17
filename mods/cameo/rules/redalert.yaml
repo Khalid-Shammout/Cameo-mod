@@ -543,7 +543,7 @@ World:
 		DamageRegenDelay: 125
 		RegenInterval: 1
 		ShieldsUpCondition: shielded
-		RequiresCondition: !disabled && (up_stealthsuitintegration || shieldgen)
+		RequiresCondition: !disabled && (up_stealthsuitintegration || shieldgen || shielded)
 		SelectionBarColor: 8888FFFF
 	GrantCondition@shieldpermanent:
 		Condition: shieldpermanent
@@ -562,6 +562,8 @@ World:
 	DamageMultiplier@shielded:
 		RequiresCondition: shielded
 		Modifier: 90
+	ChangesShield@shielddischarge:
+		Delay: 10
 	GrantConditionOnPrerequisite@up_stealthsuitintegration:
 		Condition: up_stealthsuitintegration
 		Prerequisites: up_stealthsuitintegration
@@ -952,8 +954,11 @@ ra_conscript_ak:
 		Weapon: ConscriptAK47
 	FirepowerMultiplier@TripleShot:
 		Modifier: 33
-	FireWarheadsOnDeath@Vengeance:
-		Weapon: VengeanceActivator
+	FireWarheadsOnDeath@Vengeance1:
+		Weapon: VengeanceActivator1
+		RequiresCondition: !ra_upgrade_vengeance
+	FireWarheadsOnDeath@Vengeance2:
+		Weapon: VengeanceActivator2
 		RequiresCondition: ra_upgrade_vengeance
 	TakeCover:
 		ProneOffset: 180,0,-200
@@ -1026,7 +1031,6 @@ RAE2:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiBuil: ^PrioritizeBuilding
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -1096,7 +1100,6 @@ mortarsoldier:
 	Inherits@AntiBuil: ^PrioritizeBuilding
 	Inherits@AntiDef: ^PrioritizeDefence
 	Inherits@anim: ^TDRAInfantry
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 130
@@ -1197,8 +1200,11 @@ ra_cons_molo:
 		RequiresCondition: parachute
 	FireWarheadsOnDeath:
 		Weapon: ConscriptMolotov
-	FireWarheadsOnDeath@Vengeance:
-		Weapon: VengeanceActivator
+	FireWarheadsOnDeath@Vengeance1:
+		Weapon: VengeanceActivator1
+		RequiresCondition: !ra_upgrade_vengeance
+	FireWarheadsOnDeath@Vengeance2:
+		Weapon: VengeanceActivator2
 		RequiresCondition: ra_upgrade_vengeance
 	WithDeathAnimation:
 		DeathSequencePalette: player_rgba
@@ -1331,8 +1337,11 @@ ra_dragunov:
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: DragunovSniper
-	FireWarheadsOnDeath@Vengeance:
-		Weapon: VengeanceActivator
+	FireWarheadsOnDeath@Vengeance1:
+		Weapon: VengeanceActivator1
+		RequiresCondition: !ra_upgrade_vengeance
+	FireWarheadsOnDeath@Vengeance2:
+		Weapon: VengeanceActivator2
 		RequiresCondition: ra_upgrade_vengeance
 	TakeCover:
 		ProneOffset: 180,0,-200
@@ -1474,12 +1483,12 @@ RAE4:
 	Inherits: ^Soldier
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^HeavyInfantryTemplate
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@explode: ^ExplodingInfantry
 	Inherits@EXP: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@AntiBuil: ^PrioritizeBuilding
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Tooltip:
 		Name: Soviet Flamethrower
@@ -1539,13 +1548,12 @@ RAE4:
 		VoiceSet: RussianVoice
 	ActorStatValues:
 		Upgrades: ra_doctrine_inferno, ra_upgrade_scorchedearth
-	GrantExternalConditionToTransport:
-		Condition: ifv-fire
 
 RAJE4:
 	Inherits: ^Soldier
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^HeavyInfantryTemplate
+	Inherits@FireInfantry: ^FireInfantry
 	Inherits@EXP: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -1610,8 +1618,6 @@ RAJE4:
 		VoiceSet: JapaneseVoice
 	ActorStatValues:
 		Upgrades: up_bushidodiscipline, up_stealthsuitintegration
-	GrantExternalConditionToTransport:
-		Condition: ifv-fire
 
 SHOK:
 	Inherits: ^Soldier
@@ -1742,7 +1748,7 @@ ra_commissar:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
-	-ExternalCondition@PropagandaEffect:
+	Inherits@VengeanceUpgradeRA1: ^VengeanceUpgradeRA1
 	Tooltip:
 		Name: Commissar
 	Valued:
@@ -1763,14 +1769,25 @@ ra_commissar:
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: CommissarPistol
+	FireWarheadsOnDeath@Vengeance1:
+		Weapon: VengeanceActivator1
+		RequiresCondition: !ra_upgrade_vengeance
+	FireWarheadsOnDeath@Vengeance2:
+		Weapon: VengeanceActivator2
+		RequiresCondition: ra_upgrade_vengeance
 	ProducibleWithLevel:
 		InitialLevels: 1
 	ProximityExternalCondition@PropagandaEffect:
-		Range: 3333
+		Range: 5000
 		ValidRelationships: Ally
 		Condition: PropagandaEffect
+		RequiresCondition: ra_upgrade_vengeance
+	ProximityExternalCondition@upsubliminal:
+		Range: 5000
+		ValidRelationships: Ally
+		Condition: upsubliminal
 	WithRangeCircle@propaganda:
-		Range: 3333
+		Range: 5000
 		Type: propaganda
 		Color: 55BBFF
 		RequiresCondition: !disabled
@@ -1784,8 +1801,6 @@ ra_commissar:
 		Image: d2k_pips
 		Sequence: pickup-indicator
 		ValidRelationships: Ally, Enemy, Neutral
-	ActorStatValues:
-		Upgrades: ra_doctrine_conscription
 	GrantExternalConditionToTransport:
 		Condition: ifv-healer
 	Voiced:
@@ -1797,6 +1812,8 @@ ra_commissar:
 		DeathSequencePalette: player_rgba
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: ra_upgrade_vengeance, ra_upgrade_menofsteel
 
 SNIPER:
 	Inherits: ^Soldier
@@ -2187,7 +2204,6 @@ v1truck:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Valued:
 		Cost: 850
 	Tooltip:
@@ -2265,7 +2281,6 @@ ra_grad:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Valued:
@@ -2336,7 +2351,6 @@ V2RL:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@TeslaRocketsUpgradeRA1: ^TeslaRocketsUpgradeRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Buildable:
@@ -2412,7 +2426,6 @@ V2RLNUKE:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@NuclearRocketsUpgradeRA1: ^NuclearRocketsUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
@@ -3874,6 +3887,7 @@ MODBTR:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@botmicro: ^BotAutoDeployTransport
+	Inherits@ConscriptionDoctrineRA1: ^ConscriptionDoctrineRA1
 	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
@@ -3905,11 +3919,15 @@ MODBTR:
 		Weapon: BTRMachineGun
 		LocalOffset: 85,0,171
 		MuzzleSequence: muzzle
+	Armament@AA:
+		Weapon: BTRMachineGunAA
+		LocalOffset: 85,0,171
+		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
 	Cargo:
 		Types: Infantry, Hacker, Fremen
-		MaxWeight: 8
-		InitialUnits: rare1, rare1, rae2, rae2, rare3, rare3, rae4, rae4
+		MaxWeight: 7
+		InitialUnits: rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, ra_dragunov, rae4
 	RenderSprites:
 		Image: modbtr
 	Voiced:
@@ -8017,6 +8035,8 @@ RAFIX.Allies:
 		Name: Allied Service Depot
 	Buildable:
 		Prerequisites: ~rafact.allies, raweapa
+	RenderSprites:
+		Image: rafixa
 
 RAFIX.Soviet:
 	Inherits: ^RAFIX
@@ -8025,6 +8045,8 @@ RAFIX.Soviet:
 		Name: Soviet Service Depot
 	Buildable:
 		Prerequisites: ~rafact.soviet, raweap
+	RenderSprites:
+		Image: rafixs
 
 RAFIX.Japan:
 	Inherits: ^RAFIX
@@ -8034,11 +8056,8 @@ RAFIX.Japan:
 		Name: Japanese Service Depot
 	Buildable:
 		Prerequisites: ~rafact.japan, modraweapj
-	WithDeathAnimation:
-		DeathSequencePalette: raplayer
 	RenderSprites:
 		Image: rafixj
-		PlayerPalette: player_rgba
 
 RA1SYRD:
 	Inherits: ^BaseBuilding
@@ -8583,10 +8602,10 @@ FTUR:
 	Inherits: ^Defense
 	Inherits@exp: ^GainsExperienceRABuilding
 	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@FireActor: ^FireActor
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
@@ -8671,11 +8690,11 @@ TSLA:
 		Weapon: TeslaZap
 		LocalOffset: 0,0,896
 		RequiresCondition: !ra_doctrine_teslatech && !ra_upgrade_teslaarcing
-	Armament@Upgrade:
+	Armament@Upgrade1:
 		Weapon: TeslaZapEMP
 		LocalOffset: 0,0,896
 		RequiresCondition: ra_doctrine_teslatech && !ra_upgrade_teslaarcing
-	Armament@Upgrade:
+	Armament@Upgrade2:
 		Weapon: TeslaZapEMPArc
 		LocalOffset: 0,0,896
 		RequiresCondition: ra_upgrade_teslaarcing
@@ -11290,7 +11309,7 @@ ra_promotion_superoptics:
 	Buildable:
 		BuildPaletteOrder: 37
 		Queue: Promotions
-		Description: Increases Vision and Stealth Detection of Infantry by 20%.
+		Description: ra_promotion_superoptics.description
 		Prerequisites: ~rafact.soviet, !ra_promotion_superoptics, rank1
 	RenderSprites:
 		Image: ra_promotion_superoptics
@@ -11304,6 +11323,9 @@ ra_promotion_superoptics:
 	DetectCloakedMultiplier@ra_promotion_superoptics:
 		RequiresCondition: ra_promotion_superoptics
 		Modifier: 120
+	RangeMultiplier@ra_promotion_superoptics:
+		RequiresCondition: ra_promotion_superoptics
+		Modifier: 110
 	GrantConditionOnPrerequisite@ra_promotion_superoptics:
 		Condition: ra_promotion_superoptics
 		Prerequisites: ra_promotion_superoptics
@@ -11387,7 +11409,7 @@ ra_promotion_targetingcomputer:
 	Buildable:
 		BuildPaletteOrder: 44
 		Queue: Promotions
-		Description: Allows Mammoth Tanks to use both Cannons and Missiles for all Ground and Water Targets.
+		Description: ra_promotion_targetingcomputer.description
 		Prerequisites: ~rafact.soviet, !ra_promotion_targetingcomputer, upttnk2, rank1
 	RenderSprites:
 		Image: ra_promotion_targetingcomputer
@@ -11429,7 +11451,7 @@ ra_promotion_hurricanerocketpod:
 	Buildable:
 		BuildPaletteOrder: 42
 		Queue: Promotions
-		Description: Doubles the amount of Missiles that Hind and Kamov can fire.
+		Description: ra_promotion_hurricanerocketpod.description
 		Prerequisites: ~rafact.soviet, !ra_promotion_hurricanerocketpod, upbtr, rank1
 	RenderSprites:
 		Image: ra_promotion_hurricanerocketpod
@@ -12867,6 +12889,7 @@ typechiha:
 modhovert:
 	Inherits: ^Tank
 	Inherits@Template: ^HighTechTankTemplate
+	Inherits@FireActor: ^FireActor
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -13036,7 +13059,7 @@ MODBGGY:
 	Buildable:
 		BuildPaletteOrder: 30
 		Queue: Vehicle, RAVehicle
-		Prerequisites: ~modraweapj, ~upgrenadebuggy
+		Prerequisites: ~modraweapj
 		Description: actor-jpbggy.description
 	Mobile:
 		Speed: 120

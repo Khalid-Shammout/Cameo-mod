@@ -107,6 +107,8 @@ World:
 		HpPerStep: 2250
 	ChangesHealth@SelfHealing:
 		Step: 18
+	FirepowerMultiplier@repair:
+		Modifier: 25
 	Armor:
 		Type: Light
 	StoresResources:
@@ -3253,15 +3255,15 @@ SCSCV:
 	Buildable:
 		Prerequisites: ~screfinery
 		Description: Collects resources.\nCan repair mechanical units and buildings.
+	Armament:
+		Weapon: SCVAttack
+		ForceTargetRelationships: Enemy, Neutral
 	Armament@repair:
 		Name: repair
 		Weapon: SCVRepair
 		TargetRelationships: Ally
 		ForceTargetRelationships: Ally
 		LocalOffset: 240,160,240
-	Armament:
-		Weapon: SCVAttack
-		ForceTargetRelationships: Enemy, Neutral
 	AutoTarget:
 		ScanRadius: 10
 		InitialStance: AttackAnything
@@ -3436,7 +3438,7 @@ SCMADCAP:
 		ArmamentNames: primary, garrisoned
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
 		MaximumInstances: 10
-		RevokeDelay: 250
+		RevokeDelay: 125
 		RevokeAll: false
 		IsCyclic: false
 		RevokeOnNewTarget: false
@@ -3964,7 +3966,6 @@ SCSIEGETANK:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@announce: ^AnnounceOnBuild
 	Inherits@Crushes: ^VehicleCrusher
-	Inherits@EMP: ^TurretEMP
 	Inherits@SHADOWS: ^Shadows
 	Inherits@armor: ^TerranVehiclesWeaponUpgrades
 	Inherits@weapon: ^TerranVehicleArmorUpgrades
@@ -4025,17 +4026,18 @@ SCSIEGETANK:
 		Modifier: 150
 		RequiresCondition: deployed
 	RevealsShroudMultiplier@upsiegemode:
-		Modifier: 150
+		Modifier: 120
 		RequiresCondition: deployed && upsiegemode
 	RangeMultiplier@upsiegemode:
-		Modifier: 120
+		Modifier: 110
 		RequiresCondition: deployed && upsiegemode
 	GrantConditionOnPrerequisite@upsiegemode:
 		Condition: upsiegemode
 		Prerequisites: upsiegemode
-	AttackTurreted:
+	AttackTurretedCharged:
 		Turrets: primary,deployed
 		Armaments: primary,deployed
+		PauseOnCondition: disabled
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 		RequiresCondition: undeployed
@@ -4672,6 +4674,17 @@ SCRAVEN:
 		TargetRelationships: Ally
 		ForceTargetRelationships: Ally
 		LocalOffset: 640,0,-160
+		PauseOnCondition: !ammo
+	AmmoPool:
+		Ammo: 10
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 10
+		Count: 1
+		ResetOnFire: true
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
 	# Armament@TurretSpawner:
 	# 	Weapon: RavenTurretSpawner
 	# 	ForceTargetRelationships: Enemy, Neutral
@@ -6093,7 +6106,6 @@ SCPROBE:
 	Inherits@harv: ^Harvester
 	Inherits@worker: ^SCWorker
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@AutoRepair: ^PrioritizeRepair
 	Inherits@announce: ^AnnounceOnBuild
 	Inherits@SHADOWS: ^Shadows
 	Inherits@shieldgenerator: ^ProtossPersonalShield
@@ -6102,15 +6114,8 @@ SCPROBE:
 	Buildable:
 		Prerequisites: ~scassimilator
 		Description: Collects resources.\nCan repair mechanical units and buildings.
-	Armament@repair:
-		Name: repair
-		Weapon: SCVRepair
-		TargetRelationships: Ally
-		ForceTargetRelationships: Ally
-		LocalOffset: 240,0,240
 	Armament:
-		Weapon: SCVAttack
-		ForceTargetRelationships: Enemy, Neutral
+		Weapon: ProbeAttack
 	AutoTarget:
 		ScanRadius: 10
 		InitialStance: AttackAnything
@@ -8059,6 +8064,7 @@ upidol:
 ^AirZerg:
 	Inherits: ^Helicopter
 	-SpawnActorOnDeath:
+	-Integrity:
 	WithDeathAnimation:
 		UseDeathTypeSuffix: False
 	DeathSounds:
@@ -8188,6 +8194,7 @@ SCOVERLORD:
 		MaxMoveDelay: 40
 		RequiresCondition: botmicro
 	WithMoveAnimation:
+	-Targetable@infiltrate:
 	-AttackAircraft:
 	-AutoTarget:
 	-RenderRangeCircle:
@@ -9424,7 +9431,7 @@ SCHERMIT:
 
 SCGOREMAW:
 	Inherits@zerg: ^VeryLargeZerg
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^HighTechTankTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@announce: ^AnnounceOnBuild
@@ -9471,7 +9478,7 @@ SCGOREMAW:
 		ArmamentNames: primary, garrisoned
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
 		MaximumInstances: 10
-		RevokeDelay: 250
+		RevokeDelay: 150
 		RevokeAll: false
 		IsCyclic: false
 		RevokeOnNewTarget: false
@@ -10418,11 +10425,11 @@ upsiegemode:
 	Tooltip:
 		Name: Advanced Siege Mode
 	Valued:
-		Cost: 3600
+		Cost: 2400
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases Siege Mode Range by 20%
+		Description: Increases Siege Mode Range by 10% and Vision by 20%
 		Prerequisites: ~scsciencefacility, ~!upsiegemode
 	RenderSprites:
 		Image: scsiegemode

@@ -928,14 +928,16 @@ TSGTPOWR:
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@power: ^PowerPlant
-	Selectable:
-		Bounds: 2048, 2048
+	Tooltip:
+		Name: GDI Power Plant
 	Valued:
 		Cost: 500
-	Tooltip:
-		Name: Power Plant (GDI)
 	Health:
 		HP: 150000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: 150
 	Buildable:
 		BuildPaletteOrder: 10
 		Queue: Building, RABuilding
@@ -946,6 +948,8 @@ TSGTPOWR:
 		Dimensions: 2,2
 	RevealsShroud:
 		Range: 4c0
+	Selectable:
+		Bounds: 2048, 2048
 	WithBuildingBib:
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
@@ -965,53 +969,73 @@ TSGTPOWR:
 		RequiresCondition: powerupgrade
 		PauseOnCondition: disabled
 		Sequence: idle-powrupb
-	Production:
-		Produces: Turbine.TSGDI
+	ProvidesPrerequisite:
+		Prerequisite: gdipowerupgradeavailable
 		RequiresCondition: !powerupgrade
-	GrantConditionOnProduction@powerupgrade:
-		Condition: powerupgrade
-		Actors: tsgtpowr.turbine
-	PowerMultiplier@upgrade:
+	DamageMultiplier@powerupgrade:
+		Modifier: 50
+		RequiresCondition: powerupgrade
+	PowerMultiplier@powerupgrade:
 		Modifier: 200
 		RequiresCondition: powerupgrade
-	Power:
-		Amount: 100
+	Pluggable:
+		Offset: 0,0
+		Conditions:
+			tsgtpowr: powerupgrade
+		Requirements:
+			tsgtpowr: !build-incomplete && !powerupgrade
 	ProvidesPrerequisite@buildingname:
 	RenderSprites:
 		PlayerPalette: playerra2
+
+tsgtpowrup:
+	Inherits: ^BuildingPlug
+	Tooltip:
+		Name: Power Turbine
+	Valued:
+		Cost: 500
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Defence, RADefence
+		Prerequisites: ~tsgtcnstgdi, gdipowerupgradeavailable
+		Description: Increase power output by 100%
+	Plug:
+		Type: tsgtpowr
+	RenderSprites:
+		Image: tsgtpowrup
 
 TSNTPOWR:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@power: ^PowerPlant
-	Selectable:
-		Bounds: 2048, 2048
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
+	Tooltip:
+		Name: Nod Power Plant
+	Valued:
+		Cost: 600
+	Health:
+		HP: 120000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: 180
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 10
 		Prerequisites: ~tsgtcnstnod
 		Description: Provides power for other structures.
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: Power Plant
-	Health:
-		HP: 150000
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
-	Armor:
-		Type: Wood
 	RevealsShroud:
 		Range: 4c0
+	Selectable:
+		Bounds: 2048, 2048
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
 	WithBuildingBib:
-	Power:
-		Amount: 120
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 	ProvidesPrerequisite@buildingname:
@@ -1027,36 +1051,36 @@ TSNTPOWRMUTANT:
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@power: ^PowerPlant
-	Selectable:
-		Bounds: 2048, 2048
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
+	Tooltip:
+		Name: Forgotten Power Plant
+	Valued:
+		Cost: 700
+	Health:
+		HP: 140000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: 210
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 10
 		Prerequisites: ~tsgtcnstmutant
 		Description: Provides power for other structures.
-	WithIdleOverlay@cycle:
-		Sequence: idle-cycle
-		RequiresCondition: !build-incomplete
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: Power Plant
-	Health:
-		HP: 150000
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
-	Armor:
-		Type: Wood
+	Selectable:
+		Bounds: 2048, 2048
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
+	WithIdleOverlay@cycle:
+		Sequence: idle-cycle
+		RequiresCondition: !build-incomplete
 	RevealsShroud:
 		Range: 4c0
 	WithBuildingBib:
-	Power:
-		Amount: 120
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 	ProvidesPrerequisite@buildingname:
@@ -1070,33 +1094,33 @@ TSNTPOWRCABAL:
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@power: ^PowerPlant
-	Selectable:
-		Bounds: 2048, 2048
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
+	Tooltip:
+		Name: CABAL Power Plant
+	Valued:
+		Cost: 800
+	Health:
+		HP: 160000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: 240
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 10
 		Prerequisites: ~tsgtcnstcabal
 		Description: Provides power for other structures.
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: Power Plant
-	Health:
-		HP: 150000
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 		LocalCenterOffset: 0,-512,0
-	Armor:
-		Type: Wood
+	Selectable:
+		Bounds: 2048, 2048
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
 	RevealsShroud:
 		Range: 4c0
 	WithBuildingBib:
-	Power:
-		Amount: 120
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 	ProvidesPrerequisite@buildingname:
@@ -1113,33 +1137,33 @@ TSNTAPWR:
 	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@power: ^PowerPlant
-	HitShape:
-		TargetableOffsets: -355,-1024,0
+	Tooltip:
+		Name: Nod Advanced Power Plant
+	Health:
+		HP: 240000
+	Armor:
+		Type: Wood
+	Power:
+		Amount: 360
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 110
 		Prerequisites: ~tsgtcnstnod, tsntradr
 		Description: Provides double the power of\na standard Power Plant.
-	Valued:
-		Cost: 800 #500
-	Tooltip:
-		Name: Advanced Power Plant
 	Building:
 		Footprint: _xx _xx
 		Dimensions: 3,2
+	HitShape:
+		TargetableOffsets: -355,-1024,0
+	Valued:
+		Cost: 1200
 	Selectable:
 		Bounds: 1280, 1280
 		DecorationBounds: 1280, 1024
 	SelectionDecorations:
-	Health:
-		HP: 300000
-	Armor:
-		Type: Wood
 	RevealsShroud:
 		Range: 4c0
 	WithBuildingBib:
-	Power:
-		Amount: 200
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: building ##########
