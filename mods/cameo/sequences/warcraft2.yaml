@@ -1545,6 +1545,35 @@ wc2_human_ballista:
 	icon:
 		Start: 6
 
+wc2_human_siege_engine:
+	Inherits: ^wc2_status_icons
+	Defaults:
+		Filename: wc2_siege_engine.png
+	stand:
+		Facings: 8
+	idle:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 60
+	shoot:
+		Start: 56
+		Length: 8
+		Facings: 8
+		Tick: 80
+	die:
+		Start: 120
+		Length: 10
+		Tick: 100
+	die-crushed:
+		Start: 120
+		Length: 10
+		Tick: 100
+	icon:
+		Filename: wc2_siege_engine_icon.png
+
 ####################################################################################################
 #		NAVAL human2
 ####################################################################################################

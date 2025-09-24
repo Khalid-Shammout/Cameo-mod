@@ -914,7 +914,7 @@ SiegeMortarThermobaric:
 PortaTesla:
 	Inherits: ^TeslaWeapon
 	ReloadDelay: 40
-	Range: 4651
+	Range: 4652
 	Report: shktrop1.aud
 	Warhead@TeslaWeapon: SpreadDamage
 		Damage: 20000
@@ -928,28 +928,63 @@ PortaTeslaEMP:
 	Warhead@EMPUnit: AffectsIntegrity
 		Damage: 20000
 
-ZapperPortaTesla:
-	Inherits: ^TeslaWeapon
-	ReloadDelay: 30
-	Range: 5000
-	Report: shktrop1.aud
-	Warhead@TeslaWeapon: SpreadDamage
-		Damage: 30000
-	Warhead@TeslaExtraDamage: SpreadDamage
-		Damage: 15000
-	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
-		Damage: 15
-	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 30000
-
-ZapperPortaTeslaArc:
-	Inherits: ZapperPortaTesla
+PortaTeslaEMPArc:
+	Inherits: PortaTeslaEMP
 	Warhead@TeslaArc: FireShrapnel
-		Weapon: PortaTesla
+		Weapon: PortaTeslaFragment
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
 		AimTargetStances: Enemy, Neutral
+
+PortaTeslaFragment:
+	Inherits: PortaTeslaEMPArc
+	Range: 2326
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 10000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 5000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 5
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 10000
+	-Warhead@TeslaArc: FireShrapnel
+
+ZapperPortaTesla:
+	Inherits: ^TeslaWeapon
+	ReloadDelay: 32
+	Range: 5000
+	Report: shktrop1.aud
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 32000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 16000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 16
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 32000
+
+ZapperPortaTeslaArc:
+	Inherits: ZapperPortaTesla
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: ZapperPortaTeslaFragment
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+ZapperPortaTeslaFragment:
+	Inherits: ZapperPortaTeslaArc
+	Range: 2500
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 16000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 8000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 8
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 16000
+	-Warhead@TeslaArc: FireShrapnel
 
 PointDefenseTesla:
 	Inherits: ^TeslaWeapon
@@ -989,15 +1024,46 @@ TTankZapEMP:
 TTankZapEMPArc:
 	Inherits: TTankZapEMP
 	Warhead@TeslaArc: FireShrapnel
-		Weapon: ZapperPortaTeslaArc
+		Weapon: TTankZapEMPArcTeslaFragment1
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
 		AimTargetStances: Enemy, Neutral
 
+TTankZapEMPArcTeslaFragment1:
+	Inherits: TTankZapEMPArc
+	Range: 3650
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 20000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 10000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 20000
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: TTankZapEMPArcTeslaFragment2
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+TTankZapEMPArcTeslaFragment2:
+	Inherits: TTankZapEMPArcTeslaFragment1
+	Range: 1825
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 10000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 5000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 5
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 10000
+	-Warhead@TeslaArc: FireShrapnel
+
 TTankZap2:
 	Inherits: ^TeslaChargedWeapon
-	ReloadDelay: 75
+	ReloadDelay: 80
 	Range: 6650
 	Report: tesla1.aud
 	Warhead@TeslaChargedWeapon: SpreadDamage
@@ -1015,37 +1081,99 @@ TTankZap2EMP:
 TTankZap2EMPArc:
 	Inherits: TTankZap2EMP
 	Warhead@TeslaArc: FireShrapnel
-		Weapon: TTankZapEMPArc
+		Weapon: TTankZap2EMPArcTeslaFragment1
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
 		AimTargetStances: Enemy, Neutral
+
+TTankZap2EMPArcTeslaFragment1:
+	Inherits: TTankZap2EMPArc
+	Range: 3325
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 20000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 10000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 20000
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: TTankZap2EMPArcTeslaFragment2
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+TTankZap2EMPArcTeslaFragment2:
+	Inherits: TTankZap2EMPArcTeslaFragment1
+	Range: 1663
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 10000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 5000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 5
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 10000
+	-Warhead@TeslaArc: FireShrapnel
 
 TeslaZap:
 	Inherits: ^TeslaWeapon
 	ReloadDelay: 3
-	Range: 9318
+	Range: 9320
 	Report: tesla1.aud
 	Warhead@TeslaWeapon: SpreadDamage
-		Damage: 30000
+		Damage: 32000
 	Warhead@TeslaExtraDamage: SpreadDamage
-		Damage: 15000
+		Damage: 16000
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
-		Damage: 15
+		Damage: 16
 
 TeslaZapEMP:
 	Inherits: TeslaZap
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 30000
+		Damage: 32000
 
 TeslaZapEMPArc:
 	Inherits: TeslaZapEMP
 	Warhead@TeslaArc: FireShrapnel
-		Weapon: PortaTeslaEMP
+		Weapon: TeslaZapEMPArcTeslaFragment1
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
 		AimTargetStances: Enemy, Neutral
+
+TeslaZapEMPArcTeslaFragment1:
+	Inherits: TeslaZapEMPArc
+	Range: 4660
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 16000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 8000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 8
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 16000
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: TeslaZapEMPArcTeslaFragment2
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+TeslaZapEMPArcTeslaFragment2:
+	Inherits: TeslaZapEMPArcTeslaFragment1
+	Range: 2330
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 8000
+	-Warhead@TeslaArc: FireShrapnel
 
 HeatRayBeam1:
 	Inherits: ^LaserWeapon
@@ -2358,7 +2486,7 @@ SCUDTesla:
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 15
 	Warhead@TeslaArc: FireShrapnel
-		Weapon: ZapperPortaTeslaArc
+		Weapon: MammothTuskTeslaFragment1
 		Amount: 3
 		AimChance: 100
 		AllowDirectHit: true
@@ -3009,7 +3137,7 @@ KamovMissilesTesla:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@TeslaArc: FireShrapnel
-		Weapon: PortaTesla
+		Weapon: KamovTeslaArcFragment1
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
@@ -3053,15 +3181,60 @@ KamovTesla:
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@EMPUnit: AffectsIntegrity
 		Damage: 32000
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
+	Warhead@EffectAir: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
 
 KamovTeslaArc:
 	Inherits: KamovTesla
 	Warhead@TeslaArc: FireShrapnel
-		Weapon: PortaTesla
+		Weapon: KamovTeslaArcFragment1
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
 		AimTargetStances: Enemy, Neutral
+
+KamovTeslaArcFragment1:
+	Inherits: KamovTeslaArc
+	Range: 2764
+	Warhead@LightMissile: SpreadDamage
+		Damage: 8000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 8000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 16000
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: KamovTeslaArcFragment2
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+KamovTeslaArcFragment2:
+	Inherits: KamovTeslaArcFragment1
+	Range: 1382
+	Warhead@LightMissile: SpreadDamage
+		Damage: 4000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 8000
+	-Warhead@TeslaArc: FireShrapnel
 
 YakChainGun:
 	Inherits: ^Chaingun
@@ -3421,7 +3594,7 @@ TeslaMaverick:
 		LaunchAngle: 128
 		Image: d2k_RPG
 		Palette: d2keffect
-		TrailImage: bazooka_trail2
+		TrailImage: litning
 		ContrailLength: 10
 		ContrailStartColor: FF8844
 		ContrailEndColor: 33221100
@@ -3429,24 +3602,24 @@ TeslaMaverick:
 		TrailDelay: 1
 	Warhead@TeslaWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 10000
+		Damage: 8000
 		ValidRelationships: Neutral, Enemy
 	Warhead@TeslaExtraDamage: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 5000
+		Damage: 4000
 		ValidRelationships: Neutral, Enemy
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 5
+		Damage: 4
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 10000
+		Damage: 4000
 		ValidRelationships: Neutral, Enemy
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 5
+		Damage: 4
 	Warhead@TeslaArc: FireShrapnel
-		Weapon: PortaTesla
+		Weapon: TeslaMaverickFragment1
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
@@ -3457,6 +3630,46 @@ TeslaMaverick:
 	Warhead@EffectAir: CreateEffect
 		Explosions: ra2_tesla_impact
 		ExplosionPalette: ra2effect
+
+TeslaMaverickFragment1:
+	Inherits: TeslaMaverick
+	ValidTargets: Ground, Water, Air
+	Range: 2950
+	Report: shktrop1.aud
+	Projectile: TeslaZap
+		-Image: d2k_RPG
+		-TrailImage: litning
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 4000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: TeslaMaverickFragment2
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+TeslaMaverickFragment2:
+	Inherits: TeslaMaverickFragment1
+	Range: 1475
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 1000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 2000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 1
+	-Warhead@TeslaArc: FireShrapnel
 
 ThermobaricMaverick:
 	Inherits: ^NuclearWarhead
@@ -4876,7 +5089,7 @@ HammerTankCannonThermobaric:
 	Warhead@MediumFlameWeapon: SpreadDamage
 		Damage: 4000
 	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
-		Damage: 3000
+		Damage: 2000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 2
 	Warhead@HeavyCannon: SpreadDamage
@@ -4977,7 +5190,7 @@ KotinCannonThermobaric:
 	Warhead@MediumFlameWeapon: SpreadDamage
 		Damage: 4000
 	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
-		Damage: 3000
+		Damage: 2000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 2
 	Warhead@HeavyCannon: SpreadDamage
@@ -4991,9 +5204,9 @@ KotinCannonThermobaric:
 	Warhead@Radiation: CreateTintedCells
 		InvalidTargets: RadiationImmmune
 		Spread: 1000
-		Falloff: 100, 50, 33, 25, 20
-		Level: 25
-		MaxLevel: 1000
+		Falloff: 100, 50, 33, 25, 20, 15, 10, 5
+		Level: 30
+		MaxLevel: 2000
 		LayerName: ra2radiation
 	-Warhead@Effect1:
 	-Warhead@Effect2:
@@ -5246,38 +5459,49 @@ MammothTuskTesla:
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@LightFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@TeslaWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@TeslaExtraDamage: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@HeavyMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@TeslaArc: FireShrapnel
-		Weapon: PortaTesla
+		Weapon: MammothTuskTeslaFragment1
 		Amount: 1
 		AimChance: 100
 		AllowDirectHit: true
@@ -5288,6 +5512,70 @@ MammothTuskTesla:
 	Warhead@EffectAir: CreateEffect
 		Explosions: ra2_tesla_impact
 		ExplosionPalette: ra2effect
+
+MammothTuskTeslaFragment1:
+	Inherits: MammothTuskTesla
+	ValidTargets: Ground, Water, Air
+	Range: 3206
+	Report: shktrop1.aud
+	Projectile: TeslaZap
+		-Image: MISSILE
+		-TrailImage: litning
+	Warhead@Grenade: SpreadDamage
+		Damage: 4000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@HeavyMissile: SpreadDamage
+		Damage: 4000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: MammothTuskTeslaFragment2
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+MammothTuskTeslaFragment2:
+	Inherits: MammothTuskTeslaFragment1
+	Range: 1603
+	Warhead@Grenade: SpreadDamage
+		Damage: 2000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@LightFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@LightFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@LightFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 1000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@HeavyMissile: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		Damage: 1
+	-Warhead@TeslaArc: FireShrapnel
 
 MammothTuskTeslaTargetingComputer:
 	Inherits: MammothTuskTesla
@@ -5489,34 +5777,13 @@ MonsterTank120mm:
 
 MonsterTank120mmThermobaric:
 	Inherits: ^HeavyFlameWeapon
-	Inherits: ^NuclearWarhead
-	Inherits: ^HeavyCannon
-	ReloadDelay: 103
-	Burst: 2
-	BurstDelays: 32
-	Range: 7833
-	Projectile: Bullet
-		Speed: 300
-		LaunchAngle: 50
-		Inaccuracy: 500
+	Inherits: MonsterTank120mm
 	Warhead@HeavyFlameWeapon: SpreadDamage
 		Damage: 40000
 	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
 		Damage: 20000
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
 		Damage: 20
-	Warhead@NuclearWarhead: SpreadDamage
-		Damage: 40000
-	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
-		Damage: 20
-	Warhead@HeavyCannon: SpreadDamage
-		Damage: 40000
-	Warhead@HeavyCannonPercentage: HealthPercentageDamage
-		Damage: 20
-	Warhead@Effect: CreateEffect
-		Explosions: nuke_small
-		ImpactSounds: kaboom22.aud
-		ImpactActors: true
 
 MonsterTankTusk:
 	Inherits: ^HeavyBomb
@@ -5551,8 +5818,8 @@ VolkovMagneticWeapon:
 	Report: ramgun2.aud
 	Projectile: Bullet
 		Image: 50CAL
-		Speed: 5200
-		Inaccuracy: 520
+		Speed: 5400
+		Inaccuracy: 540
 	Warhead@HeavyCannon: SpreadDamage
 		Damage: 10000
 		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
@@ -5580,6 +5847,395 @@ VolkovMagneticWeapon:
 	Warhead@Effect: CreateEffect
 		Explosions: poof
 		ImpactSounds: kaboom25.aud
+
+VolkovMagneticWeaponTesla:
+	Inherits: ^TeslaWeapon
+	Inherits: VolkovMagneticWeapon
+	Warhead@HeavyCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: VolkovMagneticWeaponTeslaFragment1
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
+
+VolkovMagneticWeaponTeslaFragment1:
+	Inherits: VolkovMagneticWeaponTesla
+	ValidTargets: Ground, Water, Air
+	Range: 2700
+	Report: shktrop1.aud
+	Projectile: TeslaZap
+		-Image: 50CAL
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 4000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@Grenade: SpreadDamage
+		Damage: 4000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: VolkovMagneticWeaponTeslaFragment2
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+VolkovMagneticWeaponTeslaFragment2:
+	Inherits: VolkovMagneticWeaponTeslaFragment1
+	Range: 1350
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@Grenade: SpreadDamage
+		Damage: 2000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 1000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	-Warhead@TeslaArc: FireShrapnel
+
+VolkovMagneticWeaponNuclearShells:
+	Inherits: ^NuclearWarhead
+	Inherits: VolkovMagneticWeapon
+	ReloadDelay: 40
+	Burst: 1
+	MinRange: 1000
+	Projectile: Bullet
+		Speed: 333
+		ContrailStartColor: FFCC88FF
+		ContrailEndColor: FFFFFF22
+		ContrailLength: 11
+		ContrailStartWidth: 99
+		ContrailEndWidth: 33
+		LaunchAngle: 66
+		Inaccuracy: 333
+		Image: BOMB
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 20000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@Grenade: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 20000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@NuclearWarhead: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@Effect: CreateEffect
+		Explosions: nuke_small
+		ImpactSounds: kaboom22.aud
+		ImpactActors: true
+
+VolkovMagneticWeaponIncendiary:
+	Inherits: ^MediumFlameWeapon
+	Inherits: VolkovMagneticWeapon
+	Inherits: ^IncendiaryBulletProjectile
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 10000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 5000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 5
+
+VolkovMagneticWeaponIncendiaryTesla:
+	Inherits: ^MediumFlameWeapon
+	Inherits: ^TeslaWeapon
+	Inherits: VolkovMagneticWeapon
+	Inherits: ^IncendiaryBulletProjectile
+	Warhead@HeavyCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumFlameWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: VolkovMagneticWeaponIncendiaryTeslaFragment1
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
+
+VolkovMagneticWeaponIncendiaryTeslaFragment1:
+	Inherits: VolkovMagneticWeaponTesla
+	ValidTargets: Ground, Water, Air
+	Range: 2700
+	Report: shktrop1.aud
+	Projectile: TeslaZap
+		-Image: 50CAL
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 4000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@Grenade: SpreadDamage
+		Damage: 4000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 2000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: VolkovMagneticWeaponIncendiaryTeslaFragment2
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+VolkovMagneticWeaponIncendiaryTeslaFragment2:
+	Inherits: VolkovMagneticWeaponIncendiaryTeslaFragment1
+	Range: 1350
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@Grenade: SpreadDamage
+		Damage: 2000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 1000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	-Warhead@TeslaArc: FireShrapnel
+
+VolkovMagneticWeaponIncendiaryNuclearShells:
+	Inherits: ^MediumFlameWeapon
+	Inherits: ^NuclearWarhead
+	Inherits: VolkovMagneticWeapon
+	ReloadDelay: 40
+	Burst: 1
+	MinRange: 1000
+	Projectile: Bullet
+		Speed: 333
+		ContrailStartColor: FF4488AA
+		ContrailEndColor: FFFFFF44
+		ContrailLength: 11
+		ContrailStartWidth: 99
+		ContrailEndWidth: 33
+		LaunchAngle: 66
+		Inaccuracy: 333
+		Image: BOMB
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 20000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 20000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@Grenade: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 20000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@NuclearWarhead: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone75Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@Effect: CreateEffect
+		Explosions: nuke_small
+		ImpactSounds: kaboom22.aud
+		ImpactActors: true
 
 ParaBomb:
 	Inherits: ^HeavyBomb

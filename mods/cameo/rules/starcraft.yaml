@@ -201,20 +201,10 @@ World:
 	ActorStatValues:
 		Upgrades: upstimpack
 
-^SupplyDepotUpgrade1:
-	RangeMultiplier@supplydepotupg:
-		RequiresCondition: upsupplydepot1
-		Modifier: 125
-	GrantConditionOnPrerequisite@supplydepotupg:
-		Condition: upsupplydepot1
-		Prerequisites: upsupplydepot1
-	ActorStatValues:
-		Upgrades: upsupplydepot1
-
 ^UraniumShellsUpgrade:
 	RangeMultiplier@upmarinerange:
 		RequiresCondition: upmarinerange
-		Modifier: 125
+		Modifier: 120
 	GrantConditionOnPrerequisite@upmarinerange:
 		Condition: upmarinerange
 		Prerequisites: upmarinerange
@@ -223,30 +213,24 @@ World:
 
 ^TerranInfantryWeaponUpgrades:
 	FirepowerMultiplier@upinfweapon:
-		Modifier: 125
-		RequiresCondition: upinfweapon
+		Modifier: 115
+		RequiresCondition: upinfweapon && !upinfweapon2
 	GrantConditionOnPrerequisite@upinfweapon:
 		Condition: upinfweapon
 		Prerequisites: upinfweapon
 	FirepowerMultiplier@upinfweapon2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: upinfweapon2
 	GrantConditionOnPrerequisite@upinfweapon2:
 		Condition: upinfweapon2
 		Prerequisites: upinfweapon2
-	FirepowerMultiplier@upinfweapon3:
-		Modifier: 125
-		RequiresCondition: upinfweapon3
-	GrantConditionOnPrerequisite@upinfweapon3:
-		Condition: upinfweapon3
-		Prerequisites: upinfweapon3
 	ActorStatValues:
 		Upgrades: upinfweapon
 
 ^TerranInfantryArmorUpgrades:
 	DamageMultiplier@upinfarmor:
-		Modifier: 80
-		RequiresCondition: upinfarmor
+		Modifier: 90
+		RequiresCondition: upinfarmor && !upinfarmor2
 	GrantConditionOnPrerequisite@upinfarmor:
 		Condition: upinfarmor
 		Prerequisites: upinfarmor
@@ -256,41 +240,29 @@ World:
 	GrantConditionOnPrerequisite@upinfarmor2:
 		Condition: upinfarmor2
 		Prerequisites: upinfarmor2
-	DamageMultiplier@upinfarmor3:
-		Modifier: 80
-		RequiresCondition: upinfarmor3
-	GrantConditionOnPrerequisite@upinfarmor3:
-		Condition: upinfarmor3
-		Prerequisites: upinfarmor3
 	ActorStatValues:
 		Upgrades: upinfarmor
 
 ^TerranVehiclesWeaponUpgrades:
 	FirepowerMultiplier@upmechweapon:
-		Modifier: 125
-		RequiresCondition: upmechweapon
+		Modifier: 115
+		RequiresCondition: upmechweapon && !upmechweapon2
 	GrantConditionOnPrerequisite@upmechweapon:
 		Condition: upmechweapon
 		Prerequisites: upmechweapon
 	FirepowerMultiplier@upmechweapon2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: upmechweapon2
 	GrantConditionOnPrerequisite@upmechweapon2:
 		Condition: upmechweapon2
 		Prerequisites: upmechweapon2
-	FirepowerMultiplier@upmechweapon3:
-		Modifier: 125
-		RequiresCondition: upmechweapon3
-	GrantConditionOnPrerequisite@upmechweapon3:
-		Condition: upmechweapon3
-		Prerequisites: upmechweapon3
 	ActorStatValues:
 		Upgrades: upmechweapon
 
 ^TerranVehicleArmorUpgrades:
 	DamageMultiplier@upmecharmor:
-		Modifier: 80
-		RequiresCondition: upmecharmor
+		Modifier: 90
+		RequiresCondition: upmecharmor && !upmecharmor2
 	GrantConditionOnPrerequisite@upmecharmor:
 		Condition: upmecharmor
 		Prerequisites: upmecharmor
@@ -300,41 +272,29 @@ World:
 	GrantConditionOnPrerequisite@upmecharmor2:
 		Condition: upmecharmor2
 		Prerequisites: upmecharmor2
-	DamageMultiplier@upmecharmor3:
-		Modifier: 80
-		RequiresCondition: upmecharmor3
-	GrantConditionOnPrerequisite@upmecharmor3:
-		Condition: upmecharmor3
-		Prerequisites: upmecharmor3
 	ActorStatValues:
 		Upgrades: upmecharmor
 
 ^TerranShipWeaponUpgrades:
 	FirepowerMultiplier@upshipweapon:
-		Modifier: 125
-		RequiresCondition: upshipweapon
+		Modifier: 115
+		RequiresCondition: upshipweapon && !upshipweapon2
 	GrantConditionOnPrerequisite@upshipweapon:
 		Condition: upshipweapon
 		Prerequisites: upshipweapon
 	FirepowerMultiplier@upshipweapon2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: upshipweapon2
 	GrantConditionOnPrerequisite@upshipweapon2:
 		Condition: upshipweapon2
 		Prerequisites: upshipweapon2
-	FirepowerMultiplier@upshipweapon3:
-		Modifier: 125
-		RequiresCondition: upshipweapon3
-	GrantConditionOnPrerequisite@upshipweapon3:
-		Condition: upshipweapon3
-		Prerequisites: upshipweapon3
 	ActorStatValues:
 		Upgrades: upshipweapon
 
 ^TerranShipArmorUpgrades:
 	DamageMultiplier@upshiparmor:
-		Modifier: 80
-		RequiresCondition: upshiparmor
+		Modifier: 90
+		RequiresCondition: upshiparmor && !upshiparmor2
 	GrantConditionOnPrerequisite@upshiparmor:
 		Condition: upshiparmor
 		Prerequisites: upshiparmor
@@ -344,12 +304,6 @@ World:
 	GrantConditionOnPrerequisite@upshiparmor2:
 		Condition: upshiparmor2
 		Prerequisites: upshiparmor2
-	DamageMultiplier@upshiparmor3:
-		Modifier: 80
-		RequiresCondition: upshiparmor3
-	GrantConditionOnPrerequisite@upshiparmor3:
-		Condition: upshiparmor3
-		Prerequisites: upshiparmor3
 	ActorStatValues:
 		Upgrades: upshiparmor
 
@@ -360,7 +314,7 @@ World:
 ^SingularityChargeUpgrade:
 	RangeMultiplier@updragoonrange:
 		RequiresCondition: updragoonrange
-		Modifier: 125
+		Modifier: 120
 	GrantConditionOnPrerequisite@updragoonrange:
 		Condition: updragoonrange
 		Prerequisites: updragoonrange
@@ -369,30 +323,24 @@ World:
 
 ^ProtossGroundWeaponUpgrades:
 	FirepowerMultiplier@upgroundweapons:
-		Modifier: 125
-		RequiresCondition: upgroundweapons
+		Modifier: 115
+		RequiresCondition: upgroundweapons && !upgroundweapons2
 	GrantConditionOnPrerequisite@upgroundweapons:
 		Condition: upgroundweapons
 		Prerequisites: upgroundweapons
 	FirepowerMultiplier@upgroundweapons2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: upgroundweapons2
 	GrantConditionOnPrerequisite@upgroundweapons2:
 		Condition: upgroundweapons2
 		Prerequisites: upgroundweapons2
-	FirepowerMultiplier@upgroundweapons3:
-		Modifier: 125
-		RequiresCondition: upgroundweapons3
-	GrantConditionOnPrerequisite@upgroundweapons3:
-		Condition: upgroundweapons3
-		Prerequisites: upgroundweapons3
 	ActorStatValues:
 		Upgrades: upgroundweapons
 
 ^ProtossGroundArmorUpgrades:
 	DamageMultiplier@upgroundarmor:
-		Modifier: 80
-		RequiresCondition: upgroundarmor
+		Modifier: 90
+		RequiresCondition: upgroundarmor && !upgroundarmor2
 	GrantConditionOnPrerequisite@upgroundarmor:
 		Condition: upgroundarmor
 		Prerequisites: upgroundarmor
@@ -402,41 +350,29 @@ World:
 	GrantConditionOnPrerequisite@upgroundarmor2:
 		Condition: upgroundarmor2
 		Prerequisites: upgroundarmor2
-	DamageMultiplier@upgroundarmor3:
-		Modifier: 80
-		RequiresCondition: upgroundarmor3
-	GrantConditionOnPrerequisite@upgroundarmor3:
-		Condition: upgroundarmor3
-		Prerequisites: upgroundarmor3
 	ActorStatValues:
 		Upgrades: upgroundarmor
 
 ^ProtossAirWeaponUpgrades:
 	FirepowerMultiplier@upairweapons:
-		Modifier: 125
-		RequiresCondition: upairweapons
+		Modifier: 115
+		RequiresCondition: upairweapons && !upairweapons2
 	GrantConditionOnPrerequisite@upairweapons:
 		Condition: upairweapons
 		Prerequisites: upairweapons
 	FirepowerMultiplier@upairweapons2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: upairweapons2
 	GrantConditionOnPrerequisite@upairweapons2:
 		Condition: upairweapons2
 		Prerequisites: upairweapons2
-	FirepowerMultiplier@upairweapons3:
-		Modifier: 125
-		RequiresCondition: upairweapons3
-	GrantConditionOnPrerequisite@upairweapons3:
-		Condition: upairweapons3
-		Prerequisites: upairweapons3
 	ActorStatValues:
 		Upgrades: upairweapons
 
 ^ProtossAirArmorUpgrades:
 	DamageMultiplier@upairarmor:
-		Modifier: 80
-		RequiresCondition: upairarmor
+		Modifier: 90
+		RequiresCondition: upairarmor && !upairarmor2
 	GrantConditionOnPrerequisite@upairarmor:
 		Condition: upairarmor
 		Prerequisites: upairarmor
@@ -446,12 +382,6 @@ World:
 	GrantConditionOnPrerequisite@upairarmor2:
 		Condition: upairarmor2
 		Prerequisites: upairarmor2
-	DamageMultiplier@upairarmor3:
-		Modifier: 80
-		RequiresCondition: upairarmor3
-	GrantConditionOnPrerequisite@upairarmor3:
-		Condition: upairarmor3
-		Prerequisites: upairarmor3
 	ActorStatValues:
 		Upgrades: upairarmor
 
@@ -460,61 +390,63 @@ World:
 		Condition: upspeed
 		Prerequisites: upairspeed
 	SpeedMultiplier@grav:
-		Modifier: 150
+		Modifier: 120
 		RequiresCondition: upspeed
 
 ####################################################################################################
 #		Zerg Upgrade Inherits
 ####################################################################################################
 
+^ZergSwarmerUpgrades:
+	ReloadDelayMultiplier@uplingattack:
+		Modifier: 75
+		RequiresCondition: uplingattack
+	GrantConditionOnPrerequisite@uplingattack:
+		Condition: uplingattack
+		Prerequisites: uplingattack
+	SpeedMultiplier@uplingspeed:
+		Modifier: 133
+		RequiresCondition: uplingspeed
+	GrantConditionOnPrerequisite@uplingspeed:
+		Condition: uplingspeed
+		Prerequisites: uplingspeed
+
 ^ZergMeleeWeaponUpgrades:
 	FirepowerMultiplier@upzergmelee:
-		Modifier: 125
-		RequiresCondition: upzergmelee
+		Modifier: 115
+		RequiresCondition: upzergmelee && !upzergmelee2
 	GrantConditionOnPrerequisite@upzergmelee:
 		Condition: upzergmelee
 		Prerequisites: upzergmelee
 	FirepowerMultiplier@upzergmelee2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: upzergmelee2
 	GrantConditionOnPrerequisite@upzergmelee2:
 		Condition: upzergmelee2
 		Prerequisites: upzergmelee2
-	FirepowerMultiplier@upzergmelee3:
-		Modifier: 125
-		RequiresCondition: upzergmelee3
-	GrantConditionOnPrerequisite@upzergmelee3:
-		Condition: upzergmelee3
-		Prerequisites: upzergmelee3
 	ActorStatValues:
 		Upgrades: upzergmelee
 
 ^ZergMissileWeaponUpgrades:
 	FirepowerMultiplier@upzergmissile:
-		Modifier: 125
-		RequiresCondition: upzergmissile
+		Modifier: 115
+		RequiresCondition: upzergmissile && !upzergmissile2
 	GrantConditionOnPrerequisite@upzergmissile:
 		Condition: upzergmissile
 		Prerequisites: upzergmissile
 	FirepowerMultiplier@upzergmissile2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: upzergmissile2
 	GrantConditionOnPrerequisite@upzergmissile2:
 		Condition: upzergmissile2
 		Prerequisites: upzergmissile2
-	FirepowerMultiplier@upzergmissile3:
-		Modifier: 125
-		RequiresCondition: upzergmissile3
-	GrantConditionOnPrerequisite@upzergmissile3:
-		Condition: upzergmissile3
-		Prerequisites: upzergmissile3
 	ActorStatValues:
 		Upgrades: upzergmissile
 
 ^ZergGroundArmorUpgrades:
 	DamageMultiplier@upcarapace:
-		Modifier: 80
-		RequiresCondition: upcarapace
+		Modifier: 90
+		RequiresCondition: upcarapace && !upcarapace2
 	GrantConditionOnPrerequisite@upcarapace:
 		Condition: upcarapace
 		Prerequisites: upcarapace
@@ -524,41 +456,29 @@ World:
 	GrantConditionOnPrerequisite@upcarapace2:
 		Condition: upcarapace2
 		Prerequisites: upcarapace2
-	DamageMultiplier@upcarapace3:
-		Modifier: 80
-		RequiresCondition: upcarapace3
-	GrantConditionOnPrerequisite@upcarapace3:
-		Condition: upcarapace3
-		Prerequisites: upcarapace3
 	ActorStatValues:
 		Upgrades: upcarapace
 
 ^ZergFlyerWeaponUpgrades:
 	FirepowerMultiplier@upflyerattack:
-		Modifier: 125
-		RequiresCondition: upflyerattack
+		Modifier: 115
+		RequiresCondition: upflyerattack && !upflyerattack2
 	GrantConditionOnPrerequisite@upflyerattack:
 		Condition: upflyerattack
 		Prerequisites: upflyerattack
 	FirepowerMultiplier@upflyerattack2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: upflyerattack2
 	GrantConditionOnPrerequisite@upflyerattack2:
 		Condition: upflyerattack2
 		Prerequisites: upflyerattack2
-	FirepowerMultiplier@upflyerattack3:
-		Modifier: 125
-		RequiresCondition: upflyerattack3
-	GrantConditionOnPrerequisite@upflyerattack3:
-		Condition: upflyerattack3
-		Prerequisites: upflyerattack3
 	ActorStatValues:
 		Upgrades: upflyerattack
 
 ^ZergFlyerArmorUpgrades:
 	DamageMultiplier@upflyerarmor:
-		Modifier: 80
-		RequiresCondition: upflyerarmor
+		Modifier: 90
+		RequiresCondition: upflyerarmor && !upflyerarmor2
 	GrantConditionOnPrerequisite@upflyerarmor:
 		Condition: upflyerarmor
 		Prerequisites: upflyerarmor
@@ -568,19 +488,13 @@ World:
 	GrantConditionOnPrerequisite@upflyerarmor2:
 		Condition: upflyerarmor2
 		Prerequisites: upflyerarmor2
-	DamageMultiplier@upflyerarmor3:
-		Modifier: 80
-		RequiresCondition: upflyerarmor3
-	GrantConditionOnPrerequisite@upflyerarmor3:
-		Condition: upflyerarmor3
-		Prerequisites: upflyerarmor3
 	ActorStatValues:
 		Upgrades: upflyerarmor
 
 ^GroovedSpinesUpgrade:
 	RangeMultiplier@upzergrange:
 		RequiresCondition: upzergrange
-		Modifier: 125
+		Modifier: 120
 	GrantConditionOnPrerequisite@upzergrange:
 		Condition: upzergrange
 		Prerequisites: upzergrange
@@ -949,6 +863,7 @@ SCBUNKER:
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@gar: ^ClearableGarrisonNeutronOnly
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
+	Inherits@weapon: ^TerranVehicleArmorUpgrades
 	Tooltip:
 		Name: Bunker
 	Power:
@@ -997,6 +912,8 @@ SCBUNKER:
 		VoiceSet: SCGenericBuildingVoice
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: upmecharmor, upmecharmor2
 
 SCMISSILETURRET:
 	Inherits: ^Defense
@@ -1005,6 +922,8 @@ SCMISSILETURRET:
 	Inherits@AUTOTARGET: ^AutoTargetAir
 	Inherits@shape: ^2x2Shape
 	Inherits@POWERDOWN: ^DisableOnPowerDown
+	Inherits@armor: ^TerranVehiclesWeaponUpgrades
+	Inherits@weapon: ^TerranVehicleArmorUpgrades
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -1050,6 +969,8 @@ SCMISSILETURRET:
 		VoiceSet: SCAATowerVoice
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: upmechweapon, upmechweapon2, upmecharmor, upmecharmor2
 
 SCSENTINEL:
 	Inherits: ^Defense
@@ -1058,6 +979,8 @@ SCSENTINEL:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@detect: ^GenericAllDetector
 	Inherits@EMP: ^TurretEMP
+	Inherits@armor: ^TerranVehiclesWeaponUpgrades
+	Inherits@weapon: ^TerranVehicleArmorUpgrades
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
@@ -1106,10 +1029,13 @@ SCSENTINEL:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ProvidesPrerequisite@buildingname:
+	ActorStatValues:
+		Upgrades: upmechweapon, upmechweapon2, upmecharmor, upmecharmor2
 
 SCSENTINELM:
 	Inherits: SCCOMMANDCENTERM
 	Inherits@EXPERIENCE: ^GainsExperienceTDBuilding
+	Inherits@weapon: ^TerranVehicleArmorUpgrades
 	Tooltip:
 		Name: Sentinel
 	Selectable:
@@ -1128,6 +1054,8 @@ SCSENTINELM:
 		Image: scsentinelm
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: upmechweapon, upmechweapon2, upmecharmor, upmecharmor2
 
 SCFACTORY:
 	Inherits: ^BaseBuilding
@@ -1645,6 +1573,9 @@ SCPHOTONCANNON:
 	Inherits@shape: ^2x2Shape
 	Inherits@POWERDOWN: ^DisableOnPowerDown
 	Inherits@shieldgenerator: ^ProtossPersonalShield
+	Inherits@weapon: ^ProtossGroundWeaponUpgrades
+	Inherits@armor: ^ProtossGroundArmorUpgrades
+	Inherits@range: ^SingularityChargeUpgrade
 	Tooltip:
 		Name: Photon Cannon
 	Valued:
@@ -1687,6 +1618,8 @@ SCPHOTONCANNON:
 		Range: 4224
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
 
 SCCYBERNETICSCORE:
 	Inherits: ^BaseBuilding
@@ -2476,6 +2409,8 @@ SCCREEPCOLONY:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@EXPERIENCE: ^GainsExperienceBuildings
 	Inherits@armor: ^ZergGroundArmorUpgrades
+	Inherits@weapon: ^ZergMissileWeaponUpgrades
+	Inherits@range: ^GroovedSpinesUpgrade
 	Tooltip:
 		Name: Creep Colony
 		RequiresCondition: !sunken && !spore
@@ -2492,6 +2427,8 @@ SCCREEPCOLONY:
 	ProductionTimeMultiplier@guardtower:
 		Multiplier: 50
 	ProvidesPrerequisite@buildingname:
+	GivesBuildableArea:
+		AreaTypes: building
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~schatchery
@@ -2594,6 +2531,8 @@ SCCREEPCOLONY:
 		DecorationBounds: 2448, 2448, 0, 0
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: upzergrange, upzergmissile, upzergmissile2, upcarapace, upcarapace2
 
 scsporecolonyupgrade:
 	Inherits: ^BuildingPlug
@@ -3310,7 +3249,7 @@ SCMARINE:
 	Power:
 		Amount: -10
 	Buildable:
-		Prerequisites: ~scbarracks
+		Prerequisites: ~scbarracks, ~!upmadcap
 		Queue: Infantry, RAInfantry
 		Description: Basic Terran infantry.\n Strong vs Infantry\n Weak vs Vehicles\n Can attack aircraft\n Uncrushable
 	Mobile:
@@ -3337,7 +3276,7 @@ SCMARINE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upstimpack, upmarinerange, upinfweapon, upinfarmor
+		Upgrades: upmarinerange, upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
 
 SCREAPER:
 	Inherits: ^SCTINFANTRY
@@ -3395,7 +3334,7 @@ SCREAPER:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upinfweapon, upinfarmor
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
 
 SCMADCAP:
 	Inherits: ^SCTINFANTRY
@@ -3481,7 +3420,7 @@ SCMADCAP:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upstimpack, upmarinerange, upinfweapon, upinfarmor
+		Upgrades: upmarinerange, upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
 
 SCFIREBAT:
 	Inherits: ^SCTINFANTRY
@@ -3539,7 +3478,7 @@ SCFIREBAT:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upinfweapon, upinfarmor
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
 
 SCHARAKAN:
 	Inherits: ^SCTINFANTRY
@@ -3598,7 +3537,7 @@ SCHARAKAN:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upinfweapon, upinfarmor
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
 
 scmarauder:
 	Inherits: ^SCTINFANTRY
@@ -3646,7 +3585,7 @@ scmarauder:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upinfweapon, upinfarmor
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
 
 SCGHOST:
 	Inherits: ^SCTINFANTRY
@@ -3713,7 +3652,7 @@ SCGHOST:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upinfweapon, upinfarmor
+		Upgrades: upghostcloak, upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
 
 SCSILVERTONGUE:
 	Inherits: ^SCTINFANTRY
@@ -3781,7 +3720,7 @@ SCSILVERTONGUE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upinfweapon, upinfarmor
+		Upgrades: upghostcloak, upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
 
 SCMEDIC:
 	Inherits: ^SCTINFANTRY
@@ -3843,7 +3782,7 @@ SCMEDIC:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upinfweapon, upinfarmor
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
 
 SCJIMRAYNOR:
 	Inherits: ^SCTINFANTRY
@@ -3891,7 +3830,7 @@ SCJIMRAYNOR:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upstimpack, upmarinerange, upinfweapon, upinfarmor
+		Upgrades: upmarinerange, upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
 
 ^SCTVEHICLE:
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -3954,7 +3893,7 @@ SCVULTURE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upmechweapon, upmecharmor
+		Upgrades: upmechweapon, upmechweapon2, upmecharmor, upmecharmor2
 
 SCSIEGETANK:
 	Inherits: ^Tank
@@ -4091,7 +4030,7 @@ SCSIEGETANK:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upmechweapon, upmecharmor, upsiegemode
+		Upgrades: upsiegemode, upmechweapon, upmechweapon2, upmecharmor, upmecharmor2
 
 SCMATADOR:
 	Inherits: ^Tank
@@ -4209,7 +4148,7 @@ SCMATADOR:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upmechweapon, upmecharmor
+		Upgrades: upmechweapon, upmechweapon2, upmecharmor, upmecharmor2
 
 SCCYCLONE:
 	Inherits: ^Tank
@@ -4281,7 +4220,7 @@ SCCYCLONE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upmechweapon, upmecharmor
+		Upgrades: upmechweapon, upmechweapon2, upmecharmor, upmecharmor2
 
 SCGOLIATH:
 	Inherits: ^Walker
@@ -4353,7 +4292,7 @@ SCGOLIATH:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upmechweapon, upmecharmor
+		Upgrades: upmechweapon, upmechweapon2, upmecharmor, upmecharmor2
 
 SCGOLIATH2:
 	Inherits: ^Walker
@@ -4426,7 +4365,7 @@ SCGOLIATH2:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upmechweapon, upmecharmor
+		Upgrades: upmechweapon, upmechweapon2, upmecharmor, upmecharmor2
 
 scwarhound:
 	Inherits: ^Vehicle
@@ -4552,7 +4491,7 @@ scwarhound:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upmechweapon, upmecharmor
+		Upgrades: upmechweapon, upmechweapon2, upmecharmor, upmecharmor2
 
 SCWRAITH:
 	Inherits: ^Helicopter
@@ -4635,7 +4574,7 @@ SCWRAITH:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshipweapon, upshiparmor
+		Upgrades: upghostcloak, upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
 
 SCRAVEN:
 	Inherits: ^Helicopter
@@ -4714,7 +4653,7 @@ SCRAVEN:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshipweapon, upshiparmor
+		Upgrades: upghostcloak, upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
 
 SCSUNDOG:
 	Inherits: ^Helicopter
@@ -4786,7 +4725,7 @@ SCSUNDOG:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshipweapon, upshiparmor
+		Upgrades: upghostcloak, upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
 
 SCVALKYRIE:
 	Inherits: ^Helicopter
@@ -4846,7 +4785,7 @@ SCVALKYRIE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshipweapon, upshiparmor
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
 
 SCWYVERN:
 	Inherits: ^Helicopter
@@ -4907,7 +4846,7 @@ SCWYVERN:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshipweapon, upshiparmor
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
 
 SCDROPSHIP:
 	Inherits: ^Helicopter
@@ -4970,7 +4909,7 @@ SCDROPSHIP:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshiparmor
+		Upgrades: upshiparmor, upshiparmor2
 	WithCargoSounds:
 		EnterSounds: tdrtra00.wav
 		ExitSounds: tdrtra00.wav
@@ -5052,7 +4991,7 @@ SCPYTHEAN:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshiparmor
+		Upgrades: upshiparmor, upshiparmor2
 	WithCargoSounds:
 		EnterSounds: tdrtra00.wav
 		ExitSounds: tdrtra00.wav
@@ -5141,7 +5080,7 @@ SCMEDIVAC:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshiparmor
+		Upgrades: upshiparmor, upshiparmor2
 	WithCargoSounds:
 		EnterSounds: tdrtra00.wav
 		ExitSounds: tdrtra00.wav
@@ -5271,7 +5210,7 @@ SCBATTLECRUISER:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshipweapon, upshiparmor
+		Upgrades: upyamatocannon, upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
 
 SCPHOBOS:
 	Inherits: ^Helicopter
@@ -5287,9 +5226,9 @@ SCPHOBOS:
 	Tooltip:
 		Name: Phobos
 	Valued:
-		Cost: 7200
+		Cost: 10000
 	Power:
-		Amount: -360
+		Amount: -500
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -5341,7 +5280,7 @@ SCPHOBOS:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshipweapon, upshiparmor
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
 
 SCWRAITHDRONE:
 	Inherits: ^RANeutralPlane
@@ -5401,7 +5340,7 @@ SCWRAITHDRONE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshipweapon, upshiparmor
+		Upgrades: upghostcloak, upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
 
 SCBATTLECRUISER.Husk:
 	Inherits: ^PlaneHusk
@@ -5513,7 +5452,7 @@ SCSCIENCEVESSEL:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshipweapon, upshiparmor
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
 
 SCCOMMANDCENTERM:
 	Inherits: ^Helicopter
@@ -6016,8 +5955,6 @@ upbehemoth:
 		Condition: shieldpermanent
 	DamageMultiplier@shieldpermanent:
 		Modifier: 150
-	FirepowerMultiplier@shieldpermanent:
-		Modifier: 100
 	ChangesShield@personal_shield:
 		Step: 40
 		Delay: 1
@@ -6169,7 +6106,7 @@ SCZEALOT:
 	Voiced:
 		VoiceSet: SCZealotVoice
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -6231,7 +6168,7 @@ SCDRAGOON:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield, updragoonrange
+		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
 
 SCMANIFOLD:
 	Inherits: ^LargeProtoss
@@ -6304,7 +6241,7 @@ SCMANIFOLD:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield, updragoonrange
+		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
 
 SCANALOGUE:
 	Inherits: ^LargeProtoss
@@ -6384,7 +6321,7 @@ SCANALOGUE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield, updragoonrange
+		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
 
 SCIDOL:
 	Inherits: ^LargeProtoss
@@ -6481,7 +6418,7 @@ SCIDOL:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield, updragoonrange
+		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
 
 SCHIGHTEMPLAR:
 	Inherits@protoss: ^BasicProtoss
@@ -6520,7 +6457,7 @@ SCHIGHTEMPLAR:
 		FacingTolerance: 0
 	WithInfantryBody:
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield
 	Voiced:
 		VoiceSet: SCHighTemplarVoice
 	RenderSprites:
@@ -6564,7 +6501,7 @@ SCDARKTEMPLAR:
 	Voiced:
 		VoiceSet: SCDarkTemplarVoice
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -6576,10 +6513,9 @@ SCSHUTTLE:
 	Inherits@bot: ^BotAutoDeployUnarmedAirTransport
 	Inherits@eject: ^AircraftEjectOnDeath
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@weapon: ^TerranShipArmorUpgrades
+	Inherits@armor: ^ProtossAirArmorUpgrades
 	Inherits@speed: ^GraviticUpgrade
 	Inherits@explode: ^HeliExplodeProtoss
-	Inherits@armor: ^ProtossGroundArmorUpgrades
 	Tooltip:
 		Name: Shuttle
 	Valued:
@@ -6633,7 +6569,7 @@ SCSHUTTLE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upairarmor, upairspeed, upplasmashield
+		Upgrades: upairspeed, upairarmor, upairarmor2, upplasmashield
 	WithCargoSounds:
 		EnterSounds: tdrtra00.wav
 		ExitSounds: tdrtra00.wav
@@ -6715,7 +6651,7 @@ SCREAVER:
 		Condition: upreavercapacity
 		Prerequisites: upreavercapacity
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield
+		Upgrades: upreavercapacity, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -6726,6 +6662,7 @@ SCOBSERVER:
 	Inherits@announce: ^AnnounceOnBuild
 	Inherits@bot: ^BotMicromanageable
 	Inherits@cloak: ^CloakedAircraft
+	Inherits@armor: ^ProtossAirArmorUpgrades
 	Inherits@speed: ^GraviticUpgrade
 	Tooltip:
 		Name: Observer
@@ -6779,7 +6716,7 @@ SCOBSERVER:
 		MaxMoveDelay: 80
 		RequiresCondition: botmicro
 	ActorStatValues:
-		Upgrades: upairarmor, upairspeed, upplasmashield
+		Upgrades: upairspeed, upairarmor, upairarmor2, upplasmashield
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -6853,7 +6790,7 @@ SCARCHON:
 		IsPlayerPalette: true
 		PauseOnCondition: chronobeamed
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield
 
 SCSCOUT:
 	Inherits: ^AirProtoss
@@ -6865,8 +6802,8 @@ SCSCOUT:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@AntiDef: ^PrioritizeDefence
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@weapon: ^ProtossGroundWeaponUpgrades
-	Inherits@armor: ^ProtossGroundArmorUpgrades
+	Inherits@weapon: ^ProtossAirWeaponUpgrades
+	Inherits@armor: ^ProtossAirArmorUpgrades
 	Inherits@speed: ^GraviticUpgrade
 	Tooltip:
 		Name: Scout
@@ -6937,7 +6874,7 @@ SCSCOUT:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upairweapons, upairarmor, upairspeed, upplasmashield
+		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
 
 SCEPIGRAPH:
 	Inherits: ^AirProtoss
@@ -6949,8 +6886,8 @@ SCEPIGRAPH:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@AntiDef: ^PrioritizeDefence
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@weapon: ^ProtossGroundWeaponUpgrades
-	Inherits@armor: ^ProtossGroundArmorUpgrades
+	Inherits@weapon: ^ProtossAirWeaponUpgrades
+	Inherits@armor: ^ProtossAirArmorUpgrades
 	Inherits@speed: ^GraviticUpgrade
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Tooltip:
@@ -6996,7 +6933,7 @@ SCEPIGRAPH:
 	Selectable:
 		DecorationBounds: 1280, 1024
 	ActorStatValues:
-		Upgrades: upairweapons, upairarmor, upairspeed, upplasmashield
+		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
 	Voiced:
 		VoiceSet: SCScoutVoice
 	RenderSprites:
@@ -7012,8 +6949,8 @@ SCLANIFECT:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@AntiDef: ^PrioritizeDefence
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@weapon: ^ProtossGroundWeaponUpgrades
-	Inherits@armor: ^ProtossGroundArmorUpgrades
+	Inherits@weapon: ^ProtossAirWeaponUpgrades
+	Inherits@armor: ^ProtossAirArmorUpgrades
 	Inherits@speed: ^GraviticUpgrade
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Tooltip:
@@ -7053,7 +6990,7 @@ SCLANIFECT:
 	Selectable:
 		DecorationBounds: 1280, 1024
 	ActorStatValues:
-		Upgrades: upairweapons, upairarmor, upairspeed, upplasmashield
+		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
 	Voiced:
 		VoiceSet: SCScoutVoice
 	RenderSprites:
@@ -7069,8 +7006,8 @@ SCGLADIUS:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@AntiDef: ^PrioritizeDefence
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@weapon: ^ProtossGroundWeaponUpgrades
-	Inherits@armor: ^ProtossGroundArmorUpgrades
+	Inherits@weapon: ^ProtossAirWeaponUpgrades
+	Inherits@armor: ^ProtossAirArmorUpgrades
 	Inherits@speed: ^GraviticUpgrade
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Tooltip:
@@ -7109,7 +7046,7 @@ SCGLADIUS:
 	Selectable:
 		DecorationBounds: 1280, 1024
 	ActorStatValues:
-		Upgrades: upairweapons, upairarmor, upairspeed, upplasmashield
+		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
 	Voiced:
 		VoiceSet: SCScoutVoice
 	RenderSprites:
@@ -7125,8 +7062,8 @@ SCCORSAIR:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@AntiDef: ^PrioritizeDefence
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@weapon: ^ProtossGroundWeaponUpgrades
-	Inherits@armor: ^ProtossGroundArmorUpgrades
+	Inherits@weapon: ^ProtossAirWeaponUpgrades
+	Inherits@armor: ^ProtossAirArmorUpgrades
 	Inherits@speed: ^GraviticUpgrade
 	Tooltip:
 		Name: Corsair
@@ -7175,7 +7112,7 @@ SCCORSAIR:
 	Selectable:
 		DecorationBounds: 1280, 1024
 	ActorStatValues:
-		Upgrades: upairweapons, upairarmor, upairspeed, upplasmashield
+		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
 	Voiced:
 		VoiceSet: SCCorsairVoice
 	RenderSprites:
@@ -7188,8 +7125,9 @@ SCCARRIER:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@explode: ^HeliExplodeProtoss
 	Inherits@announce: ^AnnounceGlobal
-	Inherits@weapon: ^ProtossGroundWeaponUpgrades
-	Inherits@armor: ^ProtossGroundArmorUpgrades
+	Inherits@weapon: ^ProtossAirWeaponUpgrades
+	Inherits@armor: ^ProtossAirArmorUpgrades
+	Inherits@speed: ^GraviticUpgrade
 	Tooltip:
 		Name: Carrier
 	Valued:
@@ -7236,8 +7174,7 @@ SCCARRIER:
 	Voiced:
 		VoiceSet: SCCarrierVoice
 	ActorStatValues:
-		Upgrades: upairweapons, upairarmor, upairspeed, upplasmashield
-
+		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -7249,15 +7186,16 @@ SCSTARSHIPSOVEREIGN:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@explode: ^HeliExplodeProtoss
 	Inherits@announce: ^AnnounceGlobal
-	Inherits@weapon: ^ProtossGroundWeaponUpgrades
-	Inherits@armor: ^ProtossGroundArmorUpgrades
+	Inherits@weapon: ^ProtossAirWeaponUpgrades
+	Inherits@armor: ^ProtossAirArmorUpgrades
+	Inherits@speed: ^GraviticUpgrade
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Tooltip:
 		Name: Starship Sovereign
 	Valued:
-		Cost: 7200
+		Cost: 10000
 	Power:
-		Amount: -360
+		Amount: -500
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -7299,7 +7237,7 @@ SCSTARSHIPSOVEREIGN:
 	Voiced:
 		VoiceSet: SCCarrierVoice
 	ActorStatValues:
-		Upgrades: upairweapons, upairarmor, upairspeed, upplasmashield
+		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
 	ChangesHealth:
 		Step: 32
 		Delay: 1
@@ -7315,8 +7253,9 @@ SCINTERCEPTOR:
 	Inherits@shieldgenerator: ^ProtossPersonalShield
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@explode: ^HeliExplodeProtoss
-	Inherits@weapon: ^ProtossGroundWeaponUpgrades
-	Inherits@armor: ^ProtossGroundArmorUpgrades
+	Inherits@weapon: ^ProtossAirWeaponUpgrades
+	Inherits@armor: ^ProtossAirArmorUpgrades
+	Inherits@speed: ^GraviticUpgrade
 	Tooltip:
 		Name: Interceptor
 	Valued:
@@ -7362,7 +7301,7 @@ SCINTERCEPTOR:
 	Voiced:
 		VoiceSet: SCCarrierVoice
 	ActorStatValues:
-		Upgrades: upairweapons, upairarmor, upairspeed, upplasmashield
+		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
 	HitShape:
 		UseTargetableCellsOffsets: true
 		Type: Rectangle
@@ -7378,8 +7317,9 @@ SCARBITER:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@explode: ^HeliExplodeProtoss
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@weapon: ^ProtossGroundWeaponUpgrades
-	Inherits@armor: ^ProtossGroundArmorUpgrades
+	Inherits@weapon: ^ProtossAirWeaponUpgrades
+	Inherits@armor: ^ProtossAirArmorUpgrades
+	Inherits@speed: ^GraviticUpgrade
 	Tooltip:
 		Name: Arbiter
 	Valued:
@@ -7435,7 +7375,7 @@ SCARBITER:
 	WithRangeCircle:
 		Range: 5000
 	ActorStatValues:
-		Upgrades: upairweapons, upairarmor, upairspeed, upplasmashield
+		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -7508,7 +7448,7 @@ SCZERATUL:
 	Voiced:
 		VoiceSet: SCZealotVoice
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -7564,7 +7504,7 @@ SCAMARANTH:
 	Voiced:
 		VoiceSet: SCDarkTemplarVoice
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -7629,7 +7569,7 @@ SCATREUS:
 		Offset: 64, 64, 0
 		ZOffset: -512
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield, updragoonrange
+		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -7694,7 +7634,7 @@ SCPOSITRON:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield, updragoonrange
+		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
 
 SCLEGIONNAIRE:
 	Inherits@protoss: ^BasicProtoss
@@ -7735,7 +7675,7 @@ SCLEGIONNAIRE:
 	Voiced:
 		VoiceSet: SCZealotVoice
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -7784,7 +7724,7 @@ SCPATRIARCH:
 	Voiced:
 		VoiceSet: SCHighTemplarVoice
 	ActorStatValues:
-		Upgrades: upgroundweapons, upgroundarmor, upplasmashield
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -8132,7 +8072,7 @@ SCDRONE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upcarapace
+		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2
 
 SCOVERLORD:
 	Inherits: ^AirZerg
@@ -8220,7 +8160,7 @@ SCOVERLORD:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upoverlordspeed, upflyerarmor
+		Upgrades: upoverlordspeed, upflyerarmor, upflyerarmor2
 
 SCBROODWEAVER:
 	Inherits: ^AirZerg
@@ -8328,7 +8268,7 @@ SCBROODWEAVER:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upoverlordspeed, upflyerarmor
+		Upgrades: upoverlordspeed, upflyerarmor, upflyerarmor2
 
 SCZERGLING:
 	Inherits@zerg: ^BasicZerg
@@ -8342,6 +8282,7 @@ SCZERGLING:
 	Inherits@ZergBurrow: ^ZergBurrow
 	Inherits@weapon: ^ZergMeleeWeaponUpgrades
 	Inherits@armor: ^ZergGroundArmorUpgrades
+	Inherits@swarmer: ^ZergSwarmerUpgrades
 	Tooltip:
 		Name: Zergling
 	Valued:
@@ -8369,22 +8310,10 @@ SCZERGLING:
 	Voiced:
 		VoiceSet: SCZerglingVoice
 	-SpawnActorOnDeath@SCSWARMLING:
-	GrantConditionOnPrerequisite@adrenal:
-		Condition: upattack
-		Prerequisites: uplingattack
-	ReloadDelayMultiplier@adrenal:
-		Modifier: 50
-		RequiresCondition: upattack
-	GrantConditionOnPrerequisite@metab:
-		Condition: upspeed
-		Prerequisites: uplingspeed
-	SpeedMultiplier@metab:
-		Modifier: 133
-		RequiresCondition: upspeed
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upcarapace, uplingattack, uplingspeed
+		Upgrades: uplingattack, uplingspeed, upzergmelee, upzergmelee2, upcarapace
 
 SCTALON:
 	Inherits@zerg: ^BasicZerg
@@ -8399,6 +8328,7 @@ SCTALON:
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@weapon: ^ZergMeleeWeaponUpgrades
 	Inherits@armor: ^ZergGroundArmorUpgrades
+	Inherits@swarmer: ^ZergSwarmerUpgrades
 	Tooltip:
 		Name: Talon
 	Valued:
@@ -8427,22 +8357,10 @@ SCTALON:
 	Voiced:
 		VoiceSet: SCZerglingVoice
 	-SpawnActorOnDeath@SCSWARMLING:
-	GrantConditionOnPrerequisite@adrenal:
-		Condition: upattack
-		Prerequisites: uplingattack
-	ReloadDelayMultiplier@adrenal:
-		Modifier: 50
-		RequiresCondition: upattack
-	GrantConditionOnPrerequisite@metab:
-		Condition: upspeed
-		Prerequisites: uplingspeed
-	SpeedMultiplier@metab:
-		Modifier: 133
-		RequiresCondition: upspeed
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upcarapace, uplingattack, uplingspeed
+		Upgrades: uplingattack, uplingspeed, upzergmelee, upzergmelee2, upcarapace
 
 SCSPOREMAW:
 	Inherits@zerg: ^LargeZerg
@@ -8500,7 +8418,7 @@ SCSPOREMAW:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmissile, upcarapace
+		Upgrades: upzergmissile, upzergmissile2, upcarapace, upcarapace2
 
 SCHYDRALISK:
 	Inherits@zerg: ^LargeZerg
@@ -8555,7 +8473,7 @@ SCHYDRALISK:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmissile, upcarapace, upzergrange
+		Upgrades: upzergrange, upzergmissile, upzergmissile2, upcarapace, upcarapace2
 
 SCSPITHID:
 	Inherits@zerg: ^BasicZerg
@@ -8615,7 +8533,7 @@ SCSPITHID:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmissile, upcarapace, upzergrange
+		Upgrades: upzergrange, upzergmissile, upzergmissile2, upcarapace, upcarapace2
 
 SCDREADSHROUD:
 	Inherits: ^AirZerg
@@ -8664,7 +8582,7 @@ SCDREADSHROUD:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upflyerattack, upflyerarmor
+		Upgrades: upflyerattack, upflyerattack2, upflyerarmor, upflyerarmor2
 
 SCCORRUPTOR:
 	Inherits: ^AirZerg
@@ -8719,7 +8637,7 @@ SCCORRUPTOR:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upflyerattack, upflyerarmor
+		Upgrades: upflyerattack, upflyerattack2, upflyerarmor, upflyerarmor2
 
 SCSWARMLING:
 	Inherits: ^AirZerg
@@ -8906,7 +8824,7 @@ SCSWARMLING:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upflyerattack, upflyerarmor
+		Upgrades: upflyerattack, upflyerattack2, upflyerarmor, upflyerarmor2
 
 SCSHRIEK:
 	Inherits: ^AirZerg
@@ -8915,9 +8833,10 @@ SCSHRIEK:
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@weapon: ^ZergFlyerWeaponUpgrades
+	Inherits@weapon: ^ZergMeleeWeaponUpgrades
 	Inherits@armor: ^ZergFlyerArmorUpgrades
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@swarmer: ^ZergSwarmerUpgrades
 	Tooltip:
 		Name: Shriek
 	Valued:
@@ -8930,7 +8849,7 @@ SCSHRIEK:
 		BuildPaletteOrder: 50
 		Prerequisites: ~scspire, ~upshriek
 		Queue: Infantry, RAInfantry
-		Description: Airborne Melee Zerg creature.\n Strong vs Infantry, Aircraft
+		Description: Airborne melee Zerg creature.\n Strong vs Infantry, Aircraft
 	Aircraft:
 		Speed: 160
 		TurnSpeed: 32
@@ -8960,22 +8879,10 @@ SCSHRIEK:
 	AutoTarget:
 		ScanRadius: 10
 		InitialStance: AttackAnything
-	GrantConditionOnPrerequisite@adrenal:
-		Condition: upattack
-		Prerequisites: uplingattack
-	ReloadDelayMultiplier@adrenal:
-		Modifier: 50
-		RequiresCondition: upattack
-	GrantConditionOnPrerequisite@metab:
-		Condition: upspeed
-		Prerequisites: uplingspeed
-	SpeedMultiplier@metab:
-		Modifier: 133
-		RequiresCondition: upspeed
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upcarapace, uplingattack, uplingspeed
+		Upgrades: uplingattack, uplingspeed, upzergmelee, upzergmelee2, upflyerarmor
 
 SCMUTALISK:
 	Inherits: ^AirZerg
@@ -8983,7 +8890,7 @@ SCMUTALISK:
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@weapon: ^ZergMeleeWeaponUpgrades
+	Inherits@weapon: ^ZergFlyerWeaponUpgrades
 	Inherits@armor: ^ZergFlyerArmorUpgrades
 	Tooltip:
 		Name: Mutalisk
@@ -9037,7 +8944,7 @@ SCMUTALISK:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upflyerattack, upflyerarmor
+		Upgrades: upflyerattack, upflyerattack2, upflyerarmor, upflyerarmor2
 
 SCDEVOURER:
 	Inherits: ^AirZerg
@@ -9084,7 +8991,7 @@ SCDEVOURER:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upflyerattack, upflyerarmor
+		Upgrades: upflyerattack, upflyerattack2, upflyerarmor, upflyerarmor2
 
 SCSCOURGE:
 	Inherits: ^AirZerg
@@ -9142,7 +9049,7 @@ SCSCOURGE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upflyerattack, upflyerarmor
+		Upgrades: upflyerattack, upflyerattack2, upflyerarmor, upflyerarmor2
 
 SCQUEEN:
 	Inherits: ^AirZerg
@@ -9150,8 +9057,8 @@ SCQUEEN:
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@weapon: ^ZergMeleeWeaponUpgrades
-	Inherits@armor: ^ZergGroundArmorUpgrades
+	Inherits@weapon: ^ZergFlyerWeaponUpgrades
+	Inherits@armor: ^ZergFlyerArmorUpgrades
 	Tooltip:
 		Name: Queen
 	Valued:
@@ -9214,7 +9121,7 @@ SCQUEEN:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upflyerattack, upflyerarmor
+		Upgrades: upflyerattack, upflyerattack2, upflyerarmor, upflyerarmor2
 
 SCGUARDIAN:
 	Inherits: ^AirZerg
@@ -9258,7 +9165,7 @@ SCGUARDIAN:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upflyerattack, upflyerarmor
+		Upgrades: upflyerattack, upflyerattack2, upflyerarmor, upflyerarmor2
 
 SCULTRALISK:
 	Inherits@zerg: ^VeryLargeZerg
@@ -9314,7 +9221,7 @@ SCULTRALISK:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upcarapace
+		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2
 
 SCGOREKRAKEN:
 	Inherits: ^AirZerg
@@ -9322,7 +9229,7 @@ SCGOREKRAKEN:
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@announce: ^AnnounceOnBuild
-	Inherits@weapon: ^ZergFlyerWeaponUpgrades
+	Inherits@weapon: ^ZergMeleeWeaponUpgrades
 	Inherits@armor: ^ZergFlyerArmorUpgrades
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Tooltip:
@@ -9366,7 +9273,7 @@ SCGOREKRAKEN:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upflyerattack, upflyerarmor
+		Upgrades: upzergmelee, upzergmelee2, upflyerarmor, upflyerarmor2
 
 SCHERMIT:
 	Inherits@zerg: ^VeryLargeZerg
@@ -9427,7 +9334,7 @@ SCHERMIT:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upcarapace
+		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2
 
 SCGOREMAW:
 	Inherits@zerg: ^VeryLargeZerg
@@ -9523,7 +9430,7 @@ SCGOREMAW:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upcarapace
+		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2
 
 SCLURKER:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -9535,8 +9442,8 @@ SCLURKER:
 	Inherits@bot: ^BotMicromanageable
 	Inherits@SHADOWS: ^Shadows
 	Inherits@ZergBurrow: ^ZergBurrow
+	Inherits@weapon: ^ZergMeleeWeaponUpgrades
 	Inherits@armor: ^ZergGroundArmorUpgrades
-	Inherits@weapon: ^ZergMissileWeaponUpgrades
 	Inherits@range: ^GroovedSpinesUpgrade
 	Tooltip:
 		Name: Lurker
@@ -9626,7 +9533,7 @@ SCLURKER:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upcarapace, upzergrange
+		Upgrades: upzergrange, upzergmelee, upzergmelee2, upcarapace, upcarapace2
 
 SCINFESTEDTERRAN:
 	Inherits@zerg: ^BasicZerg
@@ -9678,7 +9585,7 @@ SCINFESTEDTERRAN:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upcarapace
+		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2
 
 SCDEFILER:
 	Inherits: ^LargeZerg
@@ -9738,7 +9645,7 @@ SCDEFILER:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmissile, upcarapace
+		Upgrades: upzergmissile, upzergmissile2, upcarapace, upcarapace2
 
 DARKSWARM:
 	Inherits@1: ^ExistsInWorld
@@ -9817,7 +9724,7 @@ SCBROODLING:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upcarapace
+		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2
 
 SCKERRIGANZERG:
 	Inherits: ^LargeZerg
@@ -9826,6 +9733,7 @@ SCKERRIGANZERG:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@weapon: ^ZergMeleeWeaponUpgrades
 	Inherits@armor: ^ZergGroundArmorUpgrades
+	Inherits@swarmer: ^ZergSwarmerUpgrades
 	Tooltip:
 		Name: Kerrigan
 	Valued:
@@ -9891,7 +9799,7 @@ SCKERRIGANZERG:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upcarapace
+		Upgrades: uplingattack, uplingspeed, upzergmelee, upzergmelee2, upcarapace
 
 SCZMCV:
 	Inherits: ^Vehicle
@@ -10012,7 +9920,7 @@ SCBEHEMOTH:
 		EnterSounds: scoverlordgetin.wav
 		ExitSounds: scoverlordgetout.wav
 	ActorStatValues:
-		Upgrades: upflyerattack, upflyerarmor
+		Upgrades: upflyerattack, upflyerattack2, upflyerarmor, upflyerarmor2
 
 SCSCOURGEDRONE:
 	Inherits: SCSCOURGE
@@ -10062,10 +9970,10 @@ updragoonrange:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases range of Dragoons, Atreuses, and Positrons
+		Description: Increases Range of Photon Cannons, Dragoons, Atreuses, Positrons, Manifolds, Analogues and Idols by 20%.
 		Prerequisites: ~sccyberneticscore, ~!updragoonrange
 	Valued:
-		Cost: 3600
+		Cost: 2500
 	RenderSprites:
 		Image: updragoonrange
 	ProvidesPrerequisite:
@@ -10076,12 +9984,12 @@ uppylon1:
 	Tooltip:
 		Name: Upgrade Pylon Level 1
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases energy of supply depots by 100%.
-		Prerequisites: ~sccyberneticscore, ~!uppylon1
+		Description: Increases Energy of Pylons by 100%.
+		Prerequisites: ~scforge, ~!uppylon1
 	RenderSprites:
 		Image: scpylon
 	ProvidesPrerequisite:
@@ -10091,12 +9999,12 @@ uppylon2:
 	Tooltip:
 		Name: Upgrade Pylon Level 2
 	Valued:
-		Cost: 4800
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases energy of supply depots by 100%.
-		Prerequisites: ~scroboticssupportbay, ~uppylon1, ~!uppylon2
+		Description: Increases Energy of Pylons by 100%.
+		Prerequisites: ~sccyberneticscore, ~uppylon1, ~!uppylon2
 	RenderSprites:
 		Image: scpylon
 	ProvidesPrerequisite:
@@ -10108,10 +10016,10 @@ upplasmashield:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases durability of all Protoss units and structures.
+		Description: Increases Shield Strength and Regeneration by 20%.
 		Prerequisites: ~sccyberneticscore, ~!upplasmashield
 	Valued:
-		Cost: 3600
+		Cost: 5000
 	RenderSprites:
 		Image: upplasmashield
 	ProvidesPrerequisite:
@@ -10127,7 +10035,7 @@ upreavercapacity:
 		Description: Doubles Reaver capacity.
 		Prerequisites: ~scroboticssupportbay
 	Valued:
-		Cost: 3600
+		Cost: 2500
 	RenderSprites:
 		Image: upreavercapacity
 	ProvidesPrerequisite:
@@ -10140,10 +10048,10 @@ upairspeed:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases speed of flying Protoss Units.
+		Description: Increases Speed of flying Protoss Units by 20%.
 		Prerequisites: ~scroboticssupportbay, ~!upairspeed
 	Valued:
-		Cost: 3600
+		Cost: 2500
 	RenderSprites:
 		Image: upairspeed
 	ProvidesPrerequisite:
@@ -10156,10 +10064,10 @@ upgroundweapons:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases firepower of all Protoss ground units.
-		Prerequisites: ~sctemplararchives, ~!upgroundweapons
+		Description: Increases Firepower of all Protoss ground units by 15%.
+		Prerequisites: ~scforge, ~!upgroundweapons
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	RenderSprites:
 		Image: upgroundweapons
 	ProvidesPrerequisite:
@@ -10172,26 +10080,10 @@ upgroundweapons2:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases firepower of all Protoss ground units.
+		Description: Increases Firepower of all Protoss ground units by 35%.
 		Prerequisites: ~sctemplararchives, ~upgroundweapons, ~!upgroundweapons2
 	Valued:
-		Cost: 4200
-	RenderSprites:
-		Image: upgroundweapons
-	ProvidesPrerequisite:
-		Prerequisite: upgroundweapons
-
-upgroundweapons3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Ground Weapons Level 3
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: Increases firepower of all Protoss ground units.
-		Prerequisites: ~sctemplararchives, ~upgroundweapons2, ~!upgroundweapons3
-	Valued:
-		Cost: 6000
+		Cost: 5000
 	RenderSprites:
 		Image: upgroundweapons
 	ProvidesPrerequisite:
@@ -10204,10 +10096,10 @@ upgroundarmor:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases armor of all Protoss ground units.
-		Prerequisites: ~sctemplararchives, ~!upgroundarmor
+		Description: Increases Armor of all Protoss ground units by 10%.
+		Prerequisites: ~scforge, ~!upgroundarmor
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	RenderSprites:
 		Image: upgroundarmor
 	ProvidesPrerequisite:
@@ -10220,30 +10112,14 @@ upgroundarmor2:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases armor of all Protoss ground units.
+		Description: Increases Armor of all Protoss ground units by 20%.
 		Prerequisites: ~sctemplararchives, ~upgroundarmor, ~!upgroundarmor2
 	Valued:
-		Cost: 4200
+		Cost: 5000
 	RenderSprites:
 		Image: upgroundarmor
 	ProvidesPrerequisite:
 		Prerequisite: upgroundarmor
-
-upgroundarmor3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Ground Armor Level 3
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: Increases armor of all Protoss ground units.
-		Prerequisites: ~sctemplararchives, ~upgroundarmor2, ~!upgroundarmor3
-	Valued:
-		Cost: 6000
-	RenderSprites:
-		Image: upgroundarmor
-	ProvidesPrerequisite:
-		Prerequisite: upgroundweapons
 
 upairweapons:
 	Inherits: ^researched_upgrade.template
@@ -10252,10 +10128,10 @@ upairweapons:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases firepower of all Protoss aur units.
-		Prerequisites: ~sctemplararchives, ~!upairweapons
+		Description: Increases Firepower of all Protoss air units by 15%.
+		Prerequisites: ~sccyberneticscore, ~!upairweapons
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	RenderSprites:
 		Image: upairweapons
 	ProvidesPrerequisite:
@@ -10268,26 +10144,10 @@ upairweapons2:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases firepower of all Protoss air units.
-		Prerequisites: ~sctemplararchives, ~upairweapons, ~!upairweapons2
+		Description: Increases Firepower of all Protoss air units by 35%.
+		Prerequisites: ~scfleetbeacon, ~upairweapons, ~!upairweapons2
 	Valued:
-		Cost: 6000
-	RenderSprites:
-		Image: upairweapons
-	ProvidesPrerequisite:
-		Prerequisite: upairweapons
-
-upairweapons3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Air Weapons Level 3
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: Increases firepower of all Protoss air units.
-		Prerequisites: ~sctemplararchives, ~upairweapons2, ~!upairweapons3
-	Valued:
-		Cost: 3600
+		Cost: 5000
 	RenderSprites:
 		Image: upairweapons
 	ProvidesPrerequisite:
@@ -10300,10 +10160,10 @@ upairarmor:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases armor of all Protoss air units.
-		Prerequisites: ~sctemplararchives, ~!upairarmor
+		Description: Increases Armor of all Protoss air units by 10%.
+		Prerequisites: ~sccyberneticscore, ~!upairarmor
 	Valued:
-		Cost: 5400
+		Cost: 2500
 	RenderSprites:
 		Image: upairarmor
 	ProvidesPrerequisite:
@@ -10316,26 +10176,10 @@ upairarmor2:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases armor of all Protoss air units.
-		Prerequisites: ~sctemplararchives, ~upairarmor, ~!upairarmor2
+		Description: Increases Armor of all Protoss air units by 20%.
+		Prerequisites: ~scfleetbeacon, ~upairarmor, ~!upairarmor2
 	Valued:
-		Cost: 7200
-	RenderSprites:
-		Image: upairarmor
-	ProvidesPrerequisite:
-		Prerequisite: upairarmor
-
-upairarmor3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Air Armor Level 3
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: Increases armor of all Protoss air units.
-		Prerequisites: ~sctemplararchives, ~upairarmor2, ~!upairarmor3
-	Valued:
-		Cost: 4800
+		Cost: 5000
 	RenderSprites:
 		Image: upairarmor
 	ProvidesPrerequisite:
@@ -10350,7 +10194,7 @@ upstimpack:
 	Tooltip:
 		Name: Stim Pack
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -10365,11 +10209,11 @@ upmarinerange:
 	Tooltip:
 		Name: U-238 Shells
 	Valued:
-		Cost: 3600
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases range of Marines by 25%.
+		Description: Increases range of Marines, Mad Caps and Jim Raynor by 20%.
 		Prerequisites: ~scacademy, ~!upmarinerange
 	RenderSprites:
 		Image: upmarinerange
@@ -10380,11 +10224,11 @@ upsupplydepot1:
 	Tooltip:
 		Name: Upgrade Supply Depot Level 1
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases energy of supply depots by 100%.
+		Description: Increases Energy of Supply Depots by 100%.
 		Prerequisites: ~scengineeringbay, ~!upsupplydepot1
 	RenderSprites:
 		Image: scsupplydepot
@@ -10395,12 +10239,12 @@ upsupplydepot2:
 	Tooltip:
 		Name: Upgrade Supply Depot Level 2
 	Valued:
-		Cost: 4800
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases energy of supply depots by 100%.
-		Prerequisites: ~scsciencefacility, ~upsupplydepot1, ~!upsupplydepot2
+		Description: Increases Energy of Supply Depots by 100%.
+		Prerequisites: ~scarmory, ~upsupplydepot1, ~!upsupplydepot2
 	RenderSprites:
 		Image: scsupplydepot
 	ProvidesPrerequisite:
@@ -10410,11 +10254,11 @@ upghostcloak:
 	Tooltip:
 		Name: Cloak Upgrade
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Enables cloak for Ghosts, Spectres, Wraiths, Sundogs.
+		Description: Enables Cloak for Ghosts, Spectres, Wraiths, Sundogs.
 		Prerequisites: ~scsciencefacility, ~!upghostcloak
 	RenderSprites:
 		Image: sccloak
@@ -10425,7 +10269,7 @@ upsiegemode:
 	Tooltip:
 		Name: Advanced Siege Mode
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -10440,7 +10284,7 @@ upyamatocannon:
 	Tooltip:
 		Name: Yamato Cannon and Tactical Jump Upgrade
 	Valued:
-		Cost: 3600
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -10455,11 +10299,11 @@ upinfweapon:
 	Tooltip:
 		Name: Infantry Weapons Level 1
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: upgrade-infweapon.description
+		Description: Increases Firepower of all Terran Infantry by 15%.
 		Prerequisites: ~scengineeringbay, ~!upinfweapon
 	RenderSprites:
 		Image: upinfweapon
@@ -10471,28 +10315,12 @@ upinfweapon2:
 	Tooltip:
 		Name: Infantry Weapons Level 2
 	Valued:
-		Cost: 3600
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: upgrade-infweapon.description
-		Prerequisites: ~scengineeringbay, ~upinfweapon, ~!upinfweapon2
-	RenderSprites:
-		Image: upinfweapon
-	ProvidesPrerequisite:
-		Prerequisite: upinfweapon
-
-upinfweapon3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Infantry Weapons Level 3
-	Valued:
-		Cost: 4800
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: upgrade-infweapon.description
-		Prerequisites: ~scengineeringbay, ~scsciencefacility, ~upinfweapon2, ~!upinfweapon3
+		Description: Increases Firepower of all Terran Infantry by 35%.
+		Prerequisites: ~scsciencefacility, ~upinfweapon, ~!upinfweapon2
 	RenderSprites:
 		Image: upinfweapon
 	ProvidesPrerequisite:
@@ -10503,11 +10331,11 @@ upinfarmor:
 	Tooltip:
 		Name: Infantry Armor Level 1
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: upgrade-infarmor.description
+		Description: Increases Armor of all Terran Infantry by 10%.
 		Prerequisites: ~scengineeringbay, ~!upinfarmor
 	RenderSprites:
 		Image: upinfarmor
@@ -10519,28 +10347,12 @@ upinfarmor2:
 	Tooltip:
 		Name: Infantry Armor Level 2
 	Valued:
-		Cost: 3600
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: upgrade-infarmor.description
-		Prerequisites: ~scengineeringbay, ~upinfarmor, ~!upinfarmor2
-	RenderSprites:
-		Image: upinfarmor
-	ProvidesPrerequisite:
-		Prerequisite: upinfarmor
-
-upinfarmor3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Infantry Armor Level 3
-	Valued:
-		Cost: 4800
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: upgrade-infarmor.description
-		Prerequisites: ~scengineeringbay, ~scsciencefacility, ~upinfarmor2, ~!upinfarmor3
+		Description: Increases Armor of all Terran Infantry by 20%.
+		Prerequisites: ~scsciencefacility, ~upinfarmor, ~!upinfarmor2
 	RenderSprites:
 		Image: upinfarmor
 	ProvidesPrerequisite:
@@ -10551,11 +10363,11 @@ upmechweapon:
 	Tooltip:
 		Name: Vehicle Weapons Level 1
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: upgrade-mechweapon.description
+		Description: Increases Firepower of all Terran Vehicles by 15%.
 		Prerequisites: ~scarmory, ~!upmechweapon
 	RenderSprites:
 		Image: upmechweapon
@@ -10566,27 +10378,12 @@ upmechweapon2:
 	Tooltip:
 		Name: Vehicle Weapons Level 2
 	Valued:
-		Cost: 4200
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: upgrade-mechweapon.description
-		Prerequisites: ~scarmory, ~upmechweapon, ~!upmechweapon2
-	RenderSprites:
-		Image: upmechweapon
-	ProvidesPrerequisite:
-
-upmechweapon3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Vehicle Weapons Level 3
-	Valued:
-		Cost: 6000
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: upgrade-mechweapon.description
-		Prerequisites: ~scarmory, ~scsciencefacility, ~upmechweapon2, ~!upmechweapon3
+		Description: Increases Firepower of all Terran Vehicles by 35%.
+		Prerequisites: ~scsciencefacility, ~upmechweapon, ~!upmechweapon2
 	RenderSprites:
 		Image: upmechweapon
 	ProvidesPrerequisite:
@@ -10596,11 +10393,11 @@ upmecharmor:
 	Tooltip:
 		Name: Vehicle Plating Level 1
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: upgrade-mecharmor.description
+		Description: Increases Armor of all Terran Vehicles by 10%.
 		Prerequisites: ~scarmory, ~!upmecharmor
 	RenderSprites:
 		Image: upmecharmor
@@ -10611,27 +10408,12 @@ upmecharmor2:
 	Tooltip:
 		Name: Vehicle Plating Level 2
 	Valued:
-		Cost: 4200
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: upgrade-mecharmor.description
-		Prerequisites: ~scarmory, ~upmecharmor, ~!upmecharmor2
-	RenderSprites:
-		Image: upmecharmor
-	ProvidesPrerequisite:
-
-upmecharmor3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Vehicle Plating Level 3
-	Valued:
-		Cost: 6000
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: upgrade-mecharmor.description
-		Prerequisites: ~scarmory, ~scsciencefacility, ~upmecharmor2, ~!upmecharmor3
+		Description: Increases Armor of all Terran Vehicles by 20%.
+		Prerequisites: ~scsciencefacility, ~upmecharmor, ~!upmecharmor2
 	RenderSprites:
 		Image: upmecharmor
 	ProvidesPrerequisite:
@@ -10641,11 +10423,11 @@ upshipweapon:
 	Tooltip:
 		Name: Ship Weapons Level 1
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: upgrade-shipweapon.description
+		Description: Increases Firepower of all Terran Aircraft by 15%.
 		Prerequisites: ~scarmory, ~!upshipweapon
 	RenderSprites:
 		Image: upshipweapon
@@ -10656,27 +10438,12 @@ upshipweapon2:
 	Tooltip:
 		Name: Ship Weapons Level 2
 	Valued:
-		Cost: 4200
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: upgrade-shipweapon.description
-		Prerequisites: ~scarmory, ~upshipweapon, ~!upshipweapon2
-	RenderSprites:
-		Image: upshipweapon
-	ProvidesPrerequisite:
-
-upshipweapon3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Ship Weapons Level 3
-	Valued:
-		Cost: 6000
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: upgrade-shipweapon.description
-		Prerequisites: ~scarmory, ~scsciencefacility, ~upshipweapon2, ~!upshipweapon3
+		Description: Increases Firepower of all Terran Aircraft by 35%.
+		Prerequisites: ~scsciencefacility, ~upshipweapon, ~!upshipweapon2
 	RenderSprites:
 		Image: upshipweapon
 	ProvidesPrerequisite:
@@ -10686,11 +10453,11 @@ upshiparmor:
 	Tooltip:
 		Name: Ship Plating Level 1
 	Valued:
-		Cost: 3600
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: upgrade-shiparmor.description
+		Description: Increases Armor of all Terran Aircraft by 10%.
 		Prerequisites: ~scarmory, ~!upshiparmor
 	RenderSprites:
 		Image: upshiparmor
@@ -10701,27 +10468,12 @@ upshiparmor2:
 	Tooltip:
 		Name: Ship Plating Level 2
 	Valued:
-		Cost: 5400
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: upgrade-shiparmor.description
-		Prerequisites: ~scarmory, ~upshiparmor, ~!upshiparmor2
-	RenderSprites:
-		Image: upshiparmor
-	ProvidesPrerequisite:
-
-upshiparmor3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Ship Plating Level 3
-	Valued:
-		Cost: 7200
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: upgrade-shiparmor.description
-		Prerequisites: ~scarmory, ~scsciencefacility, ~upshiparmor2, ~!upshiparmor3
+		Description: Increases Armor of all Terran Aircraft by 20%.
+		Prerequisites: ~scsciencefacility, ~upshiparmor, ~!upshiparmor2
 	RenderSprites:
 		Image: upshiparmor
 	ProvidesPrerequisite:
@@ -10735,11 +10487,11 @@ upoverlordspeed:
 	Tooltip:
 		Name: Pneumatized Carapace
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases Overlord speed.
+		Description: Increases Speed of Overlords and Broodweavers by 50%.
 		Prerequisites: ~schatchery, ~!upoverlordspeed
 	RenderSprites:
 		Image: upoverlordspeed
@@ -10750,11 +10502,11 @@ uplingspeed:
 	Tooltip:
 		Name: Metabolic Boost
 	Valued:
-		Cost: 3600
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases Zergling, Talon, and Shriek speed.
+		Description: Increases Speed of Zerglings, Talons, Shrieks and Kerrigan by 33%.
 		Prerequisites: ~scspawningpool, ~scevolutionchamber, ~!uplingspeed
 	RenderSprites:
 		Image: uplingspeed
@@ -10765,14 +10517,29 @@ uplingattack:
 	Tooltip:
 		Name: Adrenal Glands
 	Valued:
-		Cost: 3600
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases Zergling, Talon, and Shriek attack speed.
+		Description: Increases Attack Speed of Zerglings, Talons, Shrieks and Kerrigan by 33%.
 		Prerequisites: ~scevolutionchamber, ~!uplingattack
 	RenderSprites:
 		Image: uplingattack
+	ProvidesPrerequisite:
+
+upzergrange:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Grooved Spines
+	Valued:
+		Cost: 2500
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Increases Range of Hydralisks, Lurkers, and Spithids by 20%.
+		Prerequisites: ~schydraliskden, ~!upzergrange
+	RenderSprites:
+		Image: upzergrange
 	ProvidesPrerequisite:
 
 upzergmelee:
@@ -10780,11 +10547,11 @@ upzergmelee:
 	Tooltip:
 		Name: Melee Attacks Level 1
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases damage dealt by Melee Zerg units.
+		Description: Increases Attack Damage of all melee Zerg units by 15%.
 		Prerequisites: ~scevolutionchamber, ~!upzergmelee
 	RenderSprites:
 		Image: upzergmelee
@@ -10795,27 +10562,12 @@ upzergmelee2:
 	Tooltip:
 		Name: Melee Attacks Level 2
 	Valued:
-		Cost: 3600
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases damage dealt by Melee Zerg units.
-		Prerequisites: ~scevolutionchamber, ~sclair, ~upzergmelee, ~!upzergmelee2
-	RenderSprites:
-		Image: upzergmelee
-	ProvidesPrerequisite:
-
-upzergmelee3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Melee Attacks Level 3
-	Valued:
-		Cost: 4800
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: Increases damage dealt by Melee Zerg units.
-		Prerequisites: ~scevolutionchamber, ~schive, ~upzergmelee2, ~!upzergmelee3
+		Description: Increases Attack Damage of all melee Zerg units by 35%.
+		Prerequisites: ~scevolutionchamber, ~schive, ~upzergmelee, ~!upzergmelee2
 	RenderSprites:
 		Image: upzergmelee
 	ProvidesPrerequisite:
@@ -10825,11 +10577,11 @@ upzergmissile:
 	Tooltip:
 		Name: Missile Attacks Level 1
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases damage dealt by Range Ground Zerg Units.
+		Description: Increases Attack Damage of all ranged Zerg ground units by 15%.
 		Prerequisites: ~scevolutionchamber, ~!upzergmissile
 	RenderSprites:
 		Image: upzergmissile
@@ -10840,27 +10592,12 @@ upzergmissile2:
 	Tooltip:
 		Name: Missile Attacks Level 2
 	Valued:
-		Cost: 4200
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases damage dealt by Range Ground Zerg Units.
-		Prerequisites: ~scevolutionchamber, ~sclair, ~upzergmissile, ~!upzergmissile2
-	RenderSprites:
-		Image: upzergmissile
-	ProvidesPrerequisite:
-
-upzergmissile3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Missile Attacks Level 3
-	Valued:
-		Cost: 6000
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: Increases damage dealt by Range Ground Zerg Units.
-		Prerequisites: ~scevolutionchamber, ~schive, ~upzergmissile2, ~!upzergmissile3
+		Description: Increases Attack Damage of all ranged Zerg ground units by 35%.
+		Prerequisites: ~scevolutionchamber, ~schive, ~upzergmissile, ~!upzergmissile2
 	RenderSprites:
 		Image: upzergmissile
 	ProvidesPrerequisite:
@@ -10870,11 +10607,11 @@ upcarapace:
 	Tooltip:
 		Name: Carapace Level 1
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases durability of Zerg ground units.
+		Description: Increases Armor of all Zerg ground units by 10%.
 		Prerequisites: ~scevolutionchamber, ~!upcarapace
 	RenderSprites:
 		Image: upcarapace
@@ -10885,27 +10622,12 @@ upcarapace2:
 	Tooltip:
 		Name: Carapace Level 2
 	Valued:
-		Cost: 4200
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases durability of Zerg ground units.
-		Prerequisites: ~scevolutionchamber, ~sclair, ~upcarapace, ~!upcarapace2
-	RenderSprites:
-		Image: upcarapace
-	ProvidesPrerequisite:
-
-upcarapace3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Carapace Level 3
-	Valued:
-		Cost: 6000
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: Increases durability of Zerg ground units.
-		Prerequisites: ~scevolutionchamber, ~schive, ~upcarapace2, ~!upcarapace3
+		Description: Increases Armor of all Zerg ground units by 20%.
+		Prerequisites: ~scevolutionchamber, ~schive, ~upcarapace, ~!upcarapace2
 	RenderSprites:
 		Image: upcarapace
 	ProvidesPrerequisite:
@@ -10915,11 +10637,11 @@ upflyerattack:
 	Tooltip:
 		Name: Flyer Attacks Level 1
 	Valued:
-		Cost: 2400
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases damage dealt by Air Zerg Units.
+		Description: Increases Attack Damage of all Ranged Flying Zerg units by 15%.
 		Prerequisites: ~scspire, ~!upflyerattack
 	RenderSprites:
 		Image: upflyerattack
@@ -10930,27 +10652,12 @@ upflyerattack2:
 	Tooltip:
 		Name: Flyer Attacks Level 2
 	Valued:
-		Cost: 4200
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases damage dealt by Air Zerg Units.
-		Prerequisites: ~scspire, ~sclair, ~upflyerattack, ~!upflyerattack2
-	RenderSprites:
-		Image: upflyerattack
-	ProvidesPrerequisite:
-
-upflyerattack3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Flyer Attacks Level 3
-	Valued:
-		Cost: 6000
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: Increases damage dealt by Air Zerg Units.
-		Prerequisites: ~scspire, ~schive, ~upflyerattack2, ~!upflyerattack3
+		Description: Increases Attack Damage of all Ranged Flying Zerg units by 35%.
+		Prerequisites: ~scspire, ~schive, ~upflyerattack, ~!upflyerattack2
 	RenderSprites:
 		Image: upflyerattack
 	ProvidesPrerequisite:
@@ -10960,11 +10667,11 @@ upflyerarmor:
 	Tooltip:
 		Name: Flyer Carapace Level 1
 	Valued:
-		Cost: 3600
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases durability of Zerg aircrafts.
+		Description: Increases Armor of all Flying Zerg units by 10%.
 		Prerequisites: ~scspire, ~!upflyerarmor
 	RenderSprites:
 		Image: upflyerarmor
@@ -10975,44 +10682,14 @@ upflyerarmor2:
 	Tooltip:
 		Name: Flyer Carapace Level 2
 	Valued:
-		Cost: 5400
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Increases durability of Zerg aircrafts.
-		Prerequisites: ~scspire, ~sclair, ~upflyerarmor, ~!upflyerarmor2
+		Description: Increases Armor of all Flying Zerg units by 20%.
+		Prerequisites: ~scspire, ~schive, ~upflyerarmor, ~!upflyerarmor2
 	RenderSprites:
 		Image: upflyerarmor
-	ProvidesPrerequisite:
-
-upflyerarmor3:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Flyer Carapace Level 3
-	Valued:
-		Cost: 7200
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: Increases durability of Zerg aircrafts.
-		Prerequisites: ~scspire, ~schive, ~upflyerarmor2, ~!upflyerarmor3
-	RenderSprites:
-		Image: upflyerarmor
-	ProvidesPrerequisite:
-
-upzergrange:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Grooved Spines
-	Valued:
-		Cost: 3600
-	Buildable:
-		BuildPaletteOrder: 80
-		Queue: Addons
-		Description: Increases range of Hydralisks, Lurkers, and Spithids by 25%.
-		Prerequisites: ~schydraliskden, ~!upzergrange
-	RenderSprites:
-		Image: upzergrange
 	ProvidesPrerequisite:
 ####################################################################################################
 #		XELNAGA BOSS

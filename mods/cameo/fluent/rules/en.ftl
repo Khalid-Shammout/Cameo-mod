@@ -1794,6 +1794,7 @@ upgrade-reinforcedstructures =
 
 upgrade-cryomissiles =
    .description = Adds cryo warheads to all missiles and bombs that freezes enemy units and buildings.
+   Reduces Firepower by 25%
    Each hit slows down the enemy target by 10%, increases damage taken by 10% and stacks 10 times.
    Each stack lasts 5 seconds and on 10 stacks the unit is completely disabled.
    Artillery, Bastion and Rapier Jumpjet get cryo bombs with double the cryo effect radius of effect.
@@ -1940,7 +1941,7 @@ ra_doctrine_conscription =
    .description = DOCTRINE (Only One Doctrine For Each Tier Can Be Researched)
       Focuses on Mass Produced Infantry:
       All Infantry are 25% cheaper and faster to train
-      All Infantry has 10% more Firepower, Speed and Damage Reduction
+      All Infantry have 10% more Firepower, Speed and Damage Reduction
       Replaces Rifle Soldiers and Grenadiers with AK47 and Molotov Conscripts
       Replaces Rocket Soldiers with Dragunov Anti Material Snipers
       Replaces Flak Trucks with BTR-80s
@@ -1990,6 +1991,83 @@ ra_doctrine_nuclearwar =
       Replaces V2 Rocket Launcher with Nuclear V2 Rocket Launcher
       Unlocks Kotin Nuclear Tank
       Unlocks Unstable Isotopes, Thermonuclear Rockets and Nuclear Tank Shells Upgrades
+
+ra_upgrade_vengeance =
+   .description = Tech Upgrade (Only affects units of own faction)
+      Doubles moral boost effect to nearby units by fallen Conscripts and Dragunovs.
+      Commissars gives this double effect now permanently to nearby units.
+
+ra_upgrade_menofsteel =
+   .description = Team Upgrade (Also affects units of your teammates)
+      Increases Infantry Firepower and Damage Reduction by 10%
+
+ra_upgrade_massproduction =
+   .description = Tech Upgrade (Only affects units of own faction)
+      Reduces Cost of all Vehicles and Aircraft by 20%
+
+ra_upgrade_wareconomy =
+   .description = Team Upgrade (Also affects units of your teammates)
+      Reduces Production Cost and Time of Refineries and Harvesters by 10%.
+      Increases Income from Refineries by 10%.
+      Increases Speed of Harvesters by 10%.
+
+ra_upgrade_incendiarybullets =
+   .description = Tech Upgrade (Only affects units of own faction)
+      Adds an additional fire warhead to all bullet based weapons.
+      Increases Firepower by 100% and gives higher area of effect.
+
+ra_upgrade_scorchedearth =
+   .description = Team Upgrade (Also affects units of your teammates)
+      Increases Firepower of all Grenadiers, Mortars, Flame Weapons and Artilleries by 25%.
+      Equips the V1 Rocket Truck and the Grad with Fire Rockets.
+
+ra_upgrade_teslaarcing =
+   .description = Tech Upgrade (Only affects units of own faction)
+      Adds arcing effects to all Tesla Weapons.
+      Can arc up to 2 extra times for extra damage.
+      Reduces recharge delay for the Heavy Tesla Tank by 25%
+      Equips Volkov with arcing Tesla Bombs.
+
+ra_upgrade_teslarockets =
+   .description = Tech Upgrade (Only affects units of own faction)
+      Heavy Rockets such as of the Mammoth Tank, Kamov, Mig and V2 Launcher
+      are replaced with Tesla Rockets that can arc over to other targets on explosion.
+
+ra_upgrade_reactoroverload =
+   .description = Team Upgrade (Also affects units of your teammates)
+      Doubles the Power Output of all Power Plants in your team.
+      Also doubles Power Consumption and Firepower of Soviet Tesla Coils.
+
+ra_upgrade_autoloaders =
+   .description = Tech Upgrade (Only affects units of own faction)
+      Reduces Reload Delay of all Tanks by 40%.
+
+ra_upgrade_highexplosiverockets =
+   .description = Tech Upgrade (Only affects units of own faction)
+      Heavy Rockets such as of the Siege Mammoth Tank, Hind, Su-57, Grad and V2 Launcher
+      are replaced with High Explosive Rockets that deal 20% more damage and have higher area of effect.
+
+ra_upgrade_stalinium =
+   .description = Team Upgrade (Also affects units of your teammates)
+      Reduces Incoming Damage of all Tanks in your team by 20%.
+
+ra_upgrade_unstableisotopes =
+   .description = Tech Upgrade (Only affects units of own faction)
+      Increases Speed of all Vehicles by 20%.
+      Increases Speed of Kotin Nuclear Tank by 40%.
+
+ra_upgrade_nuclearrockets =
+   .description = Tech Upgrade (Only affects units of own faction)
+      Heavy Rockets such as of the Mammoth Tank, Hind, Mig and Nuclear V2 Launcher
+      are replaced with Thermonuclear Rockets that deal increased damage to heavier armor types
+      and have massively higher area of effect.
+
+ra_upgrade_nuclearshells =
+   .description = Team Upgrade (Also affects units of your teammates)
+      Increases Firepower of all Tanks in your team by 20%.
+      Equips Soviet Tanks with special shells that explode in a higher radius.
+      Equips Volkov with a Nuclear Cannon.
+      Increases Spread and Radiation Damage of the Kotin Nuclear Tank.
 
 ra_promotion_superoptics =
    .description = Promotion Upgrade (Only affects units of own faction)

@@ -1290,44 +1290,44 @@ PhobosLaser:
 	Inherits: ^HeavyFlameWeapon
 	Inherits: ^LaserWeapon
 	ValidTargets: Ground, Water, Trees, Air
-	ReloadDelay: 19
-	Range: 7700
+	ReloadDelay: 23
+	Range: 9000
 	Report: TPhFi100.aud
 	Projectile: Bullet
-		Speed: 1540
+		Speed: 1800
 		ContrailLength: 6
 		ContrailStartColor: 88BBFF
-		ContrailWidth: 154
+		ContrailWidth: 180
 	Warhead@HeavyBomb: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 6000
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 3
 	Warhead@HeavyChemicalWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 6000
 	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 3000
 	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 3
 	Warhead@HeavyFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 6000
 	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 3000
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 3
 	Warhead@LaserWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 6000
 	Warhead@LaserWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 3
 	Warhead@EffectAir: CreateEffect
 		Explosions: big_explosion_air
 		ImpactSounds: kaboom25.aud
@@ -2907,16 +2907,16 @@ Psi-blades:
 	Inherits: ^SwordWeapon
 	Report: pzehit00.aud
 	SoundVolume: 3
-	ReloadDelay: 16
+	ReloadDelay: 30
 	Burst: 2
-	BurstDelays: 2
+	BurstDelays: 6
 	Range: 1335
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 4000
+		Damage: 8000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 2000
+		Damage: 4000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 2
+		Damage: 4
 	Warhead@Effect: CreateEffect
 		ImpactSounds: zulhit00.aud,zulhit01.aud
 
@@ -3621,13 +3621,15 @@ LanifectBeam:
 		ValidTargets: Ground, Water, Trees, Air
 
 StarshipSovereignBeam:
+	Inherits: ^LightMissile
 	Inherits: ^SmallArms
 	Inherits: ^Chaingun
 	Inherits: ^FlakWeapon
+	Inherits: ^TeslaWeapon
 	Inherits: ^LaserWeapon
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 10
-	Range: 8850
+	Range: 8475
 	Report: vpalwe2d.aud
 	Projectile: LaserZap
 		Width: 250
@@ -3638,6 +3640,14 @@ StarshipSovereignBeam:
 		SecondaryBeamWidth: 125
 		SecondaryBeamZOffset: 2047
 		SecondaryBeamColor: FFFFFF
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
 	Warhead@SmallArms: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
@@ -3659,6 +3669,18 @@ StarshipSovereignBeam:
 		Damage: 2000
 		ValidRelationships: Neutral, Enemy
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		ValidRelationships: Neutral, Enemy
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		ValidRelationships: Neutral, Enemy
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
+		ValidRelationships: Neutral, Enemy
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 		ValidRelationships: Neutral, Enemy

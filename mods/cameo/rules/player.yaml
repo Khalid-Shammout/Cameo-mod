@@ -131,11 +131,12 @@ Player:
 		Label: Queue Type
 		Description: Type of queue used
 		DisplayOrder: 4
-		Default: multipleproductionqueues
+		Default: hybridproductionqueues
 		Values:
 			classicproductionqueues: Single
 			multipleproductionqueues: Multi
-			scaledproductionqueues: Competitive
+			hybridproductionqueues: Hybrid
+			scaledproductionqueues: Scaled
 	LobbyPrerequisiteDropdown@derricklimit_is:
 		ID: derricklimit_is
 		Label: Passive Income Limit

@@ -126,9 +126,6 @@ World:
 	FirepowerMultiplier@ra_doctrine_conscription:
 		RequiresCondition: ra_doctrine_conscription
 		Modifier: 110
-	SpeedMultiplier@ra_upgrade_unstableisotopes:
-		RequiresCondition: ra_upgrade_unstableisotopes
-		Modifier: 110
 	DamageMultiplier@ra_doctrine_conscription:
 		RequiresCondition: ra_doctrine_conscription
 		Modifier: 90
@@ -342,6 +339,9 @@ World:
 		Upgrades: up_chronoarmor
 
 ^CryoMissiles:
+	FirepowerMultiplier@up_cryomissiles:
+		RequiresCondition: up_cryomissiles
+		Modifier: 75
 	GrantConditionOnPrerequisite@up_cryomissiles:
 		Condition: up_cryomissiles
 		Prerequisites: up_cryomissiles
@@ -892,6 +892,7 @@ RAE1:
 RARE1:
 	Inherits: ^RAE1
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Buildable:
 		Prerequisites: ~barr, ~!ra_doctrine_conscription
 	Armament@PRIMARY: ##########
@@ -915,7 +916,7 @@ RARE1:
 	Voiced:
 		VoiceSet: RussianVoice
 	ActorStatValues:
-		Upgrades: ra_doctrine_conscription, ra_upgrade_incendiarybullets
+		Upgrades: ra_promotion_superoptics, ra_doctrine_conscription, ra_upgrade_incendiarybullets, ra_upgrade_menofsteel
 
 ra_conscript_ak:
 	Inherits: ^Soldier
@@ -926,6 +927,7 @@ ra_conscript_ak:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@VengeanceUpgradeRA1: ^VengeanceUpgradeRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Tooltip:
 		Name: AK-47 Conscript
 	Valued:
@@ -974,7 +976,7 @@ ra_conscript_ak:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_vengeance, ra_upgrade_menofsteel
+		Upgrades: ra_promotion_superoptics, ra_doctrine_conscription, ra_upgrade_vengeance, ra_upgrade_menofsteel
 
 RAJE1:
 	Inherits: ^RAE1
@@ -1031,6 +1033,8 @@ RAE2:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiBuil: ^PrioritizeBuilding
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -1088,7 +1092,7 @@ RAE2:
 		Image: rae2
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_doctrine_inferno, ra_upgrade_scorchedearth
+		Upgrades: ra_promotion_superoptics, ra_doctrine_conscription, ra_doctrine_inferno, ra_upgrade_scorchedearth, ra_upgrade_menofsteel
 
 mortarsoldier:
 	Inherits: ^Soldier
@@ -1100,6 +1104,8 @@ mortarsoldier:
 	Inherits@AntiBuil: ^PrioritizeBuilding
 	Inherits@AntiDef: ^PrioritizeDefence
 	Inherits@anim: ^TDRAInfantry
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 130
@@ -1156,7 +1162,7 @@ mortarsoldier:
 		Image: mortarsoldier
 		PlayerPalette: playerra
 	ActorStatValues:
-		Upgrades: ra_doctrine_inferno, ra_upgrade_scorchedearth
+		Upgrades: ra_promotion_superoptics, ra_doctrine_conscription, ra_doctrine_inferno, ra_upgrade_scorchedearth, ra_upgrade_menofsteel
 
 ra_cons_molo:
 	Inherits: ^Soldier
@@ -1169,6 +1175,7 @@ ra_cons_molo:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiBuil: ^PrioritizeBuilding
 	Inherits@VengeanceUpgradeRA1: ^VengeanceUpgradeRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Tooltip:
 		Name: Molotov Conscript
 	Valued:
@@ -1215,7 +1222,7 @@ ra_cons_molo:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_vengeance, ra_upgrade_menofsteel
+		Upgrades: ra_promotion_superoptics, ra_doctrine_conscription, ra_upgrade_vengeance, ra_upgrade_menofsteel
 
 ^RAE3:
 	Inherits: ^Soldier
@@ -1297,12 +1304,15 @@ RAE3:
 
 RARE3:
 	Inherits: ^RAE3
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Tooltip:
 		Name: Soviet Rocket Soldier
 	Buildable:
 		Prerequisites: ~barr, ~!ra_doctrine_inferno, ~!ra_doctrine_conscription
 	Voiced:
 		VoiceSet: RussianVoice
+	ActorStatValues:
+		Upgrades: ra_promotion_superoptics, ra_doctrine_conscription, ra_upgrade_menofsteel
 
 ra_dragunov:
 	Inherits: ^Soldier
@@ -1314,6 +1324,7 @@ ra_dragunov:
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
 	Inherits@VengeanceUpgradeRA1: ^VengeanceUpgradeRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Tooltip:
 		Name: Dragunov Anti Material Sniper
 	Valued:
@@ -1357,7 +1368,7 @@ ra_dragunov:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_vengeance, ra_upgrade_menofsteel
+		Upgrades: ra_promotion_superoptics, ra_doctrine_conscription, ra_upgrade_vengeance, ra_upgrade_menofsteel
 
 e3flamer:
 	Inherits: ^RAE3
@@ -1365,7 +1376,9 @@ e3flamer:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Tooltip:
 		Name: Fire Rocket Soldier
 	Buildable:
@@ -1408,7 +1421,7 @@ e3flamer:
 	Voiced:
 		VoiceSet: RussianVoice
 	ActorStatValues:
-		Upgrades: ra_upgrade_scorchedearth
+		Upgrades: ra_promotion_superoptics, ra_upgrade_scorchedearth, ra_upgrade_menofsteel
 
 RAJE3:
 	Inherits: ^Soldier
@@ -1489,7 +1502,9 @@ RAE4:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@AntiBuil: ^PrioritizeBuilding
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Tooltip:
 		Name: Soviet Flamethrower
 	UpdatesPlayerStatistics:
@@ -1547,7 +1562,7 @@ RAE4:
 	Voiced:
 		VoiceSet: RussianVoice
 	ActorStatValues:
-		Upgrades: ra_doctrine_inferno, ra_upgrade_scorchedearth
+		Upgrades: ra_promotion_superoptics, ra_doctrine_conscription, ra_doctrine_inferno, ra_upgrade_scorchedearth, ra_upgrade_menofsteel
 
 RAJE4:
 	Inherits: ^Soldier
@@ -1628,6 +1643,8 @@ SHOK:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@TeslaTargeting: ^PrioritizeTesla
 	Inherits@TeslaExperimentalTechDoctrineRA1: ^TeslaExperimentalTechDoctrineRA1
+	Inherits@TeslaArcingUpgradeRA1: ^TeslaArcingUpgradeRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 130
@@ -1648,19 +1665,27 @@ SHOK:
 	Armament@PRIMARY:
 		Weapon: PortaTesla
 		LocalOffset: 427,0,341
-		RequiresCondition: !ra_doctrine_teslatech
-	Armament@Upgrade:
+		RequiresCondition: !ra_doctrine_teslatech && !ra_upgrade_teslaarcing
+	Armament@Upgrade1:
 		Weapon: PortaTeslaEMP
 		LocalOffset: 427,0,341
-		RequiresCondition: ra_doctrine_teslatech
+		RequiresCondition: ra_doctrine_teslatech && !ra_upgrade_teslaarcing
+	Armament@Upgrade2:
+		Weapon: PortaTeslaEMPArc
+		LocalOffset: 427,0,341
+		RequiresCondition: ra_upgrade_teslaarcing
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: PortaTesla
-		RequiresCondition: !ra_doctrine_teslatech
-	Armament@UpgradeGARRISONED:
+		RequiresCondition: !ra_doctrine_teslatech && !ra_upgrade_teslaarcing
+	Armament@Upgrade1GARRISONED:
 		Name: garrisoned
 		Weapon: PortaTeslaEMP
-		RequiresCondition: ra_doctrine_teslatech
+		RequiresCondition: ra_doctrine_teslatech && !ra_upgrade_teslaarcing
+	Armament@Upgrade2GARRISONED:
+		Name: garrisoned
+		Weapon: PortaTeslaEMPArc
+		RequiresCondition: ra_upgrade_teslaarcing
 	TakeCover:
 		ProneOffset: 227,0,-245
 	WithInfantryBody:
@@ -1671,10 +1696,10 @@ SHOK:
 		RequiresCondition: parachute
 	Voiced:
 		VoiceSet: ShokVoice
-	ActorStatValues:
-		Upgrades: ra_doctrine_teslatech
 	GrantExternalConditionToTransport:
 		Condition: ifv-tesla
+	ActorStatValues:
+		Upgrades: ra_promotion_superoptics, ra_doctrine_conscription, ra_doctrine_teslatech, ra_upgrade_teslaarcing, ra_upgrade_menofsteel
 
 ra_zapper:
 	Inherits: ^Soldier
@@ -1686,6 +1711,7 @@ ra_zapper:
 	Inherits@TeslaTargeting: ^PrioritizeTesla
 	Inherits@TeslaExperimentalTechDoctrineRA1: ^TeslaExperimentalTechDoctrineRA1
 	Inherits@TeslaArcingUpgradeRA1: ^TeslaArcingUpgradeRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 130
@@ -1729,14 +1755,14 @@ ra_zapper:
 		RequiresCondition: parachute
 	Voiced:
 		VoiceSet: ShokVoice
-	ActorStatValues:
-		Upgrades: ra_upgrade_teslaarcing
 	GrantExternalConditionToTransport:
 		Condition: ifv-tesla
 	WithDeathAnimation:
 		DeathSequencePalette: player_rgba
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: ra_promotion_superoptics, ra_doctrine_conscription, ra_doctrine_teslatech, ra_upgrade_teslaarcing, ra_upgrade_menofsteel
 
 ra_commissar:
 	Inherits: ^Soldier
@@ -1749,6 +1775,7 @@ ra_commissar:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@VengeanceUpgradeRA1: ^VengeanceUpgradeRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Tooltip:
 		Name: Commissar
 	Valued:
@@ -1813,7 +1840,7 @@ ra_commissar:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_vengeance, ra_upgrade_menofsteel
+		Upgrades: ra_promotion_superoptics, ra_doctrine_conscription, ra_upgrade_vengeance, ra_upgrade_menofsteel
 
 SNIPER:
 	Inherits: ^Soldier
@@ -2204,6 +2231,10 @@ v1truck:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Valued:
 		Cost: 850
 	Tooltip:
@@ -2273,7 +2304,7 @@ v1truck:
 	Selectable:
 		DecorationBounds: 1280, 1280
 	ActorStatValues:
-		Upgrades: ra_doctrine_inferno, ra_upgrade_scorchedearth
+		Upgrades: ra_doctrine_inferno, ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_unstableisotopes, ra_upgrade_scorchedearth
 
 ra_grad:
 	Inherits: ^Tank
@@ -2281,6 +2312,8 @@ ra_grad:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Valued:
@@ -2310,21 +2343,21 @@ ra_grad:
 		Weapon: GradRockets
 		LocalOffset: 400,300,50, 400,-75,0, 400,150,50, 400,-225,0, 400,225,50, 400,-150,0, 400,75,50, 400,-300,0
 		MuzzleSequence: muzzle
-		RequiresCondition: !ra_upgrade_highexplosiverockets
+		RequiresCondition: !(ra_upgrade_highexplosiverockets || ra_upgrade_scorchedearth)
 	Armament@Upgrade:
 		Weapon: GradHeavyRockets
 		LocalOffset: 400,300,50, 400,-75,0, 400,150,50, 400,-225,0, 400,225,50, 400,-150,0, 400,75,50, 400,-300,0
 		MuzzleSequence: muzzle
-		RequiresCondition: ra_upgrade_highexplosiverockets
+		RequiresCondition: ra_upgrade_highexplosiverockets || ra_upgrade_scorchedearth
 	AttackTurreted:
 	WithSpriteTurret:
 	WithMuzzleOverlay:
 	FireWarheadsOnDeath:
 		Weapon: GradRockets
-		RequiresCondition: !ra_upgrade_highexplosiverockets
+		RequiresCondition: !(ra_upgrade_highexplosiverockets || ra_upgrade_scorchedearth)
 	FireWarheadsOnDeath@Upgrade:
 		Weapon: GradHeavyRockets
-		RequiresCondition: ra_upgrade_highexplosiverockets
+		RequiresCondition: ra_upgrade_highexplosiverockets || ra_upgrade_scorchedearth
 	RenderRangeCircle:
 	GrantConditionOnAttack:
 		Condition: firing
@@ -2343,7 +2376,7 @@ ra_grad:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_doctrine_inferno, ra_upgrade_scorchedearth, ra_upgrade_highexplosiverockets, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_inferno, ra_doctrine_heavyarmor, ra_upgrade_highexplosiverockets, ra_upgrade_scorchedearth, ra_upgrade_stalinium
 
 V2RL:
 	Inherits: ^Vehicle
@@ -2351,6 +2384,8 @@ V2RL:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@TeslaRocketsUpgradeRA1: ^TeslaRocketsUpgradeRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Buildable:
@@ -2418,7 +2453,7 @@ V2RL:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_doctrine_inferno, ra_upgrade_scorchedearth, ra_upgrade_teslarockets, ra_upgrade_highexplosiverockets
+		Upgrades: ra_doctrine_inferno, ra_doctrine_heavyarmor, ra_upgrade_teslarockets, ra_upgrade_highexplosiverockets, ra_upgrade_scorchedearth
 
 V2RLNUKE:
 	Inherits: ^Vehicle
@@ -2426,7 +2461,10 @@ V2RLNUKE:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
 	Inherits@NuclearRocketsUpgradeRA1: ^NuclearRocketsUpgradeRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 80
@@ -2485,7 +2523,7 @@ V2RLNUKE:
 	-DamagedByTintedCells@rad:
 	-DamagedByTintedCells@genrad:
 	ActorStatValues:
-		Upgrades: ra_doctrine_inferno, ra_upgrade_nuclearrockets
+		Upgrades: ra_doctrine_inferno, ra_doctrine_nuclearwar, ra_upgrade_nuclearrockets, ra_upgrade_unstableisotopes, ra_upgrade_scorchedearth
 
 1TNK:
 	Inherits: ^Tank
@@ -2611,6 +2649,10 @@ V2RLNUKE:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiVeh: ^PrioritizeVehicle
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
+	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		Prerequisites: ~raweap, ~!ra_upgrade_hammertank
@@ -2664,7 +2706,7 @@ V2RLNUKE:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_upgrade_autoloaders, ra_upgrade_stalinium, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells
+		Upgrades: ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells
 
 hammertank:
 	Inherits: ^Tank
@@ -2676,6 +2718,10 @@ hammertank:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
+	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		Prerequisites: ~ra_upgrade_hammertank, ~!ra_upgrade_heavyteslatank, ~!ra_upgrade_kotintank
@@ -2718,7 +2764,7 @@ hammertank:
 		Weapon: ShtoraLaser
 		Recoil: 20
 		RecoilRecovery: 10
-		LocalOffset: 0,-250,100
+		LocalOffset: 0,200,50
 		MuzzleSequence: muzzle
 		RequiresCondition: ra_upgrade_shtoradefensesystem
 	GrantConditionOnPrerequisite@ra_upgrade_shtoradefensesystem:
@@ -2743,14 +2789,14 @@ hammertank:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_shtoradefensesystem, ra_upgrade_autoloaders, ra_upgrade_stalinium, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells
+		Upgrades: ra_upgrade_shtoradefensesystem, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells, ra_upgrade_stalinium
 
 TTNK2:
 	Inherits: ^Tank
 	Inherits@Template: ^HighTechTankTemplate
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@PD: ^PointLaserDefenseSystem
 	Inherits@TeslaExperimentalTechDoctrineRA1: ^TeslaExperimentalTechDoctrineRA1
@@ -2786,12 +2832,14 @@ TTNK2:
 	Armament:
 		Weapon: TTankZap2EMP
 		LocalOffset: 50,0,200
-		PauseOnCondition: !pdammo
+		AmmoUsage: 8
+		PauseOnCondition: pdammo < 8
 		RequiresCondition: !ra_upgrade_teslaarcing
 	Armament@Arcing:
 		Weapon: TTankZap2EMPArc
 		LocalOffset: 50,0,200
-		PauseOnCondition: !pdammo
+		AmmoUsage: 8
+		PauseOnCondition: pdammo < 8
 		RequiresCondition: ra_upgrade_teslaarcing
 	WithIdleOverlay@SPINNER:
 		Sequence: spinner
@@ -2801,13 +2849,29 @@ TTNK2:
 		Offset: 300,0,200
 	Armament@pointdefense:
 		Weapon: PointDefenseTesla
+		AmmoUsage: 1
+		PauseOnCondition: pdammo < 8
 		LocalOffset: 25,0,50
 	RenderRangeCircle:
 		RangeCircleType: pointdefense
 		Color: FF000088
 	AmmoPool@pld:
-		Ammo: 12
+		Ammo: 24
 		Armaments: primary, pointdefense
+	ReloadAmmoPool@pld:
+		AmmoPool: pointdefense
+		Delay: 10
+		Count: 1
+		ResetOnFire: True
+		PauseOnCondition: disabled
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		FullSequence: pip-red
+		PipCount: 12
+	ReloadAmmoDelayMultiplier@ra_upgrade_teslaarcing:
+		RequiresCondition: ra_upgrade_teslaarcing
+		Modifier: 75
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 1280, 1280
@@ -2824,16 +2888,8 @@ TTNK2:
 		LevelUpNotification: LevelUpRA1
 	ProducibleWithLevel:
 		Prerequisites: vehicles.upgraded
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: true
-		FullSequence: pip-red
-		PipCount: 12
-	ReloadAmmoDelayMultiplier@ra_upgrade_teslaarcing:
-		RequiresCondition: ra_upgrade_teslaarcing
-		Modifier: 75
 	ActorStatValues:
-		Upgrades: ra_doctrine_teslatech, ra_upgrade_teslaarcing
+		Upgrades: ra_doctrine_teslatech, ra_upgrade_teslaarcing, ra_upgrade_stalinium
 
 Kotin:
 	Inherits: ^Tank
@@ -2845,6 +2901,8 @@ Kotin:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		Prerequisites: ~ra_upgrade_kotintank
@@ -2904,10 +2962,12 @@ Kotin:
 	FireWarheadsOnDeath@Upgrade:
 		Weapon: KotinCannonThermobaric
 		RequiresCondition: ra_upgrade_nuclearshells
+	SpeedMultiplier@ra_upgrade_unstableisotopes:
+		Modifier: 140
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_autoloaders, ra_upgrade_stalinium, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells
+		Upgrades: ra_doctrine_nuclearwar, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells, ra_upgrade_stalinium
 
 4TNK:
 	Inherits: ^Tank
@@ -2917,8 +2977,12 @@ Kotin:
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
 	Inherits@TeslaRocketsUpgradeRA1: ^TeslaRocketsUpgradeRA1
+	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
 	Inherits@NuclearRocketsUpgradeRA1: ^NuclearRocketsUpgradeRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 180
@@ -3046,7 +3110,7 @@ Kotin:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_upgrade_teslarockets, ra_upgrade_nuclearrockets, ra_upgrade_stalinium, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells
+		Upgrades: ra_promotion_targetingcomputer, ra_upgrade_teslarockets, ra_upgrade_nuclearrockets, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells
 
 5TNK:
 	Inherits: ^Tank
@@ -3056,6 +3120,8 @@ Kotin:
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
@@ -3186,7 +3252,7 @@ Kotin:
 		Position: BottomLeft
 		RequiresSelection: True
 	ActorStatValues:
-		Upgrades: ra_upgrade_autoloaders, ra_upgrade_highexplosiverockets, ra_upgrade_stalinium, ra_upgrade_nuclearshells
+		Upgrades: ra_promotion_targetingcomputer, ra_upgrade_autoloaders, ra_upgrade_highexplosiverockets, ra_upgrade_nuclearshells, ra_upgrade_stalinium
 
 heavyaatank:
 	Inherits: ^Vehicle
@@ -3406,6 +3472,7 @@ RAHARV.ALLIES:
 
 RAHARV.SOVIET:
 	Inherits: ^RAHARV
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Tooltip:
 		Name: Soviet Ore Truck
@@ -3413,6 +3480,8 @@ RAHARV.SOVIET:
 		Prerequisites: ~raproc.soviet, ~!ra_doctrine_industrialefficiency
 	Voiced:
 		VoiceSet: RussianVehicleVoice
+	ActorStatValues:
+		Upgrades: ra_doctrine_industrialefficiency, ra_doctrine_heavyarmor, ra_upgrade_wareconomy, ra_upgrade_stalinium
 
 ra_industrialminer:
 	Inherits: RAHARV.SOVIET
@@ -3424,6 +3493,14 @@ ra_industrialminer:
 		Cost: 1200
 	StoresResources:
 		Capacity: 40
+	Health:
+		HP: 135000
+	Repairable:
+		HpPerStep: 6750
+	ChangesHealth@SelfHealing:
+		Step: 54
+	Armor:
+		Type: Medium
 	Mobile:
 		Speed: 80
 		TurnSpeed: 16
@@ -3501,6 +3578,7 @@ RAMCV.ALLIES:
 
 RAMCV.SOVIET:
 	Inherits: ^RAMCV
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Tooltip:
 		Name: Soviet Mobile Construction Vehicle
@@ -3510,6 +3588,8 @@ RAMCV.SOVIET:
 		IntoActor: rafact.soviet
 	Voiced:
 		VoiceSet: RussianVehicleVoice
+	ActorStatValues:
+		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_stalinium
 
 RAMCV.JAPAN:
 	Inherits: ^RAMCV
@@ -3696,7 +3776,10 @@ TTNK:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@TeslaTargeting: ^PrioritizeTesla
 	Inherits@TeslaExperimentalTechDoctrineRA1: ^TeslaExperimentalTechDoctrineRA1
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
 	Inherits@TeslaArcingUpgradeRA1: ^TeslaArcingUpgradeRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Tooltip:
 		Name: Tesla Tank
 	Valued:
@@ -3723,7 +3806,7 @@ TTNK:
 		Weapon: TTankZap
 		LocalOffset: 0,0,213
 		RequiresCondition: !ra_doctrine_teslatech && !ra_upgrade_teslaarcing
-	Armament@Upgrade:
+	Armament@Upgrade1:
 		Weapon: TTankZapEMP
 		LocalOffset: 0,0,213
 		RequiresCondition: ra_doctrine_teslatech && !ra_upgrade_teslaarcing
@@ -3746,7 +3829,7 @@ TTNK:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_doctrine_teslatech, ra_upgrade_teslaarcing
+		Upgrades: ra_doctrine_teslatech, ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_teslaarcing, ra_upgrade_unstableisotopes
 
 ra_heatraytank:
 	Inherits: ^Tank
@@ -3756,6 +3839,10 @@ ra_heatraytank:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@TeslaTargeting: ^PrioritizeTesla
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Tooltip:
 		Name: Heatray Tank
@@ -3806,7 +3893,7 @@ ra_heatraytank:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_scorchedearth, ra_upgrade_autoloaders, ra_upgrade_stalinium, ra_upgrade_unstableisotopes, ra_upgrade_nuclearshells
+		Upgrades: ra_doctrine_inferno, ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_unstableisotopes, ra_upgrade_scorchedearth
 
 FTRK:
 	Inherits: ^Vehicle
@@ -3818,6 +3905,11 @@ FTRK:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@botmicro: ^BotAutoDeployTransport
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
+	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 60
@@ -3875,7 +3967,7 @@ FTRK:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: #ra_doctrine_conscription, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_stalinium
 
 MODBTR:
 	Inherits: ^Tank
@@ -3888,6 +3980,9 @@ MODBTR:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@botmicro: ^BotAutoDeployTransport
 	Inherits@ConscriptionDoctrineRA1: ^ConscriptionDoctrineRA1
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
+	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
 	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
@@ -3939,7 +4034,7 @@ MODBTR:
 	-DamagedByTintedCells@rad:
 	-DamagedByTintedCells@genrad:
 	ActorStatValues:
-		Upgrades: ra_doctrine_conscription, ra_upgrade_unstableisotopes, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_stalinium #ra_doctrine_conscription
 
 DTRK:
 	Inherits: ^Vehicle
@@ -3947,7 +4042,10 @@ DTRK:
 	Inherits@AntiDef: ^PrioritizeDefence
 	Inherits@EMP: ^FrontalEMP
 	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildDuration: 1500
@@ -3994,6 +4092,8 @@ DTRK:
 		RequiresCondition: !disabled && triggered
 	RenderSprites:
 		PlayerPalette: raplayer
+	ActorStatValues:
+		Upgrades: ra_doctrine_inferno, ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_unstableisotopes, ra_upgrade_scorchedearth
 
 QTNK:
 	Inherits: ^Tank
@@ -4002,10 +4102,11 @@ QTNK:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
-	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
-	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Buildable:
 		BuildLimit: 1
 		Queue: Vehicle, RAVehicle
@@ -4071,7 +4172,7 @@ QTNK:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_upgrade_unstableisotopes, ra_doctrine_inferno, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_inferno, ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_unstableisotopes, ra_upgrade_scorchedearth
 
 ####################################################################################################
 #		RA Aircraft
@@ -4152,12 +4253,13 @@ C17.Paradrop:
 
 BADR.Soviet:
 	Inherits: BADR
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@Afterburners: ^AfterburnersUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	RenderSprites:
 		Image: badr
 	ActorStatValues:
-		Upgrades: ra_upgrade_afterburners, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_afterburners, ra_upgrade_stalinium
 
 BADR.Bomber:
 	Inherits: BADR.Soviet
@@ -4217,6 +4319,7 @@ YAK:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
@@ -4309,7 +4412,7 @@ YAK:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_upgrade_incendiarybullets, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_incendiarybullets, ra_upgrade_stalinium
 
 MODKAMI:
 	Inherits: ^RANeutralPlane
@@ -4433,6 +4536,7 @@ MIG:
 	Inherits@AntiTank: ^PrioritizeTank
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@AntiDef: ^PrioritizeDefence
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@TeslaRocketsUpgradeRA1: ^TeslaRocketsUpgradeRA1
 	Inherits@NuclearRocketsUpgradeRA1: ^NuclearRocketsUpgradeRA1
 	Inherits@Afterburners: ^AfterburnersUpgradeRA1
@@ -4540,14 +4644,8 @@ MIG:
 		Condition: enable-smoke
 	RenderSprites:
 		PlayerPalette: raplayer
-	FirepowerMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 115
-	RangeMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 115
-	RevealsShroudMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 130
 	ActorStatValues:
-		Upgrades: ra_upgrade_teslarockets, ra_upgrade_nuclearrockets, ra_upgrade_afterburners, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_teslarockets, ra_upgrade_nuclearrockets, ra_upgrade_afterburners, ra_upgrade_stalinium
 
 su57:
 	Inherits: ^RANeutralPlane
@@ -4559,10 +4657,11 @@ su57:
 	Inherits@AntiTank: ^PrioritizeTank
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@AntiDef: ^PrioritizeDefence
+	Inherits@eject: ^AircraftEjectOnDeath
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
 	Inherits@Afterburners: ^AfterburnersUpgradeRA1
-	Inherits@eject: ^AircraftEjectOnDeath
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		Queue: Aircraft, RAAircraft
@@ -4667,7 +4766,7 @@ su57:
 	RevealsShroudMultiplier@ra_upgrade_highexplosiverockets:
 		Modifier: 130
 	ActorStatValues:
-		Upgrades: ra_upgrade_highexplosiverockets, ra_upgrade_incendiarybullets, ra_upgrade_afterburners, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_highexplosiverockets, ra_upgrade_incendiarybullets, ra_upgrade_afterburners, ra_upgrade_stalinium
 
 HIND:
 	Inherits: ^Helicopter
@@ -4676,6 +4775,7 @@ HIND:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
 	Inherits@NuclearRocketsUpgradeRA1: ^NuclearRocketsUpgradeRA1
@@ -4846,7 +4946,7 @@ HIND:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_upgrade_incendiarybullets, ra_upgrade_highexplosiverockets, ra_upgrade_nuclearrockets, ra_upgrade_stalinium
+		Upgrades: ra_promotion_hurricanerocketpod, ra_doctrine_heavyarmor, ra_upgrade_incendiarybullets, ra_upgrade_highexplosiverockets, ra_upgrade_nuclearrockets, ra_upgrade_stalinium
 
 ra_kamov:
 	Inherits: ^Helicopter
@@ -5034,7 +5134,7 @@ ra_kamov:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: ra_upgrade_incendiarybullets, ra_upgrade_teslaarcing, ra_upgrade_teslarockets, ra_upgrade_stalinium
+		Upgrades: ra_promotion_hurricanerocketpod, ra_upgrade_incendiarybullets, ra_upgrade_teslaarcing, ra_upgrade_teslarockets, ra_upgrade_stalinium
 
 MH60:
 	Inherits: ^Helicopter
@@ -5467,6 +5567,7 @@ RATRAN.Husk:
 
 modhip:
 	Inherits: RATRAN
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@ConscriptionDoctrineRA1: ^ConscriptionDoctrineRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
@@ -5536,7 +5637,7 @@ modhip:
 	FireWarheadsOnDeath:
 		Weapon: LargeHeliExplode
 	ActorStatValues:
-		Upgrades: ra_doctrine_conscription, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_conscription, ra_doctrine_heavyarmor, ra_upgrade_stalinium
 
 modhip.husk:
 	Inherits: ^LargeHelicopterHusk
@@ -5551,7 +5652,9 @@ modhip.husk:
 
 U2:
 	Inherits: ^RANeutralPlane
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@Afterburners: ^AfterburnersUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Health:
 		HP: 200000
 	Tooltip:
@@ -5588,6 +5691,8 @@ U2:
 		Condition: enable-smoke
 	RenderSprites:
 		PlayerPalette: raplayer
+	ActorStatValues:
+		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_afterburners, ra_upgrade_stalinium
 
 ####################################################################################################
 #		Modded RA Japan
@@ -7288,6 +7393,8 @@ RAPROC.SOVIET:
 	Buildable:
 		Prerequisites: ~rafact.soviet, powr
 	ProvidesPrerequisite@buildingname:
+	ActorStatValues:
+		Upgrades: ra_doctrine_industrialefficiency, ra_upgrade_wareconomy
 
 JPROC:
 	Inherits: ^RAPROC
@@ -7593,26 +7700,34 @@ RAAFLD:
 	AirstrikePower@spyplane:
 		OrderName: SovietSpyPlane
 		Prerequisites:
-			1: #ra_upgrade_afterburners
+			1: 
+			2: ra_promotion_superspyplane
 		Icons:
 			1: spyplane
+			2: spyplane
 		ChargeInterval: 4500
 		Names:
-			1: power-spyplane.name
+			1: Spy Plane
+			2: Super Spy Plane
 		Descriptions:
 			1: power-spyplane.description
+			2: power-spyplane.description
 		SelectTargetSpeechNotification: SelectTarget
 		EndChargeSpeechNotification: SpyPlaneReady
 		CameraActor: camera.spyplane
 		CameraRemoveDelay: 150
 		UnitTypes:
 			1: u2
+			2: u2
 		SquadSizes:
 			1: 1
+			2: 3
+		SquadOffset: 4096,4096,0
 		QuantizedFacings: 16
 		DisplayBeacon: true
 		BeaconPosters:
 			1: racamicon
+			2: racamicon
 		ArrowSequence: arrow
 		ClockSequence: clock
 		CircleSequence: circles
@@ -7622,25 +7737,39 @@ RAAFLD:
 	AirstrikePower@parabombs:
 		OrderName: Parabombs
 		Prerequisites:
-			1: #~techlevel.superweapons, ~ra_doctrine_inferno
+			1: 
+			2: ra_promotion_parabombs2
+			3: ra_promotion_parabombs3
 		Icons:
 			1: airstrike
+			2: airstrike
+			3: airstrike
 		ChargeInterval: 7500
 		Names:
 			1: power-parabombs.name
+			2: power-parabombs.name
+			3: power-parabombs.name
 		Descriptions:
 			1: power-parabombs.description
+			2: power-parabombs.description
+			3: power-parabombs.description
 		SelectTargetSpeechNotification: SelectTarget
 		CameraActor: camera
 		CameraRemoveDelay: 150
 		UnitTypes:
 			1: badr.bomber
+			2: badr.bomber
+			3: badr.bomber
 		QuantizedFacings: 16
 		DisplayBeacon: true
 		BeaconPosters:
 			1: airstrike
+			2: airstrike
+			3: airstrike
 		SquadSizes:
 			1: 3
+			2: 5
+			3: 7
 		SquadOffset: 1792,1792,0
 		ArrowSequence: arrow
 		ClockSequence: clock
@@ -7652,31 +7781,166 @@ RAAFLD:
 	ParatroopersPower@paratroopers:
 		OrderName: SovietParatroopers
 		Prerequisites:
-			1: ra_doctrine_conscription
-			2: ra_promotion_superoptics, ra_doctrine_conscription
-			3: upmortarsoldier, ra_doctrine_conscription
-			4: upcyberdog, ra_doctrine_conscription
+			1: 
+			2: ra_doctrine_conscription
+			3: ra_doctrine_industrialefficiency
+			4: ra_doctrine_inferno
+			5: ra_doctrine_conscription, ra_doctrine_teslatech
+			6: ra_doctrine_conscription, ra_doctrine_heavyarmor
+			7: ra_doctrine_conscription, ra_doctrine_nuclearwar
+			8: ra_doctrine_industrialefficiency, ra_doctrine_teslatech
+			9: ra_doctrine_industrialefficiency, ra_doctrine_heavyarmor
+			10: ra_doctrine_industrialefficiency, ra_doctrine_nuclearwar
+			11: ra_doctrine_inferno, ra_doctrine_teslatech
+			12: ra_doctrine_inferno, ra_doctrine_heavyarmor
+			13: ra_doctrine_inferno, ra_doctrine_nuclearwar
+			14: upmortarsoldier, ra_doctrine_conscription, ra_doctrine_teslatech
+			15: upmortarsoldier, ra_doctrine_conscription, ra_doctrine_heavyarmor
+			16: upmortarsoldier, ra_doctrine_conscription, ra_doctrine_nuclearwar
+			17: upmortarsoldier, ra_doctrine_industrialefficiency, ra_doctrine_teslatech
+			18: upmortarsoldier, ra_doctrine_industrialefficiency, ra_doctrine_heavyarmor
+			19: upmortarsoldier, ra_doctrine_industrialefficiency, ra_doctrine_nuclearwar
+			20: upmortarsoldier, ra_doctrine_inferno, ra_doctrine_teslatech
+			21: upmortarsoldier, ra_doctrine_inferno, ra_doctrine_heavyarmor
+			22: upmortarsoldier, ra_doctrine_inferno, ra_doctrine_nuclearwar
+			23: upcyberdog, ra_doctrine_conscription, ra_doctrine_teslatech
+			24: upcyberdog, ra_doctrine_conscription, ra_doctrine_heavyarmor
+			25: upcyberdog, ra_doctrine_conscription, ra_doctrine_nuclearwar
+			26: upcyberdog, ra_doctrine_industrialefficiency, ra_doctrine_teslatech
+			27: upcyberdog, ra_doctrine_industrialefficiency, ra_doctrine_heavyarmor
+			28: upcyberdog, ra_doctrine_industrialefficiency, ra_doctrine_nuclearwar
+			29: upcyberdog, ra_doctrine_inferno, ra_doctrine_teslatech
+			30: upcyberdog, ra_doctrine_inferno, ra_doctrine_heavyarmor
+			31: upcyberdog, ra_doctrine_inferno, ra_doctrine_nuclearwar
 		Icons:
 			1: paratroopers
 			2: paratroopers
 			3: paratroopers
 			4: paratroopers
+			5: paratroopers
+			6: paratroopers
+			7: paratroopers
+			8: paratroopers
+			9: paratroopers
+			10: paratroopers
+			11: paratroopers
+			12: paratroopers
+			13: paratroopers
+			14: paratroopers
+			15: paratroopers
+			16: paratroopers
+			17: paratroopers
+			18: paratroopers
+			19: paratroopers
+			20: paratroopers
+			21: paratroopers
+			22: paratroopers
+			23: paratroopers
+			24: paratroopers
+			25: paratroopers
+			26: paratroopers
+			27: paratroopers
+			28: paratroopers
+			29: paratroopers
+			30: paratroopers
+			31: paratroopers
 		Names:
 			1: power-paratroopers.name
 			2: power-paratroopers.name
 			3: power-paratroopers.name
 			4: power-paratroopers.name
+			5: power-paratroopers.name
+			6: power-paratroopers.name
+			7: power-paratroopers.name
+			8: power-paratroopers.name
+			9: power-paratroopers.name
+			10: power-paratroopers.name
+			11: power-paratroopers.name
+			12: power-paratroopers.name
+			13: power-paratroopers.name
+			14: power-paratroopers.name
+			15: power-paratroopers.name
+			16: power-paratroopers.name
+			17: power-paratroopers.name
+			18: power-paratroopers.name
+			19: power-paratroopers.name
+			20: power-paratroopers.name
+			21: power-paratroopers.name
+			22: power-paratroopers.name
+			23: power-paratroopers.name
+			24: power-paratroopers.name
+			25: power-paratroopers.name
+			26: power-paratroopers.name
+			27: power-paratroopers.name
+			28: power-paratroopers.name
+			29: power-paratroopers.name
+			30: power-paratroopers.name
+			31: power-paratroopers.name
 		ChargeInterval: 6000
 		Descriptions:
 			1: power-paratroopers.description
-			2: power-paratroopers.description
-			3: power-paratroopers.description
-			4: power-paratroopers.description
+			2: pinficon
+			3: pinficon
+			4: pinficon
+			5: pinficon
+			6: pinficon
+			7: pinficon
+			8: pinficon
+			9: pinficon
+			10: pinficon
+			11: pinficon
+			12: pinficon
+			13: pinficon
+			14: pinficon
+			15: pinficon
+			16: pinficon
+			17: pinficon
+			18: pinficon
+			19: pinficon
+			20: pinficon
+			21: pinficon
+			22: pinficon
+			23: pinficon
+			24: pinficon
+			25: pinficon
+			26: pinficon
+			27: pinficon
+			28: pinficon
+			29: pinficon
+			30: pinficon
+			31: pinficon
 		DropItems:
-			1: dog, rare1, rae2, rare3, rae4, shok, dog, rare1, rae2, rare3, rae4, shok, dog, rare1, rae2, rare3, rae4, shok
-			2: dog, rare1, rae2, rare3, rae4, shok, e3flamer, dog, rare1, rae2, rare3, rae4, shok, e3flamer, dog, rare1, rae2, rare3, rae4, shok, e3flamer
-			3: dog, rare1, rae2, rare3, rae4, shok, e3flamer, mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, e3flamer, mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, e3flamer, mortarsoldier
-			4: cyberdog, rare1, rae2, rare3, rae4, shok, e3flamer, mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, e3flamer, mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, e3flamer, mortarsoldier
+			1: dog, rare1, rae2, rare3, rae4, shok, dog, rare1, rae2, rare3, rae4, shok
+			2: dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr
+			3: dog, rare1, rae2, rare3, rae4, shok, dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk
+			4: dog, rare1, rae2, rare3, e3flamer, rae4, shok, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl
+			5: dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, modbtr, ttnk, ttnk2
+			6: dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, hammertank, ra_grad, 5tnk
+			7: dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, kotin, v2rlnuke, 4tnk
+			8: dog, rare1, rae2, rare3, rae4, shok, ra_zapper, dog, rare1, rae2, rare3, rae4, shok, ra_zapper, 3tnk, ftrk, v1truck, modgtnk, ttnk, ttnk2
+			9: dog, rare1, rae2, rare3, rae4, shok, dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, hammertank, ra_grad, 5tnk
+			10: dog, rare1, rae2, rare3, rae4, shok, dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, kotin, v2rlnuke, 4tnk
+			11: dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, ra_heatraytank, v2rl, ttnk, ttnk2
+			12: dog, rare1, rae2, rare3, e3flamer, rae4, shok, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, hammertank, ra_grad, 5tnk
+			13: dog, rare1, rae2, rare3, e3flamer, rae4, shok, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, kotin, v2rlnuke, 4tnk
+			14: mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, modbtr, ttnk, ttnk2
+			15: mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, hammertank, ra_grad, 5tnk
+			16: mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, kotin, v2rlnuke, 4tnk
+			17: mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, ra_zapper, mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, ra_zapper, 3tnk, ftrk, v1truck, modgtnk, ttnk, ttnk2
+			18: mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, hammertank, ra_grad, 5tnk
+			19: mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, kotin, v2rlnuke, 4tnk
+			20: mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, ra_heatraytank, v2rl, ttnk, ttnk2
+			21: mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, hammertank, ra_grad, 5tnk
+			22: mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, kotin, v2rlnuke, 4tnk
+			23: mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, modbtr, ttnk, ttnk2
+			24: mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, hammertank, ra_grad, 5tnk
+			25: mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, kotin, v2rlnuke, 4tnk
+			26: mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, ra_zapper, mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, ra_zapper, 3tnk, ftrk, v1truck, modgtnk, ttnk, ttnk2
+			27: mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, hammertank, ra_grad, 5tnk
+			28: mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, kotin, v2rlnuke, 4tnk
+			29: mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, ra_heatraytank, v2rl, ttnk, ttnk2
+			30: mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, hammertank, ra_grad, 5tnk
+			31: mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, kotin, v2rlnuke, 4tnk
 		SelectTargetSpeechNotification: SelectTarget
 		AllowImpassableCells: false
 		QuantizedFacings: 16
@@ -7687,6 +7951,33 @@ RAAFLD:
 			2: pinficon
 			3: pinficon
 			4: pinficon
+			5: pinficon
+			6: pinficon
+			7: pinficon
+			8: pinficon
+			9: pinficon
+			10: pinficon
+			11: pinficon
+			12: pinficon
+			13: pinficon
+			14: pinficon
+			15: pinficon
+			16: pinficon
+			17: pinficon
+			18: pinficon
+			19: pinficon
+			20: pinficon
+			21: pinficon
+			22: pinficon
+			23: pinficon
+			24: pinficon
+			25: pinficon
+			26: pinficon
+			27: pinficon
+			28: pinficon
+			29: pinficon
+			30: pinficon
+			31: pinficon
 		ArrowSequence: arrow
 		ClockSequence: clocklarge
 		CircleSequence: circles
@@ -7697,11 +7988,65 @@ RAAFLD:
 			2: badr.soviet
 			3: badr.soviet
 			4: badr.soviet
+			5: badr.soviet
+			6: badr.soviet
+			7: badr.soviet
+			8: badr.soviet
+			9: badr.soviet
+			10: badr.soviet
+			11: badr.soviet
+			12: badr.soviet
+			13: badr.soviet
+			14: badr.soviet
+			15: badr.soviet
+			16: badr.soviet
+			17: badr.soviet
+			18: badr.soviet
+			19: badr.soviet
+			20: badr.soviet
+			21: badr.soviet
+			22: badr.soviet
+			23: badr.soviet
+			24: badr.soviet
+			25: badr.soviet
+			26: badr.soviet
+			27: badr.soviet
+			28: badr.soviet
+			29: badr.soviet
+			30: badr.soviet
+			31: badr.soviet
 		SquadSizes:
 			1: 3
 			2: 4
-			3: 5
-			4: 6
+			3: 4
+			4: 4
+			5: 5
+			6: 5
+			7: 5
+			8: 5
+			9: 5
+			10: 5
+			11: 5
+			12: 5
+			13: 5
+			14: 6
+			15: 6
+			16: 6
+			17: 6
+			18: 6
+			19: 6
+			20: 6
+			21: 6
+			22: 6
+			23: 7
+			24: 7
+			25: 7
+			26: 7
+			27: 7
+			28: 7
+			29: 7
+			30: 7
+			31: 7
 		SquadOffset: 1792,1792,0
 	SupportPowerChargeBar:
 	RenderSprites:
@@ -8606,6 +8951,7 @@ FTUR:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
@@ -8655,7 +9001,7 @@ FTUR:
 	RevealsShroud:
 		Range: 6742
 	ActorStatValues:
-		Upgrades: ra_doctrine_inferno, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_inferno, ra_upgrade_scorchedearth, ra_upgrade_stalinium
 
 TSLA:
 	Inherits: ^Defense
@@ -8666,6 +9012,7 @@ TSLA:
 	Inherits@TeslaTargeting: ^PrioritizeTesla
 	Inherits@ExperimentalTeslaWeaponry: ^ExperimentalTeslaWeaponry
 	Inherits@TeslaArcingUpgradeRA1: ^TeslaArcingUpgradeRA1
+	Inherits@ReactorOverloadTeamUpgradeRA1: ^ReactorOverloadTeamUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Building:
 		BuildSounds: placbldg.aud, build5.aud
@@ -8698,6 +9045,9 @@ TSLA:
 		Weapon: TeslaZapEMPArc
 		LocalOffset: 0,0,896
 		RequiresCondition: ra_upgrade_teslaarcing
+	FirepowerMultiplier@ra_upgrade_reactoroverload:
+		RequiresCondition: ra_upgrade_reactoroverload
+		Modifier: 200
 	AttackTesla:
 		RequiresCondition: !build-incomplete
 		PauseOnCondition: lowpower || disabled
@@ -8716,7 +9066,7 @@ TSLA:
 	DetectCloaked:
 		Range: 4659
 	ActorStatValues:
-		Upgrades: ra_doctrine_teslatech, ra_upgrade_teslaarcing, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_teslatech, ra_upgrade_teslaarcing, ra_upgrade_reactoroverload, ra_upgrade_stalinium
 
 RASAM:
 	Inherits: ^Defense
@@ -10856,7 +11206,7 @@ ra_upgrade_scorchedearth_proxy_actor:
 ^ScorchedEarthTeamUpgradeRA1:
 	FirepowerMultiplier@ra_upgrade_scorchedearth:
 		RequiresCondition: ra_upgrade_scorchedearth
-		Modifier: 150
+		Modifier: 125
 	GrantConditionOnPrerequisite@ra_upgrade_scorchedearth:
 		Condition: ra_upgrade_scorchedearth
 		Prerequisites: ra_upgrade_scorchedearth
@@ -11019,6 +11369,9 @@ ra_upgrade_unstableisotopes:
 		Image: ra_upgrade_unstableisotopes
 
 ^UnstableIsotopesUpgradeRA1:
+	SpeedMultiplier@ra_upgrade_unstableisotopes:
+		RequiresCondition: ra_upgrade_unstableisotopes
+		Modifier: 120
 	GrantConditionOnPrerequisite@ra_upgrade_unstableisotopes:
 		Condition: ra_upgrade_unstableisotopes
 		Prerequisites: ra_upgrade_unstableisotopes
@@ -11388,19 +11741,19 @@ upgtnk:
 	ProvidesPrerequisite:
 		Prerequisite: upgtnk
 
-upttnk2:
+ra_promotion_superspyplane:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Heavy Tesla Tank
+		Name: Super Spy Plane
 	Buildable:
 		BuildPaletteOrder: 41
 		Queue: Promotions
-		Description: Allows construction of the Heavy Tesla Tank.
-		Prerequisites: ~rafact.soviet, !upttnk2, upgtnk, rank1
+		Description: Enables the Super Spy Plane Support Power.
+		Prerequisites: ~rafact.soviet, !ra_promotion_superspyplane, upgtnk, rank1
 	RenderSprites:
-		Image: ttnk2
+		Image: u2
 	ProvidesPrerequisite:
-		Prerequisite: upttnk2
+		Prerequisite: ra_promotion_superspyplane
 
 ra_promotion_targetingcomputer:
 	Inherits: ^promotion_upgrade.template
@@ -11410,7 +11763,7 @@ ra_promotion_targetingcomputer:
 		BuildPaletteOrder: 44
 		Queue: Promotions
 		Description: ra_promotion_targetingcomputer.description
-		Prerequisites: ~rafact.soviet, !ra_promotion_targetingcomputer, upttnk2, rank1
+		Prerequisites: ~rafact.soviet, !ra_promotion_targetingcomputer, ra_promotion_superspyplane, rank1
 	RenderSprites:
 		Image: ra_promotion_targetingcomputer
 	ProvidesPrerequisite:
@@ -11430,19 +11783,19 @@ upmonstertank:
 	ProvidesPrerequisite:
 		Prerequisite: upmonstertank
 
-upbtr:
+ra_promotion_parabombs2:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock BTR-80
+		Name: Parabombs Level 2
 	Buildable:
 		BuildPaletteOrder: 39
 		Queue: Promotions
-		Description: Allows construction of the BTR-80.
-		Prerequisites: ~rafact.soviet, !upbtr, rank1
+		Description: Upgrades the Parabombs Support Power.
+		Prerequisites: ~rafact.soviet, !ra_promotion_parabombs2, rank1
 	RenderSprites:
-		Image: modbtr
+		Image: badr
 	ProvidesPrerequisite:
-		Prerequisite: upbtr
+		Prerequisite: ra_promotion_parabombs2
 
 ra_promotion_hurricanerocketpod:
 	Inherits: ^promotion_upgrade.template
@@ -11452,25 +11805,25 @@ ra_promotion_hurricanerocketpod:
 		BuildPaletteOrder: 42
 		Queue: Promotions
 		Description: ra_promotion_hurricanerocketpod.description
-		Prerequisites: ~rafact.soviet, !ra_promotion_hurricanerocketpod, upbtr, rank1
+		Prerequisites: ~rafact.soviet, !ra_promotion_hurricanerocketpod, ra_promotion_parabombs2, rank1
 	RenderSprites:
 		Image: ra_promotion_hurricanerocketpod
 	ProvidesPrerequisite:
 		Prerequisite: ra_promotion_hurricanerocketpod
 
-upv2rlnuke:
+ra_promotion_parabombs3:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Nuclear V2 Launcher
+		Name: Parabombs Level 3
 	Buildable:
 		BuildPaletteOrder: 45
 		Queue: Promotions
-		Description: Allows construction of the Nuclear V2 Launcher.
-		Prerequisites: ~rafact.soviet, !upv2rlnuke, ra_promotion_hurricanerocketpod, rank1
+		Description: Upgrades the Parabombs Support Power.
+		Prerequisites: ~rafact.soviet, !ra_promotion_parabombs3, ra_promotion_hurricanerocketpod, rank1
 	RenderSprites:
-		Image: v2rlnuke
+		Image: badr
 	ProvidesPrerequisite:
-		Prerequisite: upv2rlnuke
+		Prerequisite: ra_promotion_parabombs3
 
 upmignukebomber:
 	Inherits: ^promotion_upgrade.template
@@ -11480,7 +11833,7 @@ upmignukebomber:
 		BuildPaletteOrder: 48
 		Queue: Promotions
 		Description: Allows construction of the Supersonic Nuclear Bomber.
-		Prerequisites: ~rafact.soviet, !upmignukebomber, upv2rlnuke, rank1
+		Prerequisites: ~rafact.soviet, !upmignukebomber, ra_promotion_parabombs3, rank1
 	RenderSprites:
 		Image: mignuke
 	ProvidesPrerequisite:
@@ -11498,6 +11851,8 @@ cyberdog:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@MC: ^MCImmune
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
 	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
@@ -11593,7 +11948,7 @@ cyberdog:
 			ContaminatorMutate: 1
 			QuestionMutate: 1
 	ActorStatValues:
-		Upgrades: ra_upgrade_unstableisotopes, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_unstableisotopes, ra_upgrade_stalinium
 
 VOLKOV:
 	Inherits: ^Soldier
@@ -11609,10 +11964,11 @@ VOLKOV:
 	Inherits@EMP: ^UnitDisable
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiVeh: ^PrioritizeVehicle
-	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
+	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
+	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@TeslaArcingUpgradeRA1: ^TeslaArcingUpgradeRA1
 	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
-	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
-	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
+	Inherits@NuclearShellsTeamUpgradeRA1: ^NuclearShellsTeamUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		Queue: Infantry, RAInfantry
@@ -11626,6 +11982,52 @@ VOLKOV:
 		Cost: 10000
 	Armament:
 		Weapon: VolkovMagneticWeapon
+		LocalOffset: 500,0,250
+		RequiresCondition: !ra_upgrade_incendiarybullets && !ra_upgrade_teslaarcing && !ra_upgrade_nuclearshells
+	Armament@Tesla:
+		Weapon: VolkovMagneticWeaponTesla
+		LocalOffset: 500,0,250
+		RequiresCondition: !ra_upgrade_incendiarybullets && ra_upgrade_teslaarcing
+	Armament@NuclearShells:
+		Weapon: VolkovMagneticWeaponNuclearShells
+		LocalOffset: 500,0,250
+		RequiresCondition: !ra_upgrade_incendiarybullets && ra_upgrade_nuclearshells
+	Armament@Incendiary:
+		Weapon: VolkovMagneticWeaponIncendiary
+		LocalOffset: 500,0,250
+		RequiresCondition: ra_upgrade_incendiarybullets && !ra_upgrade_teslaarcing && !ra_upgrade_nuclearshells
+	Armament@IncendiaryTesla:
+		Weapon: VolkovMagneticWeaponIncendiaryTesla
+		LocalOffset: 500,0,250
+		RequiresCondition: ra_upgrade_incendiarybullets && ra_upgrade_teslaarcing
+	Armament@IncendiaryNuclearShells:
+		Weapon: VolkovMagneticWeaponIncendiaryNuclearShells
+		LocalOffset: 500,0,250
+		RequiresCondition: ra_upgrade_incendiarybullets && ra_upgrade_nuclearshells
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: VolkovMagneticWeapon
+		RequiresCondition: !ra_upgrade_incendiarybullets && !ra_upgrade_teslaarcing && !ra_upgrade_nuclearshells
+	Armament@GARRISONEDTesla:
+		Name: garrisoned
+		Weapon: VolkovMagneticWeaponTesla
+		RequiresCondition: !ra_upgrade_incendiarybullets && ra_upgrade_teslaarcing
+	Armament@GARRISONEDNuclearShells:
+		Name: garrisoned
+		Weapon: VolkovMagneticWeaponNuclearShells
+		RequiresCondition: !ra_upgrade_incendiarybullets && ra_upgrade_nuclearshells
+	Armament@GARRISONEDIncendiary:
+		Name: garrisoned
+		Weapon: VolkovMagneticWeaponIncendiary
+		RequiresCondition: ra_upgrade_incendiarybullets && !ra_upgrade_teslaarcing && !ra_upgrade_nuclearshells
+	Armament@GARRISONEDIncendiaryTesla:
+		Name: garrisoned
+		Weapon: VolkovMagneticWeaponIncendiaryTesla
+		RequiresCondition: ra_upgrade_incendiarybullets && ra_upgrade_teslaarcing
+	Armament@GARRISONEDIncendiaryNuclearShells:
+		Name: garrisoned
+		Weapon: VolkovMagneticWeaponIncendiaryNuclearShells
+		RequiresCondition: ra_upgrade_incendiarybullets && ra_upgrade_nuclearshells
 	Health:
 		HP: 400000
 	ChangesHealth@SelfHealing:
@@ -11646,14 +12048,8 @@ VOLKOV:
 		VoiceSet: StavrosVoice
 	AnnounceOnKill:
 	-Crushable:
-	FirepowerMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 105
-	RangeMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 105
-	RevealsShroudMultiplier@ra_upgrade_highexplosiverockets:
-		Modifier: 110
 	ActorStatValues:
-		Upgrades: ra_upgrade_unstableisotopes, ra_upgrade_autoloaders, ra_doctrine_inferno, ra_upgrade_highexplosiverockets, ra_upgrade_stalinium
+		Upgrades: ra_promotion_superoptics, ra_upgrade_incendiarybullets, ra_upgrade_teslaarcing, ra_upgrade_autoloaders, ra_upgrade_nuclearshells
 
 MODGTNK:
 	Inherits: ^Vehicle
@@ -11665,6 +12061,11 @@ MODGTNK:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
+	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 60
@@ -11762,7 +12163,7 @@ MODGTNK:
 		RequiresCondition: ammo <= 1
 		Modifier: 115
 	ActorStatValues:
-		Upgrades: ra_upgrade_incendiarybullets
+		Upgrades: ra_upgrade_incendiarybullets, ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_stalinium
 
 MonsterTank:
 	Inherits: ^Tank
@@ -11780,10 +12181,12 @@ MonsterTank:
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
 	Inherits@AntiDef: ^PrioritizeDefence
-	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
 	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
-	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Inherits@HighExplosiveRocketsUpgradeRA1: ^HighExplosiveRocketsUpgradeRA1
+	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
+	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		BuildLimit: 1
@@ -11875,7 +12278,7 @@ MonsterTank:
 	RevealsShroudMultiplier@ra_upgrade_highexplosiverockets:
 		Modifier: 110
 	ActorStatValues:
-		Upgrades: ra_upgrade_unstableisotopes, ra_upgrade_autoloaders, ra_doctrine_inferno, ra_upgrade_highexplosiverockets, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_stalinium
 
 MIGNUKE:
 	Inherits: ^RANeutralPlane
@@ -11887,10 +12290,11 @@ MIGNUKE:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@AntiBuil: ^PrioritizeBuilding
 	Inherits@AntiDef: ^PrioritizeDefence
-	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
-	Inherits@Afterburners: ^AfterburnersUpgradeRA1
-	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@Afterburners: ^AfterburnersUpgradeRA1
+	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		BuildLimit: 1
@@ -11960,7 +12364,7 @@ MIGNUKE:
 		Image: mignuke
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_doctrine_inferno, ra_upgrade_afterburners, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_afterburners, ra_upgrade_scorchedearth, ra_upgrade_stalinium
 
 	####################################################################################################
 	#		Upgrades Japan

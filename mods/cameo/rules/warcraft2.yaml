@@ -976,10 +976,6 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 		Footprint: xxx xxx xxx ===
 		Dimensions: 3,4
 		LocalCenterOffset: 0,-512,0
-	Production@NORMAL:
-		Produces: Building, Defence
-	Production@CLASSICPRODUCTIONQUEUES:
-		Produces: RABuilding, RADefence
 	RallyPoint:
 	ScalePowerWithHealth:
 	BaseBuilding:
@@ -3334,6 +3330,50 @@ wc2_human_ballista:
 	Inherits@BallUpg: ^wc2_h_str_ballista
 	Tooltip:
 		Name: Ballista
+	Valued:
+		Cost: 900
+	Power:
+		Amount: -45
+	Health:
+		HP: 45000
+	ChangesHealth@SelfHealing:
+		Step: 18
+	Mobile:
+		Speed: 45
+		TurnSpeed: 18
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~wc2_human_blacksmith
+		Queue: Infantry, RAInfantry
+		Description: Powerful long range siege unit.
+	AttackFrontal:
+		PauseOnCondition: disabled
+		FacingTolerance: 0
+	Armament:
+		Weapon: wc2ballistaFire
+		FireDelay: 20
+	Voiced:
+		VoiceSet: wc2voicehumanballista
+	-Integrity:
+	-GrantCondition@electronics:
+	-WithDeathAnimation:
+	FireWarheadsOnDeath:
+		Weapon: wc2visualexplode
+		EmptyWeapon: wc2visualexplode
+	GrantConditionOnAttack@CatapultCooldown:
+		Condition: cond_catapult_cooldown
+		RevokeDelay: 34
+	Mobile:
+		PauseOnCondition: cond_catapult_cooldown || disabled || notmobile
+
+wc2_human_siege_engine:
+	Inherits@WC2VEHICLE: ^WC2Vehicle
+	Inherits@Template: ^ArtilleryTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@BallUpg: ^wc2_h_str_ballista
+	Tooltip:
+		Name: Siege Engine
 	Valued:
 		Cost: 900
 	Power:

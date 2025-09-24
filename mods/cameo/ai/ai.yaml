@@ -5142,7 +5142,7 @@ Player:
 			upcyberdog: 1
 			upvolkov: 1
 			upgtnk: 1
-			upttnk2: 1
+			ra_promotion_superspyplane: 1
 			up5tnk: 1
 			upmonstertank: 1
 			upbtr: 1
@@ -5762,22 +5762,16 @@ Player:
 			upyamatocannon: 1
 			upinfweapon: 1
 			upinfweapon2: 1
-			upinfweapon3: 1
 			upinfarmor: 1
 			upinfarmor2: 1
-			upinfarmor3: 1
 			upmechweapon: 1
 			upmechweapon2: 1
-			upmechweapon3: 1
 			upmecharmor: 1
 			upmecharmor2: 1
-			upmecharmor3: 1
 			upshipweapon: 1
 			upshipweapon2: 1
-			upshipweapon3: 1
 			upshiparmor: 1
 			upshiparmor2: 1
-			upshiparmor3: 1
 			upmadcap: 1
 			upharakan: 1
 			upsilvertongue: 1
@@ -5833,16 +5827,12 @@ Player:
 			updragoonrange: 1
 			upgroundweapons: 1
 			upgroundweapons2: 1
-			upgroundweapons3: 1
 			upgroundarmor: 1
 			upgroundarmor2: 1
-			upgroundarmor3: 1
 			upairweapons: 1
 			upairweapons2: 1
-			upairweapons3: 1
 			upairarmor: 1
 			upairarmor2: 1
-			upairarmor3: 1
 			uppylon1: 1
 			uppylon2: 1
 			upplasmashield: 1
@@ -5882,18 +5872,14 @@ Player:
 			uplingattack: 1
 			upzergmelee: 1
 			upzergmelee2: 1
-			upzergmelee3: 1
 			upzergmissile: 1
 			upzergmissile2: 1
-			upzergmissile3: 1
 			upcarapace: 1
 			upcarapace2: 1
 			upcarapace3: 1
 			upflyerattack2: 1
-			upflyerattack3: 1
 			upflyerarmor: 1
 			upflyerarmor2: 1
-			upflyerarmor3: 1
 			upzergrange: 1
 			upspithid: 1
 			uptalon: 1

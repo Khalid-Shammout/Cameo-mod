@@ -5366,6 +5366,15 @@ chemtrooper:
 		Start: 256
 		Length: 16
 		Facings: 8
+	garrison-muzzle:
+		Filename: DATA.R16
+		Scale: 1.5
+		Remap: 54F94B
+		Start: 4028
+		Tick: 60
+		Facings: -32
+		BlendMode: Additive
+		AddExtension: false
 	icon:
 		Filename: chemtroopericon.shp
 		Offset: 0,-1

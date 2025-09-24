@@ -644,7 +644,6 @@ XCOMHQ:
 		Condition: SoldierCap
 	Production@Vehicle:
 		Produces: Vehicle
-		RequiresCondition: !classicproductionqueues
 		PauseOnCondition: disabled
 	Production@Infantry:
 		Produces: Infantry

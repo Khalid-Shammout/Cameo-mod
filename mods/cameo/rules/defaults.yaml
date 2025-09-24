@@ -875,7 +875,6 @@
 	Inherits@GlobalBuffs: ^GlobalBuffs
 	Inherits@ConscriptionDoctrineRA1: ^ConscriptionDoctrineRA1
 	Inherits@MenOfSteelTeamUpgradeRA1: ^MenOfSteelTeamUpgradeRA1
-	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Inherits@upgrade: ^AdvancedGuerillaTactics
 	ChangesHealth@SelfHealing:
 		Step: 10
@@ -885,8 +884,6 @@
 
 ^VehicleBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
-	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
-	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
 	Inherits: ^NanoTechRepairs
 	DamageMultiplier@VehicleBuffs:
 		Modifier: 90
@@ -899,9 +896,7 @@
 ^TankBuffs:
 	Inherits@VehicleBuffs: ^VehicleBuffs
 	Inherits@upgrade: ^LightWeightArmorPlating
-	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
-	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Inherits@NuclearShellsTeamUpgradeRA1: ^NuclearShellsTeamUpgradeRA1
 	DamageMultiplier@TankBuffs:
 		Modifier: 80
@@ -912,13 +907,11 @@
 		RequiresCondition: tankbunkered
 
 ^ArtilleryBuffs:
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Inherits@IxianTechnology: ^D2K_AdvancedIxianTechnologyTeamUpgrade
 
 ^AircraftBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
-	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	DamageMultiplier@AircraftBuffs:
 		Modifier: 90
 	FirepowerMultiplier@AircraftBuffs:
@@ -967,7 +960,7 @@
 		DamageCooldown: 10
 
 ^FireActor:
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
+	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	TooltipExtras@FireActor:
 		Description: Fire Weapon
 
@@ -1057,7 +1050,6 @@
 	Inherits@EXPERIENCE: ^GainsExperienceInfantry
 	Inherits@EXT: ^ExternalConditions
 	Inherits@InfantryBuffs: ^InfantryBuffs
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Armor:
 		Type: None
@@ -1074,7 +1066,6 @@
 	Inherits@EXPERIENCE: ^GainsExperienceInfantry
 	Inherits@EXT: ^ExternalConditions
 	Inherits@InfantryBuffs: ^InfantryBuffs
-	Inherits@InfernoDoctrineRA1: ^InfernoDoctrineRA1
 	Inherits@ScorchedEarthTeamUpgradeRA1: ^ScorchedEarthTeamUpgradeRA1
 	Armor:
 		Type: None
@@ -6632,11 +6623,11 @@ CPQDEBUGDUMMY:
 		Prerequisites: global-factundeploy
 	Production@NORMAL:
 		Produces: Building, Defence
-		RequiresCondition: !classicproductionqueues
+		RequiresCondition: !(classicproductionqueues || hybridproductionqueues)
 		PauseOnCondition: disabled
 	Production@CLASSICPRODUCTIONQUEUES:
 		Produces: RABuilding, RADefence
-		RequiresCondition: classicproductionqueues
+		RequiresCondition: classicproductionqueues || hybridproductionqueues
 		PauseOnCondition: disabled
 	ProductionQueue@Building:
 		Type: Building
@@ -6664,16 +6655,16 @@ CPQDEBUGDUMMY:
 		InfiniteBuildLimit: 10
 	ProductionBar@BUILDING:
 		ProductionType: Building
-		RequiresCondition: !classicproductionqueues
+		RequiresCondition: !(classicproductionqueues || hybridproductionqueues)
 	ProductionBar@DEFENCE:
 		ProductionType: Defence
-		RequiresCondition: !classicproductionqueues
+		RequiresCondition: !(classicproductionqueues || hybridproductionqueues)
 	ProductionBar@RABUILDING:
 		ProductionType: RABuilding
-		RequiresCondition: classicproductionqueues
+		RequiresCondition: classicproductionqueues || hybridproductionqueues
 	ProductionBar@RADEFENCE:
 		ProductionType: RADefence
-		RequiresCondition: classicproductionqueues
+		RequiresCondition: classicproductionqueues || hybridproductionqueues
 	Inherits@susaintelligence: ^susaintelligence
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@conyard:
