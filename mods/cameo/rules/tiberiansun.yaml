@@ -2352,11 +2352,11 @@ tsctarmr:
 		Bounds: 131072, 87381
 	HitShape:
 		TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
-	Buildable:
-		Queue: Addons
-		BuildPaletteOrder: 70
-		Prerequisites: ~tsgtcnstgdi
-		Description: upgrades level infantry.
+	# Buildable:
+	# 	Queue: Addons
+	# 	BuildPaletteOrder: 70
+	# 	Prerequisites: ~tsgtcnstgdi
+	# 	Description: upgrades level infantry.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -2733,7 +2733,7 @@ tsgtctwrmg:
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
 	Valued:
-		Cost: 700
+		Cost: 600
 	Tooltip:
 		Name: Vulcan Tower
 	Buildable:
@@ -2748,7 +2748,7 @@ tsgtctwrmg:
 		Bounds: 1024, 1024
 	SelectionDecorations:
 	Health:
-		HP: 150000
+		HP: 80000
 	Armor:
 		Type: Light
 	RevealsShroud:
@@ -2758,11 +2758,11 @@ tsgtctwrmg:
 		Offset: 0,0,0
 	WithSpriteBody:
 	Armament@VULCPRIMARY:
-		Weapon: TurretGun
+		Weapon: TSVulcanGun
 		LocalOffset: 300,60,600
-	Armament@VULCSECONDARY:
-		Weapon: TurretGun
-		LocalOffset: 300,-60,600
+	#Armament@VULCSECONDARY:
+	#	Weapon: TurretGun
+	#	LocalOffset: 300,-60,600
 	AttackTurreted:
 	WithSpriteTurret:
 	DetectCloaked:
@@ -2776,12 +2776,12 @@ tsgtctwrmg:
 
 tsgtctwrrpg:
 	Inherits: ^Defense
-	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
 	Valued:
-		Cost: 700
+		Cost: 1400
 	Tooltip:
 		Name: RPG Tower
 	Buildable:
@@ -3328,13 +3328,25 @@ TSMEDIC:
 TSENGINEER:
 	Inherits: E6
 	Inherits@anim: ^TSInfantry
+	Inherits@Template: ^SniperInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Valued:
+		Cost: 600
 	Buildable:
 		Prerequisites: ~tsgtpile
 		Queue: Infantry, RAInfantry
+	Mobile:
+		Speed: 55
+	Health:
+		HP: 10000
 	Voiced:
 		VoiceSet: TSEngineer
+	Armament@PRIMARY:
+		Weapon: TSEngineerPistol
+		LocalOffset: 128,0,256
 	DeliversCash:
-		Payload: 250
+		Payload: 300
 	RenderSprites:
 		PlayerPalette: playerra2
 	WithDeathAnimation:
@@ -3402,9 +3414,9 @@ TSE2:
 		Queue: Infantry, RAInfantry
 		Description: Fast infantry armed with grenades.\nCan attack air \n  Strong vs Buildings, slow-moving targets
 	Mobile:
-		Speed: 56
+		Speed: 60
 	Health:
-		HP: 8000
+		HP: 12000
 	ChangesHealth@SelfHealing:
 		Step: 8
 	AutoTarget:
@@ -3412,11 +3424,10 @@ TSE2:
 	Armament:
 		Weapon: TSGrenade
 		LocalOffset: 0,0,427
-		FireDelay: 15
-	Armament@aa:
-		Weapon: TSGrenadeAA
-		LocalOffset: 0,0,427
-		FireDelay: 15
+	#Armament@aa:
+	#	Weapon: TSGrenadeAA
+	#	LocalOffset: 0,0,427
+	#	FireDelay: 15
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: TSGrenadeG
@@ -3448,6 +3459,110 @@ TSE2PARA:
 	RenderSprites:
 		PlayerPalette: playerra2
 
+TSENFORCER:
+	Inherits: ^Soldier
+	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^TSInfantry
+	Inherits@vo: ^AttackFrontalVoice
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Enforcer
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~tsgtpile
+		Queue: Infantry, RAInfantry
+		Description: Heavy infantry. Effective vs Vehicles, Aircraft.
+	Mobile:
+		Speed: 60
+	Health:
+		HP: 45000
+	ChangesHealth@SelfHealing:
+		Step: 8
+	AutoTarget:
+		ScanRadius: 4
+	Armament:
+		Weapon: TS30mm
+		LocalOffset: 0,0,427
+	#Armament@aa:
+	#	Weapon: TSGrenadeAA
+	#	LocalOffset: 0,0,427
+	#	FireDelay: 15
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: TS30mm
+	TakeCover:
+		ProneOffset: 300,0,-227
+	WithInfantryBody:
+	WithDeathAnimation:
+		DeathSequencePalette: ra2player
+		CrushedSequencePalette: ra2effect
+	# Explodes:
+	# 	Weapon: GrenadierExplode
+	# 	EmptyWeapon: GrenadierExplode
+	# 	Chance: 50
+	Voiced:
+		VoiceSet: TSInfantry
+	RenderSprites:
+		PlayerPalette: playerra2
+
+TSRIOTT:
+	Inherits: ^Soldier
+	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^TSInfantry
+	Inherits@vo: ^AttackFrontalVoice
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Riot Trooper
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 45
+		Prerequisites: ~tsgtpile, tsntpulsgdi, tsgtradr
+		Queue: Infantry, RAInfantry
+		Description: Heavy infantry. Effective vs Infantry.
+	Mobile:
+		Speed: 60
+	Health:
+		HP: 54000
+	ChangesHealth@SelfHealing:
+		Step: 8
+	AutoTarget:
+		ScanRadius: 4
+	Armament:
+		Weapon: TSShotgun
+		LocalOffset: 0,0,427
+	#Armament@aa:
+	#	Weapon: TSGrenadeAA
+	#	LocalOffset: 0,0,427
+	#	FireDelay: 15
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: TSShotgun
+	TakeCover:
+		ProneOffset: 300,0,-227
+	WithInfantryBody:
+	WithDeathAnimation:
+		DeathSequencePalette: ra2player
+		CrushedSequencePalette: ra2effect
+	# Explodes:
+	# 	Weapon: GrenadierExplode
+	# 	EmptyWeapon: GrenadierExplode
+	# 	Chance: 50
+	Voiced:
+		VoiceSet: TSInfantry
+	RenderSprites:
+		PlayerPalette: playerra2
+
 TSJUMPJET:
 	Inherits: ^Soldier
 	Inherits@Template: ^ScoutInfantryTemplate
@@ -3458,7 +3573,7 @@ TSJUMPJET:
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@EXT: ^ExternalConditions
 	Valued:
-		Cost: 450
+		Cost: 600
 	Tooltip:
 		Name: Jumpjet Infantry
 	UpdatesPlayerStatistics:
@@ -3471,12 +3586,12 @@ TSJUMPJET:
 	Voiced:
 		VoiceSet: TSJumpJet
 	Mobile:
-		Speed: 71
+		Speed: 80
 		Locomotor: swimsuit
 	Health:
-		HP: 17500
+		HP: 20000
 	ChangesHealth@SelfHealing:
-		Step: 17
+		Step: 80
 	Armor:
 		Type: Light
 	Passenger:
@@ -3543,7 +3658,7 @@ tsjumpjet2:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@detect: ^GenericAirDetector
 	Valued:
-		Cost: 450
+		Cost: 600
 	Tooltip:
 		Name: Jumpjet Infantry
 	UpdatesPlayerStatistics:
@@ -3554,14 +3669,14 @@ tsjumpjet2:
 		Queue: Infantry, RAInfantry
 		Description: Airborne soldier.\nCan attack aircraft.\n  Strong vs Infantry, Light armor\n  Weak vs AA
 	Aircraft:
-		TurnSpeed: 36
-		Speed: 180
+		TurnSpeed: 16
+		Speed: 80
 		IdealSeparation: 900
 		Voice: Move
 	Health:
-		HP: 17500
+		HP: 20000
 	ChangesHealth@SelfHealing:
-		Step: 17
+		Step: 80
 	Armament@PRIMARY:
 		Weapon: TSJumpCannon
 	AttackAircraft:
@@ -4187,14 +4302,14 @@ TSGHOST:
 		Name: Ghost Stalker
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-	Buildable:
-		BuildPaletteOrder: 90
-		Prerequisites: ~tsgtpile, tsgttech
-		Queue: Infantry, RAInfantry
-		BuildLimit: 1
-		Description: Elite commando infantry, armed with\na railgun and C4.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4\nMaximum 5 can be trained.
+	# Buildable:
+	# 	BuildPaletteOrder: 90
+	# 	Prerequisites: ~tsgtpile, tsgttech
+	# 	Queue: Infantry, RAInfantry
+	# 	BuildLimit: 1
+	# 	Description: Elite commando infantry, armed with\na railgun and C4.\n  Strong vs Infantry, Buildings\n  Weak vs Vehicles, Aircraft\n  Special Ability: Destroy Building with C4\nMaximum 5 can be trained.
 	Mobile:
-		Speed: 80
+		Speed: 75
 	Armor:
 		Type: Light
 	Health:
@@ -4215,6 +4330,54 @@ TSGHOST:
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: TSMechRailgun
+	-DamagedByTerrain:
+	Selectable:
+		Class: tsghost
+	RenderSprites:
+		PlayerPalette: playerra2
+	WithDeathAnimation:
+		DeathSequencePalette: ra2player
+		CrushedSequencePalette: ra2effect
+
+TSRAILCOM:
+	Inherits: ^Soldier
+	Inherits@Template: ^HeroInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@COMMANDOSKULL: ^CommandoSkull
+	# Inherits@announce: ^AnnounceGlobal
+	Inherits@anim: ^TSInfantry
+	Inherits@vo: ^AttackFrontalVoice
+	Valued:
+		Cost: 5000
+	Tooltip:
+		Name: Railgun Commando
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 90
+		Prerequisites: ~tsgtpile, tsgttech
+		Queue: Infantry, RAInfantry
+		BuildLimit: 1
+		Description: Elite commando infantry, armed with a railgun.  Strong vs Everything.
+	Mobile:
+		Speed: 60
+	Health:
+		HP: 100000
+	AutoTarget:
+		ScanRadius: 6
+	Armament@PRIMARY:
+		Weapon: TSCommandoRailgun
+		LocalOffset: 256,43,256
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: infantry ##########
+	Voiced:
+		VoiceSet: TSGhost
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: TSCommandoRailgun
 	-DamagedByTerrain:
 	Selectable:
 		Class: tsghost
@@ -5107,6 +5270,54 @@ TSCLOUD1:
 # TS GDI Vehicles
 #######################################
 
+TSPITBULL:
+	Inherits: ^Vehicle
+	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@EXP: ^GainsExperience
+	Inherits@Voxel: ^TSRenderVoxel
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AntiVeh: ^PrioritizeVehicle
+	Inherits@AntiTank: ^PrioritizeTank
+	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@EMP: ^TurretEMP
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Pitbull
+	# Buildable:
+	# 	Queue: Vehicle, RAVehicle
+	# 	BuildPaletteOrder: 20
+	# 	Prerequisites: ~tsgtweap
+	# 	Description: Scout vehicle.  Strong vs Vehicles, Aircraft.  Weak vs Infantry
+	Mobile:
+		Speed: 150
+		TurnSpeed: 30
+	Health:
+		HP: 27500
+	Repairable:
+		HpPerStep: 1375
+	ChangesHealth@SelfHealing:
+		Step: 11
+	Turreted:
+		TurnSpeed: 30
+		Offset: -85,0,192
+	Armament:
+		Weapon: PitbullRockets
+		LocalOffset: -128, -170, 170, -128, 170, 170
+		LocalYaw: 100, -100
+		MuzzleSequence: muzzle
+	AttackTurreted:
+	WithMuzzleOverlay:
+	WithVoxelBody:
+	WithVoxelTurret:
+	RenderVoxels:
+		Image: tspitbull
+		PlayerPalette: playerra2
+	RenderSprites:
+		Image: tspitbull
+	FireWarheadsOnDeath:
+		Weapon: UnitExplodeSmall
+
 TSMMCH:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
@@ -5117,7 +5328,7 @@ TSMMCH:
 	Inherits@detect: ^EliteDetector
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
-		Cost: 600
+		Cost: 800
 	Tooltip:
 		Name: Titan
 	Buildable:
@@ -5130,18 +5341,21 @@ TSMMCH:
 	Mobile:
 		Locomotor: tracked
 		Speed: 75
+		TurnSpeed: 15
 	Health:
-		HP: 120000
+		HP: 90000
 	Repairable:
-		HpPerStep: 2637
+		HpPerStep: 4500
+	ChangesHealth@SelfHealing:
+		Step: 36
 	Armor:
 		Type: Heavy
 	RevealsShroud:
 		Range: 6c0
 	Turreted:
-		TurnSpeed: 20 #3
+		TurnSpeed: 15 #3
 	Armament:
-		Weapon: 120mm
+		Weapon: TS120mm
 		Recoil: 128
 		RecoilRecovery: 32
 		LocalOffset: 800, 300, 700
@@ -5178,7 +5392,7 @@ TSMMCH:
 
 TSJUGG:
 	Inherits: ^Tank
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^ArtilleryTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	# Inherits@Voxel: ^TSRenderVoxel
@@ -5186,7 +5400,7 @@ TSJUGG:
 	Inherits@detect: ^EliteDetector
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
-		Cost: 950
+		Cost: 1400
 	Tooltip:
 		Name: Juggernaut
 		RequiresCondition: !deployed
@@ -5201,7 +5415,11 @@ TSJUGG:
 		Queue: Vehicle, RAVehicle
 		Description: Mobile artillery mech.\nImmobile when firing.\n  Strong vs Ground units\n  Weak vs Aircraft
 	Health:
-		HP: 120000
+		HP: 35000
+	Repairable:
+		HpPerStep: 1750
+	ChangesHealth@SelfHealing:
+		Step: 14
 	Mobile:
 		Locomotor: tracked
 		Speed: 71
@@ -5301,7 +5519,7 @@ TSHVR:
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
-		Cost: 600
+		Cost: 900
 	Tooltip:
 		Name: Hover MLRS
 	Buildable:
@@ -5313,21 +5531,21 @@ TSHVR:
 		BuildDurationModifier: 100
 	Mobile:
 		Locomotor: hover
-		Speed: 99
+		Speed: 80
 	Health:
-		HP: 60000
+		HP: 30000
 	Repairable:
-		HpPerStep: 2637
+		HpPerStep: 1500
+	ChangesHealth@SelfHealing:
+		Step: 12
 	Armor:
-		Type: Wood
+		Type: Medium
 	RevealsShroud:
 		Range: 7c0
 	Turreted:
-		TurnSpeed: 28
+		TurnSpeed: 16
 	Armament:
 		Weapon: TSHoverMissile
-		Recoil: 128
-		RecoilRecovery: 26
 		LocalOffset: 0,121,271, 0,-121,271
 	AttackTurreted:
 	SelectionDecorations:
@@ -5351,31 +5569,35 @@ TSHVR:
 
 TSSMECH:
 	Inherits: ^Vehicle
-	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@Template: ^FireSupportTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EXT: ^ExternalConditions
 	Valued:
-		Cost: 450
+		Cost: 550
 	Tooltip:
 		Name: Wolverine
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		Queue: Vehicle, RAVehicle
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 25
 		BuildDuration: 250
 		BuildDurationModifier: 100
 		Prerequisites: ~tsgtweap
 		Description: Anti-personnel walker.\n  Strong vs Infantry, Light armor\n  Weak vs Vehicles, Aircraft
 	Mobile:
-		TurnSpeed: 80
-		Speed: 99
+		TurnSpeed: 32
+		Speed: 80
 		Locomotor: wheeled
 	Health:
-		HP: 60000
+		HP: 30000
+	Repairable:
+		HpPerStep: 1500
+	ChangesHealth@SelfHealing:
+		Step: 12
 	Armor:
 		Type: Light
 	RevealsShroud:
@@ -5400,7 +5622,7 @@ TSSMECH:
 
 TSHMEC:
 	Inherits: ^Tank
-	Inherits@Template: ^LineBreakerTemplate
+	Inherits@Template: ^EpicVehicleTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
@@ -5410,10 +5632,12 @@ TSHMEC:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@snipe: ^DriverKillImmune
 	Inherits@ND: ^NotDevourable
+	# Inherits@announce: ^AnnounceGlobal
 	Valued:
-		Cost: 5000
+		Cost: 4000
 	Tooltip:
-		Name: Mammoth Mk. II
+		Name: Mammoth Prototype
+	# Mammoth MK. II
 	Buildable:
 		BuildPaletteOrder: 140
 		Prerequisites: ~tsgtweap, tsgttech
@@ -5421,65 +5645,65 @@ TSHMEC:
 		BuildDuration: 1250
 		BuildDurationModifier: 100
 		BuildLimit: 1
-		Description: Slow heavy walker.\nArmed with dual railguns and rocket launchers.\n Strong vs Everything\n Maximum 1 can be built.
+		Description: Slow heavy walker. Armed with dual railguns and rocket launchers. Strong vs Everything. Maximum 1 can be built.
 	Mobile:
-		TurnSpeed: 32
+		TurnSpeed: 20
 		Speed: 50
 	Health:
-		HP: 1000000
-	ChangesHealth@1:
-		Step: 400
-		Delay: 1
-		StartIfBelow: 100
-		DamageCooldown: 1
-	ChangesHealth@2:
-		PercentageStep: 1
-		Delay: 25
-		StartIfBelow: 100
-		DamageCooldown: 25
+		HP: 800000
+	#ChangesHealth@1:
+	#	Step: 400
+	#	Delay: 1
+	#	StartIfBelow: 100
+	#	DamageCooldown: 1
+	#ChangesHealth@2:
+	#	PercentageStep: 1
+	#	Delay: 25
+	#	StartIfBelow: 100
+	#	DamageCooldown: 25
 	Repairable:
-		HpPerStep: 3500
+		HpPerStep: 1500
+	ChangesHealth@SelfHealing:
+		Step: 320
 	Armor:
-		Type: Heavy
-	DamageMultiplier@superheavy:
-		Modifier: 50
-	FirepowerMultiplier:
-		Modifier: 200
+		Type: Superheavy
 	RevealsShroud:
 		Range: 7c0
+	Armament@RAILGUN:
+		Name: railgun
+		Weapon: TSMechRailgun
+		LocalOffset: 400,-350,450, 400,350,450
 	Armament@MISSILES:
 		Name: missiles
 		Weapon: TSMammothTusk2
 		LocalOffset: -420,-300,600, -420,300,600
 		LocalYaw: -100,100
-		MuzzleSequence: muzzle1
-		RequiresCondition: !rank-elite
-	Armament@MISSILESE:
-		Name: missiles
-		Weapon: TSMammothTusk_elite
-		LocalOffset: -420,-300,600, -420,300,600
-		LocalYaw: -100,100
-		MuzzleSequence: muzzle1
-		RequiresCondition: rank-elite
-	Armament@RAILGUN:
-		Name: railgun
-		Weapon: TSMechRailgun
-		LocalOffset: 550,-420,650, 550,420,650
-		MuzzleSequence: muzzle2
-		RequiresCondition: !rank-elite
-	Armament@RAILGUNE:
-		Name: railgun
-		Weapon: TSMechRailgun_elite
-		LocalOffset: 550,-420,650, 550,420,650
-		MuzzleSequence: muzzle2
-		RequiresCondition: rank-elite
+	#	MuzzleSequence: muzzle1
+	#	RequiresCondition: !rank-elite
+	#Armament@MISSILESE:
+	#	Name: missiles
+	#	Weapon: TSMammothTusk_elite
+	#	LocalOffset: -420,-300,600, -420,300,600
+	#	LocalYaw: -100,100
+	#	MuzzleSequence: muzzle1
+	#	RequiresCondition: rank-elite
+	#	MuzzleSequence: muzzle2
+	#	RequiresCondition: !rank-elite
+	#Armament@RAILGUNE:
+	#	Name: railgun
+	#	Weapon: TSMechRailgun_elite
+	#	LocalOffset: 550,-420,650, 550,420,650
+	#	MuzzleSequence: muzzle2
+	#	RequiresCondition: rank-elite
 	AttackFrontal:
 		Armaments: railgun
 		FacingTolerance: 0
 	AttackFollow:
-		Armaments: missiles, aamissiles
+		Armaments: missiles
 		PauseOnCondition: disabled
 		Voice: Attack
+	Crushable:
+		CrushClasses: hugevehicle
 	WithMuzzleOverlay:
 	SelectionDecorations:
 	Selectable:
@@ -5506,14 +5730,14 @@ TSHMEC:
 
 TSSONIC:
 	Inherits: ^Tank
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
-		Cost: 1500
+		Cost: 2400
 	Tooltip:
 		Name: Disruptor
 	Buildable:
@@ -5524,20 +5748,22 @@ TSSONIC:
 		Queue: Vehicle, RAVehicle
 		Description: Armored high-tech vehicle with\na long range sonic armament.\n  Strong vs Infantry, Vehicles, Buildings\n  Weak vs Aircraft
 	Mobile:
-		TurnSpeed: 32
-		Speed: 56
+		TurnSpeed: 10
+		Speed: 50
 	Health:
-		HP: 62500
+		HP: 250000
 	Repairable:
-		HpPerStep: 2637
+		HpPerStep: 12500
+	ChangesHealth@SelfHealing:
+		Step: 100
 	Armor:
 		Type: Heavy
 	RevealsShroud:
 		Range: 7c0
 	Turreted:
-		TurnSpeed: 20 #3
+		TurnSpeed: 10 #3
 	Armament:
-		Weapon: TSSonicZap
+		Weapon: TSSonicZapWeapon
 		Recoil: 128
 		RecoilRecovery: 26
 	AttackTurreted:
@@ -5901,7 +6127,7 @@ TSTTNK:
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
+	Inherits@Voxel: ^RenderVoxel
 	Inherits@EMP: ^FrontalEMP
 	Inherits@detect: ^EliteDetector
 	Inherits@vo: ^AttackFrontalVoice
@@ -6359,11 +6585,13 @@ tslpstnod:
 
 tsmemp:
 	Inherits: ^Tank
+	Inherits@Template: ^LineBreakerTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Valued:
-		Cost: 1000
+		Cost: 1400
 	Tooltip:
 		Name: Mobile EMP
 	Buildable:
@@ -6374,26 +6602,27 @@ tsmemp:
 	Mobile:
 		Speed: 100
 	Health:
-		HP: 20000
+		HP: 150000
 	Armor:
 		Type: Heavy
 	Repairable:
-		HpPerStep: 2637
-	Armor:
-		Type: Wood
+		HpPerStep: 7500
+	ChangesHealth@SelfHealing:
+		Step: 60
 	RevealsShroud:
 		Range: 5c0
 	Turreted:
 	AttackTurreted:
 	Armament:
 		Weapon: TSMobileEMP
-	ReloadArmamentsBar:
-	Inherits@EXT: ^ExternalConditions
+		MuzzleSequence: muzzle
+#	ReloadArmamentsBar:
+#	Inherits@EXT: ^ExternalConditions
 	WithVoxelBody:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
-		Payload: 500
+		Payload: 700
 	RenderVoxels:
 		Image: tsm_emp
 		Scale: 15
@@ -7198,13 +7427,13 @@ TSDEFENDER:
 
 TSORCA:
 	Inherits: ^Helicopter
-	Inherits@Template: ^BomberTemplate
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
 	Valued:
-		Cost: 1000
+		Cost: 1700
 	Tooltip:
 		Name: Orca Fighter
 	UpdatesPlayerStatistics:
@@ -7223,9 +7452,7 @@ TSORCA:
 		CanSlide: false
 		TakeOffOnResupply: true
 	Health:
-		HP: 60000
-	Armor:
-		Type: Light
+		HP: 32500
 	RevealsShroud:
 		Range: 7c0
 		Type: GroundPosition
@@ -7254,7 +7481,7 @@ TSORCA:
 		ReloadCount: 2
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 25
+		Delay: 4
 		Count: 1
 	SpawnActorOnDeath:
 		Actor: TSORCA.Husk
@@ -7288,7 +7515,7 @@ TSORCAB:
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
 	Valued:
-		Cost: 1600
+		Cost: 1900
 	Tooltip:
 		Name: Orca Bomber
 	UpdatesPlayerStatistics:
@@ -7308,9 +7535,7 @@ TSORCAB:
 		CanHover: false
 		CanSlide: false
 	Health:
-		HP: 75000
-	Armor:
-		Type: Light
+		HP: 120000
 	RevealsShroud:
 		Range: 7c0
 		Type: GroundPosition
@@ -8208,14 +8433,14 @@ TSKODK:
 	Tooltip:
 		Name: Kodiak Command Ship
 	Valued:
-		Cost: 4000
+		Cost: 10000
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~tsgthpad, tsgtplug
 		Queue: Aircraft, RAAircraft
-		Description: GDI command ship.\n Strong vs Everything and a support power
+		Description: GDI command ship. Strong vs Everything
 		BuildLimit: 1
 	Aircraft:
 		InitialFacing: 896
@@ -8224,21 +8449,24 @@ TSKODK:
 		RepulsionSpeed: 24
 		IdealSeparation: 2500
 	Health:
-		HP: 500000
+		HP: 900000
 	Repairable:
-		HpPerStep: 25000
+		HpPerStep: 45000
 	ChangesHealth@SelfHealing:
-		Step: 200
-	Armament:
+		Step: 360
+	Armament@PRIMARY:
 		Name: primary
-		Weapon: BCLaser
-		LocalOffset: 800,0,200
-		PauseOnCondition: tacticaljump
-		AmmoUsage: 0
+		Weapon: KodiakCannon
+		LocalOffset: 800,0,-200
 		MuzzleSequence: muzzle
-	AttackAircraft:
-		FacingTolerance: 20
-		AttackType: Hover
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: KodiakAAGuns
+		LocalOffset: 400,0,200
+		MuzzleSequence: muzzle
+	#AttackAircraft:
+	#	FacingTolerance: 20
+	#	AttackType: Hover
 	FireWarheadsOnDeath:
 		Weapon: HeliExplode
 		EmptyWeapon: HeliExplode
@@ -8258,37 +8486,37 @@ TSKODK:
 	-ReloadAmmoDelayMultiplier@RANK-ELITE:
 	RenderSprites:
 		PlayerPalette: playerra2
-	IonCannonPower:
-		AllowMultiple: True
-		OrderName: GDIDropDod
-		Prerequisites:
-			1: ~techlevel.superweapons
-		Icons:
-			1:droppod
-		Cursor: ioncannon
-		ChargeInterval: 7500
-		WeaponDelay: 0
-		Weapon: TSDroppodSpawner
-		Effect: tsioncannon
-		EffectSequence: targeting
-		EffectPalette: ra2effect
-		Names:
-			1: Drop Pods
-		Descriptions:
-			1: Deploys elite infantry from orbit.
-		InsufficientPowerSpeechNotification: InsufficientPower
-		SelectTargetSpeechNotification: SelectTarget
-		LaunchSpeechNotification: ReinforcementsArrived
-		SelectTargetTextNotification: Select target.
-		DisplayTimerRelationships: Ally, Neutral, Enemy
-		DisplayRadarPing: True
-		CameraRange: 5000
-		CameraRemoveDelay: 125
-		CameraActor: CAMERA.small
-		SupportPowerPaletteOrder: 20
-		TargetCircleRanges:
-			1: 5000
-		TargetCircleColor: ff000080
+	#IonCannonPower:
+	#	AllowMultiple: True
+	#	OrderName: GDIDropDod
+	#	Prerequisites:
+	#		1: ~techlevel.superweapons
+	#	Icons:
+	#		1:droppod
+	#	Cursor: ioncannon
+	#	ChargeInterval: 7500
+	#	WeaponDelay: 0
+	#	Weapon: TSDroppodSpawner
+	#	Effect: tsioncannon
+	#	EffectSequence: targeting
+	#	EffectPalette: ra2effect
+	#	Names:
+	#		1: Drop Pods
+	#	Descriptions:
+	#		1: Deploys elite infantry from orbit.
+	#	InsufficientPowerSpeechNotification: InsufficientPower
+	#	SelectTargetSpeechNotification: SelectTarget
+	#	LaunchSpeechNotification: ReinforcementsArrived
+	#	SelectTargetTextNotification: Select target.
+	#	DisplayTimerRelationships: Ally, Neutral, Enemy
+	#	DisplayRadarPing: True
+	#	CameraRange: 5000
+	#	CameraRemoveDelay: 125
+	#	CameraActor: CAMERA.small
+	#	SupportPowerPaletteOrder: 20
+	#	TargetCircleRanges:
+	#		1: 5000
+	#	TargetCircleColor: ff000080
 
 TSKODK.Husk:
 	Inherits: ^PlaneHusk

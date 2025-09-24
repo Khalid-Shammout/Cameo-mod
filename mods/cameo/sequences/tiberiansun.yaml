@@ -208,6 +208,61 @@ tse3:
 		Filename: tse3icon.png
 		AddExtension: False
 
+tsenforcer:
+	Inherits: ^TSBasicInfantry
+	Inherits@attack: ^TSBasicInfantryAttack
+	Defaults:
+		Filename: alte3.shp
+	icon:
+		Filename: tse3icon.png
+		AddExtension: False
+
+tsriott:
+	Inherits: ^TSBasicInfantry
+	Defaults:
+		Filename: elitcadre.shp
+		Tick: 80
+		Offset: 0, 0, 16
+	stand:
+		Facings: 8
+		ShadowStart: 292
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 300
+	idle1:
+		Start: 56
+		Length: 15
+		ShadowStart: 348
+	idle2:
+		Start: 71
+		Length: 15
+		ShadowStart: 363
+	crippled-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		ShadowStart: 378
+	crippled-stand:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 456
+	attack:
+		Start: 164
+		Length: 6
+		Facings: 8
+		ShadowStart: 456
+	crippled-attack:
+		Start: 212
+		Length: 6
+		Facings: 8
+		ShadowStart: 504
+	icon:
+		Filename: elitcadreicon.shp
+		AddExtension: False
+
 tsumagon:
 	Inherits: ^TSBasicInfantry
 	Inherits@attack: ^TSBasicInfantryAttack
@@ -224,6 +279,14 @@ tsghost:
 		Filename: tsghost.shp
 	icon:
 		Filename: tsghosticon.shp
+
+tsrailcom:
+	Inherits: ^TSBasicInfantry
+	Inherits@attack: ^TSBasicInfantryAttack
+	Defaults:
+		Filename: tsrailcom.shp
+	icon:
+		Filename: tsrailcomicon.shp
 
 tsmhijack:
 	Inherits: ^TSBasicInfantry
@@ -742,6 +805,18 @@ tsapc:
 		Filename: gunfire2.shp
 		Length: 5
 
+tspitbull:
+	Defaults:
+		Filename: invisibleitem.shp
+	idle:
+		Filename: invisibleitem.shp
+	icon:
+		Filename: pitbullicon.png
+		AddExtension: False
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+
 # tsprobe:
 # 	idle: tsgghunt
 # 	shadow: tsgghunt
@@ -900,7 +975,7 @@ tssmech:
 	Defaults:
 		Filename: tssmech.shp
 		Offset: 0,0,8
-		Scale: 1.5
+		Scale: 1.0
 	stand:
 		Filename: tssmech.shp
 		Start: 96
