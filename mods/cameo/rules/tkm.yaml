@@ -851,8 +851,6 @@ tkmrifleman:
 		HP: 16000
 	ChangesHealth@SelfHealing:
 		Step: 16
-	AutoTarget:
-		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: NaxiRifle
 		LocalOffset: 500,0,400
@@ -1232,8 +1230,6 @@ tkmrocketeer:
 		HP: 9000
 	ChangesHealth@SelfHealing:
 		Step: 16
-	AutoTarget:
-		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: Rockets
 		LocalOffset: 500,0,400
@@ -2788,8 +2784,6 @@ tkmrepairtruck:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-	AutoTarget:
-		ScanRadius: 10
 		InitialStance: AttackAnything
 	AttackFrontal:
 		FacingTolerance: 64
@@ -2842,8 +2836,6 @@ tkmmedictruck:
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
 		LocalOffset: 25,0,-35
-	AutoTarget:
-		ScanRadius: 10
 		InitialStance: AttackAnything
 	AttackFrontal:
 		FacingTolerance: 64

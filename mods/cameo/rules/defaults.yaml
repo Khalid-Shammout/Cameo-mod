@@ -885,6 +885,7 @@
 ^VehicleBuffs:
 	Inherits@GlobalBuffs: ^GlobalBuffs
 	Inherits: ^NanoTechRepairs
+	Inherits@ModernFireControlSystems: ^ModernFireControlSystems
 	DamageMultiplier@VehicleBuffs:
 		Modifier: 90
 	ChangesHealth@SelfHealing:
@@ -5844,7 +5845,7 @@ CPQDEBUGDUMMY:
 
 ^RearmableAircraft:
 	Rearmable:
-		RearmActors: dummy_dock,hpad.gdi,hpad.nod,rahpad,raafld,ra_largeairfield,modraafld,ixian_launchpad,ra2gaairc,ra2naairf,aa_cgairf,steel_conpad,latin_cgair,nax_airfield,tkmairpad
+		RearmActors: dummy_dock,hpad.gdi,hpad.nod,rahpad,raafld,ra_largeairfield,modraafld,ixian_launchpad,ra2gaairc,ra2naairf,aa_cgairf,steel_conpad,latin_cgair,nax_airfield,tkmairpad,tsgthpad,tsgthpadmutant,TSNTHPAD,TSNTHPAD2
 	AutoTarget:
 		InitialStance: HoldFire
 	DamageMultiplier@RearmableAircraft:
@@ -5864,11 +5865,11 @@ CPQDEBUGDUMMY:
 
 ^Repairable:
 	Repairable:
-		RepairActors: fix.gdi, fix.nod, rafix.allies, rafix.soviet, rafix.japan, ra2nadept, ra2gadept, aa_cgdept, latin_cgdept, repair_pad.ixian, ra2_ctoutp
+		RepairActors: fix.gdi, fix.nod, rafix.allies, rafix.soviet, rafix.japan, ra2nadept, ra2gadept, aa_cgdept, latin_cgdept, repair_pad.ixian, ra2_ctoutp, tsgtdeptgdi, tsgtdeptnod, tsgtdeptmutant, tsgtdeptcabal
 
 ^RearmAtServiceDepot:
 	Rearmable:
-		RearmActors: fix.gdi, fix.nod, rafix.allies, rafix.soviet, rafix.japan, ra2nadept, ra2gadept, aa_cgdept, latin_cgdept, repair_pad.ixian, ra2_ctoutp
+		RearmActors: fix.gdi, fix.nod, rafix.allies, rafix.soviet, rafix.japan, ra2nadept, ra2gadept, aa_cgdept, latin_cgdept, repair_pad.ixian, ra2_ctoutp, tsgtdeptgdi, tsgtdeptnod, tsgtdeptmutant, tsgtdeptcabal
 
 ^ShootableMissile:
 	Inherits@1: ^ExistsInWorld

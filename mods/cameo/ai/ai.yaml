@@ -3441,7 +3441,7 @@ Player:
 		NavalProductionTypes: cncsyrd, cncspen, raspen, ra1syrd, ra1jsyrd, yrygyard, ra2gayard, ra2nayard, aa_cgyard, latin_cgyard, nax_naval
 		SiloTypes: silo, rasilo, scsupplydepot, scpylon, scoverlord, d2k_silo, wc2_human_elven_lumber_mill, wc2_orc_troll_lumber_mill, tkmpowerplant
 		AntiAirTypes: sam, atwr, agun, rasam, hbox, jmgnest, ra2nasam, ra2naflak, yrygggun, yrngbnkr.bot, large_gun_turret, aa_cgpuls, aa_cghype, steel_fedaa, latin_sml, latin_aatur, nax_flak88, nax2_twr, scmissileturret, sccreepcolony, tkmbunkerquadturret
-		DefenseTypes: gtwr, atwr, gun, nodlaserturret, obli, pbox, hbox, ragun, gap, modartyturret, ftur, tsla, modpillboxfort, ra2gapill, ra2atesla, ra2gtgcan, yrngbnkr, ra2nalasr, ra2naflak, ra2tesla, yrygggun, yrngtbnk, aa_cgflam, aa_cgpnch, aa_cgrail, aa_cgchtw, aa_cgplas, machine_gun_turret, medium_gun_turret, large_gun_turret, storm_lasher, steel_fedturret, steel_qcannon, steel_bfg10k, latin_ngdshktur, latin_ngbunk2, latin_cgup, latin_sml, nax_twr, nax_flak88, nax2_twr, nax2_sturmcann, scbunker, sccreepcolony, scphotoncannon, wc2_human_scout_tower, wc2_orc_watch_tower, tkmbunker, tkmbunkertankturret  
+		DefenseTypes: gtwr, atwr, gun, nodlaserturret, obli, pbox, hbox, ragun, gap, modartyturret, ftur, tsla, modpillboxfort, ra2gapill, ra2atesla, ra2gtgcan, yrngbnkr, ra2nalasr, ra2naflak, ra2tesla, yrygggun, yrngtbnk, aa_cgflam, aa_cgpnch, aa_cgrail, aa_cgchtw, aa_cgplas, machine_gun_turret, medium_gun_turret, large_gun_turret, storm_lasher, steel_fedturret, steel_qcannon, steel_bfg10k, latin_ngdshktur, latin_ngbunk2, latin_cgup, latin_sml, nax_twr, nax_flak88, nax2_twr, nax2_sturmcann, scbunker, sccreepcolony, scphotoncannon, wc2_human_scout_tower, wc2_orc_watch_tower, tkmbunker, tkmbunkertankturret
 		FragileTypes: hq.gdi, hq.nod, eye, tmpl, dome.allies, dome.soviet, dome.japan, atek, stek, modjtek, jshrine, mslo, pdox, iron, modspaceport, ra2gaairc, ra2naradr, ra2napsis, ra2gatech, ra2natech, yrygtech, ra2gaorep, ra2gaspysat, yrgarobo, ra2nanrct, yrngindp, ra2yclon, yrygcomd, ra2gaweat, ra2gacsph, ra2namisl, ra2nairon, yrygppet, yryggntc, aa_cgradr, aa_cgtech, aa_cgionc, aa_cgchao, aa_cgmiac, outpost.ixian, outpost.ordos, research_centre.ixian, starport.ixian, research_centre.ordos, starport.ordos, storm_lasher_big, oilb.building, oilb.ra2, oilb.d2k, steel_qtradr, steel_qatech, latin_radar, latin_cgspy, latin_cgup, latin_cgte, latin_ca12hit, nax_radar, nax_tek, nax_tech, nax_sausage, nax_beer, nax_rocket, nax2_radar, nax2_tech, nax2_dairy, nax2_meteorray, scengineeringbay, scacademy, scarmory, scsciencefacility, scterranmslo, wc2_human_goldmine.bot, wc2_orc_goldmine.bot, tkmradar, tkmtechcenter
 		BuildingIntervals:
 		#Refinery
@@ -4945,18 +4945,31 @@ Player:
 			#################### UnitsToBuild TS GDI
 			tse1: 7
 			tse2: 5
+			tsenforcer: 5
 			tsjumpjet: 3
-			tsghost: 1
+			tsriott: 3
+			tsrailcom: 1
 			tsharv: 10
 			tshvr: 5
 			tssmech: 5
+			tspitbull: 5
 			tsapc: 1
+			tsmemp: 3
 			tsmmch: 10
-			tsjugg: 10
-			tshmec: 10
-			tssonic: 1
+			tsjugg: 7
+			tshmec: 1
+			tssonic: 10
 			tsorca: 3
 			tsorcab: 3
+			tskodk: 1
+			up_seretraining: 1
+			up_sonicweaponry: 1
+			up_tsprojectileimprovements: 1
+			up_mechengineering: 1
+			up_railgunweaponry: 1
+			up_mechanicalreliability: 1
+			up_ceramicarmor: 1
+			up_modernfirecontrolsystems: 1
 			#################### UnitsToBuild TS Nod
 			tssapc: 1
 			tsmcvnod: 1
@@ -5616,7 +5629,7 @@ Player:
 			upordos_ordos_stealth_tank: 3
 			upordos_banshee: 3
 			upordos_python: 3
-			########### Units Atreides 
+			########### Units Atreides
 			d2katreidesmongoose: 5
 			#################### UnitsToBuild Dune Universe
 			quake_tank: 1
