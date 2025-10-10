@@ -4804,7 +4804,7 @@ nax2_conyard:
 		Filename: nax2_conyard.shp
 		Start: 63
 	icon:
-		Filename: nax_conyard_icon.png
+		Filename: lunarnaxisconyard.png
 		Offset: 0,0
 
 nax_weap:

@@ -4665,7 +4665,7 @@ DalekCannonE:
 DalekCannonScatter:
 	Inherits: DalekCannon
 	Range: 4030
-	-Report:
+	Report: tphfi201.wav, tgofi200.wav
 	Projectile: Railgun
 		-HitAnim:
 	Warhead@TeslaWeapon: SpreadDamage

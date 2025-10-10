@@ -14513,6 +14513,7 @@ nax2_dalek:
 		VoiceSet: DalekVoice
 	Selectable:
 		Bounds: 1280, 1280, 0, 0
+		DecorationBounds: 1280, 1280, 0, 0
 	RenderSprites:
 		PlayerPalette: player
 
