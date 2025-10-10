@@ -2384,12 +2384,12 @@ aa_pulv:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 60
+		RevokeDelay: 30
 		MaximumInstances: 10
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 30
+		RevokeDelay: 15
 		MaximumInstances: 10
 	AttackTurreted:
 	WithMuzzleOverlay:
@@ -2710,12 +2710,12 @@ aa_mlrs:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 80
+		RevokeDelay: 40
 		MaximumInstances: 10
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 40
+		RevokeDelay: 20
 		MaximumInstances: 10
 	Voiced:
 		VoiceSet: AsianAllianceVehicleVoice
@@ -3009,12 +3009,12 @@ aa_mecha:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 50
+		RevokeDelay: 24
 		MaximumInstances: 10
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 25
+		RevokeDelay: 12
 		MaximumInstances: 10
 	AttackFrontal:
 		FacingTolerance: 20
@@ -4940,13 +4940,13 @@ latin_ngdshktur:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 60
+		RevokeDelay: 30
 		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 30
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		RevokeDelay: 15
 		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
@@ -5177,7 +5177,7 @@ latin_aatur:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 4,8,12,16,20,24,28,32,36,40
-		RevokeDelay: 100
+		RevokeDelay: 50
 		MaximumInstances: 40
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
@@ -5525,13 +5525,13 @@ latin_mili:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 150
+		RevokeDelay: 80
 		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 75
+		RevokeDelay: 40
 		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 
@@ -6116,13 +6116,13 @@ latin_buggy:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 30
+		RevokeDelay: 16
 		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 15
+		RevokeDelay: 8
 		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
@@ -6581,13 +6581,13 @@ latin_diablo:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 80
+		RevokeDelay: 40
 		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 40
+		RevokeDelay: 20
 		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
@@ -7366,13 +7366,13 @@ latin_yakolev:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 50
+		RevokeDelay: 24
 		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 25
+		RevokeDelay: 12
 		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
@@ -10489,7 +10489,7 @@ steel_inspect:
 	Inherits@Epic: ^EpicAirUnitTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@announce: ^AnnounceGlobal
 	Inherits@COMMANDOSKULL: ^CommandoSkull
 	Inherits@shield: ^HasShieldGenerator
@@ -11639,7 +11639,7 @@ nax_hole:
 	Tooltip:
 		Name: Black Hole
 	Targetable@BlackHole:
-		TargetTypes: BlackHole
+		TargetTypes: BlackHole, Ground
 	Voiced:
 		VoiceSet: DinoVoice
 	-UpdatesPlayerStatistics:
@@ -14416,10 +14416,11 @@ nax2_parv:
 	Inherits: ^Soldier
 	Inherits@Template: ^HeroInfantryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@announce: ^AnnounceGlobal
 	Valued:
 		Cost: 3000
 	Tooltip:
@@ -14458,8 +14459,62 @@ nax2_parv:
 		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 0
+	AnnounceOnKill:
 	Voiced:
 		VoiceSet: NaxiUbermenVoice
+
+nax2_dalek:
+	Inherits: ^Tank
+	Inherits@Template: ^EpicVehicleTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@announce: ^AnnounceGlobal
+	Valued:
+		Cost: 9000
+	Tooltip:
+		Name: Dalek
+	Buildable:
+		BuildLimit: 1
+		BuildPaletteOrder: 100
+		Prerequisites: ~nax2_tech
+		Queue: Vehicle, RAVehicle
+		Description: Dalek
+	Mobile:
+		Speed: 65
+		TurnSpeed: 26
+		Voice: Move
+	Guard:
+		Voice: Move
+	Passenger:
+		Voice: Move
+	AttackMove:
+		Voice: Attack
+	Health:
+		HP: 325000
+	Repairable:
+		HpPerStep: 16250
+	ChangesHealth@SelfHealing:
+		Step: 130
+	Armament@PRIMARY:
+		Weapon: DalekCannon
+		LocalOffset: 500,200,400
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: DalekCannonE
+		LocalOffset: 500,200,400
+		RequiresCondition: rank-elite
+	FirepowerMultiplier@MultiWeapon:
+		Modifier: 50
+	AttackFrontal:
+		FacingTolerance: 0
+	AnnounceOnKill:
+	Voiced:
+		VoiceSet: DalekVoice
+	Selectable:
+		Bounds: 1280, 1280, 0, 0
+	RenderSprites:
+		PlayerPalette: player
 
 nax2_armor_mg:
 	Inherits: ^Walker
@@ -15298,7 +15353,7 @@ nax2_bradley:
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@Template: ^ArtilleryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Buildable:
@@ -16399,7 +16454,7 @@ nax_brad:
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@Template: ^ArtilleryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Buildable:

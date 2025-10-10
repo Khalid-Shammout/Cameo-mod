@@ -926,7 +926,7 @@ PortaTesla:
 PortaTeslaEMP:
 	Inherits: PortaTesla
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 20000
+		Damage: 10000
 
 PortaTeslaEMPArc:
 	Inherits: PortaTeslaEMP
@@ -947,7 +947,7 @@ PortaTeslaFragment:
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 5
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 10000
+		Damage: 5000
 	-Warhead@TeslaArc: FireShrapnel
 
 ZapperPortaTesla:
@@ -962,7 +962,7 @@ ZapperPortaTesla:
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 16
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 32000
+		Damage: 16000
 
 ZapperPortaTeslaArc:
 	Inherits: ZapperPortaTesla
@@ -983,7 +983,7 @@ ZapperPortaTeslaFragment:
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 8
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 16000
+		Damage: 8000
 	-Warhead@TeslaArc: FireShrapnel
 
 PointDefenseTesla:
@@ -1019,7 +1019,7 @@ TTankZap:
 TTankZapEMP:
 	Inherits: TTankZap
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 40000
+		Damage: 20000
 
 TTankZapEMPArc:
 	Inherits: TTankZapEMP
@@ -1040,7 +1040,7 @@ TTankZapEMPArcTeslaFragment1:
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 10
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 20000
+		Damage: 10000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TTankZapEMPArcTeslaFragment2
 		Amount: 1
@@ -1058,7 +1058,7 @@ TTankZapEMPArcTeslaFragment2:
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 5
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 10000
+		Damage: 5000
 	-Warhead@TeslaArc: FireShrapnel
 
 TTankZap2:
@@ -1076,7 +1076,7 @@ TTankZap2:
 TTankZap2EMP:
 	Inherits: TTankZap2
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 40000
+		Damage: 20000
 
 TTankZap2EMPArc:
 	Inherits: TTankZap2EMP
@@ -1097,7 +1097,7 @@ TTankZap2EMPArcTeslaFragment1:
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 10
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 20000
+		Damage: 10000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TTankZap2EMPArcTeslaFragment2
 		Amount: 1
@@ -1115,7 +1115,7 @@ TTankZap2EMPArcTeslaFragment2:
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 5
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 10000
+		Damage: 5000
 	-Warhead@TeslaArc: FireShrapnel
 
 TeslaZap:
@@ -1133,7 +1133,7 @@ TeslaZap:
 TeslaZapEMP:
 	Inherits: TeslaZap
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 32000
+		Damage: 16000
 
 TeslaZapEMPArc:
 	Inherits: TeslaZapEMP
@@ -1154,7 +1154,7 @@ TeslaZapEMPArcTeslaFragment1:
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 8
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 16000
+		Damage: 8000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TeslaZapEMPArcTeslaFragment2
 		Amount: 1
@@ -1172,7 +1172,7 @@ TeslaZapEMPArcTeslaFragment2:
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 4
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 8000
+		Damage: 4000
 	-Warhead@TeslaArc: FireShrapnel
 
 HeatRayBeam1:
@@ -2485,6 +2485,8 @@ SCUDTesla:
 		Damage: 15000
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 15
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 45000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: MammothTuskTeslaFragment1
 		Amount: 3
@@ -3097,45 +3099,60 @@ KamovMissilesTesla:
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@GrenadeFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@ShrapnelWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@MediumFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@TeslaWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@TeslaExtraDamage: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1000
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 5000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: KamovTeslaArcFragment1
 		Amount: 1
@@ -3180,7 +3197,7 @@ KamovTesla:
 		Damage: 8
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 32000
+		Damage: 16000
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_tesla_impact
 		ExplosionPalette: ra2effect
@@ -3211,7 +3228,7 @@ KamovTeslaArcFragment1:
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 4
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 16000
+		Damage: 8000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: KamovTeslaArcFragment2
 		Amount: 1
@@ -3233,7 +3250,7 @@ KamovTeslaArcFragment2:
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		Damage: 4
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 8000
+		Damage: 4000
 	-Warhead@TeslaArc: FireShrapnel
 
 YakChainGun:
@@ -3613,11 +3630,13 @@ TeslaMaverick:
 		Damage: 4
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 8000
 		ValidRelationships: Neutral, Enemy
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 8000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TeslaMaverickFragment1
 		Amount: 1
@@ -3649,6 +3668,8 @@ TeslaMaverickFragment1:
 		Damage: 4000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		Damage: 2
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 4000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TeslaMaverickFragment2
 		Amount: 1
@@ -3669,6 +3690,8 @@ TeslaMaverickFragment2:
 		Damage: 2000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		Damage: 1
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 2000
 	-Warhead@TeslaArc: FireShrapnel
 
 ThermobaricMaverick:
@@ -5500,6 +5523,8 @@ MammothTuskTesla:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 4
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 16000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: MammothTuskTeslaFragment1
 		Amount: 1
@@ -5543,6 +5568,8 @@ MammothTuskTeslaFragment1:
 		Damage: 4000
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		Damage: 2
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 8000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: MammothTuskTeslaFragment2
 		Amount: 1
@@ -5575,6 +5602,8 @@ MammothTuskTeslaFragment2:
 		Damage: 2000
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		Damage: 1
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 4000
 	-Warhead@TeslaArc: FireShrapnel
 
 MammothTuskTeslaTargetingComputer:

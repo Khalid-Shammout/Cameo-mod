@@ -388,6 +388,7 @@
 			Rails: 90
 	Locomotor@FAKEAIRCRAFT:
 		Name: fakeaircraft
+		Crushes: crate, mine
 		SharesCell: true
 		TerrainSpeeds:
 			Clear: 100
@@ -693,7 +694,7 @@
 			Ore:
 				Sequences: gold01,gold02,gold03,gold04
 				Palette: ra_temperat #player
-				Name: Valuable Minerals
+				Name: Ore
 			Gems:
 				Sequences: gem01,gem02,gem03,gem04
 				Palette: ra_temperat #player

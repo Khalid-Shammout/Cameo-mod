@@ -455,12 +455,15 @@ NaxiZombieTank:
 NaxiUbermenVoice:
 	Inherits: ^InfantryDeath
 	Voices:
-		Select: nax_gvextal3, nax_gvextsl1, nax_gvextsl2
+		Select: nax_gvextsl0, nax_gvextsl1, nax_gvextsl2
 		Move: nax_gvextsl0, nax_gvextsl1, nax_gvextsl2
 		Action: nax_gvextsl0, nax_gvextsl1, nax_gvextsl2
 		Attack: nax_gvextsl0, nax_gvextsl1, nax_gvextsl2
 		Deploy: nax_gvextsl0, nax_gvextsl1, nax_gvextsl2
+		Build: nax_gvextsl2
+		Kill: nax_gvextal3
 		Die: FEngiDiea, FEngiDieb
+
 NaxiLunarTroopVoice:
 	Inherits: ^InfantryDeath
 	Voices:

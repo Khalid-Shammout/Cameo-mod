@@ -1445,7 +1445,7 @@ RA2Lashmm:
 	Inherits: ^TankDestroyerCannon
 	Inherits: ^RA2MediumCannon
 	ReloadDelay: 37
-	Range: 4904
+	Range: 5135
 	Report: vlasatta.wav
 	Projectile: Bullet
 		Speed: 490

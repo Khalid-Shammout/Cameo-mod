@@ -5596,12 +5596,15 @@
 	GrantConditionOnPrerequisite@CLASSICPRODUCTIONQUEUES:
 		Condition: classicproductionqueues
 		Prerequisites: classicproductionqueues
+	GrantConditionOnPrerequisite@HYBRIDPRODUCTIONQUEUES:
+		Condition: hybridproductionqueues
+		Prerequisites: hybridproductionqueues
 	GrantConditionOnPrerequisite@littlebuilderenable:
 		Condition: littlebuilderenable
 		Prerequisites: littlebuilderenable
 	FreeActor@CPQDEBUGDUMMY:
 		Actor: CPQDEBUGDUMMY
-		RequiresCondition: classicproductionqueues
+		RequiresCondition: classicproductionqueues || hybridproductionqueues
 	GrantExternalConditionToProduced:
 		Condition: produced
 
@@ -5620,7 +5623,7 @@ CPQDEBUGDUMMY:
 	PrimaryBuilding:
 		PrimaryCondition: primary
 		SelectionNotification: PrimaryBuildingSelected
-		RequiresCondition: classicproductionqueues
+		RequiresCondition: classicproductionqueues || hybridproductionqueues
 	WithDecoration@primary:
 		RequiresSelection: true
 		Image: rapips
@@ -5771,6 +5774,7 @@ CPQDEBUGDUMMY:
 ^Harvester:
 	Inherits@MC: ^MCImmune
 	Inherits@snipe: ^DriverKillImmune
+	Inherits@D2K_AdvancedIxianTechnology: ^D2K_AdvancedIxianTechnology
 	DockClientManager:
 		SearchAllyDocks: true
 	Harvester:
@@ -5809,9 +5813,6 @@ CPQDEBUGDUMMY:
 		ColorSource: Player
 		ValidRelationships: Ally
 		RequiresCondition: cloaked
-	GrantConditionOnPrerequisite@d2k_advanced_ixian_technology:
-		Condition: d2k_advanced_ixian_technology
-		Prerequisites: d2k_advanced_ixian_technology
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical

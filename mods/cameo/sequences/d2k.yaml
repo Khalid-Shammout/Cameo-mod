@@ -5650,28 +5650,28 @@ saboteur:
 		AddExtension: false
 	stand:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 2
 		Remap: 54F94B
 		Start: 2149
 		Facings: -8
 		Transpose: true
 	idle1:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 2
 		Remap: 54F94B
 		Frames: 2330, 2337, 2344, 2351, 2358, 2365, 2372, 2379
 		Length: 8
 		Tick: 80
 	idle2:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 2
 		Remap: 54F94B
 		Frames: 2331, 2338, 2345, 2352, 2359, 2366, 2373, 2380
 		Length: 8
 		Tick: 80
 	run:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 2
 		Remap: 54F94B
 		Start: 2157
 		Length: 6
@@ -5680,14 +5680,14 @@ saboteur:
 		Tick: 120
 	prone-stand:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 2
 		Remap: 54F94B
 		Start: 2253
 		Facings: -8
 		Transpose: true
 	prone-run:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 2
 		Remap: 54F94B
 		Start: 2261
 		Length: 3
@@ -5696,7 +5696,7 @@ saboteur:
 		Tick: 120
 	standup:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 2
 		Remap: 54F94B
 		Start: 2245
 		Facings: -8
@@ -5704,28 +5704,28 @@ saboteur:
 		Tick: 120
 	die1:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 2
 		Remap: 54F94B
 		Frames: 2325, 2332, 2339, 2346, 2353, 2360, 2367, 2374, 2381, 2383, 2385, 2387
 		Length: 12
 		Tick: 80
 	die2:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 2
 		Remap: 54F94B
 		Frames: 2326, 2333, 2340, 2347, 2354, 2361, 2368, 2375, 2382, 2384, 2386, 2388
 		Length: 12
 		Tick: 80
 	die3:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 2
 		Remap: 54F94B
 		Frames: 2327, 2334, 2341, 2348, 2355, 2362, 2369, 2376
 		Length: 8
 		Tick: 80
 	die4:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 2
 		Remap: 54F94B
 		Frames: 2328, 2335, 2342, 2349, 2356, 2363, 2370, 2377
 		Length: 8
@@ -5745,7 +5745,7 @@ saboteur:
 		Length: *
 	die-crushed:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 2
 		Remap: 54F94B
 		Frames: 2329, 2336, 2343, 2350, 2357, 2364, 2371, 2378
 		Length: 8
@@ -5753,7 +5753,6 @@ saboteur:
 		ZOffset: -511
 	icon:
 		Filename: DATA.R16
-		Scale: 1.5
 		Remap: 54F94B
 		Start: 4295
 		Offset: -30,-24
@@ -6330,7 +6329,7 @@ d2k_leech:
 		Filename: tleilax_leech.png
 		Length: 8
 		Facings: 8
-		Tick: 45
+		# Tick: 45
 		Scale: 0.6
 	shoot:
 		Filename: tleilax_leech.png
@@ -6355,54 +6354,64 @@ d2k_leech:
 		Start: 192
 		Tick: 70
 		Length: 8
+		Scale: 0.6
 	die1:
 		Filename: tleilax_leech.png
 		Start: 192
 		Tick: 70
 		Length: 8
+		Scale: 0.6
 	die2:
 		Filename: tleilax_leech.png
 		Start: 192
 		Tick: 70
 		Length: 8
+		Scale: 0.6
 	die3:
 		Filename: tleilax_leech.png
 		Start: 192
 		Tick: 70
 		Length: 8
+		Scale: 0.6
 	die4:
 		Filename: tleilax_leech.png
 		Start: 192
 		Tick: 70
 		Length: 8
+		Scale: 0.6
 	die5:
 		Filename: tleilax_leech.png
 		Start: 192
 		Tick: 70
 		Length: 8
+		Scale: 0.6
 	die6:
 		Filename: tleilax_leech.png
 		Start: 192
 		Tick: 70
 		Length: 8
+		Scale: 0.6
 	die7:
 		Filename: tleilax_leech.png
 		Start: 192
 		Tick: 70
 		Length: 8
+		Scale: 0.6
 	die4:
 		Filename: tleilax_leech.png
 		Start: 192
 		Tick: 70
 		Length: 8
+		Scale: 0.6
 	die-crushed:
 		Filename: tleilax_leech.png
 		Start: 192
 		Tick: 70
 		Length: 8
+		Scale: 0.6
 	icon:
 		Filename: leechicon.shp
-		Offset: 0,-1
+		Offset: 0,0
 
 d2k_leech_s:
 	stand:
@@ -6700,57 +6709,57 @@ facedancer:
 		AddExtension: false
 	invisible:
 		Filename: DATA.R16
-		Scale: 1.5
+		Scale: 1.4
 		Remap: 54F94B
 		Start: 38
 		AddExtension: false
 	idle:
 		Facings: 8
-		Scale: 0.7
+		Scale: 1.4
 	stand:
 		Facings: 8
-		Scale: 0.7
+		Scale: 1.4
 	run:
 		Start: 16
 		Length: 6
 		Facings: 8
-		Scale: 0.7
+		Scale: 1.4
 	bite:
 		Start: 64
 		Length: 4
 		Facings: 8
-		Scale: 0.7
+		Scale: 1.4
 	harvest:
 		Start: 64
 		Length: 4
 		Facings: 8
-		Scale: 0.7
+		Scale: 1.4
 	dock:
 		Start: 64
 		Length: 4
 		Facings: 8
-		Scale: 0.7
+		Scale: 1.4
 	dock-loop:
 		Start: 64
 		Length: 4
 		Facings: 8
-		Scale: 0.7
+		Scale: 1.4
 	die1:
 		Start: 106
 		Length: 7
-		Scale: 0.7
+		Scale: 1.4
 	die2:
 		Start: 106
 		Length: 7
-		Scale: 0.7
+		Scale: 1.4
 	die3:
 		Start: 106
 		Length: 7
-		Scale: 0.7
+		Scale: 1.4
 	die4:
 		Start: 106
 		Length: 7
-		Scale: 0.7
+		Scale: 1.4
 	die5:
 		Filename: e1.shp
 		Start: 324
@@ -7515,10 +7524,10 @@ ordos_wraith:
 		Filename: ordos_wraith.png
 	idle:
 		Length: 64
-		Tick: 20
+		Tick: 64
 	move:
 		Length: 64
-		Tick: 10
+		Tick: 64
 	muzzle:
 		Filename: diskray.shp
 		Scale: 0.9
@@ -8659,7 +8668,16 @@ combat_siege_tank:
 d2k_ordos_stealth_tank:
 	idle:
 		Filename: ordos_tnkd.png
+		Scale: 1.25
 		Facings: 64
+	muzzle:
+		Filename: DATA.R16
+		Scale: 1.25
+		Remap: 54F94B
+		Start: 4028
+		Tick: 60
+		Facings: -32
+		BlendMode: Additive
 	icon:
 		Filename: ordos_tnkd_icon.png
 
@@ -8887,7 +8905,7 @@ d2k_autogun_tank:
 		BlendMode: Additive
 		AddExtension: false
 	icon:
-		Filename: d2k_autogun_tank_icon.shp
+		Filename: d2k_heavyautoguntankicon.png
 
 d2k_autogun_tank.husk:
 	idle:

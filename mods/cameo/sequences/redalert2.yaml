@@ -220,7 +220,7 @@ ra2nacnst:
 		ShadowStart: 25
 		Tick: 75
 	icon:
-		Filename: ra2radaricon.shp
+		Filename: ra2_sovietconstructionyardicon.png
 		Offset: 0,0
 
 ra2napowr:
@@ -380,7 +380,7 @@ ra2gacnst:
 		ShadowStart: 30
 		Tick: 90
 	icon:
-		Filename: ra2ayardicon.shp
+		Filename: ra2_alliedconstructionyardicon.png
 		Offset: 0,0
 
 ra2gapile:
@@ -603,7 +603,7 @@ yrnacnst:
 		Length: 18
 		Tick: 150
 	icon:
-		Filename: ra2ayardicon.shp
+		Filename: ra2_yuriconstructionyardicon.png
 		Offset: 0,0
 
 yryapowr:

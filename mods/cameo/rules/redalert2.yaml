@@ -5051,12 +5051,12 @@ YRGTRP:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 150
+		RevokeDelay: 80
 		MaximumInstances: 10
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 300
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		RevokeDelay: 40
 		MaximumInstances: 10
 	AttackFrontal:
 		FacingTolerance: 2
@@ -6593,9 +6593,9 @@ ra2dtruck:
 ra2dron:
 	Inherits: ^Walker
 	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@MC: ^MCImmune
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -6885,8 +6885,8 @@ YRLTNK:
 		Description: template-mbt.description
 	Mobile:
 		Locomotor: tracked
-		Speed: 120
-		TurnSpeed: 24
+		Speed: 115
+		TurnSpeed: 23
 	Health:
 		HP: 70000
 	Repairable:
@@ -6896,7 +6896,7 @@ YRLTNK:
 	Armor:
 		Type: Medium
 	Turreted:
-		TurnSpeed: 24
+		TurnSpeed: 23
 	Armament:
 		Name: primary
 		Weapon: RA2Lashmm

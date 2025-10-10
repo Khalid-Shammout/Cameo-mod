@@ -2749,7 +2749,7 @@ SteelQuantumTurretRailEMP:
 
 SteelInspectorIonCannon:
 	Inherits: TDIonCannonDamage
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water
 	AirThreshold: 10000
 	Range: 2500
 	#MinRange: 500
@@ -2759,17 +2759,17 @@ SteelInspectorIonCannon:
 	Warhead@Beam: CreateEffect
 		Explosions: steel_empressstationbeam
 		ImpactSounds: ion1.aud
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		ImpactActors: false
 	Warhead@Damage: FireFragment
 		Weapon: SteelInspectorIonCannonDamage
-		ValidTargets: Ground, Water, Air
+		ValidTargets: Ground, Water
 		ImpactActors: false
 		AirThreshold: 10000
 
 SteelInspectorIonCannonDamage:
 	Inherits: TDIonCannonDamage
-	ValidTargets: Ground, Water, Air
+	ValidTargets: Ground, Water
 	AirThreshold: 10000
 
 SteelIonCannon:
@@ -4611,6 +4611,94 @@ NaxHaenebuQuadCannonE:
 	Projectile: Bullet
 		ContrailStartColor: FF0000
 		Inaccuracy: 777
+
+DalekCannon:
+	Inherits: ^TeslaWeapon
+	Inherits: ^LaserWeapon
+	Inherits: ^RA2RailgunWeapon
+	ReloadDelay: 76
+	Range: 8060
+	Report: vrobatta.wav
+	ValidTargets: Ground, Water, Trees, Air
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 100000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 50000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 50
+	Warhead@LaserWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 100000
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 50
+	Warhead@RailgunWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 100000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 50
+	Warhead@Scatter: FireShrapnel
+		Weapon: DalekCannonScatter
+		Amount: 2
+		AimChance: 50
+		AimTargetStances: Enemy, Neutral
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@Effect: CreateEffect
+		Explosions: blue_building
+		ImpactSounds: psahit00.aud
+		ExplosionPalette: effect
+	Warhead@EffectWater: CreateEffect
+		Explosions: ra2_large_watersplash
+		ImpactSounds: gexpwala.wav
+
+DalekCannonE:
+	Inherits: DalekCannon
+	Range: 9060
+	Warhead@Scatter: FireShrapnel
+		Weapon: DalekCannonScatterE
+		Amount: 3
+
+DalekCannonScatter:
+	Inherits: DalekCannon
+	Range: 4030
+	-Report:
+	Projectile: Railgun
+		-HitAnim:
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 50000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 25000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 25
+	Warhead@LaserWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 50000
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 25
+	Warhead@RailgunWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 50000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 25
+	-Warhead@Scatter: FireShrapnel
+	Warhead@Effect: CreateEffect
+		Explosions: blue_med_frag
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Ground, Ship, Trees
+
+DalekCannonScatterE:
+	Inherits: DalekCannonScatter
+	Range: 4530
 
 BlackHoleMaker:
 	Inherits: ^LaserWeapon
@@ -7301,9 +7389,9 @@ RA2TraitorPower:
 	Warhead@5OwnerChange: ChangeOwner
 		Range: 1500
 		Duration: 0
-		ValidTargets: Ground
-		InvalidTargets: Structure, MCImmune
 		AirThreshold: 0
+		ValidTargets: Ground, Water
+		InvalidTargets: Structure, MCImmune
 
 RA2AkulaRockets:
 	Inherits: ^HeavyBomb

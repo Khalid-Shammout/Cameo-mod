@@ -124,46 +124,6 @@ ReimuVoice:
 		Poisoned: reimudamage, reimuheavydamage
 		Zapped: reimudamage, reimuheavydamage
 
-SCMarauderVoice:
-	DefaultVariant: .wav
-	Voices:
-		Build: Marauder_Ready00
-		Select: Marauder_What00, Marauder_What01, Marauder_What02, Marauder_What03, Marauder_What04, Marauder_What05
-		Move: Marauder_Yes00, Marauder_Yes01, Marauder_Yes02, Marauder_Yes03, Marauder_Yes04, Marauder_Yes05, Marauder_Yes06, Marauder_Yes07, Marauder_Yes08, Marauder_Yes09, Marauder_Yes10, Marauder_Yes11
-		Action: Marauder_Yes00, Marauder_Yes01, Marauder_Yes02, Marauder_Yes03, Marauder_Yes04, Marauder_Yes05, Marauder_Yes06, Marauder_Yes07, Marauder_Yes08, Marauder_Yes09, Marauder_Yes10, Marauder_Yes11
-		Attack: Marauder_Attack00, Marauder_Attack01, Marauder_Attack02, Marauder_Attack03, Marauder_Attack04, Marauder_Attack05,
-		Die: TFBDth00,TFBDth01,TFBDth02
-		Burned: TFBDth00,TFBDth01,TFBDth02
-		Zapped: TFBDth00,TFBDth01,TFBDth02
-		Poisoned: TFBDth00,TFBDth01,TFBDth02
-
-SCTyrVoice:
-	DefaultVariant: .wav
-	Voices:
-		Build: Thor_Ready00
-		Select: Thor_What00, Thor_What01, Thor_What02, Thor_What03, Thor_What04, Thor_What05, Thor_What06, Thor_What07, Thor_What08
-		Move: Thor_Yes00, Thor_Yes01, Thor_Yes02, Thor_Yes03, Thor_Yes04, Thor_Yes05, Thor_Yes06, Thor_Yes07, Thor_Yes08, Thor_Yes09
-		Action: Thor_Yes00, Thor_Yes01, Thor_Yes02, Thor_Yes03, Thor_Yes04, Thor_Yes05, Thor_Yes06, Thor_Yes07, Thor_Yes08, Thor_Yes09
-		Attack: Thor_Attack00, Thor_Attack01, Thor_Attack02, Thor_Attack03, Thor_Attack04, Thor_Attack05
-		Die: TFBDth00,TFBDth01,TFBDth02
-		Burned: TFBDth00,TFBDth01,TFBDth02
-		Zapped: TFBDth00,TFBDth01,TFBDth02
-		Poisoned: TFBDth00,TFBDth01,TFBDth02
-
-SCCycloneVoice:
-	DefaultVariant: .wav
-	Voices:
-		Select: cyclone_what00, cyclone_what01, cyclone_what02, cyclone_what03, cyclone_what04, cyclone_what05, cyclone_what06
-		Move: cyclone_yes00, cyclone_yes01, cyclone_yes02, cyclone_yes03, cyclone_yes04, cyclone_yes05, cyclone_yes06
-		Action: cyclone_yes00, cyclone_yes01, cyclone_yes02, cyclone_yes03, cyclone_yes04, cyclone_yes05, cyclone_yes06
-		Attack: cyclone_attack00, cyclone_attack01, cyclone_attack02, cyclone_attack03, cyclone_attack04, cyclone_attack05, cyclone_attack06, cyclone_attack07
-		AttackMove: cyclone_yes00, cyclone_yes01, cyclone_yes02, cyclone_yes03, cyclone_yes04, cyclone_yes05, cyclone_yes06
-		Die:  TTaDth00
-		Burned:  TTaDth00
-		Zapped:  TTaDth00
-		Poisoned:  TTaDth00
-		Build: cyclone_ready00, cyclone_ready01
-
 DinoVoice:
 	Voices:
 		Select: dinoyes
@@ -530,6 +490,47 @@ SCScienceVesselVoice:
 		Zapped: TPhDth00
 		Poisoned: TPhDth00
 		Build: sc_sciencevessel_ready
+
+SCMarauderVoice:
+	DefaultVariant: .wav
+	Voices:
+		Build: Marauder_Ready00
+		Select: Marauder_What00, Marauder_What01, Marauder_What02, Marauder_What03, Marauder_What04, Marauder_What05
+		Move: Marauder_Yes00, Marauder_Yes01, Marauder_Yes02, Marauder_Yes03, Marauder_Yes04, Marauder_Yes05, Marauder_Yes06, Marauder_Yes07, Marauder_Yes08, Marauder_Yes09, Marauder_Yes10, Marauder_Yes11
+		Action: Marauder_Yes00, Marauder_Yes01, Marauder_Yes02, Marauder_Yes03, Marauder_Yes04, Marauder_Yes05, Marauder_Yes06, Marauder_Yes07, Marauder_Yes08, Marauder_Yes09, Marauder_Yes10, Marauder_Yes11
+		Attack: Marauder_Attack00, Marauder_Attack01, Marauder_Attack02, Marauder_Attack03, Marauder_Attack04, Marauder_Attack05,
+		Die: TFBDth00,TFBDth01,TFBDth02
+		Burned: TFBDth00,TFBDth01,TFBDth02
+		Zapped: TFBDth00,TFBDth01,TFBDth02
+		Poisoned: TFBDth00,TFBDth01,TFBDth02
+
+SCTyrVoice:
+	DefaultVariant: .wav
+	Voices:
+		Build: Thor_Ready00
+		Select: Thor_What00, Thor_What01, Thor_What02, Thor_What03, Thor_What04, Thor_What05, Thor_What06, Thor_What07, Thor_What08
+		Move: Thor_Yes00, Thor_Yes01, Thor_Yes02, Thor_Yes03, Thor_Yes04, Thor_Yes05, Thor_Yes06, Thor_Yes07, Thor_Yes08, Thor_Yes09
+		Action: Thor_Yes00, Thor_Yes01, Thor_Yes02, Thor_Yes03, Thor_Yes04, Thor_Yes05, Thor_Yes06, Thor_Yes07, Thor_Yes08, Thor_Yes09
+		Attack: Thor_Attack00, Thor_Attack01, Thor_Attack02, Thor_Attack03, Thor_Attack04, Thor_Attack05
+		Die: TFBDth00,TFBDth01,TFBDth02
+		Burned: TFBDth00,TFBDth01,TFBDth02
+		Zapped: TFBDth00,TFBDth01,TFBDth02
+		Poisoned: TFBDth00,TFBDth01,TFBDth02
+
+SCCycloneVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: cyclone_what00, cyclone_what01, cyclone_what02, cyclone_what03, cyclone_what04, cyclone_what05, cyclone_what06
+		Move: cyclone_yes00, cyclone_yes01, cyclone_yes02, cyclone_yes03, cyclone_yes04, cyclone_yes05, cyclone_yes06
+		Action: cyclone_yes00, cyclone_yes01, cyclone_yes02, cyclone_yes03, cyclone_yes04, cyclone_yes05, cyclone_yes06
+		Attack: cyclone_attack00, cyclone_attack01, cyclone_attack02, cyclone_attack03, cyclone_attack04, cyclone_attack05, cyclone_attack06, cyclone_attack07
+		AttackMove: cyclone_yes00, cyclone_yes01, cyclone_yes02, cyclone_yes03, cyclone_yes04, cyclone_yes05, cyclone_yes06
+		Die:  TTaDth00
+		Burned:  TTaDth00
+		Zapped:  TTaDth00
+		Poisoned:  TTaDth00
+		Build: cyclone_ready00, cyclone_ready01
+
 SCSupplyCenterVoice:
 	DefaultVariant: .wav
 	Voices:
@@ -1299,6 +1300,7 @@ MammothGirlVoice:
 		Burned: mammothgm1
 		Zapped: mammothgm1
 		Poisoned: mammothgm1
+
 SvsMAlienVoice:
 	Voices:
 		Attack: svsavoice1,svsavoice2
@@ -1315,5 +1317,10 @@ DalekVoice:
 	DefaultVariant: .wav
 	Voices:
 		Select: DalekAttack1
-		Action: DalekAttack1
 		Move: DalekAttack1
+		Action: DalekAttack1
+		Attack: DalekAttack1
+		Deploy: DalekAttack1
+		Build: DalekAttack1
+		Kill: DalekAttack1
+		Die: FEngiDiea, FEngiDieb

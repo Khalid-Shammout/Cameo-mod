@@ -3743,6 +3743,7 @@ wc2_human_gryphon_rider:
 	ChangesHealth@SelfHealing:
 		Step: 50
 	-Integrity:
+	-GrantCondition@electronics:
 	Aircraft:
 		Speed: 145
 		TurnSpeed: 29
@@ -5554,6 +5555,7 @@ wc2_orc_dragon:
 	ChangesHealth@SelfHealing:
 		Step: 60
 	-Integrity:
+	-GrantCondition@electronics:
 	Aircraft:
 		Speed: 125
 		TurnSpeed: 25

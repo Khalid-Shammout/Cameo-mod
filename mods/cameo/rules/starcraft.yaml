@@ -3377,7 +3377,7 @@ SCMADCAP:
 		ArmamentNames: primary, garrisoned
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
 		MaximumInstances: 10
-		RevokeDelay: 125
+		RevokeDelay: 65
 		RevokeAll: false
 		IsCyclic: false
 		RevokeOnNewTarget: false
@@ -6222,6 +6222,7 @@ SCMANIFOLD:
 		Color: FF888888
 		RequiresCondition: !disabled
 	-WithInfantryBody:
+	-Targetable@disguise:
 	-WithDeathAnimation:
 	WithFacingSpriteBody:
 	AttackFrontal:
@@ -6302,6 +6303,7 @@ SCANALOGUE:
 		Color: 8888FF88
 		RequiresCondition: !disabled
 	-WithInfantryBody:
+	-Targetable@disguise:
 	-WithDeathAnimation:
 	WithFacingSpriteBody:
 	AttackFrontal:
@@ -6399,6 +6401,7 @@ SCIDOL:
 		Sequence: pickup-indicator
 		ValidRelationships: Ally, Enemy, Neutral
 	-WithInfantryBody:
+	-Targetable@disguise:
 	-WithDeathAnimation:
 	WithFacingSpriteBody:
 	AttackFrontal:
@@ -6623,6 +6626,7 @@ SCREAVER:
 	AttackFrontal:
 		FacingTolerance: 0
 	-WithInfantryBody:
+	-Targetable@disguise:
 	WithFacingSpriteBody:
 	WithMoveAnimation:
 	SelectionDecorations:
@@ -6771,6 +6775,7 @@ SCARCHON:
 		FacingTolerance: 0
 	WithMuzzleOverlay:
 	-WithInfantryBody:
+	-Targetable@disguise:
 	WithFacingSpriteBody:
 	WithAttackAnimation:
 		Sequence: shoot
@@ -7617,6 +7622,7 @@ SCPOSITRON:
 	AttackFrontal:
 		FacingTolerance: 0
 	-WithInfantryBody:
+	-Targetable@disguise:
 	WithFacingSpriteBody:
 	Passenger:
 		Weight: 2
@@ -8005,6 +8011,7 @@ upidol:
 	Inherits: ^Helicopter
 	-SpawnActorOnDeath:
 	-Integrity:
+	-GrantCondition@electronics:
 	WithDeathAnimation:
 		UseDeathTypeSuffix: False
 	DeathSounds:
@@ -8060,6 +8067,7 @@ SCDRONE:
 		ImageByFullness: scdrone, scdronefull
 	-WithFacingSpriteBody:
 	-WithInfantryBody:
+	-Targetable@disguise:
 	-WithSpriteBody@deployed:
 	Cloak:
 		InitialDelay: 25
@@ -9385,7 +9393,7 @@ SCGOREMAW:
 		ArmamentNames: primary, garrisoned
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
 		MaximumInstances: 10
-		RevokeDelay: 150
+		RevokeDelay: 75
 		RevokeAll: false
 		IsCyclic: false
 		RevokeOnNewTarget: false

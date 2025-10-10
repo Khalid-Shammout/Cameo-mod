@@ -3209,7 +3209,7 @@ Player:
 			latin_mig: Aircraft, Building, Epic, Naval
 			d2k_air_drone: Ground
 			d2k_ixbomber: Ground
-		GuerrillaTypes: gdirig, rmbo.gdi, rmbo.nod, apc, bggy, bike, ltnk, ftnk, jeep, mtnk, mlrs, gdiarcher, mssm, stnk, orca, heli, nodvenom, chembike, chemstnk, nodbuggy2, nodltnk2, nodftnk2, nodspecter, nodlasercommando, gdiassaultapc, gdihumvee, gdipredator, gdiexosuit, gdihavoc, dog, cyberdog, sniper, e7, 1tnk, 2tnk, 3tnk, rajeep, raapc, ftrk, modkubel, modtypej, modhover, raheli, mh60, yak, hind, jhind, modkami,  reconranger, modtiger, ctnk, sapc, volkov, modgtnk, ttnk2, monstertank, modbtr, kotin, rocketangel, hakurei, modcarr, typechiha, modhovert,  modbggy, ra2fv, ra2htk, ra2dron, yrrobo, ra2sref, yrcaos, yrdisk, yrmind, aa_viper, rocket_raider_ixian, shock_raider, combat_tank_ixian, storm_raider, heavy_rocket_raider_ixian, combat_siege_tank, d2k_air_drone, d2k_heavy_air_drone, steel_mako, aa_pelican
+		GuerrillaTypes: gdirig, rmbo.gdi, rmbo.nod, apc, bggy, bike, ltnk, ftnk, jeep, mtnk, mlrs, gdiarcher, mssm, stnk, orca, heli, nodvenom, chembike, chemstnk, nodbuggy2, nodltnk2, nodftnk2, nodspecter, nodlasercommando, gdiassaultapc, gdihumvee, gdipredator, gdiexosuit, gdihavoc, dog, cyberdog, sniper, e7, ra_grad, 1tnk, 2tnk, 3tnk, hammertank, ttnk2, kotin, rajeep, raapc, ftrk, modkubel, modtypej, modhover, raheli, mh60, yak, hind, ra_kamov, jhind, modkami,  reconranger, modtiger, ctnk, sapc, volkov, modgtnk, monstertank, modbtr, rocketangel, hakurei, modcarr, typechiha, modhovert,  modbggy, ra2fv, ra2htk, ra2dron, yrrobo, ra2sref, yrcaos, yrdisk, yrmind, rocket_raider_ixian, shock_raider, combat_tank_ixian, storm_raider, heavy_rocket_raider_ixian, combat_siege_tank, d2k_air_drone, d2k_heavy_air_drone, aa_viper, steel_mako, aa_pelican
 	SendUnitToAttackBotModule:
 		RequiresCondition: genericbot
 		ActorTypesAndAttackOptions:
@@ -4744,6 +4744,10 @@ Player:
 			ra2amcv: 5000
 			ra2smcv: 5000
 			yrpcv: 5000
+			tsmcvgdi: 5000
+			tsmcvnod: 5000
+			tsmcvmutant: 5000
+			tsmcvcabal: 5000
 			aa_acv: 5000
 			steel_qmcv: 5000
 			latin_mcv: 5000
@@ -4776,6 +4780,10 @@ Player:
 			ra2amcv: 2500
 			ra2smcv: 2500
 			yrpcv: 2500
+			tsmcvgdi: 2500
+			tsmcvnod: 2500
+			tsmcvmutant: 2500
+			tsmcvcabal: 2500
 			aa_acv: 2500
 			steel_qmcv: 2500
 			latin_mcv: 2500
@@ -5135,19 +5143,16 @@ Player:
 			ra_upgrade_hazmatsuits: 1
 			ra_upgrade_afterburners: 1
 			ra_promotion_superoptics: 1
-			ra_promotion_targetingcomputer: 1
-			ra_promotion_hurricanerocketpod: 1
-			upfirerocketsoldier: 1
 			upmortarsoldier: 1
 			upcyberdog: 1
 			upvolkov: 1
 			upgtnk: 1
 			ra_promotion_superspyplane: 1
-			up5tnk: 1
+			ra_promotion_targetingcomputer: 1
 			upmonstertank: 1
-			upbtr: 1
-			upkotin: 1
-			upv2rlnuke: 1
+			ra_promotion_parabombs2: 1
+			ra_promotion_hurricanerocketpod: 1
+			ra_promotion_parabombs3: 1
 			upmignukebomber: 1
 			ra_conscript_ak: 1
 			ra_dragunov: 1
@@ -5579,13 +5584,13 @@ Player:
 			d2k_resonancedrone: 1
 			d2k_farasha: 1
 			########### Units Ordos
+			ordos_harv: 10
 			ordos_aatrooper: 3
 			ordos_mortar: 3
 			ordos_apc: 3
 			ordos_eye: 3
 			ordos_banshee: 3
 			ordos_wraith: 3
-			ordos_harv: 10
 			ordos_cobra: 3
 			ordos_deviatormk2: 3
 			ordos_scoutdrone: 3
@@ -5598,24 +5603,31 @@ Player:
 			d2k_leech: 3
 			d2k_aa_mine: 3
 			d2k_laser_tank: 10
-			combat_tank_o: 10
 			deviator: 7
 			swarmer: 3
+			combat_tank_o: 10
+			combat_tank_o_stealth: 10
+			d2k_autogun_tank_small: 5
+			d2k_autogun_tank: 5
 			########### Upgrades Ordos
+			d2k_aatrooper_upgrade: 1
+			d2k_autogun_tank_upgrade: 1
+			d2k_heavy_autogun_tank_upgrade: 1
 			ordos_upgrade_shield: 1
 			ordos_upgrade_toxin: 1
-			upordos_chem_troop: 3
-			upordos_contaminator: 3
-			upordos_d2k_leech: 3
-			upordos_tleilax_labcrawl: 3
-			upordos_ordos_aatrooper: 3
-			upordos_d2k_laser_tank: 3
-			upordos_deviatormk2: 3
-			upordos_wraith: 3
-			upordos_ordos_mortar: 3
-			upordos_ordos_stealth_tank: 3
-			upordos_banshee: 3
-			upordos_python: 3
+			ordos_upgrade_contraband: 1
+			upordos_chem_troop: 1
+			upordos_contaminator: 1
+			upordos_d2k_leech: 1
+			upordos_tleilax_labcrawl: 1
+			upordos_scoutdrone: 1
+			upordos_stealth_raider: 1
+			upordos_d2k_laser_tank: 1
+			upordos_python: 1
+			upordos_ordos_mortar: 1
+			upordos_deviatormk2: 1
+			upordos_banshee: 1
+			upordos_wraith: 1
 			########### Units Atreides 
 			d2katreidesmongoose: 5
 			#################### UnitsToBuild Dune Universe
@@ -5650,7 +5662,6 @@ Player:
 			siege_quad: 3
 			d2k_atreides_apc.bot1: 5
 			d2k_atreides_apc.bot2: 3
-			d2k_autogun_tank: 5
 			d2k_flame_tank: 3
 			ornithopter.controllable: 3
 			grenadier: 3
@@ -5686,7 +5697,6 @@ Player:
 			rocket_raider_ixian.bot2: 5
 			rocket_raider.bot: 10
 			rocket_raider_o: 10
-			combat_tank_o_stealth: 10
 			devastator.starport: 5
 			sonic_tank.starport: 5
 			deviator.starport: 5
@@ -5701,7 +5711,6 @@ Player:
 			combat_tank_fremen.bot1: 3
 			combat_tank_fremen.bot2: 3
 			combat_tank_fremen.bot3: 5
-			d2k_autogun_tank_small: 5
 			d2k_sardaukar_buggy: 3
 			d2k_transport_buggy.bot1: 3
 			d2k_transport_buggy.bot2: 3

@@ -1800,7 +1800,7 @@ upgrade-cryomissiles =
    Artillery, Bastion and Rapier Jumpjet get cryo bombs with double the cryo effect radius of effect.
 
 upgrade-lasertargetingsystems =
-   .description = Increases damage of all units and defenses by 35%
+   .description = Increases damage of all units and defenses by 25%
 
 upgrade-airsuperioritydoctrine =
    .description = Increases damage, firerate, armor, speed, range and accuracy of aircraft and the Heavy AA Tank by 15%.
@@ -2081,6 +2081,21 @@ ra_promotion_targetingcomputer =
 ra_promotion_hurricanerocketpod =
    .description = Promotion Upgrade (Only affects units of own faction)
       Doubles the amount of Missiles that Hind and Kamov can fire.
+
+ordos_upgrade_shield =
+   .description = Tech Upgrade (Only affects units of own faction)
+      Equips all vehicles and aircraft with shields.
+
+ordos_upgrade_toxin =
+   .description = Tech Upgrade (Only affects units of own faction)
+      Infuses Infantry with powerful chemicals that permanently boost combat effectiveness.
+      Increases Rate Of Fire, Speed and Damage Resistance by 10%.
+      Chemical Weapons deal an additional 50% more damage.
+
+ordos_upgrade_contraband =
+   .description = Tech Upgrade (Only affects units of own faction)
+      Upgrades any non biological weapons with new contraband versions.
+      Increases Firepower by 25%.
 
 template-mcv =
    .description = Deploys into another Construction Yard.

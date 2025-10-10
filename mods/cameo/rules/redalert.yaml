@@ -302,7 +302,7 @@ World:
 ^LaserTargetingSystems:
 	FirepowerMultiplier@up_lasertargetingsystems:
 		RequiresCondition: up_lasertargetingsystems
-		Modifier: 135
+		Modifier: 125
 	GrantConditionOnPrerequisite@up_lasertargetingsystems:
 		Condition: up_lasertargetingsystems
 		Prerequisites: up_lasertargetingsystems
@@ -7700,7 +7700,7 @@ RAAFLD:
 	AirstrikePower@spyplane:
 		OrderName: SovietSpyPlane
 		Prerequisites:
-			1: 
+			1:
 			2: ra_promotion_superspyplane
 		Icons:
 			1: spyplane
@@ -7737,7 +7737,7 @@ RAAFLD:
 	AirstrikePower@parabombs:
 		OrderName: Parabombs
 		Prerequisites:
-			1: 
+			1:
 			2: ra_promotion_parabombs2
 			3: ra_promotion_parabombs3
 		Icons:
@@ -7781,7 +7781,7 @@ RAAFLD:
 	ParatroopersPower@paratroopers:
 		OrderName: SovietParatroopers
 		Prerequisites:
-			1: 
+			1:
 			2: ra_doctrine_conscription
 			3: ra_doctrine_industrialefficiency
 			4: ra_doctrine_inferno
@@ -13463,7 +13463,7 @@ MODBGGY:
 	Buildable:
 		BuildPaletteOrder: 30
 		Queue: Vehicle, RAVehicle
-		Prerequisites: ~modraweapj
+		Prerequisites: ~upgrenadebuggy
 		Description: actor-jpbggy.description
 	Mobile:
 		Speed: 120

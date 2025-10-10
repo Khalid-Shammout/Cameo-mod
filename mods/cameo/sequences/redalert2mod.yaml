@@ -1939,7 +1939,7 @@ latin_cgcnst:
 	dead:
 		Filename: invisibleitem.shp
 	icon:
-		Filename: ra2radaricon.shp
+		Filename: latinconyardicon.png
 		Offset: 0,0
 
 latin_cgpow:
@@ -2627,7 +2627,7 @@ latin_aatur:
 		Facings: 32
 		ShadowStart: 32
 	icon:
-		Filename: latin_sentrygun2_icon.shp
+		Filename: latinaadefendericon.png
 		Offset: 0,0
 
 latin_cgyard:
@@ -3479,7 +3479,7 @@ steel_qacst:
 		Filename: ra2radaricon.shp
 		Offset: 0,0
 	iconw:
-		Filename: ra2radaricon.shp
+		Filename: steelconyardicon.png
 		Offset: 0,0
 
 steel_qaweap:
@@ -5714,6 +5714,16 @@ nax2_parv:
 	icon:
 		Filename: nax_parzival_icon.png
 
+nax2_dalek:
+	Defaults:
+		Filename: dalek.shp
+		Scale: 2
+		# Offset: 0, 8
+	idle:
+		Facings: -32
+	icon:
+		Filename: naxdalekicon.png
+
 nax_mcv:
 	Defaults:
 		Filename: nax_mcv.shp
@@ -6097,15 +6107,15 @@ nax2_crystal:
 		Filename: invisibleitem.shp
 	turret:
 		Facings: 64
-	icon:
-		Filename: nax_jagdpanzer_icon.png
-		AddExtension: False
 	muzzle:
 		Filename: ra2_gunfire.shp
 		Length: *
 	muzzle-2:
 		Filename: ra2_vtmuzzle.shp
 		Length: *
+	icon:
+		Filename: naxcrystaltankicon.png
+		AddExtension: False
 
 nax_gravity:
 	Inherits: ^RA2CannonMuzzle
@@ -7156,7 +7166,7 @@ nax2_lasert:
 		Start: 64
 		Facings: 64
 	icon:
-		Filename: nax2_beetle_icon.png
+		Filename: naxlasertankicon.png
 		AddExtension: False
 		Offset: 0,0
 

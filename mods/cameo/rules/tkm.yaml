@@ -673,7 +673,7 @@ tkmtechcenter:
 tkmbunker:
 	Inherits: ^Defense
 	Inherits@Template: ^BunkerTemplate
-	Inherits@exp: ^GainsExperienceTDBuilding
+	Inherits@exp: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -728,7 +728,7 @@ tkmbunker:
 tkmbunkerquadturret:
 	Inherits: ^Defense
 	Inherits@Template: ^AntiAirDefenseTemplate
-	Inherits@exp: ^GainsExperienceTDBuilding
+	Inherits@exp: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@EMP: ^TurretEMP
@@ -778,7 +778,7 @@ tkmbunkerquadturret:
 tkmbunkertankturret:
 	Inherits: ^Defense
 	Inherits@Template: ^BasicDefenseTemplate
-	Inherits@exp: ^GainsExperienceTDBuilding
+	Inherits@exp: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -825,7 +825,7 @@ tkmbunkertankturret:
 tkmrifleman:
 	Inherits: ^Soldier
 	Inherits@Template: ^ScoutInfantryTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
@@ -900,7 +900,7 @@ tkmspetsnaz:
 	Inherits: ^Soldier
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^ScoutInfantryTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -964,7 +964,7 @@ tkmjug:
 	Inherits: ^Soldier
 	Inherits@Template: ^HeavyInfantryTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
@@ -1044,12 +1044,12 @@ tkmjug:
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 250
+		RevokeDelay: 22
 		MaximumInstances: 5
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 250
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		RevokeDelay: 11
 		MaximumInstances: 5
 	AttackFrontal:
 		FacingTolerance: 2
@@ -1081,7 +1081,7 @@ tkmthermonaut:
 	Inherits: ^Soldier
 	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@explode: ^ExplodingInfantry
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
@@ -1149,7 +1149,7 @@ tkmtrooper:
 	Inherits: ^Soldier
 	Inherits@anim: ^TDRAInfantry
 	Inherits@Template: ^ScoutInfantryTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -1206,7 +1206,7 @@ tkmtrooper:
 tkmrocketeer:
 	Inherits: ^Soldier
 	Inherits@Template: ^ScoutInfantryTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
@@ -1366,7 +1366,7 @@ tkmengineer:
 tkmsniper:
 	Inherits: ^Soldier
 	Inherits@Template: ^SniperInfantryTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
@@ -1416,7 +1416,7 @@ tkmsniper:
 tkmvon:
 	Inherits: ^Soldier
 	Inherits@Template: ^SniperInfantryTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@Template: ^HeroInfantryTemplate
@@ -1504,7 +1504,7 @@ tkmvon:
 tkmspecialforce:
 	Inherits: ^Soldier
 	Inherits@Template: ^MeleeInfantryTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@announce: ^AnnounceGlobal
@@ -1633,7 +1633,7 @@ tkmharv:
 tkmas42:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ScoutVehicleTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -1713,7 +1713,7 @@ tkmas42:
 tkmtechnical:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ScoutVehicleTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -1776,7 +1776,7 @@ tkmtechnical:
 tkmtechnicaltank:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
@@ -1845,7 +1845,7 @@ tkmtechnicaltank:
 tkmquadtruck:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -1896,7 +1896,7 @@ tkmquadtruck:
 tkmzaza:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -1982,7 +1982,7 @@ tkmzaza:
 tkmstryker:
 	Inherits: ^Vehicle
 	Inherits@Template: ^FireSupportTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -2044,7 +2044,7 @@ tkmstryker:
 tkmabrams:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@PLD: ^PointLaserDefenseSystem
@@ -2136,7 +2136,7 @@ tkmabramspoint:
 t72:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
@@ -2202,7 +2202,7 @@ t72:
 tkmtrenchtruck:
 	Inherits: ^Tank
 	Inherits@Template: ^SupportVehicleTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
@@ -2256,7 +2256,7 @@ tkmtrenchtruck:
 tkmtrenchtruckdeployed:
 	Inherits: ^BaseBuilding
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@exp: ^GainsExperienceTDBuilding
+	Inherits@exp: ^GainsExperienceRA2
 	Inherits@shape: ^1x1Shape
 	Valued:
 		Cost: 2500
@@ -2288,7 +2288,7 @@ tkmkatyushalauncher:
 	Inherits: ^Vehicle
 	Inherits@anim: ^RA2Vehicle
 	Inherits@Template: ^ArtilleryTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
@@ -2369,7 +2369,7 @@ tkmkatyushalauncher:
 tkmhuey:
 	Inherits: ^Helicopter
 	Inherits@Template: ^HelicopterTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
@@ -2530,7 +2530,7 @@ tkmviper:
 	Inherits: ^RANeutralPlane
 	Inherits@reload: ^RearmableAircraft
 	Inherits@Template: ^BomberTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
@@ -2711,7 +2711,7 @@ tkmradartruck:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -2756,7 +2756,7 @@ tkmrepairtruck:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -2822,7 +2822,7 @@ tkmmedictruck:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -2881,7 +2881,7 @@ tkmdronepodtruck:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ArtilleryTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -2939,7 +2939,7 @@ tkmsuicidedrone:
 	Inherits: ^RANeutralPlane
 	Inherits@Template: ^BomberTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@CLOAK: ^CloakedAircraft
 	Inherits@armor: ^TerranShipWeaponUpgrades
@@ -3003,7 +3003,7 @@ tkmsuicidedrone:
 tkmtrenchtank:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
@@ -3075,7 +3075,7 @@ tkmtrenchtankdeployed:
 	Inherits: ^Defense
 	Inherits@Template: ^BasicDefenseTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@exp: ^GainsExperienceTDBuilding
+	Inherits@exp: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -3118,7 +3118,7 @@ t30:
 	Inherits: ^Tank
 	Inherits@Template: ^EpicVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
@@ -3182,7 +3182,7 @@ tkmbattlebus:
 	Inherits@Template: ^LineBreakerTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@anim: ^RA2Vehicle
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
@@ -3316,7 +3316,7 @@ tkmsandmarine:
 	Inherits: ^Tank
 	Inherits@Template: ^EpicVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
@@ -3466,7 +3466,7 @@ tkmratflak:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -3519,7 +3519,7 @@ tkmratflakdeployed:
 	Inherits: ^Defense
 	Inherits@Template: ^BasicDefenseTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@exp: ^GainsExperienceTDBuilding
+	Inherits@exp: ^GainsExperienceRA2
 	Inherits@Template: ^AntiAirDefenseTemplate
 	Inherits@AUTOTARGET: ^AutoTargetAir
 	Inherits@EMP: ^TurretEMP
@@ -3581,7 +3581,7 @@ tkmbigshiee:
 	Inherits: ^Tank
 	Inherits@Template: ^EpicVehicleTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXP: ^GainsExperienceTD
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
