@@ -696,6 +696,7 @@ TSMCVGDI:
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@selection: ^SelectableSupportUnit
 	Inherits@mcv: ^MCV
+	Inherits@MechanicalReliability: ^MechanicalReliability
 	Buildable:
 		Prerequisites: ~tsgtweap, tsgtdeptgdi
 		Queue: Vehicle, RAVehicle
@@ -716,6 +717,8 @@ TSMCVGDI:
 	RenderVoxels:
 		Image: tsmcv
 		Scale: 10
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability
 
 TSMCVNOD:
 	Inherits: TSMCVGDI
@@ -1566,8 +1569,10 @@ TSGTWEAPMUTANT:
 
 tsgtdeptgdi:
 	Inherits: ^BaseBuilding
-	Inherits@repair: ^RepairFacility
+	Inherits@shape: ^3x3Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@repair: ^RepairsUnits
+	Inherits@repair: ^RepairFacility
 	HitShape:
 		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0
 		Type: Polygon
@@ -1591,11 +1596,11 @@ tsgtdeptgdi:
 	RevealsShroud:
 		Range: 5c0
 	Reservable:
-	RepairsUnits:
-		HpPerStep: 1000
-		Interval: 15
-		PlayerExperience: 25
-		StartRepairingNotification: Repairing
+	# RepairsUnits:
+	# 	HpPerStep: 1000
+	# 	Interval: 15
+	# 	PlayerExperience: 25
+	# 	StartRepairingNotification: Repairing
 	RallyPoint:
 	Power:
 		Amount: -20
@@ -1623,6 +1628,8 @@ tsgtdeptgdi:
 	WithDeathAnimation@BIB:
 		DeathSequence: dead-ground
 		UseDeathTypeSuffix: false
+	WithResupplyAnimation:
+		RequiresCondition: !build-incomplete
 	RenderSprites:
 		Image: tsgtdept
 		PlayerPalette: playerra2
@@ -1700,6 +1707,8 @@ tsgthpad:
 		RequiresCondition: classicproductionqueues
 	Power:
 		Amount: -10
+	WithResupplyAnimation:
+		RequiresCondition: !build-incomplete
 	ProvidesPrerequisite@buildingname:
 	WithIdleOverlay@PLATFORM:
 		RequiresCondition: !build-incomplete
@@ -2729,9 +2738,12 @@ tsntlasrcabal:
 tsgtctwrmg:
 	Inherits: ^Defense
 	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@exp: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@SonicWeaponry: ^SonicWeaponry
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -2749,17 +2761,20 @@ tsgtctwrmg:
 	SelectionDecorations:
 	Health:
 		HP: 80000
-	Armor:
-		Type: Light
 	RevealsShroud:
 		Range: 7c0
 	Turreted:
 		TurnSpeed: 48
 		Offset: 0,0,0
 	WithSpriteBody:
-	Armament@VULCPRIMARY:
+	Armament@PRIMARY:
 		Weapon: TSVulcanGun
 		LocalOffset: 300,60,600
+		RequiresCondition: !up_sonicweaponry
+	Armament@Upgrade:
+		Weapon: TSVulcanGunSonic
+		LocalOffset: 300,60,600
+		RequiresCondition: up_sonicweaponry
 	#Armament@VULCSECONDARY:
 	#	Weapon: TurretGun
 	#	LocalOffset: 300,-60,600
@@ -2773,20 +2788,25 @@ tsgtctwrmg:
 		Amount: -20
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_sonicweaponry
 
 tsgtctwrrpg:
 	Inherits: ^Defense
 	Inherits@Template: ^AdvancedDefenseTemplate
+	Inherits@exp: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@RailgunWeaponry: ^RailgunWeaponry
 	Valued:
 		Cost: 1400
 	Tooltip:
 		Name: RPG Tower
 	Buildable:
 		BuildPaletteOrder: 130
-		Prerequisites: ~tsgtcnstgdi, tsgtweap
+		Prerequisites: ~tsgtcnstgdi, tsgttech
 		Queue: Defence, RADefence
 		BuildDurationModifier: 40
 		Description: GDI anti-vehicle base defense.\nDoes not require power to operate.\n  Strong vs Armored ground units\n  Weak vs Aircraft
@@ -2797,18 +2817,22 @@ tsgtctwrrpg:
 	SelectionDecorations:
 	Health:
 		HP: 150000
-	Armor:
-		Type: Light
 	RevealsShroud:
 		Range: 7c0
 	Turreted:
 		TurnSpeed: 48
 		Offset: 0,0,0
 	WithSpriteBody:
-	Armament:
+	Armament@PRIMARY:
 		Weapon: TSRPGTower
 		LocalOffset: 130,-45,700
 		MuzzleSequence: muzzle
+		RequiresCondition: !up_railgunweaponry
+	Armament@Upgrade:
+		Weapon: TSRPGTowerRail
+		LocalOffset: 130,-45,700
+		MuzzleSequence: muzzle
+		RequiresCondition: up_railgunweaponry
 	WithMuzzleOverlay:
 	AttackTurreted:
 	WithSpriteTurret:
@@ -2820,13 +2844,18 @@ tsgtctwrrpg:
 		Amount: -20
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_railgunweaponry
 
 tsgtctwrsam:
 	Inherits: ^Defense
 	Inherits@Template: ^AntiAirDefenseTemplate
+	Inherits@exp: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@TSProjectileImprovements: ^TSProjectileImprovements
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -2865,6 +2894,8 @@ tsgtctwrsam:
 		Amount: -30
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tsprojectileimprovements
 
 tsgtctwrsammutant:
 	Inherits: ^Defense
@@ -2889,8 +2920,6 @@ tsgtctwrsammutant:
 	SelectionDecorations:
 	Health:
 		HP: 100000
-	Armor:
-		Type: Light
 	RevealsShroud:
 		Range: 7c0
 	Turreted:
@@ -2935,8 +2964,6 @@ tsntsam:
 	SelectionDecorations:
 	Health:
 		HP: 100000
-	Armor:
-		Type: Wood
 	RevealsShroud:
 		Range: 7c0
 	Turreted:
@@ -3227,7 +3254,8 @@ tsntobel2cabal:
 TSE1:
 	Inherits: ^Soldier
 	Inherits@Template: ^ScoutInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
@@ -3241,8 +3269,6 @@ TSE1:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~tsgtpile
-		Queue: Infantry, RAInfantry
 		IconPalette: ra2
 		Description: General-purpose infantry.\n  Strong vs Infantry\n  Weak vs Vehicles
 	Mobile:
@@ -3251,8 +3277,6 @@ TSE1:
 		HP: 16000
 	ChangesHealth@SelfHealing:
 		Step: 16
-	AutoTarget:
-		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: TSMinigun
 		RequiresCondition: !rank-elite
@@ -3277,6 +3301,15 @@ TSE1:
 	WithDeathAnimation:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect
+
+TSE1.GDI:
+	Inherits: TSE1
+	Inherits@SERETraining: ^SERETraining
+	Buildable:
+		Queue: Infantry, RAInfantry
+		Prerequisites: ~tsgtpile
+	ActorStatValues:
+		Upgrades: up_seretraining
 
 TSE1.NOD:
 	Inherits: TSE1
@@ -3305,6 +3338,7 @@ TSMEDIC:
 	Inherits: MEDI
 	Inherits@anim: ^TSInfantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@SERETraining: ^SERETraining
 	Buildable:
 		Prerequisites: ~tsgtpile
 		Queue: Infantry, RAInfantry
@@ -3324,13 +3358,17 @@ TSMEDIC:
 	WithDeathAnimation:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect
+	ActorStatValues:
+		Upgrades: up_seretraining
 
 TSENGINEER:
 	Inherits: E6
 	Inherits@anim: ^TSInfantry
 	Inherits@Template: ^SniperInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@SERETraining: ^SERETraining
 	Valued:
 		Cost: 600
 	Buildable:
@@ -3352,6 +3390,8 @@ TSENGINEER:
 	WithDeathAnimation:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect
+	ActorStatValues:
+		Upgrades: up_seretraining
 
 TSENGINEER2:
 	Inherits: TSENGINEER
@@ -3397,11 +3437,14 @@ TSENGINEECABAL:
 TSE2:
 	Inherits: ^Soldier
 	Inherits@Template: ^GrenadierInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@SERETraining: ^SERETraining
+	Inherits@SonicWeaponry: ^SonicWeaponry
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -3419,11 +3462,14 @@ TSE2:
 		HP: 12000
 	ChangesHealth@SelfHealing:
 		Step: 8
-	AutoTarget:
-		ScanRadius: 4
-	Armament:
+	Armament@PRIMARY:
 		Weapon: TSGrenade
 		LocalOffset: 0,0,427
+		RequiresCondition: !up_sonicweaponry
+	Armament@Upgrade:
+		Weapon: TSGrenadeSonic
+		LocalOffset: 0,0,427
+		RequiresCondition: up_sonicweaponry
 	#Armament@aa:
 	#	Weapon: TSGrenadeAA
 	#	LocalOffset: 0,0,427
@@ -3431,6 +3477,11 @@ TSE2:
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: TSGrenadeG
+		RequiresCondition: !up_sonicweaponry
+	Armament@UpgradeGARRISONED: ##########
+		Name: garrisoned
+		Weapon: TSGrenadeSonic
+		RequiresCondition: up_sonicweaponry
 	TakeCover:
 		ProneOffset: 300,0,-227
 	WithInfantryBody:
@@ -3446,6 +3497,8 @@ TSE2:
 		VoiceSet: TSInfantry
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_seretraining, up_sonicweaponry
 
 TSE2PARA:
 	Inherits: TSE2
@@ -3462,11 +3515,15 @@ TSE2PARA:
 TSENFORCER:
 	Inherits: ^Soldier
 	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@SERETraining: ^SERETraining
+	Inherits@TSProjectileImprovements: ^TSProjectileImprovements
+	Inherits@RailgunWeaponry: ^RailgunWeaponry
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -3484,41 +3541,45 @@ TSENFORCER:
 		HP: 45000
 	ChangesHealth@SelfHealing:
 		Step: 8
-	AutoTarget:
-		ScanRadius: 4
-	Armament:
+	Armament@PRIMARY:
 		Weapon: TS30mm
 		LocalOffset: 0,0,427
-	#Armament@aa:
-	#	Weapon: TSGrenadeAA
-	#	LocalOffset: 0,0,427
-	#	FireDelay: 15
+		RequiresCondition: !up_railgunweaponry
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: TS30mm
+		RequiresCondition: !up_railgunweaponry
+	Armament@Upgrade:
+		Weapon: TS30mmRail
+		LocalOffset: 0,0,427
+		RequiresCondition: up_railgunweaponry
+	Armament@UpgradeGARRISONED: ##########
+		Name: garrisoned
+		Weapon: TS30mmRail
+		RequiresCondition: up_railgunweaponry
 	TakeCover:
 		ProneOffset: 300,0,-227
 	WithInfantryBody:
 	WithDeathAnimation:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect
-	# Explodes:
-	# 	Weapon: GrenadierExplode
-	# 	EmptyWeapon: GrenadierExplode
-	# 	Chance: 50
 	Voiced:
 		VoiceSet: TSInfantry
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_seretraining, up_tsprojectileimprovements, up_railgunweaponry
 
 TSRIOTT:
 	Inherits: ^Soldier
 	Inherits@Template: ^MeleeInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@SERETraining: ^SERETraining
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -3536,15 +3597,9 @@ TSRIOTT:
 		HP: 54000
 	ChangesHealth@SelfHealing:
 		Step: 8
-	AutoTarget:
-		ScanRadius: 4
 	Armament:
 		Weapon: TSShotgun
 		LocalOffset: 0,0,427
-	#Armament@aa:
-	#	Weapon: TSGrenadeAA
-	#	LocalOffset: 0,0,427
-	#	FireDelay: 15
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: TSShotgun
@@ -3554,24 +3609,24 @@ TSRIOTT:
 	WithDeathAnimation:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect
-	# Explodes:
-	# 	Weapon: GrenadierExplode
-	# 	EmptyWeapon: GrenadierExplode
-	# 	Chance: 50
 	Voiced:
 		VoiceSet: TSInfantry
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_seretraining
 
 TSJUMPJET:
 	Inherits: ^Soldier
 	Inherits@Template: ^ScoutInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@anim: ^TSInfantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@EXT: ^ExternalConditions
+	Inherits@SERETraining: ^SERETraining
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -3650,13 +3705,17 @@ TSJUMPJET:
 		Weapon: TSJumpCannon
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_seretraining
 
 tsjumpjet2:
 	Inherits: ^JumpjetInfantry
 	Inherits@Template: ^HelicopterTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@detect: ^GenericAirDetector
+	Inherits@SERETraining: ^SERETraining
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -3721,6 +3780,8 @@ tsjumpjet2:
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tsjumpjet
+	ActorStatValues:
+		Upgrades: up_seretraining
 
 TSJUMPJET.Husk:
 	Inherits: ^HelicopterHusk
@@ -3745,7 +3806,8 @@ TSJUMPJET.Husk:
 TSE3:
 	Inherits: ^Soldier
 	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
@@ -3767,8 +3829,6 @@ TSE3:
 		HP: 10000
 	ChangesHealth@SelfHealing:
 		Step: 10
-	AutoTarget:
-		ScanRadius: 6
 	Armament@PRIMARY: ##########
 		Weapon: TSBazooka
 		LocalOffset: 256,43,341
@@ -3804,7 +3864,8 @@ TSE3.MUTANT:
 elitcadre:
 	Inherits: ^Soldier
 	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
@@ -3828,8 +3889,6 @@ elitcadre:
 		HP: 20000
 	ChangesHealth@SelfHealing:
 		Step: 20
-	AutoTarget:
-		ScanRadius: 6
 	Armament@PRIMARY:
 		Weapon: elitecadre
 	Armament@GARRISONED: ##########
@@ -3864,7 +3923,8 @@ elitcadre:
 TSCYBORG:
 	Inherits: ^Soldier
 	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@MC: ^MCImmune
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -3894,8 +3954,6 @@ TSCYBORG:
 		HP: 25000
 	ChangesHealth@SelfHealing:
 		Step: 25
-	AutoTarget:
-		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: TSVulcan3
 	WithInfantryBody:
@@ -3954,7 +4012,8 @@ TSCHAMSPY:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@anim: ^TSInfantry
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@EXT: ^ExternalConditions
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Buildable:
@@ -4004,7 +4063,8 @@ TSMHIJACK:
 	Inherits: ^Soldier
 	Inherits@EXT: ^ExternalConditions
 	Inherits@anim: ^TSInfantry
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@tibheal: ^TibHealable
 	Valued:
@@ -4071,7 +4131,8 @@ TSREAPER:
 	Inherits: ^Walker
 	Inherits@Template: ^ScoutVehicleTemplate
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@MC: ^MCImmune
 	Inherits@EXT: ^ExternalConditions
 	Inherits@EMP: ^FrontalEMP
@@ -4162,8 +4223,6 @@ TSCYC2:
 		Speed: 52
 	Health:
 		HP: 200000
-	AutoTarget:
-		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: TSCyCannon
 	Voiced:
@@ -4247,8 +4306,6 @@ TSUMAGON:
 		Speed: 71
 	Health:
 		HP: 10000
-	AutoTarget:
-		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: TSSniper
 	Armament@ELITE:
@@ -4290,7 +4347,8 @@ TSUMAGONSP:
 TSGHOST:
 	Inherits: ^Soldier
 	Inherits@Template: ^HeroInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
@@ -4314,8 +4372,6 @@ TSGHOST:
 		Type: Light
 	Health:
 		HP: 200000
-	AutoTarget:
-		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: TSMechRailgun
 		LocalOffset: 256,43,256
@@ -4342,13 +4398,16 @@ TSGHOST:
 TSRAILCOM:
 	Inherits: ^Soldier
 	Inherits@Template: ^HeroInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@COMMANDOSKULL: ^CommandoSkull
 	# Inherits@announce: ^AnnounceGlobal
 	Inherits@anim: ^TSInfantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@SERETraining: ^SERETraining
+	Inherits@RailgunWeaponry: ^RailgunWeaponry
 	Valued:
 		Cost: 5000
 	Tooltip:
@@ -4365,11 +4424,14 @@ TSRAILCOM:
 		Speed: 60
 	Health:
 		HP: 100000
-	AutoTarget:
-		ScanRadius: 6
 	Armament@PRIMARY:
 		Weapon: TSCommandoRailgun
 		LocalOffset: 256,43,256
+		RequiresCondition: !up_railgunweaponry
+	Armament@Upgrade:
+		Weapon: TSCommandoRailgunRail
+		LocalOffset: 256,43,256
+		RequiresCondition: up_railgunweaponry
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: infantry ##########
@@ -4378,6 +4440,11 @@ TSRAILCOM:
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: TSCommandoRailgun
+		RequiresCondition: !up_railgunweaponry
+	Armament@UpgradeGARRISONED: ##########
+		Name: garrisoned
+		Weapon: TSCommandoRailgunRail
+		RequiresCondition: up_railgunweaponry
 	-DamagedByTerrain:
 	Selectable:
 		Class: tsghost
@@ -4386,6 +4453,8 @@ TSRAILCOM:
 	WithDeathAnimation:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect
+	ActorStatValues:
+		Upgrades: up_seretraining, up_railgunweaponry
 
 TSGHOSTMUTANT:
 	Inherits: TSGHOST
@@ -4449,7 +4518,8 @@ tsghost.mutant:
 TSMUTANT:
 	Inherits: ^Soldier
 	Inherits@Template: ^ScoutInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
@@ -4474,8 +4544,6 @@ TSMUTANT:
 		HP: 15000
 	ChangesHealth@SelfHealing:
 		Step: 15
-	AutoTarget:
-		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: MutDualWield
 		RequiresCondition: !rank-elite
@@ -4536,8 +4604,6 @@ TSMWMN:
 		HP: 20000
 	ChangesHealth@SelfHealing:
 		Step: 20
-	AutoTarget:
-		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: MutAPRifle
 		RequiresCondition: !rank-elite
@@ -4580,7 +4646,8 @@ TSMWMNSP:
 TSMUTANT3:
 	Inherits: TSMUTANT
 	Inherits@Template: ^ScoutInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Valued:
@@ -4602,8 +4669,6 @@ TSMUTANT3:
 		HP: 32000
 	ChangesHealth@SelfHealing:
 		Step: 32
-	AutoTarget:
-		ScanRadius: 4
 	Armament@GRENADE:
 		Weapon: TSGrenade
 		PauseOnCondition: !ammo
@@ -4640,7 +4705,8 @@ TSMUTANT3:
 TSWEEDGUY:
 	Inherits: ^Soldier
 	Inherits@Template: ^MeleeInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
@@ -4664,8 +4730,6 @@ TSWEEDGUY:
 		HP: 52000
 	ChangesHealth@SelfHealing:
 		Step: 52
-	AutoTarget:
-		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: TSChemspray
 		LocalOffset: 341,0,256
@@ -4957,6 +5021,7 @@ tsnafnce:
 TSHARV:
 	Inherits: ^TDHARV
 	Inherits@Voxel: ^TSRenderVoxel
+	Inherits@MechanicalReliability: ^MechanicalReliability
 	Health:
 		HP: 150000
 	Harvester:
@@ -4974,6 +5039,8 @@ TSHARV:
 		Payload: 500
 	RenderSprites:
 		Image: tsharv
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability
 
 TSHARVNOD:
 	Inherits: ^TDHARV
@@ -5070,6 +5137,7 @@ tsldrone:
 	Inherits@MC: ^MCImmune
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@snipe: ^DriverKillAndNeutronImmune
+	Inherits@MechanicalReliability: ^MechanicalReliability
 	Valued:
 		Cost: 150
 	Tooltip:
@@ -5139,6 +5207,8 @@ tsldrone:
 		PauseOnCondition: cloak-force-disabled || base-reveal
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability
 
 tsprobe:
 	Inherits: ^Helicopter
@@ -5273,22 +5343,24 @@ TSCLOUD1:
 TSPITBULL:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ScoutVehicleTemplate
-	Inherits@EXP: ^GainsExperience
-	Inherits@Voxel: ^TSRenderVoxel
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@EMP: ^TurretEMP
+	Inherits@TSProjectileImprovements: ^TSProjectileImprovements
+	Inherits@MechanicalReliability: ^MechanicalReliability
 	Valued:
 		Cost: 400
 	Tooltip:
 		Name: Pitbull
-	# Buildable:
-	# 	Queue: Vehicle, RAVehicle
-	# 	BuildPaletteOrder: 20
-	# 	Prerequisites: ~tsgtweap
-	# 	Description: Scout vehicle.  Strong vs Vehicles, Aircraft.  Weak vs Infantry
+	Buildable:
+		Queue: Vehicle, RAVehicle
+		BuildPaletteOrder: 20
+		Prerequisites: ~tsgtweap
+		Description: Scout vehicle.  Strong vs Vehicles, Aircraft.  Weak vs Infantry
 	Mobile:
 		Speed: 150
 		TurnSpeed: 30
@@ -5308,27 +5380,30 @@ TSPITBULL:
 		MuzzleSequence: muzzle
 	AttackTurreted:
 	WithMuzzleOverlay:
-	WithVoxelBody:
-	WithVoxelTurret:
-	RenderVoxels:
-		Image: tspitbull
-		PlayerPalette: playerra2
+	WithSpriteTurret:
 	RenderSprites:
 		Image: tspitbull
+		PlayerPalette: player_rgba
 	FireWarheadsOnDeath:
 		Weapon: UnitExplodeSmall
+	ActorStatValues:
+		Upgrades: up_tsprojectileimprovements, up_mechanicalreliability
 
 TSMMCH:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@detect: ^EliteDetector
 	Inherits@vo: ^AttackTurretedVoice
+	Inherits@MechanicalReliability: ^MechanicalReliability
+	Inherits@MechEngineering: ^MechEngineering
+	Inherits@RailgunWeaponry: ^RailgunWeaponry
 	Valued:
-		Cost: 800
+		Cost: 950
 	Tooltip:
 		Name: Titan
 	Buildable:
@@ -5343,23 +5418,31 @@ TSMMCH:
 		Speed: 75
 		TurnSpeed: 15
 	Health:
-		HP: 90000
+		HP: 100000
 	Repairable:
-		HpPerStep: 4500
+		HpPerStep: 5000
 	ChangesHealth@SelfHealing:
-		Step: 36
+		Step: 40
 	Armor:
 		Type: Heavy
 	RevealsShroud:
 		Range: 6c0
 	Turreted:
 		TurnSpeed: 15 #3
-	Armament:
+	Armament@PRIMARY:
 		Weapon: TS120mm
 		Recoil: 128
 		RecoilRecovery: 32
 		LocalOffset: 800, 300, 700
 		MuzzleSequence: muzzle
+		RequiresCondition: !up_railgunweaponry
+	Armament@Upgrade:
+		Weapon: TS120mmRail
+		Recoil: 128
+		RecoilRecovery: 32
+		LocalOffset: 800, 300, 700
+		MuzzleSequence: muzzle
+		RequiresCondition: up_railgunweaponry
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -5389,16 +5472,21 @@ TSMMCH:
 		Scale: 10
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability, up_mechengineering, up_railgunweaponry
 
 TSJUGG:
 	Inherits: ^Tank
 	Inherits@Template: ^ArtilleryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	# Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@detect: ^EliteDetector
 	Inherits@vo: ^AttackTurretedVoice
+	Inherits@MechanicalReliability: ^MechanicalReliability
+	Inherits@MechEngineering: ^MechEngineering
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -5501,6 +5589,8 @@ TSJUGG:
 		RequiresCondition: !deployed
 	Voiced:
 		VoiceSet: TSVehicle
+	RejectsMoveToAttack:
+		RequiresCondition: !botmicro && deployed
 	AutoDeployer:
 		DeployChance: 85
 		DeployTicks: 100
@@ -5509,15 +5599,20 @@ TSJUGG:
 			Attack: 50
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability, up_mechengineering
 
 TSHVR:
 	Inherits: ^Tank
 	Inherits@Template: ^FireSupportTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
+	Inherits@TSProjectileImprovements: ^TSProjectileImprovements
+	Inherits@MechanicalReliability: ^MechanicalReliability
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -5566,15 +5661,21 @@ TSHVR:
 		Scale: 15
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tsprojectileimprovements, up_mechanicalreliability
 
 TSSMECH:
 	Inherits: ^Vehicle
 	Inherits@Template: ^FireSupportTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EXT: ^ExternalConditions
+	Inherits@MechanicalReliability: ^MechanicalReliability
+	Inherits@MechEngineering: ^MechEngineering
+	# Inherits@SonicWeaponry: ^SonicWeaponry
 	Valued:
 		Cost: 550
 	Tooltip:
@@ -5604,8 +5705,14 @@ TSSMECH:
 		Range: 6c0
 	AttackFrontal:
 		FacingTolerance: 0
-	Armament:
+	Armament@PRIMARY:
 		Weapon: TSAssaultCannon
+		LocalOffset: 25,121,171, 0,-121,171
+	# 	RequiresCondition: !up_sonicweaponry
+	# Armament@Upgrade:
+	# 	Weapon: TSAssaultCannonSonic
+	# 	LocalOffset: 25,121,171, 0,-121,171
+	# 	RequiresCondition: up_sonicweaponry
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithFacingSpriteBody:
@@ -5619,11 +5726,14 @@ TSSMECH:
 		VoiceSet: TSMech
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability, up_mechengineering #, up_sonicweaponry
 
 TSHMEC:
 	Inherits: ^Tank
 	Inherits@Template: ^EpicVehicleTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^FrontalEMP
@@ -5633,6 +5743,9 @@ TSHMEC:
 	Inherits@snipe: ^DriverKillImmune
 	Inherits@ND: ^NotDevourable
 	# Inherits@announce: ^AnnounceGlobal
+	Inherits@MechanicalReliability: ^MechanicalReliability
+	Inherits@MechEngineering: ^MechEngineering
+	Inherits@RailgunWeaponry: ^RailgunWeaponry
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -5673,11 +5786,17 @@ TSHMEC:
 		Name: railgun
 		Weapon: TSMechRailgun
 		LocalOffset: 400,-350,450, 400,350,450
+		RequiresCondition: !up_railgunweaponry
 	Armament@MISSILES:
 		Name: missiles
 		Weapon: TSMammothTusk2
 		LocalOffset: -420,-300,600, -420,300,600
 		LocalYaw: -100,100
+	Armament@UpgradeRAILGUN:
+		Name: railgun
+		Weapon: TSMechRailgunRail
+		LocalOffset: 400,-350,450, 400,350,450
+		RequiresCondition: up_railgunweaponry
 	#	MuzzleSequence: muzzle1
 	#	RequiresCondition: !rank-elite
 	#Armament@MISSILESE:
@@ -5727,15 +5846,20 @@ TSHMEC:
 		Types: thiefproof
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability, up_mechengineering, up_railgunweaponry
 
 TSSONIC:
 	Inherits: ^Tank
 	Inherits@Template: ^LineBreakerTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
+	Inherits@MechanicalReliability: ^MechanicalReliability
+	Inherits@SonicWeaponry: ^SonicWeaponry
 	Valued:
 		Cost: 2400
 	Tooltip:
@@ -5762,10 +5886,16 @@ TSSONIC:
 		Range: 7c0
 	Turreted:
 		TurnSpeed: 10 #3
-	Armament:
+	Armament@PRIMARY:
 		Weapon: TSSonicZapWeapon
 		Recoil: 128
 		RecoilRecovery: 26
+		RequiresCondition: !up_sonicweaponry
+	Armament@Upgrade:
+		Weapon: TSSonicZapWeaponSonic
+		Recoil: 128
+		RecoilRecovery: 26
+		RequiresCondition: up_sonicweaponry
 	AttackTurreted:
 	WithVoxelTurret:
 	SelectionDecorations:
@@ -5783,14 +5913,19 @@ TSSONIC:
 	-RangeMultiplier@usasearchndestroy:
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability, up_sonicweaponry
 
 tsaegis:
 	Inherits: ^BoatUnit
 	Inherits@Voxel: ^RenderVoxel
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@TSProjectileImprovements: ^TSProjectileImprovements
+	Inherits@MechanicalReliability: ^MechanicalReliability
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -5828,6 +5963,8 @@ tsaegis:
 		Image: ra2aegis
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tsprojectileimprovements, up_mechanicalreliability
 
 #######################################
 # TS Nod Vehicles
@@ -5835,7 +5972,8 @@ tsaegis:
 
 TSSAPC:
 	Inherits: ^Tank
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@sub: ^SubterraneanVoxelVehicle
 	Inherits@cargo: ^CargoVehicle
@@ -5888,7 +6026,8 @@ TSSAPC:
 TSBGGY:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ScoutVehicleTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
@@ -5937,7 +6076,8 @@ TSBGGY:
 TSBIKE:
 	Inherits: ^Vehicle
 	Inherits@Template: ^ScoutVehicleTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
@@ -5997,7 +6137,8 @@ TSBIKECABAL:
 TSSTNK:
 	Inherits: ^Tank
 	Inherits@Template: ^HighTechTankTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^FrontalEMP
@@ -6096,9 +6237,6 @@ TSREPAIR:
 		ForceTargetRelationships: None
 	AttackFrontal:
 		FacingTolerance: 0
-	AutoTarget:
-		ScanRadius: 6
-		InitialStance: AttackAnything
 	SelectionDecorations:
 	Selectable:
 	Inherits@EXT: ^ExternalConditions
@@ -6125,7 +6263,8 @@ TSREPAIRCABAL:
 TSTTNK:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^RenderVoxel
 	Inherits@EMP: ^FrontalEMP
@@ -6255,7 +6394,8 @@ TSTTNKCABAL:
 TSART2:
 	Inherits: ^Tank
 	Inherits@Template: ^ArtilleryTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
@@ -6335,7 +6475,8 @@ TSART2CABAL:
 TSSUBTANK:
 	Inherits: ^Tank
 	Inherits@Template: ^LineBreakerTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@sub: ^SubterraneanVoxelVehicle
@@ -6392,12 +6533,14 @@ TSSUBTANKCABAL:
 
 TSAPC:
 	Inherits: ^Tank
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@cargo: ^CargoVehicle
+	Inherits@MechanicalReliability: ^MechanicalReliability
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -6462,6 +6605,8 @@ TSAPC:
 		RequiresSelection: true
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability
 
 tssgen:
 	Inherits: ^Tank
@@ -6527,6 +6672,7 @@ tslpst:
 	Inherits: ^Tank
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@detect: ^GenericGroundDetector
+	Inherits@MechanicalReliability: ^MechanicalReliability
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -6559,6 +6705,8 @@ tslpst:
 	RenderSprites:
 		Image: tslpst
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability
 
 tslpstcabal:
 	Inherits: tslpst
@@ -6586,10 +6734,12 @@ tslpstnod:
 tsmemp:
 	Inherits: ^Tank
 	Inherits@Template: ^LineBreakerTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
+	Inherits@MechanicalReliability: ^MechanicalReliability
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -6600,6 +6750,7 @@ tsmemp:
 		Queue: Vehicle, RAVehicle
 		Description: Shuts down vehicles with an EMP blast.\n  Strong vs Vehicles, Cyborgs
 	Mobile:
+		Locomotor: tracked
 		Speed: 100
 	Health:
 		HP: 150000
@@ -6628,6 +6779,8 @@ tsmemp:
 		Scale: 15
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability
 
 #######################################
 # TS Forgotten Vehicles
@@ -6653,7 +6806,8 @@ tssapc.mut:
 TSWINI2:
 	Inherits: ^Tank
 	Inherits@Template: ^FireSupportTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
@@ -6706,7 +6860,8 @@ TSWINI2:
 TSCAR2:
 	Inherits: ^CivilianDriveByVehicle
 	Inherits: ^Vehicle
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
@@ -6762,7 +6917,8 @@ TSCAR2:
 TS1TNK:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
@@ -6818,7 +6974,8 @@ TS1TNK:
 TS2TNK:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
@@ -6873,7 +7030,8 @@ TS2TNK:
 TS3TNK:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
@@ -6928,7 +7086,8 @@ TS3TNK:
 TSFTNK:
 	Inherits: ^Tank
 	Inherits@Template: ^LineBreakerTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^FrontalEMP
@@ -6978,7 +7137,8 @@ TS4TNK:
 	Inherits: ^Tank
 	Inherits@Template: ^HighTechTankTemplate
 	Inherits@Template: ^EpicVehicleTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
@@ -7049,7 +7209,8 @@ TS4TNK:
 TSARTY:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^FrontalEMP
@@ -7099,7 +7260,8 @@ TSARTY:
 tsmlrs:
 	Inherits: ^Tank
 	Inherits@Template: ^FireSupportTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
@@ -7152,7 +7314,8 @@ tsmlrs:
 
 tsm113:
 	Inherits: ^Tank
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
@@ -7198,11 +7361,11 @@ tsm113:
 		InitialUnits: TSMUTANT,TSMWMN,TSMUTANT3,TSE3.MUTANT
 		ExclusiveDeploy: true
 		DeployType: Battlefortress
-	AttackOpenTopped:
-		Voice: Attack
-		Armaments: garrisoned
-		PortOffsets: 384,0,128, 224,-341,128, 224,341,128, 0,-341,128, 0,341,128, -224,-341,128, -224,341,128, -384,0,128
-		PauseOnCondition: chronobeamed
+	# AttackOpenTopped:
+	# 	Voice: Attack
+	# 	Armaments: garrisoned
+	# 	PortOffsets: 384,0,128, 224,-341,128, 224,341,128, 0,-341,128, 0,341,128, -224,-341,128, -224,341,128, -384,0,128
+	# 	PauseOnCondition: chronobeamed
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
@@ -7233,7 +7396,8 @@ TSSAPCCABAL:
 TST1000:
 	Inherits: ^Soldier
 	Inherits@Template: ^ScoutVehicleTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@MC: ^MCImmune
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -7264,8 +7428,6 @@ TST1000:
 		Type: Light
 	Health:
 		HP: 250000
-	AutoTarget:
-		ScanRadius: 4
 	Armament@PRIMARY:
 		Weapon: Eliminator-Blades
 	WithInfantryBody:
@@ -7324,7 +7486,8 @@ TST1000:
 TSDEFENDER:
 	Inherits: ^Tank
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@announce: ^AnnounceGlobal
 	Inherits@MC: ^MCImmune
@@ -7414,8 +7577,6 @@ TSDEFENDER:
 	Selectable:
 		Bounds: 2048, 2048
 		DecorationBounds: 2248, 2248
-	AutoTarget:
-		ScanRadius: 10
 	Capturable:
 		Types: thiefproof
 	RenderSprites:
@@ -7428,10 +7589,15 @@ TSDEFENDER:
 TSORCA:
 	Inherits: ^Helicopter
 	Inherits@Template: ^HelicopterTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
+	Inherits@TSProjectileImprovements: ^TSProjectileImprovements
+	Inherits@CeramicArmor: ^CeramicArmor
+	Inherits@MechanicalReliability: ^MechanicalReliability
+	Inherits@SonicWeaponry: ^SonicWeaponry
 	Valued:
 		Cost: 1700
 	Tooltip:
@@ -7444,8 +7610,8 @@ TSORCA:
 		Prerequisites: ~tsgthpad
 		Description: Fast assault gunship with\ndual missile launchers.\n  Strong vs Aircraft, Vehicles
 	Aircraft:
-		TurnSpeed: 80
-		Speed: 186
+		TurnSpeed: 35
+		Speed: 175
 		TakeoffSounds: orcaup1.aud
 		LandingSounds: orcadwn1.aud
 		AltitudeVelocity: 128
@@ -7460,9 +7626,12 @@ TSORCA:
 		Weapon: TSHellfire
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
-	AutoTarget:
-		ScanRadius: 5
-		InitialStance: HoldFire
+		RequiresCondition: !up_sonicweaponry
+	Armament@Upgrade:
+		Weapon: TSHellfireSonic
+		LocalOffset: 0,0,0
+		PauseOnCondition: !ammo
+		RequiresCondition: up_sonicweaponry
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -7489,6 +7658,8 @@ TSORCA:
 		Position: BottomLeft
 		RequiresSelection: True
 		PipCount: 5
+	ActorStatValues:
+		Upgrades: up_tsprojectileimprovements, up_ceramicarmor, up_mechanicalreliability, up_sonicweaponry
 
 
 TSORCA.Husk:
@@ -7510,10 +7681,13 @@ TSORCA.Husk:
 TSORCAB:
 	Inherits: ^Helicopter
 	Inherits@Template: ^BomberTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
+	Inherits@CeramicArmor: ^CeramicArmor
+	Inherits@MechanicalReliability: ^MechanicalReliability
 	Valued:
 		Cost: 1900
 	Tooltip:
@@ -7527,8 +7701,8 @@ TSORCAB:
 		Description: Heavy bomber.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
 	Aircraft:
 		CruiseAltitude: 2560
-		TurnSpeed: 40
-		Speed: 96
+		TurnSpeed: 35
+		Speed: 175
 		CruisingCondition: cruising
 		TakeoffSounds: orcaup1.aud
 		LandingSounds: orcadwn1.aud
@@ -7543,9 +7717,6 @@ TSORCAB:
 		Weapon: TSBomb
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
-	AutoTarget:
-		ScanRadius: 5
-		InitialStance: HoldFire
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 80
@@ -7562,9 +7733,9 @@ TSORCAB:
 		Ammo: 20
 		ReloadCount: 10
 		AmmoCondition: ammo
-	ReloadAmmoPool:
-		Delay: 25
-		Count: 1
+	# ReloadAmmoPool:
+	# 	Delay: 25
+	# 	Count: 1
 	SpawnActorOnDeath:
 		Actor: TSORCAB.Husk
 	RenderVoxels:
@@ -7573,6 +7744,8 @@ TSORCAB:
 		Position: BottomLeft
 		RequiresSelection: True
 		PipCount: 2
+	ActorStatValues:
+		Upgrades: up_ceramicarmor, up_mechanicalreliability
 
 
 TSORCAB.Husk:
@@ -7598,6 +7771,8 @@ TSORCAB.Husk:
 TSTRNSPORT:
 	Inherits: ^Helicopter
 	Inherits@Voxel: ^TSRenderVoxel
+	Inherits@CeramicArmor: ^CeramicArmor
+	Inherits@MechanicalReliability: ^MechanicalReliability
 	Valued:
 		Cost: 750
 	Tooltip:
@@ -7639,6 +7814,8 @@ TSTRNSPORT:
 		VoiceSet: TSHeli
 	RenderVoxels:
 		Scale: 15
+	ActorStatValues:
+		Upgrades: up_ceramicarmor, up_mechanicalreliability
 
 TSTRNSPORT.Husk:
 	Inherits: ^PlaneHusk
@@ -7711,7 +7888,8 @@ TSTRNSPORTMUTANT:
 TSSCRIN:
 	Inherits: ^Helicopter
 	Inherits@Template: ^BomberTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
@@ -7746,8 +7924,6 @@ TSSCRIN:
 		Weapon: TSProton
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
-	AutoTarget:
-		ScanRadius: 5
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 80
@@ -7808,7 +7984,8 @@ TSSCRIN.Husk:
 TSAPACHENOD:
 	Inherits: ^Helicopter
 	Inherits@Template: ^BomberTemplate
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
@@ -7837,8 +8014,6 @@ TSAPACHENOD:
 		Weapon: TSHarpyClaw
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
-	AutoTarget:
-		ScanRadius: 5
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -7883,7 +8058,8 @@ TSAPACHENOD:
 
 TSAPACHEMUTANT:
 	Inherits: ^Helicopter
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
@@ -7912,8 +8088,6 @@ TSAPACHEMUTANT:
 		Weapon: TSHarpyClaw
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
-	AutoTarget:
-		ScanRadius: 5
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -7958,7 +8132,8 @@ TSAPACHEMUTANT:
 
 TSAPACHECABAL:
 	Inherits: ^Helicopter
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
@@ -7987,8 +8162,6 @@ TSAPACHECABAL:
 		Weapon: TSHarpyClaw
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
-	AutoTarget:
-		ScanRadius: 5
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -8053,7 +8226,8 @@ TSAPACHE.Husk:
 
 TSHELI:
 	Inherits: ^Helicopter
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
@@ -8086,8 +8260,6 @@ TSHELI:
 		Weapon: TSHoverMissile
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
-	AutoTarget:
-		ScanRadius: 5
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -8150,7 +8322,8 @@ TSHELI.Husk:
 
 TSHIND:
 	Inherits: ^Helicopter
-	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
@@ -8179,8 +8352,6 @@ TSHIND:
 		Weapon: TSHarpyClaw
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
-	AutoTarget:
-		ScanRadius: 5
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -8428,8 +8599,12 @@ TSKODK:
 	Inherits: ^Helicopter
 	Inherits@Template: ^SpaceshipTemplate
 	Inherits@EXP: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@announce: ^AnnounceGlobal
+	Inherits@CeramicArmor: ^CeramicArmor
+	Inherits@MechanicalReliability: ^MechanicalReliability
+	Inherits@SonicWeaponry: ^SonicWeaponry
 	Tooltip:
 		Name: Kodiak Command Ship
 	Valued:
@@ -8444,7 +8619,7 @@ TSKODK:
 		BuildLimit: 1
 	Aircraft:
 		InitialFacing: 896
-		TurnSpeed: 12
+		TurnSpeed: 6
 		Speed: 30
 		RepulsionSpeed: 24
 		IdealSeparation: 2500
@@ -8459,6 +8634,13 @@ TSKODK:
 		Weapon: KodiakCannon
 		LocalOffset: 800,0,-200
 		MuzzleSequence: muzzle
+		RequiresCondition: !up_sonicweaponry
+	Armament@Upgrade:
+		Name: primary
+		Weapon: KodiakCannonSonic
+		LocalOffset: 800,0,-200
+		MuzzleSequence: muzzle
+		RequiresCondition: up_sonicweaponry
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: KodiakAAGuns
@@ -8480,12 +8662,14 @@ TSKODK:
 	SpawnActorOnDeath:
 		Actor: TSKODK.Husk
 	DeathSounds:
-	-ReloadAmmoDelayMultiplier@RANK-1:
-	-ReloadAmmoDelayMultiplier@RANK-2:
-	-ReloadAmmoDelayMultiplier@RANK-3:
-	-ReloadAmmoDelayMultiplier@RANK-ELITE:
+	# -ReloadAmmoDelayMultiplier@RANK-1:
+	# -ReloadAmmoDelayMultiplier@RANK-2:
+	# -ReloadAmmoDelayMultiplier@RANK-3:
+	# -ReloadAmmoDelayMultiplier@RANK-ELITE:
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_ceramicarmor, up_mechanicalreliability, up_sonicweaponry
 	#IonCannonPower:
 	#	AllowMultiple: True
 	#	OrderName: GDIDropDod
@@ -8530,3 +8714,268 @@ TSKODK.Husk:
 		PlayerPalette: playerra2
 	FallsToEarth:
 		Explosion: KirovExplode
+
+
+###############################################
+# TS Upgrades
+###############################################
+
+########## Radar ##########
+
+^SERETraining:
+	GrantConditionOnPrerequisite@up_seretraining:
+		Condition: up_seretraining
+		Prerequisites: up_seretraining
+	SpeedMultiplier@up_seretraining:
+		RequiresCondition: up_seretraining
+		Modifier: 120
+	DamageMultiplier@up_seretraining:
+		RequiresCondition: up_seretraining
+		Modifier: 75
+	ActorStatValues:
+		Upgrades: up_seretraining
+
+up_seretraining:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: SERE Training
+	Valued:
+		Cost: 5000
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: upgrade-seretraining.description
+		Prerequisites: ~tsgtradr, !up_seretraining
+	RenderSprites:
+		Image: seretrainingicon
+	ProvidesPrerequisite:
+
+^SonicWeaponry:
+	GrantConditionOnPrerequisite@up_sonicweaponry:
+		Condition: up_sonicweaponry
+		Prerequisites: up_sonicweaponry
+	ActorStatValues:
+		Upgrades: up_sonicweaponry
+
+up_sonicweaponry:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Sonic Weaponry
+	Valued:
+		Cost: 7500
+	Buildable:
+		BuildPaletteOrder: 90
+		Queue: Addons
+		Description: upgrade-sonicweaponry.description
+		Prerequisites: ~tsgtradr, !up_sonicweaponry
+	RenderSprites:
+		Image: sonicweaponryicon
+	ProvidesPrerequisite:
+
+^TSProjectileImprovements:
+	GrantConditionOnPrerequisite@up_tsprojectileimprovements:
+		Condition: up_tsprojectileimprovements
+		Prerequisites: up_tsprojectileimprovements
+	RangeMultiplier@up_tsprojectileimprovements:
+		RequiresCondition: up_tsprojectileimprovements
+		Modifier: 120
+	FirepowerMultiplier@up_tsprojectileimprovements:
+		RequiresCondition: up_tsprojectileimprovements
+		Modifier: 120
+	ActorStatValues:
+		Upgrades: up_tsprojectileimprovements
+
+up_tsprojectileimprovements:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Projectile Improvements
+	Valued:
+		Cost: 5000
+	Buildable:
+		BuildPaletteOrder: 100
+		Queue: Addons
+		Description: upgrade-tsprojectileimprovements.description
+		Prerequisites: ~tsgtradr, !up_tsprojectileimprovements
+	RenderSprites:
+		Image: tsprojectileimprovementsicon
+	ProvidesPrerequisite:
+
+########## LAB ##########
+
+^MechEngineering:
+	GrantConditionOnPrerequisite@up_mechengineering:
+		Condition: up_mechengineering
+		Prerequisites: up_mechengineering
+	DamageMultiplier@up_mechengineering:
+		RequiresCondition: up_mechengineering
+		Modifier: 80
+	SpeedMultiplier@up_mechengineering:
+		RequiresCondition: up_mechengineering
+		Modifier: 125
+	ActorStatValues:
+		Upgrades: up_mechengineering
+
+up_mechengineering:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Mech Engineering
+	Valued:
+		Cost: 7500
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Upgrades
+		Description: upgrade-mechengineering.description
+		Prerequisites: ~tsgttech, !up_mechengineering
+	RenderSprites:
+		Image: mechengineeringicon
+	ProvidesPrerequisite:
+
+^RailgunWeaponry:
+	# FirepowerMultiplier@up_railgunweaponry:
+	# 	RequiresCondition: up_railgunweaponry
+	# 	Modifier: 125
+	# ReloadDelayMultiplier@up_railgunweaponry:
+	# 	RequiresCondition: up_railgunweaponry
+	# 	Modifier: 110
+	# InaccuracyMultiplier@up_railgunweaponry:
+	# 	RequiresCondition: up_railgunweaponry
+	# 	Modifier: 25
+	GrantConditionOnPrerequisite@up_railgunweaponry:
+		Condition: up_railgunweaponry
+		Prerequisites: up_railgunweaponry
+	ActorStatValues:
+		Upgrades: up_railgunweaponry
+
+up_railgunweaponry:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Railgun Weaponry
+	Valued:
+		Cost: 10000
+	Buildable:
+		BuildPaletteOrder: 90
+		Queue: Upgrades
+		Description: upgrade-railgunweaponry.description
+		Prerequisites: ~tsgttech, !up_railgunweaponry
+	RenderSprites:
+		Image: railgunweaponryicon
+	ProvidesPrerequisite:
+
+^MechanicalReliability:
+	GrantConditionOnPrerequisite@up_mechanicalreliability:
+		Condition: up_mechanicalreliability
+		Prerequisites: up_mechanicalreliability
+	ChangesHealth@up_mechanicalreliability:
+		PercentageStep: 1
+		Delay: 10
+		StartIfBelow: 100
+		DamageCooldown: 10
+		RequiresCondition: up_mechanicalreliability
+	ChangesHealth@up_mechanicalreliability2:
+		Step: 10
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 10
+		RequiresCondition: up_mechanicalreliability
+	DamageMultiplier@up_mechanicalreliability:
+		RequiresCondition: up_mechanicalreliability
+		Modifier: 95
+	SpeedMultiplier@up_mechanicalreliability:
+		RequiresCondition: up_mechanicalreliability
+		Modifier: 105
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability
+
+up_mechanicalreliability:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Mechanical Reliability
+	Valued:
+		Cost: 7500
+	Buildable:
+		BuildPaletteOrder: 100
+		Queue: Upgrades
+		Description: upgrade-mechanicalreliability.description
+		Prerequisites: ~tsgttech, !up_mechanicalreliability
+	RenderSprites:
+		Image: mechanicalreliabilityicon
+	ProvidesPrerequisite:
+
+^CeramicArmor:
+	GrantConditionOnPrerequisite@up_ceramicarmor:
+		Condition: up_ceramicarmor
+		Prerequisites: up_ceramicarmor
+	DamageMultiplier@up_ceramicarmor:
+		RequiresCondition: up_ceramicarmor
+		Modifier: 60
+	SpeedMultiplier@up_ceramicarmor:
+		RequiresCondition: up_ceramicarmor
+		Modifier: 105
+	ActorStatValues:
+		Upgrades: up_ceramicarmor
+
+up_ceramicarmor:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Ceramic Armor
+	Valued:
+		Cost: 10000
+	Buildable:
+		BuildPaletteOrder: 110
+		Queue: Upgrades
+		Description: upgrade-ceramicarmor.description
+		Prerequisites: ~tsgttech, !up_ceramicarmor
+	RenderSprites:
+		Image: ceramicarmoricon
+	ProvidesPrerequisite:
+
+^ModernFireControlSystems:
+	GrantConditionOnPrerequisite@up_modernfirecontrolsystems:
+		Condition: up_modernfirecontrolsystems
+		Prerequisites: up_modernfirecontrolsystems
+	ReloadDelayMultiplier@up_modernfirecontrolsystems:
+		RequiresCondition: up_modernfirecontrolsystems
+		Modifier: 90
+	InaccuracyMultiplier@up_modernfirecontrolsystems:
+		RequiresCondition: up_modernfirecontrolsystems
+		Modifier: 90
+	RangeMultiplier@up_modernfirecontrolsystems:
+		RequiresCondition: up_modernfirecontrolsystems
+		Modifier: 110
+	RevealsShroudMultiplier@up_modernfirecontrolsystems:
+		RequiresCondition: up_modernfirecontrolsystems
+		Modifier: 110
+	DetectCloakedMultiplier@up_modernfirecontrolsystems:
+		RequiresCondition: up_modernfirecontrolsystems
+		Modifier: 110
+	ActorStatValues:
+		Upgrades: up_modernfirecontrolsystems
+
+up_modernfirecontrolsystems:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Modern Fire Control Systems
+	Valued:
+		Cost: 12500
+	Buildable:
+		BuildPaletteOrder: 120
+		Queue: Upgrades
+		Description: upgrade-modernfirecontrolsystems.description
+		Prerequisites: ~tsgttech, !up_modernfirecontrolsystems
+	RenderSprites:
+		Image: modernfirecontrolsystemsicon
+	# ProvidesPrerequisite:
+	ProvidesTeamProxyActor:
+		Actor: team_upgrade.up_modernfirecontrolsystems
+
+team_upgrade.up_modernfirecontrolsystems:
+	Inherits: ^researched_upgrade.template
+	ProvidesPrerequisite:
+		Prerequisite: up_modernfirecontrolsystems
+	RenderSprites:
+		Image: modernfirecontrolsystemsicon
+	Tooltip:
+		Name: Modern Fire Control Systems
+	Buildable:
+		Description: upgrade-modernfirecontrolsystems.description
+	PlayerDisplayUpgrade:

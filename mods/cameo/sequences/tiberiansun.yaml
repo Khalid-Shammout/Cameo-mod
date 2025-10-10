@@ -209,58 +209,102 @@ tse3:
 		AddExtension: False
 
 tsenforcer:
-	Inherits: ^TSBasicInfantry
-	Inherits@attack: ^TSBasicInfantryAttack
-	Defaults:
-		Filename: alte3.shp
 	icon:
-		Filename: tse3icon.png
+		Filename: tsenforcericon.png
 		AddExtension: False
-
-tsriott:
-	Inherits: ^TSBasicInfantry
 	Defaults:
-		Filename: elitcadre.shp
 		Tick: 80
 		Offset: 0, 0, 16
+		Filename: tsenforcer.shp
 	stand:
 		Facings: 8
-		ShadowStart: 292
+		ShadowStart: 300
+	liedown:
+		Facings: 8
+		ShadowStart: 300
 	run:
 		Start: 8
 		Length: 6
 		Facings: 8
-		ShadowStart: 300
+		ShadowStart: 308
 	idle1:
 		Start: 56
 		Length: 15
-		ShadowStart: 348
+		ShadowStart: 356
 	idle2:
 		Start: 71
 		Length: 15
-		ShadowStart: 363
-	crippled-run:
+		ShadowStart: 371
+	prone-run:
 		Start: 86
 		Length: 6
 		Facings: 8
-		ShadowStart: 378
-	crippled-stand:
+		ShadowStart: 386
+	prone-stand:
 		Start: 86
 		Facings: 8
 		Stride: 6
-		ShadowStart: 456
-	attack:
+		ShadowStart: 378
+	prone-stand2:
+		Start: 86
+		Facings: 8
+		Stride: 6
+		ShadowStart: 378
+	die1:
+		Start: 134
+		Length: 15
+		ShadowStart: 434
+	die2:
+		Start: 149
+		Length: 15
+		ShadowStart: 449
+	die6:
+		Start: 149
+		Length: 15
+		ShadowStart: 449
+	die4:
+		Filename: frag3.shp
+		Length: *
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	standup:
+		Start: 212
+		Length: 2
+		Facings: 8
+		ShadowStart: 512
+	cheer:
+		Start: 244
+		Length: 8
+		Facings: 1
+		ShadowStart: 544
+	die7: electro
+		Length: *
+	die5: flameguy
+		Start: 44
+		Length: 104
+		Tick: 50
+	shoot:
 		Start: 164
 		Length: 6
 		Facings: 8
-		ShadowStart: 456
-	crippled-attack:
-		Start: 212
+		ShadowStart: 464
+	prone-shoot:
+		Start: 252
 		Length: 6
 		Facings: 8
-		ShadowStart: 504
+		ShadowStart: 552
+
+tsriott:
+	Inherits: ^TSBasicInfantry
+	Inherits@attack: ^TSBasicInfantryAttack
+	Defaults:
+		Filename: tsriott.shp
 	icon:
-		Filename: elitcadreicon.shp
+		Filename: tsriotticon.png
 		AddExtension: False
 
 tsumagon:
@@ -285,8 +329,9 @@ tsrailcom:
 	Inherits@attack: ^TSBasicInfantryAttack
 	Defaults:
 		Filename: tsrailcom.shp
+		Scale: 1.1
 	icon:
-		Filename: tsrailcomicon.shp
+		Filename: tsrailcomicon.png
 
 tsmhijack:
 	Inherits: ^TSBasicInfantry
@@ -807,11 +852,20 @@ tsapc:
 
 tspitbull:
 	Defaults:
-		Filename: invisibleitem.shp
+		Scale: 1
 	idle:
-		Filename: invisibleitem.shp
+		Filename: tspitbull.png
+		Facings: 64
+		Scale: 0.5
+	# run:
+	# 	Filename: pitbull.png
+	# 	Facings: 64
+	turret:
+		Filename: tspitbulltur.png
+		Facings: 64
+		Scale: 0.6
 	icon:
-		Filename: pitbullicon.png
+		Filename: tspitbullicon.png
 		AddExtension: False
 	muzzle:
 		Filename: gunfire2.shp
@@ -2734,6 +2788,18 @@ tsgthpad:
 		Tick: 100
 		Offset: 0, -36
 		ZOffset: -1c511
+	active:
+		Filename: tsgthpad_a.shp
+		Length: 8
+		Tick: 100
+		Offset: 0, -36
+		ZOffset: -1c511
+	damaged-active:
+		Filename: tsgthpad_a.shp
+		Length: 8
+		Tick: 100
+		Offset: 0, -36
+		ZOffset: -1c511
 	damaged-idle-lights:
 		Filename: tsgthpad_a.shp
 		Start: 8
@@ -2786,6 +2852,16 @@ tsnthpad:
 		ZOffset: -1c511
 		Tick: 400
 	idle-lights:
+		Filename: tsnthpad_a.shp
+		Length: 46
+		ZOffset: -1c511
+		Tick: 100
+	active:
+		Filename: tsnthpad_a.shp
+		Length: 46
+		ZOffset: -1c511
+		Tick: 100
+	damaged-active:
 		Filename: tsnthpad_a.shp
 		Length: 46
 		ZOffset: -1c511
@@ -3081,6 +3157,18 @@ tsgtdept:
 		Offset: 0, -16, 12
 		Tick: 60
 	crane-loop:
+		Filename: tsgtdept_c.shp
+		Start: 6
+		Length: 5
+		Offset: 0, -16, 12
+		Tick: 60
+	active:
+		Filename: tsgtdept_c.shp
+		Start: 6
+		Length: 5
+		Offset: 0, -16, 12
+		Tick: 60
+	damaged-active:
 		Filename: tsgtdept_c.shp
 		Start: 6
 		Length: 5
@@ -4063,3 +4151,39 @@ tsbomb:
 		Frames: 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0
  		Length: 14
  		ZOffset: 256
+
+
+# Upgrades:
+
+seretrainingicon:
+	icon:
+		Filename: seretrainingicon.png
+
+sonicweaponryicon:
+	icon:
+		Filename: sonicweaponryicon.png
+
+tsprojectileimprovementsicon:
+	icon:
+		Filename: tsprojectileimprovementsicon.png
+
+mechanicalreliabilityicon:
+	icon:
+		Filename: mechanicalreliabilityicon.png
+
+railgunweaponryicon:
+	icon:
+		Filename: railgunweaponryicon.png
+
+mechengineeringicon:
+	icon:
+		Filename: tstitanicon.shp
+		AddExtension: False
+
+ceramicarmoricon:
+	icon:
+		Filename: ceramicarmoricon.png
+
+modernfirecontrolsystemsicon:
+	icon:
+		Filename: modernfirecontrolsystemsicon.png

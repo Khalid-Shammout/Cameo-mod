@@ -2323,3 +2323,42 @@ faction-ra2-modded-random =
    .name = Any
    .description = Random faction
       A random faction from Red Alert 2 Mods will be chosen when the game starts.
+
+upgrade-seretraining =
+   .name = SERE Training
+   .description = Increases infantry health by 25%
+      and movement speed by 20%.
+
+upgrade-sonicweaponry =
+   .name = Sonic Weaponry
+   .description = Greately increases Disruptor damage
+      and adds Sonic weapon for Orca, Vulcan Tower, Disc Thrower and Kodiak.
+
+upgrade-tsprojectileimprovements =
+   .name = Projectile Improvements
+   .description = Increases damage and range by 20%
+      for Enforcer, Pitbull, Hover MLRS and SAM Tower.
+
+upgrade-mechengineering =
+   .name = Mech Engineering
+   .description = Increases walkers health by 20%
+      and movement speed by 25%.
+
+upgrade-railgunweaponry =
+   .name = Railgun Weaponry
+   .description = Increases damage for Railgun Commando and Mammoth Prototype
+      and adds Railgun weapon for Enforcer, Titan and RPG Tower.
+
+upgrade-mechanicalreliability =
+   .name = Mechanical Reliability
+   .description = Increases all vehicles, tanks and aircraft health by 5%
+      and movement speed by 5%. Also gives them additional health regeneration.
+
+upgrade-ceramicarmor =
+   .name = Ceramic Armor
+   .description = Increases aircraft health by 40%
+      and movement speed by 5%.
+
+upgrade-modernfirecontrolsystems =
+   .description = TEAM UPGRADE
+   Increases all vehicles and tanks accuracy, vision, detection, weapon range and attack speed by 10%.

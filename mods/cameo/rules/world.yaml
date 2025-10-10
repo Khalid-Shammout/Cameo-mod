@@ -367,14 +367,14 @@
 			Road: 98
 			Bridge: 98
 			Tunnel: 98
-			Tiberium: 60
-			BlueTiberium: 60
-			RedTiberium: 60
-			GoldTiberium: 60
+			Tiberium: 90
+			BlueTiberium: 90
+			RedTiberium: 90
+			GoldTiberium: 90
 			Beach: 80
 			Ford: 80
-			Ore: 60
-			Gems: 60
+			Ore: 90
+			Gems: 90
 			River: 60
 			Water: 99
 			SCMinerals: 40
@@ -383,7 +383,7 @@
 			Sand: 90 ##########
 			SpiceSand: 90 ##########
 			Transition: 80
-			Spice: 60
+			Spice: 90
 			ZergSoil: 90
 			Rails: 90
 	Locomotor@FAKEAIRCRAFT:
