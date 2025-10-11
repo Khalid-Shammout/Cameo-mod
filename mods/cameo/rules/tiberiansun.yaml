@@ -756,7 +756,7 @@ TSMCVCABAL:
 # TS Building
 #######################################
 
-TSPROC:
+tsprocgdi:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@ref: ^Refinery
@@ -818,11 +818,11 @@ TSPROC:
 		RequiresSelection: true
 		PipCount: 10
 	RenderSprites:
-		Image: tsproc.gdi
+		Image: tsprocgdi
 		PlayerPalette: playerra2
 
 tsprocnod:
-	Inherits: TSPROC
+	Inherits: tsprocgdi
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~tsgtcnstnod, tsntpowr
@@ -835,10 +835,10 @@ tsprocnod:
 	Tooltip:
 		Name: Tiberium Refinery
 	RenderSprites:
-		Image: tsproc.nod
+		Image: tsprocnod
 
 tsproccabal:
-	Inherits: TSPROC
+	Inherits: tsprocgdi
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~tsgtcnstcabal, tsntpowrcabal
@@ -851,10 +851,10 @@ tsproccabal:
 	Tooltip:
 		Name: Tiberium Refinery
 	RenderSprites:
-		Image: tsproc.nod
+		Image: tsprocnod
 
 tsprocmutant:
-	Inherits: TSPROC
+	Inherits: tsprocgdi
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~tsgtcnstmutant
@@ -1268,7 +1268,6 @@ TSGTPILE:
 	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@barr: ^IsBarrack
-	Inherits@prod: ^ProducesUnits
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 840,-256,0, 840,512,0, 210,-512,0, -71,512,0
@@ -1326,7 +1325,6 @@ TSNTHAND:
 	Inherits@shape: ^2x2Shape
 	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
-	Inherits@prod: ^ProducesUnits
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 630,-512,0, 355,512,0, -281,-512,0, -630,512,0
@@ -1410,7 +1408,6 @@ tsgtweap:
 	Inherits@shape: ^3x2Shape
 	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@weap: ^IsWeaponFactory
-	Inherits@prod: ^ProducesUnits
 	HitShape:
 		TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
 		Type: Rectangle
@@ -1419,11 +1416,11 @@ tsgtweap:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: War Factory
+		Name: GDI War Factory
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites:  ~tsgtcnstgdi, tsproc
+		Prerequisites:  ~tsgtcnstgdi, tsprocgdi
 		Queue: Building, RABuilding
 		Description: Produces vehicles
 	Building:
@@ -1480,7 +1477,6 @@ TSNTWEAP:
 	Inherits@shape: ^3x2Shape
 	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@weap: ^IsWeaponFactory
-	Inherits@prod: ^ProducesUnits
 	HitShape:
 		TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
 		Type: Rectangle
@@ -1489,7 +1485,7 @@ TSNTWEAP:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: War Factory
+		Name: Nod War Factory
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
@@ -1539,6 +1535,8 @@ TSNTWEAP:
 
 TSNTWEAPCABAL:
 	Inherits: TSNTWEAP
+	Tooltip:
+		Name: Cabal War Factory
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~tsgtcnstcabal, tsproccabal
@@ -1554,6 +1552,8 @@ TSNTWEAPCABAL:
 
 TSGTWEAPMUTANT:
 	Inherits: TSNTWEAP
+	Tooltip:
+		Name: Forgotten War Factory
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~tsgtcnstmutant, tsprocmutant
@@ -1670,7 +1670,6 @@ tsgthpad:
 	Inherits@shape: ^2x1Shape
 	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@hpad: ^IsAircraftFactory
-	Inherits@prod: ^ProducesUnits
 	Selectable:
 		Bounds: 2048, 2048
 	HitShape:
@@ -1740,7 +1739,6 @@ TSNTHPAD:
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@hpad: ^IsAircraftFactory
-	Inherits@prod: ^ProducesUnits
 	Selectable:
 		Bounds: 2048, 2048
 	HitShape:
@@ -1819,7 +1817,7 @@ tsntradr:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 70
-		Prerequisites: ~tsgtcnstnod, tsntweap
+		Prerequisites: ~tsgtcnstnod, tsprocnod
 		Queue: Building, RABuilding
 		Description: Provides radar.\nUnlocks higher-tech units and buildings.\nProvides Support power\nRequires power to operate.
 	Building:
@@ -1902,7 +1900,7 @@ tsgtradr:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 70
-		Prerequisites:  ~tsgtcnstgdi, tsgtweap
+		Prerequisites:  ~tsgtcnstgdi, tsprocgdi
 		Queue: Building, RABuilding
 		Description: Provides radar.\nUnlocks higher-tech units and buildings.\nRequires power to operate.\nCan be only built once.
 	Building:
@@ -2406,8 +2404,6 @@ tsgtplug:
 		BuildPaletteOrder: 140
 		Prerequisites: ~tsgtcnstgdi, tsgttech
 		Description: Provides Hunter-Seeker and Ion Cannon\nsupport powers.
-	Valued:
-		Cost: 1500
 	Tooltip:
 		Name: Upgrade Center
 	Building:
@@ -2416,15 +2412,8 @@ tsgtplug:
 		LocalCenterOffset: 0,-512,0
 	Selectable:
 		Bounds: 2048, 2048
-	Health:
-		HP: 210000
-	Armor:
-		Type: Wood
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
-	Power:
-		Amount: -100
 	WithIdleOverlay@DISH:
 		RequiresCondition: !build-incomplete
 		PauseOnCondition: lowpower || disabled
@@ -5028,7 +5017,7 @@ TSHARV:
 		PipCount: 8
 		Capacity: 35
 	Buildable:
-		Prerequisites: ~tsgtweap, tsproc
+		Prerequisites: ~tsgtweap, tsprocgdi
 		Queue: Vehicle, RAVehicle
 		Description: Harvests Tiberium for processing
 	WithVoxelBody:
@@ -5529,7 +5518,6 @@ TSJUGG:
 		UndeployOnMove: true
 		UndeployOnPickup: true
 		Facing: 384
-		AllowedTerrainTypes: Clear, Road, DirtRoad, Rough
 		DeploySounds: place2.aud
 		UndeploySounds: clicky1.aud
 		Voice: Move
@@ -7593,7 +7581,6 @@ TSORCA:
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
-	Inherits@reload: ^RearmableAircraft
 	Inherits@TSProjectileImprovements: ^TSProjectileImprovements
 	Inherits@CeramicArmor: ^CeramicArmor
 	Inherits@MechanicalReliability: ^MechanicalReliability
@@ -7619,9 +7606,6 @@ TSORCA:
 		TakeOffOnResupply: true
 	Health:
 		HP: 32500
-	RevealsShroud:
-		Range: 7c0
-		Type: GroundPosition
 	Armament@PRIMARY:
 		Weapon: TSHellfire
 		LocalOffset: 0,0,0
@@ -8598,6 +8582,8 @@ TSARND:
 TSKODK:
 	Inherits: ^Helicopter
 	Inherits@Template: ^SpaceshipTemplate
+	Inherits@Epic: ^EpicAirUnitTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove

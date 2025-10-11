@@ -3121,7 +3121,7 @@ Player:
 		AdditionalHarvesters: 1
 		ScanForIdleHarvestersInterval: 1000
 		HarvesterTypes: harv.gdi, harv.nod, tanodharv, raharv.soviet, raharv.allies, raharv.japan, ra2cmin, ra2harv, aa_drmn, harvester, steel_qmin, latin_harv, nax_slavemaster, nax_slav, nax2_armor_harv, scscv, scprobe, scdrone
-		RefineryTypes: proc.gdi, proc.nod, raproc.allies, raproc.soviet, jproc, ra2narefn, ra2garefn, yryarefn, aa_cgrefn, steel_qref, latin_cgauto, nax_refin, screfinery, scassimilator, scextractor, tsproc, glsupply, chsupply, usasupply, refinery, refinery.atreides, wc2_human_elven_lumber_mill, wc2_orc_troll_lumber_mill, tkmrefinery
+		RefineryTypes: proc.gdi, proc.nod, raproc.allies, raproc.soviet, jproc, ra2narefn, ra2garefn, yryarefn, aa_cgrefn, steel_qref, latin_cgauto, nax_refin, screfinery, scassimilator, scextractor, tsprocgdi, glsupply, chsupply, usasupply, refinery, refinery.atreides, wc2_human_elven_lumber_mill, wc2_orc_troll_lumber_mill, tkmrefinery
 	BuildingRepairBotModule:
 		RequiresCondition: genericbot
 	McvManagerBotModuleCA:
@@ -3433,7 +3433,7 @@ Player:
 		BuildingQueues: Building, RABuilding
 		DefenseQueues: Defence, RADefence
 		ConstructionYardTypes: fact.gdi, fact.nod, rafact.allies, rafact.soviet, rafact.japan, ra2nacnst, ra2gacnst, yrnacnst, tsgtcnstgdi, tsgtcnstnod, tsgtcnstmutant, tsgtcnstcabal, sccommandcenter, scnexus, schatchery, sclair, schive, glcommand, chcommand, usacommand, construction_yard.ixian, construction_yard.ordos, wc2_human_townhall, wc2_orc_greathall, aa_cgcnst, steel_qacst, latin_cgcnst, nax_conyard, nax2_conyard, tkmcommandcenter
-		RefineryTypes: proc.gdi, proc.nod, raproc.allies, raproc.soviet, jproc, ra2narefn, ra2garefn, yryarefn, tsproc, tsprocnod, tsprocmutant, tsproccabal, screfinery, scassimilator, scextractor, glsupply, chsupply, usasupply, refinery, refinery.atreides, refinery.ordos, wc2_human_elven_lumber_mill, wc2_orc_troll_lumber_mill, wc2_human_townhall, wc2_orc_greathall, aa_cgrefn, steel_qref, latin_cgauto, nax_refin, nax2_refin, tkmrefinery
+		RefineryTypes: proc.gdi, proc.nod, raproc.allies, raproc.soviet, jproc, ra2narefn, ra2garefn, yryarefn, tsprocgdi, tsprocnod, tsprocmutant, tsproccabal, screfinery, scassimilator, scextractor, glsupply, chsupply, usasupply, refinery, refinery.atreides, refinery.ordos, wc2_human_elven_lumber_mill, wc2_orc_troll_lumber_mill, wc2_human_townhall, wc2_orc_greathall, aa_cgrefn, steel_qref, latin_cgauto, nax_refin, nax2_refin, tkmrefinery
 		PowerTypes: nuke, nuk2, powr, apwr, jpwr, ra2napowr, ra2gapowr, ra2nanrct, yryapowr, scsupplydepot, scpylon, scbotoverlord, tsgtpowr, tsntpowrmutant, tsntpowrcabal, tsntpowr, tsntapwr, chpower, chpower2, usapower, wind_trap, wind_trap.atreides, wind_trap.ordos, d2k_mini_windtrap, wc2_human_farm, wc2_orc_pigfarm, aa_cgapwr, aa_cgtnkr, steel_qapowr, latin_cgpow, nax_powr, nax2_powr, scoverlord, tkmpowerplant
 		BarracksTypes: pyle, hand, tent, barr, ra2gapile, ra2nahand, yryabrck, scbarracks, scgateway, schatchery, sclair, schive, tsgtpile, tsgtpile2, tsnthand, tsnthand2, glbarracks, chbarracks, usabarracks, d2k_barracks, d2k_barracks.ixian, d2k_barracks.ordos, wc2_human_barracks, wc2_orc_barracks, aa_cgbrck, steel_qabarr, latin_cgpile, nax_barr, nax2_barr, tkmbarracks
 		VehiclesFactoryTypes: weap, afld, raweapa, raweap, ra_gigafactory, ra2gaweap, ra2naweap, yrygweap, scfactory, scroboticsfacility, schatchery, sclair, schive, tsgtweap, tsgtweapmutant, tsntweap, tsntweapcabal, glweap, chweap, usaweap, heavy_factory.ixian, starport.ixian, heavy_factory.ordos, starport.ordos, light_factory.ordos, wc2_human_gnomish_inventor, wc2_orc_goblin_alchemist, aa_cgweap, steel_qaweap, latin_cgweap, nax_weap, nax2_weap, tsntweap, tsntweapcabal, tsgtweapmutant, tkmfactory
@@ -3447,7 +3447,7 @@ Player:
 		#Refinery
 			proc.gdi: 1500
 			proc.nod: 1500
-			tsproc: 1500
+			tsprocgdi: 1500
 			tsprocnod: 1500
 			tsprocmutant: 1500
 			tsproccabal: 1500
@@ -3914,7 +3914,7 @@ Player:
 			#################### BuildingLimits TS GDI
 			oilb.ts: 20
 			oilb.ts.mutant: 20
-			tsproc: 10
+			tsprocgdi: 10
 			tsgtpile: 5
 			tsgtradr: 2
 			tsgtweap: 7
@@ -4200,6 +4200,57 @@ Player:
 			yrngtbnk: 10
 			yrygggun: 15
 			yrygpsyt: 15
+			#################### BuildingFractions TS GDI
+			tsprocgdi: 15
+			tsgtpile: 15
+			tsgtweap: 15
+			tsgthpad: 15
+			tsgtradr: 1
+			tsgttech: 1
+			tsgtplug: 1
+			tsgtctwrmg: 5
+			tsgtctwrrpg: 5
+			tsgtctwrsam: 7
+			tsgtdeptgdi: 3
+			oilb.td: 20
+			tsntpulsgdi: 1
+			tsgtpowrup: 1
+			#################### BuildingFractions TS Nod
+			tsprocnod: 20
+			tsnthand: 5
+			tsntradr: 1
+			tsntweap: 10
+			tsnthpad: 3
+			tsnttech: 1
+			tsnttmpl: 1
+			tsntpuls: 1
+			tsntlasr: 5
+			tsntobel: 10
+			tsntsam: 7
+			tsntwast: 10
+			tsntmisl: 1
+			tsntstlh: 1
+			tsntpulsnod: 1
+			#################### BuildingFractions TS Forgotten
+			tsprocmutant: 20
+			tsgtpile2: 5
+			tsgtweapmutant: 10
+			tsgthpad2: 3
+			tsgtradrmutant: 1
+			tsgtwr: 10
+			tsfgttech: 1
+			#################### BuildingFractions TS CABAL
+			tsproccabal: 20
+			tsntlasrcabal: 5
+			tsnthand2: 5
+			tsntweapcabal: 10
+			tsnthpad2: 3
+			tscore: 1
+			tscabaltech: 1
+			tsntradrcabal: 1
+			tsntobel2cabal: 3
+			tsntobelcabal: 10
+			tsntpulscabal: 1
 			#################### Buildings Asian Alliance
 			aa_cgcnst: 5
 			#aa_cgapwr: 3
@@ -4498,57 +4549,6 @@ Player:
 			atek.answer: 1
 			dtpropaganda: 1
 			oilb.tomorrow: 20
-			#################### BuildingFractions TS GDI
-			tsproc: 20
-			tsgtpile: 5
-			tsgtradr: 1
-			tsgtweap: 10
-			tsgthpad: 3
-			tsgttech: 1
-			tsgtplug: 1
-			tsgtctwrmg: 5
-			tsgtctwrrpg: 5
-			tsgtctwrsam: 7
-			tsgtdept: 3
-			oilb.td: 20
-			tsntpulsgdi: 1
-			tsgtpowrup: 1
-			#################### BuildingFractions TS Nod
-			tsprocnod: 20
-			tsnthand: 5
-			tsntradr: 1
-			tsntweap: 10
-			tsnthpad: 3
-			tsnttech: 1
-			tsnttmpl: 1
-			tsntpuls: 1
-			tsntlasr: 5
-			tsntobel: 10
-			tsntsam: 7
-			tsntwast: 10
-			tsntmisl: 1
-			tsntstlh: 1
-			tsntpulsnod: 1
-			#################### BuildingFractions TS Forgotten
-			tsprocmutant: 20
-			tsgtpile2: 5
-			tsgtweapmutant: 10
-			tsgthpad2: 3
-			tsgtradrmutant: 1
-			tsgtwr: 10
-			tsfgttech: 1
-			#################### BuildingFractions TS CABAL
-			tsproccabal: 20
-			tsntlasrcabal: 5
-			tsnthand2: 5
-			tsntweapcabal: 10
-			tsnthpad2: 3
-			tscore: 1
-			tscabaltech: 1
-			tsntradrcabal: 1
-			tsntobel2cabal: 3
-			tsntobelcabal: 10
-			tsntpulscabal: 1
 			#################### BuildingFractions GLA
 			glamcv.bot: 1
 			glsupply: 20

@@ -2879,7 +2879,7 @@ tsnthpad:
 		Offset: 0, 0
 		UseTilesetCode: false
 
-tsproc.gdi:
+tsprocgdi:
 	Inherits: ^WithBuildingBib2
 	Defaults:
 		Scale: 1.5
@@ -2926,6 +2926,12 @@ tsproc.gdi:
 		Offset: -12, -21, 5
 	icon:
 		Filename: tsrefineryicon.shp
+		Offset: 0, 0
+
+tsprocnod:
+	Inherits: tsprocgdi
+	icon:
+		Filename: tsrefineryicon2.shp
 		Offset: 0, 0
 
 tsprocmutant:
@@ -2978,12 +2984,6 @@ tsprocmutant:
 		Offset: -12, -21, 5
 	icon:
 		Filename: tsrefineryicon.shp
-		Offset: 0, 0
-
-tsproc.nod:
-	Inherits: tsproc.gdi
-	icon:
-		Filename: tsrefineryicon2.shp
 		Offset: 0, 0
 
 tsntwast:

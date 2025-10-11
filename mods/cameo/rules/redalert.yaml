@@ -7780,6 +7780,7 @@ RAAFLD:
 		DisplayTimerRelationships: Ally, Neutral, Enemy
 	ParatroopersPower@paratroopers:
 		OrderName: SovietParatroopers
+		ChargeInterval: 9000
 		Prerequisites:
 			1:
 			2: ra_doctrine_conscription
@@ -7876,7 +7877,6 @@ RAAFLD:
 			29: power-paratroopers.name
 			30: power-paratroopers.name
 			31: power-paratroopers.name
-		ChargeInterval: 6000
 		Descriptions:
 			1: power-paratroopers.description
 			2: pinficon

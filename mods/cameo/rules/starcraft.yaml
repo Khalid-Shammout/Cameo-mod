@@ -4918,8 +4918,8 @@ SCPYTHEAN:
 	Inherits: ^Helicopter
 	Inherits@Template: ^SpaceshipTemplate
 	Inherits@Epic: ^EpicAirUnitTemplate
-	Inherits@exp: ^GainsExperienceTD
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@exp: ^GainsExperienceTD
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@cargo: ^CargoAircraft
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
