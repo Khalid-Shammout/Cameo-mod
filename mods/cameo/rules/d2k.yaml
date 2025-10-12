@@ -1673,9 +1673,11 @@ light_factory:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Valued:
-		Cost: 1500
+		Cost: 1000
 	Health:
-		HP: 300000
+		HP: 200000
+	ParallelProductionQueue@VEHICLE:
+		BuildDurationModifier: 200
 	WithIdleOverlay@TOP:
 		RequiresCondition: !build-incomplete
 		Sequence: idle-top
@@ -1690,7 +1692,7 @@ light_factory:
 	RenderSprites:
 		Image: light.atreides
 	ProductionTimeMultiplier@light:
-		Multiplier: 150
+		Multiplier: 50
 	SpawnActorOnDeath@death1:
 		Actor: light_inf
 	SpawnActorOnDeath@death2:
@@ -1701,6 +1703,7 @@ light_factory:
 		Condition: upgrade_light
 		Prerequisites: upgrade_light
 	-WithDeathAnimation:
+
 light_factory.ordos:
 	Inherits: light_factory
 	Tooltip:

@@ -18472,6 +18472,7 @@ futu_egtf:
 		RequiresCondition: !build-incomplete
 	RenderSprites:
 		PlayerPalette: playerra2future2
+
 futu_egpile:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
@@ -18508,6 +18509,7 @@ futu_egpile:
 		Sequence: idle-tele
 	RenderSprites:
 		PlayerPalette: playerra2future1
+
 futu_egweap2:
 	Inherits: ^RA2DefaultWeap
 	Inherits@sell: ^RA2ASpawnActorsOnSell
@@ -18526,6 +18528,7 @@ futu_egweap2:
 		Sequence: idle-tele
 	RenderSprites:
 		PlayerPalette: playerra2future1
+
 futu_egrefn:
 	Inherits: ^RA2Building
 	Inherits@sell: ^RA2ASpawnActorsOnSell
@@ -18559,6 +18562,7 @@ futu_egrefn:
 		RequiresCondition: !build-incomplete
 	RenderSprites:
 		PlayerPalette: playerra2future1
+
 futu_egtech:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x3Shape
@@ -18582,6 +18586,7 @@ futu_egtech:
 		Sequence: idle-lights2
 	RenderSprites:
 		PlayerPalette: playerra2future1
+
 futu_egshock:
 	Inherits: ^RA2Building
 	Inherits@sell: ^RA2SSpawnActorsOnSell
@@ -18623,6 +18628,7 @@ futu_egshock:
 		Prerequisite: futu_egshock
 	RenderSprites:
 		PlayerPalette: playerra2future2
+
 futu_gggun:
 	Inherits: ^RA2Defense
 	Inherits@Template: ^BasicDefenseTemplate
@@ -18669,6 +18675,7 @@ futu_gggun:
 	RevealsShroud:
 		Range: 6666
 	ProvidesPrerequisite@buildingname:
+
 futu_ggmlt:
 	Inherits: ^RA2Defense
 	Inherits@Template: ^BasicDefenseTemplate
@@ -19510,6 +19517,7 @@ futu_hvrt:
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 5
 		InitialUnits: future_robot_shotgun, future_robot_shotgun, future_robot_shotgun, future_robot_shotgun, future_robot_missiles
+		
 futu_phal:
 	Inherits: ^Tank
 	Inherits@Template: ^SupportVehicleTemplate
