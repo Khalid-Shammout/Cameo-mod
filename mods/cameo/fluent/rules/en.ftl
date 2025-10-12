@@ -2097,6 +2097,52 @@ ordos_upgrade_contraband =
       Upgrades any non biological weapons with new contraband versions.
       Increases Firepower by 25%.
 
+upgrade-seretraining =
+   .name = SERE Training
+   .description = Tech Upgrade (Only affects units of own faction)
+      Increases Damage Resistance of infantry by 25%
+      Increases Speed by 20%.
+
+upgrade-sonicweaponry =
+   .name = Sonic Weaponry
+   .description = Tech Upgrade (Only affects units of own faction)
+      Greately increases Disruptor damage
+      Equips Orcas, Vulcan Towers, Disc Throwers and the Kodiak with Sonic weapons.
+
+upgrade-tsprojectileimprovements =
+   .name = Projectile Improvements
+   .description = Tech Upgrade (Only affects units of own faction)
+      Increases Damage and Range of Enforcers, Pitbulls, Hover MLRS and SAM Towers by 20%
+
+upgrade-mechengineering =
+   .name = Mech Engineering
+   .description = Tech Upgrade (Only affects units of own faction)
+      Increases Damage Resistance of walkers by 20%.
+      Increases Speed by 25%.
+
+upgrade-railgunweaponry =
+   .name = Railgun Weaponry
+   .description = Tech Upgrade (Only affects units of own faction)
+      Increases damage for Railgun Commando and Mammoth Prototype.
+      Equips Enforcer, Titan and RPG Tower with Railgun weapons.
+
+upgrade-mechanicalreliability =
+   .name = Mechanical Reliability
+   .description = Tech Upgrade (Only affects units of own faction)
+      Increases Damage Resistance and Speed of all vehicles, tanks and aircraft by 10%.
+      Also gives them additional health regeneration of 1% per second.
+
+upgrade-ceramicarmor =
+   .name = Ceramic Armor
+   .description = Tech Upgrade (Only affects units of own faction)
+      Increases Damage Resistance of aircraft by 25%.
+      Increases Speed by 10%.
+
+upgrade-modernfirecontrolsystems =
+   .description = Team Upgrade (Also affects units of your teammates)
+      Increases Accuracy and Rate Of Fire of all vehicles in your team by 10%
+      Increases Vision, Detection and Weapon Range by 5%.
+
 template-mcv =
    .description = Deploys into another Construction Yard.
       Unarmed
@@ -2323,42 +2369,3 @@ faction-ra2-modded-random =
    .name = Any
    .description = Random faction
       A random faction from Red Alert 2 Mods will be chosen when the game starts.
-
-upgrade-seretraining =
-   .name = SERE Training
-   .description = Increases infantry damage resistance by 25%
-      and movement speed by 20%.
-
-upgrade-sonicweaponry =
-   .name = Sonic Weaponry
-   .description = Greately increases Disruptor damage
-      and adds Sonic weapon for Orca, Vulcan Tower, Disc Thrower and Kodiak.
-
-upgrade-tsprojectileimprovements =
-   .name = Projectile Improvements
-   .description = Increases damage and range by 20%
-      for Enforcer, Pitbull, Hover MLRS and SAM Tower.
-
-upgrade-mechengineering =
-   .name = Mech Engineering
-   .description = Increases walkers damage resistance by 20%
-      and movement speed by 25%.
-
-upgrade-railgunweaponry =
-   .name = Railgun Weaponry
-   .description = Increases damage for Railgun Commando and Mammoth Prototype
-      and adds Railgun weapon for Enforcer, Titan and RPG Tower.
-
-upgrade-mechanicalreliability =
-   .name = Mechanical Reliability
-   .description = Increases all vehicles, tanks and aircraft damage resistance by 5%
-      and movement speed by 5%. Also gives them additional health regeneration.
-
-upgrade-ceramicarmor =
-   .name = Ceramic Armor
-   .description = Increases aircraft damage resistance by 25%
-      and movement speed by 10%.
-
-upgrade-modernfirecontrolsystems =
-   .description = TEAM UPGRADE
-   Increases all vehicles and tanks accuracy, vision, detection, weapon range and attack speed by 10%.

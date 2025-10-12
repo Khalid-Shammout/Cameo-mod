@@ -7585,10 +7585,10 @@ TSORCA:
 	Inherits@CeramicArmor: ^CeramicArmor
 	Inherits@MechanicalReliability: ^MechanicalReliability
 	Inherits@SonicWeaponry: ^SonicWeaponry
-	Valued:
-		Cost: 1700
 	Tooltip:
 		Name: Orca Fighter
+	Valued:
+		Cost: 2200
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -7597,15 +7597,19 @@ TSORCA:
 		Prerequisites: ~tsgthpad
 		Description: Fast assault gunship with\ndual missile launchers.\n  Strong vs Aircraft, Vehicles
 	Aircraft:
-		TurnSpeed: 35
-		Speed: 175
+		Speed: 145
+		TurnSpeed: 29
 		TakeoffSounds: orcaup1.aud
 		LandingSounds: orcadwn1.aud
 		AltitudeVelocity: 128
 		CanSlide: false
 		TakeOffOnResupply: true
 	Health:
-		HP: 32500
+		HP: 62500
+	Repairable:
+		HpPerStep: 3125
+	ChangesHealth@SelfHealing:
+		Step: 25
 	Armament@PRIMARY:
 		Weapon: TSHellfire
 		LocalOffset: 0,0,0
@@ -7630,18 +7634,17 @@ TSORCA:
 	Voiced:
 		VoiceSet: TSHeli
 	AmmoPool:
-		Ammo: 10
-		ReloadCount: 2
+		Ammo: 4
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 4
+		Delay: 64
 		Count: 1
 	SpawnActorOnDeath:
 		Actor: TSORCA.Husk
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 5
+		PipCount: 4
 	ActorStatValues:
 		Upgrades: up_tsprojectileimprovements, up_ceramicarmor, up_mechanicalreliability, up_sonicweaponry
 
@@ -8708,19 +8711,6 @@ TSKODK.Husk:
 
 ########## Radar ##########
 
-^SERETraining:
-	GrantConditionOnPrerequisite@up_seretraining:
-		Condition: up_seretraining
-		Prerequisites: up_seretraining
-	SpeedMultiplier@up_seretraining:
-		RequiresCondition: up_seretraining
-		Modifier: 120
-	DamageMultiplier@up_seretraining:
-		RequiresCondition: up_seretraining
-		Modifier: 75
-	ActorStatValues:
-		Upgrades: up_seretraining
-
 up_seretraining:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
@@ -8736,12 +8726,18 @@ up_seretraining:
 		Image: seretrainingicon
 	ProvidesPrerequisite:
 
-^SonicWeaponry:
-	GrantConditionOnPrerequisite@up_sonicweaponry:
-		Condition: up_sonicweaponry
-		Prerequisites: up_sonicweaponry
+^SERETraining:
+	GrantConditionOnPrerequisite@up_seretraining:
+		Condition: up_seretraining
+		Prerequisites: up_seretraining
+	SpeedMultiplier@up_seretraining:
+		RequiresCondition: up_seretraining
+		Modifier: 120
+	DamageMultiplier@up_seretraining:
+		RequiresCondition: up_seretraining
+		Modifier: 75
 	ActorStatValues:
-		Upgrades: up_sonicweaponry
+		Upgrades: up_seretraining
 
 up_sonicweaponry:
 	Inherits: ^researched_upgrade.template
@@ -8758,18 +8754,12 @@ up_sonicweaponry:
 		Image: sonicweaponryicon
 	ProvidesPrerequisite:
 
-^TSProjectileImprovements:
-	GrantConditionOnPrerequisite@up_tsprojectileimprovements:
-		Condition: up_tsprojectileimprovements
-		Prerequisites: up_tsprojectileimprovements
-	RangeMultiplier@up_tsprojectileimprovements:
-		RequiresCondition: up_tsprojectileimprovements
-		Modifier: 120
-	FirepowerMultiplier@up_tsprojectileimprovements:
-		RequiresCondition: up_tsprojectileimprovements
-		Modifier: 120
+^SonicWeaponry:
+	GrantConditionOnPrerequisite@up_sonicweaponry:
+		Condition: up_sonicweaponry
+		Prerequisites: up_sonicweaponry
 	ActorStatValues:
-		Upgrades: up_tsprojectileimprovements
+		Upgrades: up_sonicweaponry
 
 up_tsprojectileimprovements:
 	Inherits: ^researched_upgrade.template
@@ -8786,20 +8776,20 @@ up_tsprojectileimprovements:
 		Image: tsprojectileimprovementsicon
 	ProvidesPrerequisite:
 
-########## LAB ##########
-
-^MechEngineering:
-	GrantConditionOnPrerequisite@up_mechengineering:
-		Condition: up_mechengineering
-		Prerequisites: up_mechengineering
-	DamageMultiplier@up_mechengineering:
-		RequiresCondition: up_mechengineering
-		Modifier: 80
-	SpeedMultiplier@up_mechengineering:
-		RequiresCondition: up_mechengineering
-		Modifier: 125
+^TSProjectileImprovements:
+	GrantConditionOnPrerequisite@up_tsprojectileimprovements:
+		Condition: up_tsprojectileimprovements
+		Prerequisites: up_tsprojectileimprovements
+	RangeMultiplier@up_tsprojectileimprovements:
+		RequiresCondition: up_tsprojectileimprovements
+		Modifier: 120
+	FirepowerMultiplier@up_tsprojectileimprovements:
+		RequiresCondition: up_tsprojectileimprovements
+		Modifier: 120
 	ActorStatValues:
-		Upgrades: up_mechengineering
+		Upgrades: up_tsprojectileimprovements
+
+########## LAB ##########
 
 up_mechengineering:
 	Inherits: ^researched_upgrade.template
@@ -8814,6 +8804,34 @@ up_mechengineering:
 		Prerequisites: ~tsgttech, !up_mechengineering
 	RenderSprites:
 		Image: mechengineeringicon
+	ProvidesPrerequisite:
+
+^MechEngineering:
+	GrantConditionOnPrerequisite@up_mechengineering:
+		Condition: up_mechengineering
+		Prerequisites: up_mechengineering
+	DamageMultiplier@up_mechengineering:
+		RequiresCondition: up_mechengineering
+		Modifier: 80
+	SpeedMultiplier@up_mechengineering:
+		RequiresCondition: up_mechengineering
+		Modifier: 125
+	ActorStatValues:
+		Upgrades: up_mechengineering
+
+up_railgunweaponry:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Railgun Weaponry
+	Valued:
+		Cost: 10000
+	Buildable:
+		BuildPaletteOrder: 90
+		Queue: Upgrades
+		Description: upgrade-railgunweaponry.description
+		Prerequisites: ~tsgttech, !up_railgunweaponry
+	RenderSprites:
+		Image: railgunweaponryicon
 	ProvidesPrerequisite:
 
 ^RailgunWeaponry:
@@ -8832,46 +8850,6 @@ up_mechengineering:
 	ActorStatValues:
 		Upgrades: up_railgunweaponry
 
-up_railgunweaponry:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Railgun Weaponry
-	Valued:
-		Cost: 10000
-	Buildable:
-		BuildPaletteOrder: 90
-		Queue: Upgrades
-		Description: upgrade-railgunweaponry.description
-		Prerequisites: ~tsgttech, !up_railgunweaponry
-	RenderSprites:
-		Image: railgunweaponryicon
-	ProvidesPrerequisite:
-
-^MechanicalReliability:
-	GrantConditionOnPrerequisite@up_mechanicalreliability:
-		Condition: up_mechanicalreliability
-		Prerequisites: up_mechanicalreliability
-	ChangesHealth@up_mechanicalreliability:
-		PercentageStep: 1
-		Delay: 10
-		StartIfBelow: 100
-		DamageCooldown: 10
-		RequiresCondition: up_mechanicalreliability
-	ChangesHealth@up_mechanicalreliability2:
-		Step: 10
-		Delay: 1
-		StartIfBelow: 100
-		DamageCooldown: 10
-		RequiresCondition: up_mechanicalreliability
-	DamageMultiplier@up_mechanicalreliability:
-		RequiresCondition: up_mechanicalreliability
-		Modifier: 95
-	SpeedMultiplier@up_mechanicalreliability:
-		RequiresCondition: up_mechanicalreliability
-		Modifier: 105
-	ActorStatValues:
-		Upgrades: up_mechanicalreliability
-
 up_mechanicalreliability:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
@@ -8887,18 +8865,30 @@ up_mechanicalreliability:
 		Image: mechanicalreliabilityicon
 	ProvidesPrerequisite:
 
-^CeramicArmor:
-	GrantConditionOnPrerequisite@up_ceramicarmor:
-		Condition: up_ceramicarmor
-		Prerequisites: up_ceramicarmor
-	DamageMultiplier@up_ceramicarmor:
-		RequiresCondition: up_ceramicarmor
-		Modifier: 75
-	SpeedMultiplier@up_ceramicarmor:
-		RequiresCondition: up_ceramicarmor
+^MechanicalReliability:
+	GrantConditionOnPrerequisite@up_mechanicalreliability:
+		Condition: up_mechanicalreliability
+		Prerequisites: up_mechanicalreliability
+	ChangesHealth@up_mechanicalreliability:
+		PercentageStep: 1
+		Delay: 25
+		StartIfBelow: 100
+		DamageCooldown: 25
+		RequiresCondition: up_mechanicalreliability
+	ChangesHealth@up_mechanicalreliability2:
+		Step: 25
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 25
+		RequiresCondition: up_mechanicalreliability
+	DamageMultiplier@up_mechanicalreliability:
+		RequiresCondition: up_mechanicalreliability
+		Modifier: 90
+	SpeedMultiplier@up_mechanicalreliability:
+		RequiresCondition: up_mechanicalreliability
 		Modifier: 110
 	ActorStatValues:
-		Upgrades: up_ceramicarmor
+		Upgrades: up_mechanicalreliability
 
 up_ceramicarmor:
 	Inherits: ^researched_upgrade.template
@@ -8915,27 +8905,18 @@ up_ceramicarmor:
 		Image: ceramicarmoricon
 	ProvidesPrerequisite:
 
-^ModernFireControlSystems:
-	GrantConditionOnPrerequisite@up_modernfirecontrolsystems:
-		Condition: up_modernfirecontrolsystems
-		Prerequisites: up_modernfirecontrolsystems
-	ReloadDelayMultiplier@up_modernfirecontrolsystems:
-		RequiresCondition: up_modernfirecontrolsystems
-		Modifier: 90
-	InaccuracyMultiplier@up_modernfirecontrolsystems:
-		RequiresCondition: up_modernfirecontrolsystems
-		Modifier: 90
-	RangeMultiplier@up_modernfirecontrolsystems:
-		RequiresCondition: up_modernfirecontrolsystems
-		Modifier: 110
-	RevealsShroudMultiplier@up_modernfirecontrolsystems:
-		RequiresCondition: up_modernfirecontrolsystems
-		Modifier: 110
-	DetectCloakedMultiplier@up_modernfirecontrolsystems:
-		RequiresCondition: up_modernfirecontrolsystems
+^CeramicArmor:
+	GrantConditionOnPrerequisite@up_ceramicarmor:
+		Condition: up_ceramicarmor
+		Prerequisites: up_ceramicarmor
+	DamageMultiplier@up_ceramicarmor:
+		RequiresCondition: up_ceramicarmor
+		Modifier: 75
+	SpeedMultiplier@up_ceramicarmor:
+		RequiresCondition: up_ceramicarmor
 		Modifier: 110
 	ActorStatValues:
-		Upgrades: up_modernfirecontrolsystems
+		Upgrades: up_ceramicarmor
 
 up_modernfirecontrolsystems:
 	Inherits: ^researched_upgrade.template
@@ -8965,3 +8946,25 @@ team_upgrade.up_modernfirecontrolsystems:
 	Buildable:
 		Description: upgrade-modernfirecontrolsystems.description
 	PlayerDisplayUpgrade:
+
+^ModernFireControlSystems:
+	GrantConditionOnPrerequisite@up_modernfirecontrolsystems:
+		Condition: up_modernfirecontrolsystems
+		Prerequisites: up_modernfirecontrolsystems
+	ReloadDelayMultiplier@up_modernfirecontrolsystems:
+		RequiresCondition: up_modernfirecontrolsystems
+		Modifier: 90
+	InaccuracyMultiplier@up_modernfirecontrolsystems:
+		RequiresCondition: up_modernfirecontrolsystems
+		Modifier: 90
+	RangeMultiplier@up_modernfirecontrolsystems:
+		RequiresCondition: up_modernfirecontrolsystems
+		Modifier: 105
+	RevealsShroudMultiplier@up_modernfirecontrolsystems:
+		RequiresCondition: up_modernfirecontrolsystems
+		Modifier: 105
+	DetectCloakedMultiplier@up_modernfirecontrolsystems:
+		RequiresCondition: up_modernfirecontrolsystems
+		Modifier: 105
+	ActorStatValues:
+		Upgrades: up_modernfirecontrolsystems

@@ -832,15 +832,21 @@ HeliMissiles:
 		Damage: 1
 
 OrcaMissiles:
+	Inherits: ^HeavyCannon
 	Inherits: ^TankDestroyerCannon
 	Inherits: ^ShrapnelWeapon
-	Inherits: ^HeavyMissile
 	Inherits: ^Grenade
-	Inherits: ^HeavyCannon
+	Inherits: ^HeavyMissile
 	Inherits: ^MediumMissile
 	ValidTargets: Ground, Water, Trees, Air
 	ReloadDelay: 16
 	Range: 5442
+	Warhead@HeavyCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
 	Warhead@TankDestroyerCannon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
@@ -856,12 +862,6 @@ OrcaMissiles:
 	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
-	Warhead@HeavyMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-	Warhead@HeavyMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
@@ -871,10 +871,10 @@ OrcaMissiles:
 	Warhead@GrenadePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
-	Warhead@HeavyCannon: SpreadDamage
+	Warhead@HeavyMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
-	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 	Warhead@MediumMissile: SpreadDamage
