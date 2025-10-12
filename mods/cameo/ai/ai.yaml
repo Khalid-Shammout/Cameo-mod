@@ -3750,6 +3750,44 @@ Player:
 			ra2yclon: 1
 			yrygppet: 1
 			yrygcomd: 1
+			#################### BuildingLimits TS GDI
+			tsprocgdi: 10
+			tsgtpile: 10
+			tsgtweap: 10
+			tsgthpad: 10
+			tsgtradr: 1
+			tsgttech: 1
+			tsgtplug: 1
+			tsntwast: 1
+			tsgtdept: 1
+			tsgtsilo: 1
+			#################### BuildingLimits TS Nod
+			tsprocnod: 10
+			tsnthand: 5
+			tsntradr: 1
+			tsntweap: 7
+			tsnthpad: 3
+			tsnttech: 1
+			tsnttmpl: 1
+			tsntpuls: 1
+			tsntmisl: 1
+			tsntstlh: 1
+			tsgtsilonod: 1
+			#################### BuildingLimits TS Forgotten
+			tsprocmutant: 10
+			tsgtpile2: 5
+			tsgtweapmutant: 7
+			tsgthpadmutant: 3
+			tsgtradrmutant: 1
+			tsfgttech: 1
+			tsgtsilomutant: 1
+			#################### BuildingLimits TS CABAL
+			tsproccabal: 10
+			tsnthand2: 5
+			tsntweapcabal: 7
+			tsnthpad2: 3
+			tscore: 1
+			tsgtsilocabal: 1
 			#################### BuildingLimits Asian
 			aa_cgrefn: 10
 			aa_cgbrck: 10
@@ -3911,46 +3949,6 @@ Player:
 			dteye: 2
 			dthq: 2
 			oilb.tomorrow: 20
-			#################### BuildingLimits TS GDI
-			oilb.ts: 20
-			oilb.ts.mutant: 20
-			tsprocgdi: 10
-			tsgtpile: 5
-			tsgtradr: 2
-			tsgtweap: 7
-			tsgthpad: 3
-			tsgttech: 1
-			tsgtplug: 1
-			tsntwast: 1
-			tsgtdept: 1
-			tsgtsilo: 1
-			#################### BuildingLimits TS Nod
-			tsprocnod: 10
-			tsnthand: 5
-			tsntradr: 1
-			tsntweap: 7
-			tsnthpad: 3
-			tsnttech: 1
-			tsnttmpl: 1
-			tsntpuls: 1
-			tsntmisl: 1
-			tsntstlh: 1
-			tsgtsilonod: 1
-			#################### BuildingLimits TS Forgotten
-			tsprocmutant: 10
-			tsgtpile2: 5
-			tsgtweapmutant: 7
-			tsgthpadmutant: 3
-			tsgtradrmutant: 1
-			tsfgttech: 1
-			tsgtsilomutant: 1
-			#################### BuildingLimits TS CABAL
-			tsproccabal: 10
-			tsnthand2: 5
-			tsntweapcabal: 7
-			tsnthpad2: 3
-			tscore: 1
-			tsgtsilocabal: 1
 			#################### BuildingLimits Brayans
 			315ranchhouse: 2
 			315ruca: 2
@@ -4208,13 +4206,13 @@ Player:
 			tsgtradr: 1
 			tsgttech: 1
 			tsgtplug: 1
-			tsgtctwrmg: 5
-			tsgtctwrrpg: 5
-			tsgtctwrsam: 7
-			tsgtdeptgdi: 3
-			oilb.td: 20
+			tsgtctwrmg: 15
+			tsgtctwrrpg: 15
+			tsgtctwrsam: 15
+			tsgtdeptgdi: 1
 			tsntpulsgdi: 1
 			tsgtpowrup: 1
+			oilb.td: 20
 			#################### BuildingFractions TS Nod
 			tsprocnod: 20
 			tsnthand: 5
@@ -6490,24 +6488,13 @@ Player:
 			latin_ra2dtruck: 1
 			latin_nuketruk: 1
 			#################### UnitLimits Dune Universe
-			d2k_mcv: 1
 			harvester: 20
-			facedancer_harv: 50
+			ordos_harv: 20
 			d2k_hijacker: 5
-			engineer: 2
-			d2k_drone_h: 5
-			d2k_scourge: 3
-			d2k_drone: 5
-			carryall: 4
-			d2k_mechanic: 10
+			carryall: 5
+			ordos_carryall: 5
+			d2k_mechanic: 5
 			d2k_aa_mine: 5
-			upgrade.conyard: 1
-			upgrade.barracks: 1
-			upgrade.light: 1
-			upgrade.heavy: 1
-			upgrade.hightech: 1
-			mcv_vordel: 1
-			quake_tank: 1
 			#################### UnitLimits GENERALS
 			glamob: 4
 			chhacker2: 2

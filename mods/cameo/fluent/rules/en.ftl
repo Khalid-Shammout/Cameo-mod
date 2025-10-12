@@ -2326,7 +2326,7 @@ faction-ra2-modded-random =
 
 upgrade-seretraining =
    .name = SERE Training
-   .description = Increases infantry health by 25%
+   .description = Increases infantry damage resistance by 25%
       and movement speed by 20%.
 
 upgrade-sonicweaponry =
@@ -2341,7 +2341,7 @@ upgrade-tsprojectileimprovements =
 
 upgrade-mechengineering =
    .name = Mech Engineering
-   .description = Increases walkers health by 20%
+   .description = Increases walkers damage resistance by 20%
       and movement speed by 25%.
 
 upgrade-railgunweaponry =
@@ -2351,13 +2351,13 @@ upgrade-railgunweaponry =
 
 upgrade-mechanicalreliability =
    .name = Mechanical Reliability
-   .description = Increases all vehicles, tanks and aircraft health by 5%
+   .description = Increases all vehicles, tanks and aircraft damage resistance by 5%
       and movement speed by 5%. Also gives them additional health regeneration.
 
 upgrade-ceramicarmor =
    .name = Ceramic Armor
-   .description = Increases aircraft health by 40%
-      and movement speed by 5%.
+   .description = Increases aircraft damage resistance by 25%
+      and movement speed by 10%.
 
 upgrade-modernfirecontrolsystems =
    .description = TEAM UPGRADE

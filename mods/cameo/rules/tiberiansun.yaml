@@ -8893,10 +8893,10 @@ up_mechanicalreliability:
 		Prerequisites: up_ceramicarmor
 	DamageMultiplier@up_ceramicarmor:
 		RequiresCondition: up_ceramicarmor
-		Modifier: 60
+		Modifier: 75
 	SpeedMultiplier@up_ceramicarmor:
 		RequiresCondition: up_ceramicarmor
-		Modifier: 105
+		Modifier: 110
 	ActorStatValues:
 		Upgrades: up_ceramicarmor
 
@@ -8905,7 +8905,7 @@ up_ceramicarmor:
 	Tooltip:
 		Name: Ceramic Armor
 	Valued:
-		Cost: 10000
+		Cost: 7500
 	Buildable:
 		BuildPaletteOrder: 110
 		Queue: Upgrades
