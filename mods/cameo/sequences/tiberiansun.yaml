@@ -153,6 +153,10 @@ tsmedic:
 		ShadowStart: 451
 		Tick: 800
 		ZOffset: -511
+	die6:
+		Start: 149
+		Length: 15
+		ShadowStart: 455
 	standup:
 		Start: 260
 		Length: 2
