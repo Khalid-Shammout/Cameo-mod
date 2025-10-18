@@ -7525,34 +7525,6 @@ Naxis_Jagerline_AA:
 ####################################################################################################
 #		Red Alert 2 Syndicate
 ####################################################################################################
-Future_Wheel_MG:
-	Inherits: ^RA2SmallArms
-	Inherits: ^RA2Chaingun
-	ValidTargets: Ground, Water, Trees
-	ReloadDelay: 40
-	Burst: 4
-	BurstDelays: 2
-	Range: 5806
-	Report: heavy_mgun1_3.wav
-	Warhead@SmallArms: SpreadDamage
-		Damage: 2000
-	Warhead@SmallArmsPercentage: HealthPercentageDamage
-		Damage: 1
-	Warhead@Chaingun: SpreadDamage
-		Damage: 2000
-	Warhead@ChaingunPercentage: HealthPercentageDamage
-		Damage: 1
-
-Future_Robot_Shotgun:
-	Inherits: ^RA2SmallArms
-	ReloadDelay: 52
-	Range: 4500
-	Report: laser_cannon3_3.wav
-	Warhead@SmallArms: SpreadDamage
-		Damage: 6500
-	Warhead@Effect: CreateEffect
-		Explosions: ra2_piffs
-		ExplosionPalette: ra2effect
 
 ACV_Machinegun:
 	Inherits: ^RA2SmallArms
@@ -7904,3 +7876,145 @@ Future_MultiMissile_Frag_Frags:
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_piffs
 		ExplosionPalette: ra2effect
+		
+Future_Wheel_MG:
+	Inherits: ^RA2SmallArms
+	Inherits: ^RA2Chaingun
+	ValidTargets: Ground, Water, Trees
+	ReloadDelay: 40
+	Burst: 4
+	BurstDelays: 2
+	Range: 5806
+	Report: heavy_mgun1_3.wav
+	Warhead@SmallArms: SpreadDamage
+		Damage: 2000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 1
+
+Future_Wheel_MGE:
+	Inherits: Future_Wheel_MG
+	Inherits: ^SteelChaingun
+	Range: 6806
+	Burst: 8
+
+CannonAttackRobotGun:
+	Inherits: ^TankDestroyerCannon
+	Inherits: ^MediumFlameWeapon
+	Inherits: ^RA2RailgunWeapon
+	Inherits: ^SteelMediumCannon
+	Range: 6000
+	ReloadDelay: 25
+	Report: steel_quantumfire.wav
+	Projectile: Bullet
+		Speed: 600
+	Warhead@TankDestroyerCannon: SpreadDamage
+		Damage: 2000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumFlameWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@RailgunWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumCannon: SpreadDamage
+		Damage: 2000
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@Effect: CreateEffect
+		ExplosionPalette: ra2effect
+		ImpactSounds: makoexplose.wav
+
+CannonAttackRobotGunE:
+	Inherits: CannonAttackRobotGun
+	Range: 7000
+	Burst: 2
+	BurstDelays: 3
+
+MissileAttackRobotGun:
+	Inherits: ^MediumMissile
+	Inherits: ^SteelLightMissile
+	Range: 8215
+	ReloadDelay: 46
+	Burst: 2
+	BurstDelays: 4
+	Report: vifvatta.wav
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 2000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@LightMissile: SpreadDamage
+		Damage: 2000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_small_grey_explosion
+		ImpactSounds: gexpifva.wav
+
+MissileAttackRobotGunE:
+	Inherits: MissileAttackRobotGun
+	Range: 9215
+	Burst: 4
+	Projectile: Missile
+		Image: red_dragon
+		Shadow: true
+		TrailImage: red_smokey
+		ContrailStartColor: e60000
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_medium_grey_explosion
+		ImpactSounds: gexp15a.wav
+
+ShotgunAttackRobotGun:
+	Inherits: ^Grenade
+	Inherits: ^ShrapnelWeapon
+	Inherits: ^TankDestroyerCannon
+	Inherits: ^MediumCannon
+	Inherits: ^SmallArms
+	Inherits: ^RA2Chaingun
+	ReloadDelay: 55
+	Range: 4110
+	Report: laser_cannon3_3.wav
+	ValidTargets: Ground, Water, Trees
+	Warhead@Grenade: SpreadDamage
+		Damage: 2000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@TankDestroyerCannon: SpreadDamage
+		Damage: 2000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumCannon: SpreadDamage
+		Damage: 2000
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@SmallArms: SpreadDamage
+		Damage: 2000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 1
+
+ShotgunAttackRobotGunE:
+	Inherits: ShotgunAttackRobotGun
+	Inherits: ^SteelChaingun
+	Range: 5110
+	Burst: 2
+	BurstDelays: 3

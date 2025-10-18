@@ -5716,11 +5716,10 @@ nax2_parv:
 
 nax2_dalek:
 	Defaults:
-		Filename: dalek.shp
-		Scale: 2
-		# Offset: 0, 8
+		Filename: nax2_dalek.png
 	idle:
-		Facings: -32
+		Facings: 64
+		Offset: 0, 24
 	icon:
 		Filename: naxdalekicon.png
 
@@ -6448,7 +6447,7 @@ nax2_zep:
 		Facings: 64
 		Offset: 0,0
 	icon:
-		Filename: nax_zep_icon.png
+		Filename: naxspacezeppelinicon.png
 		AddExtension: False
 
 nax_horten:
@@ -7435,7 +7434,7 @@ futu_egcnst:
 		ShadowStart: 3
 		Tick: 90
 	icon:
-		Filename: ra2ayardicon.shp
+		Filename: futu_conyardicon.png
 		Offset: 0,0
 
 futu_ggpowr:
@@ -7467,8 +7466,7 @@ futu_ggpowr:
 		Filename: futu_ggpowr.shp
 		Start: 1
 	icon:
-		Filename: futu_powricon.shp
-		AddExtension: False
+		Filename: futu_reactoricon.png
 		Offset: 0,0
 
 futu_egpile:
@@ -7522,8 +7520,9 @@ futu_egpile:
 		Start: 1
 		ShadowStart: 3
 	icon:
-		Filename: ra2abrk.shp
+		Filename: futu_troopgateicon.png
 		Offset: 0,0
+
 futu_egweap2:
 	Defaults:
 		Offset: -18,-28
@@ -7592,9 +7591,6 @@ futu_egweap2:
 		Filename: futu_egweap2.shp
 		Start: 1
 		ZOffset: -1024
-	icon:
-		Filename: ra2afacticon.shp
-		Offset: 0,0
 	idle-tele:
 		Combine:
 			0:
@@ -7619,6 +7615,69 @@ futu_egweap2:
 				Filename: invisibleitem.shp
 				Length: 1
 		Length: 34
+	icon:
+		Filename: futu_warpgateicon.png
+		Offset: 0,0
+
+futu_launchpad:
+	Defaults:
+		Offset: -24,-24 #12
+	idle:
+		Filename: futu_ggairc.shp
+		Length: 1
+		ShadowStart: 2
+	damaged-idle:
+		Filename: futu_ggairc.shp
+		Start: 1
+		Length: 1
+		ShadowStart: 3
+	# idle-top:
+	# 	Filename: futu_ggairc_c.shp
+	# 	Length: 16
+	# 	ShadowStart: 16
+	# 	Tick: 150
+	idle-bottom:
+		Filename: futu_ggaircbb.shp
+		Length: 1
+		ShadowStart: 2
+		ZOffset: -1c512
+	damaged-idle-bottom:
+		Filename: futu_ggaircbb.shp
+		Start: 1
+		Length: 1
+		ShadowStart: 3
+		ZOffset: -1c512
+	idle-dish:
+		Filename: futu_ggairc_a.shp
+		Length: *
+		Tick: 34
+	damaged-idle-dish:
+		Filename: futu_ggairc_a.shp
+		Length: 1
+	idle-mid:
+		Filename: futu_ggairc_b.shp
+		Length: *
+		Tick: 62
+		ZOffset: -1c512
+	damaged-idle-mid:
+		Filename: futu_ggairc_b.shp
+		Length: 1
+		ZOffset: -1c512
+	make:
+		Filename: futu_gtaircmk.shp
+		Length: 62
+		ShadowStart: 62
+	dead:
+		Filename: futu_ggairc.shp
+		Start: 1
+		Length: 1
+		ShadowStart: 3
+	icon:
+		Filename: futu_launchpadicon.png
+		Offset: 0,0
+	icon2:
+		Filename: ra2_p_airborne.shp
+		Offset: 0,0
 
 futu_egtf:
 	Defaults:
@@ -7665,7 +7724,7 @@ futu_egtf:
 		Start: 1
 		ShadowStart: 3
 	icon:
-		Filename: ra2abrk.shp
+		Filename: futu_transmissioncentericon.png
 		Offset: 0,0
 
 futu_egrefn:
@@ -7707,7 +7766,7 @@ futu_egrefn:
 	docking-overlay:
 		Filename: invisibleitem.shp
 	icon:
-		Filename: ra2areficon.shp
+		Filename: futu_refineryicon.png
 		Offset: 0,0
 
 futu_egtech:
@@ -7740,10 +7799,8 @@ futu_egtech:
 		Filename: futu_egtech.shp
 		Start: 1
 	icon:
-		Filename: ra2atekicon.shp
+		Filename: futu_battlelabicon.png
 		Offset: 0,0
-
-
 
 futu_egshock:
 	Defaults:
@@ -7788,7 +7845,7 @@ futu_egshock:
 		Start: 1
 		ShadowStart: 3
 	icon:
-		Filename: ra2nanrcticon.shp
+		Filename: futu_shockcentericon.png
 		Offset: 0,0
 
 futu_gggun:
@@ -7817,6 +7874,7 @@ futu_gggun:
 	icon:
 		Filename: futu_gggun_icon.png
 		Offset: 0,0
+
 futu_ggmlt:
 	Inherits: ^RA2MachineGunMuzzle
 	Defaults:
@@ -7836,7 +7894,7 @@ futu_ggmlt:
 		Filename: futu_ggmltgtur.shp
 		Facings: 32
 	icon:
-		Filename: futu_gggun_icon.png
+		Filename: futu_multigunnerturreticon.png
 		Offset: 0,0
 
 #   Red Alert 2 Future Tech Tank
@@ -7861,7 +7919,7 @@ futu_wheel:
 		Facings: 8
 		Tick: 80
 	icon:
-		Filename: aa_mecha_icon.shp
+		Filename: futu_scoutroboticon.png
 		Offset: 0,0
 
 future_robot_cannon:
@@ -7884,8 +7942,16 @@ future_robot_cannon:
 		Length: 8
 		Facings: 8
 		Tick: 80
+	muzzle:
+		Filename: DATA.R16
+		Scale: 3
+		Remap: 54F94B
+		Start: 3671
+		Length: 3
+		BlendMode: Additive
+		Offset: 0,0
 	icon:
-		Filename: aa_mecha_icon.shp
+		Filename: futu_cannonroboticon.png
 		Offset: 0,0
 
 future_robot_missiles:
@@ -7908,8 +7974,16 @@ future_robot_missiles:
 		Length: 8
 		Facings: 8
 		Tick: 80
+	muzzle:
+		Filename: DATA.R16
+		Scale: 3
+		Remap: 54F94B
+		Start: 3671
+		Length: 3
+		BlendMode: Additive
+		Offset: 0,0
 	icon:
-		Filename: aa_mecha_icon.shp
+		Filename: futu_missileroboticon.png
 		Offset: 0,0
 
 future_robot_shotgun:
@@ -7932,8 +8006,16 @@ future_robot_shotgun:
 		Length: 8
 		Facings: 8
 		Tick: 80
+	muzzle:
+		Filename: DATA.R16
+		Scale: 3
+		Remap: 54F94B
+		Start: 3671
+		Length: 3
+		BlendMode: Additive
+		Offset: 0,0
 	icon:
-		Filename: aa_mecha_icon.shp
+		Filename: futu_shotgunroboticon.png
 		Offset: 0,0
 
 future_mech_machinegun:
@@ -7957,7 +8039,7 @@ future_mech_machinegun:
 		Facings: 8
 		Tick: 80
 	icon:
-		Filename: aa_mecha_icon.shp
+		Filename: futu_chaingunmechicon.png
 		Offset: 0,0
 
 future_mech_plasma:
@@ -7981,7 +8063,7 @@ future_mech_plasma:
 		Facings: 8
 		Tick: 80
 	icon:
-		Filename: aa_mecha_icon.shp
+		Filename: futu_plasmamechicon.png
 		Offset: 0,0
 
 futu_landcarr:
@@ -8013,7 +8095,7 @@ futu_landcarr:
 		Facings: 32
 		FlipX: True
 	icon:
-		Filename: aa_mecha_icon.shp
+		Filename: futu_landcarriericon.png
 		Offset: 0,0
 
 futu_orion:
@@ -8045,7 +8127,7 @@ futu_orion:
 		Facings: 32
 		FlipX: True
 	icon:
-		Filename: aa_mecha_icon.shp
+		Filename: futu_orionmechicon.png
 		Offset: 0,0
 
 futu_manticore:
@@ -8173,7 +8255,7 @@ futu_ifv:
 		Facings: 8
 		Length: 13
 	icon:
-		Filename: ra2ifvicon.shp
+		Filename: futu_salamanderifvicon.png
 		AddExtension: False
 
 futu_mbt:
@@ -8212,7 +8294,7 @@ futu_hvrt:
 		Facings: 64
 		Offset: 0,36
 	icon:
-		Filename: ra2mtnkicon.shp
+		Filename: futu_riptideacvicon.png
 		AddExtension: False
 
 futu_cryo:
@@ -8290,6 +8372,7 @@ futu_phal:
 	muzzle-2:
 		Filename: ra2_vtmuzzle.shp
 		Length: *
+
 futu_antena:
 	Inherits: ^RA2CannonMuzzle
 	Defaults:
@@ -8300,7 +8383,7 @@ futu_antena:
 		Facings: 64
 		Offset: 0,5
 	icon:
-		Filename: ra2mtnkicon.shp
+		Filename: futu_athenacannonicon.png
 		AddExtension: False
 
 futu_coiler:
@@ -8311,6 +8394,7 @@ futu_coiler:
 		Facings: 64
 	icon:
 		Filename: ttnkicon.shp
+
 futu_futu:
 	Inherits: ^RA2CannonMuzzle
 	Defaults:
@@ -8326,7 +8410,7 @@ futu_futu:
 		Facings: 64
 		Offset: 0,5
 	icon:
-		Filename: ra2mtnkicon.shp
+		Filename: futu_futuretankicon.png
 		AddExtension: False
 
 ##############################################

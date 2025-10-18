@@ -102,22 +102,22 @@ Terrain:
 		Type: RA2Copper
 		TargetTypes: Ground
 		AcceptsSmudgeType: Crater, Scorch
-		Color: 804000
+		Color: 804020
 	TerrainType@RA2Silver:
 		Type: RA2Silver
 		TargetTypes: Ground
 		AcceptsSmudgeType: Crater, Scorch
-		Color: 808080
+		Color: C0C0C0
 	TerrainType@RA2Ore:
 		Type: RA2Ore
 		TargetTypes: Ground
 		AcceptsSmudgeType: Crater, Scorch
-		Color: 808020
+		Color: 808000
 	TerrainType@RA2Gems:
 		Type: RA2Gems
 		TargetTypes: Ground
 		AcceptsSmudgeType: Crater, Scorch
-		Color: 604080
+		Color: 8040C0
 	TerrainType@Ore:
 		Type: Ore
 		TargetTypes: Ground

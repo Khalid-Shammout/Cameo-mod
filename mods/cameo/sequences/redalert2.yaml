@@ -507,7 +507,7 @@ ra2gaairc:
 		Filename: ra2_ggaircbb.shp
 		Length: 1
 		ZOffset: -1c512
-	damage-idle-bottom:
+	damaged-idle-bottom:
 		Filename: ra2_ggaircbb.shp
 		Start: 1
 		Length: 1
@@ -528,7 +528,7 @@ ra2gaairc:
 		Length: 6
 		Tick: 120
 		ZOffset: -1c512
-	damage-idle-mid:
+	damaged-idle-mid:
 		Filename: ra2_ggairc_b.shp
 		Start: 7
 		Length: 6

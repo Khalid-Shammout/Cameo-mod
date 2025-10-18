@@ -953,22 +953,22 @@ World:
 				MaxDensity: 15
 			RA2Gems:
 				ResourceIndex: 36
-				TerrainType: Gems
+				TerrainType: RA2Gems
 				AllowedTerrainTypes: Clear,ClearTemperat,ClearWinter,ClearJungle,ClearSnow,ClearDesert,Road,Sand,SpiceSand,ClearDune,ZergSoil ##########
 				MaxDensity: 20
 			RA2Ore:
 				ResourceIndex: 35
-				TerrainType: Ore
+				TerrainType: RA2Ore
 				AllowedTerrainTypes: Clear,ClearTemperat,ClearWinter,ClearJungle,ClearSnow,ClearDesert,Road,Sand,SpiceSand,ClearDune,ZergSoil ##########
 				MaxDensity: 30
 			RA2Silver:
 				ResourceIndex: 37
-				TerrainType: Ore
+				TerrainType: RA2Silver
 				AllowedTerrainTypes: Clear,ClearTemperat,ClearWinter,ClearJungle,ClearSnow,ClearDesert,Road,Sand,SpiceSand,ClearDune,ZergSoil ##########
 				MaxDensity: 40
 			RA2Copper:
 				ResourceIndex: 38
-				TerrainType: Ore
+				TerrainType: RA2Copper
 				AllowedTerrainTypes: Clear,ClearTemperat,ClearWinter,ClearJungle,ClearSnow,ClearDesert,Road,Sand,SpiceSand,ClearDune,ZergSoil ##########
 				MaxDensity: 50
 			SCMinerals:
@@ -1180,22 +1180,22 @@ EditorWorld:
 				MaxDensity: 15
 			RA2Gems:
 				ResourceIndex: 36
-				TerrainType: Gems
+				TerrainType: RA2Gems
 				AllowedTerrainTypes: Clear,ClearTemperat,ClearWinter,ClearJungle,ClearSnow,ClearDesert,Road,Sand,SpiceSand,ClearDune,ZergSoil ##########
 				MaxDensity: 20
 			RA2Ore:
 				ResourceIndex: 35
-				TerrainType: Ore
+				TerrainType: RA2Ore
 				AllowedTerrainTypes: Clear,ClearTemperat,ClearWinter,ClearJungle,ClearSnow,ClearDesert,Road,Sand,SpiceSand,ClearDune,ZergSoil ##########
 				MaxDensity: 30
 			RA2Silver:
 				ResourceIndex: 37
-				TerrainType: Ore
+				TerrainType: RA2Silver
 				AllowedTerrainTypes: Clear,ClearTemperat,ClearWinter,ClearJungle,ClearSnow,ClearDesert,Road,Sand,SpiceSand,ClearDune,ZergSoil ##########
 				MaxDensity: 40
 			RA2Copper:
 				ResourceIndex: 38
-				TerrainType: Ore
+				TerrainType: RA2Copper
 				AllowedTerrainTypes: Clear,ClearTemperat,ClearWinter,ClearJungle,ClearSnow,ClearDesert,Road,Sand,SpiceSand,ClearDune,ZergSoil ##########
 				MaxDensity: 50
 			SCMinerals:
