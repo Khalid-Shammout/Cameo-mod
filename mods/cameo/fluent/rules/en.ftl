@@ -1941,7 +1941,7 @@ ra_doctrine_conscription =
    .description = DOCTRINE (Only One Doctrine For Each Tier Can Be Researched)
       Focuses on Mass Produced Infantry:
       All Infantry are 25% cheaper and faster to train
-      All Infantry have 10% more Firepower, Speed and Damage Reduction
+      All Infantry have 10% more Firepower, Speed and Damage Resistance
       Replaces Rifle Soldiers and Grenadiers with AK47 and Molotov Conscripts
       Replaces Rocket Soldiers with Dragunov Anti Material Snipers
       Replaces Flak Trucks with BTR-80s
@@ -1977,7 +1977,7 @@ ra_doctrine_teslatech =
 ra_doctrine_heavyarmor =
    .description = DOCTRINE (Only One Doctrine For Each Tier Can Be Researched)
       Focuses on Heavy Armor and Powerful Tanks
-      All Vehicles and Aircraft have 20% additional damage reduction
+      All Vehicles and Aircraft have 10% additional Damage Resistance
       Replaces Mammoth Tanks with Siege Mammoth Tanks
       Replaces V1 Rocket Trucks with Grads
       Replaces Replaces Migs with Su-57s
@@ -1987,19 +1987,19 @@ ra_doctrine_heavyarmor =
 ra_doctrine_nuclearwar =
    .description = DOCTRINE (Only One Doctrine For Each Tier Can Be Researched)
       Focuses on High Damage and Speed.
-      All Vehicles have 15% higher Firepower and Speed
+      All Vehicles have 10% higher Firepower and Speed
       Replaces V2 Rocket Launcher with Nuclear V2 Rocket Launcher
       Unlocks Kotin Nuclear Tank
       Unlocks Unstable Isotopes, Thermonuclear Rockets and Nuclear Tank Shells Upgrades
 
 ra_upgrade_vengeance =
    .description = Tech Upgrade (Only affects units of own faction)
-      Doubles moral boost effect to nearby units by fallen Conscripts and Dragunovs.
+      Doubles moral boost effect to nearby units by fallen Conscripts and Commissars.
       Commissars gives this double effect now permanently to nearby units.
 
 ra_upgrade_menofsteel =
    .description = Team Upgrade (Also affects units of your teammates)
-      Increases Infantry Firepower and Damage Reduction by 10%
+      Increases Infantry Firepower and Damage Resistance by 10%
 
 ra_upgrade_massproduction =
    .description = Tech Upgrade (Only affects units of own faction)
@@ -2054,7 +2054,7 @@ ra_upgrade_stalinium =
 ra_upgrade_unstableisotopes =
    .description = Tech Upgrade (Only affects units of own faction)
       Increases Speed of all Vehicles by 20%.
-      Increases Speed of Kotin Nuclear Tank by 40%.
+      Increases Speed of Kotin Nuclear Tanks by 40%.
 
 ra_upgrade_nuclearrockets =
    .description = Tech Upgrade (Only affects units of own faction)

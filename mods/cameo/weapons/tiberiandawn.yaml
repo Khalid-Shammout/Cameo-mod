@@ -496,39 +496,37 @@ MachineGunAPH:
 		Damage: 3
 
 BikeRockets:
-	Inherits: ^Grenade
+	Inherits: ^TankDestroyerCannon
 	Inherits: ^ShrapnelWeapon
-	Inherits: ^MediumMissile
+	Inherits: ^FlakWeapon
 	Inherits: ^LightMissile
 	Burst: 2
-	BurstDelays: 12
-	ReloadDelay: 92
-	Range: 7500
+	BurstDelays: 9
+	ReloadDelay: 60
+	Range: 6000
 	Report: bazook1.aud
-	Warhead@Grenade: SpreadDamage
-		Damage: 2000
-	Warhead@GrenadeFriendlyFire: SpreadDamage
-		Damage: 1000
-	Warhead@GrenadePercentage: HealthPercentageDamage
-		Damage: 1
+	Warhead@TankDestroyerCannon: SpreadDamage
+		Damage: 4000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		Damage: 2
 	Warhead@ShrapnelWeapon: SpreadDamage
-		Damage: 2000
+		Damage: 4000
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
-		Damage: 1000
+		Damage: 2000
 	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
-		Damage: 1
-	Warhead@MediumMissile: SpreadDamage
-		Damage: 2000
-	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		Damage: 1
+		Damage: 2
+	Warhead@FlakWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		Damage: 2
 	Warhead@LightMissile: SpreadDamage
-		Damage: 2000
+		Damage: 4000
 	Warhead@LightMissilePercentage: HealthPercentageDamage
-		Damage: 1
+		Damage: 2
 
 PDLaserBike:
 	Inherits: PDLaser
-	Range: 7500
+	Range: 6000
 
 70mm:
 	Inherits: ^MediumCannon
@@ -1261,57 +1259,53 @@ ChemRocketsExplosion:
 		Size: 0,0
 
 ChemicalBikeRockets:
-	Inherits: ^Grenade
+	Inherits: ^TankDestroyerCannon
 	Inherits: ^LightChemicalWeapon
 	Inherits: ^FlakWeapon
 	Inherits: ^MediumMissile
 	ValidTargets: Ground, Water, Trees, Air
 	Burst: 2
-	BurstDelays: 8
-	ReloadDelay: 92
-	Range: 7500
+	BurstDelays: 10
+	ReloadDelay: 85
+	Range: 6000
 	Report: missile6.aud
 	Projectile: Missile
 		TrailImage: spittrail
-	Warhead@Grenade: SpreadDamage
+	Warhead@TankDestroyerCannon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 8000
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
-	Warhead@GrenadeFriendlyFire: SpreadDamage
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
-		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
-	Warhead@GrenadePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 4
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@LightChemicalWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 8000
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 4000
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 4
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@FlakWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 8000
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 4
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 8000
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
+		Damage: 4
 		DamageTypes: Prone75Percent, TriggerProne, TiberiumDeath
 	Warhead@Effect: CreateEffect
 		Explosions: chemball

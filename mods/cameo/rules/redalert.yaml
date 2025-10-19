@@ -961,7 +961,10 @@ ra_conscript_ak:
 		RequiresCondition: !ra_upgrade_vengeance
 	FireWarheadsOnDeath@Vengeance2:
 		Weapon: VengeanceActivator2
-		RequiresCondition: ra_upgrade_vengeance
+		RequiresCondition: ra_upgrade_vengeance && !upsubliminal
+	FireWarheadsOnDeath@Vengeance3:
+		Weapon: VengeanceActivator3
+		RequiresCondition: ra_upgrade_vengeance && upsubliminal
 	TakeCover:
 		ProneOffset: 180,0,-200
 	WithInfantryBody@PARACHUTE:
@@ -1212,7 +1215,10 @@ ra_cons_molo:
 		RequiresCondition: !ra_upgrade_vengeance
 	FireWarheadsOnDeath@Vengeance2:
 		Weapon: VengeanceActivator2
-		RequiresCondition: ra_upgrade_vengeance
+		RequiresCondition: ra_upgrade_vengeance && !upsubliminal
+	FireWarheadsOnDeath@Vengeance3:
+		Weapon: VengeanceActivator3
+		RequiresCondition: ra_upgrade_vengeance && upsubliminal
 	WithDeathAnimation:
 		DeathSequencePalette: player_rgba
 	Voiced:
@@ -1323,7 +1329,6 @@ ra_dragunov:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@AntiVeh: ^PrioritizeVehicle
 	Inherits@AntiTank: ^PrioritizeTank
-	Inherits@VengeanceUpgradeRA1: ^VengeanceUpgradeRA1
 	Inherits@SuperOpticsPromotionRA1: ^SuperOpticsPromotionRA1
 	Tooltip:
 		Name: Dragunov Anti Material Sniper
@@ -1348,12 +1353,6 @@ ra_dragunov:
 	Armament@GARRISONED:
 		Name: garrisoned
 		Weapon: DragunovSniper
-	FireWarheadsOnDeath@Vengeance1:
-		Weapon: VengeanceActivator1
-		RequiresCondition: !ra_upgrade_vengeance
-	FireWarheadsOnDeath@Vengeance2:
-		Weapon: VengeanceActivator2
-		RequiresCondition: ra_upgrade_vengeance
 	TakeCover:
 		ProneOffset: 180,0,-200
 	WithInfantryBody@PARACHUTE:
@@ -1801,18 +1800,21 @@ ra_commissar:
 		RequiresCondition: !ra_upgrade_vengeance
 	FireWarheadsOnDeath@Vengeance2:
 		Weapon: VengeanceActivator2
-		RequiresCondition: ra_upgrade_vengeance
+		RequiresCondition: ra_upgrade_vengeance && !upsubliminal
+	FireWarheadsOnDeath@Vengeance3:
+		Weapon: VengeanceActivator3
+		RequiresCondition: ra_upgrade_vengeance && upsubliminal
 	ProducibleWithLevel:
 		InitialLevels: 1
 	ProximityExternalCondition@PropagandaEffect:
 		Range: 5000
 		ValidRelationships: Ally
 		Condition: PropagandaEffect
-		RequiresCondition: ra_upgrade_vengeance
 	ProximityExternalCondition@upsubliminal:
 		Range: 5000
 		ValidRelationships: Ally
 		Condition: upsubliminal
+		RequiresCondition: ra_upgrade_vengeance
 	WithRangeCircle@propaganda:
 		Range: 5000
 		Type: propaganda
@@ -11015,7 +11017,7 @@ ra_doctrine_heavyarmor:
 ^HeavyArmorDoctrineRA1:
 	DamageMultiplier@ra_doctrine_heavyarmor:
 		RequiresCondition: ra_doctrine_heavyarmor
-		Modifier: 80
+		Modifier: 90
 	GrantConditionOnPrerequisite@ra_doctrine_heavyarmor:
 		Condition: ra_doctrine_heavyarmor
 		Prerequisites: ra_doctrine_heavyarmor
@@ -11037,10 +11039,10 @@ ra_doctrine_nuclearwar:
 ^NuclearWarDoctrineRA1:
 	FirepowerMultiplier@ra_doctrine_nuclearwar:
 		RequiresCondition: ra_doctrine_nuclearwar
-		Modifier: 115
+		Modifier: 110
 	SpeedMultiplier@ra_doctrine_nuclearwar:
 		RequiresCondition: ra_doctrine_nuclearwar
-		Modifier: 115
+		Modifier: 110
 	GrantConditionOnPrerequisite@ra_doctrine_nuclearwar:
 		Condition: ra_doctrine_nuclearwar
 		Prerequisites: ra_doctrine_nuclearwar

@@ -1252,6 +1252,25 @@ tkmrocketeer:
 		LocalYaw: 100
 		MuzzleSequence: muzzle
 		RequiresCondition: upincendiaryrockets
+	Armament@GARRISONED:
+		Weapon: Rockets
+		Name: garrisoned
+		RequiresCondition: !upcryorockets && !uptwinrockets && !upincendiaryrockets
+	Armament@GARRISONEDNATO:
+		Name: garrisoned
+		Weapon: tkmcryorockets
+		MuzzleSequence: muzzle
+		RequiresCondition: upcryorockets
+	Armament@GARRISONEDBEREZKA:
+		Name: garrisoned
+		Weapon: tkmtwinrockets
+		MuzzleSequence: muzzle
+		RequiresCondition: uptwinrockets
+	Armament@GARRISONEDTITAN:
+		Name: garrisoned
+		Weapon: tkmfirerockets
+		MuzzleSequence: muzzle
+		RequiresCondition: upincendiaryrockets
 	GrantConditionOnPrerequisite@upcryorockets:
 		Condition: upcryorockets
 		Prerequisites: upcryorockets

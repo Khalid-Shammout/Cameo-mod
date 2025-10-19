@@ -1357,7 +1357,7 @@ JEEP:
 
 BIKE:
 	Inherits: ^Vehicle
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^ScoutVehicleTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiVeh: ^PrioritizeVehicle
@@ -1368,10 +1368,10 @@ BIKE:
 	Inherits@AdvancedGuerillaTactics: ^AdvancedGuerillaTactics
 	Inherits@BlackMarketUpgrades: ^BlackMarketUpgrades
 	Inherits@decoration: ^NodRankDecoration
-	Valued:
-		Cost: 500
 	Tooltip:
 		Name: Recon Bike
+	Valued:
+		Cost: 500
 	Buildable:
 		BuildPaletteOrder: 30
 		Prerequisites: ~afld, ~!upchemicalbike
@@ -1381,13 +1381,11 @@ BIKE:
 		Speed: 200
 		TurnSpeed: 80
 	Health:
-		HP: 10000
+		HP: 20000
 	Repairable:
-		HpPerStep: 500
+		HpPerStep: 1000
 	ChangesHealth@SelfHealing:
-		Step: 4
-	Armor:
-		Type: Light
+		Step: 8
 	Armament:
 		Weapon: BikeRockets
 		LocalOffset: -128, -170, 170, -128, 170, 170
@@ -2611,6 +2609,7 @@ AFLD:
 	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^TDNodSpawnActorsOnSell
 	Inherits@weap: ^IsWeaponFactory
+	# Inherits@weap: ^IsVehicleDropzone
 	Inherits@shape: ^4x2Shape
 	HitShape:
 		TargetableOffsets: 0,0,0, 0,-512,256, 0,-1451,384, 0,512,128, 0,1536,85
@@ -4533,7 +4532,7 @@ cheme3:
 
 chembike:
 	Inherits: ^Vehicle
-	Inherits@Template: ^FireSupportTemplate
+	Inherits@Template: ^ScoutVehicleTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -4547,10 +4546,10 @@ chembike:
 	Inherits@AdvancedGuerillaTactics: ^AdvancedGuerillaTactics
 	Inherits@BlackMarketUpgrades: ^BlackMarketUpgrades
 	Inherits@decoration: ^NodRankDecoration
-	Valued:
-		Cost: 750
 	Tooltip:
 		Name: Chemical Attack Bike
+	Valued:
+		Cost: 750
 	Buildable:
 		BuildPaletteOrder: 30
 		Prerequisites: ~upchemicalbike
@@ -4560,13 +4559,11 @@ chembike:
 		Speed: 175
 		TurnSpeed: 70
 	Health:
-		HP: 12500
+		HP: 32500
 	Repairable:
-		HpPerStep: 625
+		HpPerStep: 1625
 	ChangesHealth@SelfHealing:
-		Step: 5
-	Armor:
-		Type: Light
+		Step: 13
 	Armament:
 		Weapon: ChemicalBikeRockets
 		LocalOffset: -128, -170, 170, -128, 170, 170

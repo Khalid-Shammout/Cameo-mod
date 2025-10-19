@@ -4256,49 +4256,49 @@
 		RequiresCondition: usasearchndestroy
 		Modifier: 110
 	FirepowerMultiplier@PropagandaEffect:
-		RequiresCondition: PropagandaEffect
+		RequiresCondition: PropagandaEffect && !upsubliminal
 		Modifier: 110
 	FirepowerMultiplier@upsubliminal:
 		RequiresCondition: PropagandaEffect && upsubliminal
-		Modifier: 110
+		Modifier: 120
 	DamageMultiplier@PropagandaEffect:
-		RequiresCondition: PropagandaEffect
+		RequiresCondition: PropagandaEffect && !upsubliminal
 		Modifier: 90
 	DamageMultiplier@upsubliminal:
 		RequiresCondition: PropagandaEffect && upsubliminal
-		Modifier: 90
+		Modifier: 80
 	SpeedMultiplier@PropagandaEffect:
-		RequiresCondition: PropagandaEffect
+		RequiresCondition: PropagandaEffect && !upsubliminal
 		Modifier: 110
 	SpeedMultiplier@upsubliminal:
 		RequiresCondition: PropagandaEffect && upsubliminal
-		Modifier: 110
+		Modifier: 120
 	ReloadDelayMultiplier@PropagandaEffect:
-		RequiresCondition: PropagandaEffect
+		RequiresCondition: PropagandaEffect && !upsubliminal
 		Modifier: 90
 	ReloadDelayMultiplier@upsubliminal:
 		RequiresCondition: PropagandaEffect && upsubliminal
-		Modifier: 90
+		Modifier: 80
 	ChangesHealth@PROPAGANDA1:
 		Step: 20
 		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 1
-		RequiresCondition: PropagandaEffect
+		RequiresCondition: PropagandaEffect && !upsubliminal
 	ChangesHealth@PROPAGANDAPercentage1:
 		Delay: 100
 		PercentageStep: 1
 		StartIfBelow: 100
 		DamageCooldown: 1
-		RequiresCondition: PropagandaEffect
+		RequiresCondition: PropagandaEffect && !upsubliminal
 	ChangesHealth@PROPAGANDA2:
-		Step: 20
+		Step: 40
 		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 1
 		RequiresCondition: PropagandaEffect && upsubliminal
 	ChangesHealth@PROPAGANDAPercentage2:
-		Delay: 100
+		Delay: 50
 		PercentageStep: 1
 		StartIfBelow: 100
 		DamageCooldown: 1
@@ -6968,6 +6968,33 @@ CPQDEBUGDUMMY:
 		Prerequisites: 4weap
 	ProductionTimeMultiplier@Scaled4:
 		Prerequisites: 4weap
+
+^IsVehicleDropzone:
+	Inherits@weap: ^IsWeaponFactory
+	-Production@NORMAL:
+	-Production@CLASSICPRODUCTIONQUEUES:
+	# ProductionAirdropCA@NORMAL:
+	# 	Produces: Vehicle
+	# 	RequiresCondition: !classicproductionqueues
+	# 	ActorType: c17
+	# 	LandingFacing: 64
+	# 	ReadyAudio: ReinforcementsArrived
+	# 	SpawnType: ClosestEdgeToDestination
+	# 	ProportionalSpeed: true
+	# 	PauseOnCondition: disabled
+	ProductionAirdropCA@CLASSIC:
+		Produces: RAVehicle
+		# RequiresCondition: classicproductionqueues
+		ActorType: c17
+		LandingFacing: 64
+		ReadyAudio: ReinforcementsArrived
+		SpawnType: ClosestEdgeToDestination
+		ProportionalSpeed: true
+		PauseOnCondition: disabled
+	-ParallelProductionQueue@VEHICLE:
+	-ProductionBar@VEHICLE:
+	ProductionBar@RAVEHICLE:
+		-RequiresCondition: classicproductionqueues
 
 ^IsAircraftFactory:
 	Inherits@DisabledOverlay: ^DisableOnPowerDown

@@ -162,19 +162,9 @@ VengeanceActivator1:
 		Condition: PropagandaEffect
 		Duration: 100
 		ValidRelationships: Ally
-	Warhead@HealingField: GrantExternalCondition
-		Range: 5000
-		Condition: HealingField
-		Duration: 100
-		ValidRelationships: Ally
 
 VengeanceActivator2:
 	Projectile: InstantExplode
-	Warhead@upsubliminal: GrantExternalCondition
-		Range: 5000
-		Condition: upsubliminal
-		Duration: 100
-		ValidRelationships: Ally
 	Warhead@PropagandaEffect: GrantExternalCondition
 		Range: 5000
 		Condition: PropagandaEffect
@@ -183,6 +173,24 @@ VengeanceActivator2:
 	Warhead@HealingField: GrantExternalCondition
 		Range: 5000
 		Condition: HealingField
+		Duration: 10
+		ValidRelationships: Ally
+
+VengeanceActivator3:
+	Projectile: InstantExplode
+	Warhead@PropagandaEffect: GrantExternalCondition
+		Range: 5000
+		Condition: PropagandaEffect
+		Duration: 100
+		ValidRelationships: Ally
+	Warhead@HealingField: GrantExternalCondition
+		Range: 5000
+		Condition: HealingField
+		Duration: 20
+		ValidRelationships: Ally
+	Warhead@upsubliminal: GrantExternalCondition
+		Range: 5000
+		Condition: upsubliminal
 		Duration: 100
 		ValidRelationships: Ally
 
