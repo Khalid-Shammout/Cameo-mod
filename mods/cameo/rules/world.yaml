@@ -53,6 +53,10 @@
 			Ford: 80
 			Ore: 80
 			Gems: 80
+			RA2Copper: 80
+			RA2Silver: 80
+			RA2Ore: 80
+			RA2Gems: 80
 			SCMinerals: 40
 			Veins: 70
 			Spice: 80
@@ -92,6 +96,10 @@
 			Ford: 80
 			Ore: 80
 			Gems: 80
+			RA2Copper: 80
+			RA2Silver: 80
+			RA2Ore: 80
+			RA2Gems: 80
 			SCMinerals: 40
 			Veins: 70
 			Water: 80
@@ -128,6 +136,10 @@
 			Ford: 80
 			Ore: 80
 			Gems: 80
+			RA2Copper: 80
+			RA2Silver: 80
+			RA2Ore: 80
+			RA2Gems: 80
 			SCMinerals: 40
 			Veins: 70
 			Concrete: 100
@@ -161,6 +173,10 @@
 			Ford: 50
 			Ore: 70
 			Gems: 70
+			RA2Copper: 70
+			RA2Silver: 70
+			RA2Ore: 70
+			RA2Gems: 70
 			SCMinerals: 40
 			Veins: 70
 			Concrete: 100
@@ -194,6 +210,10 @@
 			Ford: 50
 			Ore: 70
 			Gems: 70
+			RA2Copper: 70
+			RA2Silver: 70
+			RA2Ore: 70
+			RA2Gems: 70
 			SCMinerals: 40
 			Veins: 70
 			Concrete: 100
@@ -221,6 +241,10 @@
 			Bridge: 100
 			Ore: 70
 			Gems: 70
+			RA2Copper: 70
+			RA2Silver: 70
+			RA2Ore: 70
+			RA2Gems: 70
 			Beach: 70
 			Ford: 70
 			Tiberium: 70
@@ -260,6 +284,10 @@
 			Ford: 70
 			Ore: 70
 			Gems: 70
+			RA2Copper: 70
+			RA2Silver: 70
+			RA2Ore: 70
+			RA2Gems: 70
 			SCMinerals: 40
 			Veins: 70
 			Concrete: 100
@@ -293,6 +321,10 @@
 			Ford: 70
 			Ore: 70
 			Gems: 70
+			RA2Copper: 70
+			RA2Silver: 70
+			RA2Ore: 70
+			RA2Gems: 70
 			SCMinerals: 40
 			Veins: 70
 			Concrete: 100
@@ -337,6 +369,10 @@
 			River: 100
 			Ore: 100
 			Gems: 100
+			RA2Copper: 100
+			RA2Silver: 100
+			RA2Ore: 100
+			RA2Gems: 100
 			SCMinerals: 40
 			Veins: 70
 			Concrete: 100
@@ -375,6 +411,10 @@
 			Ford: 80
 			Ore: 90
 			Gems: 90
+			RA2Copper: 90
+			RA2Silver: 90
+			RA2Ore: 90
+			RA2Gems: 90
 			River: 60
 			Water: 99
 			SCMinerals: 40
@@ -418,6 +458,10 @@
 			Ford: 100
 			Ore: 100
 			Gems: 100
+			RA2Copper: 100
+			RA2Silver: 100
+			RA2Ore: 100
+			RA2Gems: 100
 			River: 100
 			Water: 100
 			Rock: 100
@@ -454,6 +498,10 @@
 			Ford: 70
 			Ore: 70
 			Gems: 70
+			RA2Copper: 70
+			RA2Silver: 70
+			RA2Ore: 70
+			RA2Gems: 70
 			SCMinerals: 40
 			River: 30
 			Water: 50
@@ -499,6 +547,14 @@
 				PathingCost: 150
 			Gems: 70
 				PathingCost: 150
+			RA2Copper: 70
+				PathingCost: 150
+			RA2Silver: 70
+				PathingCost: 150
+			RA2Ore: 70
+				PathingCost: 150
+			RA2Gems: 70
+				PathingCost: 150
 			Beach: 70
 				PathingCost: 150
 			Ford: 70
@@ -530,7 +586,7 @@
 				PathingCost: 150
 			Rails: 80
 				PathingCost: 150
-		SubterraneanTransitionTerrainTypes: Clear, ClearTemperat, ClearWinter, ClearJungle, ClearSnow, ClearDesert, ClearInterior, Rough, Road, Beach, Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, SCMinerals, Concrete, SpiceSand, Sand
+		SubterraneanTransitionTerrainTypes: Clear, ClearTemperat, ClearWinter, ClearJungle, ClearSnow, ClearDesert, ClearInterior, Rough, Road, Beach, Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, RA2Copper, RA2Silver, RA2Ore, RA2Gems, SCMinerals, Concrete, SpiceSand, Sand
 		SubterraneanTransitionCost: 5
 	SubterraneanLocomotor@WORMSUB:
 		Name: sandwormsub
@@ -546,6 +602,10 @@
 			Bridge: 100
 			Ore: 100
 			Gems: 100
+			RA2Copper: 100
+			RA2Silver: 100
+			RA2Ore: 100
+			RA2Gems: 100
 			Beach: 100
 			Ford: 100
 			Tiberium: 100
@@ -596,6 +656,14 @@
 			Ore: 70
 				PathingCost: 200
 			Gems: 70
+				PathingCost: 200
+			RA2Copper: 70
+				PathingCost: 200
+			RA2Silver: 70
+				PathingCost: 200
+			RA2Ore: 70
+				PathingCost: 200
+			RA2Gems: 70
 				PathingCost: 200
 			Beach: 70
 				PathingCost: 200

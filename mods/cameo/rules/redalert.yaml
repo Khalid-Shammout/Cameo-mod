@@ -507,18 +507,6 @@ World:
 	SpeedMultiplier@up_divinewindprotocol:
 		RequiresCondition: up_divinewindprotocol
 		Modifier: 110
-	RangeMultiplier@up_divinewindprotocol:
-		RequiresCondition: up_divinewindprotocol
-		Modifier: 110
-	RevealsShroudMultiplier@up_divinewindprotocol:
-		RequiresCondition: up_divinewindprotocol
-		Modifier: 110
-	DetectCloakedMultiplier@up_divinewindprotocol:
-		RequiresCondition: up_divinewindprotocol
-		Modifier: 110
-	InaccuracyMultiplier@up_divinewindprotocol:
-		RequiresCondition: up_divinewindprotocol
-		Modifier: 110
 	GrantConditionOnPrerequisite@up_divinewindprotocol:
 		Condition: up_divinewindprotocol
 		Prerequisites: up_divinewindprotocol
@@ -629,7 +617,7 @@ World:
 		DamageCooldown: 1
 		RequiresCondition: up_nanotechrepairs
 	ChangesHealth@up_nanotechrepairs2:
-		Step: 10
+		Step: 20
 		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 1
@@ -655,19 +643,19 @@ World:
 		IsDecoration: True
 	ChangesHealth@nanotechrepairsdamage1:
 		PercentageStep: 1
-		Delay: 10
+		Delay: 50
 		StartIfBelow: 100
 		DamageCooldown: 10
 		RequiresCondition: nanotechrepairsdamage && !nanotechrepairsdamagecooldown
 	ChangesHealth@nanotechrepairsdamage2:
-		Step: 100
+		Step: 40
 		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 10
 		RequiresCondition: nanotechrepairsdamage && !nanotechrepairsdamagecooldown
 	DamageMultiplier@nanotechrepairsdamage:
 		RequiresCondition: nanotechrepairsdamage && !nanotechrepairsdamagecooldown
-		Modifier: 70
+		Modifier: 90
 	GrantTimedCondition@nanotechrepairsdamage:
 		RequiresCondition: nanotechrepairsdamage
 		PauseOnCondition: !nanotechrepairsdamage
@@ -689,19 +677,19 @@ World:
 		IsDecoration: True
 	ChangesHealth@extrananotechrepairsdamage1:
 		PercentageStep: 1
-		Delay: 10
+		Delay: 25
 		StartIfBelow: 100
-		DamageCooldown: 10
+		DamageCooldown: 20
 		RequiresCondition: extrananotechrepairsdamage && !extrananotechrepairsdamagecooldown
 	ChangesHealth@extrananotechrepairsdamage2:
-		Step: 100
+		Step: 80
 		Delay: 1
 		StartIfBelow: 100
-		DamageCooldown: 10
+		DamageCooldown: 20
 		RequiresCondition: extrananotechrepairsdamage && !extrananotechrepairsdamagecooldown
 	DamageMultiplier@extrananotechrepairsdamage:
 		RequiresCondition: extrananotechrepairsdamage && !extrananotechrepairsdamagecooldown
-		Modifier: 70
+		Modifier: 90
 	GrantTimedCondition@extrananotechrepairsdamage:
 		RequiresCondition: extrananotechrepairsdamage
 		PauseOnCondition: !extrananotechrepairsdamage
@@ -932,7 +920,7 @@ ra_conscript_ak:
 		Name: AK-47 Conscript
 	Valued:
 		Cost: 200
-	ProductionCostMultiplier@conscript:
+	ProductionCostMultiplier@dualproduction:
 		Multiplier: 200
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
@@ -961,10 +949,10 @@ ra_conscript_ak:
 		RequiresCondition: !ra_upgrade_vengeance
 	FireWarheadsOnDeath@Vengeance2:
 		Weapon: VengeanceActivator2
-		RequiresCondition: ra_upgrade_vengeance && !upsubliminal
+		RequiresCondition: ra_upgrade_vengeance && !upsubliminal2
 	FireWarheadsOnDeath@Vengeance3:
 		Weapon: VengeanceActivator3
-		RequiresCondition: ra_upgrade_vengeance && upsubliminal
+		RequiresCondition: ra_upgrade_vengeance && upsubliminal2
 	TakeCover:
 		ProneOffset: 180,0,-200
 	WithInfantryBody@PARACHUTE:
@@ -1215,10 +1203,10 @@ ra_cons_molo:
 		RequiresCondition: !ra_upgrade_vengeance
 	FireWarheadsOnDeath@Vengeance2:
 		Weapon: VengeanceActivator2
-		RequiresCondition: ra_upgrade_vengeance && !upsubliminal
+		RequiresCondition: ra_upgrade_vengeance && !upsubliminal2
 	FireWarheadsOnDeath@Vengeance3:
 		Weapon: VengeanceActivator3
-		RequiresCondition: ra_upgrade_vengeance && upsubliminal
+		RequiresCondition: ra_upgrade_vengeance && upsubliminal2
 	WithDeathAnimation:
 		DeathSequencePalette: player_rgba
 	Voiced:
@@ -1813,7 +1801,7 @@ ra_commissar:
 	ProximityExternalCondition@upsubliminal:
 		Range: 5000
 		ValidRelationships: Ally
-		Condition: upsubliminal
+		Condition: upsubliminal2
 		RequiresCondition: ra_upgrade_vengeance
 	WithRangeCircle@propaganda:
 		Range: 5000
@@ -2715,7 +2703,7 @@ hammertank:
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiVeh: ^PrioritizeVehicle
@@ -4036,7 +4024,7 @@ MODBTR:
 	-DamagedByTintedCells@rad:
 	-DamagedByTintedCells@genrad:
 	ActorStatValues:
-		Upgrades: ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_stalinium #ra_doctrine_conscription
+		Upgrades: ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_doctrine_conscription, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_stalinium
 
 DTRK:
 	Inherits: ^Vehicle
@@ -5487,18 +5475,18 @@ RATRAN:
 	Inherits@cargo: ^CargoAircraft
 	Inherits@bot: ^BotAutoDeployUnarmedAirTransport
 	Inherits@CM: ^CountermeasuresUpgrade
+	Inherits@eject: ^AircraftEjectOnDeath
 	Inherits@AdvancedRadarSystems: ^AdvancedRadarSystems
 	Inherits@AirSuperiorityDoctrine: ^AirSuperiorityDoctrine
-	Inherits@eject: ^AircraftEjectOnDeath
+	Tooltip:
+		Name: Allied Chinook Transport
+	Valued:
+		Cost: 3600
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		Prerequisites: ~rahpad
 		BuildPaletteOrder: 10
 		Description: actor-tran.description
-	Valued:
-		Cost: 3600
-	Tooltip:
-		Name: Allied Chinook Transport
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 		OverrideActor: ratran
@@ -5568,22 +5556,26 @@ RATRAN.Husk:
 		PlayerPalette: raplayer
 
 modhip:
-	Inherits: RATRAN
+	Inherits: ^Helicopter
+	Inherits@Template: ^UnarmedTransportHelicopterTemplate
+	Inherits@cargo: ^CargoAircraft
+	Inherits@bot: ^BotAutoDeployUnarmedAirTransport
+	Inherits@CM: ^CountermeasuresUpgrade
+	Inherits@eject: ^AircraftEjectOnDeath
 	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@ConscriptionDoctrineRA1: ^ConscriptionDoctrineRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
+	Tooltip:
+		Name: Hip Transport
+	Valued:
+		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 10
 		Prerequisites: ~raafld
 		Queue: Aircraft, RAAircraft
 		Description: actor-tran.description
-	Valued:
-		Cost: 2500
-	Tooltip:
-		Name: Hip Transport
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
-		-OverrideActor:
 	Health:
 		HP: 150000
 	Repairable:
@@ -5603,14 +5595,13 @@ modhip:
 		RequiresCondition: !airborne
 		Offset: 0,0,400
 		Palette: ra_temperat
-	-WithIdleOverlay@ROTOR1AIR:
-	-WithIdleOverlay@ROTOR1GROUND:
-	-WithIdleOverlay@ROTOR2AIR:
-	-WithIdleOverlay@ROTOR2GROUND:
 	Cargo:
+		InitialUnits: dog, rare1, rae2, rare3, rae4, shok, e3flamer, mortarsoldier
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 8
-		InitialUnits: dog, rare1, rae2, rare3, rae4, shok, e3flamer, mortarsoldier
+		AfterLoadDelay: 0
+		BeforeUnloadDelay: 0
+		AfterUnloadDelay: 10
 	SelectionDecorations:
 	SpawnActorOnDeath:
 		Actor: modhip.husk

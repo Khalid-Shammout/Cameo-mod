@@ -5588,7 +5588,7 @@ latin_tkiller:
 latin_monkey:
 	Inherits: ^DefaultInfantry
 	Inherits@2: ^AffectedByTiberium
-	Inherits@Template: ^MortarInfantryTemplate
+	Inherits@Template: ^GrenadierInfantryTemplate
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -5598,14 +5598,14 @@ latin_monkey:
 	Tooltip:
 		Name: Grenade Monkey
 	Valued:
-		Cost: 600
+		Cost: 400
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~latin_cgpile
 		Queue: Infantry, RAInfantry
 		Description: actor-latin_monkey.description
 	Mobile:
-		Speed: 90
+		Speed: 80
 	Health:
 		HP: 30000
 	ChangesHealth@SelfHealing:
@@ -6380,7 +6380,7 @@ latin_diablo:
 		Cost: 1100
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~latin_radar
+		Prerequisites: ~latin_cgweap
 		Queue: Vehicle, RAVehicle
 		Description: actor-latin_diablo.description
 	Mobile:
@@ -12893,6 +12893,7 @@ nax2_tech:
 		Dimensions: 4,3
 	Production@Upgrades:
 		Produces: Upgrades
+
 nax2_weap:
 	Inherits: ^RA2DefaultWeap
 	Inherits@sell: ^SpaceNaxisSpawnActorsOnSell
@@ -18534,6 +18535,30 @@ futu_egweap2:
 	RenderSprites:
 		PlayerPalette: playerra2future1
 
+yrgarobo:
+	Inherits: ^RA2Building
+	Inherits@radar: ^RadarBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@sell: ^RA2ASpawnActorsOnSell
+	Tooltip:
+		Name: Robot Control Center
+	Selectable:
+		Bounds: 2048, 2048
+	Buildable:
+		Queue: Building, RABuilding
+		BuildPaletteOrder: 140
+		Prerequisites: ~futu_egcnst, futu_egweap2
+		Description: actor-garobo.description
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	WithSpriteBody:
+		PauseOnCondition: disabled
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@robotcontrol:
+		Prerequisite: robotcontrol
+		RequiresCondition: !disabled
+
 futu_egtf:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
@@ -18871,30 +18896,58 @@ futu_ggmlt:
 #		Red Alert 2 Future Infantry
 ####################################################################################################
 ^FutureRobotEnergizable:
+	Inherits@RobotControllable: ^RobotControllable
 	Targetable@RobotEnergizable:
 		TargetTypes: RobotEnergizable
-		RequiresCondition: RobotEnergizable <= 3 && !untargetable
+		RequiresCondition: RobotEnergizable <= 5 && !untargetable
 	ExternalCondition@RobotEnergizable:
 		Condition: RobotEnergizable
-		TotalCap: 3
+		TotalCap: 5
 	SpeedMultiplier@RobotEnergizable1:
-		Modifier: 125
+		Modifier: 120
 		RequiresCondition: RobotEnergizable == 1
 	SpeedMultiplier@RobotEnergizable2:
-		Modifier: 150
+		Modifier: 140
 		RequiresCondition: RobotEnergizable == 2
 	SpeedMultiplier@RobotEnergizable3:
+		Modifier: 160
+		RequiresCondition: RobotEnergizable == 3
+	SpeedMultiplier@RobotEnergizable4:
+		Modifier: 180
+		RequiresCondition: RobotEnergizable == 4
+	SpeedMultiplier@RobotEnergizable5:
 		Modifier: 200
-		RequiresCondition: RobotEnergizable >= 3
+		RequiresCondition: RobotEnergizable >= 5
 	ReloadDelayMultiplier@RobotEnergizable1:
-		Modifier: 80
+		Modifier: 90
 		RequiresCondition: RobotEnergizable == 1
 	ReloadDelayMultiplier@RobotEnergizable2:
-		Modifier: 60
+		Modifier: 80
 		RequiresCondition: RobotEnergizable == 2
 	ReloadDelayMultiplier@RobotEnergizable3:
-		Modifier: 40
-		RequiresCondition: RobotEnergizable >= 3
+		Modifier: 70
+		RequiresCondition: RobotEnergizable == 3
+	ReloadDelayMultiplier@RobotEnergizable4:
+		Modifier: 60
+		RequiresCondition: RobotEnergizable == 4
+	ReloadDelayMultiplier@RobotEnergizable5:
+		Modifier: 50
+		RequiresCondition: RobotEnergizable >= 5
+
+^RobotControllable:
+	Inherits@MC: ^MCImmune
+	Mobile:
+		PauseOnCondition: !robotcontrol || disabled
+	AttackTurreted:
+		PauseOnCondition: !robotcontrol || disabled
+	Capturable:
+		Types: thiefproof
+	GrantConditionOnPrerequisite:
+		Condition: robotcontrol
+		Prerequisites: robotcontrol
+	WithColoredOverlay@disabled:
+		Color: 000000b4
+		RequiresCondition: disabled && !chronodisabled || !robotcontrol
 
 futu_wheel:
 	Inherits: ^Walker
@@ -18905,7 +18958,6 @@ futu_wheel:
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
-	Inherits@MC: ^MCImmune
 	Inherits@FE: ^FutureRobotEnergizable
 	Selectable:
 		Bounds: 600, 600, 0, -125
@@ -18967,7 +19019,6 @@ future_robot_missiles:
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
-	Inherits@MC: ^MCImmune
 	Inherits@FE: ^FutureRobotEnergizable
 	Selectable:
 		Bounds: 600, 600, 0, -125
@@ -19034,7 +19085,6 @@ future_robot_cannon:
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
-	Inherits@MC: ^MCImmune
 	Inherits@FE: ^FutureRobotEnergizable
 	Selectable:
 		Bounds: 600, 600, 0, -125
@@ -19101,7 +19151,6 @@ future_robot_shotgun:
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
-	Inherits@MC: ^MCImmune
 	Inherits@FE: ^FutureRobotEnergizable
 	Selectable:
 		Bounds: 600, 600, 0, -125
@@ -19167,7 +19216,7 @@ futu_engi:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
-	Inherits@MC: ^MCImmune
+	Inherits@RobotControllable: ^RobotControllable
 	Selectable:
 		Bounds: 600, 600, 0, -125
 	Valued:
@@ -19235,7 +19284,7 @@ futu_engi:
 	RenderSprites:
 		Image: nax2_engi
 
-eur_spy:
+futu_spy:
 	Inherits: ^Soldier
 	Inherits@anim: ^RA2Infantry
 	Inherits@template: ^ScoutInfantryTemplate
@@ -19290,13 +19339,13 @@ future_mech_machinegun:
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
-	Inherits@MC: ^MCImmune
+	Inherits@RobotControllable: ^RobotControllable
 	Selectable:
 		Bounds: 600, 600, 0, -125
 	Valued:
 		Cost: 1200
 	Tooltip:
-		Name: Machinegun Super Mech
+		Name: Gatling Super Mech
 	Buildable:
 		BuildPaletteOrder: 75
 		Prerequisites: ~futu_egweap2
@@ -19345,7 +19394,7 @@ future_mech_plasma:
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
-	Inherits@MC: ^MCImmune
+	Inherits@RobotControllable: ^RobotControllable
 	Selectable:
 		Bounds: 600, 600, 0, -125
 	Valued:
@@ -19421,12 +19470,91 @@ futu_ifv:
 	Voiced:
 		VoiceSet: FutureIFVVoice
 
+YRROBO:
+	Inherits: ^Tank
+	Inherits@anim: ^RA2Vehicle
+	Inherits@Template: ^LineBreakerTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@vo: ^AttackTurretedVoice
+	Inherits@EMP: ^TurretEMP
+	Inherits@MC: ^MCImmune
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Robot Tank
+	Buildable:
+		BuildPaletteOrder: 70
+		Prerequisites: ~yrgarobo
+		Queue: Vehicle, RAVehicle
+		Description: actor-robo.description
+	Mobile:
+		Locomotor: hover
+		Speed: 130
+		TurnSpeed: 26
+		PauseOnCondition: !robotcontrol || disabled
+	Health:
+		HP: 50000
+	Repairable:
+		HpPerStep: 2500
+	ChangesHealth@SelfHealing:
+		Step: 20
+	Armor:
+		Type: Medium
+	Turreted:
+		TurnSpeed: 26 #3
+	Armament:
+		Name: primary
+		Weapon: RA2Robotmm
+		Recoil: 85
+		RecoilRecovery: 25
+		LocalOffset: 800,0,-250
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@elite:
+		Name: primary
+		Weapon: RA2Robotmm_elite
+		Recoil: 85
+		RecoilRecovery: 25
+		LocalOffset: 800,0,-250
+		MuzzleSequence: muzzle-2
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
+	AttackTurreted:
+		PauseOnCondition: !robotcontrol || disabled
+	WithSpriteTurret:
+	WithMuzzleOverlay:
+	SelectionDecorations:
+	Selectable:
+	Voiced:
+		VoiceSet: RobotTankVoice
+	Hovers:
+		Ticks: 10
+		BobDistance: -64
+		InitialHeight: 384
+		RequiresCondition: !disabled && robotcontrol
+	DeliversCash:
+		Payload: 300
+	-TemporaryOwnerManager:
+	Capturable:
+		Types: thiefproof
+	GrantConditionOnPrerequisite:
+		Condition: robotcontrol
+		Prerequisites: robotcontrol
+	WithColoredOverlay@disabled:
+		Color: 000000b4
+		RequiresCondition: disabled && !chronodisabled || !robotcontrol
+	RenderSprites:
+		PlayerPalette: playerra2
+
 futu_mbt:
 	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@SHADOWS: ^Shadows
@@ -19653,7 +19781,7 @@ futu_landcarr:
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^TurretEMP
-	Inherits@MC: ^MCImmune
+	Inherits@RobotControllable: ^RobotControllable
 	Selectable:
 		Bounds: 600, 600, 0, -125
 	Valued:
@@ -19720,7 +19848,7 @@ futu_orion:
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^TurretEMP
-	Inherits@MC: ^MCImmune
+	Inherits@RobotControllable: ^RobotControllable
 	Selectable:
 		Bounds: 600, 600, 0, -125
 	Valued:
@@ -19883,7 +20011,7 @@ futu_harv2:
 		Color: FF000088
 		RequiresCondition: !disabled
 
-futu_antena:
+futu_athena:
 	Inherits: ^Tank
 	Inherits@Template: ^ArtilleryTemplate
 	Inherits@anim: ^RA2Vehicle
@@ -19895,7 +20023,7 @@ futu_antena:
 	Valued:
 		Cost: 2200
 	Tooltip:
-		Name: Antena Cannon
+		Name: Athena Cannon
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~futu_egweap2, futu_egtf
@@ -19912,11 +20040,11 @@ futu_antena:
 	Armor:
 		Type: Medium
 	Armament@AG:
-		Weapon: AntenaLaser
+		Weapon: AthenaLaser
 		LocalOffset: 400,0,300
 		FireDelay: 150
 	Armament@VISUAL:
-		Weapon: AntenaVisualLaser
+		Weapon: AthenaVisualLaser
 		LocalOffset: 400,0,300
 	AttackFrontal:
 	WithMuzzleOverlay:
@@ -19932,6 +20060,7 @@ futu_coiler:
 	Inherits@Template: ^FireSupportTemplate
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AutoRepair: ^PrioritizeRepair
 	Inherits@EMP: ^FrontalEMP
 	Inherits@FE: ^FutureRobotEnergizable
 	Buildable:
@@ -19940,32 +20069,38 @@ futu_coiler:
 		Prerequisites: ~futu_egtf
 		Description: actor-ttnk.description
 	Valued:
-		Cost: 700
+		Cost: 1000
 	Tooltip:
-		Name: Tesla Tank
+		Name: Energizer
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 30000
+		HP: 50000
 	Repairable:
-		HpPerStep: 2000
+		HpPerStep: 2500
 	ChangesHealth@SelfHealing:
-		Step: 16
+		Step: 20
 	Armor:
 		Type: Light
 	Mobile:
-		Speed: 35
-		TurnSpeed: 14
+		Speed: 50
+		TurnSpeed: 20
 	Armament@Agressive:
-		Weapon: Future_CoilerAgressive
-		LocalOffset: 0,0,213
-	Armament@Support:
 		Name: primary
+		Weapon: Future_CoilerAgressive
+		ForceTargetRelationships: Enemy, Neutral
+		LocalOffset: 0,0,250
+	Armament@Support:
+		Name: repair
 		Weapon: Future_CoilerFriendMain
 		TargetRelationships: Ally
-		ForceTargetRelationships: None
+		ForceTargetRelationships: Ally
+		LocalOffset: 0,0,250
 	AttackFrontal:
 		FacingTolerance: 0
+		Armaments: primary,repair
+	AutoTargetPriority@Repair:
+		ValidTargets: RobotEnergizable
 	Turreted:
 	SelectionDecorations:
 	Selectable:
@@ -19987,6 +20122,7 @@ futu_futu:
 	Inherits@EMP: ^TurretEMP
 	Inherits@SHADOWS: ^Shadows
 	Inherits@announce: ^AnnounceOnBuild
+	Inherits@RobotControllable: ^RobotControllable
 	Valued:
 		Cost: 3000
 	Tooltip:

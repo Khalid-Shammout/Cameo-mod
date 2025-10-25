@@ -978,8 +978,6 @@
 	Armor:
 		Type: None
 	RevealsShroud:
-		Range: 8000
-	DetectCloaked:
 		Range: 4000
 	Buildable:
 		BuildDurationModifier: 100
@@ -1006,8 +1004,6 @@
 	Armor:
 		Type: None
 	RevealsShroud:
-		Range: 8000
-	DetectCloaked:
 		Range: 4000
 	Buildable:
 		BuildDurationModifier: 100
@@ -1055,7 +1051,7 @@
 	Armor:
 		Type: None
 	RevealsShroud:
-		Range: 6000
+		Range: 5500
 	Buildable:
 		BuildDurationModifier: 75
 	TooltipExtras@Grenadier:
@@ -1071,9 +1067,11 @@
 	Armor:
 		Type: None
 	RevealsShroud:
-		Range: 8000
+		Range: 7000
 	Buildable:
 		BuildDurationModifier: 100
+	KeepsDistance:
+		Distance: 10
 	TooltipExtras@LightInf:
 		Description: Mortar Infantry
 	GrantExternalConditionToTransport:
@@ -1101,7 +1099,7 @@
 	Armor:
 		Type: Plate
 	RevealsShroud:
-		Range: 7000
+		Range: 6000
 	DamageMultiplier@HeavyInfantryBuff:
 		Modifier: 80
 	Crushable:
@@ -1210,9 +1208,9 @@
 	FirepowerMultiplier@HeroBuff:
 		Modifier: 125
 	RevealsShroud:
-		Range: 8000
+		Range: 10000
 	DetectCloaked:
-		Range: 4000
+		Range: 5000
 	RenderDetectionCircle:
 	RenderRangeCircle:
 		RangeCircleType: infantry
@@ -1970,12 +1968,18 @@
 	ProductionTimeMultiplier@ShockwaveIndustrial:
 		Multiplier: 90
 		Prerequisites: schindustrialplant
-	ProductionCostMultiplier@DuneFactoryUpgrade:
+	ProductionCostMultiplier@DuneHeavyFactoryUpgrade:
 		Multiplier: 90
 		Prerequisites: upgrade_heavy
-	ProductionTimeMultiplier@DuneFactoryUpgrade:
+	ProductionTimeMultiplier@DuneHeavyFactoryUpgrade:
 		Multiplier: 90
 		Prerequisites: upgrade_heavy
+	ProductionCostMultiplier@DuneLightFactoryUpgrade:
+		Multiplier: 90
+		Prerequisites: light_factory
+	ProductionTimeMultiplier@DuneLightFactoryUpgrade:
+		Multiplier: 90
+		Prerequisites: light_factory
 	CashBack:
 		Percentage: 10
 		RequiresCondition: cashrecover
@@ -2371,7 +2375,7 @@
 		CruisingCondition: cruising
 		CanHover: True
 		VTOL: true
-		LandableTerrainTypes: Clear, ClearTemperat, ClearWinter, ClearJungle, ClearSnow, ClearDesert, ClearInterior, Rough, Road, Beach, Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, SCMinerals, ClearDune, Dune, Concrete, Sand, SpiceSand, Spice, ZergSoil
+		LandableTerrainTypes: Clear, ClearTemperat, ClearWinter, ClearJungle, ClearSnow, ClearDesert, ClearInterior, Rough, Road, Beach, Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, RA2Copper, RA2Silver, RA2Ore, RA2Gems, SCMinerals, ClearDune, Dune, Concrete, Sand, SpiceSand, Spice, ZergSoil
 		Crushes: crate, infantry
 		InitialFacing: 896
 		CanSlide: True
@@ -2402,7 +2406,7 @@
 		CanSlide: true
 		TakeOffOnResupply: true
 		VTOL: true
-		LandableTerrainTypes: Clear, ClearTemperat, ClearWinter, ClearJungle, ClearSnow, ClearDesert, ClearInterior, Rough, Road, Beach, Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, SCMinerals, ClearDune, Dune, Concrete, Sand, SpiceSand, Spice, ZergSoil
+		LandableTerrainTypes: Clear, ClearTemperat, ClearWinter, ClearJungle, ClearSnow, ClearDesert, ClearInterior, Rough, Road, Beach, Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, RA2Copper, RA2Silver, RA2Ore, RA2Gems, SCMinerals, ClearDune, Dune, Concrete, Sand, SpiceSand, Spice, ZergSoil
 		Crushes: crate
 		AirborneCondition: airborne
 		CruisingCondition: cruising
@@ -4047,7 +4051,7 @@
 		GenericName: Crate
 		ShowOwnerRow: false
 	Crate:
-		TerrainTypes: Clear, ClearTemperat, ClearWinter, ClearJungle, ClearSnow, ClearDesert, ClearInterior, Rough, Road, Beach, Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, SCMinerals, ClearDune, Dune, Concrete, Sand, SpiceSand, Spice
+		TerrainTypes: Clear, ClearTemperat, ClearWinter, ClearJungle, ClearSnow, ClearDesert, ClearInterior, Rough, Road, Beach, Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, RA2Copper, RA2Silver, RA2Ore, RA2Gems, SCMinerals, ClearDune, Dune, Concrete, Sand, SpiceSand, Spice
 	RenderSprites:
 		Palette: ra_temperat #effect
 		Image: scrate
@@ -4228,6 +4232,11 @@
 	GrantConditionOnPrerequisite@upsubliminal:
 		Condition: upsubliminal
 		Prerequisites: upsubliminal
+	ExternalCondition@upsubliminal2:
+		Condition: upsubliminal2
+	GrantConditionOnPrerequisite@upsubliminal2:
+		Condition: upsubliminal2
+		Prerequisites: upsubliminal2
 	GrantCondition@PROPPSI:
 		Condition: prevent-mindcontrol
 		RequiresCondition: PropagandaEffect
@@ -5780,7 +5789,7 @@ CPQDEBUGDUMMY:
 		SearchAllyDocks: true
 	Harvester:
 		Type: Unload
-		Resources: Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, SCMinerals, GESupplies, SWPCarbon, SWRCarbon, SWDCarbon, SWPNova, SWCNova, SWPMin, SWCMin, Spice, SCGas, SCGas2, SCGas3, SCMineralsChunk, SCRMinerals, DRWater, DRTaelon, D2Spice, D2SpiceDense, SWFarms, OP2Ore2, OP2Ore, RA2Ore, RA2Gems, RA2Silver, RA2Copper
+		Resources: Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, RA2Copper, RA2Silver, RA2Ore, RA2Gems, SCMinerals, GESupplies, SWPCarbon, SWRCarbon, SWDCarbon, SWPNova, SWCNova, SWPMin, SWCMin, Spice, SCGas, SCGas2, SCGas3, SCMineralsChunk, SCRMinerals, DRWater, DRTaelon, D2Spice, D2SpiceDense, SWFarms, OP2Ore2, OP2Ore
 		FullyLoadedSpeed: 100
 		HarvestFacings: 8
 		SearchFromProcRadius: 50
@@ -5788,7 +5797,7 @@ CPQDEBUGDUMMY:
 		MaxUnloadQueue: 25
 	StoresPlayerResources:
 		Capacity: 50
-		Resources: Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, SCMinerals, GESupplies, SWPCarbon, SWRCarbon, SWDCarbon, SWPNova, SWCNova, SWPMin, SWCMin, Spice, SCGas, SCGas2, SCGas3, SCMineralsChunk, SCRMinerals, DRWater, DRTaelon, D2Spice, D2SpiceDense, SWFarms, OP2Ore2, OP2Ore, RA2Ore, RA2Gems, RA2Silver, RA2Copper
+		Resources: Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, RA2Copper, RA2Silver, RA2Ore, RA2Gems, SCMinerals, GESupplies, SWPCarbon, SWRCarbon, SWDCarbon, SWPNova, SWCNova, SWPMin, SWCMin, Spice, SCGas, SCGas2, SCGas3, SCMineralsChunk, SCRMinerals, DRWater, DRTaelon, D2Spice, D2SpiceDense, SWFarms, OP2Ore2, OP2Ore
 	GpsDot:
 		String: Harvester
 	ExternalCondition@stashcamo:
@@ -5832,9 +5841,9 @@ CPQDEBUGDUMMY:
 	HarvesterBalancer:
 		Condition: harv-balance
 	ActorStatValues:
-		Stats: Armor, Sight, Speed, None, Harvester
+		Stats: Armor, Sight, Speed, None, None, None, Harvester
 	StoresResources:
-		Resources: Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, SCMinerals, GESupplies, SWPCarbon, SWRCarbon, SWDCarbon, SWPNova, SWCNova, SWPMin, SWCMin, Spice, SCGas, SCGas2, SCGas3, SCMineralsChunk, SCRMinerals, DRWater, DRTaelon, D2Spice, D2SpiceDense, SWFarms, OP2Ore2, OP2Ore, RA2Ore, RA2Gems, RA2Silver, RA2Copper
+		Resources: Tiberium, BlueTiberium, RedTiberium, GoldTiberium, Ore, Gems, RA2Copper, RA2Silver, RA2Ore, RA2Gems, SCMinerals, GESupplies, SWPCarbon, SWRCarbon, SWDCarbon, SWPNova, SWCNova, SWPMin, SWCMin, Spice, SCGas, SCGas2, SCGas3, SCMineralsChunk, SCRMinerals, DRWater, DRTaelon, D2Spice, D2SpiceDense, SWFarms, OP2Ore2, OP2Ore
 	DockClientManager:
 	Selectable:
 		Priority: 7
@@ -6698,7 +6707,7 @@ CPQDEBUGDUMMY:
 		Capacity: 4000
 	DockHost:
 		Type: Unload
-		MaxQueueLength: 50
+		MaxQueueLength: 10
 	Targetable@infiltrate:
 		TargetTypes: SpyInfiltrate, ThiefInfiltrate
 		RequiresCondition: !untargetable
@@ -7657,7 +7666,7 @@ CPQDEBUGDUMMY:
 	#	RequiresCondition: !loaded && botmicro
 	#	Delay: 100
 	ActorStatValues:
-		Stats: Armor, Sight, Speed, Cargo
+		Stats: Armor, Sight, Speed, None, None, None, Cargo
 
 ^BotAutoDeployOnAttack:
 	Inherits: ^BotMicromanageable

@@ -68,10 +68,10 @@ Player:
 			GoldTiberium: 45
 			Ore: 25
 			Gems: 50
+			RA2Copper: 20
+			RA2Silver: 30
 			RA2Ore: 40
 			RA2Gems: 50
-			RA2Silver: 30
-			RA2Copper: 20
 			SCMinerals: 25
 			Veins: 15
 			GESupplies: 50

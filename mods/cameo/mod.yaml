@@ -218,7 +218,7 @@ TileSets:
 	cameo|tilesets/ra_snow.yaml
 	cameo|tilesets/ra_interior.yaml
 	cameo|tilesets/ra_temperat.yaml
-	cameo|tilesets/ra2_temperat.yaml
+	# cameo|tilesets/ra2_temperat.yaml
 	cameo|tilesets/ra_desert.yaml
 	cameo|tilesets/arrakis.yaml
 	# cameo|tilesets/arrakis2.yaml

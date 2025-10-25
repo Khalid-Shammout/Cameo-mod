@@ -1381,14 +1381,14 @@ BIKE:
 		Speed: 200
 		TurnSpeed: 80
 	Health:
-		HP: 20000
+		HP: 17500
 	Repairable:
-		HpPerStep: 1000
+		HpPerStep: 875
 	ChangesHealth@SelfHealing:
-		Step: 8
+		Step: 7
 	Armament:
 		Weapon: BikeRockets
-		LocalOffset: -128, -170, 170, -128, 170, 170
+		LocalOffset: -125, -175, 175, -125, 175, 175
 		LocalYaw: 100, -100
 		MuzzleSequence: muzzle
 	AmmoPool@pld:
@@ -3327,15 +3327,15 @@ OBLI:
 		SoundFiles: obelpowr.aud
 		Interval: 30, 40
 	RangeMultiplier@up_elitecapacitors:
-		Modifier: 115
+		Modifier: 120
 	FirepowerMultiplier@up_elitecapacitors:
-		Modifier: 115
+		Modifier: 120
 	ReloadDelayMultiplier@up_elitecapacitors:
-		Modifier: 85
+		Modifier: 80
 	RevealsShroudMultiplier@up_elitecapacitors:
-		Modifier: 115
+		Modifier: 120
 	DetectCloakedMultiplier@up_elitecapacitors:
-		Modifier: 115
+		Modifier: 120
 	Power:
 		Amount: -90
 	RevealsShroud:
@@ -4559,14 +4559,14 @@ chembike:
 		Speed: 175
 		TurnSpeed: 70
 	Health:
-		HP: 32500
+		HP: 22500
 	Repairable:
-		HpPerStep: 1625
+		HpPerStep: 1125
 	ChangesHealth@SelfHealing:
-		Step: 13
+		Step: 9
 	Armament:
 		Weapon: ChemicalBikeRockets
-		LocalOffset: -128, -170, 170, -128, 170, 170
+		LocalOffset: -125, -175, 175, -125, 175, 175
 		LocalYaw: 100, -100
 		MuzzleSequence: muzzle
 	AmmoPool@pld:

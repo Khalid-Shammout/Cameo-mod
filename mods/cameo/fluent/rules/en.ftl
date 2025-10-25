@@ -1803,7 +1803,7 @@ upgrade-lasertargetingsystems =
    .description = Increases damage of all units and defenses by 25%
 
 upgrade-airsuperioritydoctrine =
-   .description = Increases damage, firerate, armor, speed, range and accuracy of aircraft and the Heavy AA Tank by 15%.
+   .description = Increases damage, rate of fire, armor, speed, range and accuracy of aircraft and the Heavy AA Tank by 15%.
 
 upgrade-chronoarmor =
    .description = After taking damage, tanks will activate a chrono field
@@ -1816,14 +1816,14 @@ upgrade-gpssatellitesupport =
    Increases accuracy, vision, detection and weapon range of all units and defenses by 10%.
 
 upgrade-bushidodiscipline =
-   .description = Increases damage, firerate, armor, speed, range and accuracy by 10% and gives self healing.
+   .description = Increases damage, rate of fire, armor, speed, range and accuracy by 10% and gives self healing.
    When wounded the effect is tripled.
 
 upgrade-waveforcebullets =
    .description = Increases range and damage of all bullets by 10% and makes them more effective against armor.
 
 upgrade-divinewindprotocol =
-   .description = Increases damage, firerate, armor, speed, range and vision of all air units by 10%
+   .description = Increases damage, rate of fire, armor and speed, of all air units by 10%
 
 upgrade-stealthsuitintegration =
    .description = All Infantry come equipped with a stealth suit, that makes them invisible when not attacking or moving.
@@ -1845,7 +1845,7 @@ upgrade-nanotechrepairs =
    Increases armor of all vehicles in your team by 10% and makes them regnerate faster.
    For Japan the effect is also applied to all aircrafts and buildings.
    Japanese Fire Support Vehicles and Tanks also get a nanodrone shield
-   for 0.2 seconds after taking damage that increases armor by 50%.
+   for 0.2 seconds after taking damage that increases armor by 20%.
 
 upgrade-wind_trap =
    .description = Increases power output of Wind Traps by 100%.

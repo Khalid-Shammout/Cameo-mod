@@ -6196,17 +6196,22 @@ LatinMonkeyGrenade:
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^HeavyCannon
 	ReloadDelay: 60
-	Range: 6000
-	MinRange: 1200
+	Range: 6500
+	MinRange: 1300
 	Report: grenadepin.wav
 	Projectile: Bullet
-		Speed: 256
+		Speed: 260
 		Blockable: false
-		LaunchAngle: 128
-		Inaccuracy: 128
+		LaunchAngle: 130
+		Inaccuracy: 260
 		InaccuracyType: PerCellIncrement
 		Image: d2k_grenade
 		Shadow: true
+		ContrailLength: 13
+		ContrailStartColor: 99887766
+		ContrailEndColor: 33221100
+		ContrailStartWidth: 26
+		ContrailEndWidth: 13
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 10000
@@ -7386,12 +7391,13 @@ RA2TraitorPower:
 		Explosions: controlwave_small
 		ExplosionPalette: ra2effect
 		ImpactSounds: flare1.aud
-	Warhead@5OwnerChange: ChangeOwner
+	Warhead@OwnerChange: ChangeOwner
 		Range: 1500
 		Duration: 0
 		AirThreshold: 0
-		ValidTargets: Ground, Water
+		ValidTargets: Ground, Water, Air
 		InvalidTargets: Structure, MCImmune
+		ChangeOwnerValidStances: Neutral, Enemy
 
 RA2AkulaRockets:
 	Inherits: ^HeavyBomb
@@ -7665,7 +7671,8 @@ FutureMicrotorpedos:
 		Explosions: ra2_large_watersplash
 		ExplosionPalette: ra2effect
 		ImpactSounds: gexpwasa.wav
-AntenaLaser:
+
+AthenaLaser:
 	Range: 16000
 	MinRange: 3200
 	ReloadDelay: 250
@@ -7739,7 +7746,8 @@ AntenaLaser:
 		ImpactSounds: ion1.aud
 		ImpactActors: false
 		ValidTargets: Ground, Water, Air
-AntenaVisualLaser:
+
+AthenaVisualLaser:
 	ReloadDelay: 6
 	Range: 16000
 	MinRange: 3200
@@ -7779,25 +7787,25 @@ Future_Turret_Cryo:
 
 Future_CoilerAgressive:
 	Inherits: ^TeslaWeapon
-	Range: 5700
-	ReloadDelay: 75
+	Range: 7500
+	ReloadDelay: 125
 	Report: itesatta.wav
 	Warhead@TeslaWeapon: SpreadDamage
-		Damage: 12000
+		Damage: 50000
 	Warhead@TeslaExtraDamage: SpreadDamage
-		Damage: 6000
+		Damage: 25000
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
-		Damage: 12
+		Damage: 25
 	Warhead@2: FireShrapnel
-		Weapon: Future_CoilerFriendFrag2
+		Weapon: Future_CoilerFriendFrag1
 		Amount: 3
 		AimChance: 100
 		ValidTargets: RobotEnergizable
 		AimTargetStances: Ally
 
 Future_CoilerFriend:
-	Range: 5700
-	ReloadDelay: 75
+	Range: 1250
+	ReloadDelay: 125
 	ValidTargets: RobotEnergizable
 	Projectile: InstantHit
 	Report: itesatta.wav
@@ -7805,14 +7813,15 @@ Future_CoilerFriend:
 	Warhead@Condition: GrantExternalCondition
 		Range: 1000
 		Condition: RobotEnergizable
-		Duration: 300
+		Duration: 250
 		ValidTargets: RobotEnergizable
 		ValidRelationships: Ally
 
 Future_CoilerFriendMain:
 	Inherits: Future_CoilerFriend
+	Range: 7500
 	Warhead@2: FireShrapnel
-		Weapon: Future_CoilerFriendFrag2
+		Weapon: Future_CoilerFriendFrag1
 		Amount: 3
 		AimChance: 100
 		ValidTargets: RobotEnergizable
@@ -7820,21 +7829,18 @@ Future_CoilerFriendMain:
 
 Future_CoilerFriendFrag1:
 	Inherits: Future_CoilerFriend
+	Range: 5000
 	Warhead@2: FireShrapnel
-		Weapon: Future_CoilerFriend
-		Amount: 1
-		AimChance: 100
-		ValidTargets: RobotEnergizable
-		AimTargetStances: Ally
+		Weapon: Future_CoilerFriendFrag2
+		Amount: 2
 
 Future_CoilerFriendFrag2:
 	Inherits: Future_CoilerFriend
+	Range: 2500
 	Warhead@2: FireShrapnel
-		Weapon: Future_CoilerFriendFrag1
+		Weapon: Future_CoilerFriend
 		Amount: 1
-		AimChance: 100
-		ValidTargets: RobotEnergizable
-		AimTargetStances: Ally
+
 Future_MultiMissile:
 	Inherits: ^ArrowWeapon
 	Inherits: ^RA2LightMissile
@@ -7876,7 +7882,7 @@ Future_MultiMissile_Frag_Frags:
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_piffs
 		ExplosionPalette: ra2effect
-		
+
 Future_Wheel_MG:
 	Inherits: ^RA2SmallArms
 	Inherits: ^RA2Chaingun
@@ -8018,3 +8024,84 @@ ShotgunAttackRobotGunE:
 	Range: 5110
 	Burst: 2
 	BurstDelays: 3
+
+RA2Robotmm:
+	Inherits: ^TeslaWeapon
+	Inherits: ^LaserWeapon
+	Inherits: ^RA2RailgunWeapon
+	Range: 5130
+	ReloadDelay: 48
+	Report: vrobatta.wav
+	ValidTargets: Ground, Water, Trees, Air
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+	Warhead@LaserWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+	Warhead@RailgunWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+
+RA2Robotmm_elite:
+	Inherits: RA2Robotmm
+	Range: 6130
+	Warhead@Effect: CreateEffect
+		Explosions: blue_building
+		ImpactSounds: psahit00.aud
+		ExplosionPalette: effect
+	Warhead@EffectWater: CreateEffect
+		Explosions: ra2_large_watersplash
+		ImpactSounds: gexpwala.wav
+	Warhead@Scatter: FireShrapnel
+		Weapon: RA2Robotmm_eliteScatter
+		Amount: 3
+		AimChance: 50
+		AimTargetStances: Enemy, Neutral
+		ValidTargets: Ground, Water, Trees, Air
+
+RA2Robotmm_eliteScatter:
+	Inherits: RA2Robotmm_elite
+	Range: 2565
+	-Report:
+	Projectile: Railgun
+		-HitAnim:
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2
+	Warhead@LaserWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+	Warhead@LaserWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2
+	Warhead@RailgunWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2
+	-Warhead@Scatter: FireShrapnel
+	Warhead@Effect: CreateEffect
+		Explosions: blue_med_frag
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Ground, Ship, Trees

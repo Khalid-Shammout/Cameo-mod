@@ -8278,8 +8278,7 @@ futu_mbt:
 		Facings: 64
 		Offset: 0,5
 	icon:
-		Filename: ra2mtnkicon.shp
-		AddExtension: False
+		Filename: futu_guardiantankicon.png
 
 futu_hvrt:
 	Inherits: ^RA2MachineGunMuzzle
@@ -8373,7 +8372,7 @@ futu_phal:
 		Filename: ra2_vtmuzzle.shp
 		Length: *
 
-futu_antena:
+futu_athena:
 	Inherits: ^RA2CannonMuzzle
 	Defaults:
 		Filename: futu_antena.png
@@ -8413,11 +8412,26 @@ futu_futu:
 		Filename: futu_futuretankicon.png
 		AddExtension: False
 
-##############################################
-#   Red Alert 2 European Rebels
-##############################################
+yrrobo:
+	Inherits: ^RA2CannonMuzzle
+	Defaults:
+		Filename: yr_robo.shp
+	idle:
+		Facings: 64
+		Offset: 0,20
+	turret:
+		Start: 64
+		Facings: 64
+		Offset: 0,20
+	muzzle:
+		Offset: 0,20
+	muzzle-2:
+		Offset: 0,20
+	icon:
+		Filename: ra2roboticon.shp
+		AddExtension: False
 
-eur_spy:
+futu_spy:
 	Inherits: ^RA2Infantry
 	Defaults:
 		Filename: ra2_spy.shp

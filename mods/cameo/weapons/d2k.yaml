@@ -1037,7 +1037,7 @@ D2K_APC_Rocket:
 	Inherits: ^MediumMissile
 	Inherits: D2K_Rocket
 	ReloadDelay: 42
-	Range: 6480
+	Range: 6500
 	Projectile: Missile
 		Acceleration: 6
 		Speed: 666
@@ -2246,13 +2246,18 @@ d2k_grenade:
 	MinRange: 1200
 	Report: grenadepin.wav
 	Projectile: Bullet
-		Speed: 256
+		Speed: 240
 		Blockable: false
-		LaunchAngle: 128
-		Inaccuracy: 128
+		LaunchAngle: 120
+		Inaccuracy: 120
 		InaccuracyType: PerCellIncrement
 		Image: d2k_grenade
 		Shadow: true
+		ContrailLength: 12
+		ContrailStartColor: 99887766
+		ContrailEndColor: 33221100
+		ContrailStartWidth: 24
+		ContrailEndWidth: 12
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 10000
@@ -2301,21 +2306,22 @@ Laboratory_Bioball:
 	Inherits: ^MediumFlameWeapon
 	Inherits: ^MediumChemicalWeapon
 	ReloadDelay: 42
-	Range: 6480
-	MinRange: 1296
+	Range: 6500
+	MinRange: 1300
 	Report: bioball_shoot.wav
 	Projectile: Bullet
-		Speed: 256
+		Speed: 260
 		Blockable: false
-		LaunchAngle: 128
-		Inaccuracy: 128
+		LaunchAngle: 130
+		Inaccuracy: 130
 		InaccuracyType: PerCellIncrement
 		Image: d2k_grenade
 		Shadow: true
-		ContrailStartColor: 88FF4488
-		ContrailEndColor: FFFFFF44
-		ContrailStartWidth: 120
-		ContrailEndWidth: 24
+		ContrailLength: 13
+		ContrailStartColor: AACC8866
+		ContrailEndColor: 33442211
+		ContrailStartWidth: 52
+		ContrailEndWidth: 13
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 10000
@@ -2381,8 +2387,8 @@ Laboratory_Bioball:
 	Warhead@4Concrete: DamagesConcrete
 		Damage: 1875
 	Warhead@Cloud: SpawnSmokeParticle
-		Count: 1
-		Duration: 25
+		Count: 1, 2
+		Duration: 50
 		Speed: 0, 2
 		TurnRate: 1
 		Image: explosion

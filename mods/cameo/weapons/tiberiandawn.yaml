@@ -501,10 +501,12 @@ BikeRockets:
 	Inherits: ^FlakWeapon
 	Inherits: ^LightMissile
 	Burst: 2
-	BurstDelays: 9
-	ReloadDelay: 60
+	BurstDelays: 10
+	ReloadDelay: 55
 	Range: 6000
 	Report: bazook1.aud
+	Projectile: Missile
+		LaunchAngle: 75
 	Warhead@TankDestroyerCannon: SpreadDamage
 		Damage: 4000
 	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
@@ -1266,11 +1268,12 @@ ChemicalBikeRockets:
 	ValidTargets: Ground, Water, Trees, Air
 	Burst: 2
 	BurstDelays: 10
-	ReloadDelay: 85
+	ReloadDelay: 70
 	Range: 6000
 	Report: missile6.aud
 	Projectile: Missile
 		TrailImage: spittrail
+		LaunchAngle: 75
 	Warhead@TankDestroyerCannon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 8000

@@ -1536,7 +1536,7 @@ ZerglingClaw:
 	Report: zerglinghit.wav
 	SoundVolume: 3
 	ReloadDelay: 11
-	Range: 980
+	Range: 1350
 	Warhead@SwordWeapon: SpreadDamage
 		Damage: 2000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
@@ -1549,29 +1549,14 @@ ZerglingClaw:
 TalonClaw:
 	Inherits: ^SwordWeapon
 	Report: zerglinghit.wav
-	SoundVolume: 3
-	ReloadDelay: 10
-	Range: 1154
+	ReloadDelay: 15
+	Range: 1680
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 2000
+		Damage: 6000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 1000
-	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 1
-	Warhead@Effect: CreateEffect
-		ImpactSounds: zulhit00.aud,zulhit01.aud
-
-TalonClaw:
-	Inherits: ^SwordWeapon
-	Report: zerglinghit.wav
-	ReloadDelay: 11
-	Range: 1550
-	Warhead@SwordWeapon: SpreadDamage
 		Damage: 3000
-	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 2000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 1
+		Damage: 3
 	Warhead@Effect: CreateEffect
 		ImpactSounds: zulhit00.aud,zulhit01.aud
 
@@ -1962,9 +1947,10 @@ SCDevourerAA:
 	-Warhead@shrapnel:
 	Warhead@Cloud: SpawnSmokeParticle
 		Sequences: purple_toxins
-		Weapon: SCDevourerCloud
-		Count: 5
+		Weapon: AnthraxCloudPurpleLarge
 		ValidTargets: Air
+		Duration: 100
+		Count: 1
 	Warhead@Effect2: CreateEffect
 		Explosions: nax_corr_ex
 		ExplosionPalette: ra2effect
@@ -1976,15 +1962,6 @@ SCDevourerAA:
 		Duration: 100
 		ValidTargets: corrodible
 		ValidRelationships: Enemy
-
-SCDevourerCloud:
-	Inherits: AnthraxCloudPurpleLarge
-	Warhead@ToxicWeapon: SpreadDamage
-		ValidTargets: Air
-	Warhead@ToxicWeaponFriendlyFire: SpreadDamage
-		ValidTargets: Air
-	Warhead@ToxicWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Air
 
 ScourgeExplosion:
 	Inherits: SCScourgeExplosion
@@ -2936,227 +2913,42 @@ Psi-spear:
 		ImpactSounds: zulhit00.aud,zulhit01.aud
 
 PsiStorm:
-	ReloadDelay: 100
-	Range: 7875
-	Projectile: InstantHit
+	Inherits: ^TeslaWeapon
 	ValidTargets: Ground, Water, Air
-	Warhead@1Dam: SpreadDamage
+	ReloadDelay: 64
+	Range: 6400
+	-Report:
+	Projectile: InstantHit
+	Warhead@TeslaWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Delay: 8
+		Delay: 2
 		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
-		Spread: 400
+		Spread: 200
 		Damage: 8000
-		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 		AffectsParent: True
 		ValidRelationships: Enemy, Neutral
-		Versus:
-			Shield: 150
-			Heroic: 100
-			Plate: 96
-			Flak: 92
-			None: 88
-			Superheavy: 84
-			Heavy: 80
-			Medium: 76
-			Light: 72
-			Scout: 68
-			Steel: 64
-			Concrete: 60
-			Wood: 56
-			Spaceship: 52
-			Helicopter: 48
-			Bomber: 44
-			Fighter: 40
-	Warhead@2Dam: SpreadDamage
+	Warhead@TeslaExtraDamage: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Delay: 16
+		Delay: 4
 		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
 		Spread: 400
-		Damage: 8000
-		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+		Damage: 4000
 		AffectsParent: True
-		ValidRelationships: Enemy, Neutral
-		Versus:
-			Shield: 150
-			Heroic: 100
-			Plate: 96
-			Flak: 92
-			None: 88
-			Superheavy: 84
-			Heavy: 80
-			Medium: 76
-			Light: 72
-			Scout: 68
-			Steel: 64
-			Concrete: 60
-			Wood: 56
-			Spaceship: 52
-			Helicopter: 48
-			Bomber: 44
-			Fighter: 40
-	Warhead@3Dam: SpreadDamage
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
-		Delay: 24
-		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
-		Spread: 400
-		Damage: 8000
-		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+		Delay: 6
+		Spread: 2000
+		Damage: 4
 		AffectsParent: True
 		ValidRelationships: Enemy, Neutral
-		Versus:
-			Shield: 150
-			Heroic: 100
-			Plate: 96
-			Flak: 92
-			None: 88
-			Superheavy: 84
-			Heavy: 80
-			Medium: 76
-			Light: 72
-			Scout: 68
-			Steel: 64
-			Concrete: 60
-			Wood: 56
-			Spaceship: 52
-			Helicopter: 48
-			Bomber: 44
-			Fighter: 40
-	Warhead@4Dam: SpreadDamage
-		ValidTargets: Ground, Water, Air
-		Delay: 32
-		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
-		Spread: 400
-		Damage: 8000
-		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
-		AffectsParent: True
-		ValidRelationships: Enemy, Neutral
-		Versus:
-			Shield: 150
-			Heroic: 100
-			Plate: 96
-			Flak: 92
-			None: 88
-			Superheavy: 84
-			Heavy: 80
-			Medium: 76
-			Light: 72
-			Scout: 68
-			Steel: 64
-			Concrete: 60
-			Wood: 56
-			Spaceship: 52
-			Helicopter: 48
-			Bomber: 44
-			Fighter: 40
-	Warhead@5Dam: SpreadDamage
-		ValidTargets: Ground, Water, Air
-		Delay: 40
-		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
-		Spread: 400
-		Damage: 8000
-		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
-		AffectsParent: True
-		ValidRelationships: Enemy, Neutral
-		Versus:
-			Shield: 150
-			Heroic: 100
-			Plate: 96
-			Flak: 92
-			None: 88
-			Superheavy: 84
-			Heavy: 80
-			Medium: 76
-			Light: 72
-			Scout: 68
-			Steel: 64
-			Concrete: 60
-			Wood: 56
-			Spaceship: 52
-			Helicopter: 48
-			Bomber: 44
-			Fighter: 40
-	Warhead@6Dam: SpreadDamage
-		ValidTargets: Ground, Water, Air
-		Delay: 48
-		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
-		Spread: 400
-		Damage: 8000
-		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
-		AffectsParent: True
-		ValidRelationships: Enemy, Neutral
-		Versus:
-			Shield: 150
-			Heroic: 100
-			Plate: 96
-			Flak: 92
-			None: 88
-			Superheavy: 84
-			Heavy: 80
-			Medium: 76
-			Light: 72
-			Scout: 68
-			Steel: 64
-			Concrete: 60
-			Wood: 56
-			Spaceship: 52
-			Helicopter: 48
-			Bomber: 44
-			Fighter: 40
-	Warhead@7Dam: SpreadDamage
-		ValidTargets: Ground, Water, Air
-		Delay: 56
-		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
-		Spread: 400
-		Damage: 8000
-		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
-		AffectsParent: True
-		ValidRelationships: Enemy, Neutral
-		Versus:
-			Shield: 150
-			Heroic: 100
-			Plate: 96
-			Flak: 92
-			None: 88
-			Superheavy: 84
-			Heavy: 80
-			Medium: 76
-			Light: 72
-			Scout: 68
-			Steel: 64
-			Concrete: 60
-			Wood: 56
-			Spaceship: 52
-			Helicopter: 48
-			Bomber: 44
-			Fighter: 40
-	Warhead@8Dam: SpreadDamage
-		ValidTargets: Ground, Water, Air
-		Delay: 64
-		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
-		Spread: 400
-		Damage: 8000
-		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
-		AffectsParent: True
-		ValidRelationships: Enemy, Neutral
-		Versus:
-			Shield: 150
-			Heroic: 100
-			Plate: 96
-			Flak: 92
-			None: 88
-			Superheavy: 84
-			Heavy: 80
-			Medium: 76
-			Light: 72
-			Scout: 68
-			Steel: 64
-			Concrete: 60
-			Wood: 56
-			Spaceship: 52
-			Helicopter: 48
-			Bomber: 44
-			Fighter: 40
-	Warhead@3Eff: CreateEffect
+
+PsiStormCosmetic:
+	ValidTargets: Ground, Water, Air
+	ReloadDelay: 64
+	Range: 6400
+	Report: ptesto00.aud
+	Projectile: InstantHit
+	Warhead@Effect: CreateEffect
 		Explosions: scpsistorm
 		ValidTargets: Ground, Air
 		ImpactActors: false
@@ -3861,7 +3653,7 @@ DefilerPlague:
 		ImpactSounds: zulhit00.aud
 
 RemovableDebuffDummy:
-	Inherits: GLAnthraxPurpleLarge
+	Inherits: GLAnthraxBlueLarge
 	Warhead@Cloud: SpawnSmokeParticle
 		Duration: 175
 		Count: 1

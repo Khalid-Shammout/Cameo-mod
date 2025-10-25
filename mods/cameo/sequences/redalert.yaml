@@ -1104,7 +1104,7 @@ ra_conscript_ak:
 	paradrop:
 		Start: 324
 	icon:
-		Filename: ra_conscripticon.png
+		Filename: ra_conscript_ak_icon.png
 		AddExtension: False
 
 ra_cons_molo:
@@ -1145,7 +1145,7 @@ ra_cons_molo:
 	paradrop:
 		Start: 324
 	icon:
-		Filename: ra_conscripticon.png
+		Filename: ra_conscript_molotov_icon.png
 		AddExtension: False
 
 ra_dragunov:

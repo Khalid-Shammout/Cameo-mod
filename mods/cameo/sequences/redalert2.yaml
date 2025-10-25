@@ -6902,25 +6902,6 @@ yrpcv:
 yrpcv.Bot:
 	Inherits: yrpcv
 
-yrrobo:
-	Inherits: ^RA2CannonMuzzle
-	Defaults:
-		Filename: yr_robo.shp
-	idle:
-		Facings: 64
-		Offset: 0,20
-	turret:
-		Start: 64
-		Facings: 64
-		Offset: 0,20
-	muzzle:
-		Offset: 0,20
-	muzzle-2:
-		Offset: 0,20
-	icon:
-		Filename: ra2roboticon.shp
-		AddExtension: False
-
 ra2sqd:
 	Defaults:
 		Filename: ra2_sqd.shp

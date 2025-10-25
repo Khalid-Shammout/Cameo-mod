@@ -920,30 +920,6 @@ ra2gatech:
 		IncomingTextNotification: Warning: Force shield activated.
 		BlockedCursor: move-blocked
 
-yrgarobo:
-	Inherits: ^RA2Building
-	Inherits@radar: ^RadarBuilding
-	Inherits@shape: ^2x2Shape
-	Inherits@sell: ^RA2ASpawnActorsOnSell
-	Selectable:
-		Bounds: 2048, 2048
-	Buildable:
-		Queue: Building, RABuilding
-		BuildPaletteOrder: 140
-		Prerequisites: ~ra2gacnst, ra2gatech, ~upyrrobo
-		Description: actor-garobo.description
-	Tooltip:
-		Name: Robot Control Center
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	WithSpriteBody:
-		PauseOnCondition: disabled
-	ProvidesPrerequisite@buildingname:
-	ProvidesPrerequisite@robotcontrol:
-		Prerequisite: robotcontrol
-		RequiresCondition: !disabled
-
 ra2gaspysat:
 	Inherits: ^RA2Building
 	Inherits@radar: ^RadarBuilding
@@ -5199,12 +5175,13 @@ RA2CMIN:
 	WithHarvestOverlay@harvesting:
 		Sequence: harvesting
 		Palette: ra2effect
+
 RA2MTNK:
 	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
 	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@SHADOWS: ^Shadows
@@ -5259,92 +5236,13 @@ RA2MTNK:
 	RenderSprites:
 		PlayerPalette: playerra2
 
-YRROBO:
-	Inherits: ^Tank
-	Inherits@anim: ^RA2Vehicle
-	Inherits@Template: ^LineBreakerTemplate
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@vo: ^AttackTurretedVoice
-	Inherits@EMP: ^TurretEMP
-	Inherits@MC: ^MCImmune
-	Valued:
-		Cost: 1100
-	Tooltip:
-		Name: Robot Tank
-	Buildable:
-		BuildPaletteOrder: 70
-		Prerequisites: ~yrgarobo
-		Queue: Vehicle, RAVehicle
-		Description: actor-robo.description
-	Mobile:
-		Locomotor: hover
-		Speed: 130
-		TurnSpeed: 26
-		PauseOnCondition: !robotcontrol || disabled
-	Health:
-		HP: 50000
-	Repairable:
-		HpPerStep: 2500
-	ChangesHealth@SelfHealing:
-		Step: 20
-	Armor:
-		Type: Medium
-	Turreted:
-		TurnSpeed: 26 #3
-	Armament:
-		Name: primary
-		Weapon: RA2Robotmm
-		Recoil: 85
-		RecoilRecovery: 25
-		LocalOffset: 800,0,-250
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: !rank-elite
-	Armament@elite:
-		Name: primary
-		Weapon: RA2Robotmm_elite
-		Recoil: 85
-		RecoilRecovery: 25
-		LocalOffset: 800,0,-250
-		MuzzleSequence: muzzle-2
-		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite
-	AttackTurreted:
-		PauseOnCondition: !robotcontrol || disabled
-	WithSpriteTurret:
-	WithMuzzleOverlay:
-	SelectionDecorations:
-	Selectable:
-	Voiced:
-		VoiceSet: RobotTankVoice
-	Hovers:
-		Ticks: 10
-		BobDistance: -64
-		InitialHeight: 384
-		RequiresCondition: !disabled && robotcontrol
-	DeliversCash:
-		Payload: 300
-	-TemporaryOwnerManager:
-	Capturable:
-		Types: thiefproof
-	GrantConditionOnPrerequisite:
-		Condition: robotcontrol
-		Prerequisites: robotcontrol
-	WithColoredOverlay@disabled:
-		Color: 000000b4
-		RequiresCondition: disabled && !chronodisabled || !robotcontrol
-	RenderSprites:
-		PlayerPalette: playerra2
-
 RA2TNKD:
 	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
 	Inherits@Template: ^FireSupportTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Valued:
@@ -5861,7 +5759,7 @@ RA2HMGTK:
 		RequiresCondition: tree
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~ra2gatech
+		Prerequisites: ~upheavymiragetank, ra2gatech
 		Queue: Vehicle, RAVehicle
 		Description: actor-mgtk.description
 	Mobile:
@@ -11902,7 +11800,7 @@ upra2seal:
 		BuildPaletteOrder: 76
 		Queue: Promotions
 		Description: Allows training of SEALs.
-		Prerequisites: ~ra2gacnst, upra2airborne, rank1
+		Prerequisites: ~ra2gacnst, !upra2seal, upra2airborne, rank1
 	RenderSprites:
 		Image: ra2seal
 	ProvidesPrerequisite:
@@ -11915,7 +11813,7 @@ upra2snipe:
 		BuildPaletteOrder: 79
 		Queue: Promotions
 		Description: Allows training of Snipers.
-		Prerequisites: ~ra2gacnst, upra2seal, rank1
+		Prerequisites: ~ra2gacnst, !upra2snipe, upra2seal, rank1
 	RenderSprites:
 		Image: ra2snipe
 	ProvidesPrerequisite:
@@ -11928,7 +11826,7 @@ upra2gi:
 		BuildPaletteOrder: 82
 		Queue: Promotions
 		Description: Upgrade GI undeployed weapons and deployment armor.
-		Prerequisites: ~ra2gacnst, upra2snipe, rank1
+		Prerequisites: ~ra2gacnst, !upra2gi, upra2snipe, rank1
 	RenderSprites:
 		Image: ra2e1
 	ProvidesPrerequisite:
@@ -11956,22 +11854,22 @@ upra2rock:
 		BuildPaletteOrder: 77
 		-Queue: #Promotions
 		Description: Upgrades the Rocketeer to fire faster and take less damage.
-		Prerequisites: ~ra2gacnst, upra2tnkd, rank1
+		Prerequisites: ~ra2gacnst, !upra2airborne, upra2tnkd, rank1
 	RenderSprites:
 		Image: ra2rock
 	ProvidesPrerequisite:
 
-upyrrobo:
+upheavymiragetank:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Robot Tanks
+		Name: Unlock Heavy Mirage Tanks
 	Buildable:
 		BuildPaletteOrder: 77
 		Queue: Promotions
-		Description: Enables the Robot Control Center and Robot Tanks.
-		Prerequisites: ~ra2gacnst, upra2tnkd, rank1
+		Description: Allows construction of Heavy Mirage Tanks.
+		Prerequisites: ~ra2gacnst, !upheavymiragetank, upra2tnkd, rank1
 	RenderSprites:
-		Image: yrrobo
+		Image: ra2hmgtk
 	ProvidesPrerequisite:
 
 upra2beag:
@@ -11982,7 +11880,7 @@ upra2beag:
 		BuildPaletteOrder: 80
 		Queue: Promotions
 		Description: Allows construction of the Black Eagle.
-		Prerequisites: ~ra2gacnst, upyrrobo, rank1
+		Prerequisites: ~ra2gacnst, !upra2beag, upheavymiragetank, rank1
 	RenderSprites:
 		Image: ra2beag
 	ProvidesPrerequisite:
@@ -11995,7 +11893,7 @@ upra2aeronautics:
 		BuildPaletteOrder: 83
 		Queue: Promotions
 		Description: Allied jets receive speed and armor bonuses when attacking.
-		Prerequisites: ~ra2gacnst, upra2beag, rank1
+		Prerequisites: ~ra2gacnst, !upra2aeronautics, upra2beag, rank1
 	RenderSprites:
 		Image: ra2falc
 	ProvidesPrerequisite:
@@ -12037,7 +11935,7 @@ upforceshield:
 		BuildPaletteOrder: 78
 		Queue: Promotions
 		Description: Enables the Force Shield power from the Battle Lab.
-		Prerequisites: ~ra2gacnst, upprismchain, rank1
+		Prerequisites: ~ra2gacnst, !upforceshield, upprismchain, rank1
 	RenderSprites:
 		Image: icon
 	ProvidesPrerequisite:
@@ -12050,7 +11948,7 @@ upra2gaorep:
 		BuildPaletteOrder: 81
 		Queue: Promotions
 		Description: Allows construction of the Ore Purifier.
-		Prerequisites: ~ra2gacnst, upforceshield, rank1
+		Prerequisites: ~ra2gacnst, !upra2gaorep, upforceshield, rank1
 	RenderSprites:
 		Image: ra2gaorep
 	ProvidesPrerequisite:
@@ -12063,7 +11961,7 @@ upra2gtgcan:
 		BuildPaletteOrder: 84
 		Queue: Promotions
 		Description: Allows construction of the Grand Cannon.
-		Prerequisites: ~ra2gacnst, upra2gaorep, rank1
+		Prerequisites: ~ra2gacnst, !upra2gtgcan, upra2gaorep, rank1
 	RenderSprites:
 		Image: ra2gtgcan
 	ProvidesPrerequisite:

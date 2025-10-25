@@ -117,7 +117,7 @@ World:
 		BuildPaletteOrder: 10
 		BuildDuration: 250
 		BuildDurationModifier: 100
-		Queue: Defence, RADefence
+		Queue: Defence, RADefence, Infantry, RAInfantry
 	Harvester:
 		BaleLoadDelay: 5
 		BaleUnloadDelay: 1
@@ -1619,7 +1619,7 @@ SCPHOTONCANNON:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield, updragoonrange
 
 SCCYBERNETICSCORE:
 	Inherits: ^BaseBuilding
@@ -2532,7 +2532,7 @@ SCCREEPCOLONY:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergrange, upzergmissile, upzergmissile2, upcarapace, upcarapace2
+		Upgrades: upzergmissile, upzergmissile2, upcarapace, upcarapace2, upzergrange
 
 scsporecolonyupgrade:
 	Inherits: ^BuildingPlug
@@ -3276,7 +3276,7 @@ SCMARINE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upmarinerange, upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2, upmarinerange, upstimpack
 
 SCREAPER:
 	Inherits: ^SCTINFANTRY
@@ -3420,7 +3420,7 @@ SCMADCAP:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upmarinerange, upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2, upmarinerange, upstimpack
 
 SCFIREBAT:
 	Inherits: ^SCTINFANTRY
@@ -3478,7 +3478,7 @@ SCFIREBAT:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2, upstimpack
 
 SCHARAKAN:
 	Inherits: ^SCTINFANTRY
@@ -3537,7 +3537,7 @@ SCHARAKAN:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2, upstimpack
 
 scmarauder:
 	Inherits: ^SCTINFANTRY
@@ -3585,7 +3585,7 @@ scmarauder:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2, upstimpack
 
 SCGHOST:
 	Inherits: ^SCTINFANTRY
@@ -3652,7 +3652,7 @@ SCGHOST:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upghostcloak, upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2, upghostcloak
 
 SCSILVERTONGUE:
 	Inherits: ^SCTINFANTRY
@@ -3720,7 +3720,7 @@ SCSILVERTONGUE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upghostcloak, upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2, upghostcloak
 
 SCMEDIC:
 	Inherits: ^SCTINFANTRY
@@ -3830,7 +3830,7 @@ SCJIMRAYNOR:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upmarinerange, upinfweapon, upinfweapon2, upinfarmor, upinfarmor2
+		Upgrades: upinfweapon, upinfweapon2, upinfarmor, upinfarmor2, upmarinerange, upstimpack
 
 ^SCTVEHICLE:
 	Inherits@EXPERIENCE: ^GainsExperience
@@ -4030,7 +4030,7 @@ SCSIEGETANK:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upsiegemode, upmechweapon, upmechweapon2, upmecharmor, upmecharmor2
+		Upgrades: upmechweapon, upmechweapon2, upmecharmor, upmecharmor2, upsiegemode
 
 SCMATADOR:
 	Inherits: ^Tank
@@ -4099,6 +4099,15 @@ SCMATADOR:
 	RevealsShroudMultiplier@deployed:
 		Modifier: 125
 		RequiresCondition: deployed
+	RevealsShroudMultiplier@upsiegemode:
+		Modifier: 120
+		RequiresCondition: deployed && upsiegemode
+	RangeMultiplier@upsiegemode:
+		Modifier: 110
+		RequiresCondition: deployed && upsiegemode
+	GrantConditionOnPrerequisite@upsiegemode:
+		Condition: upsiegemode
+		Prerequisites: upsiegemode
 	AttackTurreted:
 		Turrets: primary,deployed
 		Armaments: primary,deployed
@@ -4148,7 +4157,7 @@ SCMATADOR:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upmechweapon, upmechweapon2, upmecharmor, upmecharmor2
+		Upgrades: upmechweapon, upmechweapon2, upmecharmor, upmecharmor2, upsiegemode
 
 SCCYCLONE:
 	Inherits: ^Tank
@@ -4574,7 +4583,7 @@ SCWRAITH:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upghostcloak, upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upghostcloak
 
 SCRAVEN:
 	Inherits: ^Helicopter
@@ -4653,7 +4662,7 @@ SCRAVEN:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upghostcloak, upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upghostcloak
 
 SCSUNDOG:
 	Inherits: ^Helicopter
@@ -4725,7 +4734,7 @@ SCSUNDOG:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upghostcloak, upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upghostcloak
 
 SCVALKYRIE:
 	Inherits: ^Helicopter
@@ -5210,7 +5219,7 @@ SCBATTLECRUISER:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upyamatocannon, upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upyamatocannon
 
 SCPHOBOS:
 	Inherits: ^Helicopter
@@ -5340,7 +5349,7 @@ SCWRAITHDRONE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upghostcloak, upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upghostcloak
 
 SCBATTLECRUISER.Husk:
 	Inherits: ^PlaneHusk
@@ -5588,6 +5597,7 @@ SCTMCV:
 	Inherits@selection: ^SelectableSupportUnit
 	Inherits@mcv: ^MCV
 	Inherits@SHADOWS: ^Shadows
+	Inherits@weapon: ^TerranVehicleArmorUpgrades
 	Buildable:
 		Queue: Defence, RADefence
 		Prerequisites: ~scengineeringbay
@@ -5608,6 +5618,8 @@ SCTMCV:
 		ZOffset: -512
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: upmecharmor, upmecharmor2
 
 ## Terran Promotions
 ### Infantry Tree
@@ -6168,7 +6180,7 @@ SCDRAGOON:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield, updragoonrange
 
 SCMANIFOLD:
 	Inherits: ^LargeProtoss
@@ -6242,7 +6254,7 @@ SCMANIFOLD:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield, updragoonrange
 
 SCANALOGUE:
 	Inherits: ^LargeProtoss
@@ -6323,7 +6335,7 @@ SCANALOGUE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield, updragoonrange
 
 SCIDOL:
 	Inherits: ^LargeProtoss
@@ -6421,14 +6433,14 @@ SCIDOL:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield, updragoonrange
 
 SCHIGHTEMPLAR:
 	Inherits@protoss: ^BasicProtoss
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
-	Inherits@Template: ^SniperInfantryTemplate
+	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@shadow: ^SCSmallShadow
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@weapon: ^ProtossGroundWeaponUpgrades
@@ -6453,9 +6465,69 @@ SCHIGHTEMPLAR:
 		Step: 35
 	Shielded:
 		RegenAmount: 70
-	Armament:
+	Armament@Effect:
+		Weapon: PsiStormCosmetic
+		FireDelay: 0
+		AmmoUsage: 0
+		PauseOnCondition: ammo < 8
+	Armament@1:
+		Name: primary
 		Weapon: PsiStorm
 		FireDelay: 8
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 8
+	Armament@2:
+		Name: primary
+		Weapon: PsiStorm
+		FireDelay: 16
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 8
+	Armament@3:
+		Name: primary
+		Weapon: PsiStorm
+		FireDelay: 24
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 8
+	Armament@4:
+		Name: primary
+		Weapon: PsiStorm
+		FireDelay: 32
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 8
+	Armament@5:
+		Name: primary
+		Weapon: PsiStorm
+		FireDelay: 40
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 8
+	Armament@6:
+		Name: primary
+		Weapon: PsiStorm
+		FireDelay: 48
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 8
+	Armament@7:
+		Name: primary
+		Weapon: PsiStorm
+		FireDelay: 56
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 8
+	Armament@8:
+		Name: primary
+		Weapon: PsiStorm
+		FireDelay: 64
+		AmmoUsage: 1
+		PauseOnCondition: ammo < 8
+	AmmoPool:
+		Ammo: 16
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 16
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 4
 	AttackFrontal:
 		FacingTolerance: 0
 	WithInfantryBody:
@@ -6572,7 +6644,7 @@ SCSHUTTLE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upairspeed, upairarmor, upairarmor2, upplasmashield
+		Upgrades: upairarmor, upairarmor2, upplasmashield, upairspeed
 	WithCargoSounds:
 		EnterSounds: tdrtra00.wav
 		ExitSounds: tdrtra00.wav
@@ -6655,7 +6727,7 @@ SCREAVER:
 		Condition: upreavercapacity
 		Prerequisites: upreavercapacity
 	ActorStatValues:
-		Upgrades: upreavercapacity, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield, upreavercapacity
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -6720,7 +6792,7 @@ SCOBSERVER:
 		MaxMoveDelay: 80
 		RequiresCondition: botmicro
 	ActorStatValues:
-		Upgrades: upairspeed, upairarmor, upairarmor2, upplasmashield
+		Upgrades: upairarmor, upairarmor2, upplasmashield, upairspeed
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -6879,7 +6951,7 @@ SCSCOUT:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
+		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 
 SCEPIGRAPH:
 	Inherits: ^AirProtoss
@@ -6938,7 +7010,7 @@ SCEPIGRAPH:
 	Selectable:
 		DecorationBounds: 1280, 1024
 	ActorStatValues:
-		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
+		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 	Voiced:
 		VoiceSet: SCScoutVoice
 	RenderSprites:
@@ -6995,7 +7067,7 @@ SCLANIFECT:
 	Selectable:
 		DecorationBounds: 1280, 1024
 	ActorStatValues:
-		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
+		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 	Voiced:
 		VoiceSet: SCScoutVoice
 	RenderSprites:
@@ -7051,7 +7123,7 @@ SCGLADIUS:
 	Selectable:
 		DecorationBounds: 1280, 1024
 	ActorStatValues:
-		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
+		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 	Voiced:
 		VoiceSet: SCScoutVoice
 	RenderSprites:
@@ -7117,7 +7189,7 @@ SCCORSAIR:
 	Selectable:
 		DecorationBounds: 1280, 1024
 	ActorStatValues:
-		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
+		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 	Voiced:
 		VoiceSet: SCCorsairVoice
 	RenderSprites:
@@ -7179,7 +7251,7 @@ SCCARRIER:
 	Voiced:
 		VoiceSet: SCCarrierVoice
 	ActorStatValues:
-		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
+		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -7242,7 +7314,7 @@ SCSTARSHIPSOVEREIGN:
 	Voiced:
 		VoiceSet: SCCarrierVoice
 	ActorStatValues:
-		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
+		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 	ChangesHealth:
 		Step: 32
 		Delay: 1
@@ -7306,7 +7378,7 @@ SCINTERCEPTOR:
 	Voiced:
 		VoiceSet: SCCarrierVoice
 	ActorStatValues:
-		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
+		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 	HitShape:
 		UseTargetableCellsOffsets: true
 		Type: Rectangle
@@ -7380,7 +7452,7 @@ SCARBITER:
 	WithRangeCircle:
 		Range: 5000
 	ActorStatValues:
-		Upgrades: upairspeed, upairweapons, upairweapons2, upairarmor, upairarmor2
+		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -7390,6 +7462,8 @@ SCPMCV:
 	Inherits@selection: ^SelectableSupportUnit
 	Inherits@mcv: ^MCV
 	Inherits@SHADOWS: ^Shadows
+	Inherits@ProtossPersonalShield: ^ProtossPersonalShield
+	Inherits@armor: ^ProtossGroundArmorUpgrades
 	Buildable:
 		Queue: Defence, RADefence
 		Prerequisites: ~scroboticsfacility
@@ -7410,6 +7484,8 @@ SCPMCV:
 		ZOffset: -512
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: upgroundarmor, upgroundarmor2, upplasmashield
 
 SCZERATUL:
 	Inherits@protoss: ^BasicProtoss
@@ -7574,7 +7650,7 @@ SCATREUS:
 		Offset: 64, 64, 0
 		ZOffset: -512
 	ActorStatValues:
-		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield, updragoonrange
 	RenderSprites:
 		PlayerPalette: player_rgba
 
@@ -7640,7 +7716,7 @@ SCPOSITRON:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: updragoonrange, upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2
+		Upgrades: upgroundweapons, upgroundweapons2, upgroundarmor, upgroundarmor2, upplasmashield, updragoonrange
 
 SCLEGIONNAIRE:
 	Inherits@protoss: ^BasicProtoss
@@ -8045,7 +8121,6 @@ SCDRONE:
 		Name: Drone
 	Buildable:
 		Prerequisites: ~scextractor
-		Queue: Infantry, RAInfantry
 		Description: Collects resources.
 	WithDeathAnimation:
 		UseDeathTypeSuffix: false
@@ -8294,13 +8369,16 @@ SCZERGLING:
 	Tooltip:
 		Name: Zergling
 	Valued:
-		Cost: 150
+		Cost: 200
+	ProductionCostMultiplier@dualproduction:
+		Multiplier: 200
 	Power:
-		Amount: -5
+		Amount: -10
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~scspawningpool, ~!uptalon
 		Queue: Infantry, RAInfantry
+		AdditionalActors: sczergling
 		Description: Fast Zerg basic assault strain.\n Strong vs Infantry\n Weak vs Vehicles, Aircraft
 	Mobile:
 		Speed: 110
@@ -8311,6 +8389,8 @@ SCZERGLING:
 	Armament:
 		Weapon: ZerglingClaw
 		FireDelay: 3
+	FirepowerMultiplier@zergling:
+		Modifier: 150
 	AttackFrontal:
 		FacingTolerance: 0
 	# WithIdleOverlay@Shadow:
@@ -8321,7 +8401,7 @@ SCZERGLING:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: uplingattack, uplingspeed, upzergmelee, upzergmelee2, upcarapace
+		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2, uplingattack, uplingspeed
 
 SCTALON:
 	Inherits@zerg: ^BasicZerg
@@ -8340,21 +8420,24 @@ SCTALON:
 	Tooltip:
 		Name: Talon
 	Valued:
-		Cost: 200
+		Cost: 400
+	ProductionCostMultiplier@dualproduction:
+		Multiplier: 200
 	Power:
-		Amount: -10
+		Amount: -20
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~scspawningpool, ~uptalon
 		Queue: Infantry, RAInfantry
+		AdditionalActors: sczergling, sczergling
 		Description: Fast Zerg basic assault strain.\n Strong vs Infantry\n Weak vs Vehicles, Aircraft
 	Mobile:
-		Speed: 150
+		Speed: 160
 		Locomotor: fakeaircraft
 	Health:
-		HP: 15000
+		HP: 32000
 	ChangesHealth@SelfHealing:
-		Step: 15
+		Step: 32
 	Armament:
 		Weapon: TalonClaw
 		FireDelay: 3
@@ -8368,7 +8451,7 @@ SCTALON:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: uplingattack, uplingspeed, upzergmelee, upzergmelee2, upcarapace
+		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2, uplingattack, uplingspeed
 
 SCSPOREMAW:
 	Inherits@zerg: ^LargeZerg
@@ -8481,7 +8564,7 @@ SCHYDRALISK:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergrange, upzergmissile, upzergmissile2, upcarapace, upcarapace2
+		Upgrades: upzergmissile, upzergmissile2, upcarapace, upcarapace2, upzergrange
 
 SCSPITHID:
 	Inherits@zerg: ^BasicZerg
@@ -8541,7 +8624,7 @@ SCSPITHID:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergrange, upzergmissile, upzergmissile2, upcarapace, upcarapace2
+		Upgrades: upzergmissile, upzergmissile2, upcarapace, upcarapace2, upzergrange
 
 SCDREADSHROUD:
 	Inherits: ^AirZerg
@@ -8890,7 +8973,7 @@ SCSHRIEK:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: uplingattack, uplingspeed, upzergmelee, upzergmelee2, upflyerarmor
+		Upgrades: upzergmelee, upzergmelee2, upflyerarmor, upflyerarmor2, uplingattack, uplingspeed
 
 SCMUTALISK:
 	Inherits: ^AirZerg
@@ -9294,6 +9377,7 @@ SCHERMIT:
 	Inherits@ZergBurrow: ^ZergBurrow
 	Inherits@armor: ^ZergGroundArmorUpgrades
 	Inherits@weapon: ^ZergMissileWeaponUpgrades
+	Inherits@range: ^GroovedSpinesUpgrade
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Tooltip:
 		Name: Hermit
@@ -9342,7 +9426,7 @@ SCHERMIT:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2
+		Upgrades: upzergmissile, upzergmissile2, upcarapace, upcarapace2, upzergrange
 
 SCGOREMAW:
 	Inherits@zerg: ^VeryLargeZerg
@@ -9469,6 +9553,11 @@ SCLURKER:
 		Locomotor: wheeled
 		RequireForceMoveCondition: !undeployed
 		TurnSpeed: 18
+	RejectsOrders@deployment:
+		Reject: AttackMove, AssaultMove
+		RequiresCondition: deployed
+	RejectsMoveToAttack:
+		RequiresCondition: deployed
 	Health:
 		HP: 125000
 	ChangesHealth@SelfHealing:
@@ -9541,7 +9630,7 @@ SCLURKER:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upzergrange, upzergmelee, upzergmelee2, upcarapace, upcarapace2
+		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2, upzergrange
 
 SCINFESTEDTERRAN:
 	Inherits@zerg: ^BasicZerg
@@ -9807,7 +9896,7 @@ SCKERRIGANZERG:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: uplingattack, uplingspeed, upzergmelee, upzergmelee2, upcarapace
+		Upgrades: upzergmelee, upzergmelee2, upcarapace, upcarapace2, uplingattack, uplingspeed
 
 SCZMCV:
 	Inherits: ^Vehicle
@@ -9838,6 +9927,8 @@ SCZMCV:
 		ZOffset: -512
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: upcarapace, upcarapace2
 
 SCBEHEMOTH:
 	Inherits: ^AirZerg
@@ -9877,6 +9968,8 @@ SCBEHEMOTH:
 		HpPerStep: 30000
 	ChangesHealth@SelfHealing:
 		Step: 240
+	-Integrity:
+	-GrantCondition@electronics:
 	Cargo:
 		ExclusiveDeploy: true
 		DeployType: opentopped

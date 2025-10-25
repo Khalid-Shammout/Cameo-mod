@@ -347,6 +347,7 @@ Player:
 	Armor:
 		Type: Light
 	Buildable:
+		Queue: Defence, RADefence, Infantry, RAInfantry
 		BuildPaletteOrder: 10
 		BuildDuration: 250
 		BuildDurationModifier: 100
@@ -3013,7 +3014,6 @@ wc2_human_peasant:
 		Name: Peasant
 	Buildable:
 		Prerequisites: ~wc2_human_townhall, wc2_human_elven_lumber_mill
-		Queue: Defence, RADefence
 		Description: Harvester.
 	Armament:
 		Weapon: wc2peasantsmack
@@ -4780,7 +4780,6 @@ wc2_orc_peon:
 		Name: Peon
 	Buildable:
 		Prerequisites: ~wc2_orc_greathall, wc2_orc_troll_lumber_mill
-		Queue: Defence, RADefence
 		Description: Harvester. Zug zug!
 	Armament:
 		Weapon: wc2peasantsmack

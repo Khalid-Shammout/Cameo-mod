@@ -1748,8 +1748,6 @@ heavy_factory.ordos:
 		Prerequisites: ~construction_yard.ordos, refinery.ordos
 		Description: template-factory.description
 		IconPalette: player
-	ParallelProductionQueue@VEHICLE:
-		BuildDurationModifier: 75
 
 repair_pad.ixian:
 	Inherits: ^D2KBuilding
@@ -7217,10 +7215,10 @@ ordos_eye.husk:
 
 harvester:
 	Inherits@D2KT: ^D2KTank
-	Inherits@harv: ^Harvester
 	Inherits@Template: ^HarvesterTemplate
 	Inherits@selection: ^SelectableEconomicUnit
 	Inherits@D2KSprite: ^D2KPaletteRender
+	Inherits@harv: ^Harvester
 	Inherits@Armor: ^D2K_GeneralPurposeArmor
 	Buildable:
 		Queue: Vehicle, RAVehicle
@@ -7278,10 +7276,10 @@ harvester:
 
 ordos_harv:
 	Inherits@D2KT: ^D2KTank
-	Inherits@harv: ^Harvester
 	Inherits@Template: ^HarvesterTemplate
 	Inherits@selection: ^SelectableEconomicUnit
 	Inherits@D2KSprite: ^D2KPaletteRender
+	Inherits@harv: ^Harvester
 	Inherits@VehicleShieldsUpgradeOrdos: ^VehicleShieldsUpgradeOrdos
 	Buildable:
 		Queue: Vehicle, RAVehicle
