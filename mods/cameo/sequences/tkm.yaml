@@ -80,7 +80,7 @@ tkmpowerplant:
 	icon:
 		Filename: tkmpowerplanticon.png
 		Offset: 0,0
-    
+
 tkmrefinery:
 	Defaults:
 		Filename: tkmsupplycenter.png
@@ -208,7 +208,7 @@ tkmradar:
 	icon:
 		Filename: glaradarvan.png
 		Offset: 0,0
-    
+
 tkmtechcenter:
 	Defaults:
 		Filename: ugpala.shp
@@ -231,7 +231,7 @@ tkmtechcenter:
 	icon:
 		Filename: glapalaceicon.png
 		Offset: 0,0
-    
+
 tkmbunker:
 	Defaults:
 		Filename: tkmbunker.png
@@ -676,6 +676,14 @@ tkmrocketeer:
 		Filename: blue_frag3.shp
 		Length: *
 		Scale: 1.5
+	muzzle:
+		Filename: DATA.R16
+		Scale: 3
+		Remap: 54F94B
+		Start: 3671
+		Length: 3
+		BlendMode: Additive
+		Offset: 0,0
 	icon:
 		Filename: tkmrocketeericon.png
 		AddExtension: False
