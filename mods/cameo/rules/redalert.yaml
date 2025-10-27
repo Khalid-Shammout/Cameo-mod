@@ -1879,7 +1879,7 @@ SNIPER:
 		Weapon: CryoLightSniper
 		LocalOffset: 128,0,256
 		RequiresCondition: up_cryomissiles
-	Armament@GARRISONED:
+	Armament@UpgradeGARRISONED:
 		Name: garrisoned
 		Weapon: CryoLightSniper
 		MuzzleSequence: garrison-muzzle

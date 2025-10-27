@@ -18938,8 +18938,6 @@ futu_ggmlt:
 	Inherits@MC: ^MCImmune
 	Mobile:
 		PauseOnCondition: !robotcontrol || disabled
-	AttackTurreted:
-		PauseOnCondition: !robotcontrol || disabled
 	Capturable:
 		Types: thiefproof
 	GrantConditionOnPrerequisite:
@@ -18948,6 +18946,22 @@ futu_ggmlt:
 	WithColoredOverlay@disabled:
 		Color: 000000b4
 		RequiresCondition: disabled && !chronodisabled || !robotcontrol
+	FirepowerMultiplier@RobotControllable:
+		Modifier: 110
+	DamageMultiplier@RobotControllable:
+		Modifier: 90
+	ReloadDelayMultiplier@RobotControllable:
+		Modifier: 90
+	SpeedMultiplier@RobotControllable:
+		Modifier: 105
+	RangeMultiplier@RobotControllable:
+		Modifier: 105
+	RevealsShroudMultiplier@RobotControllable:
+		Modifier: 105
+	DetectCloakedMultiplier@RobotControllable:
+		Modifier: 105
+	InaccuracyMultiplier@RobotControllable:
+		Modifier: 90
 
 futu_wheel:
 	Inherits: ^Walker
@@ -18967,7 +18981,7 @@ futu_wheel:
 		Name: Scout Robot
 	Buildable:
 		BuildPaletteOrder: 10
-		Prerequisites: ~futu_egpile
+		Prerequisites: ~yrgarobo
 		Queue: Infantry, RAInfantry
 		Description: actor-aamecha.description
 	Mobile:
@@ -18992,6 +19006,74 @@ futu_wheel:
 		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 20
+		PauseOnCondition: !robotcontrol || disabled
+	WithInfantryBody:
+		IdleSequences: idle1, idle2
+		MinIdleDelay: 90
+		MaxIdleDelay: 270
+		DefaultAttackSequence: shoot
+	BodyOrientation:
+		QuantizedFacings: 32
+	-QuantizeFacingsFromSequence:
+	Passenger:
+		Weight: 1
+		CargoType: Infantry
+	Voiced:
+		VoiceSet: FutureRobotVoice
+	RenderSprites:
+		PlayerPalette: playerra2
+	GrantExternalConditionToTransport:
+		Condition: ifv-mg
+
+future_robot_shotgun:
+	Inherits: ^Walker
+	Inherits@Template: ^LineBreakerTemplate
+	Inherits@anim: ^RA2Vehicle
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@detect: ^GenericGroundDetector
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	Inherits@FE: ^FutureRobotEnergizable
+	Selectable:
+		Bounds: 600, 600, 0, -125
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Shotgun Attack Robot
+	Buildable:
+		BuildPaletteOrder: 75
+		Prerequisites: ~futu_egtf
+		Queue: Infantry, RAInfantry
+		Description: actor-aamecha.description
+	Mobile:
+		Speed: 55
+		TurnSpeed: 22
+		Locomotor: chem
+	Health:
+		HP: 55000
+	Repairable:
+		HpPerStep: 2750
+	ChangesHealth@SelfHealing:
+		Step: 22
+	Armor:
+		Type: Heavy
+	Armament@PRIMARY:
+		Weapon: ShotgunAttackRobotGun
+		LocalOffset: 400,125,175
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: ShotgunAttackRobotGunE
+		LocalOffset: 400,125,175
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
+	WithMuzzleOverlay:
+	AttackFrontal:
+		FacingTolerance: 20
+		PauseOnCondition: !robotcontrol || disabled
 	WithInfantryBody:
 		IdleSequences: idle1, idle2
 		MinIdleDelay: 90
@@ -19023,12 +19105,12 @@ future_robot_missiles:
 	Selectable:
 		Bounds: 600, 600, 0, -125
 	Valued:
-		Cost: 500
+		Cost: 600
 	Tooltip:
 		Name: Missile Attack Robot
 	Buildable:
 		BuildPaletteOrder: 75
-		Prerequisites: ~futu_egpile
+		Prerequisites: ~futu_egtech
 		Queue: Infantry, RAInfantry
 		Description: actor-aamecha.description
 	Mobile:
@@ -19058,6 +19140,7 @@ future_robot_missiles:
 	WithMuzzleOverlay:
 	AttackFrontal:
 		FacingTolerance: 20
+		PauseOnCondition: !robotcontrol || disabled
 	WithInfantryBody:
 		IdleSequences: idle1, idle2
 		MinIdleDelay: 90
@@ -19079,6 +19162,7 @@ future_robot_missiles:
 future_robot_cannon:
 	Inherits: ^Walker
 	Inherits@Template: ^MainBattleTankTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -19089,12 +19173,12 @@ future_robot_cannon:
 	Selectable:
 		Bounds: 600, 600, 0, -125
 	Valued:
-		Cost: 700
+		Cost: 525
 	Tooltip:
 		Name: Cannon Attack Robot
 	Buildable:
 		BuildPaletteOrder: 75
-		Prerequisites: ~futu_egtf
+		Prerequisites: ~futu_egshock
 		Queue: Infantry, RAInfantry
 		Description: actor-aamecha.description
 	Mobile:
@@ -19124,6 +19208,7 @@ future_robot_cannon:
 	WithMuzzleOverlay:
 	AttackFrontal:
 		FacingTolerance: 20
+		PauseOnCondition: !robotcontrol || disabled
 	WithInfantryBody:
 		IdleSequences: idle1, idle2
 		MinIdleDelay: 90
@@ -19141,72 +19226,6 @@ future_robot_cannon:
 		PlayerPalette: playerra2
 	GrantExternalConditionToTransport:
 		Condition: ifv-cannon
-
-future_robot_shotgun:
-	Inherits: ^Walker
-	Inherits@Template: ^LineBreakerTemplate
-	Inherits@anim: ^RA2Vehicle
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@detect: ^GenericGroundDetector
-	Inherits@vo: ^AttackFrontalVoice
-	Inherits@EMP: ^FrontalEMP
-	Inherits@FE: ^FutureRobotEnergizable
-	Selectable:
-		Bounds: 600, 600, 0, -125
-	Valued:
-		Cost: 300
-	Tooltip:
-		Name: Shotgun Attack Robot
-	Buildable:
-		BuildPaletteOrder: 75
-		Prerequisites: ~futu_egtech
-		Queue: Infantry, RAInfantry
-		Description: actor-aamecha.description
-	Mobile:
-		Speed: 55
-		TurnSpeed: 22
-		Locomotor: chem
-	Health:
-		HP: 55000
-	Repairable:
-		HpPerStep: 2750
-	ChangesHealth@SelfHealing:
-		Step: 22
-	Armor:
-		Type: Heavy
-	Armament@PRIMARY:
-		Weapon: ShotgunAttackRobotGun
-		LocalOffset: 400,125,175
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: !rank-elite
-	Armament@ELITE:
-		Weapon: ShotgunAttackRobotGunE
-		LocalOffset: 400,125,175
-		MuzzleSequence: muzzle
-		MuzzlePalette: ra2effect
-		RequiresCondition: rank-elite
-	WithMuzzleOverlay:
-	AttackFrontal:
-		FacingTolerance: 20
-	WithInfantryBody:
-		IdleSequences: idle1, idle2
-		MinIdleDelay: 90
-		MaxIdleDelay: 270
-		DefaultAttackSequence: shoot
-	BodyOrientation:
-		QuantizedFacings: 32
-	-QuantizeFacingsFromSequence:
-	Passenger:
-		Weight: 1
-		CargoType: Infantry
-	Voiced:
-		VoiceSet: FutureRobotVoice
-	RenderSprites:
-		PlayerPalette: playerra2
-	GrantExternalConditionToTransport:
-		Condition: ifv-mg
 
 futu_engi:
 	Inherits: ^Walker
@@ -19259,6 +19278,7 @@ futu_engi:
 		PipCount: 5
 	AttackFrontal:
 		FacingTolerance: 20
+		PauseOnCondition: !robotcontrol || disabled
 	WithInfantryBody:
 		IdleSequences: idle1, idle2
 		MinIdleDelay: 90
@@ -19332,44 +19352,176 @@ futu_spy:
 
 future_mech_machinegun:
 	Inherits: ^Walker
-	Inherits@Template: ^SupportVehicleTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@UpGat: ^YuriGatlingUpgrade
 	Inherits@RobotControllable: ^RobotControllable
-	Selectable:
-		Bounds: 600, 600, 0, -125
-	Valued:
-		Cost: 1200
 	Tooltip:
 		Name: Gatling Super Mech
+	Valued:
+		Cost: 2500
+	Selectable:
+		Bounds: 600, 600, 0, -125
 	Buildable:
 		BuildPaletteOrder: 75
-		Prerequisites: ~futu_egweap2
+		Prerequisites: ~futu_egtech
 		Queue: Vehicle, RAVehicle
 		Description: actor-aamecha.description
 	Mobile:
-		Speed: 30
-		TurnSpeed: 12
+		Speed: 35
+		TurnSpeed: 14
 		Locomotor: tracked
 	Health:
-		HP: 125000
+		HP: 320000
 	Repairable:
-		HpPerStep: 6500
+		HpPerStep: 16000
 	ChangesHealth@SelfHealing:
-		Step: 52
+		Step: 128
 	Armor:
 		Type: Heavy
-	Armament@1:
-		Weapon: NaxiWW2Machinegun
+	Armament:
+		Weapon: FutureMechGatling
 		LocalOffset: 200,300,500, 200,-300,500
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	RangeMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 102
+	SpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	GrantConditionOnAttack@gatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 24
+		MaximumInstances: 10
+	GrantConditionOnAttack@elitegatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		RevokeDelay: 12
+		MaximumInstances: 10
 	AttackFrontal:
 		FacingTolerance: 20
+		PauseOnCondition: !robotcontrol || disabled
 	WithInfantryBody:
 		IdleSequences: idle1, idle2
 		MinIdleDelay: 90
@@ -19387,44 +19539,52 @@ future_mech_machinegun:
 
 future_mech_plasma:
 	Inherits: ^Walker
-	Inherits@Template: ^SupportVehicleTemplate
+	Inherits@Template: ^LineBreakerTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@RobotControllable: ^RobotControllable
-	Selectable:
-		Bounds: 600, 600, 0, -125
-	Valued:
-		Cost: 1800
 	Tooltip:
 		Name: Plasma Super Mech
+	Valued:
+		Cost: 2600
+	Selectable:
+		Bounds: 600, 600, 0, -125
 	Buildable:
 		BuildPaletteOrder: 75
-		Prerequisites: ~futu_egweap2
+		Prerequisites: ~futu_egshock
 		Queue: Vehicle, RAVehicle
 		Description: actor-aamecha.description
 	Mobile:
-		Speed: 30
-		TurnSpeed: 12
+		Speed: 40
+		TurnSpeed: 16
 		Locomotor: tracked
 	Health:
-		HP: 125000
+		HP: 240000
 	Repairable:
-		HpPerStep: 6500
+		HpPerStep: 12000
 	ChangesHealth@SelfHealing:
-		Step: 52
+		Step: 96
 	Armor:
 		Type: Heavy
-	Armament@1:
-		Weapon: SteelKatyCannons
+	Armament@PRIMARY:
+		Weapon: FutureMechPlasma
 		LocalOffset: 100,190,800, 100,-190,800
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: FutureMechPlasmaE
+		LocalOffset: 100,190,800, 100,-190,800
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 20
+		PauseOnCondition: !robotcontrol || disabled
 	WithInfantryBody:
 		IdleSequences: idle1, idle2
 		MinIdleDelay: 90
@@ -19473,20 +19633,20 @@ futu_ifv:
 YRROBO:
 	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
-	Inherits@Template: ^LineBreakerTemplate
+	Inherits@Template: ^MainBattleTankTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
-	Inherits@MC: ^MCImmune
+	Inherits@RobotControllable: ^RobotControllable
 	Valued:
-		Cost: 1100
+		Cost: 1200
 	Tooltip:
 		Name: Robot Tank
 	Buildable:
 		BuildPaletteOrder: 70
-		Prerequisites: ~yrgarobo
+		Prerequisites: ~futu_egtech
 		Queue: Vehicle, RAVehicle
 		Description: actor-robo.description
 	Mobile:
@@ -19570,22 +19730,22 @@ futu_mbt:
 		Description: template-mbt.description
 	Mobile:
 		Locomotor: tracked
-		Speed: 90
-		TurnSpeed: 20
+		Speed: 85
+		TurnSpeed: 17
 	Health:
-		HP: 150000
+		HP: 115000
 	Repairable:
-		HpPerStep: 5000
+		HpPerStep: 5750
 	ChangesHealth@SelfHealing:
-		Step: 40
+		Step: 46
 	Armor:
 		Type: Medium
 	Turreted:
-		TurnSpeed: 20 #3
+		TurnSpeed: 17
 		Offset: 75,0,1
 	Armament:
 		Name: primary
-		Weapon: RA2120mm
+		Weapon: GuardianTankCannon
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 1280,0,80
@@ -19594,7 +19754,7 @@ futu_mbt:
 		RequiresCondition: !rank-elite
 	Armament@elite:
 		Name: primary
-		Weapon: RA2120mm_elite
+		Weapon: GuardianTankCannonE
 		Recoil: 128
 		RecoilRecovery: 38
 		LocalOffset: 1280,0,80
@@ -19618,8 +19778,6 @@ futu_mbt:
 		RequiresCondition: deployed
 	Voiced:
 		VoiceSet: FutureGuardianVoice
-	DeliversCash:
-		Payload: 350
 	GrantConditionOnDeploy:
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
@@ -19655,7 +19813,7 @@ futu_hvrt:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Riptide ACV
+		Name: Riptide ACV (WIP)
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~futu_egweap2
@@ -19690,6 +19848,7 @@ futu_hvrt:
 	Armament@WATER:
 		Weapon: FutureMicrotorpedos
 		LocalOffset: 256,-128,0, 256,128,0
+		RequiresCondition: inwater
 	WithMuzzleOverlay:
 	AttackTurreted:
 	Selectable:
@@ -19718,10 +19877,10 @@ futu_phal:
 	Valued:
 		Cost: 2500
 	Tooltip:
-		Name: Phalanx
+		Name: Phalanx (WIP)
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~futu_egweap2, futu_egtech
+		Prerequisites: ~futu_egtech
 		Queue: Vehicle, RAVehicle
 		Description: Hover Chrono Tank
 	Mobile:
@@ -19787,10 +19946,10 @@ futu_landcarr:
 	Valued:
 		Cost: 2100
 	Tooltip:
-		Name: Land Carrier
+		Name: Land Carrier (WIP)
 	Buildable:
 		BuildPaletteOrder: 75
-		Prerequisites: ~futu_egweap2
+		Prerequisites: ~futu_egtech
 		Queue: Vehicle, RAVehicle
 		Description: actor-aamecha.description
 	Mobile:
@@ -19827,6 +19986,8 @@ futu_landcarr:
 	WithSpriteTurret:
 	Turreted:
 		TurnSpeed: 20 #3
+	AttackTurreted:
+		PauseOnCondition: !robotcontrol || disabled
 	CarrierMaster:
 		Actors: ra2hornet, ra2hornet, ra2hornet
 		RearmTicks: 150
@@ -19854,10 +20015,10 @@ futu_orion:
 	Valued:
 		Cost: 2100
 	Tooltip:
-		Name: Orion
+		Name: Orion (WIP)
 	Buildable:
 		BuildPaletteOrder: 75
-		Prerequisites: ~futu_egweap2
+		Prerequisites: ~futu_egshock
 		Queue: Vehicle, RAVehicle
 		Description: actor-aamecha.description
 	Mobile:
@@ -19894,6 +20055,8 @@ futu_orion:
 	WithSpriteTurret:
 	Turreted:
 		TurnSpeed: 20 #3
+	AttackTurreted:
+		PauseOnCondition: !robotcontrol || disabled
 
 futu_harv:
 	Inherits: ^Tank
@@ -19962,23 +20125,23 @@ futu_harv2:
 	StoresResources:
 		Capacity: 32
 	Health:
-		HP: 100000
+		HP: 120000
 	Repairable:
-		HpPerStep: 5000
+		HpPerStep: 6000
 	ChangesHealth@SelfHealing:
-		Step: 40
+		Step: 60
 	Armor:
 		Type: Medium
 	Mobile:
-		Speed: 110
-		TurnSpeed: 20
+		Speed: 120
+		TurnSpeed: 24
 		Locomotor: hover
 	Hovers:
 		Ticks: 10
 		BobDistance: -64
 		InitialHeight: 384
 	Buildable:
-		Prerequisites: ~futu_egrefn
+		Prerequisites: ~futu_egtech
 		Queue: Vehicle, RAVehicle
 		Description: This harvester now has equiped hovercraft and sensor stuff
 	WithHarvestAnimation:
@@ -20023,10 +20186,10 @@ futu_athena:
 	Valued:
 		Cost: 2200
 	Tooltip:
-		Name: Athena Cannon
+		Name: Athena Cannon (WIP)
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~futu_egweap2, futu_egtf
+		Prerequisites: ~futu_egtf
 		Queue: Vehicle, RAVehicle
 		Description: actor-nax_jagdpanzer.description
 	Mobile:
@@ -20066,7 +20229,7 @@ futu_coiler:
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 170
-		Prerequisites: ~futu_egtf
+		Prerequisites: ~futu_egshock
 		Description: actor-ttnk.description
 	Valued:
 		Cost: 1000
@@ -20115,7 +20278,7 @@ futu_coiler:
 futu_futu:
 	Inherits: ^Tank
 	Inherits@anim: ^RA2Vehicle
-	Inherits@Template: ^HighTechTankTemplate
+	Inherits@Template: ^EpicVehicleTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
@@ -20124,32 +20287,33 @@ futu_futu:
 	Inherits@announce: ^AnnounceOnBuild
 	Inherits@RobotControllable: ^RobotControllable
 	Valued:
-		Cost: 3000
+		Cost: 10000
 	Tooltip:
 		Name: Future Tank
 	Buildable:
 		BuildPaletteOrder: 40
-		Prerequisites: ~futu_egweap2
+		BuildLimit: 1
+		Prerequisites: ~futu_egshock
 		Queue: Vehicle, RAVehicle
 		Description: template-mbt.description
 	Mobile:
 		Locomotor: tracked
 		Speed: 45
-		TurnSpeed: 20
+		TurnSpeed: 9
 	Health:
-		HP: 3500000
+		HP: 650000
 	Repairable:
-		HpPerStep: 5000
+		HpPerStep: 32500
 	ChangesHealth@SelfHealing:
-		Step: 50
+		Step: 260
 	Armor:
 		Type: Heavy
 	Turreted:
-		TurnSpeed: 15 #3
+		TurnSpeed: 9 #3
 		Offset: 75,0,1
 	Armament:
 		Name: primary
-		Weapon: SteelKatyCannons
+		Weapon: FutureTankCannons
 		LocalOffset: 100,190,800, 100,-190,800
 		Recoil: 128
 		RecoilRecovery: 38
@@ -20158,14 +20322,17 @@ futu_futu:
 		RequiresCondition: !rank-elite
 	Armament@elite:
 		Name: primary
-		Weapon: SteelKatyCannons
+		Weapon: FutureTankCannonsE
 		LocalOffset: 100,190,800, 100,-190,800
 		Recoil: 128
 		RecoilRecovery: 38
 		MuzzleSequence: muzzle-2
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
+	FirepowerMultiplier@MultiWeapon:
+		Modifier: 25
 	AttackTurreted:
+		PauseOnCondition: !robotcontrol || disabled
 	WithMuzzleOverlay:
 	SelectionDecorations:
 	Selectable:
@@ -20191,12 +20358,12 @@ futu_cryo:
 	Buildable:
 		Queue: Aircraft, RAAircraft, Vehicle, RAVehicle
 		BuildPaletteOrder: 20
-		Prerequisites: ~futu_egweap2, ~futu_egtf
+		Prerequisites: ~futu_egtf
 		Description: actor-aapelican.description
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Cryo Copter
+		Name: Cryo Copter (WIP)
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -20255,6 +20422,7 @@ futu_cryo:
 		Weapon: LargeHeliExplode
 	RenderSprites:
 		PlayerPalette: player_rgba
+
 futu_cryo.Husk:
 	Inherits: ^HelicopterHusk
 	Tooltip:

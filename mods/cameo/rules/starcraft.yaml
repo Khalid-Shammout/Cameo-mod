@@ -3309,9 +3309,11 @@ SCREAPER:
 	Armament@PRIMARY:
 		Weapon: ReaperPistols
 		LocalOffset: 128,-128,256
+		MuzzleSequence: muzzle
 	Armament@SECONDARY:
 		Weapon: ReaperPistols
 		LocalOffset: 128,128,256
+		MuzzleSequence: muzzle
 	Armament@Grenade:
 		Weapon: ReaperGrenade
 		LocalOffset: 128,0,256
@@ -3325,6 +3327,10 @@ SCREAPER:
 		Weapon: ReaperPistols
 		LocalOffset: 128,128,256
 		MuzzleSequence: muzzle
+	Armament@GARRISONEDGrenade:
+		Name: garrisoned
+		Weapon: ReaperGrenade
+		LocalOffset: 128,0,256
 	WithMuzzleOverlay:
 	# ProductionTimeMultiplier@speedup:
 	# 	Multiplier: 50
@@ -4970,15 +4976,15 @@ SCPYTHEAN:
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 		LoadedCondition: loaded
-		InitialUnits: scmarine, scmadcap, scfirebat, scharakan, scmarauder, scghost, scsilvertongue, scmedic
+		InitialUnits: scmarine, scmadcap, scfirebat, scharakan, scmarauder, scghost, scsilvertongue, screaper
 	AttackOpenTopped:
 		Voice: Attack
 		Armaments: garrisoned
 		PortOffsets: 384,0,128, 224,-341,128, 224,341,128, 0,-341,128, 0,341,128, -224,-341,128, -224,341,128, -384,0,128
 		PauseOnCondition: chronobeamed
-	Armament:
-		Weapon: RA220mmrapid
-		MuzzleSequence: muzzle
+	# Armament:
+	# 	Weapon: RA220mmrapid
+	# 	MuzzleSequence: muzzle
 	FireWarheadsOnDeath:
 		Weapon: HeliExplode
 		EmptyWeapon: HeliExplode
