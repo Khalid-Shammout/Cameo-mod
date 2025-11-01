@@ -111,8 +111,10 @@ Authors of public assets from Project Perfect Mod:
 	  • Kodiak (Fixed by dnqbob)
 	• MustaphaTR
 	  • Large Soviet Airfield
-	• HG_SCIPCION, xuetianyi
-	  • CNP Building Packs (Used by Latin Syndicate and Future Tech)
+	• CNP Building Packs (Used by Latin Syndicate and Future Tech)
+	  • HG_SCIPCION, xuetianyi
+	• Javelin Soldier, Shotgun Guardian GI
+	  • Atomic_Noodles 
    
 Authors of public assets from Itch.io:
 	• ashishlko11

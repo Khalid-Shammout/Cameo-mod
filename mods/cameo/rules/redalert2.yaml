@@ -3189,10 +3189,10 @@ RA2E1:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@bot: ^BotAutoDeploySwitchMode
 	Inherits@VOICES: ^WithFeedbackVoiceLines
-	Valued:
-		Cost: 200
 	Tooltip:
 		Name: G.I.
+	Valued:
+		Cost: 200
 	Buildable:
 		BuildPaletteOrder: 10
 		Prerequisites: ~ra2gapile
@@ -3318,10 +3318,10 @@ YRGGI:
 	Inherits@bot: ^BotAutoDeploySwitchMode
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@VOICES: ^WithFeedbackVoiceLines
-	Valued:
-		Cost: 400
 	Tooltip:
 		Name: Guardian G.I.
+	Valued:
+		Cost: 400
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~ra2gapile

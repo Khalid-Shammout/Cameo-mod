@@ -7883,6 +7883,128 @@ Future_MultiMissile_Frag_Frags:
 		Explosions: ra2_piffs
 		ExplosionPalette: ra2effect
 
+FutureEnforcerShotgun:
+	Inherits: ^Grenade
+	Inherits: ^ShrapnelWeapon
+	Inherits: ^TankDestroyerCannon
+	Inherits: ^MediumCannon
+	Inherits: ^SmallArms
+	Inherits: ^Chaingun
+	ReloadDelay: 40
+	Range: 3000
+	Report: DSDSHTGN.wav
+	ValidTargets: Ground, Water, Trees
+	Warhead@Grenade: SpreadDamage
+		Damage: 2000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@ShrapnelWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		Damage: 1000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@TankDestroyerCannon: SpreadDamage
+		Damage: 2000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumCannon: SpreadDamage
+		Damage: 2000
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@SmallArms: SpreadDamage
+		Damage: 2000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@Chaingun: SpreadDamage
+		Damage: 2000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		Damage: 1
+
+FutureEnforcerShotgunE:
+	Inherits: FutureEnforcerShotgun
+	Range: 4000
+	Burst: 2
+	BurstDelays: 3
+
+FutureEnforcerShotgunDeployed:
+	Inherits: FutureEnforcerShotgun
+	ReloadDelay: 65
+	Range: 6150
+
+FutureEnforcerShotgunDeployedE:
+	Inherits: FutureEnforcerShotgunDeployed
+	Range: 7150
+	Burst: 2
+	BurstDelays: 3
+
+FutureJavelinRockets:
+	Inherits: ^LightMissile
+	Inherits: ^FlakWeapon
+	Inherits: ^MediumMissile
+	Inherits: ^ShrapnelWeapon
+	Inherits: D2K_Rocket
+	ReloadDelay: 25
+	Range: 6000
+	Projectile: Missile
+		Acceleration: 6
+		Speed: 600
+		MaximumLaunchSpeed: 300
+		MinimumLaunchSpeed: 300
+		HorizontalRateOfTurn: 30
+		VerticalRateOfTurn: 30
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+
+FutureJavelinRocketsE:
+	Inherits: FutureJavelinRockets
+	Range: 7000
+	Burst: 2
+	BurstDelays: 3
+
+FutureJavelinRocketsDeployed:
+	Inherits: FutureJavelinRockets
+	Range: 7500
+
+FutureJavelinRocketsDeployedE:
+	Inherits: FutureJavelinRocketsDeployed
+	Range: 8500
+	Burst: 2
+	BurstDelays: 3
+
 Future_Wheel_MG:
 	Inherits: ^RA2SmallArms
 	Inherits: ^RA2Chaingun

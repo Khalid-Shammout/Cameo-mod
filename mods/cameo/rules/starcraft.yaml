@@ -778,9 +778,9 @@ SCACADEMY:
 	Tooltip:
 		Name: Academy
 	Valued:
-		Cost: 2500
+		Cost: 1500
 	Health:
-		HP: 250000
+		HP: 150000
 	Armor:
 		Type: Wood
 	Power:
@@ -788,7 +788,7 @@ SCACADEMY:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
-		BuildDuration: 750
+		BuildDuration: 500
 		BuildDurationModifier: 100
 		Prerequisites: ~scbarracks
 		Queue: Building, RABuilding
@@ -818,9 +818,9 @@ SCENGINEERINGBAY:
 	Tooltip:
 		Name: Engineering Bay
 	Valued:
-		Cost: 2500
+		Cost: 2000
 	Health:
-		HP: 250000
+		HP: 200000
 	Armor:
 		Type: Wood
 	ProvidesPrerequisite@buildingname:
@@ -828,7 +828,7 @@ SCENGINEERINGBAY:
 		BuildPaletteOrder: 50
 		Prerequisites: ~scbarracks
 		Queue: Building, RABuilding
-		BuildDuration: 750
+		BuildDuration: 625
 		BuildDurationModifier: 100
 		Description: Unlocks Siege Tanks, Missile Turret and Infantry Upgrades.
 	Building:
@@ -1534,9 +1534,9 @@ SCFORGE:
 	Tooltip:
 		Name: Forge
 	Valued:
-		Cost: 2500
+		Cost: 1500
 	Health:
-		HP: 250000
+		HP: 150000
 	Armor:
 		Type: Wood
 	Power:
@@ -1544,7 +1544,7 @@ SCFORGE:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
-		BuildDuration: 750
+		BuildDuration: 500
 		BuildDurationModifier: 100
 		Prerequisites: ~scnexus
 		Queue: Building, RABuilding
@@ -1629,9 +1629,9 @@ SCCYBERNETICSCORE:
 	Tooltip:
 		Name: Cybernetics Core
 	Valued:
-		Cost: 2500
+		Cost: 1500
 	Health:
-		HP: 250000
+		HP: 150000
 	Armor:
 		Type: Wood
 	Power:
@@ -1639,7 +1639,7 @@ SCCYBERNETICSCORE:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
-		BuildDuration: 750
+		BuildDuration: 500
 		BuildDurationModifier: 100
 		Prerequisites: ~scgateway
 		Queue: Building, RABuilding
@@ -1815,9 +1815,9 @@ SCCITADELOFADUN:
 	Tooltip:
 		Name: Citadel of Adun
 	Valued:
-		Cost: 2500
+		Cost: 2000
 	Health:
-		HP: 250000
+		HP: 200000
 	Armor:
 		Type: Wood
 	Power:
@@ -1825,7 +1825,7 @@ SCCITADELOFADUN:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
-		BuildDuration: 750
+		BuildDuration: 625
 		BuildDurationModifier: 100
 		Prerequisites: ~sccyberneticscore
 		Queue: Building, RABuilding
@@ -1854,9 +1854,9 @@ SCROBOTICSSUPPORTBAY:
 	Tooltip:
 		Name: Robotics Support Bay
 	Valued:
-		Cost: 2500
+		Cost: 2000
 	Health:
-		HP: 250000
+		HP: 200000
 	Armor:
 		Type: Wood
 	Power:
@@ -1864,7 +1864,7 @@ SCROBOTICSSUPPORTBAY:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
-		BuildDuration: 750
+		BuildDuration: 625
 		BuildDurationModifier: 100
 		Prerequisites: ~scroboticsfacility
 		Queue: Building, RABuilding
@@ -2000,9 +2000,9 @@ SCOBSERVATORY:
 	Tooltip:
 		Name: Observatory
 	Valued:
-		Cost: 2500
+		Cost: 1000
 	Health:
-		HP: 250000
+		HP: 100000
 	Armor:
 		Type: Wood
 	Power:
@@ -2010,7 +2010,7 @@ SCOBSERVATORY:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
-		BuildDuration: 750
+		BuildDuration: 250
 		BuildDurationModifier: 100
 		Prerequisites: ~scroboticsfacility
 		Queue: Building, RABuilding
@@ -2694,9 +2694,9 @@ SCEVOLUTIONCHAMBER:
 	Tooltip:
 		Name: Evolution Chamber
 	Valued:
-		Cost: 2500
+		Cost: 2000
 	Health:
-		HP: 250000
+		HP: 200000
 	Armor:
 		Type: Wood
 	Power:
@@ -2704,7 +2704,7 @@ SCEVOLUTIONCHAMBER:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 50
-		BuildDuration: 750
+		BuildDuration: 625
 		BuildDurationModifier: 100
 		Prerequisites: ~schatchery
 		Queue: Building, RABuilding
@@ -2742,9 +2742,9 @@ SCHYDRALISKDEN:
 	Tooltip:
 		Name: Hydralisk Den
 	Valued:
-		Cost: 1250
+		Cost: 1500
 	Health:
-		HP: 125000
+		HP: 150000
 	Armor:
 		Type: Wood
 	Power:
@@ -2752,7 +2752,7 @@ SCHYDRALISKDEN:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 60
-		BuildDuration: 375
+		BuildDuration: 500
 		BuildDurationModifier: 100
 		Prerequisites: ~scspawningpool
 		Queue: Building, RABuilding
@@ -2795,7 +2795,7 @@ SCQUEENSNEST:
 		Amount: 0
 	ProvidesPrerequisite@buildingname:
 	Buildable:
-		BuildDuration: 666
+		BuildDuration: 500
 		BuildDurationModifier: 100
 		Prerequisites: ~sclair
 		Queue: Building, RABuilding
@@ -2849,7 +2849,7 @@ SCSPIRE:
 		RequiresCondition: scgreaterspire
 	Buildable:
 		BuildPaletteOrder: 80
-		BuildDuration: 666
+		BuildDuration: 500
 		BuildDurationModifier: 100
 		Prerequisites: ~sclair
 		Queue: Building, RABuilding
@@ -2916,9 +2916,11 @@ SCGREATERSPIRE:
 	Tooltip:
 		Name: Greater Spire
 	Valued:
-		Cost: 1600
+		Cost: 1500
 	Buildable:
 		BuildPaletteOrder: 80
+		BuildDuration: 500
+		BuildDurationModifier: 100
 		Queue: Defence, RADefence
 		Prerequisites: ~sclair, greaterspireupgradeavailable
 		Description: Unlocks multiple zerg air units.
@@ -5267,9 +5269,9 @@ SCPHOBOS:
 		Weapon: PhobosLaser
 		LocalOffset: 400,-400,100, 400,400,100
 	CarrierMaster:
-		Actors: scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone
-		RearmTicks: 125
-		RespawnTicks: 250
+		Actors: scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone
+		RearmTicks: 100
+		RespawnTicks: 200
 		InstaRepair: true
 		SlaveDisposalOnKill: KillSlaves
 		SpawnAllAtOnce: false
@@ -6356,7 +6358,6 @@ SCIDOL:
 	Inherits@weapon: ^ProtossGroundWeaponUpgrades
 	Inherits@armor: ^ProtossGroundArmorUpgrades
 	Inherits@range: ^SingularityChargeUpgrade
-	Inherits@Template: ^HeroInfantryTemplate
 	-ExternalCondition@PropagandaEffect:
 	Tooltip:
 		Name: Idol

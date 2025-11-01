@@ -5600,7 +5600,6 @@ ra2e1dep:
 	icon:
 		Filename: ra2e1icon.shp
 
-
 yrggi:
 	Inherits: ^RA2ArmedInfantry
 	Defaults:
