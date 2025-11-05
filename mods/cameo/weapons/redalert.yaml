@@ -6360,6 +6360,10 @@ ParaBombNuke:
 		ImpactSounds: kaboom22.aud
 
 JapanSuperBomb:
+	Inherits: ^Grenade
+	Inherits: ^ShrapnelWeapon
+	Inherits: ^MediumChemicalWeapon
+	Inherits: ^MediumFlameWeapon
 	Inherits: ^HeavyBomb
 	ReloadDelay: 5
 	Range: 3000
@@ -6370,12 +6374,48 @@ JapanSuperBomb:
 		Acceleration: 0, 0, -10
 		Image: MISSILE
 		Shadow: True
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 10000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 5000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 5
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 10000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 5000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 5
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 10000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 5000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 5
+	Warhead@MediumFlameWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 10000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 5000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 5
 	Warhead@HeavyBomb: SpreadDamage
-		ValidTargets: Ground, Ship, Trees
-		Damage: 50000
+		ValidTargets: Ground, Water, Air
+		Damage: 10000
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Ship, Trees
-		Damage: 25
+		ValidTargets: Ground, Water, Air
+		Damage: 5
 
 JapanCarrierFighterBomb:
 	Inherits: ^HeavyBomb
@@ -6389,10 +6429,10 @@ JapanCarrierFighterBomb:
 		Image: Dragon
 		Shadow: True
 	Warhead@HeavyBomb: SpreadDamage
-		ValidTargets: Ground, Ship, Trees
+		ValidTargets: Ground, Water, Air
 		Damage: 10000
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Ship, Trees
+		ValidTargets: Ground, Water, Air
 		Damage: 5
 
 JapanCarrierTarget:

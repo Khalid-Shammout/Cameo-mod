@@ -1352,6 +1352,8 @@ ra_dragunov:
 		VoiceSet: RussianConscriptVoice
 	AttackFrontal:
 		Voice: Attack
+	GrantExternalConditionToTransport:
+		Condition: ifv-flak
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:

@@ -7876,23 +7876,32 @@ futu_gggun:
 		Offset: 0,0
 
 futu_ggmlt:
-	Inherits: ^RA2MachineGunMuzzle
 	Defaults:
 		Offset: 0,2
 	idle:
-		Filename: invisibleitem.shp
+		Filename: futu_ggmltgtur.shp
+		Facings: 32
+		ShadowStart: 32
 	damaged-idle:
-		Filename: invisibleitem.shp
-	critical-idle:
-		Filename: invisibleitem.shp
+		Filename: futu_ggmltgtur_d.shp
+		Facings: 32
+		ShadowStart: 32
 	make:
 		Filename: futu_ggmltgmk.shp
 		Length: 22
+		ShadowStart: 22
 	dead:
-		Filename: invisibleitem.shp
-	turret:
-		Filename: futu_ggmltgtur.shp
+		Filename: futu_ggmltgtur_d.shp
 		Facings: 32
+		ShadowStart: 32
+	muzzle:
+		Filename: DATA.R16
+		Scale: 3
+		Remap: 54F94B
+		Start: 3671
+		Length: 3
+		BlendMode: Additive
+		Offset: 0,0
 	icon:
 		Filename: futu_multigunnerturreticon.png
 		Offset: 0,0
@@ -8557,3 +8566,59 @@ futu_spy:
 		Start: 196
 	icon:
 		Filename: ra2spyicon.shp
+
+futu_commando:
+	Inherits: ^RA2ArmedInfantry
+	Defaults:
+		Filename: ra2_tany_black.shp
+	run:
+		Tick: 120
+	swim-stand:
+		Start: 410
+		Facings: 8
+		Length: 6
+		Tick: 160
+	swim-idle1:
+		Start: 292
+		Length: 15
+		Tick: 160
+	swim-idle2:
+		Start: 307
+		Length: 15
+		Tick: 160
+	swim-run:
+		Start: 506
+		Facings: 8
+		Length: 6
+		Tick: 120
+	swim-die1:
+		Start: 323
+		Length: 19
+	swim-die2:
+		Start: 342
+		Length: 20
+	swim-shoot:
+		Start: 554
+		Length: 6
+		Facings: 8
+		Tick: 80
+	cheer:
+		Start: 603
+	swim-cheer:
+		Start: 611
+		Length: 8
+		Tick: 120
+	paradrop:
+		Start: 602
+	die:
+		Start: 134
+		Length: 15
+	icon_gun:
+		Filename: tanyamodes.shp
+		Start: 0
+	icon_c4:
+		Filename: tanyamodes.shp
+		Start: 1
+	icon:
+		Filename: ra2tanyaicon.shp
+	iconchrono: ra2htanyaicon.shp

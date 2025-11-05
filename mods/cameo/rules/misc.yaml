@@ -123,16 +123,16 @@ CRATE:
 		NoBaseSelectionShares: 10000
 		Units: aa_acv
 		ValidFactions: asianalliance
-	GiveBaseBuilderCrateAction@consortium:
-		SelectionShares: 0
-		NoBaseSelectionShares: 10000
-		Units: steel_qmcv
-		ValidFactions: consortium
 	GiveBaseBuilderCrateAction@syndicate:
 		SelectionShares: 0
 		NoBaseSelectionShares: 10000
 		Units: latin_mcv
 		ValidFactions: syndicate
+	GiveBaseBuilderCrateAction@consortium:
+		SelectionShares: 0
+		NoBaseSelectionShares: 10000
+		Units: steel_qmcv
+		ValidFactions: consortium
 	GiveBaseBuilderCrateAction@naxis:
 		SelectionShares: 0
 		NoBaseSelectionShares: 10000
@@ -143,6 +143,11 @@ CRATE:
 		NoBaseSelectionShares: 10000
 		Units: nax2_mcv
 		ValidFactions: lnaxis
+	GiveBaseBuilderCrateAction@futuretech:
+		SelectionShares: 0
+		NoBaseSelectionShares: 10000
+		Units: futu_mcv
+		ValidFactions: futuretech
 	GiveBaseBuilderCrateAction@ix:
 		SelectionShares: 0
 		NoBaseSelectionShares: 10000

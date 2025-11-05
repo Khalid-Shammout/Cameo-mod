@@ -5307,7 +5307,7 @@ RA2FV:
 		Cost: 500
 	Tooltip:
 		Name: actor-fv.name
-		RequiresCondition: !ifv-mg && !ifv-hmg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-hero && !ifv-chem && !ifv-fire && !ifv-cannon && !ifv-miss && !ifv-deso && !ifv-demo && !ifv-chrono
+		RequiresCondition: !ifv-mg && !ifv-hmg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-hero && !ifv-chem && !ifv-fire && !ifv-cannon && !ifv-miss && !ifv-deso && !ifv-demo && !ifv-healer && !ifv-chrono
 	Buildable:
 		BuildPaletteOrder: 50
 		Prerequisites: ~ra2gaweap
@@ -5366,9 +5366,15 @@ RA2FV:
 		RequiresCondition: ifv-repair
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
+	Armament@healer:
+		Weapon: MedicHeal
+		LocalOffset: 164,0,864
+		RequiresCondition: ifv-healer
+		TargetRelationships: Ally
+		ForceTargetRelationships: None
 	FirepowerMultiplier@repair:
 		Modifier: 50
-		RequiresCondition: ifv-repair
+		RequiresCondition: ifv-repair || ifv-healer
 	Armament@sniper:
 		Weapon: RA2AWP
 		LocalOffset: 171,0,255
@@ -5493,6 +5499,9 @@ RA2FV:
 	Tooltip@CHRONO:
 		Name: Chrono IFV
 		RequiresCondition: ifv-chrono
+	Tooltip@Healer:
+		Name: Healer IFV
+		RequiresCondition: ifv-healer
 	GuardsSelection@HEAL:
 		ValidTargets: Infantry
 		RequiresCondition: ifv-healer && !stance-attackanything

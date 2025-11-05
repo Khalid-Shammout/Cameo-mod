@@ -22,6 +22,31 @@ World:
 		Factions: asianalliance
 		BaseActor: aa_acv
 		SupportActors: aa_gren,aa_gren,aa_gren,aa_tkiller,aa_tkiller,aa_quas,aa_lynx,aa_lynx,aa_lynx,aa_ptnk,aa_quas
+
+	FactionCA@syndicate:
+		Name: Latin Syndicate
+		InternalName: syndicate
+		Game: Red Alert 2
+		Side: RA2 Mod
+		Description: Latin American Crime Syndicate with old Soviet Technology #faction-ra2-yuri.description
+	StartingUnits@mcvsyndicate:
+		Class: none
+		ClassName: MCV Only
+		Factions: syndicate
+		BaseActor: latin_mcv
+	StartingUnits@defaultsyndicate:
+		Class: light
+		ClassName: Light Support
+		Factions: syndicate
+		BaseActor: latin_mcv
+		SupportActors: latin_mili,latin_mili,latin_mili,latin_fftr,latin_fftr,nax_wirbelwind,nax_tiger
+	StartingUnits@heavysyndicate:
+		Class: heavy
+		ClassName: Heavy Support
+		Factions: syndicate
+		BaseActor: latin_mcv
+		SupportActors: latin_mili,latin_mili,latin_mili,latin_fftr,latin_fftr,nax_wirbelwind,nax_tiger,nax_tiger,nax_tiger,aa_ptnk,nax_wirbelwind
+
 	FactionCA@consortium:
 		Name: Steel Consortium #faction-ra2-yuri.name
 		InternalName: consortium
@@ -45,6 +70,7 @@ World:
 		Factions: consortium
 		BaseActor: steel_qmcv
 		SupportActors: steel_fedinf,steel_fedinf,steel_fedinf,steel_qinf,steel_qinf,steel_manta,steel_qtank,steel_qtank,steel_qtank,steel_qutnk,steel_manta
+
 	FactionCA@naxis:
 		Name: Naxis #faction-ra2-yuri.name
 		InternalName: naxis
@@ -93,29 +119,6 @@ World:
 		BaseActor: nax2_mcv
 		SupportActors: nax_lunar,nax_lunar,nax_lunar2,nax_lunar2,nax_lunar2,nax2_beetle,nax2_tiger,nax2_panzer,nax2_panzer,nax2_beetle,nax2_beetle
 
-	FactionCA@syndicate:
-		Name: Latin Syndicate
-		InternalName: syndicate
-		Game: Red Alert 2
-		Side: RA2 Mod
-		Description: Latin American Crime Syndicate with old Soviet Technology #faction-ra2-yuri.description
-	StartingUnits@mcvsyndicate:
-		Class: none
-		ClassName: MCV Only
-		Factions: syndicate
-		BaseActor: latin_mcv
-	StartingUnits@defaultsyndicate:
-		Class: light
-		ClassName: Light Support
-		Factions: syndicate
-		BaseActor: latin_mcv
-		SupportActors: latin_mili,latin_mili,latin_mili,latin_fftr,latin_fftr,nax_wirbelwind,nax_tiger
-	StartingUnits@heavysyndicate:
-		Class: heavy
-		ClassName: Heavy Support
-		Factions: syndicate
-		BaseActor: latin_mcv
-		SupportActors: latin_mili,latin_mili,latin_mili,latin_fftr,latin_fftr,nax_wirbelwind,nax_tiger,nax_tiger,nax_tiger,aa_ptnk,nax_wirbelwind
 	FactionCA@futuretech:
 		Name: (WIP)Future Tech
 		InternalName: futuretech
@@ -142,7 +145,7 @@ World:
 	FactionCA@Randomra2mod:
 		Name: Random RA2 Mods #faction-ra2-random.name
 		InternalName: Randomra2mod
-		RandomFactionMembers: asianalliance, consortium, naxis, syndicate
+		RandomFactionMembers: asianalliance, syndicate, consortium, naxis, lnaxis, futuretech
 		Game: Red Alert 2
 		Side: Random
 		Description: faction-ra2-modded-random.description
@@ -5011,7 +5014,7 @@ latin_ngbunk2:
 		Range: 5000
 		RequiresCondition: uplatin_ngbunk2
 	ActorStatValues:
-		Stats: Armor, Sight, Cargo, Kills, Experience
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo, Kills
 	WithIdleOverlay@top:
 		Sequence: idle-top
 		PauseOnCondition: disabled
@@ -18742,7 +18745,7 @@ futu_gggun:
 		Prerequisites: ~futu_egcnst, futu_egpile
 		Description: template-anti-infantry-defense.description
 	Valued:
-		Cost: 800
+		Cost: 1000
 	Tooltip:
 		Name: Freezer Turret
 	Building:
@@ -18771,7 +18774,7 @@ futu_gggun:
 		RequiresCondition: !build-incomplete
 	AutoTarget:
 	Power:
-		Amount: -25
+		Amount: -50
 	RevealsShroud:
 		Range: 6666
 	ProvidesPrerequisite@buildingname:
@@ -18783,6 +18786,8 @@ futu_ggmlt:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@sell: ^AASpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@bot: ^BotAutoDeployEvacuateCargo
+	Inherits@COMMANDOSKULL: ^CommandoSkull
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
@@ -18792,47 +18797,26 @@ futu_ggmlt:
 		Cost: 800
 	Tooltip:
 		Name: Multi Rocket System
-		RequiresCondition: !ifv-mg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-hero && !ifv-chem && !ifv-fire && !ifv-cannon && !ifv-miss && !ifv-deso && !ifv-demo && !ifv-chrono
-	Tooltip@MG:
-		Name: Fragged Rockets
-		RequiresCondition: ifv-mg || ifv-flak || ifv-hvmg
+		RequiresCondition: !ifv-mg && !ifv-hmg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-hero && !ifv-chem && !ifv-fire && !ifv-cannon && !ifv-miss && !ifv-deso && !ifv-demo && !ifv-healer && !ifv-chrono
 	Tooltip@MISS:
-		Name: Six Rocket System
-		RequiresCondition: ifv-miss
-	Tooltip@SNIPER:
-		Name: long Range Rockets
-		RequiresCondition: ifv-sniper
-	Tooltip@TESLA:
-		Name: Shock Rockets
-		RequiresCondition: ifv-tesla
-	Tooltip@HERO:
-		Name: Super Rockets
+		Name: Javelin Rocket System
+		RequiresCondition: ifv-miss || ifv-flak
+	Tooltip@FRAG:
+		Name: Frag Rocket System
+		RequiresCondition: ifv-mg || ifv-hmg || ifv-repair || ifv-sniper || ifv-tesla || ifv-chem || ifv-fire || ifv-cannon || ifv-deso || ifv-demo || ifv-healer || ifv-chrono
+	Tooltip@Sigma:
+		Name: Sigma Rocket System
 		RequiresCondition: ifv-hero
-	Tooltip@CHEM:
-		Name: Virus Rockets
-		RequiresCondition: ifv-chem
-	Tooltip@FIRE:
-		Name: Incendiary Rockets
-		RequiresCondition: ifv-fire
-	Tooltip@CANNON:
-		Name: HE Rockets
-		RequiresCondition: ifv-cannon
-	Tooltip@RAD:
-		Name: Radiation Rockets
-		RequiresCondition: ifv-deso
-	Tooltip@DEMO:
-		Name: Demolisher Rockets
-		RequiresCondition: ifv-demo
-	Tooltip@CHRONO:
-		Name: Sigma Rockets
-		RequiresCondition: ifv-chrono
+	WithDecoration@COMMANDOSKULL:
+		RequiresCondition: ifv-hero
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 	Health:
-		HP: 87500
+		HP: 105000
 	Selectable:
 		Bounds: 1024, 1024
+		DecorationBounds: 1024, 1024, 0, 0
 	Turreted:
 		TurnSpeed: 40
 		InitialFacing: 896
@@ -18840,40 +18824,16 @@ futu_ggmlt:
 		RealignDelay: -1
 	AttackTurreted:
 		Voice: Attack
-	Cargo:
-		Types: Infantry
-		MaxWeight: 1
-		LoadedCondition: loaded
-	Armament@primary:
-		Name: primary
-		Weapon: Future_MultiMissile
-		LocalOffset: 768,99,290, 768,-99,290, 768,0,290
-		RequiresCondition: !ifv-mg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-hero && !ifv-chem && !ifv-fire && !ifv-cannon && !ifv-miss && !ifv-deso && !ifv-demo && !ifv-chrono && !ifv-plasma && !ifv-litlaser && !ifv-medlaser && !ifv-greelaser && !ifv-misslaser && !ifv-chem && !ifv-thrax && !ifv-sonic && !ifv-fremen && !ifv-healer && !ifv-spy && !ifv-thief
-	Armament@missile:
-		Weapon: Future_MultiMissile_Six
-		RequiresCondition: ifv-miss
-		LocalOffset: 768,99,290, 768,-99,290, 768,0,290
-	Armament@mg:
-		Weapon: Future_MultiMissile_Frag
-		RequiresCondition: ifv-mg || ifv-hvmg || ifv-flak
-		LocalOffset: 768,99,290, 768,-99,290, 768,0,290
-	WithMuzzleOverlay:
-	BodyOrientation:
-		QuantizedFacings: 16
-	WithSpriteTurret:
-		RequiresCondition: !build-incomplete
-	AutoTarget:
-	Power:
-		Amount: -25
-	RevealsShroud:
-		Range: 6666
-	ProvidesPrerequisite@buildingname:
 	ExternalCondition@mg:
 		Condition: ifv-mg
-	ExternalCondition@hvmg:
-		Condition: ifv-hvmg
+	ExternalCondition@hmg:
+		Condition: ifv-hmg
 	ExternalCondition@cannon:
 		Condition: ifv-cannon
+	ExternalCondition@repair:
+		Condition: ifv-repair
+	ExternalCondition@thief:
+		Condition: ifv-thief
 	ExternalCondition@miss:
 		Condition: ifv-miss
 	ExternalCondition@flak:
@@ -18888,10 +18848,59 @@ futu_ggmlt:
 		Condition: ifv-hero
 	ExternalCondition@sniper:
 		Condition: ifv-sniper
+	ExternalCondition@spy:
+		Condition: ifv-spy
 	ExternalCondition@chrono:
 		Condition: ifv-chrono
 	ExternalCondition@demo:
 		Condition: ifv-demo
+	ExternalCondition@heal:
+		Condition: ifv-healer
+	WithCargoSounds:
+		EnterSounds: vifvtran.wav
+		ExitSounds: vifvtran.wav
+	Cargo:
+		EjectOnDeathDamage: 0
+		Types: Infantry
+		MaxWeight: 1
+		LoadedCondition: loaded
+	Armament@primary:
+		Name: primary
+		Weapon: Future_MultiMissile
+		LocalOffset: 600,100,300, 600,-100,300, 600,0,300
+		RequiresCondition: !ifv-mg && !ifv-hmg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-hero && !ifv-chem && !ifv-fire && !ifv-cannon && !ifv-miss && !ifv-deso && !ifv-demo && !ifv-healer && !ifv-chrono && !ifv-spy && !ifv-thief
+		MuzzleSequence: muzzle
+	Armament@MISS:
+		Name: primary
+		Weapon: Future_MultiMissile_Javelin
+		RequiresCondition: ifv-miss
+		LocalOffset: 600,100,300, 600,-100,300, 600,0,300
+		MuzzleSequence: muzzle
+	Armament@FRAG:
+		Name: primary
+		Weapon: Future_MultiMissile_Frag
+		RequiresCondition: ifv-mg || ifv-hmg || ifv-repair || ifv-sniper || ifv-flak || ifv-tesla || ifv-chem || ifv-fire || ifv-cannon || ifv-deso || ifv-demo || ifv-healer || ifv-chrono || ifv-spy || ifv-thief
+		LocalOffset: 600,100,300, 600,-100,300, 600,0,300
+		MuzzleSequence: muzzle
+	Armament@Sigma:
+		Name: primary
+		Weapon: Future_MultiMissile_Sigma
+		RequiresCondition: ifv-hero
+		LocalOffset: 600,100,300, 600,-100,300, 600,0,300
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	-WithSpriteBody:
+	WithEmbeddedTurretSpriteBody:
+	AttackTurreted:
+		RequiresCondition: !build-incomplete
+	AutoTarget:
+	ActorStatValues:
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo, Kills
+	Power:
+		Amount: -40
+	RevealsShroud:
+		Range: 9000
+
 ####################################################################################################
 #		Red Alert 2 Future Infantry
 ####################################################################################################
@@ -19413,7 +19422,7 @@ future_robot_shotgun:
 		Bounds: 600, 600, 0, -125
 	Buildable:
 		BuildPaletteOrder: 75
-		Prerequisites: ~futu_egtf
+		Prerequisites: ~yrgarobo, futu_egtf
 		Queue: Infantry, RAInfantry
 		Description: actor-aamecha.description
 	Mobile:
@@ -19480,7 +19489,7 @@ future_robot_missiles:
 		Bounds: 600, 600, 0, -125
 	Buildable:
 		BuildPaletteOrder: 75
-		Prerequisites: ~futu_egtech
+		Prerequisites: ~yrgarobo, futu_egtech
 		Queue: Infantry, RAInfantry
 		Description: actor-aamecha.description
 	Mobile:
@@ -19548,7 +19557,7 @@ future_robot_cannon:
 		Bounds: 600, 600, 0, -125
 	Buildable:
 		BuildPaletteOrder: 75
-		Prerequisites: ~futu_egshock
+		Prerequisites: ~yrgarobo, futu_egshock
 		Queue: Infantry, RAInfantry
 		Description: actor-aamecha.description
 	Mobile:
@@ -19638,6 +19647,75 @@ futu_spy:
 	IgnoresDisguise:
 	Voiced:
 		VoiceSet: RA2SpyVoice
+
+futu_commando:
+	Inherits: ^Soldier
+	Inherits@Template: ^HeroInfantryTemplate
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@anim: ^RA2Infantry
+	Inherits@announce: ^AnnounceGlobal
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@MC: ^MCImmune
+	Inherits@swim: ^WithSwimsuit
+	Inherits@COMMANDOSKULL: ^CommandoSkull
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Buildable:
+		Queue: Infantry, RAInfantry
+		BuildPaletteOrder: 120
+		Prerequisites: ~futu_egtech
+		BuildLimit: 1
+		Description: template-commando.description
+	Valued:
+		Cost: 3000
+	Tooltip:
+		Name: Tanya II
+	Health:
+		HP: 50000
+	ChangesHealth@SelfHealing:
+		Step: 50
+	Mobile:
+		Speed: 75
+	Passenger:
+	Armament@PRIMARY:
+		Weapon: RA2DoublePistols
+		RequiresCondition: !rank-elite
+		LocalOffset: 128,0,256
+	Armament@ELITE:
+		Weapon: RA2DoublePistolsE
+		RequiresCondition: rank-elite
+		LocalOffset: 128,0,256
+	Armament@c4:
+		Weapon: TanyaAttach
+		Name: secondary
+		Cursor: c4
+		OutsideRangeCursor: c4
+		Voice: Demolish
+	Armament@c4building:
+		Weapon: GenericC4
+		Name: secondary
+		Cursor: c4
+		OutsideRangeCursor: c4
+		Voice: Demolish
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: RA2DoublePistols
+		RequiresCondition: !rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2DoublePistolsE
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	WithInfantryBody:
+		-DefaultAttackSequence:
+		AttackSequences:
+			primary: shoot
+		StandSequences: stand
+	Voiced:
+		VoiceSet: RA2TanyaVoice
+	ProvidesPrerequisite:
 
 ####################################################################################################
 #		Red Alert 2 Future Vehicles
@@ -20607,7 +20685,7 @@ futu_futu:
 	Armament:
 		Name: primary
 		Weapon: FutureTankCannons
-		LocalOffset: 100,190,800, 100,-190,800
+		LocalOffset: 400,400,400, 400,-400,400
 		Recoil: 128
 		RecoilRecovery: 38
 		MuzzleSequence: muzzle
@@ -20616,7 +20694,7 @@ futu_futu:
 	Armament@elite:
 		Name: primary
 		Weapon: FutureTankCannonsE
-		LocalOffset: 100,190,800, 100,-190,800
+		LocalOffset: 400,400,400, 400,-400,400
 		Recoil: 128
 		RecoilRecovery: 38
 		MuzzleSequence: muzzle-2

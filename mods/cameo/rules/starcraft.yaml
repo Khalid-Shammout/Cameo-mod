@@ -527,6 +527,15 @@ SCCOMMANDCENTER:
 		IntoActor: sccommandcenterm
 		Offset: 1,1
 		Facing: 432
+	Production@NORMAL:
+		-RequiresCondition:
+	-Production@CLASSICPRODUCTIONQUEUES:
+	ProductionBar@BUILDING:
+		-RequiresCondition:
+	ProductionBar@DEFENCE:
+		-RequiresCondition:
+	-ProductionBar@RABUILDING:
+	-ProductionBar@RADEFENCE:
 	ProductionQueue@Building:
 		LowPowerModifier: 100
 	ProductionQueue@Defense:
@@ -1323,6 +1332,15 @@ SCNEXUS:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 		BuildSounds: pshbld03.aud
+	Production@NORMAL:
+		-RequiresCondition:
+	-Production@CLASSICPRODUCTIONQUEUES:
+	ProductionBar@BUILDING:
+		-RequiresCondition:
+	ProductionBar@DEFENCE:
+		-RequiresCondition:
+	-ProductionBar@RABUILDING:
+	-ProductionBar@RADEFENCE:
 	ProductionQueue@Building:
 		LowPowerModifier: 100
 	ProductionQueue@Defense:
@@ -3876,11 +3894,11 @@ SCVULTURE:
 		TurnSpeed: 50
 		Locomotor: hover
 	Health:
-		HP: 80000
+		HP: 75000
 	Repairable:
-		HpPerStep: 4000
+		HpPerStep: 3750
 	ChangesHealth@SelfHealing:
-		Step: 32
+		Step: 30
 	Armor:
 		Type: Light
 	Armament:
@@ -8128,6 +8146,7 @@ SCDRONE:
 		Name: Drone
 	Buildable:
 		Prerequisites: ~scextractor
+		Queue: Infantry, RAInfantry
 		Description: Collects resources.
 	WithDeathAnimation:
 		UseDeathTypeSuffix: false

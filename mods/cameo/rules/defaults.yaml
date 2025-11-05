@@ -1158,6 +1158,8 @@
 		PlayerRelationship: Ally, Neutral, Enemy
 	TooltipExtras@Melee:
 		Description: Melee
+	GrantExternalConditionToTransport:
+		Condition: ifv-cannon
 
 ^DogTemplate:
 	Inherits: ^MeleeInfantryTemplate
@@ -4814,14 +4816,14 @@
 	ExternalCondition@corroded:
 		Condition: corroded
 	ChangesHealth@corroded1:
-		Delay: 10
+		Delay: 20
 		PercentageStep: -1
 		StartIfBelow: 101
 		DamageCooldown: 0
 		RequiresCondition: corroded
 	ChangesHealth@corroded2:
 		Delay: 1
-		Step: -200
+		Step: -100
 		StartIfBelow: 101
 		DamageCooldown: 0
 		RequiresCondition: corroded
@@ -6054,7 +6056,7 @@ CPQDEBUGDUMMY:
 		Image: plagueunit
 		Sequence: overlay
 	ChangesHealth@SCPlague1:
-		Delay: 10
+		Delay: 20
 		PercentageStep: -1
 		StartIfBelow: 101
 		DamageCooldown: 0
@@ -6062,7 +6064,7 @@ CPQDEBUGDUMMY:
 		RequiresCondition: DefilerPlague
 	ChangesHealth@SCPlague2:
 		Delay: 1
-		Step: -200
+		Step: -100
 		StartIfBelow: 101
 		DamageCooldown: 0
 		DamageTypes: DefaultDeath
@@ -7766,7 +7768,7 @@ CPQDEBUGDUMMY:
 	Mobile:
 		PauseOnCondition: disabled || notmobile
 	ActorStatValues:
-		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo, Experience
+		Stats: Armor, Sight, Speed, Damage, ReloadDelay, MaxRange, Cargo, Kills
 	TooltipExtras@Cargo:
 		Description: Transport
 

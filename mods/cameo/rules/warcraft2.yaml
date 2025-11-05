@@ -559,10 +559,10 @@ Player:
 		Condition: wc2sword_upg2
 		Prerequisites: wc2_h_str_sword2
 	FirepowerMultiplier@WC2SwordUpg:
-		Modifier: 125
-		RequiresCondition: wc2sword_upg
+		Modifier: 115
+		RequiresCondition: wc2sword_upg && !wc2sword_upg2
 	FirepowerMultiplier@WC2SwordUpg2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: wc2sword_upg2
 
 ^wc2_h_str_shield:
@@ -573,8 +573,8 @@ Player:
 		Condition: wc2hshield_upg2
 		Prerequisites: wc2_h_str_shield2
 	DamageMultiplier@WC2HShieldUpg:
-		Modifier: 80
-		RequiresCondition: wc2hshield_upg
+		Modifier: 90
+		RequiresCondition: wc2hshield_upg && !wc2hshield_upg2
 	DamageMultiplier@WC2HShieldUpg2:
 		Modifier: 80
 		RequiresCondition: wc2hshield_upg2
@@ -587,10 +587,10 @@ Player:
 		Condition: wc2arrow_upg2
 		Prerequisites: wc2_h_str_arrow2
 	FirepowerMultiplier@WC2ArrowUpg:
-		Modifier: 125
-		RequiresCondition: wc2arrow_upg
+		Modifier: 115
+		RequiresCondition: wc2arrow_upg && !wc2arrow_upg2
 	FirepowerMultiplier@WC2ArrowUpg2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: wc2arrow_upg2
 
 ^wc2_h_str_ballista:
@@ -601,10 +601,10 @@ Player:
 		Condition: ballista_upg2
 		Prerequisites: wc2_h_str_ballista2
 	FirepowerMultiplier@BallUpg:
-		Modifier: 125
-		RequiresCondition: ballista_upg
+		Modifier: 115
+		RequiresCondition: ballista_upg && !ballista_upg2
 	FirepowerMultiplier@BallUpg2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: ballista_upg2
 
 ^wc2_h_str_cannon:
@@ -615,10 +615,10 @@ Player:
 		Condition: hcannon_upg2
 		Prerequisites: wc2_h_str_cannon2
 	FirepowerMultiplier@HCannonUpg:
-		Modifier: 125
-		RequiresCondition: hcannon_upg
+		Modifier: 115
+		RequiresCondition: hcannon_upg && !hcannon_upg2
 	FirepowerMultiplier@HCannonUpg2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: hcannon_upg2
 
 ^wc2_h_str_navyshield:
@@ -629,8 +629,8 @@ Player:
 		Condition: hnavyshield_upg2
 		Prerequisites: wc2_h_str_navyshield2
 	DamageMultiplier@HNavySUpg:
-		Modifier: 80
-		RequiresCondition: hnavyshield_upg
+		Modifier: 90
+		RequiresCondition: hcannohnavyshield_upgn_upg && !hnavyshield_upg2
 	DamageMultiplier@HNavySUpg2:
 		Modifier: 80
 		RequiresCondition: hnavyshield_upg2
@@ -648,7 +648,7 @@ Player:
 		Condition: rangerlb_upg
 		Prerequisites: wc2_h_ranger_longbow
 	RangeMultiplier@RLongBowUpg:
-		Modifier: 125
+		Modifier: 120
 		RequiresCondition: rangerlb_upg
 
 ^wc2_h_ranger_scouting:
@@ -656,7 +656,7 @@ Player:
 		Condition: rangersc_upg
 		Prerequisites: wc2_h_ranger_scouting
 	RevealsShroudMultiplier@RScoutUpg:
-		Modifier: 125
+		Modifier: 120
 		RequiresCondition: rangersc_upg
 
 ^wc2_h_ranger_marksman:
@@ -672,13 +672,13 @@ Player:
 		Condition: paladin_upg
 		Prerequisites: wc2_h_paladinupg
 	DamageMultiplier@PalUpg:
-		Modifier: 80
+		Modifier: 90
 		RequiresCondition: paladin_upg
 	FirepowerMultiplier@PalUpg:
-		Modifier: 125
+		Modifier: 115
 		RequiresCondition: paladin_upg
 	SpeedMultiplier@PalUpg:
-		Modifier: 125
+		Modifier: 120
 		RequiresCondition: paladin_upg
 
 ^wc2_h_paladin_healing:
@@ -718,10 +718,10 @@ Player:
 		Condition: wc2axe_upg2
 		Prerequisites: wc2_o_str_axe2
 	FirepowerMultiplier@WC2AxeUpg:
-		Modifier: 125
-		RequiresCondition: wc2axe_upg
+		Modifier: 115
+		RequiresCondition: wc2axe_upg && !wc2axe_upg2
 	FirepowerMultiplier@WC2AxeUpg2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: wc2axe_upg2
 
 ^wc2_o_str_shield:
@@ -732,8 +732,8 @@ Player:
 		Condition: wc2oshield_upg2
 		Prerequisites: wc2_o_str_shield2
 	DamageMultiplier@WC2OShieldUpg:
-		Modifier: 80
-		RequiresCondition: wc2oshield_upg
+		Modifier: 90
+		RequiresCondition: wc2oshield_upg && !wc2oshield_upg2
 	DamageMultiplier@WC2OShieldUpg2:
 		Modifier: 80
 		RequiresCondition: wc2oshield_upg2
@@ -746,10 +746,10 @@ Player:
 		Condition: throwaxe_upg2
 		Prerequisites: wc2_o_str_throwaxe2
 	FirepowerMultiplier@TAxeUpg:
-		Modifier: 125
-		RequiresCondition: throwaxe_upg
+		Modifier: 115
+		RequiresCondition: throwaxe_upg && !throwaxe_upg2
 	FirepowerMultiplier@TAxeUpg2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: throwaxe_upg2
 
 ^wc2_o_str_catapult:
@@ -760,10 +760,10 @@ Player:
 		Condition: cat_upg2
 		Prerequisites: wc2_o_str_catapult2
 	FirepowerMultiplier@CatUpg:
-		Modifier: 125
-		RequiresCondition: cat_upg
+		Modifier: 115
+		RequiresCondition: cat_upg && !cat_upg2
 	FirepowerMultiplier@CatUpg2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: cat_upg2
 
 ^wc2_o_str_cannon:
@@ -774,10 +774,10 @@ Player:
 		Condition: ocannon_upg2
 		Prerequisites: wc2_o_str_cannon2
 	FirepowerMultiplier@OCannonUpg:
-		Modifier: 125
-		RequiresCondition: ocannon_upg
+		Modifier: 115
+		RequiresCondition: ocannon_upg && !ocannon_upg2
 	FirepowerMultiplier@OCannonUpg2:
-		Modifier: 125
+		Modifier: 135
 		RequiresCondition: ocannon_upg2
 
 ^wc2_o_str_navyshield:
@@ -788,8 +788,8 @@ Player:
 		Condition: onavyshield_upg2
 		Prerequisites: wc2_o_str_navyshield2
 	DamageMultiplier@ONavySUpg:
-		Modifier: 80
-		RequiresCondition: onavyshield_upg
+		Modifier: 90
+		RequiresCondition: onavyshield_upg && !onavyshield_upg2
 	DamageMultiplier@ONavySUpg2:
 		Modifier: 80
 		RequiresCondition: onavyshield_upg2
@@ -807,7 +807,7 @@ Player:
 		Condition: berserkerla_upg
 		Prerequisites: wc2_o_berserker_lighteraxes
 	RangeMultiplier@BLighterUpg:
-		Modifier: 125
+		Modifier: 120
 		RequiresCondition: berserkerla_upg
 
 ^wc2_o_berserker_scouting:
@@ -815,7 +815,7 @@ Player:
 		Condition: berserkersc_upg
 		Prerequisites: wc2_o_berserker_scouting
 	RevealsShroudMultiplier@BScoutUpg:
-		Modifier: 125
+		Modifier: 120
 		RequiresCondition: berserkersc_upg
 
 ^wc2_o_berserker_regen:
@@ -834,10 +834,13 @@ Player:
 		Condition: ogremage_upg
 		Prerequisites: wc2_o_ogremageupg
 	DamageMultiplier@OMUpg:
-		Modifier: 80
+		Modifier: 90
 		RequiresCondition: ogremage_upg
 	FirepowerMultiplier@OMUpg:
-		Modifier: 125
+		Modifier: 115
+		RequiresCondition: ogremage_upg
+	RangeMultiplier@OMUpg:
+		Modifier: 120
 		RequiresCondition: ogremage_upg
 
 ^wc2_o_ogremage_bloodlust:
@@ -2099,6 +2102,15 @@ wc2_human_townhall:
 	Tooltip@3:
 		Name: Castle
 		RequiresCondition: wc2_human_castle
+	Production@NORMAL:
+		-RequiresCondition:
+	-Production@CLASSICPRODUCTIONQUEUES:
+	ProductionBar@BUILDING:
+		-RequiresCondition:
+	ProductionBar@DEFENCE:
+		-RequiresCondition:
+	-ProductionBar@RABUILDING:
+	-ProductionBar@RADEFENCE:
 	ProductionQueue@Building:
 		LowPowerModifier: 100
 	ProductionQueue@Defense:
@@ -3026,6 +3038,8 @@ wc2_human_peasant:
 	Voiced:
 		VoiceSet: wc2voicehumanpeasant
 	-DamagedByTerrain:
+	ActorStatValues:
+		Upgrades: wc2_h_str_shield, wc2_h_str_shield2
 
 wc2_human_footman:
 	Inherits@WC2INFANTRY: ^WC2Infantry
@@ -3058,6 +3072,8 @@ wc2_human_footman:
 		TargetTypes: DogImmune
 	Voiced:
 		VoiceSet: wc2voicehumanfootman
+	ActorStatValues:
+		Upgrades: wc2_h_str_sword, wc2_h_str_sword2, wc2_h_str_shield, wc2_h_str_shield2
 
 # Arhcer also has built-in ranger stuff so that ranger's upgrades and spells will be applied to already-built archers, just as in WC2.
 wc2_human_elven_archer:
@@ -3107,6 +3123,8 @@ wc2_human_elven_archer:
 		MoveSequence: run-ranger
 		DefaultAttackSequence: shoot-ranger
 		RequiresCondition: ranger_upg
+	ActorStatValues:
+		Upgrades: wc2_h_str_arrow, wc2_h_str_arrow2, wc2_h_str_shield, wc2_h_str_shield2, wc2_h_rangerupg, wc2_h_ranger_longbow, wc2_h_ranger_scouting
 
 # Separate actor for ranger because otherwise we can't change the build icon (cameo) or tooltip.
 wc2_human_elven_ranger:
@@ -3184,6 +3202,8 @@ wc2_human_knight:
 		TargetTypes: Ground, Vehicle, Monster
 	#Weapons
 	Inherits@attacks_and_spells: ^wc2_knight_paladin_attacks_spells
+	ActorStatValues:
+		Upgrades: wc2_h_str_sword, wc2_h_str_sword2, wc2_h_str_shield, wc2_h_str_shield2, wc2_h_paladinupg, wc2_h_healingupg, wc2_h_exorcismupg
 
 # Separate actor for paladin because otherwise we can't change the build icon (cameo) or tooltip.
 wc2_human_paladin:
@@ -3328,6 +3348,7 @@ wc2_human_ballista:
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@BallUpg: ^wc2_h_str_ballista
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
 	Tooltip:
 		Name: Ballista
 	Valued:
@@ -3365,6 +3386,8 @@ wc2_human_ballista:
 		RevokeDelay: 34
 	Mobile:
 		PauseOnCondition: cond_catapult_cooldown || disabled || notmobile
+	ActorStatValues:
+		Upgrades: wc2_h_str_ballista, wc2_h_str_ballista2, wc2_h_str_shield, wc2_h_str_shield2
 
 wc2_human_siege_engine:
 	Inherits@WC2VEHICLE: ^WC2Vehicle
@@ -3372,6 +3395,7 @@ wc2_human_siege_engine:
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@BallUpg: ^wc2_h_str_ballista
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
 	Tooltip:
 		Name: Siege Engine
 	Valued:
@@ -3409,11 +3433,13 @@ wc2_human_siege_engine:
 		RevokeDelay: 34
 	Mobile:
 		PauseOnCondition: cond_catapult_cooldown || disabled || notmobile
+	ActorStatValues:
+		Upgrades: wc2_h_str_ballista, wc2_h_str_ballista2, wc2_h_str_shield, wc2_h_str_shield2
 
 wc2_human_demolitionsquad:
 	Inherits@WC2INFANTRY: ^WC2Infantry
 	Inherits@WC2Template: ^wc2_demolitioner
-	Inherits@WC2SwordUpg: ^wc2_h_str_sword
+	Inherits@BallUpg: ^wc2_h_str_ballista
 	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
 	Tooltip:
 		Name: Demolition Squad
@@ -3446,6 +3472,8 @@ wc2_human_demolitionsquad:
 		RequiresCondition: cond_detonate
 	Voiced:
 		VoiceSet: wc2voicehumandemolitionsquad
+	ActorStatValues:
+		Upgrades: wc2_h_str_ballista, wc2_h_str_ballista2, wc2_h_str_shield, wc2_h_str_shield2
 
 wc2_human_mage:
 	Inherits@WC2Infantry: ^WC2Infantry
@@ -3552,6 +3580,8 @@ wc2_human_mage:
 		Delay: 1
 		Count: -25
 		RequiresCondition: cond_blizzard_drain
+	ActorStatValues:
+		Upgrades: wc2_h_str_shield, wc2_h_str_shield2, wc2_h_slowupg, wc2_h_polymorphupg, wc2_h_blizzardupg
 
 	### Visual indicator of mode ###
 	WithDecoration@Mode_Fireball:
@@ -3620,6 +3650,8 @@ wc2_human_oil_tanker:
 		Name: Oil Tanker
 	Voiced:
 		VoiceSet: wc2voicehumanoiltanker
+	ActorStatValues:
+		Upgrades: wc2_h_str_navyshield, wc2_h_str_navyshield2
 
 wc2_human_elven_destroyer:
 	Inherits@WC2SHIP: ^WC2Ship
@@ -3644,6 +3676,8 @@ wc2_human_elven_destroyer:
 	WithSpriteTurret:
 	Voiced:
 		VoiceSet: wc2voicehumanship
+	ActorStatValues:
+		Upgrades: wc2_h_str_cannon, wc2_h_str_cannon2, wc2_h_str_navyshield, wc2_h_str_navyshield2
 
 wc2_human_transport:
 	Inherits@WC2Ship: ^WC2Ship
@@ -3657,6 +3691,8 @@ wc2_human_transport:
 		Name: Transport
 	Voiced:
 		VoiceSet: wc2voicehumanship
+	ActorStatValues:
+		Upgrades: wc2_h_str_navyshield, wc2_h_str_navyshield2
 
 wc2_human_battleship:
 	Inherits@WC2Ship: ^WC2Ship
@@ -3681,6 +3717,8 @@ wc2_human_battleship:
 	WithSpriteTurret:
 	Voiced:
 		VoiceSet: wc2voicehumanship
+	ActorStatValues:
+		Upgrades: wc2_h_str_cannon, wc2_h_str_cannon2, wc2_h_str_navyshield, wc2_h_str_navyshield2
 
 wc2_human_gnomish_submarine:
 	Inherits@WC2Ship: ^WC2Ship
@@ -3708,6 +3746,8 @@ wc2_human_gnomish_submarine:
 	-WithDeathAnimation:
 	WithDeathAnimation@Bubbles:
 		Delay: 0
+	ActorStatValues:
+		Upgrades: wc2_h_str_cannon, wc2_h_str_cannon2, wc2_h_str_navyshield, wc2_h_str_navyshield2
 
 ####################################################################################################
 # WC2 HUMAN AIR UNITS
@@ -3716,6 +3756,7 @@ wc2_human_gnomish_submarine:
 wc2_human_gnomish_flying_machine:
 	Inherits@WC2AirUnit: ^WC2AirUnit
 	Inherits@WC2Template: ^wc2_airscout
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
 	Tooltip:
 		Name: Flying Machine
 	Buildable:
@@ -3724,6 +3765,8 @@ wc2_human_gnomish_flying_machine:
 		Description: Flying scout unit. He's got a flying machine!\nDetector.
 	Voiced:
 		VoiceSet: wc2voicehumanflyingmachine
+	ActorStatValues:
+		Upgrades: wc2_h_str_shield, wc2_h_str_shield2
 
 wc2_human_gryphon_rider:
 	Inherits@WC2AirUnit: ^WC2AirUnit
@@ -3788,6 +3831,8 @@ wc2_human_gryphon_rider:
 		Name: body-slow
 		Sequence: idle-slow
 		RequiresCondition: wc2_cond_slow && !wc2_cond_haste
+	ActorStatValues:
+		Upgrades: wc2_h_str_cannon, wc2_h_str_cannon2, wc2_h_str_shield, wc2_h_str_shield2
 
 ####################################################################################################
 # WC2 ORC BUILDINGS
@@ -3943,6 +3988,15 @@ wc2_orc_greathall:
 	Tooltip@3:
 		Name: Fortress
 		RequiresCondition: wc2_orc_fortress
+	Production@NORMAL:
+		-RequiresCondition:
+	-Production@CLASSICPRODUCTIONQUEUES:
+	ProductionBar@BUILDING:
+		-RequiresCondition:
+	ProductionBar@DEFENCE:
+		-RequiresCondition:
+	-ProductionBar@RABUILDING:
+	-ProductionBar@RADEFENCE:
 	ProductionQueue@Building:
 		LowPowerModifier: 100
 	ProductionQueue@Defense:
@@ -4792,6 +4846,8 @@ wc2_orc_peon:
 	Voiced:
 		VoiceSet: wc2voiceorcpeongrunt
 	-DamagedByTerrain:
+	ActorStatValues:
+		Upgrades: wc2_o_str_shield, wc2_o_str_shield2
 
 wc2_orc_grunt:
 	Inherits@WC2INFANTRY: ^WC2Infantry
@@ -4824,6 +4880,8 @@ wc2_orc_grunt:
 		TargetTypes: DogImmune
 	Voiced:
 		VoiceSet: wc2voiceorcpeongrunt
+	ActorStatValues:
+		Upgrades: wc2_o_str_axe, wc2_o_str_axe2, wc2_o_str_shield, wc2_o_str_shield2
 
 # Axethrower also has built-in berserker stuff so that berserker's upgrades and spells will be applied to already-built axethrwoers, just as in WC2.
 wc2_orc_troll_axethrower:
@@ -4873,6 +4931,8 @@ wc2_orc_troll_axethrower:
 		MoveSequence: run-berserker
 		DefaultAttackSequence: shoot-berserker
 		RequiresCondition: berserker_upg
+	ActorStatValues:
+		Upgrades: wc2_o_str_throwaxe, wc2_o_str_throwaxe2, wc2_o_str_shield, wc2_o_str_shield2, wc2_o_berserkerupg, wc2_o_berserker_lighteraxes, wc2_o_berserker_scouting
 
 # Separate actor for berserker because otherwise we can't change the build icon (cameo) or tooltip.
 wc2_orc_troll_berserker:
@@ -4955,6 +5015,8 @@ wc2_orc_ogre:
 		TargetTypes: Ground, Vehicle, Monster
 	#Weapons
 	Inherits@attacks_and_spells: ^wc2_ogre_ogremage_attacks_spells
+	ActorStatValues:
+		Upgrades: wc2_o_str_axe, wc2_o_str_axe2, wc2_o_str_shield, wc2_o_str_shield2, wc2_o_ogremageupg, wc2_o_bloodlustupg, wc2_o_runesupg
 
 # Separate actor for ogremage because otherwise we can't change the build icon (cameo) or tooltip.
 wc2_orc_ogremage:
@@ -5139,6 +5201,7 @@ wc2_orc_catapult:
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@CatUpg: ^wc2_o_str_catapult
+	Inherits@WC2OShieldUpg: ^wc2_o_str_shield
 	Tooltip:
 		Name: Catapult
 	Valued:
@@ -5180,11 +5243,13 @@ wc2_orc_catapult:
 		RevokeDelay: 34
 	Mobile:
 		PauseOnCondition: cond_catapult_cooldown || disabled || notmobile
+	ActorStatValues:
+		Upgrades: wc2_o_str_catapult, wc2_o_str_catapult2, wc2_o_str_shield, wc2_o_str_shield2
 
 wc2_orc_goblin_sappers:
 	Inherits@WC2INFANTRY: ^WC2Infantry
 	Inherits@WC2Template: ^wc2_demolitioner
-	Inherits@WC2AxeUpg: ^wc2_o_str_axe
+	Inherits@CatUpg: ^wc2_o_str_catapult
 	Inherits@WC2OShieldUpg: ^wc2_o_str_shield
 	Tooltip:
 		Name: Goblin Sappers
@@ -5217,6 +5282,8 @@ wc2_orc_goblin_sappers:
 		RequiresCondition: cond_detonate
 	Voiced:
 		VoiceSet: wc2voiceorcgoblinsappers
+	ActorStatValues:
+		Upgrades: wc2_o_str_catapult, wc2_o_str_catapult2, wc2_o_str_shield, wc2_o_str_shield2
 
 wc2_orc_deathknight:
 	Inherits@WC2Infantry: ^WC2Infantry
@@ -5340,6 +5407,8 @@ wc2_orc_deathknight:
 		Delay: 1
 		Count: -50
 		RequiresCondition: cond_raisedead_drain
+	ActorStatValues:
+		Upgrades: wc2_o_str_shield, wc2_o_str_shield2, wc2_o_hasteupg, wc2_o_deathanddecayupg, wc2_o_raisedeadupg
 
 	### Visual indicator of mode ###
 	WithDecoration@Mode_Deathcoil:
@@ -5392,7 +5461,6 @@ wc2_orc_deathknight:
 		RequiresSelection: True
 		PipCount: 10
 
-
 wc2_orc_skeleton:
 	Inherits@wc2_human_footman: wc2_human_footman
 	Inherits@WC2AxeUpg: ^wc2_o_str_axe
@@ -5414,6 +5482,8 @@ wc2_orc_skeleton:
 	# Undead target type
 	Targetable@UNDEAD:
 		TargetTypes: undeadtarget
+	ActorStatValues:
+		Upgrades: wc2axe_upg, wc2axe_upg2
 
 ####################################################################################################
 # WC2 ORC SHIPS
@@ -5431,6 +5501,8 @@ wc2_orc_oil_tanker:
 		Name: Oil Tanker
 	Voiced:
 		VoiceSet: wc2voiceorcship
+	ActorStatValues:
+		Upgrades: wc2_o_str_navyshield, wc2_o_str_navyshield2
 
 wc2_orc_trolldestroyer:
 	Inherits@WC2SHIP: ^WC2Ship
@@ -5455,6 +5527,8 @@ wc2_orc_trolldestroyer:
 	WithSpriteTurret:
 	Voiced:
 		VoiceSet: wc2voiceorcship
+	ActorStatValues:
+		Upgrades: wc2_o_str_cannon, wc2_o_str_cannon2, wc2_o_str_navyshield, wc2_o_str_navyshield2
 
 wc2_orc_transport:
 	Inherits@WC2Ship: ^WC2Ship
@@ -5468,6 +5542,8 @@ wc2_orc_transport:
 		Name: Transport
 	Voiced:
 		VoiceSet: wc2voiceorcship
+	ActorStatValues:
+		Upgrades: wc2_o_str_navyshield, wc2_o_str_navyshield2
 
 wc2_orc_ogre_juggernaught:
 	Inherits@WC2Ship: ^WC2Ship
@@ -5492,6 +5568,8 @@ wc2_orc_ogre_juggernaught:
 	WithSpriteTurret:
 	Voiced:
 		VoiceSet: wc2voiceorcship
+	ActorStatValues:
+		Upgrades: wc2_o_str_cannon, wc2_o_str_cannon2, wc2_o_str_navyshield, wc2_o_str_navyshield2
 
 wc2_orc_giant_turtle:
 	Inherits@WC2Ship: ^WC2Ship
@@ -5519,6 +5597,8 @@ wc2_orc_giant_turtle:
 	-WithDeathAnimation:
 	WithDeathAnimation@Bubbles:
 		Delay: 0
+	ActorStatValues:
+		Upgrades: wc2_o_str_cannon, wc2_o_str_cannon2, wc2_o_str_navyshield, wc2_o_str_navyshield2
 
 ####################################################################################################
 # WC2 ORC AIR UNITS
@@ -5527,6 +5607,7 @@ wc2_orc_giant_turtle:
 wc2_orc_goblin_zeppelin:
 	Inherits@WC2AirUnit: ^WC2AirUnit
 	Inherits@WC2Template: ^wc2_airscout
+	Inherits@WC2OShieldUpg: ^wc2_o_str_shield
 	Tooltip:
 		Name: Goblin Zeppelin
 	Buildable:
@@ -5535,6 +5616,8 @@ wc2_orc_goblin_zeppelin:
 		Description: Flying scout unit. He can see your house!\nDetector.
 	Voiced:
 		VoiceSet: wc2voiceorcgoblinzeppelin
+	ActorStatValues:
+		Upgrades: wc2_o_str_shield, wc2_o_str_shield2
 
 wc2_orc_dragon:
 	Inherits@WC2AirUnit: ^WC2AirUnit
@@ -5605,6 +5688,8 @@ wc2_orc_dragon:
 		Name: body-slow
 		Sequence: idle-slow
 		RequiresCondition: wc2_cond_slow && !wc2_cond_haste
+	ActorStatValues:
+		Upgrades: wc2_o_str_cannon, wc2_o_str_cannon2, wc2_o_str_shield, wc2_o_str_shield2
 
 wc2_orc_eye_of_kilrogg:
 	Inherits: ^WC2AirUnit
@@ -5777,7 +5862,7 @@ wc2_h_str_sword:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases melee damage by 25%.
+		Description: Increases melee damage by 15%.
 		Prerequisites: ~!wc2_h_str_sword, ~wc2_human_blacksmith
 	Valued:
 		Cost: 2500
@@ -5792,10 +5877,10 @@ wc2_h_str_sword2:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases melee damage by further 25%.
-		Prerequisites: ~!wc2_h_str_sword2, ~wc2_h_str_sword, ~wc2_human_blacksmith, wc2_human_castle
+		Description: Increases melee damage by further 15%.
+		Prerequisites: !wc2_h_str_sword2, ~wc2_h_str_sword, ~wc2_human_blacksmith, wc2_human_castle
 	Valued:
-		Cost: 2500
+		Cost: 5000
 	RenderSprites:
 		Image: wc2_h_str_sword2
 	ProvidesPrerequisite:
@@ -5807,7 +5892,7 @@ wc2_h_str_shield:
 	Buildable:
 		BuildPaletteOrder: 2
 		Queue: Addons
-		Description: Increases damage resistance of all land units by 20%.
+		Description: Increases damage resistance of all land units by 10%.
 		Prerequisites: ~!wc2_h_str_shield, ~wc2_human_blacksmith
 	Valued:
 		Cost: 2500
@@ -5822,10 +5907,10 @@ wc2_h_str_shield2:
 	Buildable:
 		BuildPaletteOrder: 2
 		Queue: Addons
-		Description: Increases damage resistance of all land units by further 20%.
-		Prerequisites: ~!wc2_h_str_shield2, ~wc2_h_str_shield, ~wc2_human_blacksmith, wc2_human_castle
+		Description: Increases damage resistance of all land units by further 10%.
+		Prerequisites: !wc2_h_str_shield2, ~wc2_h_str_shield, ~wc2_human_blacksmith, wc2_human_castle
 	Valued:
-		Cost: 2500
+		Cost: 5000
 	RenderSprites:
 		Image: wc2_h_str_shield2
 	ProvidesPrerequisite:
@@ -5837,7 +5922,7 @@ wc2_h_str_arrow:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases arrow damage dealt by Archers and Guard Towers by 25%.
+		Description: Increases arrow damage dealt by Archers and Guard Towers by 15%.
 		Prerequisites: ~!wc2_h_str_arrow, ~wc2_human_blacksmith
 	Valued:
 		Cost: 2500
@@ -5852,10 +5937,10 @@ wc2_h_str_arrow2:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases arrow damage by Archers and Guard Towers by further 25%.
-		Prerequisites: ~!wc2_h_str_arrow2, ~wc2_h_str_arrow, ~wc2_human_blacksmith, wc2_human_castle
+		Description: Increases arrow damage by Archers and Guard Towers by further 15%.
+		Prerequisites: !wc2_h_str_arrow2, ~wc2_h_str_arrow, ~wc2_human_blacksmith, wc2_human_castle
 	Valued:
-		Cost: 2500
+		Cost: 5000
 	RenderSprites:
 		Image: wc2_h_str_arrow2
 	ProvidesPrerequisite:
@@ -5882,7 +5967,7 @@ wc2_h_ranger_longbow:
 	Buildable:
 		BuildPaletteOrder: 2
 		Queue: Addons
-		Description: Increases range of Rangers by 25%.
+		Description: Increases range of Rangers by 20%.
 		Prerequisites: ~!wc2_h_ranger_longbow, ~wc2_h_rangerupg, ~wc2_human_blacksmith, wc2_human_castle
 	Valued:
 		Cost: 2500
@@ -5897,7 +5982,7 @@ wc2_h_ranger_scouting:
 	Buildable:
 		BuildPaletteOrder: 3
 		Queue: Addons
-		Description: Increases vision range of Rangers by 25%.
+		Description: Increases vision range of Rangers by 20%.
 		Prerequisites: ~!wc2_h_ranger_scouting, ~wc2_h_rangerupg, ~wc2_human_blacksmith
 	Valued:
 		Cost: 2500
@@ -5927,7 +6012,7 @@ wc2_h_str_ballista:
 	Buildable:
 		BuildPaletteOrder: 3
 		Queue: Addons
-		Description: Increases ballista damage dealt by Ballista by 25%
+		Description: Increases ballista damage dealt by Ballista by 15%
 		Prerequisites: ~!wc2_h_str_ballista, ~wc2_human_blacksmith
 	Valued:
 		Cost: 2500
@@ -5942,10 +6027,10 @@ wc2_h_str_ballista2:
 	Buildable:
 		BuildPaletteOrder: 3
 		Queue: Addons
-		Description: Increases ballista damage dealt by Ballista by further 25%
-		Prerequisites: ~!wc2_h_str_ballista2, ~wc2_h_str_ballista, ~wc2_human_blacksmith, wc2_human_castle
+		Description: Increases ballista damage dealt by Ballista by further 15%
+		Prerequisites: !wc2_h_str_ballista2, ~wc2_h_str_ballista, ~wc2_human_blacksmith, wc2_human_castle
 	Valued:
-		Cost: 2500
+		Cost: 5000
 	RenderSprites:
 		Image: wc2_h_str_ballista2
 	ProvidesPrerequisite:
@@ -5957,7 +6042,7 @@ wc2_h_str_cannon:
 	Buildable:
 		BuildPaletteOrder: 4
 		Queue: Addons
-		Description: Increases Cannon Damage dealt by Naval Vessels and Cannon Towers by 25%
+		Description: Increases Cannon Damage dealt by Naval Vessels and Cannon Towers by 15%
 		Prerequisites: ~!wc2_h_str_cannon, ~wc2_human_blacksmith
 	Valued:
 		Cost: 2500
@@ -5972,10 +6057,10 @@ wc2_h_str_cannon2:
 	Buildable:
 		BuildPaletteOrder: 4
 		Queue: Addons
-		Description: Increases Cannon Damage dealt by Naval Vessels and Cannon Towers by further 20%
-		Prerequisites: ~!wc2_h_str_cannon2, ~wc2_h_str_cannon, ~wc2_human_blacksmith, wc2_human_castle
+		Description: Increases Cannon Damage dealt by Naval Vessels and Cannon Towers by further 15%
+		Prerequisites: !wc2_h_str_cannon2, ~wc2_h_str_cannon, ~wc2_human_blacksmith, wc2_human_castle
 	Valued:
-		Cost: 2500
+		Cost: 5000
 	RenderSprites:
 		Image: wc2_h_str_cannon2
 	ProvidesPrerequisite:
@@ -5987,7 +6072,7 @@ wc2_h_str_navyshield:
 	Buildable:
 		BuildPaletteOrder: 5
 		Queue: Addons
-		Description: Increases damage resistance of all Naval Vessels by 20%
+		Description: Increases damage resistance of all Naval Vessels by 10%
 		Prerequisites: ~!wc2_h_str_navyshield, ~wc2_human_blacksmith, ~wc2_human_shipyard
 	Valued:
 		Cost: 2500
@@ -6002,10 +6087,10 @@ wc2_h_str_navyshield2:
 	Buildable:
 		BuildPaletteOrder: 5
 		Queue: Addons
-		Description: Increases damage resistance of all Naval Vessels by further 25%
-		Prerequisites: ~!wc2_h_str_navyshield2, ~wc2_h_str_navyshield, ~wc2_human_blacksmith, ~wc2_human_shipyard, wc2_human_castle
+		Description: Increases damage resistance of all Naval Vessels by further 10%
+		Prerequisites: !wc2_h_str_navyshield2, ~wc2_h_str_navyshield, ~wc2_human_blacksmith, ~wc2_human_shipyard, wc2_human_castle
 	Valued:
-		Cost: 2500
+		Cost: 5000
 	RenderSprites:
 		Image: wc2_h_str_navyshield2
 	ProvidesPrerequisite:
@@ -6111,7 +6196,7 @@ wc2_o_str_axe:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases melee damage by 25%.
+		Description: Increases melee damage by 15%.
 		Prerequisites: ~!wc2_o_str_axe, ~wc2_orc_blacksmith
 	Valued:
 		Cost: 2500
@@ -6126,10 +6211,10 @@ wc2_o_str_axe2:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases melee damage by further 25%.
-		Prerequisites: ~!wc2_o_str_axe2, ~wc2_o_str_axe, ~wc2_orc_blacksmith, wc2_orc_fortress
+		Description: Increases melee damage by further 15%.
+		Prerequisites: !wc2_o_str_axe2, ~wc2_o_str_axe, ~wc2_orc_blacksmith, wc2_orc_fortress
 	Valued:
-		Cost: 2500
+		Cost: 5000
 	RenderSprites:
 		Image: wc2_o_str_axe2
 	ProvidesPrerequisite:
@@ -6141,7 +6226,7 @@ wc2_o_str_shield:
 	Buildable:
 		BuildPaletteOrder: 2
 		Queue: Addons
-		Description: Increases damage resistance of all land units by 20%.
+		Description: Increases damage resistance of all land units by 10%.
 		Prerequisites: ~!wc2_o_str_shield, ~wc2_orc_blacksmith
 	Valued:
 		Cost: 2500
@@ -6156,10 +6241,10 @@ wc2_o_str_shield2:
 	Buildable:
 		BuildPaletteOrder: 2
 		Queue: Addons
-		Description: Increases damage resistance of all land units by further 20%.
-		Prerequisites: ~!wc2_o_str_shield2, ~wc2_o_str_shield, ~wc2_orc_blacksmith, wc2_orc_fortress
+		Description: Increases damage resistance of all land units by further 10%.
+		Prerequisites: !wc2_o_str_shield2, ~wc2_o_str_shield, ~wc2_orc_blacksmith, wc2_orc_fortress
 	Valued:
-		Cost: 2500
+		Cost: 5000
 	RenderSprites:
 		Image: wc2_o_str_shield2
 	ProvidesPrerequisite:
@@ -6171,7 +6256,7 @@ wc2_o_str_throwaxe:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases ranged damage dealt by Axethrowers and Guard Towers by 25%.
+		Description: Increases ranged damage dealt by Axethrowers and Guard Towers by 15%.
 		Prerequisites: ~!wc2_o_str_throwaxe, ~wc2_orc_blacksmith
 	Valued:
 		Cost: 2500
@@ -6186,10 +6271,10 @@ wc2_o_str_throwaxe2:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases ranged damage by Axethrowers and Guard Towers by further 25%
-		Prerequisites: ~!wc2_o_str_throwaxe2, ~wc2_o_str_throwaxe, ~wc2_orc_blacksmith, wc2_orc_fortress
+		Description: Increases ranged damage by Axethrowers and Guard Towers by further 15%
+		Prerequisites: !wc2_o_str_throwaxe2, ~wc2_o_str_throwaxe, ~wc2_orc_blacksmith, wc2_orc_fortress
 	Valued:
-		Cost: 2500
+		Cost: 5000
 	RenderSprites:
 		Image: wc2_o_str_throwaxe2
 	ProvidesPrerequisite:
@@ -6216,7 +6301,7 @@ wc2_o_berserker_lighteraxes:
 	Buildable:
 		BuildPaletteOrder: 2
 		Queue: Addons
-		Description: Increases throwing range of Berserker axes by 25%.
+		Description: Increases throwing range of Berserker axes by 20%.
 		Prerequisites: ~!wc2_o_berserker_lighteraxes, ~wc2_o_berserkerupg, ~wc2_orc_blacksmith, wc2_orc_fortress
 	Valued:
 		Cost: 2500
@@ -6231,7 +6316,7 @@ wc2_o_berserker_scouting:
 	Buildable:
 		BuildPaletteOrder: 3
 		Queue: Addons
-		Description: Increases vision range of Berserkers by 25%.
+		Description: Increases vision range of Berserkers by 20%.
 		Prerequisites: ~!wc2_o_berserker_scouting, ~wc2_o_berserkerupg, ~wc2_orc_blacksmith
 	Valued:
 		Cost: 2500
@@ -6246,7 +6331,7 @@ wc2_o_berserker_regen:
 	Buildable:
 		BuildPaletteOrder: 4
 		Queue: Addons
-		Description: Berserkers heal over time.
+		Description: Berserkers heal over time (5% HP each second).
 		Prerequisites: ~!wc2_o_berserker_regen, ~wc2_o_berserkerupg, ~wc2_orc_blacksmith, wc2_orc_stronghold
 	Valued:
 		Cost: 2500
@@ -6261,7 +6346,7 @@ wc2_o_str_catapult:
 	Buildable:
 		BuildPaletteOrder: 3
 		Queue: Addons
-		Description: Increases Catapult damage by 25%
+		Description: Increases Catapult damage by 15%
 		Prerequisites: ~!wc2_o_str_catapult, ~wc2_orc_blacksmith
 	Valued:
 		Cost: 2500
@@ -6276,10 +6361,10 @@ wc2_o_str_catapult2:
 	Buildable:
 		BuildPaletteOrder: 3
 		Queue: Addons
-		Description: Increases Catapult damage by 25%
-		Prerequisites: ~!wc2_o_str_catapult2, ~wc2_o_str_catapult, ~wc2_orc_blacksmith, wc2_orc_fortress
+		Description: Increases Catapult damage by further 15%
+		Prerequisites: !wc2_o_str_catapult2, ~wc2_o_str_catapult, ~wc2_orc_blacksmith, wc2_orc_fortress
 	Valued:
-		Cost: 2500
+		Cost: 5000
 	RenderSprites:
 		Image: wc2_o_str_catapult2
 	ProvidesPrerequisite:
@@ -6292,7 +6377,7 @@ wc2_o_str_cannon:
 		BuildPaletteOrder: 4
 		BuildLimit: 1
 		Queue: Addons
-		Description: Increases cannon damage dealt by Naval Vessels and Cannon Towers by 25%
+		Description: Increases cannon damage dealt by Naval Vessels and Cannon Towers by 15%
 		Prerequisites: ~!wc2_o_str_cannon, ~wc2_orc_blacksmith
 	Valued:
 		Cost: 2500
@@ -6307,10 +6392,10 @@ wc2_o_str_cannon2:
 	Buildable:
 		BuildPaletteOrder: 4
 		Queue: Addons
-		Description: Increases cannon damage dealt by Naval Vessels and Cannon Towers by further 25%
-		Prerequisites: ~!wc2_o_str_cannon2, ~wc2_o_str_cannon, ~wc2_orc_blacksmith, wc2_orc_fortress
+		Description: Increases cannon damage dealt by Naval Vessels and Cannon Towers by further 15%
+		Prerequisites: !wc2_o_str_cannon2, ~wc2_o_str_cannon, ~wc2_orc_blacksmith, wc2_orc_fortress
 	Valued:
-		Cost: 2500
+		Cost: 5000
 	RenderSprites:
 		Image: wc2_o_str_cannon2
 	ProvidesPrerequisite:
@@ -6322,7 +6407,7 @@ wc2_o_str_navyshield:
 	Buildable:
 		BuildPaletteOrder: 5
 		Queue: Addons
-		Description: Increases damage resistance of all Naval Vessels by 25%.
+		Description: Increases damage resistance of all Naval Vessels by 10%.
 		Prerequisites: ~!wc2_o_str_navyshield, ~wc2_orc_blacksmith, ~wc2_orc_shipyard
 	Valued:
 		Cost: 2500
@@ -6337,10 +6422,10 @@ wc2_o_str_navyshield2:
 	Buildable:
 		BuildPaletteOrder: 5
 		Queue: Addons
-		Description: Increases damage resistance of all Naval Vessels by further 25%.
-		Prerequisites: ~!wc2_o_str_navyshield2, ~wc2_o_str_navyshield, ~wc2_orc_blacksmith, ~wc2_orc_shipyard, wc2_orc_fortress
+		Description: Increases damage resistance of all Naval Vessels by further 10%.
+		Prerequisites: !wc2_o_str_navyshield2, ~wc2_o_str_navyshield, ~wc2_orc_blacksmith, ~wc2_orc_shipyard, wc2_orc_fortress
 	Valued:
-		Cost: 2500
+		Cost: 5000
 	RenderSprites:
 		Image: wc2_o_str_navyshield2
 	ProvidesPrerequisite:

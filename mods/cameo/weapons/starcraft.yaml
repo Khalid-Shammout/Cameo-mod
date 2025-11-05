@@ -677,17 +677,22 @@ VultureGrenade:
 	Inherits: ^Grenade
 	Inherits: ^TankDestroyerCannon
 	Inherits: ^MediumCannon
-	ReloadDelay: 30
-	Range: 4470
+	ReloadDelay: 25
+	Range: 4800
 	Report: tvuFir00.aud
 	Projectile: Bullet
-		Speed: 447
-		LaunchAngle: 0
-		ContrailLength: 11
-		ContrailStartWidth: 66
-		ContrailEndWidth: 22
+		Speed: 480
+		Blockable: false
+		LaunchAngle: 48
+		Inaccuracy: 48
+		InaccuracyType: PerCellIncrement
+		Image: d2k_grenade
+		Shadow: true
+		ContrailLength: 12
 		ContrailStartColor: FFFF88FF
 		ContrailEndColor: FF884422
+		ContrailStartWidth: 48
+		ContrailEndWidth: 24
 	Warhead@SmallArms: SpreadDamage
 		Damage: 4000
 	Warhead@SmallArmsPercentage: HealthPercentageDamage

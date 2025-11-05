@@ -388,8 +388,8 @@ Player:
 		Type: Addons
 		DisplayOrder: 10
 		Group: Addon
-		SpeedUp: False
-		LowPowerModifier: 100
+		LowPowerModifier: 200
+		BuildTimeSpeedReduction: 100, 80, 65, 50, 40, 33, 25
 	ClassicProductionQueue@UPGRADE:
 		Type: Upgrades
 		DisplayOrder: 10

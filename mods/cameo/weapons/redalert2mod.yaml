@@ -2748,7 +2748,7 @@ SteelQuantumTurretRailEMP:
 		Damage: 8000
 
 SteelInspectorIonCannon:
-	Inherits: TDIonCannonDamage
+	Inherits: SteelInspectorIonCannonDamage
 	ValidTargets: Ground, Water
 	AirThreshold: 10000
 	Range: 2500
@@ -2759,7 +2759,7 @@ SteelInspectorIonCannon:
 	Warhead@Beam: CreateEffect
 		Explosions: steel_empressstationbeam
 		ImpactSounds: ion1.aud
-		ValidTargets: Ground, Water
+		ValidTargets: Ground, Water, Air
 		ImpactActors: false
 	Warhead@Damage: FireFragment
 		Weapon: SteelInspectorIonCannonDamage
@@ -2768,9 +2768,83 @@ SteelInspectorIonCannon:
 		AirThreshold: 10000
 
 SteelInspectorIonCannonDamage:
-	Inherits: TDIonCannonDamage
+	Inherits: ^TeslaChargedWeapon
+	Inherits: ^TeslaWeapon
 	ValidTargets: Ground, Water
 	AirThreshold: 10000
+	Warhead@TeslaChargedWeapon: SpreadDamage
+		ValidTargets: Ground, Water
+		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
+		Spread: 300
+		Damage: 100000
+		Delay: 0
+		AffectsParent: False
+	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		Falloff: 100, 0
+		Spread: 4000
+		Damage: 50
+		Delay: 1
+		AffectsParent: False
+	Warhead@TeslaChargedExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water
+		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
+		Spread: 200
+		Damage: 50000
+		Delay: 2
+		AffectsParent: False
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water
+		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
+		Spread: 300
+		Damage: 100000
+		Delay: 3
+		AffectsParent: False
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		Falloff: 100, 0
+		Spread: 4000
+		Damage: 50
+		Delay: 4
+		AffectsParent: False
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water
+		Falloff: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10
+		Spread: 200
+		Damage: 50000
+		Delay: 5
+		AffectsParent: False
+	Warhead@IonCannon: SpreadDamage
+		ValidTargets: Ground, Water
+		Range: 0, 600, 1200, 1800, 2400, 3000
+		Falloff: 1000, 800, 600, 400, 200, 0
+		Damage: 50000
+		Delay: 6
+		AffectsParent: False
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@IonCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water
+		Spread: 4000
+		Damage: 25
+		Delay: 7
+		AffectsParent: False
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@Smudge1: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+		Size: 1
+		Delay: 3
+	Warhead@Smudge2: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+		Size: 2,1
+		Delay: 6
+	Warhead@Effect: CreateEffect
+		Explosions: steel_empressstationbeam
+		ImpactSounds: ion1.aud
+		ValidTargets: Ground, Water, Air
+		ImpactActors: false
+		Volume: 5
 
 SteelIonCannon:
 	AirThreshold: 8c0
@@ -6373,10 +6447,10 @@ RA2RBurritoRocket:
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 2
-	Warhead@MediumMissile: SpreadDamage
+	Warhead@HeavyMissile: SpreadDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 4000
-	Warhead@MediumMissilePercentage: HealthPercentageDamage
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
 		Damage: 2
 	-Warhead@Effect1:
@@ -7844,16 +7918,15 @@ Future_CoilerFriendFrag2:
 Future_MultiMissile:
 	Inherits: ^ArrowWeapon
 	Inherits: ^RA2LightMissile
+	ReloadDelay: 24
 	Burst: 3
 	BurstDelays: 4
-	Range: 7000
+	Range: 7410
 	Report: vifvatta.wav
 	Warhead@ArrowWeapon: SpreadDamage
 		Damage: 4000
-		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
 		Damage: 2
-		DamageTypes: Prone75Percent, TriggerProne, ExplosionDeath
 	Warhead@LightMissile: SpreadDamage
 		Damage: 4000
 	Warhead@LightMissilePercentage: HealthPercentageDamage
@@ -7861,27 +7934,201 @@ Future_MultiMissile:
 	Warhead@Effect: CreateEffect
 		Explosions: ra2_small_grey_explosion
 		ImpactSounds: gexpifva.wav
-Future_MultiMissile_Six:
-	Inherits: Future_MultiMissile
-	Burst: 6
+
+Future_MultiMissile_Javelin:
+	Inherits: ^LightMissile
+	Inherits: ^FlakWeapon
+	Inherits: ^MediumMissile
+	Inherits: ^ShrapnelWeapon
+	Inherits: D2K_Rocket
+	ReloadDelay: 32
+	Burst: 3
 	BurstDelays: 4
+	Range: 9000
+	Projectile: Missile
+		Acceleration: 6
+		Speed: 900
+		MaximumLaunchSpeed: 300
+		MinimumLaunchSpeed: 300
+		HorizontalRateOfTurn: 30
+		VerticalRateOfTurn: 30
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+
 Future_MultiMissile_Frag:
-	Inherits: Future_MultiMissile
-	Warhead@2: FireShrapnel
-		Weapon: Future_MultiMissile_Frag_Frags
-		Amount: 4
-		AimChance: 50
-		AimTargetStances: Enemy, Neutral
-Future_MultiMissile_Frag_Frags:
-	Inherits: ^RA2SmallArms
-	ReloadDelay: 52
-	Range: 1500
-	Report: laser_cannon3_3.wav
-	Warhead@SmallArms: SpreadDamage
-		Damage: 6500
+	Inherits: ^ShrapnelWeapon
+	Inherits: ^MediumFlameWeapon
+	Inherits: ^LightChemicalWeapon
+	Inherits: ^LightMissile
+	ReloadDelay: 56
+	Burst: 3
+	BurstDelays: 4
+	Range: 8300
+	MinRange: 1660
+	Report: vintatta.wav
+	ValidTargets: Ground, Water
+	Projectile: Bullet
+		Speed: 160
+		Arm: 2
+		Inaccuracy: 830
+		Image: d2k_missile2
+		Palette: d2keffect
+		TrailImage: large_trail
+		LaunchAngle: 83
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 4000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2
+	Warhead@MediumFlameWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 4000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2
+	Warhead@LightChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 4000
+	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2000
+	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 4000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 2
 	Warhead@Effect: CreateEffect
-		Explosions: ra2_piffs
+		Explosions: ra2_large_explosion
 		ExplosionPalette: ra2effect
+		ImpactSounds: gexpbara.wav, gexpbarb.wav, gexpbarc.wav
+	Warhead@2: FireShrapnel
+		InvalidTargets: FireImmune
+		Weapon: AsianFlameFragment
+		Amount: 5
+		AimChance: 0
+		AimTargetStances: Enemy, Neutral
+
+Future_MultiMissile_Sigma:
+	Inherits: ^TeslaChargedWeapon
+	Inherits: ^MagicWeapon
+	Inherits: ^FlakWeapon
+	Inherits: ^ShrapnelWeapon
+	Inherits: ^MediumMissile
+	ReloadDelay: 50
+	Burst: 3
+	BurstDelays: 6
+	Range: 9000
+	Report: missile7.aud
+	Projectile: Missile
+		Speed: 512
+		MaximumLaunchSpeed: 256
+		MinimumLaunchSpeed: 128
+		HorizontalRateOfTurn: 24
+		VerticalRateOfTurn: 24
+		Image: MISSILE
+		TrailImage: blue_smokey
+		ContrailLength: 12
+		ContrailStartWidth: 96
+		ContrailEndWidth: 24
+		ContrailStartColor: 8888FFFF
+		ContrailEndColor: FFFFFF22
+	Warhead@TeslaChargedWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 10000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaChargedExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 5000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaChargedWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 5
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MagicWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 10000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MagicWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 5
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 10000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 5
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 10000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 5000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 5
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 10000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 5
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 25000
+	Warhead@Effect: CreateEffect
+		Explosions: blue_med_frag
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Ground, Ship, Trees
 
 FutureEnforcerShotgun:
 	Inherits: ^Grenade
