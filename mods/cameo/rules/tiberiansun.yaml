@@ -885,10 +885,8 @@ tsntwast:
 		Cost: 1600
 	Tooltip:
 		Name: Waste Facility
-	Health:
-		HP: 1000000
 	Buildable:
-		BuildPaletteOrder: 20
+		BuildPaletteOrder: 200
 		BuildLimit: 1
 		Prerequisites: ~tsgtcnstnod, tsnttech
 		Queue: Building, RABuilding
@@ -1733,7 +1731,7 @@ tsgthpadmutant:
 	RenderSprites:
 		Image: tsnthpad
 
-TSNTHPAD:
+tsnthpad:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x1Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
@@ -1786,7 +1784,7 @@ TSNTHPAD:
 		PlayerPalette: playerra2
 
 TSNTHPAD2:
-	Inherits: TSNTHPAD
+	Inherits: tsnthpad
 	Tooltip:
 		Name: Helipad (CABAL)
 	Buildable:
@@ -2678,7 +2676,7 @@ tsntlasr:
 		Prerequisites: ~tsgtcnstnod, tsnthand
 		Description: Basic base defense.\n  Strong vs Ground units\n  Weak vs Aircraft
 	Valued:
-		Cost: 1000
+		Cost: 8000
 	Power:
 		Amount: -20
 	Tooltip:
@@ -2687,9 +2685,7 @@ tsntlasr:
 		Footprint: x
 		Dimensions: 1,1
 	Health:
-		HP: 72500
-	Armor:
-		Type: Heavy
+		HP: 60000
 	RevealsShroud:
 		Range: 7c0
 	Selectable:
@@ -2700,7 +2696,7 @@ tsntlasr:
 		Offset: 160,5,3
 	AttackTurreted:
 	Armament:
-		Weapon: TSTurretLaserFire
+		Weapon: TSTurretLaser
 	BodyOrientation:
 		QuantizedFacings: 16
 	WithVoxelTurret:
@@ -3106,11 +3102,12 @@ tsntpulscabal:
 
 tsntobel:
 	Inherits: ^Defense
+	Inherits@shape: ^2x2Shape
 	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Valued:
-		Cost: 2000
+		Cost: 2200
 	Tooltip:
 		Name: Obelisk of Light
 	Buildable:
@@ -3127,9 +3124,7 @@ tsntobel:
 		DecorationBounds: 2048, 2048, 0, -512
 	SelectionDecorations:
 	Health:
-		HP: 242500
-	Armor:
-		Type: Heavy
+		HP: 250000
 	RevealsShroud:
 		Range: 7c0
 	-WithSpriteBody:
@@ -3802,7 +3797,7 @@ TSE3:
 	Inherits@anim: ^TSInfantry
 	Inherits@vo: ^AttackFrontalVoice
 	Valued:
-		Cost: 250
+		Cost: 300
 	Tooltip:
 		Name: Rocket Infantry
 	UpdatesPlayerStatistics:
@@ -3813,11 +3808,11 @@ TSE3:
 		Queue: Infantry, RAInfantry
 		Description: Anti-tank/anti-aircraft infantry. \n  Strong vs Tanks, Aircraft\n  Weak vs Infantry
 	Mobile:
-		Speed: 56
+		Speed: 50
 	Health:
-		HP: 10000
-	ChangesHealth@SelfHealing:
-		Step: 10
+		HP: 12000
+	# ChangesHealth@SelfHealing:
+	# 	Step: 10
 	Armament@PRIMARY: ##########
 		Weapon: TSBazooka
 		LocalOffset: 256,43,341
@@ -3835,9 +3830,9 @@ TSE3:
 		CrushedSequencePalette: ra2effect
 	Voiced:
 		VoiceSet: TSRocket
-	Armament@GARRISONED: ##########
-		Name: garrisoned
-		Weapon: TSBazookaG
+	# Armament@GARRISONED: ##########
+	# 	Name: garrisoned
+	# 	Weapon: TSBazookaG
 	RenderSprites:
 		PlayerPalette: playerra2
 
@@ -3860,29 +3855,29 @@ elitcadre:
 	Inherits@anim: ^TSInfantry
 	Inherits@vo: ^AttackFrontalVoice
 	Valued:
-		Cost: 150
+		Cost: 450
 	Tooltip:
 		Name: Elite Cadre
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		BuildPaletteOrder: 10
-		Prerequisites: ~tsnthand, tsnttech, tsntradr
+		BuildPaletteOrder: 50
+		Prerequisites: ~tsnthand, tsntradr
 		Queue: Infantry, RAInfantry
 		Description: Elite Infantry of NOD used to fight high technology enemies \n  Strong vs Infantry, Air, Vehicles\n  Weak vs Siege, Heavy armor
 		BuildDuration: 425
 		BuildDurationModifier: 100
 	Mobile:
-		Speed: 70
+		Speed: 55
 	Health:
 		HP: 20000
-	ChangesHealth@SelfHealing:
-		Step: 20
+	# ChangesHealth@SelfHealing:
+	# 	Step: 20
 	Armament@PRIMARY:
-		Weapon: elitecadre
+		Weapon: elitecadregun
 	Armament@GARRISONED: ##########
 		Name: garrisoned
-		Weapon: elitecadre
+		Weapon: elitecadregun
 	TakeCover:
 		ProneOffset: 180,0,-200
 	Inherits@EXT: ^ExternalConditions ##########
@@ -4003,36 +3998,39 @@ TSCHAMSPY:
 	Inherits@anim: ^TSInfantry
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
-	Inherits@EXT: ^ExternalConditions
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@cloak: ^CloakedVehicle
+	Inherits@Template: ^MeleeInfantryTemplate
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 90
 		Prerequisites: ~tsnthand, tsnttech
 		Description: Cloaked spy that can infiltrate structures.
 	Valued:
-		Cost: 500
+		Cost: 350
 	Tooltip:
 		Name: Chameleon Spy
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	-Guard:
 	Health:
-		HP: 6000
+		HP: 20000
 	Mobile:
-		Speed: 69
+		Speed: 90
 		Voice: Move
 	RevealsShroud:
 		Range: 4c0
+	Armament@PRIMARY:
+		Weapon: ChamBlade
 	Passenger:
 		CustomPipType: blue
 		Voice: Move
-	Cloak:
-		InitialDelay: 60
-		CloakDelay: 60
-		UncloakOn: Unload
-		PauseOnCondition: disabled || base-reveal
-		IsPlayerPalette: true
+	# Cloak:
+	# 	InitialDelay: 60
+	# 	CloakDelay: 60
+	# 	UncloakOn: Unload
+	# 	PauseOnCondition: disabled || base-reveal
+	# 	IsPlayerPalette: true
 	Infiltrates:
 		Types: SpyInfiltrate
 		Notification: BuildingInfiltrated
@@ -5378,6 +5376,135 @@ TSPITBULL:
 	ActorStatValues:
 		Upgrades: up_tsprojectileimprovements, up_mechanicalreliability
 
+TSAPC:
+	Inherits: ^Tank
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@Voxel: ^TSRenderVoxel
+	Inherits@EMP: ^TurretEMP
+	Inherits@vo: ^AttackTurretedVoice
+	Inherits@cargo: ^CargoVehicle
+	Inherits@MechanicalReliability: ^MechanicalReliability
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Amphibious APC
+	UpdatesPlayerStatistics:
+		OverrideActor: tsapc
+	Buildable:
+		BuildPaletteOrder: 60
+		Prerequisites: ~tsgtweap
+		Queue: Vehicle, RAVehicle
+		Description: Armored infantry transport.\nCan move on water.
+	Mobile:
+		Locomotor: amphibius
+		Speed: 113
+	Health:
+		HP: 30000
+	Repairable:
+		HpPerStep: 2637
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	Turreted:
+		TurnSpeed: 20 #3
+	Armament:
+		Weapon: TSRaiderCannon
+		Recoil: 128
+		RecoilRecovery: 26
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackTurreted:
+	SelectionDecorations:
+	Selectable:
+		Class: tsapc
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 400
+	Cargo:
+		Types: Infantry, Hacker, Fremen
+		MaxWeight: 5
+	GrantConditionOnTerrain:
+		Condition: inwater
+		TerrainTypes: Water, River
+	WithVoxelBody:
+		RequiresCondition: !inwater
+	WithVoxelBody@water:
+		Sequence: water
+		RequiresCondition: inwater
+	RenderVoxels:
+		Image: tsapc
+	RenderSprites:
+		Image: tsapc
+	AutoDeployer:
+		DeployChance: 100
+		DeployTicks: 0
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+	RenderSprites:
+		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability
+
+
+tsmemp:
+	Inherits: ^Tank
+	Inherits@Template: ^LineBreakerTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@Voxel: ^TSRenderVoxel
+	Inherits@EMP: ^TurretEMP
+	Inherits@MechanicalReliability: ^MechanicalReliability
+	Valued:
+		Cost: 1400
+	Tooltip:
+		Name: Mobile EMP
+	Buildable:
+		BuildPaletteOrder: 110
+		Prerequisites: ~tsgtweap, tsntpulsgdi, tsgtradr
+		Queue: Vehicle, RAVehicle
+		Description: Shuts down vehicles with an EMP blast.\n  Strong vs Vehicles, Cyborgs
+	Mobile:
+		Locomotor: tracked
+		Speed: 100
+	Health:
+		HP: 150000
+	Armor:
+		Type: Heavy
+	Repairable:
+		HpPerStep: 7500
+	ChangesHealth@SelfHealing:
+		Step: 60
+	RevealsShroud:
+		Range: 5c0
+	Turreted:
+	AttackTurreted:
+	Armament:
+		Weapon: TSMobileEMP
+		MuzzleSequence: muzzle
+#	ReloadArmamentsBar:
+#	Inherits@EXT: ^ExternalConditions
+	WithVoxelBody:
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 700
+	RenderVoxels:
+		Image: tsm_emp
+		Scale: 15
+	RenderSprites:
+		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability
+
 TSMMCH:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
@@ -6020,7 +6147,7 @@ TSBGGY:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
 	Valued:
-		Cost: 350
+		Cost: 450
 	Tooltip:
 		Name: Attack Buggy
 	Buildable:
@@ -6030,12 +6157,14 @@ TSBGGY:
 		Description: Fast scout and anti-infantry vehicle.\n  Strong vs Infantry, Light armor\n  Weak vs Vehicles, Aircraft
 	Mobile:
 		Locomotor: wheeled
-		TurnSpeed: 80
-		Speed: 142
+		TurnSpeed: 64
+		Speed: 160
 	Health:
-		HP: 22000
+		HP: 30000
 	Repairable:
-		HpPerStep: 2000
+		HpPerStep: 1500
+	ChangesHealth@SelfHealing:
+		Step: 12
 	Armor:
 		Type: Light
 	RevealsShroud:
@@ -6048,7 +6177,7 @@ TSBGGY:
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
 	AttackFrontal:
-		FacingTolerance: 0
+		FacingTolerance: 512
 	SelectionDecorations:
 	Selectable:
 	Inherits@EXT: ^ExternalConditions ##########
@@ -6070,7 +6199,7 @@ TSBIKE:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
 	Valued:
-		Cost: 550
+		Cost: 600
 	Tooltip:
 		Name: Attack Cycle
 	Buildable:
@@ -6080,26 +6209,26 @@ TSBIKE:
 		Description: Fast scout vehicle, armed with\nrockets.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Mobile:
 		Locomotor: wheeled
-		TurnSpeed: 80
+		TurnSpeed: 68
 		Speed: 170
 	Health:
-		HP: 15000
+		HP: 20000
 	Repairable:
-		HpPerStep: 2000
-	Armor:
-		Type: Light
+		HpPerStep: 100
+	ChangesHealth@SelfHealing:
+		Step: 8
 	RevealsShroud:
 		Range: 6c0
 	Armament@PRIMARY:
 		Weapon: TSBikeMissile
-		RequiresCondition: !rank-elite
+		# RequiresCondition: !rank-elite
 		LocalOffset: -153,-204,509, -153,204,509
-	Armament@ELITE:
-		Weapon: TSHoverMissile
-		RequiresCondition: rank-elite
-		LocalOffset: -153,-204,509, -153,204,509
+	# Armament@ELITE:
+	# 	Weapon: TSHoverMissile
+	# 	RequiresCondition: rank-elite
+	# 	LocalOffset: -153,-204,509, -153,204,509
 	AttackFrontal:
-		FacingTolerance: 0
+		FacingTolerance: 512
 	SelectionDecorations:
 	Selectable:
 	Inherits@EXT: ^ExternalConditions ##########
@@ -6130,9 +6259,13 @@ TSSTNK:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^FrontalEMP
+	Inherits@AntiVeh: ^PrioritizeVehicle
+	Inherits@AntiTank: ^PrioritizeTank
+	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@cloak: ^CloakedVehicle
 	Valued:
-		Cost: 1000
+		Cost: 1750
 	Tooltip:
 		Name: Stealth Tank
 	Buildable:
@@ -6142,20 +6275,23 @@ TSSTNK:
 		Description: Lightly armoured tank equipped with a \nstealth generator. Armed with missiles.\nCan be spotted by infantry at close range.\n  Strong vs Vehicles, Aircraft\n  Weak vs Infantry
 	Mobile:
 		Locomotor: heavywheeled
-		Speed: 108
+		TurnSpeed: 40
+		Speed: 100
 	Health:
-		HP: 25000
+		HP: 80000
 	Repairable:
-		HpPerStep: 2000
+		HpPerStep: 4000
+	ChangesHealth@SelfHealing:
+		Step: 32
 	Armor:
 		Type: Heavy
 	RevealsShroud:
 		Range: 5c0
 	Armament@PRIMARY:
-		Weapon: TSDragon
+		Weapon: TSStankTusk
 		LocalOffset: -153,-204,509, -153,204,509
 	AttackFrontal:
-		FacingTolerance: 0
+		FacingTolerance: 512
 	AutoTarget:
 		InitialStance: HoldFire
 	SelectionDecorations:
@@ -6168,17 +6304,17 @@ TSSTNK:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 250
-	Cloak:
-		InitialDelay: 90
-		CloakDelay: 90
-		CloakSound: cloak5.aud
-		UncloakSound: cloak5.aud
-		PauseOnCondition: cloak-force-disabled || base-reveal
-		Palette: voxelcloak
-		IsPlayerPalette: true
-	GrantConditionOnDamageState@UNCLOAK:
-		Condition: cloak-force-disabled
-		ValidDamageStates: Critical
+	# Cloak:
+	# 	InitialDelay: 90
+	# 	CloakDelay: 90
+	# 	CloakSound: cloak5.aud
+	# 	UncloakSound: cloak5.aud
+	# 	PauseOnCondition: cloak-force-disabled || base-reveal
+	# 	Palette: voxelcloak
+	# 	IsPlayerPalette: true
+	# GrantConditionOnDamageState@UNCLOAK:
+	# 	Condition: cloak-force-disabled
+	# 	ValidDamageStates: Critical
 	RenderSprites:
 		PlayerPalette: playerra2
 
@@ -6210,11 +6346,14 @@ TSREPAIR:
 		Description: Repairs nearby vehicles.\n  Unarmed
 	Mobile:
 		Locomotor: tracked
-		Speed: 85
+		TurnSpeed: 30
+		Speed: 75
 	Health:
-		HP: 20000
+		HP: 50000
 	Repairable:
-		HpPerStep: 2000
+		HpPerStep: 2500
+	ChangesHealth@SelfHealing:
+		Step: 20
 	Armor:
 		Type: Heavy
 	RevealsShroud:
@@ -6259,25 +6398,27 @@ TSTTNK:
 	Inherits@detect: ^EliteDetector
 	Inherits@vo: ^AttackFrontalVoice
 	Valued:
-		Cost: 600
+		Cost: 800
 	Tooltip:
 		Name: Tick Tank
 	Buildable:
 		BuildPaletteOrder: 60
-		BuildDurationModifier: 100
-		BuildDuration: 300
+		# BuildDurationModifier: 100
+		# BuildDuration: 300
 		Prerequisites: ~tsntweap
 		Queue: Vehicle, RAVehicle
 		Description: Nod's main battle tank.\nCan deploy to gain extra protection.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
 	Mobile:
 		Locomotor: tracked
-		TurnSpeed: 96
+		TurnSpeed: 32
 		Speed: 90
 		RequireForceMoveCondition: deployed
 	Health:
-		HP: 40000
+		HP: 100000
 	Repairable:
-		HpPerStep: 2637
+		HpPerStep: 5000
+	ChangesHealth@SelfHealing:
+		Step: 40
 	Armor:
 		Type: Heavy
 	RevealsShroud:
@@ -6285,35 +6426,35 @@ TSTTNK:
 	RevealOnFire:
 		ArmamentNames: primary, deployed
 	DamageMultiplier:
-		Modifier: 75
+		Modifier: 50
 		RequiresCondition: deployed
 	Turreted:
-		TurnSpeed: 160
+		TurnSpeed: 32
 		Turret: deployed
 	Armament@PRIMARY:
 		Weapon: TS90mm
 		LocalOffset: 407,0,362
-		RequiresCondition: !rank-elite && undeployed
+		RequiresCondition: undeployed
 		MuzzleSequence: muzzle
-	Armament@ELITE:
-		Weapon: TS120mmx
-		LocalOffset: 407,0,362
-		RequiresCondition: rank-elite && undeployed
-		MuzzleSequence: muzzle
+	# Armament@ELITE:
+	# 	Weapon: TS120mmx
+	# 	LocalOffset: 407,0,362
+	# 	# RequiresCondition: rank-elite && undeployed
+	# 	MuzzleSequence: muzzle
 	Armament@deployed:
 		Name: deployed
 		Turret: deployed
-		Weapon: TS90mm
+		Weapon: TS90mmDep
 		LocalOffset: 543,0,362
-		RequiresCondition: !rank-elite && deployed
+		RequiresCondition: deployed
 		MuzzleSequence: muzzle
-	Armament@elitedeployed:
-		Name: deployed
-		Turret: deployed
-		Weapon: TS120mmx
-		LocalOffset: 543,0,362
-		RequiresCondition: rank-elite && deployed
-		MuzzleSequence: muzzle
+	# Armament@elitedeployed:
+	# 	Name: deployed
+	# 	Turret: deployed
+	# 	Weapon: TS120mmx
+	# 	LocalOffset: 543,0,362
+	# 	RequiresCondition: rank-elite && deployed
+	# 	MuzzleSequence: muzzle
 	WithMuzzleOverlay:
 	AttackFrontal:
 		RequiresCondition: undeployed
@@ -6389,7 +6530,7 @@ TSART2:
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
-		Cost: 975
+		Cost: 1300
 	Tooltip:
 		Name: Artillery
 	Buildable:
@@ -6399,17 +6540,20 @@ TSART2:
 		Description: Mobile artillery.\nImmobile when firing.\n  Strong vs Ground units\n  Weak vs Aircraft
 	Mobile:
 		Locomotor: tracked
-		Speed: 71
+		Speed: 60
+		TurnSpeed: 24
 	Health:
 		HP: 30000
 	Repairable:
-		HpPerStep: 2637
+		HpPerStep: 1500
+	ChangesHealth@SelfHealing:
+		Step: 12
 	Armor:
 		Type: Light
 	RevealsShroud:
 		Range: 7c0
 	Turreted:
-		TurnSpeed: 32 #3
+		TurnSpeed: 24 #3
 	Armament@PRIMARY:
 		Weapon: TS155mm
 		LocalOffset: 407,0,362
@@ -6428,12 +6572,12 @@ TSART2:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 350
-	AmmoPool:
-		Ammo: 1
-		AmmoCondition: ammo
-	ReloadAmmoPool:
-		Delay: 200
-		Count: 1
+	# AmmoPool:
+	# 	Ammo: 1
+	# 	AmmoCondition: ammo
+	# ReloadAmmoPool:
+	# 	Delay: 200
+	# 	Count: 1
 	GrantConditionOnAttack@DEPLOY:
 		Condition: immobile
 		RevokeDelay: 50
@@ -6444,9 +6588,9 @@ TSART2:
 		Sequence: deploy
 		RequiresCondition: immobile
 		Name: body2
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: True
+	# WithAmmoPipsDecoration:
+	# 	Position: BottomLeft
+	# 	RequiresSelection: True
 	RenderSprites:
 		PlayerPalette: playerra2
 
@@ -6471,7 +6615,7 @@ TSSUBTANK:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
 	Valued:
-		Cost: 550
+		Cost: 1150
 	Tooltip:
 		Name: Devil's Tongue
 	Buildable:
@@ -6481,11 +6625,14 @@ TSSUBTANK:
 		Description: Subterranean flame tank.\nIs able to move underground.\n  Strong vs Infantry, Buildings\n  Weak vs Tanks, Aircraft
 	Mobile:
 		Locomotor: subterranean
-		Speed: 71
+		Speed: 70
+		TurnSpeed: 28
 	Health:
-		HP: 30000
+		HP: 100000
 	Repairable:
-		HpPerStep: 2637
+		HpPerStep: 5000
+	ChangesHealth@SelfHealing:
+		Step: 40
 	Armor:
 		Type: Light
 	RevealsShroud:
@@ -6518,83 +6665,6 @@ TSSUBTANKCABAL:
 		Image: tssubtank
 	RenderVoxels:
 		Image: tssubtank
-
-TSAPC:
-	Inherits: ^Tank
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
-	Inherits@EMP: ^TurretEMP
-	Inherits@vo: ^AttackTurretedVoice
-	Inherits@cargo: ^CargoVehicle
-	Inherits@MechanicalReliability: ^MechanicalReliability
-	Valued:
-		Cost: 800
-	Tooltip:
-		Name: Amphibious APC
-	UpdatesPlayerStatistics:
-		OverrideActor: tsapc
-	Buildable:
-		BuildPaletteOrder: 60
-		Prerequisites: ~tsgtweap
-		Queue: Vehicle, RAVehicle
-		Description: Armored infantry transport.\nCan move on water.
-	Mobile:
-		Locomotor: amphibius
-		Speed: 113
-	Health:
-		HP: 30000
-	Repairable:
-		HpPerStep: 2637
-	Armor:
-		Type: Heavy
-	RevealsShroud:
-		Range: 6c0
-	Turreted:
-		TurnSpeed: 20 #3
-	Armament:
-		Weapon: TSRaiderCannon
-		Recoil: 128
-		RecoilRecovery: 26
-		MuzzleSequence: muzzle
-	WithMuzzleOverlay:
-	AttackTurreted:
-	SelectionDecorations:
-	Selectable:
-		Class: tsapc
-	Inherits@EXT: ^ExternalConditions ##########
-	AcceptsDeliveredExperience: ##########
-		ValidTypes: vehicle ##########
-	Voiced:
-		VoiceSet: TSVehicle
-	DeliversCash:
-		Payload: 400
-	Cargo:
-		Types: Infantry, Hacker, Fremen
-		MaxWeight: 5
-	GrantConditionOnTerrain:
-		Condition: inwater
-		TerrainTypes: Water, River
-	WithVoxelBody:
-		RequiresCondition: !inwater
-	WithVoxelBody@water:
-		Sequence: water
-		RequiresCondition: inwater
-	RenderVoxels:
-		Image: tsapc
-	RenderSprites:
-		Image: tsapc
-	AutoDeployer:
-		DeployChance: 100
-		DeployTicks: 0
-	WithCargoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: true
-	RenderSprites:
-		PlayerPalette: playerra2
-	ActorStatValues:
-		Upgrades: up_mechanicalreliability
 
 tssgen:
 	Inherits: ^Tank
@@ -6719,56 +6789,6 @@ tslpstnod:
 		Image: tslpst
 		PlayerPalette: playerra2
 
-tsmemp:
-	Inherits: ^Tank
-	Inherits@Template: ^LineBreakerTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
-	Inherits@EMP: ^TurretEMP
-	Inherits@MechanicalReliability: ^MechanicalReliability
-	Valued:
-		Cost: 1400
-	Tooltip:
-		Name: Mobile EMP
-	Buildable:
-		BuildPaletteOrder: 110
-		Prerequisites: ~tsgtweap, tsntpulsgdi, tsgtradr
-		Queue: Vehicle, RAVehicle
-		Description: Shuts down vehicles with an EMP blast.\n  Strong vs Vehicles, Cyborgs
-	Mobile:
-		Locomotor: tracked
-		Speed: 100
-	Health:
-		HP: 150000
-	Armor:
-		Type: Heavy
-	Repairable:
-		HpPerStep: 7500
-	ChangesHealth@SelfHealing:
-		Step: 60
-	RevealsShroud:
-		Range: 5c0
-	Turreted:
-	AttackTurreted:
-	Armament:
-		Weapon: TSMobileEMP
-		MuzzleSequence: muzzle
-#	ReloadArmamentsBar:
-#	Inherits@EXT: ^ExternalConditions
-	WithVoxelBody:
-	Voiced:
-		VoiceSet: TSVehicle
-	DeliversCash:
-		Payload: 700
-	RenderVoxels:
-		Image: tsm_emp
-		Scale: 15
-	RenderSprites:
-		PlayerPalette: playerra2
-	ActorStatValues:
-		Upgrades: up_mechanicalreliability
 
 #######################################
 # TS Forgotten Vehicles
@@ -7697,6 +7717,10 @@ TSORCAB:
 		CanSlide: false
 	Health:
 		HP: 120000
+	Repairable:
+		HpPerStep: 6000
+	ChangesHealth@SelfHealing:
+		Step: 48
 	RevealsShroud:
 		Range: 7c0
 		Type: GroundPosition
@@ -7881,7 +7905,7 @@ TSSCRIN:
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
 	Valued:
-		Cost: 1500
+		Cost: 2400
 	Tooltip:
 		Name: Banshee Fighter
 	UpdatesPlayerStatistics:
@@ -7893,17 +7917,19 @@ TSSCRIN:
 		Description: Advanced fighter-bomber craft\nwith twin plasma cannons.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
 	Aircraft:
 		CruiseAltitude: 2560
-		TurnSpeed: 80
-		Speed: 175
+		TurnSpeed: 72
+		Speed: 180
 		AirborneCondition: airborne
 		TakeoffSounds: dropup1.aud
 		LandingSounds: dropdwn1.aud
 		CanHover: false
 		CanSlide: false
 	Health:
-		HP: 28000
-	Armor:
-		Type: Light
+		HP: 60000
+	Repairable:
+		HpPerStep: 3000
+	ChangesHealth@SelfHealing:
+		Step: 24
 	RevealsShroud:
 		Range: 7c0
 		Type: GroundPosition
@@ -7924,12 +7950,12 @@ TSSCRIN:
 	Voiced:
 		VoiceSet: TSScrin
 	AmmoPool:
-		Ammo: 15
-		ReloadCount: 5
+		Ammo: 4
+		ReloadCount: 1
 		AmmoCondition: ammo
-	ReloadAmmoPool:
-		Delay: 25
-		Count: 1
+	# ReloadAmmoPool:
+	# 	Delay: 25
+	# 	Count: 1
 	DeathSounds:
 		VolumeMultiplier: 2
 	SpawnActorOnDeath:
@@ -7937,7 +7963,7 @@ TSSCRIN:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 3
+		PipCount: 4
 
 TSSCRINCABAL:
 	Inherits: TSSCRIN
@@ -7977,7 +8003,7 @@ TSAPACHENOD:
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
 	Valued:
-		Cost: 1000
+		Cost: 1800
 	Tooltip:
 		Name: Harpy
 	UpdatesPlayerStatistics:
@@ -7988,12 +8014,14 @@ TSAPACHENOD:
 		Queue: Aircraft, RAAircraft
 		Description: Anti-personnel support gunship\narmed with dual chain guns.\n  Strong vs Infantry, Light armor, Aircraft\n  Weak vs Vehicles
 	Aircraft:
-		TurnSpeed: 80
-		Speed: 150
+		TurnSpeed: 56
+		Speed: 140
 	Health:
-		HP: 60000
-	Armor:
-		Type: Light
+		HP: 50000
+	Repairable:
+		HpPerStep: 2500
+	ChangesHealth@SelfHealing:
+		Step: 20
 	RevealsShroud:
 		Range: 7c0
 		Type: GroundPosition
