@@ -489,7 +489,7 @@ aa_cgmiac:
 		Produces: RAInfantry
 		RequiresCondition: classicproductionqueues
 		PauseOnCondition: disabled
-	ParallelProductionQueue@INFANTRY:
+	ProductionQueue@INFANTRY:
 		Type: Infantry
 		DisplayOrder: 2
 		Group: Infantry
@@ -7201,25 +7201,25 @@ latin_yakolev:
 	Inherits@Template: ^FighterTemplate
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@turnanimation: ^RA2PlanewithTurnAnimation
+	# Inherits@turnanimation: ^RA2PlanewithTurnAnimation
 	Inherits@uprecover: ^LatinCashrecover
 	Inherits@gat: ^YuriGatlingUpgrade
 	Selectable:
 	Tooltip:
 		Name: Yakovlev
 	Valued:
-		Cost: 900
+		Cost: 600
 	Buildable:
 		BuildPaletteOrder: 100
 		Prerequisites: ~latin_cgair
 		Queue: Aircraft, RAAircraft
 		Description: actor-latin_yakovlev.description
 	Health:
-		HP: 17500
+		HP: 37500
 	Repairable:
-		HpPerStep: 875
+		HpPerStep: 1875
 	ChangesHealth@SelfHealing:
-		Step: 7
+		Step: 15
 	HitShape:
 	Voiced:
 		VoiceSet: LatinMigVoice
@@ -7239,9 +7239,16 @@ latin_yakolev:
 		LocalYaw: 50, -50, 25, -25
 		PauseOnCondition: !ammo
 		RequiresCondition: !latin_up_chaingun
+	Armament@ELITE:
+		Name: primary
+		Weapon: YakovlevCannonE
+		LocalOffset: 425,250,-225, 425,-250,-225, 425,150,-225, 425,-150,-225
+		LocalYaw: 50, -50, 25, -25
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
 	Armament@latin_up_chaingun:
 		Name: primary
-		Weapon: LatinBuggyChaingunE
+		Weapon: YakovlevCannonE
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
 		LocalYaw: 50, -50, 25, -25
 		PauseOnCondition: !ammo
@@ -7336,61 +7343,34 @@ latin_yakolev:
 	SpeedMultiplier@GattlingSpeed10:
 		RequiresCondition: gatling >= 10 && latin_up_chaingun
 		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 24
+		RevokeDelay: 50
 		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 12
+		RevokeDelay: 25
 		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
 		Condition: latin_up_chaingun
 		Prerequisites: latin_up_chaingun
 	AmmoPool:
-		Ammo: 40
+		Ammo: 10
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 6
+		Delay: 40
 		Count: 1
+	ReloadAmmoDelayMultiplier@latin_up_chaingun:
+		RequiresCondition: latin_up_chaingun
+		Modifier: 50
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 8
+		PipCount: 5
 	WithMuzzleOverlay:
 	Contrail@1:
 		Offset: -640,171,0
@@ -7502,13 +7482,10 @@ latin_mig:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 2
+		PipCount: 4
 	WithMuzzleOverlay:
 	Contrail@1:
-		Offset: -640,171,0
-		TrailLength: 15
-	Contrail@2:
-		Offset: -640,-171,0
+		Offset: -960,0,240
 		TrailLength: 15
 	SpawnActorOnDeath:
 		Actor: latin_mig.husk
@@ -10591,7 +10568,7 @@ steel_twister:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@upgrade: ^RA2AdvancedAeronautics
 	Valued:
-		Cost: 2500
+		Cost: 800
 	Tooltip:
 		Name: Twister
 	UpdatesPlayerStatistics:
@@ -10614,9 +10591,11 @@ steel_twister:
 		VTOL: true
 		Voice: Move
 	Health:
-		HP: 60000
+		HP: 80000
+	Repairable:
+		HpPerStep: 4000
 	ChangesHealth@SelfHealing:
-		Step: 24
+		Step: 32
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: SteelTwisterMissiles
@@ -10635,7 +10614,7 @@ steel_twister:
 		Ammo: 8
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 50
+		Delay: 60
 		Count: 1
 	SpawnActorOnDeath:
 		Actor: steel_twister.Husk
@@ -10660,6 +10639,7 @@ steel_twister:
 		PipCount: 8
 	RenderSprites:
 		PlayerPalette: playerra2cons
+
 steel_twister.Husk:
 	Inherits: ^PlaneHusk
 	Tooltip:
@@ -11974,6 +11954,7 @@ nax_airfield:
 		DirectionArrowAnimation: airstrikedirection
 		SupportPowerPaletteOrder: 40
 		DisplayTimerRelationships: Ally, Neutral, Enemy
+
 nax_interceptor:
 	Inherits: ^RANeutralPlane
 	Inherits@Template: ^FighterTemplate
@@ -12069,6 +12050,7 @@ nax_interceptor.Husk:
 		Image: nax_interceptor
 	RenderSprites:
 		PlayerPalette: playerra2
+
 nax_tek:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
@@ -12624,6 +12606,7 @@ nax2_radar:
 		Dimensions: 4,3
 	ProvidesPrerequisite:
 		Prerequisite: anyrahq
+
 nax2_airfield:
 	Inherits: ^RA2Defense
 	Inherits@Template: ^BasicDefenseTemplate
@@ -15232,16 +15215,26 @@ nax2_crystal:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
+	WithRangeCircle:
+		Range: 7500
+	ProximityExternalCondition@PropagandaEffect:
+		Range: 7500
+		ValidRelationships: Ally
+		Condition: PropagandaEffect
+		RequiresCondition: attacking
 	ProximityExternalCondition@HealingField:
-		Range: 5000
+		Range: 7500
 		ValidRelationships: Ally
 		Condition: HealingField
 		RequiresCondition: attacking
 	GrantConditionOnAttack:
 		Condition: attacking
-		RevokeDelay: 10
-	WithRangeCircle:
-		Range: 5000
+		RevokeDelay: 20
+		RequiresCondition: !rank-elite
+	GrantConditionOnAttack@ELITE:
+		Condition: attacking
+		RevokeDelay: 40
+		RequiresCondition: rank-elite
 	RenderRangeCircle:
 	AttackFrontal:
 	WithMuzzleOverlay:
@@ -17380,10 +17373,10 @@ nax_bf109:
 	Tooltip:
 		Name: BF 109
 	Valued:
-		Cost: 1000
+		Cost: 700
 	Buildable:
 		BuildPaletteOrder: 100
-		Prerequisites: ~nax_radar
+		Prerequisites: ~nax_radar, ~!nax_upgrade_me262
 		Queue: Aircraft, RAAircraft
 		Description: actor-bpln.description
 	Health:
@@ -17410,24 +17403,26 @@ nax_bf109:
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
 		LocalYaw: 50, -50, 25, -25
 		PauseOnCondition: !ammo
-	FirepowerMultiplier@DualWeapon:
-		Modifier: 50
+	Armament@ELITE:
+		Name: primary
+		Weapon: NaxPlanegun
+		LocalOffset: 425,250,-225, 425,-250,-225, 425,150,-225, 425,-150,-225
+		LocalYaw: 50, -50, 25, -25
+		PauseOnCondition: !ammo
+		RequiresCondition: rank-elite
 	AmmoPool:
-		Ammo: 16
+		Ammo: 20
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 8
+		Delay: 30
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 8
+		PipCount: 5
 	WithMuzzleOverlay:
 	Contrail@1:
-		Offset: -640,171,0
-		TrailLength: 15
-	Contrail@2:
-		Offset: -640,-171,0
+		Offset: -960,0,0
 		TrailLength: 15
 	SpawnActorOnDeath:
 		Actor: nax_me262.husk
@@ -17455,9 +17450,20 @@ nax_bf109.Husk:
 	RenderSprites:
 		PlayerPalette: playerra2
 
+nax_upgrade_me262:
+	Inherits: ^unit_upgrade_template
+	Tooltip:
+		Name: Unlock Me 262
+	Buildable:
+		Description: Upgrades the BF 109 to the Me 262
+		Prerequisites: ~nax_radar, !nax_upgrade_me262
+	RenderSprites:
+		Image: nax_me262
+
 nax_me262:
 	Inherits: ^RANeutralPlane
 	Inherits@Template: ^FighterTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@turnanimation: ^RA2PlanewithTurnAnimation
@@ -17465,18 +17471,18 @@ nax_me262:
 	Tooltip:
 		Name: Me 262
 	Valued:
-		Cost: 2200
+		Cost: 1100
 	Buildable:
 		BuildPaletteOrder: 100
-		Prerequisites: ~nax_radar
+		Prerequisites: ~nax_upgrade_me262
 		Queue: Aircraft, RAAircraft
 		Description: actor-bpln.description
 	Health:
-		HP: 45000
+		HP: 75000
 	Repairable:
-		HpPerStep: 2250
+		HpPerStep: 3750
 	ChangesHealth@SelfHealing:
-		Step: 18
+		Step: 30
 	HitShape:
 	Voiced:
 		VoiceSet: NaxiAircraftVoice
@@ -17489,22 +17495,46 @@ nax_me262:
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 100
-	Armament:
+	Armament@Rockets:
+		Name: primary
+		Weapon: NaxPlaneRockets
+		LocalOffset: 425,-350,-225, 425,350,-225
+		LocalYaw: 50, -50, 25, -25
+		AmmoUsage: 5
+		PauseOnCondition: ammo < 5
+	Armament@RocketsELITE:
+		Name: primary
+		Weapon: NaxPlaneRockets
+		LocalOffset: 425,350,-225, 425,-350,-225
+		LocalYaw: 50, -50, 25, -25
+		AmmoUsage: 5
+		PauseOnCondition: ammo < 5
+		RequiresCondition: rank-elite
+	Armament@MG:
 		Name: primary
 		Weapon: NaxPlanegun
 		LocalOffset: 425,-250,-225, 425,250,-225, 425,-150,-225, 425,150,-225
 		LocalYaw: 50, -50, 25, -25
-		PauseOnCondition: !ammo
+		PauseOnCondition: ammo < 5
+	Armament@ELITE:
+		Name: primary
+		Weapon: NaxPlanegun
+		LocalOffset: 425,250,-225, 425,-250,-225, 425,150,-225, 425,-150,-225
+		LocalYaw: 50, -50, 25, -25
+		PauseOnCondition: ammo < 5
+		RequiresCondition: rank-elite
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
 	AmmoPool:
-		Ammo: 16
+		Ammo: 40
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 8
+		Delay: 15
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 8
+		PipCount: 10
 	WithMuzzleOverlay:
 	Contrail@1:
 		Offset: -640,171,0

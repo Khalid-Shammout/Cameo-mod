@@ -1517,7 +1517,7 @@ d2k_munitions.ixian:
 # 	Production@CLASSICPRODUCTIONQUEUES:
 # 		Produces: RAVehicle
 # 		RequiresCondition: classicproductionqueues
-	# ParallelProductionQueue:
+	# ProductionQueue:
 	# 	Type: Vehicle
 	# 	DisplayOrder: 3
 	# 	Group: Vehicle
@@ -1676,7 +1676,7 @@ light_factory:
 		Cost: 1000
 	Health:
 		HP: 200000
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 		BuildDurationModifier: 200
 	WithIdleOverlay@TOP:
 		RequiresCondition: !build-incomplete
@@ -1731,7 +1731,7 @@ heavy_factory.ixian:
 		Prerequisites: ~construction_yard.ixian, refinery.atreides
 		Description: template-factory.description
 		IconPalette: player
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 		BuildDurationModifier: 75
 	ProvidesPrerequisite@missiletank:
 		Prerequisite: heavy.missile_tank
@@ -2181,7 +2181,7 @@ starport.ixian:
 		ActorType: frigate
 		PauseOnCondition: lowpower
 		RequiresCondition: classicproductionqueues
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 		Type: Vehicle
 		DisplayOrder: 3
 		Group: Vehicle
@@ -3198,6 +3198,7 @@ palace.ordos:
 	Inherits@shape: ^3x3Shape
 	Inherits@SW: ^PrimarySuperweapon
 	Buildable:
+		Queue: Building, RABuilding
 		Prerequisites: ~construction_yard.ordos, research_centre.ordos
 		Description: This structure unlocks support powers.
 		IconPalette: d2kunit

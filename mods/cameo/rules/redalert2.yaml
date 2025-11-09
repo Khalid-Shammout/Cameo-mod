@@ -498,10 +498,10 @@ RA2Flameguy:
 		Condition: Aircraft-Vertical
 	WithMoveAnimation@Turn-L:
 		MoveSequence: move-l
-		RequiresCondition: Aircraft-Turning && Aircraft-Horizontal
-	WithMoveAnimation@Turn-R:
-		MoveSequence: move-r
-		RequiresCondition: Aircraft-Turning && Aircraft-Vertical
+		RequiresCondition: Aircraft-Turning #&& Aircraft-Vertical
+	# WithMoveAnimation@Turn-R:
+	# 	MoveSequence: move-r
+	# 	RequiresCondition: Aircraft-Turning && Aircraft-Horizontal
 	#WithMoveAnimation:
 	#	MoveSequence: move
 	#	Condition: !Aircraft-Turning
@@ -2728,7 +2728,7 @@ yrygcomd:
 		Produces: RAAircraft
 		RequiresCondition: classicproductionqueues
 		PauseOnCondition: disabled
-	ParallelProductionQueue@AIRCRAFT:
+	ProductionQueue@AIRCRAFT:
 		Type: Aircraft
 		DisplayOrder: 4
 		Group: Aircraft
@@ -8109,7 +8109,7 @@ RA2FALC:
 	Aircraft:
 		CruiseAltitude: 2560
 		TurnSpeed: 12
-		Speed: 175
+		Speed: 180
 		IdleTurnSpeed: 10
 		IdleSpeed: 100
 		TakeoffSounds: vintupa.wav
@@ -8119,9 +8119,11 @@ RA2FALC:
 		VTOL: true
 		Voice: Move
 	Health:
-		HP: 60000
+		HP: 90000
+	Repairable:
+		HpPerStep: 4500
 	ChangesHealth@SelfHealing:
-		Step: 24
+		Step: 36
 	Armament@PRIMARY:
 		Name: primary
 		Weapon: HarrierMissiles
@@ -8140,7 +8142,7 @@ RA2FALC:
 		Ammo: 8
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 50
+		Delay: 68
 		Count: 1
 	SpawnActorOnDeath:
 		Actor: RA2FALC.Husk

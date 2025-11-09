@@ -1298,7 +1298,7 @@ TSGTPILE:
 		ExitCell: 1,1
 	GrantExternalConditionToProduced:
 		Condition: produced
-	ParallelProductionQueue@INFANTRY:
+	ProductionQueue@INFANTRY:
 	Power:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
@@ -1351,7 +1351,7 @@ TSNTHAND:
 	Exit@2:
 		SpawnOffset: 298,298,0
 		ExitCell: 1,1
-	ParallelProductionQueue@INFANTRY:
+	ProductionQueue@INFANTRY:
 	Power:
 		Amount: -20
 	ProvidesPrerequisite@buildingname:
@@ -1379,7 +1379,7 @@ TSNTHAND2:
 		Description: Trains infantry
 		Icon: iconcabal
 		IconPalette: windows256
-	ParallelProductionQueue@INFANTRY:
+	ProductionQueue@INFANTRY:
 	RenderSprites:
 		Image: tsnthand
 		PlayerPalette: playerra2
@@ -1395,7 +1395,7 @@ tsgtpile2:
 		Description: Trains infantry
 	GrantExternalConditionToProduced:
 		Condition: produced
-	ParallelProductionQueue@INFANTRY:
+	ProductionQueue@INFANTRY:
 	RenderSprites:
 		Image: tsgtpile2
 		PlayerPalette: playerra2
@@ -1438,7 +1438,7 @@ tsgtweap:
 		SpawnOffset: -512,-512,0
 		ExitCell: 2,1
 		ExitDelay: 3
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 	ProductionBar@VEHICLEGDI:
 		ProductionType: Vehicle
 		RequiresCondition: !classicproductionqueues
@@ -1507,7 +1507,7 @@ TSNTWEAP:
 		SpawnOffset: -512,-512,0
 		ExitCell: 2,1
 		ExitDelay: 3
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 	ProductionBar@VEHICLEGDI:
 		ProductionType: Vehicle
 		RequiresCondition: !classicproductionqueues
@@ -1540,7 +1540,7 @@ TSNTWEAPCABAL:
 		Prerequisites: ~tsgtcnstcabal, tsproccabal
 		Queue: Building, RABuilding
 		Description: Produces vehicles
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 	ProductionBar@VEHICLEGDI:
 		ProductionType: Vehicle
 	ProductionBar@RAVEHICLEGDI:
@@ -1557,7 +1557,7 @@ TSGTWEAPMUTANT:
 		Prerequisites: ~tsgtcnstmutant, tsprocmutant
 		Queue: Building, RABuilding
 		Description: Produces vehicles
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 	ProductionBar@VEHICLEGDI:
 		ProductionType: Vehicle
 	ProductionBar@RAVEHICLEGDI:
@@ -1695,7 +1695,7 @@ tsgthpad:
 		PlayerExperience: 25
 		StartRepairingNotification: Repairing
 	RallyPoint:
-	ParallelProductionQueue@AIRCRAFT:
+	ProductionQueue@AIRCRAFT:
 	ProductionBar@AIRCRAFTGDI:
 		ProductionType: Aircraft
 		RequiresCondition: !classicproductionqueues
@@ -1723,7 +1723,7 @@ tsgthpadmutant:
 	Buildable:
 		Queue: Building, RABuilding
 		Prerequisites: ~tsgtcnstmutant, tsgtradrmutant
-	ParallelProductionQueue@AIRCRAFT:
+	ProductionQueue@AIRCRAFT:
 	ProductionBar@AIRCRAFTGDI:
 		ProductionType: Aircraft
 	ProductionBar@RAAIRCRAFTGDI:
@@ -1764,7 +1764,7 @@ tsnthpad:
 		PlayerExperience: 25
 		StartRepairingNotification: Repairing
 	RallyPoint:
-	ParallelProductionQueue@AIRCRAFT:
+	ProductionQueue@AIRCRAFT:
 	ProductionBar@AIRCRAFTNOD:
 		ProductionType: Aircraft
 		RequiresCondition: !classicproductionqueues
@@ -1790,7 +1790,7 @@ TSNTHPAD2:
 	Buildable:
 		Queue: Building, RABuilding
 		Prerequisites: ~tsgtcnstcabal, tsntradrcabal
-	ParallelProductionQueue@AIRCRAFT:
+	ProductionQueue@AIRCRAFT:
 	ProductionBar@AIRCRAFTNOD:
 		ProductionType: Aircraft
 	ProductionBar@RAAIRCRAFTNOD:

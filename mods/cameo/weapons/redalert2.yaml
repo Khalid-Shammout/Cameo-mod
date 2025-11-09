@@ -230,15 +230,16 @@ HarrierMissiles:
 	Inherits: ^Grenade
 	Inherits: ^HeavyMissile
 	Inherits: ^RA2MediumMissile
-	ReloadDelay: 50
+	ReloadDelay: 130
 	Burst: 4
 	BurstDelays: 2
-	Range: 6670
-	MinRange: 1334
+	Range: 5640
+	MinRange: 2820
 	Report: vintatta.wav
 	ValidTargets: Ground, Water, Air, Trees
 	Projectile: Missile
-		Inaccuracy: 300
+		Inaccuracy: 564
+		Speed: 564
 	Warhead@Grenade: SpreadDamage
 		ValidTargets: Ground, Water, Air, Trees
 		Damage: 2000
@@ -271,10 +272,10 @@ HarrierMissiles:
 HarrierMissiles_elite:
 	Inherits: HarrierMissiles
 	Burst: 8
-	Range: 8000
+	Range: 6640
 	Projectile: Missile
-		Inaccuracy: 600
-		Speed: 600
+		Inaccuracy: 664
+		Speed: 664
 		Image: red_dragon
 		TrailImage: red_smokey
 		ContrailColor: e60000

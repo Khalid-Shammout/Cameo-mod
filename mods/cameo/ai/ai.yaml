@@ -3120,7 +3120,7 @@ Player:
 		MaxHarvesters: 24
 		AdditionalHarvesters: 1
 		ScanForIdleHarvestersInterval: 1000
-		HarvesterTypes: harv.gdi, harv.nod, tanodharv, raharv.soviet, raharv.allies, raharv.japan, ra2cmin, ra2harv, aa_drmn, harvester, steel_qmin, latin_harv, nax_slavemaster, nax_slav, nax2_armor_harv, futu_harv, scscv, scprobe, scdrone
+		HarvesterTypes: harv.gdi, harv.nod, tanodharv, raharv.soviet, raharv.allies, raharv.japan, ra2cmin, ra2harv, harvester, ordos_harv, aa_drmn, latin_harv, steel_qmin, nax_slavemaster, nax_slav, nax2_armor_harv, futu_harv, scscv, scprobe, scdrone, wc2_orc_peon, wc2_human_peasant
 		RefineryTypes: proc.gdi, proc.nod, raproc.allies, raproc.soviet, jproc, ra2narefn, ra2garefn, yryarefn, aa_cgrefn, steel_qref, latin_cgauto, nax_refin, futu_egrefn, screfinery, scassimilator, scextractor, tsprocgdi, glsupply, chsupply, usasupply, refinery, refinery.atreides, wc2_human_elven_lumber_mill, wc2_orc_troll_lumber_mill, tkmrefinery
 	BuildingRepairBotModule:
 		RequiresCondition: genericbot
@@ -3365,7 +3365,7 @@ Player:
 	LoadGarrisonerBotModuleCA@Infantry:
 		RequiresCondition: genericbot && !easiestbot
 		PassengersPerScan: 6
-		GarrisonerUnit: e1.gdi, e1.nod, e2, e3.gdi, e3.nod, e4, e5, e3chem, tsblackhandlaser, tsblackhandflamer, tsstealthsoldier, gdishotgunner, gdimissilesoldier, gdisniper, rae1, rare1, raje1, rare3, raje3, shok, mortarsoldier, ramaid, rae2, rae4, raje4, sniper, alliedmachinegunner, e3flamer, ra2e1, ra2ggi, ra2seal, ra2e2, ra2shk, ra2flakt, ra2deso, ra2snipe, yrinit, yrvirus, aa_gren, aa_tkiller, aa_flam, aa_plast, aa_japrif, aa_archer, aa_asdf, light_inf, heavy_inf, trooper, shock_infantry, storm_infantry, steel_fedinf, steel_board_inf, steel_qinf, latin_mili, latin_tkiller, latin_fftr, latin_fthrow, latin_narco, nax_rifle, nax_cons, nax_mp40, nax_merc, nax_shrek, nax_tcons, nax_lunar, nax_lunar2, nax2_uber, futu_enforcer, futu_javelinsoldier, scmarine, scfirebat, scmarauder, scghost, scmadcap, scharakan, scsilvertongue, tkmrifleman, tkmjug, tkmtrooper, tkmrocketeer, tkmspetsnaz
+		GarrisonerUnit: e1.gdi, e1.nod, e2, e3.gdi, e3.nod, e4, e5, e3chem, tsblackhandlaser, tsblackhandflamer, tsstealthsoldier, gdishotgunner, gdimissilesoldier, gdisniper, rae1, rare1, raje1, rare3, raje3, shok, mortarsoldier, ramaid, rae2, rae4, raje4, sniper, alliedmachinegunner, e3flamer, ra2e1, ra2ggi, ra2seal, ra2e2, ra2shk, ra2flakt, ra2deso, ra2snipe, yrinit, yrvirus, aa_gren, aa_tkiller, aa_flam, aa_plast, aa_japrif, aa_archer, aa_asdf, light_inf, heavy_inf, trooper, shock_infantry, storm_infantry, steel_fedinf, steel_board_inf, steel_qinf, latin_mili, latin_tkiller, latin_fftr, latin_fthrow, latin_narco, nax_rifle, nax_cons, nax_mp40, nax_merc, nax_shrek, nax_tcons, nax_lunar, nax_lunar2, nax2_uber, futu_enforcer, futu_javelinsoldier, scmarine, scfirebat, scmarauder, scghost, scmadcap, scharakan, scsilvertongue, scspithid, wc2_human_elven_archer, wc2_human_elven_ranger, wc2_orc_troll_axethrower, wc2_orc_troll_berserker, tkmrifleman, tkmjug, tkmtrooper, tkmrocketeer, tkmspetsnaz
 	LoadCargoBotModule@Infantry:
 		RequiresCondition: genericbot
 		TransportTypesAndLoadRequirement:
@@ -3399,7 +3399,7 @@ Player:
 			miss: All
 			ramiss: All
 			fcom: All
-		PassengerTypes: e1.gdi, e1.nod, e2, e3.gdi, e3.nod, e4, e5, e3chem, tsblackhandlaser, tsblackhandflamer, tsstealthsoldier, gdishotgunner, gdimissilesoldier, gdisniper, rae1, rare1, raje1, rare3, raje3, shok, mortarsoldier, ramaid, rae2, rae4, raje4, sniper, alliedmachinegunner, e3flamer, ra2e1, ra2ggi, ra2seal, ra2e2, ra2shk, ra2flakt, ra2deso, ra2snipe, yrinit, yrvirus, aa_gren, aa_tkiller, aa_flam, aa_plast, aa_japrif, aa_archer, aa_asdf, light_inf, heavy_inf, trooper, shock_infantry, storm_infantry, steel_fedinf, steel_board_inf, steel_qinf, latin_mili, latin_tkiller, latin_fftr, latin_fthrow, latin_narco, nax_rifle, nax_cons, nax_mp40, nax_merc, nax_shrek, nax_tcons, nax_lunar, nax_lunar2, nax2_uber, futu_enforcer, futu_javelinsoldier, scmarine, scfirebat, scmarauder, scghost, scmadcap, scharakan, scsilvertongue, tkmrifleman, tkmjug, tkmtrooper, tkmrocketeer, tkmspetsnaz
+		PassengerTypes: e1.gdi, e1.nod, e2, e3.gdi, e3.nod, e4, e5, e3chem, tsblackhandlaser, tsblackhandflamer, tsstealthsoldier, gdishotgunner, gdimissilesoldier, gdisniper, rae1, rare1, raje1, rare3, raje3, shok, mortarsoldier, ramaid, rae2, rae4, raje4, sniper, alliedmachinegunner, e3flamer, ra2e1, ra2ggi, ra2seal, ra2e2, ra2shk, ra2flakt, ra2deso, ra2snipe, yrinit, yrvirus, aa_gren, aa_tkiller, aa_flam, aa_plast, aa_japrif, aa_archer, aa_asdf, light_inf, heavy_inf, trooper, shock_infantry, storm_infantry, steel_fedinf, steel_board_inf, steel_qinf, latin_mili, latin_tkiller, latin_fftr, latin_fthrow, latin_narco, nax_rifle, nax_cons, nax_mp40, nax_merc, nax_shrek, nax_tcons, nax_lunar, nax_lunar2, nax2_uber, futu_enforcer, futu_javelinsoldier, scmarine, scfirebat, scmarauder, scghost, scmadcap, scharakan, scsilvertongue, scspithid, wc2_human_elven_archer, wc2_human_elven_ranger, wc2_orc_troll_axethrower, wc2_orc_troll_berserker, tkmrifleman, tkmjug, tkmtrooper, tkmrocketeer, tkmspetsnaz
 		ValidTransportOwner: AlliedBot
 	LoadCargoBotModule@TankBunker:
 		RequiresCondition: genericbot
@@ -3443,8 +3443,8 @@ Player:
 		NewProductionCashThreshold: 5000
 		BuildingProductionMinCashRequirement: 1250
 		DefenseProductionMinCashRequirement: 1500
-		BuildingQueues: Building, RABuilding
-		DefenseQueues: Defence, RADefence
+		BuildingQueues: Building, RABuilding, Addons
+		DefenseQueues: Defence, RADefence, Addons
 		ConstructionYardTypes: fact.gdi, fact.nod, rafact.allies, rafact.soviet, rafact.japan, ra2nacnst, ra2gacnst, yrnacnst, tsgtcnstgdi, tsgtcnstnod, tsgtcnstmutant, tsgtcnstcabal, sccommandcenter, scnexus, schatchery, sclair, schive, glcommand, chcommand, usacommand, construction_yard.ixian, construction_yard.ordos, wc2_human_townhall, wc2_orc_greathall, aa_cgcnst, steel_qacst, latin_cgcnst, nax_conyard, nax2_conyard, futu_egcnst, tkmcommandcenter
 		RefineryTypes: proc.gdi, proc.nod, raproc.allies, raproc.soviet, jproc, ra2narefn, ra2garefn, yryarefn, tsprocgdi, tsprocnod, tsprocmutant, tsproccabal, screfinery, scassimilator, scextractor, glsupply, chsupply, usasupply, refinery, refinery.atreides, refinery.ordos, wc2_human_elven_lumber_mill, wc2_orc_troll_lumber_mill, wc2_human_townhall, wc2_orc_greathall, aa_cgrefn, steel_qref, latin_cgauto, nax_refin, nax2_refin, futu_egrefn, tkmrefinery
 		PowerTypes: nuke, nuk2, powr, apwr, jpwr, ra2napowr, ra2gapowr, ra2nanrct, yryapowr, scsupplydepot, scpylon, scbotoverlord, tsgtpowr, tsntpowrmutant, tsntpowrcabal, tsntpowr, tsntapwr, chpower, chpower2, usapower, wind_trap, wind_trap.atreides, wind_trap.ordos, d2k_mini_windtrap, wc2_human_farm, wc2_orc_pigfarm, aa_cgapwr, aa_cgtnkr, steel_qapowr, latin_cgpow, nax_powr, nax2_powr, futu_ggpowr, scoverlord, tkmpowerplant
@@ -3637,8 +3637,8 @@ Player:
 			scroboticssupportbay: 4500
 			sctemplararchives: 4500
 			scobservatory: 6000
-			scfleetbeacon: 7500
 			scarbitertribunal: 7500
+			scfleetbeacon: 9000
 			sclair: 3000
 			scgreaterspire: 4500
 			schive: 6000
@@ -3693,8 +3693,8 @@ Player:
 			hpad.nod: 10
 			hq.gdi: 1
 			hq.nod: 1
-			eye: 1
-			tmpl: 1
+			eye: 2
+			tmpl: 2
 			fix.gdi: 1
 			fix.nod: 1
 			silo: 1
@@ -3719,9 +3719,9 @@ Player:
 			dome.allies: 1
 			dome.soviet: 1
 			dome.japan: 1
-			atek: 1
-			stek: 1
-			modjtek: 1
+			atek: 2
+			stek: 2
+			modjtek: 2
 			rafix.allies: 1
 			rafix.soviet: 1
 			rafix.japan: 1
@@ -3740,7 +3740,7 @@ Player:
 			ra2gaairc: 10
 			ra2gayard: 1
 			ra2gaspysat: 1
-			ra2gatech: 1
+			ra2gatech: 2
 			ra2gaorep: 1
 			ra2gadept: 1
 			ra2gaweat: 1
@@ -3752,7 +3752,7 @@ Player:
 			ra2nayard: 1
 			yrngindp: 1
 			ra2naradr: 1
-			ra2natech: 1
+			ra2natech: 2
 			ra2naclon: 1
 			ra2nadept: 1
 			ra2namisl: 1
@@ -3763,7 +3763,7 @@ Player:
 			yrygweap: 10
 			yrygyard: 1
 			ra2napsis: 1
-			yrygtech: 1
+			yrygtech: 2
 			yryggntc: 1
 			yryggrnd: 1
 			ra2yclon: 1
@@ -3775,18 +3775,18 @@ Player:
 			tsgtweap: 10
 			tsgthpad: 10
 			tsgtradr: 1
-			tsgttech: 1
+			tsgttech: 2
 			tsgtplug: 1
 			tsntwast: 1
 			tsgtdept: 1
 			tsgtsilo: 1
 			#################### BuildingLimits TS Nod
 			tsprocnod: 10
-			tsnthand: 5
+			tsnthand: 10
+			tsntweap: 10
+			tsnthpad: 10
 			tsntradr: 1
-			tsntweap: 7
-			tsnthpad: 3
-			tsnttech: 1
+			tsnttech: 2
 			tsnttmpl: 1
 			tsntpuls: 1
 			tsntmisl: 1
@@ -3798,7 +3798,7 @@ Player:
 			tsgtweapmutant: 7
 			tsgthpadmutant: 3
 			tsgtradrmutant: 1
-			tsfgttech: 1
+			tsfgttech: 2
 			tsgtsilomutant: 1
 			#################### BuildingLimits TS CABAL
 			tsproccabal: 10
@@ -3814,7 +3814,7 @@ Player:
 			aa_cgweap: 10
 			aa_cgairf: 10
 			aa_cgmiac: 1
-			aa_cgtech: 1
+			aa_cgtech: 2
 			aa_cgradr: 1
 			aa_cgdept: 1
 			aa_cgionc: 1
@@ -3826,7 +3826,7 @@ Player:
 			steel_conpad: 10
 			steel_qtradr: 1
 			steel_qaclone: 1
-			steel_qatech: 1
+			steel_qatech: 2
 			steel_qaorbit: 1
 			#################### BuildingLimits Syndicate
 			latin_cgauto: 10
@@ -3835,21 +3835,24 @@ Player:
 			latin_cgair: 10
 			latin_radar: 1
 			latin_cgte: 1
-			latin_cgspy: 1
+			latin_cgspy: 2
 			latin_cgdept: 1
 			latin_ca12hit: 1
 			#################### BuildingLimits Naxis
 			nax_refin: 10
 			nax_barr: 10
 			nax_weap: 10
+			nax_airfield: 10
 			nax_radar: 1
 			nax_tek: 1
-			nax_tech: 1
+			nax_tech: 2
+			#################### BuildingLimits Schwarzer Mond
 			nax2_refin: 10
 			nax2_barr: 10
 			nax2_weap: 10
+			nax2_airfield: 10
 			nax2_radar: 1
-			nax2_tech: 1
+			nax2_tech: 2
 			nax_rocket: 1
 			nax2_meteorray: 1
 			nax2_chrono: 1
@@ -3861,17 +3864,18 @@ Player:
 			futu_launchpad: 10
 			yrgarobo: 1
 			futu_egtf: 1
-			futu_egtech: 1
+			futu_egtech: 2
 			futu_egshock: 1
 			#################### BuildingLimits Dune Universe Ixian
 			refinery.atreides: 10
 			d2k_barracks.ixian: 10
 			heavy_factory.ixian: 10
-			high_tech_factory: 10
+			high_tech_factory: 5
+			ixian_launchpad: 10
 			d2k_silo: 1
 			repair_pad.ixian: 1
 			outpost.ixian: 1
-			research_centre.ixian: 1
+			research_centre.ixian: 2
 			#################### BuildingLimits Dune Universe Ordos
 			refinery.ordos: 10
 			d2k_barracks.ordos: 10
@@ -3880,11 +3884,18 @@ Player:
 			high_tech_factory.ordos: 10
 			repair_pad.ordos: 1
 			outpost.ordos: 1
-			research_centre.ordos: 1
+			research_centre.ordos: 2
 			#################### BuildingLimits Modded RA
 			#evo: 1
 			#tevo: 1
 			modspaceport: 1
+			##################### BuildingLimits TKM
+			tkmrefinery: 10
+			tkmbarracks: 10
+			tkmfactory: 10
+			tkmairpad: 10
+			tkmradar: 1
+			tkmtechcenter: 2
 			#################### BuildingLimits TERRAN
 			scscv: 50
 			screfinery: 10
@@ -3894,18 +3905,16 @@ Player:
 			scengineeringbay: 1
 			scacademy: 1
 			scarmory: 1
-			scsciencefacility: 1
+			scsciencefacility: 2
 			#################### BuildingLimits PROTOSS
 			scprobe: 50
-			scnexus: 5
-			scpylon: 100
 			scassimilator: 10
-			scgateway: 7
+			scgateway: 10
+			scroboticsfacility: 10
+			scstargate: 10
 			scforge: 1
 			sccyberneticscore: 1
 			scshieldbattery: 1
-			scroboticsfacility: 7
-			scstargate: 7
 			sccitadelofadun: 1
 			scroboticssupportbay: 1
 			scfleetbeacon: 1
@@ -3927,10 +3936,13 @@ Player:
 			##################### BuildingLimits Warcraft 2 Humans
 			wc2_human_peasant: 50
 			wc2_human_elven_lumber_mill: 10
+			wc2_human_barracks: 15
+			wc2_human_gnomish_inventor: 5
+			wc2_human_gryphon_aviary: 10
 			wc2_human_townhall: 1
 			wc2_human_keep: 1
 			wc2_human_castle: 1
-			wc2_human_blacksmith: 1
+			wc2_human_blacksmith: 2
 			wc2_human_stables: 1
 			wc2_human_church: 1
 			wc2_human_mage_tower: 1
@@ -3941,10 +3953,13 @@ Player:
 			##################### BuildingLimits Warcraft 2 Orcs
 			wc2_orc_peon: 50
 			wc2_orc_troll_lumber_mill: 10
+			wc2_orc_barracks: 15
+			wc2_orc_goblin_alchemist: 5
+			wc2_orc_dragon_roost: 10
 			wc2_orc_greathall: 1
 			wc2_orc_stronghold: 1
 			wc2_orc_fortress: 1
-			wc2_orc_blacksmith: 1
+			wc2_orc_blacksmith: 2
 			wc2_orc_ogre_mound: 1
 			wc2_orc_altar_of_storms: 1
 			wc2_orc_temple_of_the_damned: 1
@@ -4075,16 +4090,6 @@ Player:
 			sc2kpolicedept: 3
 			sc2kfiredept: 3
 			sc2khospital: 1
-			##################### BuildingLimits TKM
-			tkmrefinery: 10
-			tkmbarracks: 10
-			tkmfactory: 10
-			tkmairpad: 10
-			tkmradar: 1
-			tkmtechcenter: 1
-			tkmbunker: 5
-			tkmbunkerquadturret: 5
-			tkmbunkertankturret: 5
 		BuildingFractions:
 			#################### Shared
 			oilb.building: 10
@@ -4107,9 +4112,9 @@ Player:
 			cncspen: 1
 			hq.gdi: 1
 			hq.nod: 1
-			eye: 1
+			eye: 5
 			eye.ionc: 1
-			tmpl: 1
+			tmpl: 5
 			tmpl.nuke: 1
 			fix.gdi: 1
 			fix.nod: 1
@@ -4147,9 +4152,9 @@ Player:
 			dome.allies: 1
 			dome.soviet: 1
 			dome.japan: 1
-			atek: 1
-			stek: 1
-			modjtek: 1
+			atek: 5
+			stek: 5
+			modjtek: 5
 			rafix.allies: 1
 			rafix.soviet: 1
 			rafix.japan: 1
@@ -4180,7 +4185,7 @@ Player:
 			ra2gaairc: 15
 			ra2gayard: 1
 			ra2gaspysat: 1
-			ra2gatech: 1
+			ra2gatech: 5
 			ra2gaorep: 1
 			ra2gadept: 1
 			ra2gaweat: 1
@@ -4200,8 +4205,8 @@ Player:
 			ra2naairf: 15
 			ra2nayard: 1
 			yrngindp: 1
-			ra2naradr: 3
-			ra2natech: 1
+			ra2naradr: 1
+			ra2natech: 5
 			ra2naclon: 1
 			ra2nadept: 1
 			ra2namisl: 1
@@ -4219,7 +4224,7 @@ Player:
 			yrygweap: 15
 			yrygyard: 1
 			ra2napsis: 1
-			yrygtech: 1
+			yrygtech: 5
 			yryggntc: 1
 			yryggrnd: 1
 			ra2yclon: 1
@@ -4234,28 +4239,27 @@ Player:
 			tsgtweap: 15
 			tsgthpad: 15
 			tsgtradr: 1
-			tsgttech: 1
+			tsgttech: 5
 			tsgtplug: 1
 			tsgtctwrmg: 15
 			tsgtctwrrpg: 15
-			tsgtctwrsam: 15
+			tsgtctwrsam: 10
 			tsgtdeptgdi: 1
 			tsntpulsgdi: 1
 			tsgtpowrup: 1
-			oilb.td: 20
 			#################### BuildingFractions TS Nod
-			tsprocnod: 20
-			tsnthand: 5
+			tsprocnod: 15
+			tsnthand: 15
+			tsntweap: 15
+			tsnthpad: 15
 			tsntradr: 1
-			tsntweap: 10
-			tsnthpad: 3
-			tsnttech: 1
+			tsnttech: 5
 			tsnttmpl: 1
 			tsntpuls: 1
-			tsntlasr: 5
-			tsntobel: 10
-			tsntsam: 7
-			tsntwast: 10
+			tsntlasr: 15
+			tsntobel: 15
+			tsntsam: 10
+			tsntwast: 1
 			tsntmisl: 1
 			tsntstlh: 1
 			tsntpulsnod: 1
@@ -4289,7 +4293,7 @@ Player:
 			aa_cgyard: 1
 			aa_cgtnkr: 1
 			aa_cgradr: 1
-			aa_cgtech: 1
+			aa_cgtech: 5
 			aa_cgmiac: 1
 			aa_cgdept: 1
 			aa_cgionc: 1
@@ -4309,7 +4313,7 @@ Player:
 			steel_qaweap: 15
 			steel_conpad: 15
 			steel_qtradr: 1
-			steel_qatech: 1
+			steel_qatech: 5
 			steel_qaclone: 1
 			steel_qaorbit: 1
 			steel_fedturret: 10
@@ -4326,7 +4330,7 @@ Player:
 			latin_cgair: 15
 			latin_radar: 1
 			latin_cgte: 1
-			latin_cgspy: 1
+			latin_cgspy: 5
 			latin_cgdept: 1
 			latin_ca12hit: 1
 			latin_ngdshktur: 10
@@ -4340,30 +4344,31 @@ Player:
 			nax_barr: 15
 			nax_refin: 15
 			nax_weap: 15
+			nax_airfield: 15
 			nax_radar: 1
-			nax_airfield: 1
 			nax_tek: 1
-			nax_tech: 1
+			nax_tech: 5
 			nax_twr: 15
 			nax_flak88: 15
-			nax_bunk: 10
+			nax_bunk: 15
+			nax_beer: 10
+			nax_sausage: 10
+			#################### Buildings Schwarzer Mond
 			nax2_conyard: 5
-			nax2_powr: 1
-			nax2_barr: 15
+			# nax2_powr: 1
 			nax2_refin: 15
+			nax2_barr: 15
 			nax2_weap: 15
+			nax2_airfield: 15
 			nax2_radar: 1
-			nax2_airfield: 1
-			nax2_tech: 1
-			nax2_twr: 30
-			nax2_sturmcann: 15
+			nax2_tech: 5
 			nax_rocket: 1
 			nax2_meteorray: 1
 			nax2_chrono: 1
 			nax2_gcore: 1
-			nax_beer: 10
-			nax_sausage: 10
 			nax2_dairy: 10
+			nax2_twr: 30
+			nax2_sturmcann: 15
 			#################### Buildings Future Tech
 			futu_egcnst: 5
 			#futu_ggpowr: 3
@@ -4373,7 +4378,7 @@ Player:
 			futu_launchpad: 15
 			yrgarobo: 1
 			futu_egtf: 1
-			futu_egtech: 1
+			futu_egtech: 5
 			futu_egshock: 1
 			futu_gggun: 20
 			futu_ggmlt: 40
@@ -4382,10 +4387,10 @@ Player:
 			refinery.atreides: 15
 			d2k_barracks.ixian: 15
 			heavy_factory.ixian: 15
-			ixian_launchpad: 5
+			ixian_launchpad: 10
 			high_tech_factory.ixian: 5
 			outpost.ixian: 1
-			research_centre.ixian: 1
+			research_centre.ixian: 5
 			repair_pad.ixian: 1
 			starport.ixian: 1
 			machine_gun_turret: 10
@@ -4399,15 +4404,15 @@ Player:
 			construction_yard.ordos: 5
 			refinery.ordos: 15
 			d2k_barracks.ordos: 15
-			heavy_factory.ordos: 15
+			heavy_factory.ordos: 10
 			light_factory.ordos: 5
 			high_tech_factory.ordos: 5
 			outpost.ordos: 1
-			research_centre.ordos: 1
+			research_centre.ordos: 5
 			repair_pad.ordos: 1
 			starport.ordos: 1
-			autogun_turret: 20
-			artillery_platform: 10
+			autogun_turret: 40
+			artillery_platform: 20
 			palace.ordos: 1
 			#################### BuildingFractions Dune Universe
 			#wind_trap: 10
@@ -4448,10 +4453,10 @@ Player:
 			d2k_personal_shield: 1
 			#################### BuildingFractions TERRAN
 			sccommandcenter: 5
-			scscv: 10
+			scscv: 25
 			#scsupplydepot: 10
 			supplydepotexpand: 1
-			screfinery: 15
+			screfinery: 25
 			sctvespenegascollector: 1
 			scbarracks: 15
 			scfactory: 15
@@ -4459,7 +4464,7 @@ Player:
 			scacademy: 1
 			scengineeringbay: 1
 			scarmory: 1
-			scsciencefacility: 1
+			scsciencefacility: 5
 			scterranmslo: 1
 			scmissileturret: 15
 			scsentinel: 15
@@ -4468,21 +4473,21 @@ Player:
 			scnexus: 5
 			scprobe: 10
 			#scpylon: 15
-			scassimilator: 15
+			scassimilator: 20
 			scpvespenegascollector: 1
-			scgateway: 15
-			scroboticsfacility: 15
-			scstargate: 15
+			scgateway: 20
+			scroboticsfacility: 20
+			scstargate: 20
 			scforge: 1
 			sccyberneticscore: 1
-			scshieldbattery: 1
+			scshieldbattery: 5
 			sccitadelofadun: 1
 			scroboticssupportbay: 1
 			scfleetbeacon: 1
 			sctemplararchives: 1
 			scobservatory: 1
 			scarbitertribunal: 1
-			scphotoncannon: 30
+			scphotoncannon: 40
 			upgroundweapons: 1
 			upgroundarmor: 1
 			upairweapons: 1
@@ -4493,16 +4498,16 @@ Player:
 			upreavercapacity: 1
 			upreaverdamage: 1
 			#################### BuildingFractions ZERG
-			schatchery: 15
+			sczmcv: 1
+			schatchery: 20
 			sclair: 15
-			schive: 15
-			scdrone: 10
-			sczmcv: 10
-			scbotoverlord: 15
-			sccreepcolony: 30
-			scsporecolonyupgrade: 15
-			scsunkencolonyupgrade: 15
-			scextractor: 15
+			schive: 10
+			scdrone: 50
+			scbotoverlord: 10
+			sccreepcolony: 40
+			scsporecolonyupgrade: 20
+			scsunkencolonyupgrade: 20
+			scextractor: 30
 			sczvespenegascollector: 1
 			scspawningpool: 1
 			scevolutionchamber: 1
@@ -4515,15 +4520,15 @@ Player:
 			scovermind: 1
 			scinfestedcommandcenter: 1
 			##################### BuildingFractions Warcraft 2 Humans
-			wc2_human_peasant: 10
+			wc2_human_peasant: 20
 			wc2_human_townhall: 1
 			wc2_human_keep: 1
 			wc2_human_castle: 1
 			wc2_human_elven_lumber_mill: 15
-			wc2_human_barracks: 15
-			wc2_human_gnomish_inventor: 15
-			wc2_human_gryphon_aviary: 15
-			wc2_human_blacksmith: 1
+			wc2_human_barracks: 20
+			wc2_human_gnomish_inventor: 5
+			wc2_human_gryphon_aviary: 10
+			wc2_human_blacksmith: 5
 			wc2_human_stables: 1
 			wc2_human_church: 1
 			wc2_human_mage_tower: 1
@@ -4536,15 +4541,15 @@ Player:
 			wchumanguardtowerupgrade: 1
 			wc2_human_goldmine.bot: 1
 			##################### BuildingFractions Warcraft 2 Orcs
-			wc2_orc_peon: 10
+			wc2_orc_peon: 20
 			wc2_orc_greathall: 1
 			wc2_orc_stronghold: 1
 			wc2_orc_fortress: 1
 			wc2_orc_troll_lumber_mill: 15
-			wc2_orc_barracks: 15
-			wc2_orc_goblin_alchemist: 15
-			wc2_orc_dragon_roost: 15
-			wc2_orc_blacksmith: 1
+			wc2_orc_barracks: 20
+			wc2_orc_goblin_alchemist: 5
+			wc2_orc_dragon_roost: 10
+			wc2_orc_blacksmith: 5
 			wc2_orc_ogre_mound: 1
 			wc2_orc_altar_of_storms: 1
 			wc2_orc_temple_of_the_damned: 1
@@ -5564,6 +5569,7 @@ Player:
 			up_nax_horten: 1
 			########### Naxis Upgrades
 			upnax_resurrection: 1
+			nax_upgrade_me262: 1
 			########### Units Future Tech
 			futu_harv: 10
 			futu_harv2: 10

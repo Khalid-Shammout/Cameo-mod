@@ -1168,11 +1168,11 @@ WraithDroneLaser:
 	Warhead@LaserWeapon: SpreadDamage
 		ValidRelationships: Neutral, Enemy
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2000
+		Damage: 20000
 	Warhead@LaserWeaponPercentage: HealthPercentageDamage
 		ValidRelationships: Neutral, Enemy
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 1
+		Damage: 10
 
 BCLaser:
 	Inherits: ^HeavyBomb

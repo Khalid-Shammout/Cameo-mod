@@ -4335,34 +4335,36 @@ YAK:
 	Armament@BOMBS:
 		Weapon: YakNapalm
 		LocalOffset: 0,-256,-32, 0,256,-32
+		AmmoUsage: 4
+		PauseOnCondition: ammo < 4
 	Armament@PRIMARY:
 		Weapon: YakChainGun
 		LocalOffset: 256,-213,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: ammo < 4
 		RequiresCondition: !ra_upgrade_incendiarybullets
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: YakChainGun
 		LocalOffset: 256,213,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: ammo < 4
 		RequiresCondition: !ra_upgrade_incendiarybullets
 	Armament@Upgrade1:
 		Weapon: IncendiaryYakChainGun
 		LocalOffset: 256,-213,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: ammo < 4
 		RequiresCondition: ra_upgrade_incendiarybullets
 	Armament@Upgrade2:
 		Name: secondary
 		Weapon: IncendiaryYakChainGun
 		LocalOffset: 256,213,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: ammo < 4
 		RequiresCondition: ra_upgrade_incendiarybullets
-	FirepowerMultiplier@doublecannonsandbombs:
-		Modifier: 25
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
 	AttackAircraft:
 		FacingTolerance: 100
 	Aircraft:
@@ -4390,7 +4392,7 @@ YAK:
 	Voiced:
 		VoiceSet: RussianVehicleVoice
 	AmmoPool:
-		Ammo: 12
+		Ammo: 64
 		AmmoCondition: ammo
 	ReloadAmmoPool:
 		Delay: 8
@@ -4398,7 +4400,7 @@ YAK:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 6
+		PipCount: 8
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	RenderSprites:
@@ -4439,47 +4441,35 @@ MODKAMI:
 		Weapon: ZeroFighterArrows
 		LocalOffset: 85,-300,-85, 85,300,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		AmmoUsage: 6
+		PauseOnCondition: ammo < 6
 		RequiresCondition: !up_energizedarrows
 	Armament@MissilesUpgrade:
 		Weapon: ZeroFighterArrowsEnergized
 		LocalOffset: 85,-300,-85, 85,300,-85
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		AmmoUsage: 6
+		PauseOnCondition: ammo < 6
 		RequiresCondition: up_energizedarrows
 	Armament@PRIMARY:
 		Weapon: ZeroFighterChainGun
 		LocalOffset: 256,213,0, 256,-213,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
-		RequiresCondition: !up_waveforcebullets
-	Armament@SECONDARY:
-		Weapon: ZeroFighterChainGun
-		LocalOffset: 256,213,0, 256,-213,0
-		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: ammo < 6
 		RequiresCondition: !up_waveforcebullets
 	Armament@Upgrade: ##########
 		Weapon: ZeroFighterChainGunWaveforce
 		LocalOffset: 256,213,0, 256,-213,0
 		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
+		PauseOnCondition: ammo < 6
 		RequiresCondition: up_waveforcebullets
-	Armament@UpgradeSECONDARY:
-		Weapon: ZeroFighterChainGunWaveforce
-		LocalOffset: 256,213,0, 256,-213,0
-		MuzzleSequence: muzzle
-		PauseOnCondition: !ammo
-		RequiresCondition: up_waveforcebullets
-	FirepowerMultiplier@doublecannonsandarrows:
-		Modifier: 25
-	FirepowerMultiplier@up_waveforcebullets:
-		Modifier: 75
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
 	AttackAircraft:
 		FacingTolerance: 40
 	Aircraft:
 		TurnSpeed: 12
-		Speed: 180
+		Speed: 175
 	SelectionDecorations:
 	WithMuzzleOverlay:
 	Contrail:
@@ -4504,10 +4494,10 @@ MODKAMI:
 	RenderSprites:
 		Image: modkami
 	AmmoPool:
-		Ammo: 12
+		Ammo: 24
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 8
+		Delay: 11
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
@@ -7537,7 +7527,7 @@ ra_gigafactory:
 		Footprint: xxxx xxxx xxxx ====
 		Dimensions: 4,4
 		LocalCenterOffset: 0,0,0
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 		BuildDurationModifier: 50
 	Exit@1:
 		SpawnOffset: 256,512,0
@@ -8075,7 +8065,7 @@ ra_largeairfield:
 		Footprint: ==== ==== ====
 		Dimensions: 4,3
 		LocalCenterOffset: 0,-512,0
-	ParallelProductionQueue@AIRCRAFT:
+	ProductionQueue@AIRCRAFT:
 		BuildDurationModifier: 50
 	Exit@1:
 		ExitCell: 1,1
@@ -9995,7 +9985,7 @@ MODSPACEPORT:
 		SpawnType: ClosestEdgeToDestination
 		ProportionalSpeed: true
 		RequiresCondition: classicproductionqueues
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 		Type: Vehicle
 		DisplayOrder: 3
 		Group: Vehicle

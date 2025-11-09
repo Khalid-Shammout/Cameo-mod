@@ -4855,14 +4855,14 @@
 	ExternalCondition@Healed:
 		Condition: Healed
 	ChangesHealth@HealingField1:
-		Delay: 10
+		Delay: 20
 		PercentageStep: 1
 		StartIfBelow: 100
 		DamageCooldown: 0
 		RequiresCondition: HealingField
 	ChangesHealth@HealingField2:
 		Delay: 1
-		Step: 200
+		Step: 100
 		StartIfBelow: 100
 		DamageCooldown: 0
 		RequiresCondition: HealingField
@@ -5863,7 +5863,7 @@ CPQDEBUGDUMMY:
 	DamageMultiplier@RearmableAircraft:
 		Modifier: 160
 	FirepowerMultiplier@RearmableAircraft:
-		Modifier: 125
+		Modifier: 200
 	GrantConditionOnActivity@supersonic:
 		Condition: supersonic
 	SpeedMultiplier@supersonic:
@@ -6041,6 +6041,12 @@ CPQDEBUGDUMMY:
 		RequiresCondition: DarkSwarm
 	FirepowerMultiplier@DARKSWARM:
 		Modifier: 0
+		RequiresCondition: DarkSwarm
+	TimedConditionBar@DarkSwarm:
+		Condition: DarkSwarm
+		Color: FFDDBB
+	WithColoredOverlay@DarkSwarm:
+		Color: FFDDBB88
 		RequiresCondition: DarkSwarm
 
 ^DefilerPlague:
@@ -6678,6 +6684,10 @@ CPQDEBUGDUMMY:
 	ProductionBar@RADEFENCE:
 		ProductionType: RADefence
 		RequiresCondition: classicproductionqueues || hybridproductionqueues
+	Production@Addons:
+		Produces: Addons
+	ProductionBar@Addons:
+		ProductionType: Addons
 	Inherits@susaintelligence: ^susaintelligence
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@conyard:
@@ -6792,7 +6802,7 @@ CPQDEBUGDUMMY:
 		Produces: RAInfantry, Soldier
 		RequiresCondition: classicproductionqueues
 		PauseOnCondition: disabled
-	ParallelProductionQueue@INFANTRY:
+	ProductionQueue@INFANTRY:
 		Type: Infantry
 		DisplayOrder: 2
 		Group: Infantry
@@ -6863,7 +6873,7 @@ CPQDEBUGDUMMY:
 		RequiresCondition: classicproductionqueues
 	Production:
 		Produces: Dog
-	ParallelProductionQueue@INFANTRY:
+	ProductionQueue@INFANTRY:
 		Type: Dog
 		DisplayOrder: 2
 		Group: Infantry
@@ -6929,7 +6939,7 @@ CPQDEBUGDUMMY:
 		Produces: RAVehicle
 		RequiresCondition: classicproductionqueues
 		PauseOnCondition: disabled
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 		Type: Vehicle
 		DisplayOrder: 3
 		Group: Vehicle
@@ -7002,7 +7012,7 @@ CPQDEBUGDUMMY:
 		SpawnType: ClosestEdgeToDestination
 		ProportionalSpeed: true
 		PauseOnCondition: disabled
-	-ParallelProductionQueue@VEHICLE:
+	-ProductionQueue@VEHICLE:
 	-ProductionBar@VEHICLE:
 	ProductionBar@RAVEHICLE:
 		-RequiresCondition: classicproductionqueues
@@ -7044,7 +7054,7 @@ CPQDEBUGDUMMY:
 		Produces: RAAircraft
 		RequiresCondition: classicproductionqueues
 		PauseOnCondition: disabled
-	ParallelProductionQueue@AIRCRAFT:
+	ProductionQueue@AIRCRAFT:
 		Type: Aircraft
 		DisplayOrder: 4
 		Group: Aircraft
@@ -7130,7 +7140,7 @@ CPQDEBUGDUMMY:
 	Production@CLASSICPRODUCTIONQUEUES:
 		Produces: RANaval
 		RequiresCondition: classicproductionqueues
-	ParallelProductionQueue@NAVAL:
+	ProductionQueue@NAVAL:
 		Type: Naval
 		DisplayOrder: 5
 		Group: Ship

@@ -2922,6 +2922,7 @@ EYE:
 	ProvidesPrerequisite:
 		Prerequisite: anytdhq
 	Buildable:
+		-BuildLimit:
 		BuildPaletteOrder: 100
 		Prerequisites: ~fact.gdi, hq.gdi
 		Queue: Building, RABuilding
@@ -3024,6 +3025,7 @@ TMPL:
 	ProvidesPrerequisite:
 		Prerequisite: anytdhq
 	Buildable:
+		-BuildLimit:
 		BuildPaletteOrder: 100
 		Prerequisites: ~fact.nod, hq.nod
 		Queue: Building, RABuilding

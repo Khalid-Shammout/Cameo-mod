@@ -649,7 +649,7 @@ supplydepotexpand:
 		Cost: 400
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~sccommandcenter, supplydepotupgradeavailable
 		Description: Increase the size of the supply depot by 100%
 	Plug:
@@ -674,6 +674,10 @@ SCREFINERY:
 		Footprint: _x_ xxx ===
 		BuildSounds: tscupd00.aud
 		Dimensions: 3,3
+	Production@Addons:
+		Produces: Addons
+	ProductionBar@Addons:
+		ProductionType: Addons
 	WithBuildingBib:
 	FreeActor@1:
 		Actor: scscv
@@ -725,7 +729,7 @@ sctvespenegascollector:
 	Valued:
 		Cost: 2500
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~sccommandcenter, sctrefineryupgradeavailable
 		Description: The Refinery generates Vespene gas Capsules and passive income.
 	Plug:
@@ -753,7 +757,7 @@ SCBARRACKS:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 		BuildSounds: tscupd00.aud
-	ParallelProductionQueue@INFANTRY:
+	ProductionQueue@INFANTRY:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@terran:
 		Multiplier: 125
@@ -1086,7 +1090,7 @@ SCFACTORY:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 		BuildSounds: tscupd00.aud
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@terran:
 		Multiplier: 125
@@ -1173,7 +1177,7 @@ SCSTARPORT:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 		BuildSounds: tscupd00.aud
-	ParallelProductionQueue@AIRCRAFT:
+	ProductionQueue@AIRCRAFT:
 		LowPowerModifier: 10000
 	Selectable:
 		Bounds: 3072, 2048
@@ -1442,6 +1446,10 @@ SCASSIMILATOR:
 		Footprint: _x_ xxx ===
 		BuildSounds: pshbld03.aud
 		Dimensions: 3,3
+	Production@Addons:
+		Produces: Addons
+	ProductionBar@Addons:
+		ProductionType: Addons
 	FreeActor@1:
 		Actor: scprobe
 		SpawnOffset: 0,2
@@ -1492,7 +1500,7 @@ scpvespenegascollector:
 	Valued:
 		Cost: 2500
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~scnexus, scprefineryupgradeavailable
 		Description: The Assimilator generates Vespene gas Capsules and passive income.
 	Plug:
@@ -1522,7 +1530,7 @@ SCGATEWAY:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 		BuildSounds: pshbld03.aud
-	ParallelProductionQueue@INFANTRY:
+	ProductionQueue@INFANTRY:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@protoss:
 		Multiplier: 125
@@ -1766,7 +1774,7 @@ SCROBOTICSFACILITY:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 		BuildSounds: pshbld03.aud
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@protoss:
 		Multiplier: 125
@@ -1810,7 +1818,7 @@ SCSTARGATE:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 		BuildSounds: pshbld03.aud
-	ParallelProductionQueue@AIRCRAFT:
+	ProductionQueue@AIRCRAFT:
 		LowPowerModifier: 10000
 	Selectable:
 		Bounds: 3072, 2048
@@ -1911,17 +1919,9 @@ SCFLEETBEACON:
 	Inherits@shieldgenerator: ^ProtossPersonalShield
 	Tooltip:
 		Name: Fleet Beacon
-	Health:
-		HP: 250000
-	Armor:
-		Type: Wood
-	Power:
-		Amount: 0
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
-		BuildDuration: 750
-		BuildDurationModifier: 100
 		Prerequisites: ~scstargate
 		Queue: Building, RABuilding
 		Description: Unlocks Carrier and Purifier Beam support power.
@@ -2018,9 +2018,9 @@ SCOBSERVATORY:
 	Tooltip:
 		Name: Observatory
 	Valued:
-		Cost: 1000
+		Cost: 2500
 	Health:
-		HP: 100000
+		HP: 250000
 	Armor:
 		Type: Wood
 	Power:
@@ -2028,7 +2028,7 @@ SCOBSERVATORY:
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		BuildPaletteOrder: 40
-		BuildDuration: 250
+		BuildDuration: 500
 		BuildDurationModifier: 100
 		Prerequisites: ~scroboticsfacility
 		Queue: Building, RABuilding
@@ -2324,7 +2324,7 @@ sclair:
 		Cost: 1400
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~scspawningpool, lairupgradeavailable
 		Description: Unlocks Spire and Queen's Nest
 	Plug:
@@ -2340,7 +2340,7 @@ schive:
 		Cost: 2000
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~sclair, hiveupgradeavailable
 		Description: Unlocks Ultralisk Cavern and Defiler Mound
 	Plug:
@@ -2559,7 +2559,7 @@ scsporecolonyupgrade:
 	Valued:
 		Cost: 500
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~schatchery, creepcolonyupgradeavailable
 		Description: Ground base defense.
 	Plug:
@@ -2574,7 +2574,7 @@ scsunkencolonyupgrade:
 	Valued:
 		Cost: 500
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~schatchery, creepcolonyupgradeavailable
 		Description: Anti-aircraft base defense.
 	Plug:
@@ -2600,6 +2600,10 @@ SCEXTRACTOR:
 		Footprint: _x_ xxx ===
 		Dimensions: 3,3
 		BuildSounds: zchrdy00.aud
+	Production@Addons:
+		Produces: Addons
+	ProductionBar@Addons:
+		ProductionType: Addons
 	FreeActor@1:
 		Actor: scdrone
 		SpawnOffset: 0,2
@@ -2653,7 +2657,7 @@ sczvespenegascollector:
 	Valued:
 		Cost: 2500
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~schatchery, sczrefineryupgradeavailable
 		Description: The Extractor generates Vespene gas Capsules and passive income.
 	Plug:
@@ -2686,14 +2690,14 @@ SCSPAWNINGPOOL:
 		Footprint: xx xx
 		Dimensions: 2,2
 		BuildSounds: zchrdy00.aud
-	Selectable:
-		Bounds: 2048, 2048
-		DecorationBounds: 2448, 2448, 0, 0
-	SelectionDecorations:
 	Production@Addons:
 		Produces: Addons
 	ProductionBar@Addons:
 		ProductionType: Addons
+	Selectable:
+		Bounds: 2048, 2048
+		DecorationBounds: 2448, 2448, 0, 0
+	SelectionDecorations:
 	-WithDeathAnimation:
 	SpawnActorOnDeath@death1:
 		Actor: SCBROODLING
@@ -2779,6 +2783,10 @@ SCHYDRALISKDEN:
 		Footprint: xx xx
 		Dimensions: 2,2
 		BuildSounds: zchrdy00.aud
+	Production@Addons:
+		Produces: Addons
+	ProductionBar@Addons:
+		ProductionType: Addons
 	Selectable:
 		Bounds: 2048, 2048
 		DecorationBounds: 2448, 2448, 0, 0
@@ -2822,6 +2830,10 @@ SCQUEENSNEST:
 		Footprint: xx xx
 		Dimensions: 2,2
 		BuildSounds: zchrdy00.aud
+	Production@Addons:
+		Produces: Addons
+	ProductionBar@Addons:
+		ProductionType: Addons
 	Selectable:
 		Bounds: 2048, 2048
 		DecorationBounds: 2448, 2448, 0, 0
@@ -2939,7 +2951,7 @@ SCGREATERSPIRE:
 		BuildPaletteOrder: 80
 		BuildDuration: 500
 		BuildDurationModifier: 100
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~sclair, greaterspireupgradeavailable
 		Description: Unlocks multiple zerg air units.
 	Plug:
@@ -2972,6 +2984,10 @@ SCULTRALISKCAVERN:
 		Footprint: xx xx
 		Dimensions: 2,2
 		BuildSounds: zchrdy00.aud
+	Production@Addons:
+		Produces: Addons
+	ProductionBar@Addons:
+		ProductionType: Addons
 	Selectable:
 		Bounds: 2048, 2048
 		DecorationBounds: 2448, 2448, 0, 0
@@ -3027,6 +3043,10 @@ SCDEFILERMOUND:
 		Footprint: xx xx
 		Dimensions: 2,2
 		BuildSounds: zchrdy00.aud
+	Production@Addons:
+		Produces: Addons
+	ProductionBar@Addons:
+		ProductionType: Addons
 	Selectable:
 		Bounds: 2048, 2048
 		DecorationBounds: 2448, 2448, 0, 0
@@ -3108,6 +3128,10 @@ SCOVERMIND:
 		Footprint: xx xx
 		Dimensions: 2,2
 		BuildSounds: zchrdy00.aud
+	Production@Addons:
+		Produces: Addons
+	ProductionBar@Addons:
+		ProductionType: Addons
 	Selectable:
 		Bounds: 2048, 2048
 		DecorationBounds: 2448, 2448, 0, 0
@@ -3148,7 +3172,7 @@ SCINFESTEDCOMMANDCENTER:
 		Description: Unlocks Siege Tanks.
 		IconPalette: windows256
 	WithBuildingBib:
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 		LowPowerModifier: 10000
 	RallyPoint: ##########
 		Path: 0,2
@@ -5342,9 +5366,9 @@ SCWRAITHDRONE:
 	Targetable:
 		TargetTypes: Air
 	Health:
-		HP: 25000
+		HP: 50000
 	ChangesHealth@SelfHealing:
-		Step: 10
+		Step: 20
 	Armament@PRIMARY:
 		Weapon: WraithDroneLaser
 		LocalOffset: 200,0,0
@@ -7816,6 +7840,10 @@ SCPATRIARCH:
 	Shielded:
 		RegenAmount: 150
 	Armament:
+		Weapon: PatriarchShoot
+		LocalOffset: 128,0,256
+	Armament@garrisoned:
+		Name: garrisoned
 		Weapon: PatriarchShoot
 	ReloadArmamentsBar:
 		Color: 0000FF

@@ -1009,12 +1009,6 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 		LocalCenterOffset: 0,0,0
 	RevealsShroud:
 		Range: 4c0
-	Production@Addons:
-		Produces: Addons
-	ProductionBar@Addons:
-		ProductionType: Addons
-	FreeActor@CPQDEBUGDUMMY:
-		Actor: CPQDEBUGDUMMY
 	ScalePowerWithHealth:
 	ProvidesPrerequisite@buildingname:
 	WithResourceStoragePipsDecoration:
@@ -1042,7 +1036,7 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	ProvidesPrerequisite@buildingname:
 	ProvidesPrerequisite@barracks:
 		Prerequisite: barracks
-	ParallelProductionQueue@INFANTRY:
+	ProductionQueue@INFANTRY:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@wc2:
 		Multiplier: 120
@@ -1141,7 +1135,7 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	ProvidesPrerequisite@buildingname:
 	GrantExternalConditionToProduced:
 		Condition: produced
-	ParallelProductionQueue@VEHICLE:
+	ProductionQueue@VEHICLE:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@wc2:
 		Multiplier: 120
@@ -1239,7 +1233,7 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 		Condition: produced
 	ProvidesPrerequisite@barracks:
 		Prerequisite: barracks
-	ParallelProductionQueue@INFANTRY:
+	ProductionQueue@INFANTRY:
 		LowPowerModifier: 10000
 
 ^wc2_nest:
@@ -1260,7 +1254,7 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	ProvidesPrerequisite@buildingname:
 	GrantExternalConditionToProduced:
 		Condition: produced
-	ParallelProductionQueue@AIRCRAFT:
+	ProductionQueue@AIRCRAFT:
 		LowPowerModifier: 10000
 	ProductionCostMultiplier@wc2:
 		Multiplier: 120
@@ -1289,7 +1283,7 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	Targetable:
 		TargetTypes: Ground, Water, C4, Structure
 	ProvidesPrerequisite@buildingname:
-	ParallelProductionQueue@NAVAL:
+	ProductionQueue@NAVAL:
 		LowPowerModifier: 10000
 
 ^wc2_foundry:
@@ -1484,6 +1478,18 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	CashTricklerMultiplier@BOT: #necessary because the loaded condition doesn't work for InitialUnits
 		Modifier: 200
 		RequiresCondition: botmicro
+	CashTricklerMultiplier@RANK-1:
+		Modifier: 125
+		RequiresCondition: city-veteran == 1 && !city-elite
+	CashTricklerMultiplier@RANK-2:
+		Modifier: 150
+		RequiresCondition: city-veteran == 2 && !city-elite
+	CashTricklerMultiplier@RANK-3:
+		Modifier: 175
+		RequiresCondition: city-veteran == 3 && !city-elite
+	CashTricklerMultiplier@RANK-4:
+		Modifier: 200
+		RequiresCondition: city-elite
 	ExperienceTrickler@1:
 		Amount: 100
 		Interval: 1
@@ -1553,6 +1559,8 @@ WC2 SPELL/STATUS EFFECT INHERITABLES
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+	ActorStatValues:
+		Stats: Armor, Sight, CashTrickler, Power, Experience
 
 ####################################################################################################
 # WC2 UNIT TEMPLATES
@@ -2210,7 +2218,7 @@ wc2_human_keep:
 		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites:  ~wc2_human_townhall, keepupgradeavailable, wc2_human_blacksmith
 		Description: Unlocks more advanced buildings.
 	Plug:
@@ -2224,7 +2232,7 @@ wc2_human_castle:
 		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~wc2_human_keep, castleupgradeavailable, wc2_human_gnomish_inventor, wc2_human_stables
 		Description: Unlocks more advanced buildings.
 	Plug:
@@ -2796,6 +2804,8 @@ wc2_human_scout_tower:
 	FirepowerMultiplier@HCannonUpg2:
 		Modifier: 125
 		RequiresCondition: hcannon_upg2 && cannon
+	ActorStatValues:
+		Upgrades: wc2_h_str_arrow, wc2_h_str_arrow2, wc2_h_str_cannon, wc2_h_str_cannon2, wc2_h_str_shield, wc2_h_str_shield2
 
 wchumancannontowerupgrade:
 	Inherits: ^BuildingPlug
@@ -2804,7 +2814,7 @@ wchumancannontowerupgrade:
 	Valued:
 		Cost: 600
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~wc2_human_elven_lumber_mill, scouttowerupgradeavailable
 		Description: Ground base defense.
 	Plug:
@@ -2819,7 +2829,7 @@ wchumanguardtowerupgrade:
 	Valued:
 		Cost: 600
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~wc2_human_blacksmith, scouttowerupgradeavailable
 		Description: Anti-aircraft base defense.
 	Plug:
@@ -3365,7 +3375,7 @@ wc2_human_ballista:
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~wc2_human_blacksmith
-		Queue: Infantry, RAInfantry
+		Queue: Vehicle, RAVehicle
 		Description: Powerful long range siege unit.
 	AttackFrontal:
 		PauseOnCondition: disabled
@@ -3412,7 +3422,7 @@ wc2_human_siege_engine:
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~wc2_human_blacksmith
-		Queue: Infantry, RAInfantry
+		Queue: Vehicle, RAVehicle
 		Description: Powerful long range siege unit.
 	AttackFrontal:
 		PauseOnCondition: disabled
@@ -4096,7 +4106,7 @@ wc2_orc_stronghold:
 		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites:  ~wc2_orc_greathall, strongholdupgradeavailable, wc2_orc_blacksmith
 		Description: Unlocks more advanced buildings.
 	Plug:
@@ -4110,7 +4120,7 @@ wc2_orc_fortress:
 		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~wc2_orc_stronghold, fortressupgradeavailable, wc2_orc_goblin_alchemist, wc2_orc_ogre_mound
 		Description: Unlocks more advanced buildings.
 	Plug:
@@ -4631,6 +4641,8 @@ wc2_orc_watch_tower:
 	FirepowerMultiplier@OCannonUpg2:
 		Modifier: 125
 		RequiresCondition: ocannon_upg2 && cannon
+	ActorStatValues:
+		Upgrades: wc2_o_str_throwaxe, wc2_o_str_throwaxe2, wc2_o_str_cannon, wc2_o_str_cannon2, wc2_o_str_shield, wc2_o_str_shield2
 
 wcorcguardtowerupgrade:
 	Inherits: ^BuildingPlug
@@ -4639,7 +4651,7 @@ wcorcguardtowerupgrade:
 	Valued:
 		Cost: 600
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~wc2_orc_troll_lumber_mill, scouttowerupgradeavailable
 		Description: Ground base defense.
 	Plug:
@@ -4654,7 +4666,7 @@ wcorccannontowerupgrade:
 	Valued:
 		Cost: 600
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~wc2_orc_blacksmith, scouttowerupgradeavailable
 		Description: Anti-aircraft base defense.
 	Plug:
@@ -5218,7 +5230,7 @@ wc2_orc_catapult:
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~wc2_orc_blacksmith
-		Queue: Infantry, RAInfantry
+		Queue: Vehicle, RAVehicle
 		Description: Powerful long range siege unit.
 	AttackFrontal:
 		PauseOnCondition: disabled
