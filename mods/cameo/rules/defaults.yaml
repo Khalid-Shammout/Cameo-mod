@@ -886,6 +886,7 @@
 	Inherits@GlobalBuffs: ^GlobalBuffs
 	Inherits: ^NanoTechRepairs
 	Inherits@ModernFireControlSystems: ^ModernFireControlSystems
+	Inherits@Blitzkrieg: ^Blitzkrieg
 	DamageMultiplier@VehicleBuffs:
 		Modifier: 90
 	ChangesHealth@SelfHealing:
@@ -899,6 +900,7 @@
 	Inherits@upgrade: ^LightWeightArmorPlating
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@NuclearShellsTeamUpgradeRA1: ^NuclearShellsTeamUpgradeRA1
+	Inherits@Blitzkrieg: ^Blitzkrieg
 	DamageMultiplier@TankBuffs:
 		Modifier: 80
 	FirepowerMultiplier@TankBuffs:

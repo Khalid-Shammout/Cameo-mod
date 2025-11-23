@@ -7423,6 +7423,30 @@ nax2_bbomb:
 #   Red Alert 2 Upgrades
 ##############################################
 
+ostfrontexperienceicon:
+	icon:
+		Filename: ostfrontexperienceicon.png
+
+atlantikwallicon:
+	icon:
+		Filename: atlantikwallicon.png
+
+tankarsenalrenovationicon:
+	icon:
+		Filename: tankarsenalrenovationicon.png
+
+massopticsintegrationicon:
+	icon:
+		Filename: massopticsintegrationicon.png
+
+wunderwaffeicon:
+	icon:
+		Filename: wunderwaffeicon.png
+
+blitzkriegicon:
+	icon:
+		Filename: blitzkriegicon.png
+
 upnax2_ylaser:
 	icon:
 		Filename: upnax2_ylaser.png

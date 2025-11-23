@@ -309,7 +309,6 @@ tsriott:
 		Filename: tsriott.shp
 	icon:
 		Filename: tsriotticon.png
-		AddExtension: False
 
 tsumagon:
 	Inherits: ^TSBasicInfantry
@@ -897,8 +896,7 @@ tskodk:
 	idle:
 		Facings: -32
 	icon:
-		Filename: tskodkicon.shp
-		AddExtension: False
+		Filename: tskodkicon.png
 
 tsmutant4:
 	Inherits: ^TSBasicInfantry
@@ -1741,7 +1739,7 @@ tsgtcnst:
 		Filename: tsgtcnst_b.shp
 		Length: 10
 	icon:
-		Filename: tsfacticon.shp
+		Filename: tsfacticon.png
 		Offset: 0,0
 
 tsgtpowr:
@@ -1986,7 +1984,7 @@ tsntpowr:
 	make:
 		Filename: tsntpowrmk.shp
 	icon:
-		Filename: tsnpwricon.shp
+		Filename: tsnpwricon.png
 		Offset: 0, 0, 25
 		UseTilesetCode: false
 
@@ -2025,6 +2023,7 @@ tsntpowrmutant:
 tsntapwr:
 	Inherits: ^WithBuildingBib3
 	Defaults:
+		Scale: 1.5
 		Offset: 12, -15, 30
 	idle:
 		Filename: tsntapwr.shp
@@ -2050,7 +2049,7 @@ tsntapwr:
 	make:
 		Filename: tsntapwrmk.shp
 	icon:
-		Filename: tsapwricon.shp
+		Filename: tsapwricon.png
 		Offset: 0, 0
 		UseTilesetCode: false
 
@@ -2209,7 +2208,7 @@ tsntweap:
 		ZOffset: -1024
 		Offset: -12, -21, 1
 	icon:
-		Filename: tsnwepicon.shp
+		Filename: tsnwepicon.png
 		Offset: 0, 0
 		UseTilesetCode: false
 
@@ -2250,6 +2249,7 @@ tsntradr:
 tsnttech:
 	Inherits: ^WithBuildingBib3
 	Defaults:
+		Scale: 1.5
 		Filename: tsnttech.shp
 		Offset: 0, -24, 24
 	idle:
@@ -2275,7 +2275,7 @@ tsnttech:
 	make:
 		Filename: tsnttechmk.shp
 	icon:
-		Filename: tsntchicon.shp
+		Filename: tsntchicon.png
 		Offset: 0, 0
 
 tsnttmpl:
@@ -2871,6 +2871,7 @@ tsfgttech:
 tsntobel:
 	Defaults:
 		Filename: tsntobel.shp
+		Scale: 1.5
 		Offset: 0, -24, 24
 	idle:
 		Filename: tsntobel.shp
@@ -2895,7 +2896,8 @@ tsntobel:
 		Tick: 80
 	make:
 		Filename: tsntobelmk.shp
-	icon: obliicnh.tem
+	icon:
+		Filename: tsntobelicon.png
 		AddExtension: False
 		Offset: 0,0
 
@@ -3404,7 +3406,7 @@ tsgtsilo.gdi:
 tsgtsilo.nod:
 	Inherits: tsgtsilo.gdi
 	icon:
-		Filename: tssiloicon.shp
+		Filename: tssiloicon.png
 		Offset: 0, 0
 		UseTilesetCode: false
 
@@ -4852,3 +4854,7 @@ ts_wini:
 	icon:
 		Filename: invisibleitem.shp
 		AddExtension: False
+
+mobilityspecializationicon:
+	icon:
+		Filename: mobilityspecializationicon.png
