@@ -568,6 +568,18 @@ TS227mm:
 	Warhead@3Eff: CreateEffect
 		ImpactSounds: expnew13.aud
 
+TS120mmxChem:
+	Inherits: TS120mmx
+	Warhead@Cloud: SpawnSmokeParticle
+		Count: 1
+		Duration: 50
+		Speed: 12, 25
+		TurnRate: 12
+		Image: ra2txgasg
+		Sequences: idle
+		Palette: ra2effect
+		Weapon: RA2Cloud
+		InvalidTargets: Water
 ####################################################################################################
 #		Tiberian Sun Energy Weapons
 ####################################################################################################
@@ -1347,6 +1359,56 @@ TSRedEye2:
 		ImpactSounds: expnew13.aud
 		ImpactActors: false
 
+TSAdatsMissile:
+	Inherits: ^LightMissile
+	Inherits: ^MediumMissile
+	Range: 6392
+	Burst: 8
+	BurstDelays: 2
+	ReloadDelay: 70
+	Report: misl1.aud
+	Warhead@LightMissile: SpreadDamage
+		Damage: 16000
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@LightMissileFriendlyFire: SpreadDamage
+		Damage: 8000
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 8
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 16000
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@MediumMissileFriendlyFire: SpreadDamage
+		Damage: 8000
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 8
+		ValidTargets: Ground, Water, Trees, Air
+	Warhead@Cloud: SpawnSmokeParticle
+		Count: 1
+		Duration: 50
+		Speed: 12, 25
+		TurnRate: 12
+		Image: ra2txgasg
+		Sequences: idle
+		Palette: ra2effect
+		Weapon: RA2Cloud
+		InvalidTargets: Water
+TSMammothTuskChem:
+	Inherits: TSMammothTusk
+	Burst: 2
+	BurstDelays: 8
+	Warhead@Cloud: SpawnSmokeParticle
+		Count: 3
+		Duration: 50
+		Speed: 12, 25
+		TurnRate: 12
+		Image: ra2txgasg
+		Sequences: idle
+		Palette: ra2effect
+		Weapon: RA2Cloud
+		InvalidTargets: Water
 ####################################################################################################
 #		Tiberian Sun Other
 ####################################################################################################
@@ -1444,6 +1506,48 @@ TSFiendShard:
 		Explosions: sczhsplash
 		ImpactActors: false
 		ValidTargets: Ground, Air
+TSFiendShardBlue:
+	Inherits: ^HeavyBomb
+	ReloadDelay: 33
+	Burst: 3
+	BurstDelays: 3
+	Range: 5555
+	Report: fiend2.aud
+	ValidTargets: Ground, Air
+	Projectile: Missile
+		Speed: 333
+		RangeLimit: 33333
+		Image: ra2txgasg
+		TrailImage: green_smokey
+	Warhead@1Dam: SpreadDamage
+		Damage: 1234
+		Spread: 123
+		HorizontalRateOfTurn: 12
+		ContrailColor: 33FF33
+		ContrailLength: 12
+		ValidTargets: Ground, Air
+		Versus:
+			None: 88
+			Wood: 77
+			Light: 123
+			Medium: 111
+			Heavy: 99
+			Concrete: 66
+		DamageTypes: Prone100Percent, TriggerProne, BulletDeath
+	Warhead@Cloud: SpawnSmokeParticle
+		Count: 1
+		Duration: 50
+		Speed: 12, 25
+		TurnRate: 12
+		Image: ra2txgasg
+		Sequences: idle
+		Palette: ra2effect
+		Weapon: RA2Cloud
+		InvalidTargets: Water
+	Warhead@3Eff: CreateEffect
+		Explosions: sczhsplash
+		ImpactActors: false
+		ValidTargets: Ground, Air
 
 TSSlimeAttack:
 	ReloadDelay: 80
@@ -1453,6 +1557,21 @@ TSSlimeAttack:
 	InvalidTargets: Wall, Bridge
 	Warhead@1Dam: SpreadDamage
 		Damage: 10000
+		InvalidTargets: Wall, Bridge
+		Versus:
+			Light: 60
+			Medium: 50
+			Heavy: 40
+			Concrete: 20
+		DamageTypes: Prone100Percent, TriggerProne, SmallExplosionDeath
+TSZombieAttack:
+	ReloadDelay: 80
+	Range: 1c384
+	Report: vicer1.aud
+	Projectile: InstantHit
+	InvalidTargets: Wall, Bridge
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
 		InvalidTargets: Wall, Bridge
 		Versus:
 			Light: 60

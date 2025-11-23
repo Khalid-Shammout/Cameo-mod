@@ -342,7 +342,7 @@ tsmhijack:
 	Defaults:
 		Filename: tsghost.shp
 	icon:
-		Filename: tshijackicon.shp
+		Filename: forgot_hijacker_icon.png
 
 tschamspy:
 	Inherits: ^TSBasicInfantry
@@ -357,7 +357,7 @@ tsmutant:
 	Defaults:
 		Filename: tsmutant.shp
 	icon:
-		Filename: tsmutanticon.shp
+		Filename: forgot_mutant_icon.png
 
 tsmwmn:
 	Inherits: ^TSBasicInfantry
@@ -365,7 +365,7 @@ tsmwmn:
 	Defaults:
 		Filename: tsmutant3.shp
 	icon:
-		Filename: tsmutant2icon.shp
+		Filename: forgot_woman_icon.png
 
 tsmutant3:
 	Inherits: ^TSBasicInfantry
@@ -373,14 +373,14 @@ tsmutant3:
 	Defaults:
 		Filename: tsmutant3.shp
 	icon:
-		Filename: tsmutant3icon.shp
+		Filename: forgot_sarge_icon.png
 
 tstratos:
 	Inherits: ^TSBasicInfantry
 	Defaults:
 		Filename: tsmutant.shp
 	icon:
-		Filename: tsmutcicon.shp
+		Filename: forgot_tratos_icon.png
 
 tsweedguy:
 	Defaults:
@@ -537,7 +537,64 @@ tsdoggie:
 		Length: 10
 		ShadowStart: 228
 	icon:
-		Filename: tsdoggieicon.shp
+		Filename: forgot_fiend_icon.png
+tsdoggieblue:
+	Defaults:
+		Filename: tsdoggieblue.shp
+		Tick: 80
+		Offset: 0, 0, 16
+	stand:
+		Facings: 8
+		ShadowStart: 119
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		ShadowStart: 127
+	attack:
+		Start: 56
+		Length: 4
+		Facings: 8
+		ShadowStart: 175
+	laydown:
+		Start: 88
+		Length: 2
+		ShadowStart: 207
+	hide:
+		Start: 90
+		ShadowStart: 209
+	idle1:
+		Start: 91
+		Length: 8
+		ShadowStart: 210
+	die:
+		Start: 99
+		Length: 10
+		ShadowStart: 218
+	die4:
+		Filename: frag3.shp
+		Length: *
+	die-crushed:
+		Start: 105
+		Length: 4
+		ShadowStart: 224
+		Tick: 800
+		ZOffset: -511
+	die5:
+		Start: 109
+		Length: 10
+		ShadowStart: 228
+	icon:
+		Filename: forgot_fiend_blue_icon.png
+
+tse3mut:
+	Inherits: ^TSBasicInfantry
+	Inherits@attack: ^TSBasicInfantryAttack
+	Defaults:
+		Filename: alte3.shp
+	icon:
+		Filename: forgot_missiletroop_icon.png
+		AddExtension: False
 
 tsfloater:
 	idle:
@@ -836,6 +893,109 @@ dtruck:
 		AddExtension: False
 
 
+tsmutant4:
+	Inherits: ^TSBasicInfantry
+	Inherits@attack: ^TSBasicInfantryAttack
+	Defaults:
+		Filename: tsmutant4.shp
+		Tick: 80
+		Offset: 0, 0, 16
+		Scale: 1.1
+	stand:
+		Facings: 8
+		ShadowStart: 368
+	run:
+		Start: 8
+		Length: 10
+		Facings: 8
+		ShadowStart: 376
+	attack:
+		Start: 128
+		Length: 10
+		Facings: 8
+		ShadowStart: 496
+	prone-attack:
+		Start: 128
+		Length: 10
+		Facings: 8
+		ShadowStart: 496
+	standup:
+		Start: 112
+		Length: 2
+		Facings: 8
+		ShadowStart: 314
+	prone-run:
+		Start: 268
+		Length: 10
+		Facings: 8
+		ShadowStart: 536
+	prone-stand:
+		Start: 268
+		Facings: 8
+		Stride: 10
+		ShadowStart: 536
+	idle1:
+		Start: 88
+		Length: 20
+		ShadowStart: 456
+	idle2:
+		Start: 108
+		Length: 20
+		ShadowStart: 476
+	die1:
+		Start: 208
+		Length: 20
+		ShadowStart: 576
+	die2:
+		Start: 208
+		Length: 20
+		ShadowStart: 576
+	die6:
+		Start: 208
+		Length: 20
+		ShadowStart: 576
+	die-crushed:
+		Start: 159
+		Length: 5
+		ShadowStart: 451
+		Tick: 800
+		ZOffset: -511
+	standup:
+		Start: 260
+		Length: 2
+		Facings: 8
+		ShadowStart: 552
+	cheer:
+		Start: 208
+		Length: 20
+		ShadowStart: 576
+	die-crushed:
+		Start: 208
+		Length: 20
+		ShadowStart: 576
+	die7: tss_bang34
+		Length: *
+	chrono-overlay: chronofade_small
+		Length: *
+		BlendMode: Additive
+		Offset: 0, 0
+		UseTilesetCode: false
+		ZOffset: 512
+		Tick: 80
+	mind-overlay: mindanim
+		Length: *
+		Tick: 200
+		BlendMode: Alpha
+		Offset: 0, 0
+	icon:
+		Filename: forgot_mutant4_icon.png
+tsshotmut:
+	Inherits: ^TSBasicInfantry
+	Inherits@attack: ^TSBasicInfantryAttack
+	Defaults:
+		Filename: tsoxanna.shp
+	icon:
+		Filename: forgot_shotgunner_icon.png
 # tsweed:
 # 	idle: invisibleitem
 # 	dock: invisibleitem
@@ -913,54 +1073,143 @@ tsmemp:
 
 ts1tnk:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: forgot_ltnk.png
+		Facings: 64
+		Scale: 0.5
+	turret:
+		Filename: forgot_ltnk.png
+		Start: 64
+		Facings: 64
+		Scale: 0.5
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
 	icon:
-		Filename: tsltnkicon.shp
+		Filename: forgot_ltnk_icon.png
+tsclosh:
+	idle:
+		Filename: forgot_closh.png
+		Facings: 64
+		Scale: 0.5
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: forgot_closh_icon.png
+
+tsarty_bus:
+	idle:
+		Filename: forgot_arty_bus.png
+		Facings: 64
+		Scale: 0.6
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: forgot_arty_bus_icon.png
+tsnomad:
+	idle:
+		Filename: forgot_nomad.png
+		Facings: 64
+		Scale: 0.6
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: forgot_nomad_icon.png
+
+tsarty:
+	idle:
+		Filename: forgot_arty.png
+		Facings: 64
+		Scale: 0.6
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: forgot_arty_icon.png
 
 tswini2:
 	Defaults:
 		Filename: invisibleitem.shp
 	idle:
-		Filename: invisibleitem.shp
+		Filename: forgot_wini.png
+		Facings: 64
+		Scale: 0.5
+	turret:
+		Filename: forgot_wini.png
+		Start: 64
+		Facings: 64
+		Scale: 0.5
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
 	icon:
-		Filename: tswini2icon.shp
+		Filename: forgot_wini_icon.png
 
 tscar2:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: forgot_car.png
+		Facings: 64
+		Scale: 0.5
+	turret:
+		Filename: forgot_car.png
+		Start: 64
+		Facings: 64
+		Scale: 0.5
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
 	icon:
-		Filename: tsraidcaricon.shp
+		Filename: forgot_car_icon.png
+tsruiner:
+	idle:
+		Filename: forgot_ruiner.png
+		Facings: 64
+		Scale: 0.5
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: forgot_ruiner_icon.png
 
 ts2tnk:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: forgot_mtnk.png
+		Facings: 64
+		Scale: 0.5
+	turret:
+		Filename: forgot_mtnk.png
+		Start: 64
+		Facings: 64
+		Scale: 0.5
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
 	icon:
-		Filename: tsmtnkicon.png
+		Filename: forgot_mtnk_icon.png
 
 ts3tnk:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: forgot_htnk.png
+		Facings: 64
+		Scale: 0.5
+	turret:
+		Filename: forgot_htnk.png
+		Start: 64
+		Facings: 64
+		Scale: 0.5
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
 	icon:
-		Filename: tshtnkicon.shp
+		Filename: forgot_htnk_icon.png
 
 tsftnk:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: forgot_ftnk.png
+		Facings: 64
+		Scale: 0.5
 	muzzle:
 		Combine:
 			flame-n:
@@ -996,7 +1245,7 @@ tsftnk:
 				Length: *
 				Offset: -7,8
 	icon:
-		Filename: tsftnkicon.png
+		Filename: forgot_ftnk_icon.png
 
 tshvr:
 	idle:
@@ -1341,42 +1590,91 @@ tssapc:
 		Length: 5
 
 ts4tnk:
+	Defaults:
+		Filename: forgot_4tnk.png
 	idle:
-		Filename: invisibleitem.shp
+		Facings: 64
+		Scale: 0.6
+	turret:
+		Start: 64
+		Facings: 64
+		Scale: 0.6
 	icon:
 		Filename: ts4tnkicon.png
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
-
+ts4tnk2:
+	Defaults:
+		Filename: forgot_4tnk2.png
+	idle:
+		Facings: 64
+		Scale: 0.6
+	turret:
+		Start: 64
+		Facings: 64
+		Scale: 0.6
+	icon:
+		Filename: forgot_4tnk2_icon.png
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
 tsmlrs:
+	Defaults:
+		Filename: forgot_mlrs.png
 	idle:
-		Filename: invisibleitem.shp
+		Facings: 64
+		Scale: 0.5
+	turret:
+		Start: 64
+		Facings: 64
+		Scale: 0.5
+	empty-aim:
+		Start: 128
+		Facings: 64
+		Scale: 0.5
+	aim:
+		Start: 128
+		Facings: 64
+		Scale: 0.5
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
 	icon:
-		Filename: msamicnh.tem
+		Filename: forgot_mlrs_icon.png
 		AddExtension: False
-
-tsarty:
-	idle:
-		Filename: invisibleitem.shp
-	muzzle:
-		Filename: gunfire2.shp
-		Length: 5
-	icon:
-		Filename: artyicnh.tem
-		AddExtension: False
-
 tsm113:
+	Defaults:
+		Filename: forgot_adats.png
 	idle:
-		Filename: invisibleitem.shp
+		Facings: 64
+		Scale: 0.6
+	turret:
+		Start: 64
+		Facings: 64
+		Scale: 0.6
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
 	icon:
-		Filename: apcicnh.tem
+		Filename: forgot_adats_icon.png
+		AddExtension: False
+tsapctruck:
+	Defaults:
+		Filename: forgot_truck.png
+	idle:
+		Facings: 64
+		Scale: 0.6
+	turret:
+		Filename: forgot_car.png
+		Start: 64
+		Facings: 64
+		Scale: 0.5
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: forgot_truck_icon.png
 		AddExtension: False
 
 tsgtcnst:
@@ -3513,7 +3811,287 @@ tsjumpjet:
 	# Fly through air squish on ground
 	icon:
 		Filename: tsjumpjeticon.shp
+forgot_conyard:
+	Inherits: ^WithBuildingBib2
+	Defaults:
+		Filename: forgot_conyard.png
+		Scale: 1
+		Offset: 0, -20, 20
+	idle:
+		Start: 64
+		Length: 8
+		Tick: 160
+	build:
+		Start: 32
+		Length: 16
+		Tick: 120
+	damaged-idle:
+		Start: 72
+		Length: 8
+		Tick: 160
+	damaged-build:
+		Start: 48
+		Length: 16
+		Tick: 120
+	dead:
+		Start: 72
+		Length: 8
+	make:
+		Length: 32
+	crane-overlay:
+		Filename: tsgtcnst_d.shp
+		Length: 20
+		ZOffset: 1023
+	damaged-crane-overlay:
+		Filename: tsgtcnst_d.shp
+		Length: 20
+		ZOffset: 1023
+	critical-crane-overlay:
+		Filename: tsgtcnst_d.shp
+		Start: 20
+		Length: 20
+		ZOffset: 1023
+	idle-top:
+		Filename: invisibleitem.shp
+	damaged-idle-top:
+		Filename: invisibleitem.shp
+	idle-side:
+		Filename: tsgtcnst_a.shp
+		Length: 10
+	damaged-idle-side:
+		Filename: tsgtcnst_a.shp
+		Start: 10
+		Length: 10
+	idle-front:
+		Filename: tsgtcnst_b.shp
+		Length: 10
+	damaged-idle-front:
+		Filename: tsgtcnst_b.shp
+		Length: 10
+	icon:
+		Filename: forgot_conyard_icon.png
+		Offset: 0,0
 
+forgot_power:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+		Scale: 1
+		Filename: forgot_power.png
+	idle:
+		Start: 32
+		Length: 8
+		Tick: 160
+	damaged-idle:
+		Start: 40
+		Length: 8
+		Tick: 160
+	dead:
+		Start: 40
+		Length: 8
+		Tick: 160
+	make:
+		Length: 32
+	icon:
+		Filename: forgot_power_icon.png
+		Offset: 0, 0, 25
+		UseTilesetCode: false
+
+forgot_barracks:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+	idle:
+		Filename: forgot_barracks.png
+		Start: 32
+		Length: 16
+	damaged-idle:
+		Filename: forgot_barracks.png
+		Start: 48
+		Length: 16
+	dead:
+		Filename: forgot_barracks.png
+		Start: 48
+		Length: 16
+	make:
+		Filename: forgot_barracks.png
+		Length: 16
+	icon:
+		Filename: forgot_barracks_icon.png
+		Offset: 0, 0
+		UseTilesetCode: false
+
+forgot_refin:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+	idle:
+		Filename: forgot_refin.png
+		Start: 32
+		Length: 16
+	damaged-idle:
+		Filename: forgot_refin.png
+		Start: 48
+		Length: 16
+	dead:
+		Filename: forgot_refin.png
+		Start: 48
+		Length: 16
+	make:
+		Filename: forgot_refin.png
+		Length: 16
+	icon:
+		Filename: forgot_refin_icon.png
+		Offset: 0, 0
+		UseTilesetCode: false
+
+forgot_radar:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+	idle:
+		Filename: forgot_radar.png
+		Start: 32
+		Length: 16
+	damaged-idle:
+		Filename: forgot_radar.png
+		Start: 48
+		Length: 16
+	dead:
+		Filename: forgot_radar.png
+		Start: 48
+		Length: 16
+	make:
+		Filename: forgot_radar.png
+		Length: 16
+	icon:
+		Filename: forgot_radar_icon.png
+		Offset: 0, 0
+		UseTilesetCode: false
+forgot_church:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+	idle:
+		Filename: forgot_church.png
+		Start: 32
+		Length: 16
+	damaged-idle:
+		Filename: forgot_church.png
+		Start: 48
+		Length: 16
+	dead:
+		Filename: forgot_church.png
+		Start: 48
+		Length: 16
+	make:
+		Filename: forgot_church.png
+		Length: 16
+	icon:
+		Filename: forgot_church_icon.png
+		Offset: 0, 0
+		UseTilesetCode: false
+forgot_chemicalplant:
+	Inherits: ^WithBuildingBib3
+	Defaults:
+	idle:
+		Filename: forgot_chemicalplant.png
+		Start: 40
+		Length: 20
+	damaged-idle:
+		Filename: forgot_chemicalplant.png
+		Start: 61
+		Length: 20
+	dead:
+		Filename: forgot_chemicalplant.png
+		Start: 61
+		Length: 20
+	make:
+		Filename: forgot_chemicalplant.png
+		Length: 40
+	icon:
+		Filename: forgot_chemical_icon.png
+		Offset: 0, 0
+		UseTilesetCode: false
+forgot_weap:
+	Inherits: ^WithBuildingBib2
+	Defaults:
+	idle:
+		Filename: invisibleitem.shp
+	damaged-idle:
+		Filename: invisibleitem.shp
+	idle-roof:
+		Filename: forgot_weap_top.png
+		Length: 16
+		ZOffset: 512
+	damaged-idle-roof:
+		Filename: forgot_weap_top.png
+		Start: 16
+		Length: 16
+		ZOffset: 512
+	dead:
+		Filename: forgot_weap_bottom.png
+		Start: 1
+		ZOffset: -1024
+	build-door:
+		Filename: forgot_weap_door.png
+		Length: 16
+		ZOffset: 512
+	damaged-build-door:
+		Filename: forgot_weap_door.png
+		Start: 16
+		Length: 16
+		ZOffset: 512
+	make:
+		Filename: forgot_weap_buildup.png
+		Length: 32
+	bib2:
+		Filename: forgot_weap_bottom.png
+		ZOffset: -1024
+	damaged-bib2:
+		Filename: forgot_weap_bottom.png
+		Start: 1
+		ZOffset: -1024
+	dead-bib2:
+		Filename: forgot_weap_bottom.png
+		Start: 1
+		ZOffset: -1024
+	icon:
+		Filename: forgot_weap_icon.png
+		Offset: 0, 0
+		UseTilesetCode: false
+
+forgot_silo:
+	Inherits: ^WithBuildingBib2
+	Defaults:
+		Filename: forgot_silo.png
+	idle:
+		Filename: forgot_silo.png
+		Start: 32
+	damaged-idle:
+		Filename: invisibleitem.shp
+	stages:
+		Filename: forgot_silo.png
+		Start: 32
+		Length: 12
+	damaged-stages:
+		Filename: forgot_silo.png
+		Start: 45
+		Length: 12
+	idle-underlay:
+		Filename: forgot_silo.png
+		Start: 32
+		ZOffset: -512
+	damaged-idle-underlay:
+		Filename: forgot_silo.png
+		Start: 45
+		ZOffset: -512
+	dead:
+		Filename: forgot_silo.png
+		Start: 45
+		ZOffset: -512
+	make:
+		Filename: forgot_silo.png
+		Length: 32
+	icon:
+		Filename: forgot_silo_icon.png
+		Offset: 0, 0
+		UseTilesetCode: false
 # tsjumpjet2:
 # 	idle: tsjumpjet
 # 		Facings: 8
@@ -4191,3 +4769,77 @@ ceramicarmoricon:
 modernfirecontrolsystemsicon:
 	icon:
 		Filename: modernfirecontrolsystemsicon.png
+
+
+# Civilian Cars
+
+ts_sedan:
+	Inherits: ^RA2MachineGunMuzzle
+	Defaults:
+		Filename: ts_sedan.png
+		Scale: 0.5
+	idle:
+		Facings: 64
+	icon:
+		Filename: invisibleitem.shp
+		AddExtension: False
+ts_trucka:
+	Inherits: ^RA2MachineGunMuzzle
+	Defaults:
+		Filename: ts_trucka.png
+		Scale: 0.64
+	idle:
+		Facings: 64
+	icon:
+		Filename: invisibleitem.shp
+		AddExtension: False
+ts_truckb:
+	Inherits: ^RA2MachineGunMuzzle
+	Defaults:
+		Filename: ts_truckb.png
+		Scale: 0.64
+	idle:
+		Facings: 64
+	icon:
+		Filename: invisibleitem.shp
+		AddExtension: False
+ts_bus:
+	Inherits: ^RA2MachineGunMuzzle
+	Defaults:
+		Filename: ts_bus.png
+		Scale: 0.64
+	idle:
+		Facings: 64
+	icon:
+		Filename: invisibleitem.shp
+		AddExtension: False
+ts_pickup:
+	Inherits: ^RA2MachineGunMuzzle
+	Defaults:
+		Filename: ts_pickup.png
+		Scale: 0.64
+	idle:
+		Facings: 64
+	icon:
+		Filename: invisibleitem.shp
+		AddExtension: False
+ts_pickupb:
+	Inherits: ^RA2MachineGunMuzzle
+	Defaults:
+		Filename: ts_pickupb.png
+		Scale: 0.64
+	idle:
+		Facings: 64
+	icon:
+		Filename: invisibleitem.shp
+		AddExtension: False
+ts_wini:
+	Inherits: ^RA2MachineGunMuzzle
+	Defaults:
+		Filename: ts_wini.png
+		Scale: 0.64
+	idle:
+		Facings: 64
+	icon:
+		Filename: invisibleitem.shp
+		AddExtension: False
