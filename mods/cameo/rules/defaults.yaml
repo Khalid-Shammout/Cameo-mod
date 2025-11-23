@@ -6451,6 +6451,8 @@ CPQDEBUGDUMMY:
 
 ^PowerPlant:
 	Inherits: ^Power
+	Buildable:
+		BuildPaletteOrder: 10
 	WithColoredOverlay@OUTAGE:
 		Color: 000000b4
 		RequiresCondition: powerdisabled
@@ -6598,6 +6600,8 @@ CPQDEBUGDUMMY:
 		Intensity: 700
 
 ^Conyard:
+	Inherits@CPQ: ^CPQCondition
+	Inherits@aicash: ^AIConyardCash
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 1000
@@ -6776,6 +6780,7 @@ CPQDEBUGDUMMY:
 		RequiresCondition: scaledprices
 
 ^IsBarrack:
+	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@DisabledOverlay: ^DisableOnPowerDown
 	Inherits: ^ScaledProducer
 	Buildable:
@@ -6913,6 +6918,7 @@ CPQDEBUGDUMMY:
 		RequiresCondition: classicproductionqueues
 
 ^IsWeaponFactory:
+	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@DisabledOverlay: ^DisableOnPowerDown
 	Inherits: ^ScaledProducer
 	Buildable:
@@ -7018,6 +7024,7 @@ CPQDEBUGDUMMY:
 		-RequiresCondition: classicproductionqueues
 
 ^IsAircraftFactory:
+	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@DisabledOverlay: ^DisableOnPowerDown
 	Inherits: ^ScaledProducer
 	Inherits@repair: ^RepairsUnits
@@ -7103,9 +7110,9 @@ CPQDEBUGDUMMY:
 		Prerequisites: 4air
 
 ^IsShipyard:
+	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@DisabledOverlay: ^DisableOnPowerDown
 	Inherits: ^ScaledProducer
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@prod: ^ProducesUnits
 	Inherits@repair: ^RepairsUnits
 	Buildable:

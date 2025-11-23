@@ -3304,6 +3304,96 @@ IncendiaryYakChainGun:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2
 
+YakTeslaGun:
+	Inherits: ^LightMissile
+	Inherits: ^TeslaWeapon
+	ValidTargets: Ground, Water, Trees, Air
+	ReloadDelay: 104
+	Range: 7000
+	MinRange: 1400
+	Burst: 8
+	BurstDelays: 3
+	Report: shktrop1.aud
+	Projectile: TeslaZap
+		-Image: DRAGON
+		-TrailImage: smokey
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 8000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 4000
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
+	Warhead@EffectAir: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
+
+YakTeslaGunArc:
+	Inherits: YakTeslaGun
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: YakTeslaArcFragment1
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+YakTeslaArcFragment1:
+	Inherits: YakTeslaGunArc
+	Range: 3500
+	Warhead@LightMissile: SpreadDamage
+		Damage: 4000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 4
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 2000
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: YakTeslaArcFragment2
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+YakTeslaArcFragment2:
+	Inherits: YakTeslaArcFragment1
+	Range: 1750
+	Warhead@LightMissile: SpreadDamage
+		Damage: 2000
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 1000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 1000
+	-Warhead@TeslaArc: FireShrapnel
+
 YakNapalm:
 	Inherits: ^ShrapnelWeapon
 	Inherits: ^HeavyBomb
@@ -3346,6 +3436,119 @@ YakNapalm:
 	-Warhead@Effect2:
 	Warhead@Effect: CreateEffect
 		Explosions: med_napalm
+
+YakTeslaBomb:
+	Inherits: ^TeslaWeapon
+	Inherits: ^HeavyBomb
+	Inherits: ^HeavyChemicalWeapon
+	Inherits: ^HeavyFlameWeapon
+	ReloadDelay: 125
+	Range: 1250
+	ValidTargets: Ground, Water, Trees
+	Report: vkiratta.wav
+	TargetActorCenter: true
+	Projectile: GravityBomb
+		Velocity: 50, 0, -50
+		Acceleration: 0, 0, -10
+		Image: MISSILE
+		Shadow: True
+	Warhead@TeslaWeapon: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaExtraDamage: SpreadDamage
+		Damage: 20000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyBomb: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyChemicalWeapon: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
+		Damage: 20000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyFlameWeapon: SpreadDamage
+		Damage: 40000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
+		Damage: 20000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
+		Damage: 20
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 40000
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: MammothTuskTeslaFragment1
+		Amount: 4
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+	-Warhead@Effect1:
+	-Warhead@Effect2:
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_kirovtesla
+		ExplosionPalette: ra2effect
+		ImpactSounds: gexpapoa.wav
+
+YakNuclearBomb:
+	Inherits: ^HeavyBomb
+	Inherits: ^HeavyChemicalWeapon
+	Inherits: ^HeavyFlameWeapon
+	Inherits: ^NuclearWarhead
+	ReloadDelay: 125
+	Range: 1250
+	ValidTargets: Ground, Water, Trees
+	Report: vkiratta.wav
+	TargetActorCenter: true
+	Projectile: GravityBomb
+		Velocity: 50, 0, -50
+		Acceleration: 0, 0, -10
+		Image: MISSILE
+		Shadow: True
+	Warhead@HeavyBomb: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 50000
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 25
+	Warhead@HeavyChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 50000
+	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 25000
+	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 25
+	Warhead@HeavyFlameWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 50000
+	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 25000
+	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 25
+	Warhead@NuclearWarhead: SpreadDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 50000
+	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees
+		Damage: 25
+	Warhead@Effect: CreateEffect
+		Explosions: nuke_small
+		ImpactSounds: kaboom22.aud
+		ImpactActors: true
 
 ZeroFighterChainGun:
 	Inherits: ^Chaingun

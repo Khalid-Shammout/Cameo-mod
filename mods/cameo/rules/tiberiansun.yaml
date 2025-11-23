@@ -309,8 +309,6 @@ OILB.TS.MUTANT:
 #######################################
 
 TSGTCNST:
-	GrantExternalConditionToOwner@BuildingsOwned:
-		Condition: BuildingsOwned
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
@@ -378,13 +376,9 @@ TSGTCNST:
 		Description: Builds structures
 
 TSGTCNSTGDI:
-	GrantExternalConditionToOwner@BuildingsOwned:
-		Condition: BuildingsOwned
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQ: ^CPQCondition
 	Inherits@sell: ^TSSpawnActorsOnSell
-	Inherits@aicash: ^AIConyardCash
 	Inherits@conyard: ^Conyard
 	Selectable:
 		Bounds: 131072, 87381
@@ -455,13 +449,9 @@ TSGTCNSTGDI:
 		PlayerPalette: playerra2
 
 TSGTCNSTNOD:
-	GrantExternalConditionToOwner@BuildingsOwned:
-		Condition: BuildingsOwned
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQ: ^CPQCondition
 	Inherits@sell: ^TSSpawnActorsOnSell
-	Inherits@aicash: ^AIConyardCash
 	Inherits@conyard: ^Conyard
 	Selectable:
 		Bounds: 131072, 87381
@@ -532,15 +522,10 @@ TSGTCNSTNOD:
 		Image: tsgtcnst
 		PlayerPalette: playerra2
 
-
 TSGTCNSTCABAL:
-	GrantExternalConditionToOwner@BuildingsOwned:
-		Condition: BuildingsOwned
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQ: ^CPQCondition
 	Inherits@sell: ^TSSpawnActorsOnSell
-	Inherits@aicash: ^AIConyardCash
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@selection: ^SelectableSupportUnit
 	Inherits@conyard: ^Conyard
@@ -903,7 +888,7 @@ tsgtpowrup:
 		Cost: 500
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Defence, RADefence
+		Queue: Addons
 		Prerequisites: ~tsgtcnstgdi, gdipowerupgradeavailable
 		Description: Increase power output by 100%
 	Plug:
@@ -1002,6 +987,8 @@ TSNTAPWR:
 	Inherits@power: ^PowerPlant
 	Tooltip:
 		Name: Nod Advanced Power Plant
+	Valued:
+		Cost: 1200
 	Health:
 		HP: 240000
 	Armor:
@@ -1018,14 +1005,12 @@ TSNTAPWR:
 		Dimensions: 3,2
 	HitShape:
 		TargetableOffsets: -355,-1024,0
-	Valued:
-		Cost: 1200
 	Selectable:
 		Bounds: 1280, 1280
 		DecorationBounds: 1280, 1024
 	SelectionDecorations:
 	RevealsShroud:
-		Range: 4c0
+		Range: 5c0
 	WithBuildingBib:
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
@@ -1111,7 +1096,6 @@ TSGTSILOCABAL:
 
 TSGTPILE:
 	Inherits: ^BaseBuilding
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@barr: ^IsBarrack
 	HitShape:
@@ -1169,7 +1153,6 @@ TSNTHAND:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@shape: ^2x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	HitShape:
 		UseTargetableCellsOffsets: false
@@ -1235,7 +1218,6 @@ tsgtweap:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@weap: ^IsWeaponFactory
 	HitShape:
 		TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
@@ -1304,7 +1286,6 @@ TSNTWEAP:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@weap: ^IsWeaponFactory
 	HitShape:
 		TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
@@ -1469,7 +1450,6 @@ tsgthpad:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@shape: ^2x1Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@hpad: ^IsAircraftFactory
 	Selectable:
 		Bounds: 2048, 2048
@@ -1524,7 +1504,6 @@ tsnthpad:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x1Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@hpad: ^IsAircraftFactory
 	Selectable:
 		Bounds: 2048, 2048
@@ -2233,18 +2212,15 @@ tsgtplug3:
 	RenderSprites:
 		PlayerPalette: playerra2
 
-#######################################
+
 #######################################
 # TS Building Forgotten
 #######################################
+
 TSGTCNSTMUTANT:
-	GrantExternalConditionToOwner@BuildingsOwned:
-		Condition: BuildingsOwned
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQ: ^CPQCondition
 	Inherits@sell: ^TSSpawnActorsOnSell
-	Inherits@aicash: ^AIConyardCash
 	Inherits@conyard: ^Conyard
 	Selectable:
 		Bounds: 131072, 87381
@@ -2456,7 +2432,6 @@ TSGTSILOMUTANT:
 
 tsgtpile2:
 	Inherits: ^BaseBuilding
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@barr: ^IsBarrack
 	Inherits@prod: ^ProducesUnits
@@ -2506,7 +2481,6 @@ TSGTWEAPMUTANT:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@weap: ^IsWeaponFactory
 	Inherits@prod: ^ProducesUnits
 	HitShape:
@@ -5354,6 +5328,9 @@ TSHARV:
 		Payload: 500
 	RenderSprites:
 		Image: tsharv
+	WithHarvestOverlay@harvesting:
+		Sequence: harvesting
+		Palette: ra2effect
 	ActorStatValues:
 		Upgrades: up_mechanicalreliability
 
@@ -5380,6 +5357,9 @@ TSHARVNOD:
 		Image: dtruck
 	RenderSprites:
 		Image: dtruck
+	WithHarvestOverlay@harvesting:
+		Sequence: harvesting
+		Palette: ra2effect
 
 TSHARVMUTANT:
 	Inherits: ^TDHARV
@@ -5403,6 +5383,9 @@ TSHARVMUTANT:
 		Image: gharv
 	RenderSprites:
 		Image: tsharv
+	WithHarvestOverlay@harvesting:
+		Sequence: harvesting
+		Palette: ra2effect
 
 TSHARVCABAL:
 	Inherits: ^TDHARV
@@ -5426,6 +5409,9 @@ TSHARVCABAL:
 		Image: charv2
 	RenderSprites:
 		Image: tsharv
+	WithHarvestOverlay@harvesting:
+		Sequence: harvesting
+		Palette: ra2effect
 
 #TSWEED:
 #	Inherits: HARV

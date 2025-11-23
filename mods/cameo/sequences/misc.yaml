@@ -3343,6 +3343,8 @@ icon:
 		Filename: invisibleitem.shp
 	xxicon:
 		Filename: invisibleitem.shp
+	supernova_missile_super_icon:
+		Filename: cameo_plymouth_supernova_missile.shp
 
 moveflsh:
 	idle:

@@ -812,8 +812,6 @@ construction_yard.ixian:
 	Inherits@shape: ^3x3Shape
 	Inherits@UPGRADEABLE: ^D2kUpgradeable
 	Inherits@D2KSprite: ^D2KPaletteRender
-	Inherits@CPQ: ^CPQCondition
-	Inherits@ai: ^AIConyardCash
 	Inherits@conyard: ^Conyard
 	Tooltip:
 		Name: Ixian Construction Yard
@@ -1043,7 +1041,6 @@ d2k_barracks.ixian:
 	Inherits: ^D2KBuilding
 	Inherits@UPGRADEABLE: ^D2kUpgradeable
 	Inherits@D2KSprite: ^D2KPaletteRender
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	Inherits@Prereqs: ^D2KPrereqs
 	Inherits@shape: ^2x2Shape
@@ -1089,11 +1086,11 @@ d2k_barracks.ixian:
 		Produces: Addons
 	ProductionBar@Addons:
 		ProductionType: Addons
+
 d2k_barracks.ordos:
 	Inherits: ^D2KBuilding
 	Inherits@UPGRADEABLE: ^D2kUpgradeable
 	Inherits@D2KSprite: ^D2KPaletteRender
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	Inherits@Prereqs: ^D2KPrereqs
 	Inherits@shape: ^2x2Shape
@@ -1572,7 +1569,6 @@ heavy_factory:
 	Inherits: ^D2KBuilding
 	Inherits@UPGRADEABLE: ^D2kUpgradeable
 	Inherits@D2KSprite: ^D2KPaletteRender
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@Prereqs: ^D2KPrereqs
 	Inherits@shape: ^3x3Shape
 	Inherits@weap: ^IsWeaponFactory
@@ -1658,7 +1654,6 @@ light_factory:
 	Inherits: ^D2KBuilding
 	Inherits@UPGRADEABLE: ^D2kUpgradeable
 	Inherits@D2KSprite: ^D2KPaletteRender
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@Prereqs: ^D2KPrereqs
 	Inherits@shape: ^3x3Shape
 	Inherits@weap: ^IsWeaponFactory
@@ -1930,7 +1925,6 @@ outpost.ordos:
 ixian_launchpad:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
 	Tooltip:
@@ -2050,7 +2044,6 @@ high_tech_factory.ixian:
 	Inherits: ^D2KBuilding
 	Inherits@UPGRADEABLE: ^D2kUpgradeable
 	Inherits@D2KSprite: ^D2KPaletteRender
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	#Inherits@orni: ^DU_OrnithopterSupportPower
 	Inherits@shape: ^3x3Shape
 	Inherits@hpad: ^IsAircraftFactory
@@ -2181,7 +2174,7 @@ starport.ixian:
 		ActorType: frigate
 		PauseOnCondition: lowpower
 		RequiresCondition: classicproductionqueues
-	ProductionQueue@VEHICLE:
+	ParallelProductionQueue@VEHICLE:
 		Type: Vehicle
 		DisplayOrder: 3
 		Group: Vehicle
@@ -2232,18 +2225,10 @@ starport.ixian:
 	SpawnActorOnDeath@death2:
 		Actor: light_inf
 
-
 starport.ordos:
 	Inherits: starport.ixian
 	Buildable:
-		Queue: Building, RABuilding
-		BuildLimit: 1
-		BuildPaletteOrder: 150
-		BuildDuration: 1500
-		BuildDurationModifier: 100
 		Prerequisites: ~construction_yard.ordos, research_centre.ordos, derricklimit
-		Description: Dropzone for quick reinforcements, and passive income.
-		IconPalette: d2kunit
 	RenderSprites:
 		Image: starport.ordos
 

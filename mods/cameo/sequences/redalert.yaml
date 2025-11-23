@@ -3998,6 +3998,48 @@ yak:
 	icon:
 		Filename: yakicon.png
 
+yaktesla:
+	Defaults:
+		Filename: yak.shp
+		Scale: 1.25
+	idle:
+		Facings: 16
+		InterpolatedFacings: 64
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: ra_teslayakicon.png
+
+yakarmored:
+	Defaults:
+		Filename: yak.shp
+		Scale: 1.25
+	idle:
+		Facings: 16
+		InterpolatedFacings: 64
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: ra_armoredyakicon.png
+
+yaknuclear:
+	Defaults:
+		Filename: yak.shp
+		Scale: 1.25
+	idle:
+		Facings: 16
+		InterpolatedFacings: 64
+	muzzle:
+		Filename: minigun.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: ra_nuclearyakicon.png
+
 raheli:
 	Defaults:
 		Filename: raheli.shp

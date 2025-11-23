@@ -2326,7 +2326,6 @@ ORCA.Husk:
 FACT:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@aicash: ^AIConyardCash
 	Inherits@conyard: ^Conyard
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Tooltip:
@@ -2551,7 +2550,6 @@ SILO:
 
 PYLE:
 	Inherits: ^BaseBuilding
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Inherits@barr: ^IsBarrack
 	Inherits@shape: ^2x2Shape
@@ -2577,11 +2575,9 @@ PYLE:
 	ProvidesPrerequisite:
 		Prerequisite: cncbarracks
 
-
 HAND:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^TDNodSpawnActorsOnSell
 	Inherits@barr: ^IsBarrack
 	Tooltip:
@@ -2606,7 +2602,6 @@ HAND:
 
 AFLD:
 	Inherits: ^BaseBuilding
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^TDNodSpawnActorsOnSell
 	Inherits@weap: ^IsWeaponFactory
 	# Inherits@weap: ^IsVehicleDropzone
@@ -2674,7 +2669,6 @@ AFLD:
 WEAP:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x3Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Inherits@weap: ^IsWeaponFactory
 	HitShape:
@@ -2711,7 +2705,6 @@ WEAP:
 HPAD.GDI:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
 	Tooltip:
@@ -2737,7 +2730,6 @@ HPAD.GDI:
 HPAD.NOD:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^TDNodSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
 	Inherits@repair: ^RepairsUnits
@@ -3000,7 +2992,7 @@ eye.ionc:
 	Valued:
 		Cost: 5000
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Addons
 		BuildPaletteOrder: 100
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -3122,7 +3114,7 @@ tmpl.nuke:
 	Valued:
 		Cost: 5000
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Addons
 		BuildPaletteOrder: 100
 		BuildDuration: 1500
 		BuildDurationModifier: 100

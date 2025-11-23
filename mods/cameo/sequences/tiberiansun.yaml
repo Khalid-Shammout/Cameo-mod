@@ -862,6 +862,29 @@ tsharv:
 		Filename: invisibleitem.shp
 	warpout:
 		Filename: invisibleitem.shp
+	harvesting:
+		Filename: ra2_oregath.shp
+		Length: 15
+		Facings: 8
+	icon:
+		Filename: tsharvestericon.shp
+		AddExtension: False
+
+dtruck:
+	Defaults:
+		Scale: 1.5
+	idle:
+		Filename: invisibleitem.shp
+	dock:
+		Filename: invisibleitem.shp
+	dock-loop:
+		Filename: invisibleitem.shp
+	warpout:
+		Filename: invisibleitem.shp
+	harvesting:
+		Filename: ra2_oregath.shp
+		Length: 15
+		Facings: 8
 	icon:
 		Filename: tsharvestericon.shp
 		AddExtension: False
@@ -876,22 +899,6 @@ tskodk:
 	icon:
 		Filename: tskodkicon.shp
 		AddExtension: False
-
-dtruck:
-	Defaults:
-		Scale: 1.5
-	idle:
-		Filename: invisibleitem.shp
-	dock:
-		Filename: invisibleitem.shp
-	dock-loop:
-		Filename: invisibleitem.shp
-	warpout:
-		Filename: invisibleitem.shp
-	icon:
-		Filename: tsharvestericon.shp
-		AddExtension: False
-
 
 tsmutant4:
 	Inherits: ^TSBasicInfantry
@@ -989,6 +996,7 @@ tsmutant4:
 		Offset: 0, 0
 	icon:
 		Filename: forgot_mutant4_icon.png
+
 tsshotmut:
 	Inherits: ^TSBasicInfantry
 	Inherits@attack: ^TSBasicInfantryAttack
@@ -996,6 +1004,7 @@ tsshotmut:
 		Filename: tsoxanna.shp
 	icon:
 		Filename: forgot_shotgunner_icon.png
+
 # tsweed:
 # 	idle: invisibleitem
 # 	dock: invisibleitem

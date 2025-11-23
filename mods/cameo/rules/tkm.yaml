@@ -326,7 +326,6 @@ tkmmcv:
 tkmcommandcenter:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@aicash: ^AIConyardCash
 	Inherits@conyard: ^Conyard
 	Inherits@sell: ^TKMSpawnActorsOnSell
 	Tooltip:
@@ -480,7 +479,6 @@ tkmbarracks:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^TKMSpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	Tooltip:
 		Name: TKM Barracks
@@ -511,7 +509,6 @@ tkmbarracks:
 tkmfactory:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TKMSpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@weap: ^IsWeaponFactory
 	Inherits@shape: ^3x3Shape
 	Valued:
@@ -561,7 +558,6 @@ tkmairpad:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TKMSpawnActorsOnSell
 	Inherits@shape: ^4x3Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@hpad: ^IsAircraftFactory
 	Inherits@prod: ^ProducesUnits
 	Inherits@shape: ^3x3Shape

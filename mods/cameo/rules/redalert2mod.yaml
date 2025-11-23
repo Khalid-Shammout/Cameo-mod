@@ -200,8 +200,6 @@ World:
 
 aa_cgcnst:
 	Inherits: ^RA2Building
-	Inherits@CPQ: ^CPQCondition
-	Inherits@aicash: ^AIConyardCash
 	Inherits@conyard: ^Conyard
 	Inherits@shape: ^4x3Shape
 	Inherits@sell: ^AASpawnActorsOnSell
@@ -279,7 +277,6 @@ aa_cgbrck:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^AASpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	Tooltip:
 		Name: Asian Barracks
@@ -489,7 +486,7 @@ aa_cgmiac:
 		Produces: RAInfantry
 		RequiresCondition: classicproductionqueues
 		PauseOnCondition: disabled
-	ProductionQueue@INFANTRY:
+	ParallelProductionQueue@INFANTRY:
 		Type: Infantry
 		DisplayOrder: 2
 		Group: Infantry
@@ -523,7 +520,6 @@ aa_cgairf:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^AASpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@hpad: ^IsAircraftFactory
 	Buildable:
 		Prerequisites: ~aa_cgcnst, aa_cgradr
@@ -4324,7 +4320,6 @@ latin_cgpile:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@shape: ^3x3Shape
 	Inherits@sell: ^SyndicateSpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@gar: ^ClearableGarrisonNeutronOnly
@@ -4482,7 +4477,6 @@ latin_cgair:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^SyndicateSpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@hpad: ^IsAircraftFactory
 	Buildable:
 		Queue: Building, RABuilding
@@ -8350,7 +8344,6 @@ steel_qabarr:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^ConsortiumSpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	SelectionDecorations:
 	Tooltip:
@@ -8968,7 +8961,6 @@ steel_conpad:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x3Shape
 	Inherits@sell: ^AASpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@hpad: ^IsAircraftFactory
 	Inherits@water: ^SteelUnderwaterStructure
 	Buildable:
@@ -11638,8 +11630,6 @@ nax_hole_small:
 
 nax_conyard:
 	Inherits: ^RA2Building
-	Inherits@CPQ: ^CPQCondition
-	Inherits@aicash: ^AIConyardCash
 	Inherits@conyard: ^Conyard
 	Inherits@shape: ^4x3Shape
 	Inherits@sell: ^NaxisSpawnActorsOnSell
@@ -11723,7 +11713,6 @@ nax_barr:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^NaxisSpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	SelectionDecorations:
 	Tooltip:
@@ -11844,7 +11833,6 @@ nax_airfield:
 	Inherits@Template: ^BasicDefenseTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAll
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@shape: ^4x3Shape
 	Inherits@sell: ^NaxisSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
@@ -12468,8 +12456,6 @@ nax_rocket:
 ####################################################################################################
 nax2_conyard:
 	Inherits: ^RA2Building
-	Inherits@CPQ: ^CPQCondition
-	Inherits@aicash: ^AIConyardCash
 	Inherits@conyard: ^Conyard
 	Inherits@shape: ^4x3Shape
 	Inherits@sell: ^SpaceNaxisSpawnActorsOnSell
@@ -12539,7 +12525,6 @@ nax2_barr:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^SpaceNaxisSpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	SelectionDecorations:
 	Tooltip:
@@ -12612,7 +12597,6 @@ nax2_airfield:
 	Inherits@Template: ^BasicDefenseTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAll
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@shape: ^4x3Shape
 	Inherits@sell: ^SpaceNaxisSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
@@ -18400,8 +18384,6 @@ futu_mcv:
 
 futu_egcnst:
 	Inherits: ^RA2Building
-	Inherits@CPQ: ^CPQCondition
-	Inherits@aicash: ^AIConyardCash
 	Inherits@conyard: ^Conyard
 	Inherits@shape: ^4x3Shape
 	Inherits@sell: ^RA2ASpawnActorsOnSell
@@ -18516,7 +18498,6 @@ futu_egpile:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^RA2ASpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	Tooltip:
 		Name: Troop Gate
@@ -18625,7 +18606,6 @@ futu_launchpad:
 	Inherits: ^RA2Building
 	Inherits@shape: ^4x3Shape
 	Inherits@sell: ^RA2ASpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@hpad: ^IsAircraftFactory
 	Buildable:
 		Queue: Building, RABuilding

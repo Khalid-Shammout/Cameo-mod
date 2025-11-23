@@ -550,8 +550,6 @@ OILB.RA2:
 
 ra2gacnst:
 	Inherits: ^RA2Building
-	Inherits@CPQ: ^CPQCondition
-	Inherits@aicash: ^AIConyardCash
 	Inherits@conyard: ^Conyard
 	Inherits@shape: ^4x3Shape
 	Inherits@sell: ^RA2ASpawnActorsOnSell
@@ -597,7 +595,6 @@ ra2gacnst.infiltrated:
 ^RA2DefaultWeap:
 	Inherits: ^RA2Building
 	Inherits@shape: ^4x3Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@weap: ^IsWeaponFactory
 	Tooltip:
 		Name: War Factory
@@ -665,7 +662,6 @@ ra2gapile:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^RA2ASpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	Tooltip:
 		Name: Allied Barracks
@@ -729,7 +725,6 @@ ra2gaairc:
 	Inherits@shape: ^3x2Shape
 	Inherits@radar: ^RadarBuilding
 	Inherits@sell: ^RA2ASpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@hpad: ^IsAircraftFactory
 	Buildable:
 		Queue: Building, RABuilding
@@ -1650,7 +1645,6 @@ ra2nahand:
 	Inherits: ^RA2Building
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^RA2SSpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	Selectable:
 		Bounds: 2048, 2560, 0, -256
@@ -1835,7 +1829,6 @@ ra2natech:
 
 ra2naairf:
 	Inherits: ^RA2Building
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@shape: ^4x3Shape
 	Inherits@sell: ^RA2SSpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
@@ -2498,7 +2491,6 @@ yryabrck:
 	Inherits: ^RA2Building
 	Inherits@shape: ^3x2Shape
 	Inherits@sell: ^RA2YSpawnActorsOnSell
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsBarrack
 	SelectionDecorations:
 	Tooltip:
@@ -2728,7 +2720,7 @@ yrygcomd:
 		Produces: RAAircraft
 		RequiresCondition: classicproductionqueues
 		PauseOnCondition: disabled
-	ProductionQueue@AIRCRAFT:
+	ParallelProductionQueue@AIRCRAFT:
 		Type: Aircraft
 		DisplayOrder: 4
 		Group: Aircraft
@@ -8138,11 +8130,13 @@ RA2FALC:
 		LocalYaw: 100, -100, 50, -50
 		PauseOnCondition: !ammo
 		RequiresCondition: rank-elite
+	FirepowerMultiplier@Harrier:
+		Modifier: 75
 	AmmoPool:
 		Ammo: 8
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 68
+		Delay: 51
 		Count: 1
 	SpawnActorOnDeath:
 		Actor: RA2FALC.Husk

@@ -6,7 +6,8 @@ MarineMG:
 	Range: 4444
 	Burst: 3
 	BurstDelays: 2
-	Report: TMaFir00.aud
+	-Report:
+	StartBurstReport: TMaFir00.aud
 	ValidTargets: Ground, Water, Trees, Air
 	Warhead@HeavyCannon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
@@ -24,6 +25,39 @@ MarineMG:
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 2000
 	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+
+JimRaynorMachineGun:
+	Inherits: ^HeavyMissile
+	Inherits: ^HeavyCannon
+	ReloadDelay: 12
+	Range: 7446
+	Burst: 5
+	BurstDelays: 2
+	Report: TMaFir00.aud
+	ValidTargets: Ground, Water, Trees, Air
+	Projectile: Bullet
+		Image: 50CAL
+		ContrailZOffset: 4000
+		ContrailStartColor: FFCCAA88
+		ContrailEndColor: 88664422
+		ContrailStartWidth: 40
+		ContrailEndWidth: 80
+		#ContrailWidth: 80
+		ContrailLength: 8
+		Speed: 4000
+		Inaccuracy: 200
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@HeavyCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
 
@@ -113,8 +147,8 @@ CycloneRockets:
 	Inherits: ^MediumMissile
 	Inherits: ^LightMissile
 	Report: cycloneshoot1.wav, cycloneshoot2.wav, cycloneshoot3.wav
-	ReloadDelay: 30
-	Range: 6400
+	ReloadDelay: 35
+	Range: 7320
 	Burst: 6
 	BurstDelays: 2
 	ValidTargets: Ground, Water, Trees, Air
@@ -152,7 +186,7 @@ CycloneRockets:
 CycloneRocketsLockOn:
 	Inherits: CycloneRockets
 	ValidTargets: lockon
-	Range: 9600
+	Range: 11000
 
 MarauderMissiles:
 	Inherits: ^TankDestroyerCannon
@@ -645,32 +679,6 @@ SpecterSniperLockdown:
 		Damage: 48000
 		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
 
-JimRaynorMachineGun:
-	Inherits: ^HeavyCannon
-	ReloadDelay: 12
-	Range: 7446
-	Burst: 5
-	BurstDelays: 2
-	Report: TMaFir00.aud
-	ValidTargets: Ground, Water, Trees, Air
-	Projectile: Bullet
-		Image: 50CAL
-		ContrailZOffset: 4000
-		ContrailStartColor: FFCCAA88
-		ContrailEndColor: 88664422
-		ContrailStartWidth: 40
-		ContrailEndWidth: 80
-		#ContrailWidth: 80
-		ContrailLength: 8
-		Speed: 4000
-		Inaccuracy: 200
-	Warhead@HeavyCannon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
-	Warhead@HeavyCannonPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 2
-
 VultureGrenade:
 	Inherits: ^SmallArms
 	Inherits: ^FlakWeapon
@@ -1073,7 +1081,7 @@ WraithLaser:
 	ReloadDelay: 32
 	Range: 5076
 	Projectile: Bullet
-		Speed: 1000
+		Speed: 1015
 		ContrailLength: 5
 		ContrailStartColorUsePlayerColor: true
 	Warhead@LaserWeapon: SpreadDamage
@@ -1091,7 +1099,7 @@ SunDogRockets:
 	Inherits: ^D2KRocket
 	Report: TPhFi200.aud
 	ReloadDelay: 39
-	Range: 6000
+	Range: 6060
 	ValidTargets: Ground, Water, Trees, Air
 	Projectile: Missile
 		Blockable: false
@@ -1129,9 +1137,9 @@ SunDogLaser:
 	ValidTargets: Ground, Water, Trees, Air
 	Report: TPhFi100.aud
 	ReloadDelay: 39
-	Range: 6000
+	Range: 6060
 	Projectile: Bullet
-		Speed: 1000
+		Speed: 1212
 		ContrailLength: 5
 		ContrailStartColorUsePlayerColor: true
 	Warhead@LaserWeapon: SpreadDamage
@@ -1142,18 +1150,125 @@ SunDogLaser:
 		Damage: 8
 
 ValkyrieRockets:
-	Inherits: WraithRockets
-	Range: 8808
-	ReloadDelay: 36
-	Burst: 4
+	Inherits: ^FlakWeapon
+	Inherits: ^MediumMissile
+	Inherits: ^HeavyAAWeapon
+	Inherits: ^D2KRocket
+	Report: TPhFi200.aud
+	Range: 7380
+	ReloadDelay: 67
+	Burst: 8
 	BurstDelays: 4
+	ValidTargets: Air
+	Projectile: Missile
+		Blockable: false
+		MaximumLaunchSpeed: 250
+		MinimumLaunchSpeed: 250
+		RangeLimit: 25000
+		Speed: 500
+		Inaccuracy: 50
+		Acceleration: 5
+		CloseEnough: 500
+		AllowSnapping: true
+		ContrailStartColor: 4488FF88
+		ContrailEndColor: 88BBFF44
+	Warhead@FlakWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@MediumMissile: SpreadDamage
+		Damage: 2000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@HeavyAAWeapon: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		Damage: 1
+	Warhead@HeavyMissile: SpreadDamage
+		Damage: 2000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		Damage: 1
 
 WyvernRockets:
-	Inherits: SunDogRockets
-	Range: 7217
-	ReloadDelay: 68
+	Inherits: ^MediumFlameWeapon
+	Inherits: ^MediumChemicalWeapon
+	Inherits: ^HeavyCannon
+	Inherits: ^HeavyBomb
+	Inherits: ^FlakWeapon
+	Inherits: ^MediumMissile
+	Inherits: ^HeavyAAWeapon
+	Inherits: ^D2KRocket
+	Report: TPhFi200.aud
+	Range: 8000
+	ReloadDelay: 90
 	Burst: 4
-	BurstDelays: 4
+	BurstDelays: 15
+	Projectile: Missile
+		Blockable: false
+		MaximumLaunchSpeed: 250
+		MinimumLaunchSpeed: 250
+		RangeLimit: 25000
+		Speed: 500
+		Inaccuracy: 50
+		Acceleration: 5
+		CloseEnough: 500
+		AllowSnapping: true
+		ContrailStartColor: 4488FF88
+		ContrailEndColor: 88BBFF44
+	Warhead@MediumFlameWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
+	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@MediumChemicalWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
+	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@HeavyCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@HeavyBomb: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@MediumMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@MediumMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@HeavyAAWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
 
 WraithDroneLaser:
 	Inherits: ^LaserWeapon
@@ -1175,6 +1290,10 @@ WraithDroneLaser:
 		Damage: 10
 
 BCLaser:
+	Inherits: ^RailgunWeapon
+	Inherits: ^HeavyMissile
+	Inherits: ^HeavyCannon
+	Inherits: ^HeavyAAWeapon
 	Inherits: ^HeavyBomb
 	Inherits: ^HeavyChemicalWeapon
 	Inherits: ^HeavyFlameWeapon
@@ -1188,41 +1307,62 @@ BCLaser:
 		ContrailLength: 6
 		ContrailStartColor: FFBB88
 		ContrailWidth: 154
+	Warhead@RailgunWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2
+	Warhead@HeavyCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2
+	Warhead@HeavyAAWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 4000
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2
 	Warhead@HeavyBomb: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8000
+		Damage: 4000
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4
+		Damage: 2
 	Warhead@HeavyChemicalWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8000
+		Damage: 4000
 	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 2000
 	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4
+		Damage: 2
 	Warhead@HeavyFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8000
+		Damage: 4000
 	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 2000
 	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4
+		Damage: 2
 	Warhead@LaserWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8000
+		Damage: 4000
 	Warhead@LaserWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4
+		Damage: 2
 
 BCYamatoCannon:
-	Inherits: ^RailgunWeapon
-	Inherits: ^HeavyMissile
-	Inherits: ^HeavyCannon
 	Inherits: ^NuclearWarhead
 	Inherits: BCLaser
 	Report: yamatoshoot.wav
@@ -1234,75 +1374,57 @@ BCYamatoCannon:
 		ContrailEndWidth: 154
 		ContrailStartColor: FF8844
 		ContrailEndColor: 88664422
-	Warhead@RailgunWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 16000
-	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8
-	Warhead@HeavyMissile: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 16000
-	Warhead@HeavyMissilePercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8
-	Warhead@HeavyCannon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 16000
-	Warhead@HeavyCannonPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8
 	Warhead@NuclearWarhead: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 16000
+		Damage: 128000
 	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8
-	Warhead@HeavyBomb: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 16000
-	Warhead@HeavyBombPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8
-	Warhead@HeavyChemicalWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 16000
-	Warhead@HeavyChemicalWeaponFriendlyFire: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8000
-	Warhead@HeavyChemicalWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8
-	Warhead@HeavyFlameWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 16000
-	Warhead@HeavyFlameWeaponFriendlyFire: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8000
-	Warhead@HeavyFlameWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8
-	Warhead@LaserWeapon: SpreadDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 16000
-	Warhead@LaserWeaponPercentage: HealthPercentageDamage
-		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8
+		Damage: 64
 
 PhobosLaser:
+	Inherits: ^RailgunWeapon
+	Inherits: ^HeavyMissile
+	Inherits: ^HeavyCannon
+	Inherits: ^HeavyAAWeapon
 	Inherits: ^HeavyBomb
 	Inherits: ^HeavyChemicalWeapon
 	Inherits: ^HeavyFlameWeapon
 	Inherits: ^LaserWeapon
 	ValidTargets: Ground, Water, Trees, Air
-	ReloadDelay: 23
 	Range: 9000
+	ReloadDelay: 80
+	Burst: 4
+	BurstDelays: 4
 	Report: TPhFi100.aud
 	Projectile: Bullet
 		Speed: 1800
 		ContrailLength: 6
 		ContrailStartColor: 88BBFF
 		ContrailWidth: 180
+	Warhead@RailgunWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 6000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 3
+	Warhead@HeavyMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 6000
+	Warhead@HeavyMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 3
+	Warhead@HeavyCannon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 6000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 3
+	Warhead@HeavyAAWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 6000
+	Warhead@HeavyAAWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 3
 	Warhead@HeavyBomb: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 6000
@@ -2762,17 +2884,22 @@ MedicFlare:
 	Inherits: ^LaserWeapon
 	ReloadDelay: 60
 	Range: 6000
-	Report: vpalwe2d.aud
+	Report: M203.aud
 	ValidTargets: blindable
-	Projectile: LaserZap
-		Width: 128
-		Duration: 12
-		ZOffset: 2047
-		Color: FF884488
-		SecondaryBeam: true
-		SecondaryBeamWidth: 64
-		SecondaryBeamZOffset: 2047
-		SecondaryBeamColor: FFFFFFFF
+	InvalidTargets: Air
+	Projectile: Bullet
+		Speed: 300
+		Blockable: false
+		LaunchAngle: 150
+		Inaccuracy: 150
+		InaccuracyType: PerCellIncrement
+		Image: d2k_grenade
+		Shadow: true
+		ContrailLength: 15
+		ContrailStartColor: FEDCBA98
+		ContrailEndColor: 87654321
+		ContrailStartWidth: 60
+		ContrailEndWidth: 15
 	Warhead@LightFlameWeapon: SpreadDamage
 		ValidTargets: Vehicle, Infantry, Ship, Submarine, Defense
 		Damage: 2000
@@ -2800,7 +2927,7 @@ MedicFlare:
 	Warhead@Condition: GrantExternalCondition
 		Condition: blinded
 		Duration: 60
-		Range: 600
+		Range: 1200
 		ValidTargets: Vehicle, Infantry, Ship, Submarine, Defense
 
 PhotonCannon:

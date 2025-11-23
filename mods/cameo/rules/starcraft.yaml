@@ -509,8 +509,6 @@ SCCOMMANDCENTER:
 	Inherits: ^BaseBuilding
 	Inherits@ref: ^Refinery
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
-	Inherits@aicash: ^AIConyardCash
 	Inherits@radar: ^RadarBuilding
 	Inherits@conyard: ^Conyard
 	Inherits@POWERDOWN: ^DisableOnPowerDown
@@ -580,9 +578,9 @@ SCSUPPLYDEPOT:
 	Tooltip:
 		Name: Supply Depot
 	Valued:
-		Cost: 400
+		Cost: 800
 	Power:
-		Amount: 100
+		Amount: 200
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		Prerequisites: ~sccommandcenter
@@ -593,9 +591,11 @@ SCSUPPLYDEPOT:
 		Dimensions: 2,2
 		BuildSounds: tscupd00.aud
 	Health:
-		HP: 100000
+		HP: 200000
+	StoresResources:
+		Capacity: 4000
 	RevealsShroud:
-		Range: 4c0
+		Range: 5c0
 	WithResourceStoragePipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -609,14 +609,14 @@ SCSUPPLYDEPOT:
 		RequiresCondition: supplydepotupg
 		Modifier: 50
 	StoresPlayerResources@supplydepotupg:
-		Capacity: 2000
+		Capacity: 4000
 		RequiresCondition: supplydepotupg
 	GrantConditionOnPrerequisite@upsupplydepot1:
 		Condition: upsupplydepot1
 		Prerequisites: upsupplydepot1
 	PowerMultiplier@upsupplydepot1:
-		Modifier: 200
-		RequiresCondition: upsupplydepot1
+		Modifier: 150
+		RequiresCondition: upsupplydepot1 && !upsupplydepot2
 	GrantConditionOnPrerequisite@upsupplydepot2:
 		Condition: upsupplydepot2
 		Prerequisites: upsupplydepot2
@@ -640,13 +640,15 @@ SCSUPPLYDEPOT:
 		VoiceSet: SCSupplyCenterVoice
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: upsupplydepot1, upsupplydepot2
 
 supplydepotexpand:
 	Inherits: ^BuildingPlug
 	Tooltip:
 		Name: Expanded Storage
 	Valued:
-		Cost: 400
+		Cost: 800
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
@@ -721,6 +723,8 @@ SCREFINERY:
 		VoiceSet: SCRefineryVoice
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: sctvespenegascollector
 
 sctvespenegascollector:
 	Inherits: ^BuildingPlug
@@ -740,7 +744,6 @@ sctvespenegascollector:
 SCBARRACKS:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@supply: ^SCUnitProduction
 	Inherits@barr: ^IsBarrack
 	Tooltip:
@@ -1073,7 +1076,6 @@ SCSENTINELM:
 SCFACTORY:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@supply: ^SCUnitProduction
 	Inherits@weap: ^IsWeaponFactory
 	Tooltip:
@@ -1160,7 +1162,6 @@ SCARMORY:
 SCSTARPORT:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@supply: ^SCUnitProduction
 	Inherits@hpad: ^IsAircraftFactory
 	Tooltip:
@@ -1317,8 +1318,6 @@ SCNEXUS:
 	Inherits: ^BaseBuilding
 	Inherits@ref: ^Refinery
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
-	Inherits@aicash: ^AIConyardCash
 	Inherits@radar: ^RadarBuilding
 	Inherits@conyard: ^Conyard
 	Inherits@POWERDOWN: ^DisableOnPowerDown
@@ -1389,14 +1388,12 @@ SCPYLON:
 	Tooltip:
 		Name: Pylon
 	Valued:
-		Cost: 800
+		Cost: 1000
 	Power:
-		Amount: 200
+		Amount: 250
 	ProvidesPrerequisite@buildingname:
 	Buildable:
 		Prerequisites: ~scnexus
-		BuildPaletteOrder: 20
-		BuildDuration: 480
 		Queue: Building, RABuilding
 		Description: Provides supply and stores resources
 	Building:
@@ -1404,15 +1401,17 @@ SCPYLON:
 		Dimensions: 2,2
 		BuildSounds: pshbld03.aud
 	Health:
-		HP: 200000
+		HP: 250000
+	StoresResources:
+		Capacity: 5000
 	RevealsShroud:
-		Range: 4c0
+		Range: 5c0
 	GrantConditionOnPrerequisite@uppylon1:
 		Condition: uppylon1
 		Prerequisites: uppylon1
 	Power@uppylon1:
-		Amount: 200
-		RequiresCondition: uppylon1
+		Amount: 150
+		RequiresCondition: uppylon1 && !uppylon2
 	GrantConditionOnPrerequisite@uppylon2:
 		Condition: uppylon2
 		Prerequisites: uppylon2
@@ -1426,6 +1425,8 @@ SCPYLON:
 		FullSequence: pip-yellow
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: uppylon1, uppylon2
 
 SCASSIMILATOR:
 	Inherits: ^BaseBuilding
@@ -1492,6 +1493,8 @@ SCASSIMILATOR:
 		VoiceSet: SCRefineryVoice
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: scpvespenegascollector
 
 scpvespenegascollector:
 	Inherits: ^BuildingPlug
@@ -1511,7 +1514,6 @@ scpvespenegascollector:
 SCGATEWAY:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@supply: ^SCUnitProduction
 	Inherits@barr: ^IsBarrack
 	Inherits@explode: ^BuildingExplodeProtoss
@@ -1755,7 +1757,6 @@ SCSHIELDBATTERY:
 SCROBOTICSFACILITY:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@supply: ^SCUnitProduction
 	Inherits@weap: ^IsWeaponFactory
 	Inherits@explode: ^BuildingExplodeProtoss
@@ -1799,7 +1800,6 @@ SCROBOTICSFACILITY:
 SCSTARGATE:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@supply: ^SCUnitProduction
 	Inherits@hpad: ^IsAircraftFactory
 	Inherits@explode: ^BuildingExplodeProtoss
@@ -2184,8 +2184,6 @@ SCHATCHERY:
 	Inherits: ^BaseBuildingZerg
 	Inherits@ref: ^Refinery
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
-	Inherits@aicash: ^AIConyardCash
 	Inherits@bot: ^BotMicromanageable
 	Inherits@breedfaster: ^SCBREEDFASTER
 	#Inherits@barr: ^IsBarrack
@@ -2649,6 +2647,8 @@ SCEXTRACTOR:
 			scextractor: !build-incomplete && !extractorupg
 	RenderSprites:
 		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: sczvespenegascollector
 
 sczvespenegascollector:
 	Inherits: ^BuildingPlug
@@ -3121,7 +3121,7 @@ SCOVERMIND:
 	Buildable:
 		Prerequisites: ~schive, derricklimit
 		Queue: Building, RABuilding
-		Description: Unlocks Siege Tanks.
+		Description: Doubles Supply Limit. All Zerg cost half and produce twice as fast. Gives passive income.
 		IconPalette: windows256
 		BuildLimit: 1
 	Building:
@@ -3153,7 +3153,6 @@ SCOVERMIND:
 SCINFESTEDCOMMANDCENTER:
 	Inherits: ^BaseBuildingZerg
 	Inherits@shape: ^2x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@supply: ^SCUnitProduction
 	Inherits@weap: ^IsWeaponFactory
 	Tooltip:
@@ -3311,6 +3310,11 @@ SCMARINE:
 		MuzzleSequence: muzzle
 	FirepowerMultiplier@TripleShot:
 		Modifier: 33
+	RangeMultiplier@Garrisoned:
+		Modifier: 125
+	GrantCondition@battlefortresspassenger:
+		Condition: garrisoned
+		RequiresCondition: battlefortresspassenger
 	WithMuzzleOverlay:
 	# ProductionTimeMultiplier@speedup:
 	# 	Multiplier: 50
@@ -3375,6 +3379,11 @@ SCREAPER:
 		Name: garrisoned
 		Weapon: ReaperGrenade
 		LocalOffset: 128,0,256
+	RangeMultiplier@Garrisoned:
+		Modifier: 125
+	GrantCondition@battlefortresspassenger:
+		Condition: garrisoned
+		RequiresCondition: battlefortresspassenger
 	WithMuzzleOverlay:
 	# ProductionTimeMultiplier@speedup:
 	# 	Multiplier: 50
@@ -3581,6 +3590,11 @@ SCHARAKAN:
 		MuzzleSequence: muzzle
 	FirepowerMultiplier@DualWeapon:
 		Modifier: 50
+	RangeMultiplier@Garrisoned:
+		Modifier: 125
+	GrantCondition@battlefortresspassenger:
+		Condition: garrisoned
+		RequiresCondition: battlefortresspassenger
 	WithMuzzleOverlay:
 	Voiced:
 		VoiceSet: SCFirebatVoice
@@ -4255,6 +4269,12 @@ SCCYCLONE:
 		MuzzleSequence: muzzle
 		RequiresCondition: lockedon
 		LocalOffset: 512,192,64, 512,-192,64, 448,192,96, 448,-192,96, 384,192,128, 384,-192,128
+	FirepowerMultiplier@lockedon:
+		Modifier: 200
+		RequiresCondition: lockedon
+	SpeedMultiplier@lockedon:
+		Modifier: 125
+		RequiresCondition: lockedon
 	ExternalCondition@lockedon:
 		Condition: lockedon
 	AttackTurreted:
@@ -4635,6 +4655,211 @@ SCWRAITH:
 	ActorStatValues:
 		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upghostcloak
 
+SCSUNDOG:
+	Inherits: ^Helicopter
+	Inherits@Template: ^HelicopterTemplate
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@AntiDef: ^PrioritizeDefence
+	Inherits@CLOAK: ^CloakedAircraft
+	Inherits@announce: ^AnnounceOnBuild
+	Inherits@armor: ^TerranShipWeaponUpgrades
+	Inherits@weapon: ^TerranShipArmorUpgrades
+	Tooltip:
+		Name: Sundog
+	Valued:
+		Cost: 2700
+	Power:
+		Amount: -135
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Prerequisites: ~scstarport, ~upsundog
+		Queue: Aircraft, RAAircraft
+		Description: Light Terran attack aircraft, armed\nwith lasers and AA missiles.\n Strong vs Infantry, Aircraft\n Weak vs Buildings, Vehicles
+	Aircraft:
+		InitialFacing: 896
+		TurnSpeed: 24
+		Speed: 120
+	Health:
+		HP: 160000
+	Repairable:
+		HpPerStep: 8000
+	ChangesHealth@SelfHealing:
+		Step: 64
+	Armament@PRIMARY:
+		Weapon: SunDogLaser
+		LocalOffset: 400,0,0
+		AmmoUsage: 2
+		PauseOnCondition: ammo < 2
+	Armament@SECONDARY1:
+		Weapon: SunDogRockets
+		LocalOffset: 400,400,0
+		PauseOnCondition: ammo < 2
+	Armament@SECONDARY2:
+		Weapon: SunDogRockets
+		LocalOffset: 400,-400,0
+		PauseOnCondition: ammo < 2
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
+	AmmoPool:
+		Ammo: 13
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 19
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 6
+	AttackAircraft:
+		FacingTolerance: 40
+		AttackType: Hover
+	GrantConditionOnPrerequisite@cloakon:
+		Condition: upghostcloak
+		Prerequisites: upghostcloak
+	Cloak:
+		RequiresCondition: upghostcloak
+	-SpawnActorOnDeath:
+	FireWarheadsOnDeath:
+		Weapon: HeliExplode
+		EmptyWeapon: HeliExplode
+	EjectOnDeath:
+		PilotActor: scsilvertongue
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 786, 786, 0, 0
+	Voiced:
+		VoiceSet: SCWraithVoice
+	DeathSounds:
+	RenderSprites:
+		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upghostcloak
+
+SCVALKYRIE:
+	Inherits: ^Helicopter
+	Inherits@Template: ^HelicopterTemplate
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@announce: ^AnnounceOnBuild
+	Inherits@armor: ^TerranShipWeaponUpgrades
+	Inherits@weapon: ^TerranShipArmorUpgrades
+	Tooltip:
+		Name: Valkyrie
+	Valued:
+		Cost: 2000
+	Power:
+		Amount: -100
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Prerequisites: ~scstarport, scarmory, ~!upwyvern
+		Queue: Aircraft, RAAircraft
+		Description: Air Superiority Fighter that fires a burst of 8 missiles. Can only attack air.
+	Aircraft:
+		InitialFacing: 896
+		Speed: 140
+		TurnSpeed: 28
+	Health:
+		HP: 120000
+	Repairable:
+		HpPerStep: 6000
+	ChangesHealth@SelfHealing:
+		Step: 48
+	Armament@SECONDARY1:
+		Weapon: ValkyrieRockets
+		LocalOffset: 400,400,0
+	Armament@SECONDARY2:
+		Weapon: ValkyrieRockets
+		LocalOffset: 400,-400,0
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
+	AttackAircraft:
+		FacingTolerance: 40
+		AttackType: Hover
+	-SpawnActorOnDeath:
+	FireWarheadsOnDeath:
+		Weapon: HeliExplode
+		EmptyWeapon: HeliExplode
+	EjectOnDeath:
+		PilotActor: scmarauder
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 1280, 1024
+	Voiced:
+		VoiceSet: SCValkyrieVoice
+	DeathSounds:
+	KeepsDistance:
+	RenderSprites:
+		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
+
+SCWYVERN:
+	Inherits: ^Helicopter
+	Inherits@Template: ^HelicopterTemplate
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@announce: ^AnnounceOnBuild
+	Inherits@armor: ^TerranShipWeaponUpgrades
+	Inherits@weapon: ^TerranShipArmorUpgrades
+	Tooltip:
+		Name: Wyvern
+	Valued:
+		Cost: 3600
+	Power:
+		Amount: -180
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		Prerequisites: ~scstarport, scarmory, ~upwyvern
+		Queue: Aircraft, RAAircraft
+		Description: Air Superiority Fighter that fires a burst of 8 missiles. Can only attack air.
+	Aircraft:
+		InitialFacing: 896
+		Speed: 70
+		TurnSpeed: 14
+	Health:
+		HP: 180000
+	Repairable:
+		HpPerStep: 9000
+	ChangesHealth@SelfHealing:
+		Step: 72
+	Armament@SECONDARY1:
+		Weapon: WyvernRockets
+		LocalOffset: 400,400,0
+	Armament@SECONDARY2:
+		Weapon: WyvernRockets
+		LocalOffset: 400,-400,0
+	AttackAircraft:
+		FacingTolerance: 40
+		AttackType: Hover
+	-SpawnActorOnDeath:
+	FireWarheadsOnDeath:
+		Weapon: HeliExplode
+		EmptyWeapon: HeliExplode
+	EjectOnDeath:
+		PilotActor: scmadcap
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 1280, 1024
+	Voiced:
+		VoiceSet: SCValkyrieVoice
+	DeathSounds:
+	KeepsDistance:
+	RenderSprites:
+		PlayerPalette: player_rgba
+	ActorStatValues:
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
+
 SCRAVEN:
 	Inherits: ^Helicopter
 	Inherits@Template: ^HelicopterTemplate
@@ -4714,199 +4939,6 @@ SCRAVEN:
 	ActorStatValues:
 		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upghostcloak
 
-SCSUNDOG:
-	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
-	Inherits@speedup: ^SCUnitProductionSpeedBoost
-	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@AntiInf: ^PrioritizeInfantry
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@AntiAir: ^PrioritizeAir
-	Inherits@AntiDef: ^PrioritizeDefence
-	Inherits@CLOAK: ^CloakedAircraft
-	Inherits@announce: ^AnnounceOnBuild
-	Inherits@armor: ^TerranShipWeaponUpgrades
-	Inherits@weapon: ^TerranShipArmorUpgrades
-	Tooltip:
-		Name: Sundog
-	Valued:
-		Cost: 1600
-	Power:
-		Amount: -80
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Prerequisites: ~scstarport, ~upsundog
-		Queue: Aircraft, RAAircraft
-		Description: Light Terran attack aircraft, armed\nwith lasers and AA missiles.\n Strong vs Infantry, Aircraft\n Weak vs Buildings, Vehicles
-	Aircraft:
-		InitialFacing: 896
-		TurnSpeed: 24
-		Speed: 120
-	Health:
-		HP: 160000
-	Repairable:
-		HpPerStep: 8000
-	ChangesHealth@SelfHealing:
-		Step: 64
-	Armament@PRIMARY:
-		Weapon: SunDogLaser
-		LocalOffset: 400,0,0
-	Armament@SECONDARY1:
-		Weapon: SunDogRockets
-		LocalOffset: 400,400,0
-	Armament@SECONDARY2:
-		Weapon: SunDogRockets
-		LocalOffset: 400,-400,0
-	FirepowerMultiplier@DualWeapon:
-		Modifier: 25
-	AttackAircraft:
-		FacingTolerance: 40
-		AttackType: Hover
-	GrantConditionOnPrerequisite@cloakon:
-		Condition: upghostcloak
-		Prerequisites: upghostcloak
-	Cloak:
-		RequiresCondition: upghostcloak
-	-SpawnActorOnDeath:
-	FireWarheadsOnDeath:
-		Weapon: HeliExplode
-		EmptyWeapon: HeliExplode
-	EjectOnDeath:
-		PilotActor: scsilvertongue
-	SelectionDecorations:
-	Selectable:
-		DecorationBounds: 786, 786, 0, 0
-	Voiced:
-		VoiceSet: SCWraithVoice
-	DeathSounds:
-	RenderSprites:
-		PlayerPalette: player_rgba
-	ActorStatValues:
-		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upghostcloak
-
-SCVALKYRIE:
-	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
-	Inherits@speedup: ^SCUnitProductionSpeedBoost
-	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@announce: ^AnnounceOnBuild
-	Inherits@armor: ^TerranShipWeaponUpgrades
-	Inherits@weapon: ^TerranShipArmorUpgrades
-	Tooltip:
-		Name: Valkyrie
-	Valued:
-		Cost: 2000
-	Power:
-		Amount: -100
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Prerequisites: ~scstarport, scarmory, ~!upwyvern
-		Queue: Aircraft, RAAircraft
-		Description: Air Superiority Fighter that fires a burst of 8 missiles. Can only attack air.
-	Aircraft:
-		InitialFacing: 896
-		Speed: 120
-		TurnSpeed: 24
-	Health:
-		HP: 200000
-	Repairable:
-		HpPerStep: 10000
-	ChangesHealth@SelfHealing:
-		Step: 80
-	Armament@SECONDARY1:
-		Weapon: ValkyrieRockets
-		LocalOffset: 400,400,0
-	Armament@SECONDARY2:
-		Weapon: ValkyrieRockets
-		LocalOffset: 400,-400,0
-	FirepowerMultiplier@DualWeapon:
-		Modifier: 50
-	AttackAircraft:
-		FacingTolerance: 40
-		AttackType: Hover
-	-SpawnActorOnDeath:
-	FireWarheadsOnDeath:
-		Weapon: HeliExplode
-		EmptyWeapon: HeliExplode
-	EjectOnDeath:
-		PilotActor: scmarauder
-	SelectionDecorations:
-	Selectable:
-		DecorationBounds: 1280, 1024
-	Voiced:
-		VoiceSet: SCValkyrieVoice
-	DeathSounds:
-	KeepsDistance:
-	RenderSprites:
-		PlayerPalette: player_rgba
-	ActorStatValues:
-		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
-
-SCWYVERN:
-	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
-	Inherits@speedup: ^SCUnitProductionSpeedBoost
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
-	Inherits@EXP: ^GainsExperienceTD
-	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@announce: ^AnnounceOnBuild
-	Inherits@armor: ^TerranShipWeaponUpgrades
-	Inherits@weapon: ^TerranShipArmorUpgrades
-	Tooltip:
-		Name: Wyvern
-	Valued:
-		Cost: 3600
-	Power:
-		Amount: -180
-	UpdatesPlayerStatistics:
-		AddToArmyValue: true
-	Buildable:
-		Prerequisites: ~scstarport, scarmory, ~upwyvern
-		Queue: Aircraft, RAAircraft
-		Description: Air Superiority Fighter that fires a burst of 8 missiles. Can only attack air.
-	Aircraft:
-		InitialFacing: 896
-		Speed: 100
-		TurnSpeed: 20
-	Health:
-		HP: 240000
-	Repairable:
-		HpPerStep: 12000
-	ChangesHealth@SelfHealing:
-		Step: 96
-	Armament@SECONDARY1:
-		Weapon: WyvernRockets
-		LocalOffset: 400,400,0
-	Armament@SECONDARY2:
-		Weapon: WyvernRockets
-		LocalOffset: 400,-400,0
-	FirepowerMultiplier@DualWeapon:
-		Modifier: 50
-	AttackAircraft:
-		FacingTolerance: 40
-		AttackType: Hover
-	-SpawnActorOnDeath:
-	FireWarheadsOnDeath:
-		Weapon: HeliExplode
-		EmptyWeapon: HeliExplode
-	EjectOnDeath:
-		PilotActor: scmadcap
-	SelectionDecorations:
-	Selectable:
-		DecorationBounds: 1280, 1024
-	Voiced:
-		VoiceSet: SCValkyrieVoice
-	DeathSounds:
-	KeepsDistance:
-	RenderSprites:
-		PlayerPalette: player_rgba
-	ActorStatValues:
-		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
-
 SCDROPSHIP:
 	Inherits: ^Helicopter
 	Inherits@Template: ^UnarmedTransportHelicopterTemplate
@@ -4984,13 +5016,16 @@ SCPYTHEAN:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@eject: ^AircraftEjectOnDeath
 	Inherits@announce: ^AnnounceOnBuild
+	Inherits@CLOAK: ^CloakedAircraft
+	Inherits@armor: ^TerranInfantryWeaponUpgrades
+	Inherits@weapon: ^TerranVehicleArmorUpgrades
 	Inherits@weapon: ^TerranShipArmorUpgrades
 	Tooltip:
 		Name: Pythean
 	Valued:
-		Cost: 5000
+		Cost: 5500
 	Power:
-		Amount: -250
+		Amount: -275
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 		OverrideActor: scdropship
@@ -5002,33 +5037,39 @@ SCPYTHEAN:
 		Description: A slow moving garrison transport for all ground units.\nExtremely Durable\n Strong vs Everything
 	Aircraft:
 		InitialFacing: 896
-		TurnSpeed: 18
-		Speed: 45
-		RepulsionSpeed: 36
+		TurnSpeed: 16
+		Speed: 40
+		RepulsionSpeed: 32
 	Health:
-		HP: 750000
+		HP: 400000
 	Repairable:
-		HpPerStep: 37500
+		HpPerStep: 20000
 	ChangesHealth@SelfHealing:
-		Step: 300
+		Step: 160
 	Cargo:
 		ExclusiveDeploy: true
 		DeployType: opentopped
 		Types: Infantry, Hacker, Fremen, Vehicle
-		MaxWeight: 8
+		MaxWeight: 9
 		AfterLoadDelay: 0
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
 		LoadedCondition: loaded
-		InitialUnits: scmarine, scmadcap, scfirebat, scharakan, scmarauder, scghost, scsilvertongue, screaper
+		InitialUnits: scmarine, scmadcap, scfirebat, scharakan, scmarauder, scghost, scsilvertongue, screaper, scmedic
 	AttackOpenTopped:
 		Voice: Attack
 		Armaments: garrisoned
-		PortOffsets: 384,0,128, 224,-341,128, 224,341,128, 0,-341,128, 0,341,128, -224,-341,128, -224,341,128, -384,0,128
+		PortOffsets: 384,0,128, 224,-341,128, 224,341,128, 0,-341,128, 0,341,128, -224,-341,128, -224,341,128, -384,0,128, 0,0,128
 		PauseOnCondition: chronobeamed
-	# Armament:
-	# 	Weapon: RA220mmrapid
-	# 	MuzzleSequence: muzzle
+	Armament:
+		Weapon: JimRaynorMachineGun
+		LocalOffset: 400,0,0, 200,200,0, 200,-200,0, 300,300,0, 300,-300,0
+		MuzzleSequence: muzzle
+	GrantConditionOnPrerequisite@cloakon:
+		Condition: upghostcloak
+		Prerequisites: upghostcloak
+	Cloak:
+		RequiresCondition: upghostcloak
 	FireWarheadsOnDeath:
 		Weapon: HeliExplode
 		EmptyWeapon: HeliExplode
@@ -5050,7 +5091,7 @@ SCPYTHEAN:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshiparmor, upshiparmor2
+		Upgrades: upinfweapon, upinfweapon2, upmecharmor, upmecharmor2, upshiparmor, upshiparmor2, upghostcloak
 	WithCargoSounds:
 		EnterSounds: tdrtra00.wav
 		ExitSounds: tdrtra00.wav
@@ -5307,9 +5348,6 @@ SCPHOBOS:
 		HpPerStep: 50000
 	ChangesHealth@SelfHealing:
 		Step: 400
-	Armament:
-		Weapon: PhobosLaser
-		LocalOffset: 400,-400,100, 400,400,100
 	CarrierMaster:
 		Actors: scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone, scwraithdrone
 		RearmTicks: 100
@@ -5333,13 +5371,81 @@ SCPHOBOS:
 		VoiceSet: SCBattleCruiserVoice
 	SpawnActorOnDeath:
 		Actor: scphobos.Husk
+	DeathSounds:
+	Armament:
+		Name: primary
+		Weapon: PhobosLaser
+		LocalOffset: 400,-400,100, 400,400,100, -400,-400,100, -400,400,100
+		PauseOnCondition: tacticaljump
+		AmmoUsage: 0
+		MuzzleSequence: muzzle
+	Armament@Yamato:
+		Name: secondary
+		Weapon: BCYamatoCannon
+		LocalOffset: 800,0,200
+		RequiresCondition: upyamatocannon
+		PauseOnCondition: ammo < 100 || tacticaljump
+		AmmoUsage: 100
+	GrantConditionOnPrerequisite@upyamatocannon:
+		Condition: upyamatocannon
+		Prerequisites: upyamatocannon
+	RA2PortableChrono:
+		TeleportType: PortableChrono
+		ChargeDelay: 1500
+		MaxTeleportDistance: -1
+		ChronoshiftSound: chrono2.aud
+		PauseOnCondition: disabled
+		RequiresCondition: upyamatocannon
+	GrantTimedConditionOnTeleport@Portable:
+		TeleportTypes: PortableChrono
+		Condition: tacticaljump
+		Duration: 100
 	WithMoveAnimation:
 		MoveSequence: move
+	WithIdleOverlay@tacticaljump:
+		Image: scbattlecruiserteleport
+		Sequence: idle
+		Palette: greyscale
+		RequiresCondition: tacticaljump
+	WithIdleOverlay@tacticaljump2:
+		Image: scbattlecruiserteleport2
+		Sequence: idle
+		Palette: greyscale
+		RequiresCondition: tacticaljump
+	SpeedMultiplier@tacticaljump:
+		RequiresCondition: tacticaljump
+		Modifier: 0
+	DamageMultiplier@tacticaljump:
+		RequiresCondition: tacticaljump
+		Modifier: 200
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
+		RequiresCondition: !tacticaljump
 	DeathSounds:
+	AmbientSound:
+		RequiresCondition: tacticaljump
+		SoundFiles: yamatocharge.wav
+		Volume: 5
+	AmmoPool:
+		InitialAmmo: 0
+		Ammo: 100
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 1
+		Count: 1
+		RequiresCondition: tacticaljump
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 10
+	-ReloadAmmoDelayMultiplier@RANK-1:
+	-ReloadAmmoDelayMultiplier@RANK-2:
+	-ReloadAmmoDelayMultiplier@RANK-3:
+	-ReloadAmmoDelayMultiplier@RANK-ELITE:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2
+		Upgrades: upshipweapon, upshipweapon2, upshiparmor, upshiparmor2, upyamatocannon
 
 SCWRAITHDRONE:
 	Inherits: ^RANeutralPlane
@@ -5782,30 +5888,30 @@ upwarhound:
 
 ### Ship Tree
 
-upraven:
-	Inherits: ^promotion_upgrade.template
-	Tooltip:
-		Name: Unlock Raven
-	Buildable:
-		BuildPaletteOrder: 8035
-		Queue: Promotions
-		Description: Allows construction of the Raven.
-		Prerequisites: ~sccommandcenter, !upraven, rank1
-	RenderSprites:
-		Image: scraven
-	ProvidesPrerequisite:
-
 upsundog:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
 		Name: Unlock Sundog
 	Buildable:
-		BuildPaletteOrder: 8038
+		BuildPaletteOrder: 8035
 		Queue: Promotions
 		Description: Allows training of the Sundog.
-		Prerequisites: ~sccommandcenter, upraven, !upsundog, rank1
+		Prerequisites: ~sccommandcenter, !upsundog, rank1
 	RenderSprites:
 		Image: scsundog
+	ProvidesPrerequisite:
+
+upraven:
+	Inherits: ^promotion_upgrade.template
+	Tooltip:
+		Name: Unlock Raven
+	Buildable:
+		BuildPaletteOrder: 8038
+		Queue: Promotions
+		Description: Allows construction of the Raven.
+		Prerequisites: ~sccommandcenter, upsundog, !upraven, rank1
+	RenderSprites:
+		Image: scraven
 	ProvidesPrerequisite:
 
 upwyvern:
@@ -5816,7 +5922,7 @@ upwyvern:
 		BuildPaletteOrder: 8041
 		Queue: Promotions
 		Description: Allows training of the Desolator. Infantry becomes immune to radiation.
-		Prerequisites: ~sccommandcenter, upsundog, !upwyvern, rank1
+		Prerequisites: ~sccommandcenter, upraven, !upwyvern, rank1
 	RenderSprites:
 		Image: scwyvern
 	ProvidesPrerequisite:
@@ -8297,7 +8403,7 @@ SCOVERLORD:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upoverlordspeed, upflyerarmor, upflyerarmor2
+		Upgrades: upflyerarmor, upflyerarmor2, upoverlordspeed, scovermind
 
 SCBROODWEAVER:
 	Inherits: ^AirZerg
@@ -8405,7 +8511,7 @@ SCBROODWEAVER:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	ActorStatValues:
-		Upgrades: upoverlordspeed, upflyerarmor, upflyerarmor2
+		Upgrades: upflyerarmor, upflyerarmor2, upoverlordspeed, scovermind
 
 SCZERGLING:
 	Inherits@zerg: ^BasicZerg
@@ -10413,7 +10519,7 @@ upghostcloak:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Enables Cloak for Ghosts, Spectres, Wraiths, Sundogs.
+		Description: Enables Cloak for Ghosts, Spectres, Wraiths, Sundogs and the Pythean.
 		Prerequisites: ~scsciencefacility, ~!upghostcloak
 	RenderSprites:
 		Image: sccloak
@@ -10443,7 +10549,7 @@ upyamatocannon:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Addons
-		Description: Allows the use of the Yamato Cannon and Tactical Jump for the Battle Cruiser
+		Description: Allows the use of the Yamato Cannon and Tactical Jump for the Battle Cruiser and Phobos
 		Prerequisites: ~scsciencefacility, ~!upyamatocannon
 	RenderSprites:
 		Image: scyamatocannon

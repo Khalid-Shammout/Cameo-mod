@@ -3485,6 +3485,8 @@ ra_industrialminer:
 		Cost: 1200
 	StoresResources:
 		Capacity: 40
+	Harvester:
+		BaleLoadDelay: 2
 	Health:
 		HP: 135000
 	Repairable:
@@ -4318,7 +4320,7 @@ YAK:
 	Buildable:
 		Queue: Aircraft, RAAircraft
 		BuildPaletteOrder: 30
-		Prerequisites: ~raafld
+		Prerequisites: ~raafld, ~!ra_upgrade_yaktesla, ~!ra_upgrade_yakarmored, ~!ra_upgrade_yaknuclear
 		Description: actor-yak.description
 	Valued:
 		Cost: 800
@@ -4370,6 +4372,328 @@ YAK:
 	Aircraft:
 		TurnSpeed: 11
 		Speed: 170
+	SelectionDecorations:
+	WithMuzzleOverlay:
+	Contrail:
+		Offset: -853,0,0
+	SpawnActorOnDeath:
+		Actor: YAK.Husk
+	EjectOnDeath:
+		PilotActor: RAE2
+	LeavesTrails:
+		Offsets: -853,0,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	Selectable:
+		DecorationBounds: 1280, 1280, 0, 128
+	Voiced:
+		VoiceSet: RussianVehicleVoice
+	AmmoPool:
+		Ammo: 64
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 8
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 8
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	RenderSprites:
+		PlayerPalette: raplayer
+	ActorStatValues:
+		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_incendiarybullets, ra_upgrade_stalinium
+
+yaktesla:
+	Inherits: ^RANeutralPlane
+	Inherits@Template: ^FighterTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@exp: ^GainsExperienceRA
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
+	Inherits@eject: ^AircraftEjectOnDeath
+	Buildable:
+		Queue: Aircraft, RAAircraft
+		BuildPaletteOrder: 30
+		Prerequisites: ~ra_upgrade_yaktesla
+		Description: actor-yak.description
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Tesla Yak
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 32500
+	Repairable:
+		HpPerStep: 1625
+	ChangesHealth@SelfHealing:
+		Step: 13
+	Armament@BOMBS:
+		Weapon: YakTeslaBomb
+		LocalOffset: 0,0,-32
+		AmmoUsage: 16
+		PauseOnCondition: ammo < 16
+	Armament@Tesla:
+		Weapon: YakTeslaGun
+		LocalOffset: 400,0,0
+		MuzzleSequence: muzzle
+		AmmoUsage: 4
+		PauseOnCondition: ammo < 16
+		RequiresCondition: !ra_upgrade_teslaarcing
+	Armament@Arcing:
+		Weapon: YakTeslaGunArc
+		LocalOffset: 400,0,0
+		MuzzleSequence: muzzle
+		AmmoUsage: 4
+		PauseOnCondition: ammo < 16
+		RequiresCondition: ra_upgrade_teslaarcing
+	Armament@PRIMARY:
+		Weapon: YakChainGun
+		LocalOffset: 320,-266,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: ammo < 16
+		RequiresCondition: !ra_upgrade_incendiarybullets
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: YakChainGun
+		LocalOffset: 320,266,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: ammo < 16
+		RequiresCondition: !ra_upgrade_incendiarybullets
+	Armament@Upgrade1:
+		Weapon: IncendiaryYakChainGun
+		LocalOffset: 320,-266,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: ammo < 16
+		RequiresCondition: ra_upgrade_incendiarybullets
+	Armament@Upgrade2:
+		Name: secondary
+		Weapon: IncendiaryYakChainGun
+		LocalOffset: 320,266,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: ammo < 16
+		RequiresCondition: ra_upgrade_incendiarybullets
+	FirepowerMultiplier@MultiWeapon:
+		Modifier: 25
+	AttackAircraft:
+		FacingTolerance: 100
+	Aircraft:
+		TurnSpeed: 15
+		Speed: 225
+	SelectionDecorations:
+	WithMuzzleOverlay:
+	Contrail:
+		Offset: -853,0,0
+	SpawnActorOnDeath:
+		Actor: YAK.Husk
+	EjectOnDeath:
+		PilotActor: RAE2
+	LeavesTrails:
+		Offsets: -853,0,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	Selectable:
+		DecorationBounds: 1280, 1280, 0, 128
+	Voiced:
+		VoiceSet: RussianVehicleVoice
+	AmmoPool:
+		Ammo: 128
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 4
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 8
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	RenderSprites:
+		PlayerPalette: raplayer
+	ActorStatValues:
+		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_incendiarybullets, ra_upgrade_stalinium
+
+yakarmored:
+	Inherits: ^RANeutralPlane
+	Inherits@Template: ^FighterTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@exp: ^GainsExperienceRA
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
+	Inherits@eject: ^AircraftEjectOnDeath
+	Buildable:
+		Queue: Aircraft, RAAircraft
+		BuildPaletteOrder: 30
+		Prerequisites: ~ra_upgrade_yakarmored
+		Description: actor-yak.description
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Armored Yak
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 45000
+	Repairable:
+		HpPerStep: 2250
+	ChangesHealth@SelfHealing:
+		Step: 18
+	Armament@PRIMARY:
+		Weapon: YakChainGun
+		LocalOffset: 320,-266,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+		RequiresCondition: !ra_upgrade_incendiarybullets
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: YakChainGun
+		LocalOffset: 320,266,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+		RequiresCondition: !ra_upgrade_incendiarybullets
+	Armament@Upgrade1:
+		Weapon: IncendiaryYakChainGun
+		LocalOffset: 320,-266,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+		RequiresCondition: ra_upgrade_incendiarybullets
+	Armament@Upgrade2:
+		Name: secondary
+		Weapon: IncendiaryYakChainGun
+		LocalOffset: 320,266,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+		RequiresCondition: ra_upgrade_incendiarybullets
+	AttackAircraft:
+		FacingTolerance: 100
+	Aircraft:
+		TurnSpeed: 10
+		Speed: 145
+	SelectionDecorations:
+	WithMuzzleOverlay:
+	Contrail:
+		Offset: -853,0,0
+	SpawnActorOnDeath:
+		Actor: YAK.Husk
+	EjectOnDeath:
+		PilotActor: RAE2
+	LeavesTrails:
+		Offsets: -853,0,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	Selectable:
+		DecorationBounds: 1280, 1280, 0, 128
+	Voiced:
+		VoiceSet: RussianVehicleVoice
+	AmmoPool:
+		Ammo: 32
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 16
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 8
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	RenderSprites:
+		PlayerPalette: raplayer
+	ActorStatValues:
+		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_incendiarybullets, ra_upgrade_stalinium
+
+yaknuclear:
+	Inherits: ^RANeutralPlane
+	Inherits@Template: ^FighterTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@exp: ^GainsExperienceRA
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
+	Inherits@eject: ^AircraftEjectOnDeath
+	Buildable:
+		Queue: Aircraft, RAAircraft
+		BuildPaletteOrder: 30
+		Prerequisites: ~ra_upgrade_yaknuclear
+		Description: actor-yak.description
+	Valued:
+		Cost: 1150
+	Tooltip:
+		Name: Nuclear Yak
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 37500
+	Repairable:
+		HpPerStep: 1875
+	ChangesHealth@SelfHealing:
+		Step: 15
+	Armament@BOMBS:
+		Weapon: YakNuclearBomb
+		LocalOffset: 0,0,-32
+		AmmoUsage: 16
+		PauseOnCondition: ammo < 16
+	Armament@PRIMARY:
+		Weapon: YakChainGun
+		LocalOffset: 320,-266,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: ammo < 16
+		RequiresCondition: !ra_upgrade_incendiarybullets
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: YakChainGun
+		LocalOffset: 320,266,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: ammo < 16
+		RequiresCondition: !ra_upgrade_incendiarybullets
+	Armament@Upgrade1:
+		Weapon: IncendiaryYakChainGun
+		LocalOffset: 320,-266,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: ammo < 16
+		RequiresCondition: ra_upgrade_incendiarybullets
+	Armament@Upgrade2:
+		Name: secondary
+		Weapon: IncendiaryYakChainGun
+		LocalOffset: 320,266,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: ammo < 16
+		RequiresCondition: ra_upgrade_incendiarybullets
+	FirepowerMultiplier@DualWeapon:
+		Modifier: 50
+	AttackAircraft:
+		FacingTolerance: 100
+	Aircraft:
+		TurnSpeed: 12
+		Speed: 185
 	SelectionDecorations:
 	WithMuzzleOverlay:
 	Contrail:
@@ -6971,8 +7295,6 @@ RALST:
 
 ^RAFACT:
 	Inherits: ^BaseBuilding
-	Inherits@CPQ: ^CPQCondition
-	Inherits@aicash: ^AIConyardCash
 	Inherits@conyard: ^Conyard
 	Inherits@sell: ^RASpawnActorsOnSell
 	Inherits@shape: ^3x3Shape
@@ -7151,7 +7473,7 @@ JPWR:
 	Armor:
 		Type: Wood
 	RevealsShroud:
-		Range: 4c0
+		Range: 4c512
 	WithBuildingBib:
 	Power:
 		Amount: 225
@@ -7169,7 +7491,6 @@ KENN:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^RASovietSpawnActorsOnSell
 	Inherits@shape: ^1x1Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@barr: ^IsDogKennel
 	Buildable:
 		Queue: Building, RABuilding
@@ -7202,7 +7523,6 @@ KENN:
 BARR:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^RASovietSpawnActorsOnSell
 	Inherits@barr: ^IsBarrack
 	Inherits@barr: ^Conscription
@@ -7234,7 +7554,6 @@ BARR:
 TENT:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^RASpawnActorsOnSell
 	Inherits@barr: ^IsBarrack
 	Inherits@ReinforcedStructures: ^ReinforcedStructures
@@ -7264,7 +7583,6 @@ TENT:
 MODTENTJ:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^JapanSpawnActorsOnSell
 	Inherits@barr: ^IsBarrack
 	Inherits@NanoTechRepairs: ^NanoTechRepairs
@@ -7440,7 +7758,6 @@ RASILO:
 RAWEAPA:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^RASpawnActorsOnSell
 	Inherits@weap: ^IsWeaponFactory
 	Inherits@ReinforcedStructures: ^ReinforcedStructures
@@ -7477,7 +7794,6 @@ RAWEAPA:
 RAWEAP:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^RASovietSpawnActorsOnSell
 	Inherits@weap: ^IsWeaponFactory
 	Buildable:
@@ -7642,7 +7958,6 @@ DOME.Japan:
 RAHPAD:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^RASpawnActorsOnSell
 	Inherits@hpad: ^IsAircraftFactory
 	Inherits@ReinforcedStructures: ^ReinforcedStructures
@@ -7666,7 +7981,6 @@ RAHPAD:
 RAAFLD:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
-	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@sell: ^RASovietSpawnActorsOnSell
 	Inherits@spy: ^InfiltrateForSupportPowerReset
 	Inherits@hpad: ^IsAircraftFactory
@@ -7721,15 +8035,16 @@ RAAFLD:
 		SupportPowerPaletteOrder: 60
 	AirstrikePower@parabombs:
 		OrderName: Parabombs
+		ChargeInterval: 7500
+		Cost: 1000
 		Prerequisites:
-			1:
-			2: ra_promotion_parabombs2
-			3: ra_promotion_parabombs3
+			1: ra_upgrade_afterburners
+			2: ra_upgrade_afterburners, ra_promotion_parabombs2
+			3: ra_upgrade_afterburners, ra_promotion_parabombs3
 		Icons:
 			1: airstrike
 			2: airstrike
 			3: airstrike
-		ChargeInterval: 7500
 		Names:
 			1: power-parabombs.name
 			2: power-parabombs.name
@@ -7766,38 +8081,39 @@ RAAFLD:
 	ParatroopersPower@paratroopers:
 		OrderName: SovietParatroopers
 		ChargeInterval: 9000
+		Cost: 1000
 		Prerequisites:
-			1:
-			2: ra_doctrine_conscription
-			3: ra_doctrine_industrialefficiency
-			4: ra_doctrine_inferno
-			5: ra_doctrine_conscription, ra_doctrine_teslatech
-			6: ra_doctrine_conscription, ra_doctrine_heavyarmor
-			7: ra_doctrine_conscription, ra_doctrine_nuclearwar
-			8: ra_doctrine_industrialefficiency, ra_doctrine_teslatech
-			9: ra_doctrine_industrialefficiency, ra_doctrine_heavyarmor
-			10: ra_doctrine_industrialefficiency, ra_doctrine_nuclearwar
-			11: ra_doctrine_inferno, ra_doctrine_teslatech
-			12: ra_doctrine_inferno, ra_doctrine_heavyarmor
-			13: ra_doctrine_inferno, ra_doctrine_nuclearwar
-			14: upmortarsoldier, ra_doctrine_conscription, ra_doctrine_teslatech
-			15: upmortarsoldier, ra_doctrine_conscription, ra_doctrine_heavyarmor
-			16: upmortarsoldier, ra_doctrine_conscription, ra_doctrine_nuclearwar
-			17: upmortarsoldier, ra_doctrine_industrialefficiency, ra_doctrine_teslatech
-			18: upmortarsoldier, ra_doctrine_industrialefficiency, ra_doctrine_heavyarmor
-			19: upmortarsoldier, ra_doctrine_industrialefficiency, ra_doctrine_nuclearwar
-			20: upmortarsoldier, ra_doctrine_inferno, ra_doctrine_teslatech
-			21: upmortarsoldier, ra_doctrine_inferno, ra_doctrine_heavyarmor
-			22: upmortarsoldier, ra_doctrine_inferno, ra_doctrine_nuclearwar
-			23: upcyberdog, ra_doctrine_conscription, ra_doctrine_teslatech
-			24: upcyberdog, ra_doctrine_conscription, ra_doctrine_heavyarmor
-			25: upcyberdog, ra_doctrine_conscription, ra_doctrine_nuclearwar
-			26: upcyberdog, ra_doctrine_industrialefficiency, ra_doctrine_teslatech
-			27: upcyberdog, ra_doctrine_industrialefficiency, ra_doctrine_heavyarmor
-			28: upcyberdog, ra_doctrine_industrialefficiency, ra_doctrine_nuclearwar
-			29: upcyberdog, ra_doctrine_inferno, ra_doctrine_teslatech
-			30: upcyberdog, ra_doctrine_inferno, ra_doctrine_heavyarmor
-			31: upcyberdog, ra_doctrine_inferno, ra_doctrine_nuclearwar
+			1: ra_upgrade_afterburners
+			2: ra_upgrade_afterburners, ra_doctrine_conscription
+			3: ra_upgrade_afterburners, ra_doctrine_industrialefficiency
+			4: ra_upgrade_afterburners, ra_doctrine_inferno
+			5: ra_upgrade_afterburners, ra_doctrine_conscription, ra_doctrine_teslatech
+			6: ra_upgrade_afterburners, ra_doctrine_conscription, ra_doctrine_heavyarmor
+			7: ra_upgrade_afterburners, ra_doctrine_conscription, ra_doctrine_nuclearwar
+			8: ra_upgrade_afterburners, ra_doctrine_industrialefficiency, ra_doctrine_teslatech
+			9: ra_upgrade_afterburners, ra_doctrine_industrialefficiency, ra_doctrine_heavyarmor
+			10: ra_upgrade_afterburners, ra_doctrine_industrialefficiency, ra_doctrine_nuclearwar
+			11: ra_upgrade_afterburners, ra_doctrine_inferno, ra_doctrine_teslatech
+			12: ra_upgrade_afterburners, ra_doctrine_inferno, ra_doctrine_heavyarmor
+			13: ra_upgrade_afterburners, ra_doctrine_inferno, ra_doctrine_nuclearwar
+			14: ra_upgrade_afterburners, upmortarsoldier, ra_doctrine_conscription, ra_doctrine_teslatech
+			15: ra_upgrade_afterburners, upmortarsoldier, ra_doctrine_conscription, ra_doctrine_heavyarmor
+			16: ra_upgrade_afterburners, upmortarsoldier, ra_doctrine_conscription, ra_doctrine_nuclearwar
+			17: ra_upgrade_afterburners, upmortarsoldier, ra_doctrine_industrialefficiency, ra_doctrine_teslatech
+			18: ra_upgrade_afterburners, upmortarsoldier, ra_doctrine_industrialefficiency, ra_doctrine_heavyarmor
+			19: ra_upgrade_afterburners, upmortarsoldier, ra_doctrine_industrialefficiency, ra_doctrine_nuclearwar
+			20: ra_upgrade_afterburners, upmortarsoldier, ra_doctrine_inferno, ra_doctrine_teslatech
+			21: ra_upgrade_afterburners, upmortarsoldier, ra_doctrine_inferno, ra_doctrine_heavyarmor
+			22: ra_upgrade_afterburners, upmortarsoldier, ra_doctrine_inferno, ra_doctrine_nuclearwar
+			23: ra_upgrade_afterburners, upcyberdog, ra_doctrine_conscription, ra_doctrine_teslatech
+			24: ra_upgrade_afterburners, upcyberdog, ra_doctrine_conscription, ra_doctrine_heavyarmor
+			25: ra_upgrade_afterburners, upcyberdog, ra_doctrine_conscription, ra_doctrine_nuclearwar
+			26: ra_upgrade_afterburners, upcyberdog, ra_doctrine_industrialefficiency, ra_doctrine_teslatech
+			27: ra_upgrade_afterburners, upcyberdog, ra_doctrine_industrialefficiency, ra_doctrine_heavyarmor
+			28: ra_upgrade_afterburners, upcyberdog, ra_doctrine_industrialefficiency, ra_doctrine_nuclearwar
+			29: ra_upgrade_afterburners, upcyberdog, ra_doctrine_inferno, ra_doctrine_teslatech
+			30: ra_upgrade_afterburners, upcyberdog, ra_doctrine_inferno, ra_doctrine_heavyarmor
+			31: ra_upgrade_afterburners, upcyberdog, ra_doctrine_inferno, ra_doctrine_nuclearwar
 		Icons:
 			1: paratroopers
 			2: paratroopers
@@ -8644,7 +8960,7 @@ PDOX:
 		DisplayTimerRelationships: Ally, Neutral, Enemy
 	DetonateWeaponPower@ChronoReinforcements:
 		OrderName: ChronoReinforcements
-		Cost: 2000
+		Cost: 1000
 		Prerequisites:
 			1: up_chronoarmor
 		PauseOnCondition: disabled
@@ -9985,7 +10301,7 @@ MODSPACEPORT:
 		SpawnType: ClosestEdgeToDestination
 		ProportionalSpeed: true
 		RequiresCondition: classicproductionqueues
-	ProductionQueue@VEHICLE:
+	ParallelProductionQueue@VEHICLE:
 		Type: Vehicle
 		DisplayOrder: 3
 		Group: Vehicle
@@ -11485,6 +11801,36 @@ ra_upgrade_hazmatsuits:
 		Prerequisites: ~dome.soviet, !ra_upgrade_hazmatsuits
 	RenderSprites:
 		Image: ra_upgrade_hazmatsuits
+
+ra_upgrade_yaktesla:
+	Inherits: ^unit_upgrade_template
+	Tooltip:
+		Name: Unlock Tesla Yak
+	Buildable:
+		Description: Upgrades the Yak into the Tesla Yak.
+		Prerequisites: ~dome.soviet, ~ra_doctrine_teslatech, !ra_upgrade_yaktesla
+	RenderSprites:
+		Image: yaktesla
+
+ra_upgrade_yakarmored:
+	Inherits: ^unit_upgrade_template
+	Tooltip:
+		Name: Unlock Armored Yak
+	Buildable:
+		Description: Upgrades the Yak into the Armored Yak.
+		Prerequisites: ~dome.soviet, ~ra_doctrine_heavyarmor, !ra_upgrade_yakarmored
+	RenderSprites:
+		Image: yakarmored
+
+ra_upgrade_yaknuclear:
+	Inherits: ^unit_upgrade_template
+	Tooltip:
+		Name: Unlock Nuclear Yak
+	Buildable:
+		Description: Upgrades the Yak into the Nuclear Yak.
+		Prerequisites: ~dome.soviet, ~ra_doctrine_nuclearwar, !ra_upgrade_yaknuclear
+	RenderSprites:
+		Image: yaknuclear
 
 ra_upgrade_afterburners:
 	Inherits: ^tech_upgrade_template
