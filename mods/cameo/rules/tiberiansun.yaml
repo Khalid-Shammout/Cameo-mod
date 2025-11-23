@@ -326,9 +326,7 @@ TSGTCNST:
 		BuildSounds: facbld1.aud
 		LocalCenterOffset: 0,-512,0
 	Health:
-		HP: 350000
-	Armor:
-		Type: Wood
+		HP: 1000000
 	RevealsShroud:
 		Range: 10c0
 	Transforms:
@@ -398,8 +396,6 @@ TSGTCNSTGDI:
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 1000000
-	Armor:
-		Type: Wood
 	RevealsShroud:
 		Range: 10c0
 	Transforms:
@@ -475,8 +471,6 @@ TSGTCNSTNOD:
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 1000000
-	Armor:
-		Type: Wood
 	RevealsShroud:
 		Range: 10c0
 	Transforms:
@@ -506,7 +500,6 @@ TSGTCNSTNOD:
 		Range: 14c0
 	ProvidesPrerequisite@tsoilderrick:
 		Prerequisite: tsoilderrick
-	WithBuildingBib:
 	WithProductionOverlay@WELDING:
 		RequiresCondition: !build-incomplete
 		Queues: Building, Defence, RABuilding, RADefence
@@ -553,8 +546,6 @@ TSGTCNSTMUTANT:
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 1000000
-	Armor:
-		Type: Wood
 	RevealsShroud:
 		Range: 10c0
 	Transforms:
@@ -588,7 +579,6 @@ TSGTCNSTMUTANT:
 		Range: 14c0
 	ProvidesPrerequisite@tsoilderricksuper:
 		Prerequisite: tsoilderricksuper
-	WithBuildingBib:
 	WithIdleOverlay@TOP:
 		RequiresCondition: !build-incomplete
 		Sequence: idle-top
@@ -668,7 +658,6 @@ TSGTCNSTCABAL:
 		Range: 14c0
 	ProvidesPrerequisite@tsoilderrick:
 		Prerequisite: tsoilderrick
-	WithBuildingBib:
 	WithIdleOverlay@TOP:
 		RequiresCondition: !build-incomplete
 		Sequence: idle-top
@@ -798,7 +787,6 @@ tsprocgdi:
 		Actor: TSHARV
 		SpawnOffset: 1,2
 		Facing: 256
-	WithBuildingBib:
 	WithIdleOverlay@REDLIGHTS:
 		RequiresCondition: !build-incomplete
 		Sequence: idle-redlights
@@ -951,7 +939,6 @@ TSGTPOWR:
 		Range: 4c0
 	Selectable:
 		Bounds: 2048, 2048
-	WithBuildingBib:
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: building ##########
@@ -1036,7 +1023,6 @@ TSNTPOWR:
 	HitShape:
 		UseTargetableCellsOffsets: false
 		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
-	WithBuildingBib:
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 	ProvidesPrerequisite@buildingname:
@@ -1081,7 +1067,6 @@ TSNTPOWRMUTANT:
 		RequiresCondition: !build-incomplete
 	RevealsShroud:
 		Range: 4c0
-	WithBuildingBib:
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 	ProvidesPrerequisite@buildingname:
@@ -1121,7 +1106,6 @@ TSNTPOWRCABAL:
 		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
 	RevealsShroud:
 		Range: 4c0
-	WithBuildingBib:
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 	ProvidesPrerequisite@buildingname:
@@ -1152,19 +1136,18 @@ TSNTAPWR:
 		Prerequisites: ~tsgtcnstnod, tsntradr
 		Description: Provides double the power of\na standard Power Plant.
 	Building:
-		Footprint: _xx _xx
+		Footprint: xxx xxx
 		Dimensions: 3,2
 	HitShape:
 		TargetableOffsets: -355,-1024,0
 	Valued:
 		Cost: 1200
 	Selectable:
-		Bounds: 1280, 1280
-		DecorationBounds: 1280, 1024
+		Bounds: 3072, 2048
+		DecorationBounds: 3072, 2048
 	SelectionDecorations:
 	RevealsShroud:
 		Range: 4c0
-	WithBuildingBib:
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: building ##########
@@ -1288,7 +1271,6 @@ TSGTPILE:
 		LocalCenterOffset: 0,-512,0
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
 	RallyPoint:
 	Exit@1:
 		SpawnOffset: -426,85,0
@@ -1342,7 +1324,6 @@ TSNTHAND:
 		LocalCenterOffset: 0,-512,0
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
 	RallyPoint:
 		Path: 1,2
 	Exit@1:
@@ -1426,12 +1407,11 @@ tsgtweap:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Selectable:
-		Bounds: 1280, 1280
-		DecorationBounds: 1280, 1024
+		Bounds: 3072, 2048
+		DecorationBounds: 3072, 2048
 	SelectionDecorations:
 	RevealsShroud:
 		Range: 4c0
-	WithBuildingBib:
 	RallyPoint:
 		Path: 0,2
 	Exit@1:
@@ -1495,12 +1475,11 @@ TSNTWEAP:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 	Selectable:
-		Bounds: 1280, 1280
-		DecorationBounds: 1280, 1024
+		Bounds: 3072, 2048
+		DecorationBounds: 3072, 2048
 	SelectionDecorations:
 	RevealsShroud:
 		Range: 4c0
-	WithBuildingBib:
 	RallyPoint:
 		Path: 0,2
 	Exit@1:
@@ -1829,7 +1808,6 @@ tsntradr:
 		PauseOnCondition: lowpower
 	RevealsShroud:
 		Range: 10c0
-	WithBuildingBib:
 	ProvidesRadar:
 		RequiresCondition: !jammed && !lowpower
 	RenderDetectionCircle:
@@ -1913,7 +1891,6 @@ tsgtradr:
 		PauseOnCondition: lowpower
 	RevealsShroud:
 		Range: 10c0
-	WithBuildingBib:
 	ProvidesRadar:
 		RequiresCondition: !jammed && !lowpower
 	RenderDetectionCircle:
@@ -2020,14 +1997,13 @@ tsnttech:
 	Selectable:
 		Bounds: 2048, 2048
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 		LocalCenterOffset: 0,0,0
 	Armor:
 		Type: Wood
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
 	Power:
 		Amount: -150
 	ProvidesPrerequisite@buildingname:
@@ -2067,7 +2043,6 @@ tsgttech:
 		Type: Wood
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
 	Power:
 		Amount: -100
 	ProvidesPrerequisite@buildingname:
@@ -2138,7 +2113,6 @@ tsnttmpl:
 		Type: Wood
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
 	Power:
 		Amount: -100
 	ProvidesPrerequisite@buildingname:
@@ -2177,7 +2151,6 @@ tscore:
 		Type: Wood
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
 	Power:
 		Amount: -100
 	ProvidesPrerequisite@buildingname:
@@ -2216,7 +2189,6 @@ tsntmisl:
 		Type: Wood
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
 	Power:
 		Amount: -150
 	WithIdleOverlay@LIGHTS:
@@ -2376,7 +2348,6 @@ tsctarmr:
 		Type: Wood
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
 	Power:
 		Amount: -100
 	-WithMakeAnimation:
@@ -2636,7 +2607,6 @@ tsveinhole:
 		Type: Heavy
 	RevealsShroud:
 		Range: 6c0
-	WithBuildingBib:
 		HasMinibib: True
 	Turreted:
 		TurnSpeed: 396
@@ -2676,7 +2646,7 @@ tsntlasr:
 		Prerequisites: ~tsgtcnstnod, tsnthand
 		Description: Basic base defense.\n  Strong vs Ground units\n  Weak vs Aircraft
 	Valued:
-		Cost: 8000
+		Cost: 800
 	Power:
 		Amount: -20
 	Tooltip:
@@ -3053,7 +3023,6 @@ tsntpulsgdi:
 		Type: Wood
 	RevealsShroud:
 		Range: 7c0
-	WithBuildingBib:
 	Power:
 		Amount: -100
 	ProvidesPrerequisite@buildingname:
@@ -3084,21 +3053,21 @@ tsntpulsgdi:
 		PlayerPalette: playerra2
 		Image: tsntpuls
 
-tsntpulsnod:
-	Inherits: tsntpulsgdi
-	Buildable:
-		BuildPaletteOrder: 140
-		Prerequisites: ~tsgtcnstnod, tsntradr
-	Tooltip:
-		Name: E.M. Pulse Cannon
+# tsntpulsnod:
+# 	Inherits: tsntpulsgdi
+# 	Buildable:
+# 		BuildPaletteOrder: 140
+# 		Prerequisites: ~tsgtcnstnod, tsntradr
+# 	Tooltip:
+# 		Name: E.M. Pulse Cannon
 
-tsntpulscabal:
-	Inherits: tsntpulsgdi
-	Buildable:
-		BuildPaletteOrder: 140
-		Prerequisites: ~tsgtcnstcabal, tsntradrcabal
-	Tooltip:
-		Name: E.M. Pulse Cannon
+# tsntpulscabal:
+# 	Inherits: tsntpulsgdi
+# 	Buildable:
+# 		BuildPaletteOrder: 140
+# 		Prerequisites: ~tsgtcnstcabal, tsntradrcabal
+# 	Tooltip:
+# 		Name: E.M. Pulse Cannon
 
 tsntobel:
 	Inherits: ^Defense
@@ -3114,7 +3083,7 @@ tsntobel:
 		BuildPaletteOrder: 60
 		Prerequisites: ~tsgtcnstnod, tsnttech
 		Queue: Defence, RADefence
-		BuildDurationModifier: 63
+		# BuildDurationModifier: 63
 		Description: Advanced base defense.\nRequires power to operate.\n  Strong vs Ground units\n  Weak vs Aircraft
 	Building:
 		Footprint: xx xx
@@ -3175,12 +3144,12 @@ tsobl2:
 		Cost: 1350
 	Tooltip:
 		Name: Obelisk of Darkness
-	Buildable:
-		BuildPaletteOrder: 60
-		Prerequisites: ~tsgtcnstnod, tsnttech
-		Queue: Defence, RADefence
-		BuildDurationModifier: 40
-		Description: Advanced air defense.\nRequires power to operate.\n  Strong vs aircraft\n  Weak vs ground units
+	# Buildable:
+	# 	BuildPaletteOrder: 60
+	# 	Prerequisites: ~tsgtcnstnod, tsnttech
+	# 	Queue: Defence, RADefence
+	# 	BuildDurationModifier: 40
+	# 	Description: Advanced air defense.\nRequires power to operate.\n  Strong vs aircraft\n  Weak vs ground units
 	Building:
 		Footprint: x
 	Selectable:
@@ -6145,7 +6114,9 @@ TSBGGY:
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@MobilitySpecialization: ^MobilitySpecialization
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -6165,10 +6136,6 @@ TSBGGY:
 		HpPerStep: 1500
 	ChangesHealth@SelfHealing:
 		Step: 12
-	Armor:
-		Type: Light
-	RevealsShroud:
-		Range: 6c0
 	Armament:
 		Weapon: TSRaiderCannon
 		LocalOffset: 0,-30,250, 0,30,250
@@ -6176,7 +6143,7 @@ TSBGGY:
 		RecoilRecovery: 26
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
-	AttackFrontal:
+	AttackFollowFrontal:
 		FacingTolerance: 512
 	SelectionDecorations:
 	Selectable:
@@ -6189,6 +6156,8 @@ TSBGGY:
 		Payload: 250
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mobilityspecialization
 
 TSBIKE:
 	Inherits: ^Vehicle
@@ -6196,8 +6165,12 @@ TSBIKE:
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@AntiVeh: ^PrioritizeVehicle
+	Inherits@AntiTank: ^PrioritizeTank
+	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@MobilitySpecialization: ^MobilitySpecialization
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -6217,8 +6190,6 @@ TSBIKE:
 		HpPerStep: 100
 	ChangesHealth@SelfHealing:
 		Step: 8
-	RevealsShroud:
-		Range: 6c0
 	Armament@PRIMARY:
 		Weapon: TSBikeMissile
 		# RequiresCondition: !rank-elite
@@ -6227,7 +6198,7 @@ TSBIKE:
 	# 	Weapon: TSHoverMissile
 	# 	RequiresCondition: rank-elite
 	# 	LocalOffset: -153,-204,509, -153,204,509
-	AttackFrontal:
+	AttackFollowFrontal:
 		FacingTolerance: 512
 	SelectionDecorations:
 	Selectable:
@@ -6237,9 +6208,11 @@ TSBIKE:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
-		Payload: 250
+		Payload: 300
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mobilityspecialization
 
 TSBIKECABAL:
 	Inherits: TSBIKE
@@ -6529,6 +6502,7 @@ TSART2:
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
+	Inherits@MobilitySpecialization: ^MobilitySpecialization
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -6593,6 +6567,8 @@ TSART2:
 	# 	RequiresSelection: True
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_mobilityspecialization
 
 TSART2CABAL:
 	Inherits: TSART2
@@ -6634,7 +6610,7 @@ TSSUBTANK:
 	ChangesHealth@SelfHealing:
 		Step: 40
 	Armor:
-		Type: Light
+		Type: Heavy
 	RevealsShroud:
 		Range: 6c0
 	Armament@PRIMARY:
@@ -6788,6 +6764,8 @@ tslpstnod:
 	RenderSprites:
 		Image: tslpst
 		PlayerPalette: playerra2
+	RenderVoxels:
+		Image: tslpst
 
 
 #######################################
@@ -7904,6 +7882,7 @@ TSSCRIN:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
+	Inherits@MobilitySpecialization: ^MobilitySpecialization
 	Valued:
 		Cost: 2400
 	Tooltip:
@@ -7964,6 +7943,8 @@ TSSCRIN:
 		Position: BottomLeft
 		RequiresSelection: True
 		PipCount: 4
+	ActorStatValues:
+		Upgrades: up_mobilityspecialization
 
 TSSCRINCABAL:
 	Inherits: TSSCRIN
@@ -8002,6 +7983,7 @@ TSAPACHENOD:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
+	Inherits@MobilitySpecialization: ^MobilitySpecialization
 	Valued:
 		Cost: 1800
 	Tooltip:
@@ -8070,6 +8052,8 @@ TSAPACHENOD:
 		PipCount: 4
 	RenderSprites:
 		Image: tsapache
+	ActorStatValues:
+		Upgrades: up_mobilityspecialization
 
 TSAPACHEMUTANT:
 	Inherits: ^Helicopter
@@ -8996,3 +8980,48 @@ team_upgrade.up_modernfirecontrolsystems:
 		Modifier: 105
 	ActorStatValues:
 		Upgrades: up_modernfirecontrolsystems
+
+
+################## NOD #########################
+
+############ Radar
+
+up_mobilityspecialization:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Mobility Specialization
+	Valued:
+		Cost: 3500
+	Buildable:
+		BuildPaletteOrder: 110
+		Queue: Addons
+		Description: Increaces light vehicles and aircraft armor, accuracy, speed, vision, detection and attack range by 10%
+		Prerequisites: ~tsntradr, !up_mobilityspecialization
+	RenderSprites:
+		Image: mobilityspecializationicon
+	ProvidesPrerequisite:
+
+^MobilitySpecialization:
+	GrantConditionOnPrerequisite@up_mobilityspecialization:
+		Condition: up_mobilityspecialization
+		Prerequisites: up_mobilityspecialization
+	InaccuracyMultiplier@up_mobilityspecialization:
+		RequiresCondition: up_mobilityspecialization
+		Modifier: 90
+	RangeMultiplier@up_mobilityspecialization:
+		RequiresCondition: up_mobilityspecialization
+		Modifier: 110
+	RevealsShroudMultiplier@up_mobilityspecialization:
+		RequiresCondition: up_mobilityspecialization
+		Modifier: 110
+	DetectCloakedMultiplier@up_mobilityspecialization:
+		RequiresCondition: up_mobilityspecialization
+		Modifier: 110
+	SpeedMultiplier@up_mobilityspecialization:
+		RequiresCondition: up_mobilityspecialization
+		Modifier: 110
+	DamageMultiplier@up_mobilityspecialization:
+		RequiresCondition: up_mobilityspecialization
+		Modifier: 90
+	ActorStatValues:
+		Upgrades: up_mobilityspecialization

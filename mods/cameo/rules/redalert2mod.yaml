@@ -11687,7 +11687,7 @@ upnax_resurrection:
 		BuildPaletteOrder: 100
 		Queue: Upgrades
 		Description: Infantry killed by small arms leave corpses that can resurrect as zombies.
-		Prerequisites: ~nax_tech
+		Prerequisites: ~nax_tech, ~disabled
 	RenderSprites:
 		Image: nax_undead
 
@@ -12159,6 +12159,9 @@ nax_twr:
 	Inherits@detect: ^GenericAllDetector
 	Inherits@sell: ^NaxisSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@Atlantikwall: ^Atlantikwall
+	Inherits@OstfrontExperience: ^OstfrontExperience
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
@@ -12198,6 +12201,8 @@ nax_twr:
 	RevealsShroud:
 		Range: 6666
 	ProvidesPrerequisite@buildingname:
+	ActorStatValues:
+		Upgrades: up_atlantikwall, up_ostfrontexperience, up_massopticsintegration
 
 nax_flak88:
 	Inherits: ^RA2Defense
@@ -12206,6 +12211,9 @@ nax_flak88:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@sell: ^NaxisSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@Atlantikwall: ^Atlantikwall
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
@@ -12250,6 +12258,8 @@ nax_flak88:
 	RevealsShroud:
 		Range: 6666
 	ProvidesPrerequisite@buildingname:
+	ActorStatValues:
+		Upgrades: up_atlantikwall, up_tankarsenalrenovation, up_massopticsintegration
 
 nax_bunk:
 	Inherits: ^RA2Defense
@@ -12259,6 +12269,7 @@ nax_bunk:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@gar: ^ClearableGarrisonNeutronOnly
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
+	Inherits@Atlantikwall: ^Atlantikwall
 	Tooltip:
 		Name: Naxi Bunker
 	Building:
@@ -12328,6 +12339,8 @@ nax_bunk:
 		RequiresCondition: !build-incomplete && aa
 		Sequence: turret-aa
 	ProvidesPrerequisite@buildingname:
+	ActorStatValues:
+		Upgrades: up_atlantikwall
 	Pluggable:
 		Conditions:
 			nax_bunk.mg: mg
@@ -13226,6 +13239,8 @@ nax_rifle:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@undead: ^NaxiUndeadRevive
+	Inherits@OstfrontExperience: ^OstfrontExperience
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 100
 	Tooltip:
@@ -13265,6 +13280,8 @@ nax_rifle:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: NaxiSoldatVoice
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience, up_massopticsintegration
 
 nax_cons:
 	Inherits: ^Soldier
@@ -13275,6 +13292,8 @@ nax_cons:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@undead: ^NaxiUndeadRevive
+	Inherits@OstfrontExperience: ^OstfrontExperience
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 75
 	Tooltip:
@@ -13314,6 +13333,9 @@ nax_cons:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: NaxiEngVoice
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience, up_massopticsintegration
+
 nax_mp40:
 	Inherits: ^Soldier
 	Inherits@Template: ^MeleeInfantryTemplate
@@ -13324,6 +13346,7 @@ nax_mp40:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@undead: ^NaxiUndeadReviveBig
 	Inherits@VOICES: ^WithFeedbackVoiceLines
+	Inherits@OstfrontExperience: ^OstfrontExperience
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -13363,6 +13386,8 @@ nax_mp40:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: NaxiSSVoice
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience
 
 nax_fcons:
 	Inherits: ^Soldier
@@ -13374,6 +13399,7 @@ nax_fcons:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@undead: ^NaxiUndeadReviveBig
+	Inherits@OstfrontExperience: ^OstfrontExperience
 	Valued:
 		Cost: 225
 	Tooltip:
@@ -13413,6 +13439,8 @@ nax_fcons:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: NaxiEngVoice
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience
 
 nax_merc:
 	Inherits: ^Soldier
@@ -13424,6 +13452,8 @@ nax_merc:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@undead: ^NaxiUndeadRevive
+	Inherits@OstfrontExperience: ^OstfrontExperience
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -13463,6 +13493,8 @@ nax_merc:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: NaxiSoldatVoice
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience, up_massopticsintegration
 
 nax_shrek:
 	Inherits: ^Soldier
@@ -13473,6 +13505,7 @@ nax_shrek:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@undead: ^NaxiUndeadReviveBig
+	Inherits@OstfrontExperience: ^OstfrontExperience
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -13512,6 +13545,8 @@ nax_shrek:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: NaxiTroopVoice
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience
 
 nax_tcons:
 	Inherits: ^Soldier
@@ -13522,6 +13557,7 @@ nax_tcons:
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@undead: ^NaxiUndeadRevive
+	Inherits@OstfrontExperience: ^OstfrontExperience
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -13561,12 +13597,15 @@ nax_tcons:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: NaxiEngVoice
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience
 
 nax_litt:
 	Inherits: ^JumpjetInfantry
 	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@OstfrontExperience: ^OstfrontExperience
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -13642,6 +13681,8 @@ nax_litt:
 		Prerequisites: upra2rock
 	ProducibleWithLevel@spyinfantry:
 		Prerequisites: infantry.upgraded
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience
 
 nax_litt.husk:
 	Inherits: ^HelicopterHusk
@@ -13678,6 +13719,7 @@ nax_slavemaster:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@selection: ^SelectableEconomicUnit
 	Inherits@undead: ^NaxiUndeadReviveBig
+	Inherits@OstfrontExperience: ^OstfrontExperience
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -13729,9 +13771,12 @@ nax_slavemaster:
 		InitialStance: AttackAnything
 	Voiced:
 		VoiceSet: NaxiFemVoice
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience
 
 nax_slav:
 	Inherits: YRSLAV
+	Inherits@OstfrontExperience: ^OstfrontExperience
 	Buildable:
 		BuildPaletteOrder: 10
 		Prerequisites: ~nax_barr, nax_refin
@@ -13752,6 +13797,8 @@ nax_slav:
 	SpeedMultiplier@SlaveFaster3:
 		Modifier: 250
 		RequiresCondition: SlaveFaster >= 3
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience
 
 nax_atankcann:
 	Inherits: ^Tank
@@ -13761,6 +13808,8 @@ nax_atankcann:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -13802,6 +13851,8 @@ nax_atankcann:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiTankVoice
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation, up_massopticsintegration
 
 nax_frank:
 	Inherits: ^Soldier
@@ -13811,6 +13862,7 @@ nax_frank:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@OstfrontExperience: ^OstfrontExperience
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -13844,6 +13896,8 @@ nax_frank:
 	-TakeCover:
 	Targetable@dog:
 		TargetTypes: DogImmune
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience
 
 nax_alien:
 	Inherits: ^Soldier
@@ -13853,6 +13907,8 @@ nax_alien:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@OstfrontExperience: ^OstfrontExperience
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 150
 	Tooltip:
@@ -13892,6 +13948,8 @@ nax_alien:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: NaxiUFOVoice
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience, up_massopticsintegration
 	-TakeCover:
 
 nax_hmg:
@@ -13905,6 +13963,7 @@ nax_hmg:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@bot: ^BotAutoDeploySwitchMode
 	Inherits@AntiVeh: ^PrioritizeInfantry
+	Inherits@OstfrontExperience: ^OstfrontExperience
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -14025,6 +14084,8 @@ nax_hmg:
 		Sequence: stand
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience
 
 nax_quadflak:
 	Inherits: ^Soldier
@@ -14038,6 +14099,8 @@ nax_quadflak:
 	Inherits@bot: ^BotAutoDeploySwitchMode
 	Inherits@AntiVeh: ^PrioritizeInfantry
 	Inherits@undead: ^NaxiUndeadRevive
+	Inherits@OstfrontExperience: ^OstfrontExperience
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 400
 	Tooltip:
@@ -14159,6 +14222,8 @@ nax_quadflak:
 		Sequence: stand
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience, up_massopticsintegration
 
 nax_undead:
 	Inherits: ^Soldier
@@ -14168,6 +14233,8 @@ nax_undead:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@OstfrontExperience: ^OstfrontExperience
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 100
 	Tooltip:
@@ -14207,22 +14274,12 @@ nax_undead:
 		FacingTolerance: 0
 	Voiced:
 		VoiceSet: NaxiZombie
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience, up_massopticsintegration
 
 ####################################################################################################
 #		Red Alert 2 Moon Naxis Infantry
 ####################################################################################################
-^NaxiGreenPlasmaUpgrade:
-	GrantConditionOnPrerequisite@upnax2_gplasma:
-		Condition: upnax2_gplasma
-		Prerequisites: upnax2_gplasma
-	FirepowerMultiplier@upnax2_gplasma:
-		RequiresCondition: upnax2_gplasma
-		Modifier: 125
-
-^NaxiYellowLaserUpgrade:
-	GrantConditionOnPrerequisite@upnax2_ylaser:
-		Condition: upnax2_ylaser
-		Prerequisites: upnax2_ylaser
 
 nax2_mcv:
 	Inherits: ^Vehicle
@@ -15589,6 +15646,222 @@ nax2_lasert:
 ##############################################
 #   Red Alert 2 Naxis Upgrades
 ##############################################
+
+^OstfrontExperience:
+	DamageMultiplier@up_ostfrontexperience:
+		RequiresCondition: up_ostfrontexperience
+		Modifier: 85
+	FirepowerMultiplier@up_ostfrontexperience:
+		RequiresCondition: up_ostfrontexperience
+		Modifier: 115
+	SpeedMultiplier@up_ostfrontexperience:
+		RequiresCondition: up_ostfrontexperience
+		Modifier: 115
+	GrantConditionOnPrerequisite@up_ostfrontexperience:
+		Condition: up_ostfrontexperience
+		Prerequisites: up_ostfrontexperience
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience
+
+up_ostfrontexperience:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Ostfront Experience
+	Valued:
+		Cost: 5000
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Addons
+		Description: Infantry gets 15% to range, damage and armor
+		Prerequisites: ~nax_radar, !up_ostfrontexperience
+	RenderSprites:
+		Image: ostfrontexperienceicon
+	ProvidesPrerequisite:
+
+^Atlantikwall:
+	DamageMultiplier@up_atlantikwall:
+		RequiresCondition: up_atlantikwall
+		Modifier: 75
+	ChangesHealth@up_atlantikwall:
+		PercentageStep: 1
+		Delay: 25
+		StartIfBelow: 100
+		DamageCooldown: 25
+		RequiresCondition: up_atlantikwall
+	ChangesHealth@up_atlantikwall2:
+		Step: 25
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 25
+		RequiresCondition: up_atlantikwall
+	GrantConditionOnPrerequisite@up_atlantikwall:
+		Condition: up_atlantikwall
+		Prerequisites: up_atlantikwall
+	ActorStatValues:
+		Upgrades: up_atlantikwall
+
+up_atlantikwall:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Atlantikwall
+	Valued:
+		Cost: 5000
+	Buildable:
+		BuildPaletteOrder: 90
+		Queue: Addons
+		Description: Defenses get 25% armor and health regeneration
+		Prerequisites: ~nax_radar, !up_atlantikwall
+	RenderSprites:
+		Image: atlantikwallicon
+	ProvidesPrerequisite:
+
+^TankArsenalRenovation:
+	DamageMultiplier@up_tankarsenalrenovation:
+		RequiresCondition: up_tankarsenalrenovation
+		Modifier: 85
+	FirepowerMultiplier@up_tankarsenalrenovation:
+		RequiresCondition: up_tankarsenalrenovation
+		Modifier: 115
+	ReloadDelayMultiplier@up_tankarsenalrenovation:
+		RequiresCondition: up_tankarsenalrenovation
+		Modifier: 85
+	SpeedMultiplier@up_tankarsenalrenovation:
+		RequiresCondition: up_tankarsenalrenovation
+		Modifier: 115
+	GrantConditionOnPrerequisite@up_tankarsenalrenovation:
+		Condition: up_tankarsenalrenovation
+		Prerequisites: up_tankarsenalrenovation
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation
+
+up_tankarsenalrenovation:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Tank Arsenal Renovation
+	Valued:
+		Cost: 5000
+	Buildable:
+		BuildPaletteOrder: 90
+		Queue: Upgrades
+		Description: Tier I-II gain 15% to speed, damage, reload speed and armor
+		Prerequisites: ~nax_tech, !up_tankarsenalrenovation
+	RenderSprites:
+		Image: tankarsenalrenovationicon
+	ProvidesPrerequisite:
+
+^MassOpticsIntegration:
+	RevealsShroudMultiplier@up_massopticsintegration:
+		RequiresCondition: up_massopticsintegration
+		Modifier: 125
+	DetectCloakedMultiplier@up_massopticsintegration:
+		RequiresCondition: up_massopticsintegration
+		Modifier: 125
+	InaccuracyMultiplier@up_massopticsintegration:
+		RequiresCondition: up_massopticsintegration
+		Modifier: 75
+	RangeMultiplier@up_massopticsintegration:
+		RequiresCondition: up_massopticsintegration
+		Modifier: 125
+	GrantConditionOnPrerequisite@up_massopticsintegration:
+		Condition: up_massopticsintegration
+		Prerequisites: up_massopticsintegration
+	ActorStatValues:
+		Upgrades: up_massopticsintegration
+
+up_massopticsintegration:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Mass Optics Integration
+	Valued:
+		Cost: 5000
+	Buildable:
+		BuildPaletteOrder: 100
+		Queue: Upgrades
+		Description: Increase accuracy, vision, detection and attack range of scouts, artillery and AA by 25%
+		Prerequisites: ~nax_tech, !up_massopticsintegration
+	RenderSprites:
+		Image: massopticsintegrationicon
+	ProvidesPrerequisite:
+
+^Wunderwaffe:
+	DamageMultiplier@up_wunderwaffe:
+		RequiresCondition: up_wunderwaffe
+		Modifier: 80
+	FirepowerMultiplier@up_wunderwaffee:
+		RequiresCondition: up_wunderwaffe
+		Modifier: 120
+	ReloadDelayMultiplier@up_wunderwaffe:
+		RequiresCondition: up_wunderwaffe
+		Modifier: 80
+	GrantConditionOnPrerequisite@up_wunderwaffe:
+		Condition: up_wunderwaffe
+		Prerequisites: up_wunderwaffe
+	ActorStatValues:
+		Upgrades: up_wunderwaffe
+
+up_wunderwaffe:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Wunderwaffe
+	Valued:
+		Cost: 5000
+	Buildable:
+		BuildPaletteOrder: 120
+		Queue: Upgrades
+		Description: High Tier vehicles get 20% to attack speed, damage and armor
+		Prerequisites: ~nax_tech, !up_wunderwaffe
+	RenderSprites:
+		Image: wunderwaffeicon
+	ProvidesPrerequisite:
+
+up_blitzkrieg:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Blitzkrieg
+	Valued:
+		Cost: 10000
+	Buildable:
+		BuildPaletteOrder: 130
+		Queue: Upgrades
+		Description: upgrade-blitzkrieg.description
+		Prerequisites: ~nax_tech, !up_blitzkrieg
+	RenderSprites:
+		Image: blitzkriegicon
+	# ProvidesPrerequisite:
+	ProvidesTeamProxyActor:
+		Actor: team_upgrade.up_blitzkrieg
+
+team_upgrade.up_blitzkrieg:
+	Inherits: ^researched_upgrade.template
+	ProvidesPrerequisite:
+		Prerequisite: up_blitzkrieg
+	RenderSprites:
+		Image: blitzkriegicon
+	Tooltip:
+		Name: Modern Fire Control Systems
+	Buildable:
+		Description: Increase all vehicles movement speed by 25%
+	PlayerDisplayUpgrade:
+
+^Blitzkrieg:
+	GrantConditionOnPrerequisite@up_blitzkrieg:
+		Condition: up_blitzkrieg
+		Prerequisites: up_blitzkrieg
+	SpeedMultiplier@up_blitzkrieg:
+		RequiresCondition: up_blitzkrieg
+		Modifier: 125
+	ActorStatValues:
+		Upgrades: up_blitzkrieg
+
+##############################################
+#   Red Alert 2 Lunar Naxis Upgrades
+##############################################
+
+^NaxiYellowLaserUpgrade:
+	GrantConditionOnPrerequisite@upnax2_ylaser:
+		Condition: upnax2_ylaser
+		Prerequisites: upnax2_ylaser
+
 upnax2_ylaser:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
@@ -15603,6 +15876,15 @@ upnax2_ylaser:
 	RenderSprites:
 		Image: upnax2_ylaser
 	ProvidesPrerequisite:
+
+^NaxiGreenPlasmaUpgrade:
+	GrantConditionOnPrerequisite@upnax2_gplasma:
+		Condition: upnax2_gplasma
+		Prerequisites: upnax2_gplasma
+	FirepowerMultiplier@upnax2_gplasma:
+		RequiresCondition: upnax2_gplasma
+		Modifier: 125
+
 upnax2_gplasma:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
@@ -15631,6 +15913,7 @@ nax_halftrack:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -15674,6 +15957,8 @@ nax_halftrack:
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 10
 		InitialUnits: nax_cons, nax_cons, nax_cons, nax_cons, nax_fcons, nax_fcons, nax_mp40, nax_mp40, nax_merc, nax_shrek
+	ActorStatValues:
+		Upgrades: up_massopticsintegration
 
 nax_kubel:
 	Inherits: ^Tank
@@ -15685,6 +15970,7 @@ nax_kubel:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -15729,6 +16015,8 @@ nax_kubel:
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 2
 		InitialUnits: nax_cons, nax_cons
+	ActorStatValues:
+		Upgrades: up_massopticsintegration
 
 nax_bmwbike:
 	Inherits: ^Tank
@@ -15738,6 +16026,7 @@ nax_bmwbike:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -15778,6 +16067,8 @@ nax_bmwbike:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiTankVoice
+	ActorStatValues:
+		Upgrades: up_massopticsintegration
 
 nax_wirbelwind:
 	Inherits: ^Tank
@@ -15788,6 +16079,8 @@ nax_wirbelwind:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 1800
 	Tooltip:
@@ -15857,12 +16150,15 @@ nax_wirbelwind:
 		VoiceSet: NaxiFlakVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation, up_massopticsintegration
 
 nax_mcv:
 	Inherits: ^Vehicle
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@anim: ^RA2Vehicle
 	Inherits@mcv: ^MCV
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
 	Tooltip:
 		Name: Naxi Mobile Construction Vehicle
 	Buildable:
@@ -15880,6 +16176,8 @@ nax_mcv:
 		Prerequisite: mmnaxis
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation
 
 nax_tiger:
 	Inherits: ^Tank
@@ -15889,6 +16187,7 @@ nax_tiger:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -15940,6 +16239,8 @@ nax_tiger:
 		VoiceSet: NaxiTankVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation
 
 nax_kingtiger:
 	Inherits: ^Tank
@@ -15949,6 +16250,7 @@ nax_kingtiger:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -16000,6 +16302,8 @@ nax_kingtiger:
 		VoiceSet: NaxiTankVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation
 
 nax_maus:
 	Inherits: ^Tank
@@ -16010,6 +16314,7 @@ nax_maus:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@Wunderwaffe: ^Wunderwaffe
 	Valued:
 		Cost: 4200
 	Tooltip:
@@ -16061,6 +16366,8 @@ nax_maus:
 		VoiceSet: NaxiBigTankVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_wunderwaffe
 
 nax_ratte:
 	Inherits: ^Tank
@@ -16071,6 +16378,8 @@ nax_ratte:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@Wunderwaffe: ^Wunderwaffe
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 8000
 	Tooltip:
@@ -16139,6 +16448,8 @@ nax_ratte:
 		PlayerPalette: playerra2
 	Passenger:
 		Weight: 6
+	ActorStatValues:
+		Upgrades: up_wunderwaffe, up_massopticsintegration
 
 nax_grille:
 	Inherits: ^Tank
@@ -16148,6 +16459,8 @@ nax_grille:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -16187,6 +16500,8 @@ nax_grille:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiArtyVoice
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation, up_massopticsintegration
 
 nax_brummbar:
 	Inherits: ^Tank
@@ -16196,6 +16511,8 @@ nax_brummbar:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 1100
 	Tooltip:
@@ -16234,6 +16551,8 @@ nax_brummbar:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiArtyVoice
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation, up_massopticsintegration
 
 nax_sturmtiger:
 	Inherits: ^Tank
@@ -16243,6 +16562,8 @@ nax_sturmtiger:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@Wunderwaffe: ^Wunderwaffe
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -16277,6 +16598,8 @@ nax_sturmtiger:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiArtyVoice
+	ActorStatValues:
+		Upgrades: up_wunderwaffe, up_massopticsintegration
 
 nax_hetzer:
 	Inherits: ^Tank
@@ -16286,6 +16609,8 @@ nax_hetzer:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -16327,6 +16652,8 @@ nax_hetzer:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiTankVoice
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation, up_massopticsintegration
 
 nax_jagdpanzer:
 	Inherits: ^Tank
@@ -16336,6 +16663,8 @@ nax_jagdpanzer:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -16377,6 +16706,8 @@ nax_jagdpanzer:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiTankVoice
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation, up_massopticsintegration
 
 nax_eng:
 	Inherits: ^Tank
@@ -16455,10 +16786,12 @@ nax_brad:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@Wunderwaffe: ^Wunderwaffe
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 80
-		Prerequisites: ~nax_weap, nax_radar, ~upnax_brad
+		Prerequisites: ~nax_weap, nax_tech, ~upnax_brad
 		Description: actor-nax_brad.description
 	Valued:
 		Cost: 2000
@@ -16515,9 +16848,12 @@ nax_brad:
 		Name: reloading
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_wunderwaffe, up_massopticsintegration
 
 nax_miniv2:
 	Inherits: ^ShootableMissile
+	Inherits@Wunderwaffe: ^Wunderwaffe
 	CruiseMissile:
 		MaxAltitude: 2560
 		MinAirborneAltitude: 128
@@ -16543,6 +16879,8 @@ nax_miniv2:
 	RenderSprites:
 		PlayerPalette: playerra2
 	WithFacingSpriteBody:
+	ActorStatValues:
+		Upgrades: up_wunderwaffe
 
 nax_sarubia:
 	Inherits: ^Tank
@@ -16552,6 +16890,8 @@ nax_sarubia:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@Wunderwaffe: ^Wunderwaffe
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -16590,9 +16930,12 @@ nax_sarubia:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiTankVoice
+	ActorStatValues:
+		Upgrades: up_wunderwaffe, up_massopticsintegration
 
 nax_sarubia_bomb:
 	Inherits: ^ShootableMissile
+	Inherits@Wunderwaffe: ^Wunderwaffe
 	Health:
 		HP: 15000
 	BallisticMissileCA:
@@ -16612,6 +16955,8 @@ nax_sarubia_bomb:
 		CrushClasses: mine
 		DetonateClasses: mine
 		BlockFriendly: true
+	ActorStatValues:
+		Upgrades: up_wunderwaffe
 
 nax_shoe:
 	Inherits: ^Tank
@@ -16622,13 +16967,15 @@ nax_shoe:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@cargo: ^OpenToppedVehicle
+	Inherits@Wunderwaffe: ^Wunderwaffe
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 2500
 	Tooltip:
 		Name: Shoe Karn
 	Buildable:
 		BuildPaletteOrder: 70
-		Prerequisites: ~nax_weap, nax_radar, ~upnax_shoe
+		Prerequisites: ~nax_weap, nax_tech, ~upnax_shoe
 		Queue: Vehicle, RAVehicle
 		Description: actor-nax_shoe.description
 	Mobile:
@@ -16695,6 +17042,8 @@ nax_shoe:
 		VoiceSet: NaxiBigTankVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_wunderwaffe, up_massopticsintegration
 
 nax_nokana:
 	Inherits: ^Tank
@@ -16705,6 +17054,8 @@ nax_nokana:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@cargo: ^OpenToppedVehicle
+	Inherits@Wunderwaffe: ^Wunderwaffe
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 3000
 	Tooltip:
@@ -16765,6 +17116,8 @@ nax_nokana:
 		Payload: 1500
 	Passenger:
 		Weight: 5
+	ActorStatValues:
+		Upgrades: up_wunderwaffe, up_massopticsintegration
 
 nax_zombietank:
 	Inherits: ^Tank
@@ -16776,6 +17129,7 @@ nax_zombietank:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@cargo: ^OpenToppedVehicle
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -16836,6 +17190,8 @@ nax_zombietank:
 	RenderSprites:
 		Image: nax_zombietank
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation
 	#RenderVoxels:
 	#	Image: yrbfrt
 
@@ -16848,6 +17204,7 @@ nax_assault:
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -16904,6 +17261,8 @@ nax_assault:
 		PlayerPalette: playerra2
 	FirepowerMultiplier@nax_tiger:
 		Modifier: 120
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation
 
 nax_imperial:
 	Inherits: ^Tank
@@ -16913,6 +17272,8 @@ nax_imperial:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 950
 	Tooltip:
@@ -16963,6 +17324,8 @@ nax_imperial:
 		PlayerPalette: playerra2
 	Voiced:
 		VoiceSet: NaxiTankVoice
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation, up_massopticsintegration
 
 #		Support Tanks
 nax_panzer:
@@ -16974,6 +17337,7 @@ nax_panzer:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@SHADOWS: ^Shadows
+	Inherits@TankArsenalRenovation: ^TankArsenalRenovation
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -17026,6 +17390,8 @@ nax_panzer:
 		Payload: 350
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tankarsenalrenovation
 
 nax_car:
 	Inherits: ^Tank
@@ -17036,6 +17402,7 @@ nax_car:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -17087,6 +17454,8 @@ nax_car:
 		VoiceSet: NaxiFlakVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_massopticsintegration
 
 ####################################################################################################
 #		Naxis Ships
@@ -17151,6 +17520,7 @@ nax_muboat:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@sub: ^Submarine
+	Inherits@Wunderwaffe: ^Wunderwaffe
 	Valued:
 		Cost: 2400
 	Tooltip:
@@ -17210,7 +17580,7 @@ nax_muboat:
 		Image: nax_muboat
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: up_elementalwarfare, up_improvedartilleries, up_guerillatactics, up_advancedguerillatactics
+		Upgrades: up_wunderwaffe
 
 ####################################################################################################
 #		Red Alert 2 Naxis Tree
