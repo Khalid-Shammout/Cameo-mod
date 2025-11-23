@@ -525,80 +525,6 @@ TSGTCNSTNOD:
 		Image: tsgtcnst
 		PlayerPalette: playerra2
 
-TSGTCNSTMUTANT:
-	GrantExternalConditionToOwner@BuildingsOwned:
-		Condition: BuildingsOwned
-	Inherits: ^BaseBuilding
-	Inherits@shape: ^3x2Shape
-	Inherits@CPQ: ^CPQCondition
-	Inherits@sell: ^TSSpawnActorsOnSell
-	Inherits@aicash: ^AIConyardCash
-	Inherits@conyard: ^Conyard
-	Selectable:
-		Bounds: 131072, 87381
-	Valued:
-		Cost: 2500
-	Tooltip:
-		Name: Construction Yard (Forgotten)
-	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
-		LocalCenterOffset: 0,-512,0
-	Health:
-		HP: 1000000
-	RevealsShroud:
-		Range: 10c0
-	Transforms:
-		RequiresCondition: factundeploy
-		PauseOnCondition: being-demolished || build-incomplete
-		IntoActor: tsmcvmutant
-		Offset: 1,1
-		Facing: 432
-	TransformsIntoMobile:
-		RequiresCondition: factundeploy
-		Locomotor: heavywheeled
-		RequiresForceMove: true
-	TransformsIntoPassenger:
-		RequiresCondition: factundeploy
-		CargoType: Vehicle
-		RequiresForceMove: true
-	TransformsIntoRepairable:
-		RequiresCondition: factundeploy
-		RepairActors: fix,rafix,2100rr,scshieldbattery,ra2nadept,ra2gadept,c1fix,c2fix,c1rafix,c2rafix,c12100rr,c22100rr,cscshieldbattery,cra2nadept,cra2gadept ##########
-		RequiresForceMove: true
-	TransferTimedExternalConditionOnTransform:
-		Condition: invulnerability
-	GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY:
-		Condition: factundeploy
-		Prerequisites: global-factundeploy
-	WithProductionOverlay@WELDING:
-		RequiresCondition: !build-incomplete
-		Queues: Building, Defence, RABuilding, RADefence
-		Sequence: build
-	BaseProvider:
-		Range: 14c0
-	ProvidesPrerequisite@tsoilderricksuper:
-		Prerequisite: tsoilderricksuper
-	WithIdleOverlay@TOP:
-		RequiresCondition: !build-incomplete
-		Sequence: idle-top
-	WithIdleOverlay@SIDE:
-		RequiresCondition: !build-incomplete
-		Sequence: idle-side
-	WithIdleOverlay@FRONT:
-		RequiresCondition: !build-incomplete
-		Sequence: idle-front
-	WithBuildingPlacedOverlay:
-		RequiresCondition: !build-incomplete
-	Selectable:
-		Bounds: 3072, 2560, 0, 0
-		DecorationBounds: 3072, 2560, 0, 0
-	Power:
-		Amount: 0
-	ProvidesPrerequisite@buildingname:
-	RenderSprites:
-		Image: tsgtcnst
-		PlayerPalette: playerra2
 
 TSGTCNSTCABAL:
 	GrantExternalConditionToOwner@BuildingsOwned:
@@ -841,23 +767,6 @@ tsproccabal:
 	RenderSprites:
 		Image: tsprocnod
 
-tsprocmutant:
-	Inherits: tsprocgdi
-	Buildable:
-		BuildPaletteOrder: 20
-		Prerequisites: ~tsgtcnstmutant
-		Queue: Building, RABuilding
-		Description: Processes raw Tiberium\ninto useable resources
-	FreeActor:
-		Actor: TSHARVMUTANT
-		SpawnOffset: 1,2
-		Facing: 256
-	ProvidesPrerequisite@buildingname:
-	Tooltip:
-		Name: Tiberium Refinery (Mutant)
-	RenderSprites:
-		Image: tsprocmutant
-
 tsntwast:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
@@ -1032,49 +941,6 @@ TSNTPOWR:
 		Sequence: idle-lights
 	RenderSprites:
 		PlayerPalette: playerra2
-
-TSNTPOWRMUTANT:
-	Inherits: ^BaseBuilding
-	Inherits@shape: ^2x2Shape
-	Inherits@sell: ^TSSpawnActorsOnSell
-	Inherits@power: ^PowerPlant
-	Tooltip:
-		Name: Forgotten Power Plant
-	Valued:
-		Cost: 700
-	Health:
-		HP: 140000
-	Armor:
-		Type: Wood
-	Power:
-		Amount: 210
-	Buildable:
-		Queue: Building, RABuilding
-		BuildPaletteOrder: 10
-		Prerequisites: ~tsgtcnstmutant
-		Description: Provides power for other structures.
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-		LocalCenterOffset: 0,-512,0
-	Selectable:
-		Bounds: 2048, 2048
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
-	WithIdleOverlay@cycle:
-		Sequence: idle-cycle
-		RequiresCondition: !build-incomplete
-	RevealsShroud:
-		Range: 4c0
-	ScalePowerWithHealth:
-	AcceptsDeliveredExperience: ##########
-	ProvidesPrerequisite@buildingname:
-		ValidTypes: building ##########
-	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tsntpowrmutant
-
 TSNTPOWRCABAL:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x2Shape
@@ -1217,20 +1083,6 @@ TSGTSILONOD:
 	ProvidesPrerequisite@buildingname:
 	RenderSprites:
 		Image: tsgtsilo.nod
-
-TSGTSILOMUTANT:
-	Inherits: TSGTSILO
-	Tooltip:
-		Name: Silo
-	Buildable:
-		BuildPaletteOrder: 100
-		Queue: Defence, RADefence
-		Description: Stores excess Tiberium.
-		Prerequisites: ~tsgtcnstmutant, tsprocmutant
-	ProvidesPrerequisite@buildingname:
-	RenderSprites:
-		Image: tsgtsilo.gdi
-
 TSGTSILOCABAL:
 	Inherits: TSGTSILO
 	Tooltip:
@@ -1364,23 +1216,6 @@ TSNTHAND2:
 	RenderSprites:
 		Image: tsnthand
 		PlayerPalette: playerra2
-
-tsgtpile2:
-	Inherits: TSNTHAND
-	Tooltip:
-		Name: Forgotten Barracks
-	Buildable:
-		BuildPaletteOrder: 30
-		Prerequisites: ~tsgtcnstmutant, tsntpowrmutant
-		Queue: Building, RABuilding
-		Description: Trains infantry
-	GrantExternalConditionToProduced:
-		Condition: produced
-	ProductionQueue@INFANTRY:
-	RenderSprites:
-		Image: tsgtpile2
-		PlayerPalette: playerra2
-
 tsgtweap:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
@@ -1527,23 +1362,6 @@ TSNTWEAPCABAL:
 	RenderSprites:
 		Image: tsntweap
 
-TSGTWEAPMUTANT:
-	Inherits: TSNTWEAP
-	Tooltip:
-		Name: Forgotten War Factory
-	Buildable:
-		BuildPaletteOrder: 40
-		Prerequisites: ~tsgtcnstmutant, tsprocmutant
-		Queue: Building, RABuilding
-		Description: Produces vehicles
-	ProductionQueue@VEHICLE:
-	ProductionBar@VEHICLEGDI:
-		ProductionType: Vehicle
-	ProductionBar@RAVEHICLEGDI:
-		ProductionType: RAVehicle
-	RenderSprites:
-		Image: tsntweap
-
 tsgtdeptgdi:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x3Shape
@@ -1620,17 +1438,6 @@ tsgtdeptnod:
 	RenderSprites:
 		Image: tsgtdept
 		PlayerPalette: playerra2
-
-tsgtdeptmutant:
-	Inherits: tsgtdeptgdi
-	Tooltip:
-		Name: Service Depot
-	Buildable:
-		Prerequisites: ~tsgtcnstmutant, tsgtweapmutant
-	RenderSprites:
-		Image: tsgtdept
-		PlayerPalette: playerra2
-
 tsgtdeptcabal:
 	Inherits: tsgtdeptgdi
 	Tooltip:
@@ -1695,20 +1502,6 @@ tsgthpad:
 	RenderSprites:
 		PlayerPalette: playerra2
 
-tsgthpadmutant:
-	Inherits: tsgthpad
-	Tooltip:
-		Name: Helipad (Forgotten)
-	Buildable:
-		Queue: Building, RABuilding
-		Prerequisites: ~tsgtcnstmutant, tsgtradrmutant
-	ProductionQueue@AIRCRAFT:
-	ProductionBar@AIRCRAFTGDI:
-		ProductionType: Aircraft
-	ProductionBar@RAAIRCRAFTGDI:
-		ProductionType: RAAircraft
-	RenderSprites:
-		Image: tsnthpad
 
 tsnthpad:
 	Inherits: ^BaseBuilding
@@ -1924,62 +1717,6 @@ tsgtradr:
 	# SupportPowerChargeBar:
 	RenderSprites:
 		PlayerPalette: playerra2
-
-tsgtradrmutant:
-	Inherits: tsgtradr
-	Inherits@SW: ^PrimarySuperweapon
-	Buildable:
-		BuildPaletteOrder: 70
-		Prerequisites: ~tsgtcnstmutant, tsprocmutant
-		Queue: Building, RABuilding
-		Description: Provides radar and support powers.\nUnlocks higher-tech units and buildings.\nRequires power to operate.
-	# DetonateWeaponPower:
-	# 	OrderName: MutantCommando
-	# 	Prerequisites: ~techlevel.superweapons
-	# 	Cursor: ability
-	# 	PauseOnCondition: lowpower
-	# 	Icon: mutcommando
-	# 	Name: Mutant Commando
-	# 	Description: Deploys elite Ghost Stalkers and Snipers\nvia Subterranean APC.
-	# 	InsufficientPowerSpeechNotification: InsufficientPower
-	# 	IncomingSpeechNotification: EnemyUnitsApproaching
-	# 	SelectTargetSpeechNotification: SelectTarget
-	# 	DisplayRadarPing: True
-	# 	DisplayTimerStances: Ally, Neutral, Enemy
-	# 	ChargeInterval: 7500
-	# 	Weapon: MutSAPCSpawner
-	# 	ActivationDelay: 60
-	# 	CameraRemoveDelay: 90
-	# 	BeaconPoster: rapinficon
-	# DetonateWeaponPower@wildlife:
-	# 	AllowMultiple: true
-	# 	OrderName: WildlifeRampage
-	# 	Prerequisites: tek, ~techlevel.superweapons
-	# 	Cursor: ability
-	# 	PauseOnCondition: lowpower
-	# 	Icon: mutwildlife
-	# 	Name: Wildlife Rampage
-	# 	Description: Spawns numerous Tiberium creatures\ncausing massive havoc.
-	# 	InsufficientPowerSpeechNotification: InsufficientPower
-	# 	IncomingSpeechNotification: EnemyUnitsApproaching
-	# 	SelectTargetSpeechNotification: SelectTarget
-	# 	DisplayTimerStances: Ally, Neutral, Enemy
-	# 	DisplayRadarPing: True
-	# 	ChargeInterval: 9000
-	# 	ActivationDelay: 50
-	# 	Weapon: MutWildlifeSpawner
-	# 	CameraActor: camera
-	# 	CameraRemoveDelay: 240
-	# 	DisplayBeacon: True
-	# 	ArrowSequence: arrow
-	# 	ClockSequence: clock
-	# 	CircleSequence: circles
-	# 	BeaconPoster: rapinficon
-	ProvidesPrerequisite@buildingname:
-	RenderSprites:
-		Image: tsgtradrmutant
-		PlayerPalette: playerra2
-
 tsnttech:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
@@ -2052,22 +1789,6 @@ tsgttech:
 	ProvidesPrerequisite:
 		Prerequisite: tstek
 	RenderSprites:
-		PlayerPalette: playerra2
-
-tsfgttech:
-	Inherits: tsgttech
-	Tooltip:
-		Name: Forgotten Tech Center
-	Selectable:
-		Bounds: 2048, 2048
-	Buildable:
-		Queue: Building, RABuilding
-		BuildPaletteOrder: 150
-		Prerequisites: ~tsgtcnstmutant, tsgtradrmutant
-		Description: Provides Forgotten advanced technologies.\nCan be only built once
-		BuildLimit: 1
-	RenderSprites:
-		Image: tsfgttech
 		PlayerPalette: playerra2
 
 tscabaltech:
@@ -2488,6 +2209,478 @@ tsgtplug3:
 		PlayerPalette: playerra2
 
 #######################################
+#######################################
+# TS Building Forgotten
+#######################################
+TSGTCNSTMUTANT:
+	GrantExternalConditionToOwner@BuildingsOwned:
+		Condition: BuildingsOwned
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^3x2Shape
+	Inherits@CPQ: ^CPQCondition
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@aicash: ^AIConyardCash
+	Inherits@conyard: ^Conyard
+	Selectable:
+		Bounds: 131072, 87381
+	Valued:
+		Cost: 2500
+	Tooltip:
+		Name: Construction Yard (Forgotten)
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 1000000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 10c0
+	Transforms:
+		RequiresCondition: factundeploy
+		PauseOnCondition: being-demolished || build-incomplete
+		IntoActor: tsmcvmutant
+		Offset: 1,1
+		Facing: 432
+	TransformsIntoMobile:
+		RequiresCondition: factundeploy
+		Locomotor: heavywheeled
+		RequiresForceMove: true
+	TransformsIntoPassenger:
+		RequiresCondition: factundeploy
+		CargoType: Vehicle
+		RequiresForceMove: true
+	TransformsIntoRepairable:
+		RequiresCondition: factundeploy
+		RepairActors: fix,rafix,2100rr,scshieldbattery,ra2nadept,ra2gadept,c1fix,c2fix,c1rafix,c2rafix,c12100rr,c22100rr,cscshieldbattery,cra2nadept,cra2gadept ##########
+		RequiresForceMove: true
+	TransferTimedExternalConditionOnTransform:
+		Condition: invulnerability
+	GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY:
+		Condition: factundeploy
+		Prerequisites: global-factundeploy
+	WithProductionOverlay@WELDING:
+		RequiresCondition: !build-incomplete
+		Queues: Building, Defence, RABuilding, RADefence
+		Sequence: build
+	BaseProvider:
+		Range: 14c0
+	ProvidesPrerequisite@tsoilderricksuper:
+		Prerequisite: tsoilderricksuper
+	WithBuildingBib:
+	WithIdleOverlay@TOP:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-top
+	WithIdleOverlay@SIDE:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-side
+	WithIdleOverlay@FRONT:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-front
+	WithBuildingPlacedOverlay:
+		RequiresCondition: !build-incomplete
+	Selectable:
+		Bounds: 3072, 2560, 0, 0
+		DecorationBounds: 3072, 2560, 0, 0
+	Power:
+		Amount: 0
+	ProvidesPrerequisite@buildingname:
+	RenderSprites:
+		Image: forgot_conyard
+		PlayerPalette: player_rgba
+
+tsprocmutant:
+	Inherits: ^BaseBuilding
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@ref: ^Refinery
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1536, -512
+			BottomRight: 1536, 853
+	HitShape@TOP:
+		Type: Rectangle
+			TopLeft: -512, -1450
+			BottomRight: 896, -512
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Forgotten Refinery
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~tsgtcnstmutant
+		Queue: Building, RABuilding
+		Description: Processes raw Tiberium\ninto useable resources
+	Building:
+		Footprint: _x_ xxx === ===
+		Dimensions: 3,4
+		LocalCenterOffset: 0,-512,0
+	RevealsShroud:
+		Range: 6c0
+	Refinery:
+	DockHost:
+		DockAngle: 680
+		DockOffset: 1c0, 1c0, 0
+	StoresResources:
+		Capacity: 1000
+	Selectable:
+		Bounds: 3072, 2560, 0, 0
+		DecorationBounds: 3072, 2560, 0, 0
+	CustomSellValue:
+		Value: 500
+	FreeActor:
+		Actor: TSHARVMUTANT
+		SpawnOffset: 1,2
+		Facing: 256
+	Power:
+		Amount: -40
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	GivesBuildableArea: ##########
+		AreaTypes: building, cityi
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 10
+	RenderSprites:
+		Image: forgot_refin
+		PlayerPalette: player_rgba
+TSNTPOWRMUTANT:
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@power: ^PowerPlant
+	Selectable:
+		Bounds: 2048, 2048
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 640,-384,0, 640,512,0, -710,-512,0, -710,512,0
+	Buildable:
+		Queue: Building, RABuilding
+		BuildPaletteOrder: 10
+		Prerequisites: ~tsgtcnstmutant
+		Description: Provides power for other structures.
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Crystal Power Extractor
+	Health:
+		HP: 150000
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-512,0
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c0
+	Power:
+		Amount: 160
+	ScalePowerWithHealth:
+	AcceptsDeliveredExperience: ##########
+	ProvidesPrerequisite@buildingname:
+		ValidTypes: building ##########
+	RenderSprites:
+		PlayerPalette: player_rgba
+		Image: forgot_power
+TSGTSILOMUTANT:
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Selectable:
+		Bounds: 2048, 2048
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Silo
+	ProvidesPrerequisite@buildingname:
+	Buildable:
+		BuildPaletteOrder: 100
+		Queue: Defence, RADefence
+		Description: Stores excess Tiberium.
+		Prerequisites: ~tsgtcnstmutant, tsprocmutant
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 200000
+	RevealsShroud:
+		Range: 4c0
+	Power:
+		Amount: -10
+	ProvidesPrerequisite@buildingname:
+	SelectionDecorations:
+	StoresResources:
+		Capacity: 3000
+	WithResourceLevelOverlay@FILLSTAGE:
+		RequiresCondition: !build-incomplete
+		Sequence: stages
+	WithSpriteBody:
+		Sequence: idle-underlay
+	MustBeDestroyed:
+		RequiredForShortGame: false
+	WithResourceStoragePipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+		PipCount: 8
+	RenderSprites:
+		PlayerPalette: playerra2
+	RenderSprites:
+		PlayerPalette: player_rgba
+		Image: forgot_silo
+
+tsgtpile2:
+	Inherits: ^BaseBuilding
+	Inherits@CPQWP: ^CPQConditionWithPrimary
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@barr: ^IsBarrack
+	Inherits@prod: ^ProducesUnits
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 840,-256,0, 840,512,0, 210,-512,0, -71,512,0
+		Type: Rectangle
+			TopLeft: -1024, -1024
+			BottomRight: 1024, 640
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Forgotten Barracks
+	ProvidesPrerequisite@buildingname:
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~tsgtcnstmutant, tsntpowrmutant
+		Queue: Building, RABuilding
+		Description: Trains infantry
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	RevealsShroud:
+		Range: 5c0
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: -426,85,0
+		ExitCell: 0,1
+	Exit@2:
+		SpawnOffset: 298,298,0
+		ExitCell: 1,1
+	GrantExternalConditionToProduced:
+		Condition: produced
+	ProductionQueue@INFANTRY:
+	Power:
+		Amount: -20
+	ProvidesPrerequisite@buildingname:
+	Selectable:
+		Bounds: 1280, 1280
+		DecorationBounds: 1280, 1024
+	RenderSprites:
+		Image: forgot_barracks
+		PlayerPalette: player_rgba
+
+TSGTWEAPMUTANT:
+	Inherits: ^BaseBuilding
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@shape: ^3x2Shape
+	Inherits@CPQWP: ^CPQConditionWithPrimary
+	Inherits@weap: ^IsWeaponFactory
+	Inherits@prod: ^ProducesUnits
+	HitShape:
+		TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
+		Type: Rectangle
+			TopLeft: -1536, -1024
+			BottomRight: 1536, 512
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Forgotten War Factory
+	ProvidesPrerequisite@buildingname:
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~tsgtcnstmutant, tsprocmutant
+		Queue: Building, RABuilding
+		Description: Produces vehicles
+	Building:
+		Footprint: xx= x== ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Selectable:
+		Bounds: 1280, 1280
+		DecorationBounds: 1280, 1024
+	SelectionDecorations:
+	RevealsShroud:
+		Range: 4c0
+	RallyPoint:
+		Path: 0,2
+	Exit@1:
+		SpawnOffset: -512,-512,0
+		ExitCell: 2,1
+		ExitDelay: 3
+	ProductionQueue@VEHICLE:
+	ProductionBar@VEHICLEGDI:
+		ProductionType: Vehicle
+		RequiresCondition: !classicproductionqueues
+	ProductionBar@RAVEHICLEGDI:
+		ProductionType: RAVehicle
+		RequiresCondition: classicproductionqueues
+	Power:
+		Amount: -40
+	ProvidesPrerequisite@buildingname:
+	WithIdleOverlay@ROOF:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-roof
+	WithProductionDoorOverlay@DOOR:
+		RequiresCondition: !build-incomplete
+	WithIdleOverlay@BIB:
+		RequiresCondition: !build-incomplete
+		Sequence: bib2
+	RenderSprites:
+		Image: forgot_weap
+		PlayerPalette: player_rgba
+
+tsgtdeptmutant:
+	Inherits: tsgtdeptgdi
+	Tooltip:
+		Name: Service Depot
+	Buildable:
+		Prerequisites: ~tsgtcnstmutant, tsgtweapmutant
+	RenderSprites:
+		Image: tsgtdept
+		PlayerPalette: playerra2
+
+tsgthpadmutant:
+	Inherits: tsgthpad
+	Tooltip:
+		Name: Helipad (Forgotten)
+	Buildable:
+		Queue: Building, RABuilding
+		Prerequisites: ~tsgtcnstmutant, tsgtradrmutant
+	ProductionQueue@AIRCRAFT:
+	ProductionBar@AIRCRAFTGDI:
+		ProductionType: Aircraft
+	ProductionBar@RAAIRCRAFTGDI:
+		ProductionType: RAAircraft
+	RenderSprites:
+		Image: tsnthpad
+
+tsgtradrmutant:
+	Inherits: ^BaseBuilding
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@radar: ^RadarBuilding
+	Inherits@spy: ^InfiltrateForSupportPowerReset
+	HitShape:
+		TargetableOffsets: 0,0,0, 0,512,0, 420,-598,256
+		Type: Rectangle
+			TopLeft: -1024, -384
+			BottomRight: 1024, 1024
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Radar
+	ProvidesPrerequisite@buildingname:
+	Buildable:
+		BuildPaletteOrder: 70
+		Prerequisites: ~tsgtcnstmutant, tsprocmutant
+		Queue: Building, RABuilding
+		Description: Provides radar and support powers.\nUnlocks higher-tech units and buildings.\nRequires power to operate.
+	Building:
+		Footprint: X_ xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Selectable:
+		Bounds: 2048, 2048
+		DecorationBounds: 2248, 2248
+	SelectionDecorations:
+	WithSpriteBody:
+		PauseOnCondition: lowpower
+	RevealsShroud:
+		Range: 10c0
+	WithBuildingBib:
+	ProvidesRadar:
+		RequiresCondition: !jammed && !lowpower
+	RenderDetectionCircle:
+	DetectCloaked:
+		Range: 5c0
+		RequiresCondition: !lowpower
+	SupportPowerChargeBar:
+	Power:
+		Amount: -50
+	ExternalCondition@JAMMED:
+		Condition: jammed
+	RenderSprites:
+		PlayerPalette: player_rgba
+		Image: forgot_radar
+
+tsfgttech:
+	Inherits: ^BaseBuilding
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@tech: ^IsTechnoBuilding
+	Inherits@shape: ^3x2Shape
+	Selectable:
+		Bounds: 131072, 87381
+	HitShape:
+		TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
+	Buildable:
+		Queue: Building, RABuilding
+		BuildPaletteOrder: 150
+		Prerequisites: ~tsgtcnstmutant, tsgtradrmutant
+		Description: Provides Forgotten advanced technologies.\nCan be only built once
+		BuildLimit: 1
+	Tooltip:
+		Name: Forgotten Church
+	Selectable:
+		Bounds: 2048, 2048
+	Building:
+		Footprint: xxx ===
+		Dimensions: 3,2
+		LocalCenterOffset: 0,0,0
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5c0
+	WithBuildingBib:
+	Power:
+		Amount: -100
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite:
+		Prerequisite: tstek
+	RenderSprites:
+		Image: forgot_church
+		PlayerPalette: player_rgba
+
+forgot_chemicalplant:
+	Inherits: ^BaseBuilding
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@tech: ^IsTechnoBuilding
+	Inherits@shape: ^3x2Shape
+	Selectable:
+		Bounds: 131072, 87381
+	HitShape:
+		TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
+	Buildable:
+		Queue: Building, RABuilding
+		BuildPaletteOrder: 150
+		Prerequisites: ~tsgtcnstmutant, tsfgttech
+		Description: Provides Forgotten advanced technologies.\nCan be only built once
+		BuildLimit: 1
+	Tooltip:
+		Name: Forgotten Chemical Plant
+	Selectable:
+		Bounds: 2048, 2048
+	Building:
+		Footprint: xxx ===
+		Dimensions: 3,2
+		LocalCenterOffset: 0,0,0
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5c0
+	WithBuildingBib:
+	Power:
+		Amount: -100
+	ProvidesPrerequisite@buildingname:
+	RenderSprites:
+		Image: forgot_chemicalplant
+		PlayerPalette: player_rgba
 #######################################
 #######################################
 #######################################
@@ -3805,14 +3998,14 @@ TSE3:
 	RenderSprites:
 		PlayerPalette: playerra2
 
-TSE3.MUTANT:
+tse3.mutant:
 	Inherits: TSE3
 	Buildable:
 		Queue: Infantry, RAInfantry
 		Prerequisites: ~tsgtpile2
 	RenderSprites:
 		PlayerPalette: playerra2
-		Image: tse3
+		Image: tse3mut
 
 elitcadre:
 	Inherits: ^Soldier
@@ -4658,6 +4851,99 @@ TSMUTANT3:
 		CrushedSequencePalette: ra2effect
 
 
+TSMUTANT4:
+	Inherits: ^Soldier
+	Inherits@Template: ^ScoutInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^TSInfantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@tibheal: ^TibHealable
+	Valued:
+		Cost: 50
+	Tooltip:
+		Name: Zombie Mutant
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~tsgtpile2
+		BuildDuration: 68
+		BuildDurationModifier: 100
+		Queue: Infantry, RAInfantry
+		Description: High mutated human.\nNot so Intelligent, only attack in Melee.\n  Strong vs Infantry\n  Weak vs Vehicles
+	Mobile:
+		Speed: 56
+	Health:
+		HP: 20000
+	ChangesHealth@SelfHealing:
+		Step: 15
+	Armament@PRIMARY:
+		Weapon: TSZombieAttack
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: TSZombieAttack
+		RequiresCondition: rank-elite
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: infantry ##########
+	Voiced:
+		VoiceSet: TSInfantry
+	-DamagedByTerrain:
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: TSVulcanTower
+	RenderSprites:
+		PlayerPalette: playerra2
+	WithDeathAnimation:
+		DeathSequencePalette: ra2player
+		CrushedSequencePalette: ra2effect
+
+tsshotmut:
+	Inherits: TSMUTANT
+	Inherits@Template: ^ScoutInfantryTemplate
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Valued:
+		Cost: 250
+	Tooltip:
+		Name: Runner Shotgal
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~tsgtpile2
+		Queue: Infantry, RAInfantry
+		Description: Mutant armed with a carbine.\nWeapon does high, precise damage.\n  Strong vs infantry, light vehicles\n  Weak vs tanks, aircraft
+		BuildDuration: 120
+		BuildDurationModifier: 100
+	Mobile:
+		Speed: 80
+	Health:
+		HP: 25000
+	ChangesHealth@SelfHealing:
+		Step: 20
+	Armament@PRIMARY:
+		Weapon: TSShotgun
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: TSShotgun
+		RequiresCondition: rank-elite
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: infantry ##########
+	Voiced:
+		VoiceSet: TSUmagon
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: TSRPGTower
+	RenderSprites:
+		PlayerPalette: playerra2
+	WithDeathAnimation:
+		DeathSequencePalette: ra2player
+		CrushedSequencePalette: ra2effect
+
 TSWEEDGUY:
 	Inherits: ^Soldier
 	Inherits@Template: ^MeleeInfantryTemplate
@@ -4760,6 +5046,52 @@ TSDOGGIE:
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: TSFiendShard
+	Crushable:
+		CrushClasses: vehicle
+	RenderSprites:
+		PlayerPalette: playerra2
+	WithDeathAnimation:
+		DeathSequencePalette: ra2player
+		CrushedSequencePalette: ra2effect
+tsdoggieblue:
+	Inherits: RAPT
+	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@bounty: ^GlobalBounty ##########
+	Inherits@anim: ^TSInfantry
+	Inherits@autotarget: ^AutoTargetAllAssaultMove
+	Inherits@tibheal: ^TibHealable
+	Health:
+		HP: 52000
+	ChangesHealth@SelfHealing:
+		Step: 52
+	Valued:
+		Cost: 2000
+	Armor:
+		Type: None
+	Armament:
+		Weapon: TSFiendShardBlue
+	Buildable:
+		BuildPaletteOrder: 25
+		BuildDurationModifier: 100
+		BuildDuration: 500
+		Prerequisites: ~tsgtpile2, tsgtradrmutant
+		Queue: Infantry, RAInfantry
+		Description: Canine mutant that hurls Tiberium shards.\nCan attack aircraft\n Strong vs Vehicles\n Weak vs Infantry
+	Mobile:
+		Speed: 100
+		Locomotor: foot
+	Tooltip:
+		Name: Blue Tiberian Fiend
+	Voiced:
+		VoiceSet: TSFiend
+	DetectCloaked:
+		Range: 3c0
+		RequiresCondition: !disabled
+	-RenderSprites:
+	RenderSprites:
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: TSFiendShardBlue
 	Crushable:
 		CrushClasses: vehicle
 	RenderSprites:
@@ -6792,10 +7124,8 @@ tssapc.mut:
 TSWINI2:
 	Inherits: ^Tank
 	Inherits@Template: ^FireSupportTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackTurretedVoice
@@ -6822,7 +7152,7 @@ TSWINI2:
 		Range: 7c0
 	Turreted:
 		TurnSpeed: 28
-		Offset: -120,0,122
+		Offset: -120,0,1
 	Armament:
 		Weapon: TSHoverMissile
 		Recoil: 128
@@ -6833,23 +7163,18 @@ TSWINI2:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 350
-	RenderVoxels:
-		Scale: 15
 	RenderSprites:
-		PlayerPalette: playerra2
-
+		PlayerPalette: player_rgba
 TSCAR2:
 	Inherits: ^CivilianDriveByVehicle
 	Inherits: ^Vehicle
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
@@ -6873,7 +7198,7 @@ TSCAR2:
 		Range: 7c0
 	Turreted:
 		TurnSpeed: 44
-		Offset: 0,0,20
+		Offset: 0,0,1
 	Armament:
 		Weapon: TSRaiderCannon
 		Recoil: 128
@@ -6889,30 +7214,76 @@ TSCAR2:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	# WithVoxelTurret:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 175
-	RenderVoxels:
-		Scale: 15
 	RenderSprites:
-		PlayerPalette: playerra2
+		PlayerPalette: player_rgba
+tsruiner:
+	Inherits: ^CivilianDriveByVehicle
+	Inherits: ^Vehicle
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@vo: ^AttackTurretedVoice
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Ruiner
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~tsgtweapmutant
+		Queue: Vehicle, RAVehicle
+		Description: Fast raiding vehicle.\n  Strong vs Infantry\n  Weak vs Vehicles
+	Mobile:
+		Speed: 135
+	Health:
+		HP: 20000
+	Repairable:
+		HpPerStep: 2637
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 7c0
+	Turreted:
+		TurnSpeed: 44
+		Offset: 0,0,1
+	Armament:
+		Weapon: TSBikeMissile
+		Recoil: 128
+		RecoilRecovery: 26
+		LocalOffset: 0,121,271, 0,-121,271
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackFrontal:
+		FacingTolerance: 0
+	Cargo:
+		InitialUnits: tsmutant, tse3.mutant
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 175
+	RenderSprites:
+		PlayerPalette: player_rgba
 
 TS1TNK:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
 		Cost: 600
 	Tooltip:
-		Name: Light Tank
+		Name: Ratty Tank
 	Buildable:
 		BuildPaletteOrder: 170
 		Prerequisites: ~tsgtweapmutant
@@ -6945,31 +7316,25 @@ TS1TNK:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
-	WithVoxelBarrel:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 325
-	RenderVoxels:
-		Scale: 15
 	RenderSprites:
-		PlayerPalette: playerra2
+		PlayerPalette: player_rgba
 
 TS2TNK:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
 		Cost: 700
 	Tooltip:
-		Name: Medium Tank
+		Name: Warrior Tank
 	Buildable:
 		BuildPaletteOrder: 180
 		Prerequisites: ~tsgtweapmutant, tsgtradrmutant
@@ -7003,29 +7368,24 @@ TS2TNK:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
-	WithVoxelBarrel:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 400
-	RenderVoxels:
-		Scale: 15
-
+	RenderSprites:
+		PlayerPalette: player_rgba
 TS3TNK:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Heavy Tank
+		Name: Scooper Tank
 	Buildable:
 		BuildPaletteOrder: 190
 		Prerequisites: ~tsgtweapmutant, tsfgttech
@@ -7059,23 +7419,18 @@ TS3TNK:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
-	WithVoxelBarrel:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 400
-	RenderVoxels:
-		Scale: 15
-
+	RenderSprites:
+		PlayerPalette: player_rgba
 TSFTNK:
 	Inherits: ^Tank
 	Inherits@Template: ^LineBreakerTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
 	Valued:
@@ -7113,20 +7468,19 @@ TSFTNK:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 250
+	RenderSprites:
+		PlayerPalette: player_rgba
 
 TS4TNK:
 	Inherits: ^Tank
 	Inherits@Template: ^HighTechTankTemplate
 	Inherits@Template: ^EpicVehicleTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
@@ -7177,8 +7531,7 @@ TS4TNK:
 	Inherits@EXT: ^ExternalConditions ##########
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: vehicle ##########
-	WithVoxelBody:
-	WithVoxelTurret:
+	WithSpriteTurret:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
@@ -7188,17 +7541,81 @@ TS4TNK:
 		Delay: 1
 		StartIfBelow: 100
 		DamageCooldown: 1
-	RenderVoxels:
-		Scale: 15
-		Image: htnk
-
+	RenderSprites:
+		PlayerPalette: player_rgba
+TS4TNK2:
+	Inherits: ^Tank
+	Inherits@Template: ^HighTechTankTemplate
+	Inherits@Template: ^EpicVehicleTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^TurretEMP
+	Inherits@vo: ^AttackTurretedVoice
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Chemical Mammoth Tank
+	Buildable:
+		BuildLimit: 1
+		BuildPaletteOrder: 200
+		Prerequisites: ~tsgtweapmutant, tsfgttech
+		Queue: Vehicle, RAVehicle
+		BuildDuration: 1250
+		BuildDurationModifier: 100
+		Description: Mutant superheavy tank, restored from\nFirst Tiberium War inventories.\n Can attack Aircraft\n Strong vs Everything
+	Mobile:
+		Locomotor: heavytracked
+		Speed: 45
+		TurnSpeed: 12
+	Passenger:
+		Weight: 4
+	Health:
+		HP: 225000
+	Repairable:
+		HpPerStep: 2637
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	Turreted:
+		TurnSpeed: 12
+	Armament@PRIMARY:
+		Weapon: TS120mmxChem
+		LocalOffset: 900,85,340, 900,-85,340
+		Recoil: 170
+		RecoilRecovery: 42
+		MuzzleSequence: muzzle
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: TSMammothTuskChem
+		LocalOffset: -85,-90,340
+		LocalYaw: -100, 100
+		Recoil: 10
+	WithMuzzleOverlay:
+	AttackTurreted:
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 1280, 1280
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	WithSpriteTurret:
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 900
+	ChangesHealth:
+		Step: 60
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 1
+	RenderSprites:
+		PlayerPalette: player_rgba
 TSARTY:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
 	Valued:
@@ -7234,22 +7651,157 @@ TSARTY:
 	SelectionDecorations:
 	Selectable:
 	Inherits@EXT: ^ExternalConditions
-	WithVoxelBody:
-	WithVoxelBarrel:
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 350
-	RenderVoxels:
-		Scale: 15
+	RenderSprites:
+		PlayerPalette: player_rgba
+tsarty_bus:
+	Inherits: ^Tank
+	Inherits@Template: ^MainBattleTankTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@cargo: ^OpenToppedVehicle
+	Inherits@bot: ^BotAutoDeployEvacuateCargo
+	Valued:
+		Cost: 3500
+	Tooltip:
+		Name: Thumper Bus
+	Buildable:
+		BuildPaletteOrder: 160
+		Prerequisites: ~tsgtweapmutant, tsgtradrmutant
+		Queue: Vehicle, RAVehicle
+		Description: Mutant long ranged vehicle with heavy sabot shells.\n Strong vs Vehicles, Buildings\n Weak vs Infantry, Aircraft
+	Mobile:
+		Speed: 85
+		TurnSpeed: 8
+		Locomotor: lighttracked
+	Health:
+		HP: 155000
+	Repairable:
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7c0
+	Armament:
+		Weapon: MammothTankCannon
+		Recoil: 128
+		RecoilRecovery: 26
+		LocalOffset: 624,0,208
+		MuzzleSequence: muzzle
+	Turreted:
+	WithMuzzleOverlay:
+	AttackFrontal:
+		FacingTolerance: 0
+	Cargo:
+		UnloadVoice: Move
+		Types: Infantry, Hacker, Fremen
+		MaxWeight: 6
+		InitialUnits: tsmutant,tsmutant,tse3.mutant,tse3.mutant,tse3.mutant,tse3.mutant
+		ExclusiveDeploy: true
+		DeployType: Battlefortress
+	AttackOpenTopped:
+		Voice: Attack
+		Armaments: garrisoned
+		PortOffsets: 384,0,128, -384,0,128, 224,-341,128, -224,-341,128, 224,341,128, -224,341,128
+		PauseOnCondition: chronobeamed
+	RevealOnFire:
+		ArmamentNames: primary, garrisoned
+	AutoTarget:
+		AllowMovement: true
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 350
+	RenderSprites:
+		PlayerPalette: player_rgba
+tsnomad:
+	Inherits: ^Tank
+	Inherits@Template: ^HighTechTankTemplate
+	Inherits@Template: ^EpicVehicleTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@cargo: ^OpenToppedVehicle
+	Inherits@bot: ^BotAutoDeployEvacuateCargo
+	Inherits@barr: ^IsBarrack
+	Valued:
+		Cost: 6000
+	Tooltip:
+		Name: Nomad Barracks
+	Buildable:
+		BuildPaletteOrder: 160
+		Prerequisites: ~tsgtweapmutant, tsgtradrmutant
+		Queue: Vehicle, RAVehicle
+		Description: Mutant long ranged vehicle with heavy sabot shells.\n Strong vs Vehicles, Buildings\n Weak vs Infantry, Aircraft
+	Mobile:
+		Speed: 70
+		TurnSpeed: 6
+		Locomotor: lighttracked
+	Health:
+		HP: 225000
+	Repairable:
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7c0
+	Armament:
+		Weapon: TSRaiderCannon
+		Recoil: 128
+		RecoilRecovery: 26
+		LocalOffset: 624,0,208
+		MuzzleSequence: muzzle
+	Turreted:
+	WithMuzzleOverlay:
+	AttackFrontal:
+		FacingTolerance: 0
+	Cargo:
+		UnloadVoice: Move
+		Types: Infantry, Hacker, Fremen
+		MaxWeight: 12
+		InitialUnits: tsmutant,tsmutant,tse3.mutant,tse3.mutant,tse3.mutant,tse3.mutant,tsmutant,tsmutant,tse3.mutant,tse3.mutant,tse3.mutant,tse3.mutant
+		ExclusiveDeploy: true
+		DeployType: Battlefortress
+	AttackOpenTopped:
+		Voice: Attack
+		Armaments: garrisoned
+		PortOffsets: 384,0,128, -384,0,128, 224,-341,128, -224,-341,128, 224,341,128, -224,341,128
+		PauseOnCondition: chronobeamed
+	RevealOnFire:
+		ArmamentNames: primary, garrisoned
+	AutoTarget:
+		AllowMovement: true
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 350
+	RenderSprites:
+		PlayerPalette: player_rgba
+	Exit@1:
+		SpawnOffset: -426,85,0
+		ExitCell: 0,1
+	Exit@2:
+		SpawnOffset: 298,298,0
+		ExitCell: 1,1
+	GrantExternalConditionToProduced:
+		Condition: produced
+	ProductionQueue@INFANTRY:
 
 tsmlrs:
 	Inherits: ^Tank
 	Inherits@Template: ^FireSupportTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Valued:
@@ -7284,34 +7836,34 @@ tsmlrs:
 		LocalOffset: 0,-121,271, 0,121,271
 		MuzzleSequence: muzzle
 	Turreted:
+		Offset: -400,1,1
 	WithMuzzleOverlay:
 	AttackTurreted:
 	SelectionDecorations:
 	Selectable:
 	Inherits@EXT: ^ExternalConditions
-	WithVoxelBody:
-	WithVoxelTurret:
+	WithSpriteTurret:
+	WithTurretAimAnimation:
+		Sequence: aim
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 350
-	RenderVoxels:
-		Scale: 15
+	RenderSprites:
+		PlayerPalette: player_rgba
 
 tsm113:
 	Inherits: ^Tank
-	Inherits@EXPERIENCE: ^GainsExperienceTD
-	Inherits@decoration: ^GDIRankDecoration
+	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@EMP: ^TurretEMP
 	Inherits@EXT: ^ExternalConditions
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@cargo: ^CargoVehicle
 	Valued:
-		Cost: 1500
+		Cost: 2500
 	Tooltip:
-		Name: M113 APC
+		Name: M113 Adats
 	UpdatesPlayerStatistics:
 		OverrideActor: tsm113
 	Buildable:
@@ -7330,7 +7882,7 @@ tsm113:
 	RevealsShroud:
 		Range: 7c0
 	Armament:
-		Weapon: MachineGunHumvee2
+		Weapon: TSAdatsMissile
 		LocalOffset: 85,0,171
 		MuzzleSequence: muzzle
 	Turreted:
@@ -7338,32 +7890,124 @@ tsm113:
 	AttackTurreted:
 	Selectable:
 		Class: tsm113
-	WithVoxelBody:
-	WithVoxelTurret:
 	Cargo:
 		UnloadVoice: Move
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 4
 		InitialUnits: TSMUTANT,TSMWMN,TSMUTANT3,TSE3.MUTANT
-		ExclusiveDeploy: true
-		DeployType: Battlefortress
-	# AttackOpenTopped:
-	# 	Voice: Attack
-	# 	Armaments: garrisoned
-	# 	PortOffsets: 384,0,128, 224,-341,128, 224,341,128, 0,-341,128, 0,341,128, -224,-341,128, -224,341,128, -384,0,128
-	# 	PauseOnCondition: chronobeamed
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 350
-	RenderVoxels:
-		Image: tsm113
-		Scale: 15
+	WithSpriteTurret:
 	RenderSprites:
-		Image: tsm113
+		PlayerPalette: player_rgba
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+tsapctruck:
+	Inherits: ^Tank
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^TurretEMP
+	Inherits@EXT: ^ExternalConditions
+	Inherits@vo: ^AttackTurretedVoice
+	Inherits@cargo: ^CargoVehicle
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: APC Truck
+	UpdatesPlayerStatistics:
+		OverrideActor: tsm113
+	Buildable:
+		BuildPaletteOrder: 150
+		Prerequisites: ~tsgtweapmutant, tsgtpile2
+		Queue: Vehicle, RAVehicle
+		Description: Armored troop transport.\n Strong vs Infantry\n Weak vs Vehicles, Aircraft
+	Mobile:
+		Speed: 132
+		PauseOnCondition: notmobile || disabled
+	Health:
+		HP: 90000
+	Repairable:
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7c0
+	Armament:
+		Weapon: TSRaiderCannon
+		LocalOffset: 85,0,171
+		MuzzleSequence: muzzle
+	Turreted:
+	WithMuzzleOverlay:
+	AttackTurreted:
+	Selectable:
+		Class: tsapctruck
+	Cargo:
+		UnloadVoice: Move
+		Types: Infantry, Hacker, Fremen
+		MaxWeight: 4
+		InitialUnits: TSMUTANT,TSMWMN,TSMUTANT3,TSE3.MUTANT
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 350
+	WithSpriteTurret:
+	RenderSprites:
+		PlayerPalette: player_rgba
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: true
+
+tsclosh:
+	Inherits: ^Tank
+	Inherits@Template: ^MainBattleTankTemplate
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@vo: ^AttackTurretedVoice
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Closh Tank
+	Buildable:
+		BuildPaletteOrder: 170
+		Prerequisites: ~tsgtweapmutant
+		Queue: Vehicle, RAVehicle
+		Description: Fast, lightly armored tank.\n Strong vs Light Vehicles
+		BuildDuration: 250
+		BuildDurationModifier: 100
+	Mobile:
+		Locomotor: tracked
+		Speed: 126
+	Health:
+		HP: 80000
+	Repairable:
+		HpPerStep: 2637
+	Armor:
+		Type: Medium
+	RevealsShroud:
+		Range: 6c0
+	Turreted:
+		TurnSpeed: 20 #3
+	Armament:
+		Weapon: 70mm
+		Recoil: 128
+		RecoilRecovery: 26
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackFrontal:
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 325
+	RenderSprites:
+		PlayerPalette: player_rgba
 
 #######################################
 # TS CABAL Vehicles
