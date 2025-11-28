@@ -2909,6 +2909,7 @@ EYE:
 	Inherits@sell: ^TDSpawnActorsOnSell
 	Inherits@radar: ^RadarBuilding
 	Inherits@tech: ^IsTechnoBuilding
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: Advanced Communications Center
 	ProvidesPrerequisite:
@@ -2992,7 +2993,7 @@ eye.ionc:
 	Valued:
 		Cost: 5000
 	Buildable:
-		Queue: Addons
+		Queue: BuildingAddons
 		BuildPaletteOrder: 100
 		BuildDuration: 1500
 		BuildDurationModifier: 100
@@ -3012,6 +3013,7 @@ TMPL:
 	Inherits@sell: ^TDNodSpawnActorsOnSell
 	Inherits@radar: ^RadarBuilding
 	Inherits@tech: ^IsTechnoBuilding
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: Temple of Nod
 	ProvidesPrerequisite:
@@ -3114,7 +3116,7 @@ tmpl.nuke:
 	Valued:
 		Cost: 5000
 	Buildable:
-		Queue: Addons
+		Queue: BuildingAddons
 		BuildPaletteOrder: 100
 		BuildDuration: 1500
 		BuildDurationModifier: 100

@@ -117,7 +117,7 @@ World:
 		BuildPaletteOrder: 10
 		BuildDuration: 250
 		BuildDurationModifier: 100
-		Queue: Defence, RADefence, Infantry, RAInfantry
+		Queue: Infantry, RAInfantry
 	Harvester:
 		BaleLoadDelay: 5
 		BaleUnloadDelay: 1
@@ -525,15 +525,15 @@ SCCOMMANDCENTER:
 		IntoActor: sccommandcenterm
 		Offset: 1,1
 		Facing: 432
-	Production@NORMAL:
-		-RequiresCondition:
-	-Production@CLASSICPRODUCTIONQUEUES:
-	ProductionBar@BUILDING:
-		-RequiresCondition:
-	ProductionBar@DEFENCE:
-		-RequiresCondition:
-	-ProductionBar@RABUILDING:
-	-ProductionBar@RADEFENCE:
+	# Production@NORMAL:
+	# 	-RequiresCondition:
+	# -Production@CLASSICPRODUCTIONQUEUES:
+	# ProductionBar@BUILDING:
+	# 	-RequiresCondition:
+	# ProductionBar@DEFENCE:
+	# 	-RequiresCondition:
+	# -ProductionBar@RABUILDING:
+	# -ProductionBar@RADEFENCE:
 	ProductionQueue@Building:
 		LowPowerModifier: 100
 	ProductionQueue@Defense:
@@ -575,6 +575,7 @@ SCSUPPLYDEPOT:
 	Inherits@shape: ^2x2Shape
 	Inherits@power: ^PowerPlant
 	Inherits@storage: ^StoresResources
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: Supply Depot
 	Valued:
@@ -651,7 +652,7 @@ supplydepotexpand:
 		Cost: 800
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~sccommandcenter, supplydepotupgradeavailable
 		Description: Increase the size of the supply depot by 100%
 	Plug:
@@ -663,6 +664,7 @@ SCREFINERY:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^3x2Shape
 	Inherits@ref: ^Refinery
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: Refinery
 	Power:
@@ -676,10 +678,6 @@ SCREFINERY:
 		Footprint: _x_ xxx ===
 		BuildSounds: tscupd00.aud
 		Dimensions: 3,3
-	Production@Addons:
-		Produces: Addons
-	ProductionBar@Addons:
-		ProductionType: Addons
 	WithBuildingBib:
 	FreeActor@1:
 		Actor: scscv
@@ -733,7 +731,7 @@ sctvespenegascollector:
 	Valued:
 		Cost: 2500
 	Buildable:
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~sccommandcenter, sctrefineryupgradeavailable
 		Description: The Refinery generates Vespene gas Capsules and passive income.
 	Plug:
@@ -995,6 +993,7 @@ SCSENTINEL:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@detect: ^GenericAllDetector
 	Inherits@EMP: ^TurretEMP
+	Inherits@POWERDOWN: ^DisableOnPowerDown
 	Inherits@armor: ^TerranVehiclesWeaponUpgrades
 	Inherits@weapon: ^TerranVehicleArmorUpgrades
 	Buildable:
@@ -1335,15 +1334,15 @@ SCNEXUS:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 		BuildSounds: pshbld03.aud
-	Production@NORMAL:
-		-RequiresCondition:
-	-Production@CLASSICPRODUCTIONQUEUES:
-	ProductionBar@BUILDING:
-		-RequiresCondition:
-	ProductionBar@DEFENCE:
-		-RequiresCondition:
-	-ProductionBar@RABUILDING:
-	-ProductionBar@RADEFENCE:
+	# Production@NORMAL:
+	# 	-RequiresCondition:
+	# -Production@CLASSICPRODUCTIONQUEUES:
+	# ProductionBar@BUILDING:
+	# 	-RequiresCondition:
+	# ProductionBar@DEFENCE:
+	# 	-RequiresCondition:
+	# -ProductionBar@RABUILDING:
+	# -ProductionBar@RADEFENCE:
 	ProductionQueue@Building:
 		LowPowerModifier: 100
 	ProductionQueue@Defense:
@@ -1434,6 +1433,7 @@ SCASSIMILATOR:
 	Inherits@ref: ^Refinery
 	Inherits@explode: ^BuildingExplodeProtoss
 	Inherits@shieldgenerator: ^ProtossPersonalShield
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: Assimilator
 	Power:
@@ -1447,10 +1447,6 @@ SCASSIMILATOR:
 		Footprint: _x_ xxx ===
 		BuildSounds: pshbld03.aud
 		Dimensions: 3,3
-	Production@Addons:
-		Produces: Addons
-	ProductionBar@Addons:
-		ProductionType: Addons
 	FreeActor@1:
 		Actor: scprobe
 		SpawnOffset: 0,2
@@ -1503,7 +1499,7 @@ scpvespenegascollector:
 	Valued:
 		Cost: 2500
 	Buildable:
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~scnexus, scprefineryupgradeavailable
 		Description: The Assimilator generates Vespene gas Capsules and passive income.
 	Plug:
@@ -2322,7 +2318,7 @@ sclair:
 		Cost: 1400
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~scspawningpool, lairupgradeavailable
 		Description: Unlocks Spire and Queen's Nest
 	Plug:
@@ -2338,7 +2334,7 @@ schive:
 		Cost: 2000
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~sclair, hiveupgradeavailable
 		Description: Unlocks Ultralisk Cavern and Defiler Mound
 	Plug:
@@ -2427,6 +2423,7 @@ SCCREEPCOLONY:
 	Inherits@armor: ^ZergGroundArmorUpgrades
 	Inherits@weapon: ^ZergMissileWeaponUpgrades
 	Inherits@range: ^GroovedSpinesUpgrade
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: Creep Colony
 		RequiresCondition: !sunken && !spore
@@ -2557,7 +2554,7 @@ scsporecolonyupgrade:
 	Valued:
 		Cost: 500
 	Buildable:
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~schatchery, creepcolonyupgradeavailable
 		Description: Ground base defense.
 	Plug:
@@ -2572,7 +2569,7 @@ scsunkencolonyupgrade:
 	Valued:
 		Cost: 500
 	Buildable:
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~schatchery, creepcolonyupgradeavailable
 		Description: Anti-aircraft base defense.
 	Plug:
@@ -2584,6 +2581,7 @@ SCEXTRACTOR:
 	Inherits: ^BaseBuildingZerg
 	Inherits@shape: ^3x2Shape
 	Inherits@ref: ^Refinery
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: Extractor
 	Power:
@@ -2598,10 +2596,6 @@ SCEXTRACTOR:
 		Footprint: _x_ xxx ===
 		Dimensions: 3,3
 		BuildSounds: zchrdy00.aud
-	Production@Addons:
-		Produces: Addons
-	ProductionBar@Addons:
-		ProductionType: Addons
 	FreeActor@1:
 		Actor: scdrone
 		SpawnOffset: 0,2
@@ -2657,7 +2651,7 @@ sczvespenegascollector:
 	Valued:
 		Cost: 2500
 	Buildable:
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~schatchery, sczrefineryupgradeavailable
 		Description: The Extractor generates Vespene gas Capsules and passive income.
 	Plug:
@@ -2859,6 +2853,7 @@ SCSPIRE:
 	Inherits: ^BaseBuildingZerg
 	Inherits@shape: ^2x2Shape
 	Inherits@bot: ^BotMicromanageable
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: Spire
 		RequiresCondition: !spirecondition
@@ -2918,10 +2913,6 @@ SCSPIRE:
 	PeriodicExplosion:
 		Weapon: Lairtransition
 		RequiresCondition: transition
-	Production@Addons:
-		Produces: Addons
-	ProductionBar@Addons:
-		ProductionType: Addons
 	FireWarheadsOnDeath:
 		Weapon: Creeptransition
 		Type: CenterPosition
@@ -2951,7 +2942,7 @@ SCGREATERSPIRE:
 		BuildPaletteOrder: 80
 		BuildDuration: 500
 		BuildDurationModifier: 100
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~sclair, greaterspireupgradeavailable
 		Description: Unlocks multiple zerg air units.
 	Plug:
@@ -5755,7 +5746,7 @@ SCTMCV:
 	Inherits@SHADOWS: ^Shadows
 	Inherits@weapon: ^TerranVehicleArmorUpgrades
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Vehicle, RAVehicle
 		Prerequisites: ~scengineeringbay
 		Description: Builds structures and provides radar.
 	Tooltip:
@@ -7620,7 +7611,7 @@ SCPMCV:
 	Inherits@ProtossPersonalShield: ^ProtossPersonalShield
 	Inherits@armor: ^ProtossGroundArmorUpgrades
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: Vehicle, RAVehicle
 		Prerequisites: ~scroboticsfacility
 		Description: Builds structures and provides radar.
 	Tooltip:
@@ -8280,7 +8271,6 @@ SCDRONE:
 		Name: Drone
 	Buildable:
 		Prerequisites: ~scextractor
-		Queue: Infantry, RAInfantry
 		Description: Collects resources.
 	WithDeathAnimation:
 		UseDeathTypeSuffix: false

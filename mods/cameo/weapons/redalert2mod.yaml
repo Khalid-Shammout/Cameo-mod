@@ -3143,6 +3143,36 @@ SteelKatyCannonsEMPE:
 	Burst: 4
 	BurstDelays: 5
 
+SteelStalkerRailgun:
+	Inherits: ^RailgunWeapon
+	Range: 8360
+	ReloadDelay: 40
+	Report: bigggun1.aud
+	Projectile: Railgun
+		BeamWidth: 128
+		Duration: 24
+		BeamColor: 4488FFBB
+		HelixPlayerColor: true
+		Blockable: false
+	Warhead@RailgunWeapon: SpreadDamage
+		Damage: 50000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		Damage: 25
+
+SteelStalkerRailgunE:
+	Inherits: SteelStalkerRailgun
+	Range: 9360
+	Projectile: Railgun
+		BeamWidth: 128
+		Duration: 24
+		BeamColor: FF88FFCC
+		HelixPlayerColor: true
+		Blockable: false
+	Warhead@RailgunWeapon: SpreadDamage
+		Damage: 100000
+	Warhead@RailgunWeaponPercentage: HealthPercentageDamage
+		Damage: 50
+
 SteelBeholderLaser:
 	Inherits: ^HeavyCannon
 	Inherits: ^TeslaWeapon

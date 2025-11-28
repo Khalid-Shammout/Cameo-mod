@@ -811,6 +811,7 @@ TSGTPOWR:
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@power: ^PowerPlant
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: GDI Power Plant
 	Valued:
@@ -878,7 +879,7 @@ tsgtpowrup:
 		Cost: 500
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~tsgtcnstgdi, gdipowerupgradeavailable
 		Description: Increase power output by 100%
 	Plug:

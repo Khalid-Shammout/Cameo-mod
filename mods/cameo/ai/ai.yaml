@@ -405,20 +405,26 @@ Player:
 					CheckRadius: 3c0
 			spyplane:
 				OrderName: SovietSpyPlane
-				MinimumAttractiveness: 1
+				MinimumAttractiveness: 1111
 				IgnoreVisibility: true
 				Consideration@1:
 					Against: Enemy
-					Types: Ground
+					Types: Infantry, Vehicle, Defense
 					Attractiveness: 1
 					TargetMetric: None
 					CheckRadius: 10000
 				Consideration@2:
 					Against: Enemy
-					Types: Ground
+					Types: Infantry, Vehicle, Defense
 					Attractiveness: 1
 					TargetMetric: Value
 					CheckRadius: 11111
+				Consideration@3:
+					Against: Ally
+					Types: Ground, Air
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 12345
 			IronCurtain:
 				OrderName: IronCurtain
 				MinimumAttractiveness: 3333
@@ -3128,7 +3134,7 @@ Player:
 		RequiresCondition: genericbot
 		McvTypes: mcv.gdi, mcv.nod, ramcv.allies, ramcv.soviet, ramcv.japan, ra2amcv, ra2smcv, yrpcv, yrsmin, modcore, modcore1, modcore2, modcore3, modcore4, modcore5, modcore6, modcore7, aa_acv, d2k_mcv.ixian, d2k_mcv.ordos, steel_qmcv, latin_mcv, nax_mcv, nax2_mcv, futu_mcv, sctmcv, scpmcv, sczmcv, wc2_human_mcv, wc2_orc_mcv, tsmcvgdi, tsmcvnod, tsmcvmutant, tsmcvcabal, tkmmcv
 		ConstructionYardTypes: fact.gdi, fact.nod, rafact.allies, rafact.soviet, rafact.japan, ra2nacnst, ra2gacnst, yrnacnst, tsgtcnstgdi, tsgtcnstnod, tsgtcnstmutant, tsgtcnstcabalb, sccommandcenter, scnexus, schatchery, sclair, schive, glcommand, chcommand, usacommand, construction_yard.ixian, construction_yard.ordos, wc2_human_townhall, wc2_orc_greathall, aa_cgcnst, steel_qacst, latin_cgcnst, nax_conyard, nax2_conyard, futu_egcnst, tkmcommandcenter, gdirig
-		McvFactoryTypes: weap, afld, raweap, ra_gigafactory, raweapa, modraweapj, ra2gaweap, ra2naweap, yrygweap, aa_cgweap, tsgtweap, tsgtweapmutant, tsntweap, tsntweapcabal, schatchery, scnexus, sccommandcenter, glcommand, chcommand, usacommand, heavy_factory.ixian, heavy_factory.ordos, starport.ixian, starport.ordos, sc_zerg_larva, wc2_human_townhall, wc2_orc_greathall, steel_qaweap, latin_cgweap, nax_weap, nax2_weap, futu_egweap2, tkmcommandcenter
+		McvFactoryTypes: weap, afld, raweap, ra_gigafactory, raweapa, modraweapj, ra2gaweap, ra2naweap, yrygweap, aa_cgweap, tsgtweap, tsgtweapmutant, tsntweap, tsntweapcabal, schatchery, scnexus, sccommandcenter, scfactory, scroboticsfacility, glcommand, chcommand, usacommand, heavy_factory.ixian, heavy_factory.ordos, starport.ixian, starport.ordos, sc_zerg_larva, wc2_human_townhall, wc2_orc_greathall, wc2_human_gnomish_inventor, wc2_orc_goblin_alchemist, steel_qaweap, latin_cgweap, nax_weap, nax2_weap, futu_egweap2, tkmcommandcenter
 		MinBaseRadius: 5
 		MaxBaseRadius: 25
 		MinimumConstructionYardCount: 5
@@ -3174,11 +3180,11 @@ Player:
 		NavalUnitsTypes: ss, msub, dd, ca, pt, japanspeedboat, japancarrier, yamatobattleship, cncss, nodlasercorvette, ssmsub, cncdd, cncca, cncpt, ra2sqd, ra2dlph, ra2dest, ra2aegis, ra2sub, ra2hyd, ra2dred, ra2carrier, yrbsub, glgunboat, chflameboat, usagunboat, usabattleship, usacarrier, aa_gunb, aa_lsub, aa_quasfrig, aa_karrier, aa_tsun, aa_ksub, latin_triton, latin_sub, nax_tuboat, nax_muboat
 		NavalProductionTypes: raspen, ra1syrd, ra1jsyrd, cncsyrd, cncspen, yrygyard, ra2gayard, ra2nayard, glsyrd, chsyrd, usasyrd, aa_cgyard, latin_cgyard, nax_naval
 		AirUnitsTypes: gdifirehawk, mig, su57, mignuke, rapierjumpjet, modbomber, ra2falc, ra2beag, yrbpln1, ra2hind, aa_phoenix, steel_twister, steel_grun, latin_yakolev, latin_mig, d2k_air_drone, d2k_ixbomber
-		StaticAntiAirTypes: sam, atwr, agun, rasam, jmgnest, jballistat, ra2nasam, ra2naflak, yrygggun, yrngbnkr, yrngtbnk, large_gun_turret, aa_cgpuls, steel_fedaa, latin_aatur, nax_flak88, scmissileturret, sccreepcolony
+		StaticAntiAirTypes: sam, atwr, agun, rasam, jmgnest, jballistat, ra2nasam, ra2naflak, yrygggun, yrngbnkr, yrngtbnk, large_gun_turret, aa_cgpuls, steel_fedaa, latin_aatur, nax_flak88, scmissileturret, sccreepcolony, scphotoncannon
 		HighValueTargetTypes: fact.gdi, fact.nod, proc.gdi, proc.nod, weap, afld, hq.gdi, hq.nod, eye, tmpl, rafact.allies, rafact.soviet, rafact.japan, raproc.allies, raproc.soviet, jproc, raweap, ra_gigafactory, raweapa, modraweapj, dome.allies, dome.soviet, dome.japan, atek, stek, modjtek, gap, mslo, iron, pdox, jshrine, ra2gacnst, ra2nacnst, yrnacnst, ra2garefn, ra2narefn, yryarefn, ra2gaweap, ra2naweap, yrygweap, ra2gaairc, ra2naradr, ra2napsis, ra2gatech, ra2natech, yrygtech, ra2gaweat, ra2gacsph, ra2namisl, ra2nairon, yrygppet, yryggntc, aa_cgcnst, aa_cgrefn, aa_cgweap, aa_cgradr, aa_cgtech, aa_cgionc, aa_cgchao, steel_qacst, steel_qref, steel_qaweap, steel_qatech, steel_qaorbit, latin_cgcnst, latin_cgauto, latin_cgweap, latin_cgspy, latin_ca12hit, nax_conyard, nax_refin, nax_weap, nax_radar, nax_tek, nax_tech, nax_rocket, nax2_conyard, nax2_refin; nax2_weap, nax2_radar, nax2_tech, nax2_meteorray, nax2_gcore, futu_egcnst, futu_egrefn, futu_egweap2, futu_egtf, futu_egtech, construction_yard.ixian, refinery.atreides, heavy_factory.ixian, outpost.ixian research_centre.ixian, starport.ixian, storm_lasher_big, construction_yard.ordos, refinery.ordos, heavy_factory.ordos, outpost.ordos research_centre.ordos, starport.ordos, tsntmisl, tsntmislcabal, tsgtplug
 		HighValueTargetPriority: 50
 		AirToAirPriority: 25
-		BigAirThreats: gdifirehawk, mignuke, modbomber, rapierjumpjet, ra2beag, yrbpln1, ra2zep, yrdisk, d2k_farasha, steel_inspect, steel_cruiser, latin_mig, scbattlecruiser, scpythean, scphobos, scbehemoth
+		BigAirThreats: gdifirehawk, mignuke, modbomber, rapierjumpjet, ra2beag, yrbpln1, ra2zep, yrdisk, d2k_farasha, steel_inspect, steel_cruiser, latin_mig, scbattlecruiser, scwyvern, sccarrier, scgladius, scguardian, scdevourer, scpythean, scphobos, scbehemoth, scstarshipsovereign
 		AirSquadTargetTypes:
 			heli: Aircraft, Ground, Naval
 			orca: Aircraft, Ground, Naval
@@ -3448,8 +3454,8 @@ Player:
 		NewProductionCashThreshold: 5000
 		BuildingProductionMinCashRequirement: 1250
 		DefenseProductionMinCashRequirement: 1500
-		BuildingQueues: Building, RABuilding, Addons
-		DefenseQueues: Defence, RADefence, Addons
+		BuildingQueues: Building, RABuilding, BuildingAddons
+		DefenseQueues: Defence, RADefence, BuildingAddons
 		ConstructionYardTypes: fact.gdi, fact.nod, rafact.allies, rafact.soviet, rafact.japan, ra2nacnst, ra2gacnst, yrnacnst, tsgtcnstgdi, tsgtcnstnod, tsgtcnstmutant, tsgtcnstcabal, sccommandcenter, scnexus, schatchery, sclair, schive, glcommand, chcommand, usacommand, construction_yard.ixian, construction_yard.ordos, wc2_human_townhall, wc2_orc_greathall, aa_cgcnst, steel_qacst, latin_cgcnst, nax_conyard, nax2_conyard, futu_egcnst, tkmcommandcenter
 		RefineryTypes: proc.gdi, proc.nod, raproc.allies, raproc.soviet, jproc, ra2narefn, ra2garefn, yryarefn, tsprocgdi, tsprocnod, tsprocmutant, tsproccabal, screfinery, scassimilator, scextractor, glsupply, chsupply, usasupply, refinery, refinery.atreides, refinery.ordos, wc2_human_elven_lumber_mill, wc2_orc_troll_lumber_mill, wc2_human_townhall, wc2_orc_greathall, aa_cgrefn, steel_qref, latin_cgauto, nax_refin, nax2_refin, futu_egrefn, tkmrefinery
 		PowerTypes: nuke, nuk2, powr, apwr, jpwr, ra2napowr, ra2gapowr, ra2nanrct, yryapowr, scsupplydepot, scpylon, scbotoverlord, tsgtpowr, tsntpowrmutant, tsntpowrcabal, tsntpowr, tsntapwr, chpower, chpower2, usapower, wind_trap, wind_trap.atreides, wind_trap.ordos, d2k_mini_windtrap, wc2_human_farm, wc2_orc_pigfarm, aa_cgapwr, aa_cgtnkr, steel_qapowr, latin_cgpow, nax_powr, nax2_powr, futu_ggpowr, scoverlord, tkmpowerplant
@@ -5459,6 +5465,7 @@ Player:
 			steel_cargoship: 1
 			steel_grun: 1
 			steel_savi: 1
+			steel_stalker: 1
 			upsteel_conssupp1: 1
 			upsteel_conssupp2: 1
 			upsteel_conssupp3: 1

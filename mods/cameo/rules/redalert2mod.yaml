@@ -10455,6 +10455,73 @@ steel_beholder:
 	ActorStatValues:
 		Upgrades: upsteel_shielresistance
 
+steel_stalker:
+	Inherits: ^Tank
+	Inherits@Template: ^HeroInfantryTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@anim: ^RA2Vehicle
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@announce: ^AnnounceGlobal
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	Inherits@MC: ^MCImmune
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: Stalker
+	Buildable:
+		BuildPaletteOrder: 75
+		Prerequisites: ~steel_qatech
+		Queue: Vehicle, RAVehicle
+		Description: actor-steel_beholder.description
+	Mobile:
+		Locomotor: hover
+		Speed: 80
+		TurnSpeed: 32
+	Health:
+		HP: 137500
+	Repairable:
+		HpPerStep: 6875
+	ChangesHealth@SelfHealing:
+		Step: 55
+	Armament:
+		Weapon: SteelStalkerRailgun
+		LocalOffset: 900,300,500
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: SteelStalkerRailgunE
+		LocalOffset: 900,300,500
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		FacingTolerance: 10
+	WithInfantryBody:
+		IdleSequences: idle
+		MinIdleDelay: 1
+		MaxIdleDelay: 2
+		DefaultAttackSequence: shoot
+	BodyOrientation:
+		QuantizedFacings: 32
+	-QuantizeFacingsFromSequence:
+	Passenger:
+		Weight: 4
+	Selectable:
+		Bounds: 1536, 1536
+		DecorationBounds: 1280, 1280
+	Voiced:
+		VoiceSet: SteelStalkerVoice
+		Volume: 5
+	RenderSprites:
+		PlayerPalette: player_rgba
+	DeathSounds:
+	WithIdleOverlay@shield1:
+		Sequence: shield-complete-big
+		StartSequence: shield-starts-big
+	WithIdleOverlay@shield_damage:
+		Sequence: shield-complete-big
+	ActorStatValues:
+		Upgrades: upsteel_shielresistance
+
 steel_inspect:
 	Inherits: ^Helicopter
 	Inherits@Template: ^SpaceshipTemplate
@@ -12258,6 +12325,7 @@ nax_bunk:
 	Inherits@gar: ^ClearableGarrisonNeutronOnly
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@Atlantikwall: ^Atlantikwall
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: Naxi Bunker
 	Building:
@@ -12350,7 +12418,7 @@ nax_bunk.mg:
 	Tooltip:
 		Name: Machinegun Bunker Addon
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: BuildingAddons
 		BuildPaletteOrder: 100
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -12367,7 +12435,7 @@ nax_bunk.mortar:
 	Tooltip:
 		Name: Mortar Bunker Addon
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: BuildingAddons
 		BuildPaletteOrder: 100
 		BuildDuration: 500
 		BuildDurationModifier: 100
@@ -12384,7 +12452,7 @@ nax_bunk.aa:
 	Tooltip:
 		Name: Mini Flak Bunker Addon
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: BuildingAddons
 		BuildPaletteOrder: 100
 		BuildDuration: 500
 		BuildDurationModifier: 100

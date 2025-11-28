@@ -4172,10 +4172,69 @@ QTNK:
 #		RA Aircraft
 ####################################################################################################
 
+U2:
+	Inherits: ^AirstrikePlane
+	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@Afterburners: ^AfterburnersUpgradeRA1
+	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
+	Health:
+		HP: 100000
+	Tooltip:
+		Name: Spy Plane
+	Aircraft:
+		CruiseAltitude: 2560
+		TurnSpeed: 20
+		Speed: 300
+		Repulsable: False
+		MaximumPitch: 25
+	AttackBomber:
+		FacingTolerance: 32
+	Selectable:
+	SelectionDecorations:
+	# -Voiced:
+	# -Targetable@AIRBORNE:
+	Contrail@1:
+		Offset: -725,683,0
+	Contrail@2:
+		Offset: -725,-683,0
+	SpawnActorOnDeath:
+		Actor: U2.Husk
+	Armament:
+		Weapon: SpyPlaneTargeting
+	ParaDrop:
+		DropRange: 5c0
+		ChuteSound: chute1.aud
+	Cargo:
+		MaxWeight: 1
+	LeavesTrails:
+		Offsets: -1c43,0,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	RejectsOrders:
+	GivesExperience:
+	DynamicSpeedMultiplier:
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	RenderSprites:
+		Image: U2
+		PlayerPalette: raplayer
+	ActorStatValues:
+		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_afterburners, ra_upgrade_stalinium
+
+U3:
+	Inherits: U2
+	Armament:
+		Weapon: SpyPlaneTargeting2
+
 BADR:
 	Inherits: ^AirstrikePlane
 	ParaDrop:
-		DropRange: 4c0
+		DropRange: 5c0
 		ChuteSound: chute1.aud
 	Selectable:
 		DecorationBounds: 1536, 1536
@@ -4227,24 +4286,6 @@ BADR:
 	RenderSprites:
 		PlayerPalette: raplayer
 
-C17.Bomber:
-	Inherits: BADR.Bomber
-	Tooltip:
-		Name: Cargo Plane
-	RenderSprites:
-		Image: c17
-	SpawnActorOnDeath:
-		Actor: C17.Husk
-
-C17.Paradrop:
-	Inherits: BADR
-	Tooltip:
-		Name: Cargo Plane
-	RenderSprites:
-		Image: c17
-	SpawnActorOnDeath:
-		Actor: C17.Husk
-
 BADR.Soviet:
 	Inherits: BADR
 	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
@@ -4280,6 +4321,24 @@ BADR.Japan:
 		Actor: C17.Husk
 	ActorStatValues:
 		Upgrades: up_divinewindprotocol, up_nanotechrepairs
+
+C17.Bomber:
+	Inherits: BADR.Bomber
+	Tooltip:
+		Name: Cargo Plane
+	RenderSprites:
+		Image: c17
+	SpawnActorOnDeath:
+		Actor: C17.Husk
+
+C17.Paradrop:
+	Inherits: BADR
+	Tooltip:
+		Name: Cargo Plane
+	RenderSprites:
+		Image: c17
+	SpawnActorOnDeath:
+		Actor: C17.Husk
 
 jsuperbomber:
 	Inherits: BADR
@@ -4939,13 +4998,13 @@ MIG:
 	Voiced:
 		VoiceSet: RussianVehicleVoice
 	AmmoPool:
-		Ammo: 8
-		ReloadDelay: 25
+		Ammo: 4
+		ReloadDelay: 50
 		AmmoCondition: ammo
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 8
+		PipCount: 4
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	RenderSprites:
@@ -5958,50 +6017,6 @@ modhip.husk:
 	RenderSprites:
 		Image: modhip
 		PlayerPalette: player_rgba
-
-U2:
-	Inherits: ^RANeutralPlane
-	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
-	Inherits@Afterburners: ^AfterburnersUpgradeRA1
-	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
-	Health:
-		HP: 200000
-	Tooltip:
-		Name: Spy Plane
-	Aircraft:
-		CruiseAltitude: 2560
-		TurnSpeed: 28
-		Speed: 300
-		Repulsable: False
-		MaximumPitch: 56
-	AttackBomber:
-		FacingTolerance: 32
-	Selectable:
-	SelectionDecorations:
-	-Voiced:
-	-Targetable@AIRBORNE:
-	Contrail@1:
-		Offset: -725,683,0
-	Contrail@2:
-		Offset: -725,-683,0
-	SpawnActorOnDeath:
-		Actor: U2.Husk
-	LeavesTrails:
-		Offsets: -1c43,0,0
-		MovingInterval: 2
-		Image: smokey
-		StationaryInterval: 2
-		SpawnAtLastPosition: False
-		TrailWhileStationary: True
-		Type: CenterPosition
-		RequiresCondition: enable-smoke
-	RejectsOrders:
-	GrantConditionOnDamageState@SmokeTrail:
-		Condition: enable-smoke
-	RenderSprites:
-		PlayerPalette: raplayer
-	ActorStatValues:
-		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_afterburners, ra_upgrade_stalinium
 
 ####################################################################################################
 #		Modded RA Japan
@@ -7998,6 +8013,7 @@ RAAFLD:
 	Reservable:
 	AirstrikePower@spyplane:
 		OrderName: SovietSpyPlane
+		Cost: 1000
 		Prerequisites:
 			1:
 			2: ra_promotion_superspyplane
@@ -8007,22 +8023,22 @@ RAAFLD:
 		ChargeInterval: 4500
 		Names:
 			1: Spy Plane
-			2: Super Spy Plane
+			2: Super Spy Plane Squad
 		Descriptions:
-			1: power-spyplane.description
-			2: power-spyplane.description
+			1: Sends in a Spy Plane to reveal a large area on the map and lock on to enemy units and defenses for 20 seconds.
+			2: Sends in a squad of 3 Spy Planes to reveal a large area on the map and lock on to enemy units and defenses for 30 seconds.
 		SelectTargetSpeechNotification: SelectTarget
 		EndChargeSpeechNotification: SpyPlaneReady
 		CameraActor: camera.spyplane
 		CameraRemoveDelay: 150
 		UnitTypes:
 			1: u2
-			2: u2
+			2: u3
 		SquadSizes:
 			1: 1
 			2: 3
 		SquadOffset: 4096,4096,0
-		QuantizedFacings: 16
+		QuantizedFacings: 32
 		DisplayBeacon: true
 		BeaconPosters:
 			1: racamicon
@@ -8033,22 +8049,40 @@ RAAFLD:
 		#UseDirectionalTarget: True
 		DirectionArrowAnimation: airstrikedirection
 		SupportPowerPaletteOrder: 60
+	GrantConditionOnPrerequisite@ra_upgrade_afterburners:
+		Condition: ra_upgrade_afterburners
+		Prerequisites: ra_upgrade_afterburners
+	GrantConditionOnPrerequisite@ra_promotion_parabombs2:
+		Condition: ra_promotion_parabombs2
+		Prerequisites: ra_promotion_parabombs2
+	GrantConditionOnPrerequisite@ra_promotion_parabombs3:
+		Condition: ra_promotion_parabombs3
+		Prerequisites: ra_promotion_parabombs3
+	ProvidesPrerequisite@parabombs1:
+		Prerequisite: parabombs1
+		RequiresCondition: ra_upgrade_afterburners || ra_promotion_parabombs2
+	ProvidesPrerequisite@parabombs2:
+		Prerequisite: parabombs2
+		RequiresCondition: (ra_upgrade_afterburners && ra_promotion_parabombs2) || (!ra_upgrade_afterburners && ra_promotion_parabombs3)
+	ProvidesPrerequisite@parabombs3:
+		Prerequisite: parabombs3
+		RequiresCondition: ra_upgrade_afterburners && ra_promotion_parabombs3
 	AirstrikePower@parabombs:
 		OrderName: Parabombs
 		ChargeInterval: 7500
 		Cost: 1000
 		Prerequisites:
-			1: ra_upgrade_afterburners
-			2: ra_upgrade_afterburners, ra_promotion_parabombs2
-			3: ra_upgrade_afterburners, ra_promotion_parabombs3
+			1: parabombs1
+			2: parabombs2
+			3: parabombs3
 		Icons:
 			1: airstrike
 			2: airstrike
 			3: airstrike
 		Names:
-			1: power-parabombs.name
-			2: power-parabombs.name
-			3: power-parabombs.name
+			1: Parabombs Level 1
+			2: Parabombs Level 2
+			3: Parabombs Level 3
 		Descriptions:
 			1: power-parabombs.description
 			2: power-parabombs.description
@@ -8060,7 +8094,7 @@ RAAFLD:
 			1: badr.bomber
 			2: badr.bomber
 			3: badr.bomber
-		QuantizedFacings: 16
+		QuantizedFacings: 32
 		DisplayBeacon: true
 		BeaconPosters:
 			1: airstrike
@@ -8147,104 +8181,104 @@ RAAFLD:
 			30: paratroopers
 			31: paratroopers
 		Names:
-			1: power-paratroopers.name
-			2: power-paratroopers.name
-			3: power-paratroopers.name
-			4: power-paratroopers.name
-			5: power-paratroopers.name
-			6: power-paratroopers.name
-			7: power-paratroopers.name
-			8: power-paratroopers.name
-			9: power-paratroopers.name
-			10: power-paratroopers.name
-			11: power-paratroopers.name
-			12: power-paratroopers.name
-			13: power-paratroopers.name
-			14: power-paratroopers.name
-			15: power-paratroopers.name
-			16: power-paratroopers.name
-			17: power-paratroopers.name
-			18: power-paratroopers.name
-			19: power-paratroopers.name
-			20: power-paratroopers.name
-			21: power-paratroopers.name
-			22: power-paratroopers.name
-			23: power-paratroopers.name
-			24: power-paratroopers.name
-			25: power-paratroopers.name
-			26: power-paratroopers.name
-			27: power-paratroopers.name
-			28: power-paratroopers.name
-			29: power-paratroopers.name
-			30: power-paratroopers.name
-			31: power-paratroopers.name
+			1: Soviet Paratroopers
+			2: Soviet Paratroopers (Conscription)
+			3: Soviet Paratroopers (Industrial)
+			4: Soviet Paratroopers (Inferno)
+			5: Soviet Paratroopers (Conscription, Tesla Tech)
+			6: Soviet Paratroopers (Conscription, Heavy Armor)
+			7: Soviet Paratroopers (Conscription, Nuclear War)
+			8: Soviet Paratroopers (Industrial, Tesla Tech)
+			9: Soviet Paratroopers (Industrial, Heavy Armor)
+			10: Soviet Paratroopers (Industrial, Nuclear War)
+			11: Soviet Paratroopers (Inferno, Tesla Tech)
+			12: Soviet Paratroopers (Inferno, Heavy Armor)
+			13: Soviet Paratroopers (Inferno, Nuclear War)
+			14: Soviet Paratroopers (Mortar Soldier, Conscription, Tesla Tech)
+			15: Soviet Paratroopers (Mortar Soldier, Conscription, Heavy Armor)
+			16: Soviet Paratroopers (Mortar Soldier, Conscription, Nuclear War)
+			17: Soviet Paratroopers (Mortar Soldier, Industrial, Tesla Tech)
+			18: Soviet Paratroopers (Mortar Soldier, Industrial, Heavy Armor)
+			19: Soviet Paratroopers (Mortar Soldier, Industrial, Nuclear War)
+			20: Soviet Paratroopers (Mortar Soldier, Inferno, Tesla Tech)
+			21: Soviet Paratroopers (Mortar Soldier, Inferno, Heavy Armor)
+			22: Soviet Paratroopers (Mortar Soldier, Inferno, Nuclear War)
+			23: Soviet Paratroopers (Mortar Soldier, Cyberdog, Conscription, Tesla Tech)
+			24: Soviet Paratroopers (Mortar Soldier, Cyberdog, Conscription, Heavy Armor)
+			25: Soviet Paratroopers (Mortar Soldier, Cyberdog, Conscription, Nuclear War)
+			26: Soviet Paratroopers (Mortar Soldier, Cyberdog, Industrial, Tesla Tech)
+			27: Soviet Paratroopers (Mortar Soldier, Cyberdog, Industrial, Heavy Armor)
+			28: Soviet Paratroopers (Mortar Soldier, Cyberdog, Industrial, Nuclear War)
+			29: Soviet Paratroopers (Mortar Soldier, Cyberdog, Inferno, Tesla Tech)
+			30: Soviet Paratroopers (Mortar Soldier, Cyberdog, Inferno, Heavy Armor)
+			31: Soviet Paratroopers (Mortar Soldier, Cyberdog, Inferno, Nuclear War)
 		Descriptions:
 			1: power-paratroopers.description
-			2: pinficon
-			3: pinficon
-			4: pinficon
-			5: pinficon
-			6: pinficon
-			7: pinficon
-			8: pinficon
-			9: pinficon
-			10: pinficon
-			11: pinficon
-			12: pinficon
-			13: pinficon
-			14: pinficon
-			15: pinficon
-			16: pinficon
-			17: pinficon
-			18: pinficon
-			19: pinficon
-			20: pinficon
-			21: pinficon
-			22: pinficon
-			23: pinficon
-			24: pinficon
-			25: pinficon
-			26: pinficon
-			27: pinficon
-			28: pinficon
-			29: pinficon
-			30: pinficon
-			31: pinficon
+			2: power-paratroopers.description
+			3: power-paratroopers.description
+			4: power-paratroopers.description
+			5: power-paratroopers.description
+			6: power-paratroopers.description
+			7: power-paratroopers.description
+			8: power-paratroopers.description
+			9: power-paratroopers.description
+			10: power-paratroopers.description
+			11: power-paratroopers.description
+			12: power-paratroopers.description
+			13: power-paratroopers.description
+			14: power-paratroopers.description
+			15: power-paratroopers.description
+			16: power-paratroopers.description
+			17: power-paratroopers.description
+			18: power-paratroopers.description
+			19: power-paratroopers.description
+			20: power-paratroopers.description
+			21: power-paratroopers.description
+			22: power-paratroopers.description
+			23: power-paratroopers.description
+			24: power-paratroopers.description
+			25: power-paratroopers.description
+			26: power-paratroopers.description
+			27: power-paratroopers.description
+			28: power-paratroopers.description
+			29: power-paratroopers.description
+			30: power-paratroopers.description
+			31: power-paratroopers.description
 		DropItems:
 			1: dog, rare1, rae2, rare3, rae4, shok, dog, rare1, rae2, rare3, rae4, shok
-			2: dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr
-			3: dog, rare1, rae2, rare3, rae4, shok, dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk
-			4: dog, rare1, rae2, rare3, e3flamer, rae4, shok, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl
-			5: dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, modbtr, ttnk, ttnk2
-			6: dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, hammertank, ra_grad, 5tnk
-			7: dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, kotin, v2rlnuke, 4tnk
-			8: dog, rare1, rae2, rare3, rae4, shok, ra_zapper, dog, rare1, rae2, rare3, rae4, shok, ra_zapper, 3tnk, ftrk, v1truck, modgtnk, ttnk, ttnk2
-			9: dog, rare1, rae2, rare3, rae4, shok, dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, hammertank, ra_grad, 5tnk
-			10: dog, rare1, rae2, rare3, rae4, shok, dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, kotin, v2rlnuke, 4tnk
-			11: dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, ra_heatraytank, v2rl, ttnk, ttnk2
-			12: dog, rare1, rae2, rare3, e3flamer, rae4, shok, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, hammertank, ra_grad, 5tnk
-			13: dog, rare1, rae2, rare3, e3flamer, rae4, shok, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, kotin, v2rlnuke, 4tnk
-			14: mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, modbtr, ttnk, ttnk2
-			15: mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, hammertank, ra_grad, 5tnk
-			16: mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, kotin, v2rlnuke, 4tnk
-			17: mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, ra_zapper, mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, ra_zapper, 3tnk, ftrk, v1truck, modgtnk, ttnk, ttnk2
-			18: mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, hammertank, ra_grad, 5tnk
-			19: mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, kotin, v2rlnuke, 4tnk
-			20: mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, ra_heatraytank, v2rl, ttnk, ttnk2
-			21: mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, hammertank, ra_grad, 5tnk
-			22: mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, kotin, v2rlnuke, 4tnk
-			23: mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, modbtr, ttnk, ttnk2
-			24: mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, hammertank, ra_grad, 5tnk
-			25: mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, kotin, v2rlnuke, 4tnk
-			26: mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, ra_zapper, mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, ra_zapper, 3tnk, ftrk, v1truck, modgtnk, ttnk, ttnk2
-			27: mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, hammertank, ra_grad, 5tnk
-			28: mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, kotin, v2rlnuke, 4tnk
-			29: mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, ra_heatraytank, v2rl, ttnk, ttnk2
-			30: mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, hammertank, ra_grad, 5tnk
-			31: mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, kotin, v2rlnuke, 4tnk
+			2: dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar
+			3: dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, dog, rare1, rae2, rare3, rae4, shok
+			4: dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, dog, rare1, rae2, rare3, e3flamer, rae4, shok
+			5: dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, modbtr, ttnk, ttnk2, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar
+			6: dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, hammertank, ra_grad, 5tnk, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar
+			7: dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, kotin, v2rlnuke, 4tnk, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar
+			8: dog, rare1, rae2, rare3, rae4, shok, ra_zapper, 3tnk, ftrk, v1truck, modgtnk, ttnk, ttnk2, dog, rare1, rae2, rare3, rae4, shok, ra_zapper
+			9: dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, hammertank, ra_grad, 5tnk, dog, rare1, rae2, rare3, rae4, shok
+			10: dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, kotin, v2rlnuke, 4tnk, dog, rare1, rae2, rare3, rae4, shok
+			11: dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, ra_heatraytank, v2rl, ttnk, ttnk2, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper
+			12: dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, hammertank, ra_grad, 5tnk, dog, rare1, rae2, rare3, e3flamer, rae4, shok
+			13: dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, kotin, v2rlnuke, 4tnk, dog, rare1, rae2, rare3, e3flamer, rae4, shok
+			14: mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, modbtr, ttnk, ttnk2, mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar
+			15: mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, hammertank, ra_grad, 5tnk, mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar
+			16: mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, kotin, v2rlnuke, 4tnk, mortarsoldier, dog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar
+			17: mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, ra_zapper, 3tnk, ftrk, v1truck, modgtnk, ttnk, ttnk2, mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, ra_zapper
+			18: mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, hammertank, ra_grad, 5tnk, mortarsoldier, dog, rare1, rae2, rare3, rae4, shok
+			19: mortarsoldier, dog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, kotin, v2rlnuke, 4tnk, mortarsoldier, dog, rare1, rae2, rare3, rae4, shok
+			20: mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, ra_heatraytank, v2rl, ttnk, ttnk2, mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper
+			21: mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, hammertank, ra_grad, 5tnk, mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok
+			22: mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, kotin, v2rlnuke, 4tnk, mortarsoldier, dog, rare1, rae2, rare3, e3flamer, rae4, shok
+			23: mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar, modbtr, ttnk, ttnk2, mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_zapper, ra_commissar
+			24: mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, hammertank, ra_grad, 5tnk, mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar
+			25: mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar, modbtr, kotin, v2rlnuke, 4tnk, mortarsoldier, cyberdog, rare1, ra_conscript_ak, rae2, ra_cons_molo, rare3, rae4, shok, ra_commissar
+			26: mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, ra_zapper, 3tnk, ftrk, v1truck, modgtnk, ttnk, ttnk2, mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, ra_zapper
+			27: mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, hammertank, ra_grad, 5tnk, mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok
+			28: mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok, 3tnk, ftrk, v1truck, modgtnk, kotin, v2rlnuke, 4tnk, mortarsoldier, cyberdog, rare1, rae2, rare3, rae4, shok
+			29: mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper, ra_heatraytank, v2rl, ttnk, ttnk2, mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_zapper
+			30: mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, hammertank, ra_grad, 5tnk, mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok
+			31: mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok, ra_heatraytank, v2rl, kotin, v2rlnuke, 4tnk, mortarsoldier, cyberdog, rare1, rae2, rare3, e3flamer, rae4, shok
 		SelectTargetSpeechNotification: SelectTarget
 		AllowImpassableCells: false
-		QuantizedFacings: 16
+		QuantizedFacings: 32
 		CameraActor: camera.paradrop
 		DisplayBeacon: true
 		BeaconPosters:
@@ -11352,6 +11386,16 @@ ra_doctrine_nuclearwar:
 #		Upgrades Soviets
 ####################################################################################################
 
+ra_upgrade_hazmatsuits:
+	Inherits: ^tech_upgrade_template
+	Tooltip:
+		Name: Hazmat Suits
+	Buildable:
+		Description: ra_upgrade_hazmatsuits.description
+		Prerequisites: ~stek, !ra_upgrade_hazmatsuits
+	RenderSprites:
+		Image: ra_upgrade_hazmatsuits
+
 ra_upgrade_vengeance:
 	Inherits: ^tech_upgrade_template
 	Tooltip:
@@ -11732,6 +11776,35 @@ ra_upgrade_nuclearshells_proxy_actor:
 
 #############################
 
+ra_upgrade_afterburners:
+	Inherits: ^unit_upgrade_template
+	Tooltip:
+		Name: Afterburners
+	Buildable:
+		Description: ra_upgrade_afterburners.description
+		Prerequisites: ~dome.soviet, !ra_upgrade_afterburners
+	RenderSprites:
+		Image: ra_upgrade_afterburners
+
+^AfterburnersUpgradeRA1:
+	SpeedMultiplier@ra_upgrade_afterburners:
+		RequiresCondition: ra_upgrade_afterburners
+		Modifier: 115
+	RangeMultiplier@ra_upgrade_afterburners:
+		RequiresCondition: ra_upgrade_afterburners
+		Modifier: 115
+	FirepowerMultiplier@ra_upgrade_afterburners:
+		RequiresCondition: ra_upgrade_afterburners
+		Modifier: 115
+	DamageMultiplier@ra_upgrade_afterburners:
+		RequiresCondition: ra_upgrade_afterburners
+		Modifier: 85
+	GrantConditionOnPrerequisite@ra_upgrade_afterburners:
+		Condition: ra_upgrade_afterburners
+		Prerequisites: ra_upgrade_afterburners
+	ActorStatValues:
+		Upgrades: ra_upgrade_afterburners
+
 ra_upgrade_hammertank:
 	Inherits: ^unit_upgrade_template
 	Tooltip:
@@ -11792,16 +11865,6 @@ ra_upgrade_heatraytank:
 	RenderSprites:
 		Image: ra_heatraytank
 
-ra_upgrade_hazmatsuits:
-	Inherits: ^unit_upgrade_template
-	Tooltip:
-		Name: Hazmat Suits
-	Buildable:
-		Description: ra_upgrade_hazmatsuits.description
-		Prerequisites: ~dome.soviet, !ra_upgrade_hazmatsuits
-	RenderSprites:
-		Image: ra_upgrade_hazmatsuits
-
 ra_upgrade_yaktesla:
 	Inherits: ^unit_upgrade_template
 	Tooltip:
@@ -11831,35 +11894,6 @@ ra_upgrade_yaknuclear:
 		Prerequisites: ~dome.soviet, ~ra_doctrine_nuclearwar, !ra_upgrade_yaknuclear
 	RenderSprites:
 		Image: yaknuclear
-
-ra_upgrade_afterburners:
-	Inherits: ^tech_upgrade_template
-	Tooltip:
-		Name: Afterburners
-	Buildable:
-		Description: ra_upgrade_afterburners.description
-		Prerequisites: ~dome.soviet, !ra_upgrade_afterburners
-	RenderSprites:
-		Image: ra_upgrade_afterburners
-
-^AfterburnersUpgradeRA1:
-	SpeedMultiplier@ra_upgrade_afterburners:
-		RequiresCondition: ra_upgrade_afterburners
-		Modifier: 115
-	RangeMultiplier@ra_upgrade_afterburners:
-		RequiresCondition: ra_upgrade_afterburners
-		Modifier: 115
-	FirepowerMultiplier@ra_upgrade_afterburners:
-		RequiresCondition: ra_upgrade_afterburners
-		Modifier: 115
-	DamageMultiplier@ra_upgrade_afterburners:
-		RequiresCondition: ra_upgrade_afterburners
-		Modifier: 85
-	GrantConditionOnPrerequisite@ra_upgrade_afterburners:
-		Condition: ra_upgrade_afterburners
-		Prerequisites: ra_upgrade_afterburners
-	ActorStatValues:
-		Upgrades: ra_upgrade_afterburners
 
 #############################
 
@@ -12023,7 +12057,7 @@ upmortarsoldier:
 	Buildable:
 		BuildPaletteOrder: 40
 		Queue: Promotions
-		Description: Allows training of Fire Mortar Soldiers.
+		Description: Allows training of Mortar Soldiers. Upgrades Paratroopers Support Power and increases planes by 1.
 		Prerequisites: ~rafact.soviet, !upmortarsoldier, ra_promotion_superoptics, rank1
 	RenderSprites:
 		Image: mortarsoldier
@@ -12037,7 +12071,7 @@ upcyberdog:
 	Buildable:
 		BuildPaletteOrder: 43
 		Queue: Promotions
-		Description: Allows training of Cyberdogs.
+		Description: Allows training of Cyberdogs. Upgrades Paratroopers Support Power and increases planes by 1.
 		Prerequisites: ~rafact.soviet, !upcyberdog, upmortarsoldier, rank1
 	RenderSprites:
 		Image: cyberdog

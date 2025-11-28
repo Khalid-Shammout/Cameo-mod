@@ -1535,6 +1535,8 @@ Player:
 	Inherits@Template: ^SupportVehicleTemplate
 	Inherits@selection: ^SelectableSupportUnit
 	Inherits@mcv: ^MCV
+	Buildable:
+		Queue: Vehicle, RAVehicle
 	Armor:
 		Type: Plate
 	#Food
@@ -1549,6 +1551,8 @@ Player:
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@AutoRepair: ^PrioritizeRepair
+	Buildable:
+		Queue: Infantry, RAInfantry
 	#Food
 
 ^wc2_demolitioner:
@@ -1916,15 +1920,15 @@ wc2_human_townhall:
 	Tooltip@3:
 		Name: Castle
 		RequiresCondition: wc2_human_castle
-	Production@NORMAL:
-		-RequiresCondition:
-	-Production@CLASSICPRODUCTIONQUEUES:
-	ProductionBar@BUILDING:
-		-RequiresCondition:
-	ProductionBar@DEFENCE:
-		-RequiresCondition:
-	-ProductionBar@RABUILDING:
-	-ProductionBar@RADEFENCE:
+	# Production@NORMAL:
+	# 	-RequiresCondition:
+	# -Production@CLASSICPRODUCTIONQUEUES:
+	# ProductionBar@BUILDING:
+	# 	-RequiresCondition:
+	# ProductionBar@DEFENCE:
+	# 	-RequiresCondition:
+	# -ProductionBar@RABUILDING:
+	# -ProductionBar@RADEFENCE:
 	ProductionQueue@Building:
 		LowPowerModifier: 100
 	ProductionQueue@Defense:
@@ -2024,7 +2028,7 @@ wc2_human_keep:
 		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites:  ~wc2_human_townhall, keepupgradeavailable, wc2_human_blacksmith
 		Description: Unlocks more advanced buildings.
 	Plug:
@@ -2038,7 +2042,7 @@ wc2_human_castle:
 		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~wc2_human_keep, castleupgradeavailable, wc2_human_gnomish_inventor, wc2_human_stables
 		Description: Unlocks more advanced buildings.
 	Plug:
@@ -2484,6 +2488,7 @@ wc2_human_scout_tower:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@EXPERIENCE: ^GainsExperienceBuildings
 	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: Human Scout Tower
 		RequiresCondition: !guard && !cannon
@@ -2620,7 +2625,7 @@ wchumancannontowerupgrade:
 	Valued:
 		Cost: 600
 	Buildable:
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~wc2_human_elven_lumber_mill, scouttowerupgradeavailable
 		Description: Ground base defense.
 	Plug:
@@ -2635,7 +2640,7 @@ wchumanguardtowerupgrade:
 	Valued:
 		Cost: 600
 	Buildable:
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~wc2_human_blacksmith, scouttowerupgradeavailable
 		Description: Anti-aircraft base defense.
 	Plug:
@@ -2813,7 +2818,6 @@ wc2_human_mcv:
 	Inherits@WC2Template: ^wc2_mcv
 	Buildable:
 		Prerequisites: ~wc2_human_blacksmith
-		Queue: Building, RABuilding
 		Description: Transforms into a Town Hall.
 	Tooltip:
 		Name: Mobile Construction Vehicle (Human)
@@ -3670,15 +3674,15 @@ wc2_orc_greathall:
 	Tooltip@3:
 		Name: Fortress
 		RequiresCondition: wc2_orc_fortress
-	Production@NORMAL:
-		-RequiresCondition:
-	-Production@CLASSICPRODUCTIONQUEUES:
-	ProductionBar@BUILDING:
-		-RequiresCondition:
-	ProductionBar@DEFENCE:
-		-RequiresCondition:
-	-ProductionBar@RABUILDING:
-	-ProductionBar@RADEFENCE:
+	# Production@NORMAL:
+	# 	-RequiresCondition:
+	# -Production@CLASSICPRODUCTIONQUEUES:
+	# ProductionBar@BUILDING:
+	# 	-RequiresCondition:
+	# ProductionBar@DEFENCE:
+	# 	-RequiresCondition:
+	# -ProductionBar@RABUILDING:
+	# -ProductionBar@RADEFENCE:
 	ProductionQueue@Building:
 		LowPowerModifier: 100
 	ProductionQueue@Defense:
@@ -3778,7 +3782,7 @@ wc2_orc_stronghold:
 		Cost: 2500
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites:  ~wc2_orc_greathall, strongholdupgradeavailable, wc2_orc_blacksmith
 		Description: Unlocks more advanced buildings.
 	Plug:
@@ -3792,7 +3796,7 @@ wc2_orc_fortress:
 		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 80
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~wc2_orc_stronghold, fortressupgradeavailable, wc2_orc_goblin_alchemist, wc2_orc_ogre_mound
 		Description: Unlocks more advanced buildings.
 	Plug:
@@ -4187,6 +4191,7 @@ wc2_orc_watch_tower:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@EXPERIENCE: ^GainsExperienceBuildings
 	Inherits@WC2OShieldUpg: ^wc2_o_str_shield
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: Orc Watch Tower
 		RequiresCondition: !guard && !cannon
@@ -4323,7 +4328,7 @@ wcorcguardtowerupgrade:
 	Valued:
 		Cost: 600
 	Buildable:
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~wc2_orc_troll_lumber_mill, scouttowerupgradeavailable
 		Description: Ground base defense.
 	Plug:
@@ -4338,7 +4343,7 @@ wcorccannontowerupgrade:
 	Valued:
 		Cost: 600
 	Buildable:
-		Queue: Addons
+		Queue: BuildingAddons
 		Prerequisites: ~wc2_orc_blacksmith, scouttowerupgradeavailable
 		Description: Anti-aircraft base defense.
 	Plug:
@@ -4490,7 +4495,6 @@ wc2_orc_mcv:
 	Buildable:
 		Prerequisites: ~wc2_orc_blacksmith
 		Description: Transforms into a Great Hall.
-		Queue: Building, RABuilding
 	Tooltip:
 		Name: Mobile Construction Vehicle (Orc)
 	Transforms:
@@ -5146,8 +5150,9 @@ wc2_orc_deathknight:
 		PipCount: 10
 
 wc2_orc_skeleton:
-	Inherits@wc2_human_footman: wc2_human_footman
+	Inherits@wc2_orc_grunt: wc2_orc_grunt
 	Inherits@WC2AxeUpg: ^wc2_o_str_axe
+	Inherits@WC2OShieldUpg: ^wc2_o_str_shield
 	Tooltip:
 		Name: Skeleton
 	Buildable:
@@ -5155,8 +5160,16 @@ wc2_orc_skeleton:
 		Prerequisites: ~disabled
 		Queue: Infantry, RAInfantry
 		Description: Undead melee infantry. Spooky!
+	Valued:
+		Cost: 100
+	Power:
+		Amount: -5
 	Health:
-		HP: 9600
+		HP: 10000
+	ChangesHealth@SelfHealing:
+		Step: 10
+	Mobile:
+		Speed: 100
 	Armament:
 		Weapon: wc2skeletonpunch
 	Voiced:
@@ -5167,7 +5180,7 @@ wc2_orc_skeleton:
 	Targetable@UNDEAD:
 		TargetTypes: undeadtarget
 	ActorStatValues:
-		Upgrades: wc2axe_upg, wc2axe_upg2
+		Upgrades: wc2_o_str_axe, wc2_o_str_axe2, wc2_o_str_shield, wc2_o_str_shield2
 
 ####################################################################################################
 # WC2 ORC SHIPS

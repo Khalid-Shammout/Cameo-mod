@@ -1261,6 +1261,7 @@
 		BeamColor: 0080FFC8
 		HelixPlayerColor: true
 		Blockable: false
+		ZOffset: 2048
 	Warhead@RailgunWeapon: SpreadDamage
 		AffectsParent: false
 		Damage: 1000

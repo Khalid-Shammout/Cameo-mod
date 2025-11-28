@@ -130,7 +130,7 @@ AsianTsunamiVoice:
 AsianShipVoice:
 	DefaultVariant: .wav
 	Voices:
-		Select: , aa_ship_s1, , aa_ship_s2, , aa_ship_s3
+		Select: aa_ship_s1, , aa_ship_s2, , aa_ship_s3
 		Move: aa_ship_m1, aa_ship_m2, aa_ship_m3, aa_ship_m4, aa_ship_m6, aa_ship_m5
 		Action: aa_ship_m1, aa_ship_m2, aa_ship_m3, aa_ship_m4, aa_ship_m6, aa_ship_m5
 		Attack: aa_ship_a1, aa_ship_a2, aa_ship_a3, aa_ship_a4, aa_ship_a5
@@ -181,6 +181,18 @@ SteelEngVoice:
 		Capture: FEngiCapturea, FEngiCaptureb
 		Feedback: FEngiRetreata ,FEngiRetreatb
 		Die: FEngiDiea, FEngiDieb
+
+SteelStalkerVoice:
+	Inherits: ^InfantryDeath
+	DefaultVariant: .wav
+	VolumeModifier: 5
+	Voices:
+		Build: StalkerReporting
+		Select: StalkerSel1, StalkerSel2
+		Move: StalkerMov1, StalkerMov2
+		Action: StalkerMov1, StalkerMov2
+		Attack: StalkerAttack1, StalkerAttack2, StalkerAttack3
+		Die: StalkerDeath1, StalkerDeath2
 
 SteelAircraftVoice:
 	DefaultVariant: .wav

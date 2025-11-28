@@ -6604,6 +6604,7 @@ CPQDEBUGDUMMY:
 ^Conyard:
 	Inherits@CPQ: ^CPQCondition
 	Inherits@aicash: ^AIConyardCash
+	# Inherits: ^BuildingPlugProducer
 	Buildable:
 		Queue: Building, RABuilding
 		BuildPaletteOrder: 1000
@@ -8369,6 +8370,16 @@ CPQDEBUGDUMMY:
 	KillsSelf:
 		RemoveInstead: true
 	RenderSprites:
+
+^BuildingPlugProducer:
+	Production@BuildingAddons:
+		Produces: BuildingAddons
+	ProductionBar@BuildingAddons:
+		ProductionType: BuildingAddons
+	FreeActor@CPQDEBUGDUMMY:
+		Actor: CPQDEBUGDUMMY
+	GrantExternalConditionToProduced:
+		Condition: produced
 
 ^BlastRadiusIndicator:
 	Interactable:

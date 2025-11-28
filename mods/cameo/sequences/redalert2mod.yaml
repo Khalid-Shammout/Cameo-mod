@@ -4497,6 +4497,28 @@ white_rabbit:
 		Filename: steel_mega_icon.shp
 		Offset: 0,0
 
+steel_stalker:
+	Defaults:
+		Filename: steel_stalker.png
+		Offset: 0,0
+	idle:
+		Filename: invisibleitem.shp
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 7
+		Facings: 8
+		Tick: 70
+	shoot:
+		Start: 64
+		Length: 7
+		Facings: 8
+		Tick: 70
+	icon:
+		Filename: steel_stalker_icon.png
+		Offset: 0,0
+
 steel_beholder:
 	Defaults:
 		Filename: steel_beholder.shp

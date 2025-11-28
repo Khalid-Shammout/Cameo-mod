@@ -1766,11 +1766,6 @@ upgrade-experimentalteslaweaponry =
    and adds an EMP effect that will stun vehicles and buildings after several hits.
    Unlocks the "Parabombs" Support power from the Soviet Airfield.
 
-upgrade-afterburners =
-   .description = Increases damage, range and speed of Migs, Su-57s and Nuclear Bombers by 15%.
-   Unlocks the "Spyplane" Support power from the Soviet Airfield.
-   Jets also take 15% less damage.
-
 upgrade-sovietautoloaders =
    .description = Reduces the Reload Delay of Tanks, Hinds and Volkov by 40%.
 
@@ -1991,6 +1986,23 @@ ra_doctrine_nuclearwar =
       Replaces V2 Rocket Launcher with Nuclear V2 Rocket Launcher
       Unlocks Kotin Nuclear Tank
       Unlocks Unstable Isotopes, Thermonuclear Rockets and Nuclear Tank Shells Upgrades
+
+ra_upgrade_hazmatsuits =
+   .description = Infantry Armor Upgrade
+      Increases Infantry Damage Resistance by Tiberium, Radiation,
+      High Explosives, Fire, Chemicals and Nuclear Weapons by 100%.
+
+ra_upgrade_afterburners =
+   .description = Increases damage, range and speed of Migs, Su-57s and Nuclear Bombers by 15%.
+      Unlocks the "Paratroopers" Support Power from the Soviet Airfield.
+      Upgrades the "Parabombs" Support Power from the Soviet Airfield.
+      Jets also take 15% less damage.
+
+ra_upgrade_afterburners =
+   .description = Increases damage, range and speed of Migs, Su-57s and Nuclear Bombers by 15%.
+      Unlocks the "Paratroopers" Support Power from the Soviet Airfield.
+      Upgrades the "Parabombs" Support Power from the Soviet Airfield.
+      Jets also take 15% less damage.
 
 ra_upgrade_vengeance =
    .description = Tech Upgrade (Only affects units of own faction)

@@ -396,6 +396,7 @@ tkmrefinery:
 	Inherits@sell: ^TKMSpawnActorsOnSell
 	Inherits@ref: ^Refinery
 	Inherits@shape: ^2x2Shape
+	Inherits: ^BuildingPlugProducer
 	Tooltip:
 		Name: TKM Ore Refinery
 	Buildable:
@@ -448,7 +449,7 @@ tkmslavelabor:
 	Valued:
 		Cost: 2500
 	Buildable:
-		Queue: Defence, RADefence
+		Queue: BuildingAddons
 		Prerequisites: ~tkmcommandcenter, tkmrefineryupgradeavailable
 		Description: The Refinery spawns workers and passive income.
 	Plug:

@@ -152,6 +152,7 @@ CycloneRockets:
 	Burst: 6
 	BurstDelays: 2
 	ValidTargets: Ground, Water, Trees, Air
+	TargetActorCenter: true
 	Projectile: Missile
 		Blockable: false
 		MaximumLaunchSpeed: 250
@@ -186,7 +187,7 @@ CycloneRockets:
 CycloneRocketsLockOn:
 	Inherits: CycloneRockets
 	ValidTargets: lockon
-	Range: 11000
+	Range: 10000
 
 MarauderMissiles:
 	Inherits: ^TankDestroyerCannon

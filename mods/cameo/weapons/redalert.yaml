@@ -3840,9 +3840,9 @@ Maverick:
 		TrailInterval: 1
 		TrailDelay: 1
 	Warhead@MediumMissile: SpreadDamage
-		Damage: 20000
+		Damage: 40000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		Damage: 10
+		Damage: 20
 
 TeslaMaverick:
 	Inherits: ^TeslaWeapon
@@ -3860,24 +3860,24 @@ TeslaMaverick:
 		TrailDelay: 1
 	Warhead@TeslaWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8000
+		Damage: 16000
 		ValidRelationships: Neutral, Enemy
 	Warhead@TeslaExtraDamage: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4000
+		Damage: 8000
 		ValidRelationships: Neutral, Enemy
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4
+		Damage: 8
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 8000
+		Damage: 16000
 		ValidRelationships: Neutral, Enemy
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
-		Damage: 4
+		Damage: 8
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 8000
+		Damage: 16000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TeslaMaverickFragment1
 		Amount: 1
@@ -3900,17 +3900,17 @@ TeslaMaverickFragment1:
 		-Image: d2k_RPG
 		-TrailImage: litning
 	Warhead@TeslaWeapon: SpreadDamage
-		Damage: 4000
+		Damage: 8000
 	Warhead@TeslaExtraDamage: SpreadDamage
-		Damage: 2000
+		Damage: 4000
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
-		Damage: 2
+		Damage: 4
 	Warhead@MediumMissile: SpreadDamage
-		Damage: 4000
+		Damage: 8000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		Damage: 2
+		Damage: 4
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 4000
+		Damage: 8000
 	Warhead@TeslaArc: FireShrapnel
 		Weapon: TeslaMaverickFragment2
 		Amount: 1
@@ -3922,17 +3922,17 @@ TeslaMaverickFragment2:
 	Inherits: TeslaMaverickFragment1
 	Range: 1475
 	Warhead@TeslaWeapon: SpreadDamage
-		Damage: 2000
+		Damage: 4000
 	Warhead@TeslaExtraDamage: SpreadDamage
-		Damage: 1000
+		Damage: 2000
 	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
-		Damage: 1
+		Damage: 2
 	Warhead@MediumMissile: SpreadDamage
-		Damage: 2000
+		Damage: 4000
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		Damage: 1
+		Damage: 2
 	Warhead@EMPUnit: AffectsIntegrity
-		Damage: 2000
+		Damage: 4000
 	-Warhead@TeslaArc: FireShrapnel
 
 ThermobaricMaverick:
@@ -3953,32 +3953,32 @@ ThermobaricMaverick:
 		TrailDelay: 1
 	Warhead@NuclearWarhead: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 6000
+		Damage: 12000
 	Warhead@NuclearWarheadPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 3
+		Damage: 6
 	Warhead@MediumFlameWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 6000
+		Damage: 12000
 	Warhead@MediumFlameWeaponFriendlyFire: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 3000
+		Damage: 6000
 	Warhead@MediumFlameWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 3
+		Damage: 6
 	Warhead@HeavyMissile: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 6000
+		Damage: 12000
 	Warhead@HeavyMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 3
+		Damage: 6
 	Warhead@MediumMissile: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 6000
+		Damage: 12000
 		ValidRelationships: Neutral, Enemy
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 3
+		Damage: 6
 	Warhead@Effect: CreateEffect
 		ValidTargets: Ground, Water, Air
 		Explosions: nuke_small
@@ -6682,6 +6682,22 @@ RAAtomic:
 	Warhead@6Eff_areanukea: CreateEffect
 		ImpactSounds: kaboom22.aud
 
+SpyPlaneTargeting:
+	ReloadDelay: 100
+	Range: 10000
+	Projectile: InstantExplode
+	Warhead@Condition: GrantExternalCondition
+		Range: 10000
+		Duration: 500
+		Condition: lockon
+		ValidTargets: lockable
+		ValidRelationships: Enemy
+
+SpyPlaneTargeting2:
+	Inherits: SpyPlaneTargeting
+	Warhead@Condition: GrantExternalCondition
+		Duration: 750
+
 ChronoAI:
 	ReloadDelay: 1
 	Projectile: InstantExplode
@@ -6693,6 +6709,7 @@ ChronoAI:
 		Palette: ra2effect
 		ValidTargets: Air, Ground, Water
 	Warhead@2Flash: ChronoFlashEffect
+
 DTMutate:
 	ValidTargets: Ground, Air, Trees
 	Warhead@1Dam: HealthPercentageDamage
