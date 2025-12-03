@@ -628,6 +628,21 @@ TS120mmxChem:
 		Palette: ra2effect
 		Weapon: RA2Cloud
 		InvalidTargets: Water
+TSJuggerFlakAA:
+	Inherits: ^FlakWeapon
+	Report: jugger1.aud
+	ReloadDelay: 14
+	Burst: 3
+	BurstDelays: 3
+	Range: 11412
+	ValidTargets: Air
+	Warhead@FlakWeapon: SpreadDamage
+		Damage: 4000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		Damage: 2
+	Warhead@Effect: CreateEffect
+		Explosions: small_poof
+		ImpactSounds: expnew13.aud
 ####################################################################################################
 #		Tiberian Sun Energy Weapons
 ####################################################################################################
@@ -1774,6 +1789,47 @@ TSMobileEMP:
 		ImpactActors: false
 		AffectsParent: true
 
+TSLocustBomb:
+	Inherits: ^HeavyBomb
+	ReloadDelay: 38
+	Burst: 5
+	BurstDelays: 3
+	Range: 1250
+	TargetActorCenter: true
+	Projectile: GravityBomb
+		Velocity: 72, 0, -90
+		Acceleration: 0, 0, -8
+		Image: 120mm
+		Shadow: true
+	Warhead@HeavyBomb: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 10000
+		Spread: 2000
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5
+		Spread: 2000
+	Warhead@2Eff: CreateEffect
+		Explosions: small_frag
+		ImpactSounds: expnew09.aud
+		ValidTargets: Ground, Air
+	Warhead@3EffWater: CreateEffect
+		Explosions: small_splash
+		ImpactSounds: ssplash3.aud
+		ValidTargets: Water
+		InvalidTargets: Vehicle
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: Crater
+	Warhead@Cloud: SpawnSmokeParticle
+		Count: 3
+		Duration: 100
+		Speed: 12, 25
+		TurnRate: 12
+		Image: ra2txgasg
+		Sequences: idle
+		Palette: ra2effect
+		Weapon: RA2Cloud
+		InvalidTargets: Water
 ####################################################################################################
 #		Tiberian Sun MGS
 ####################################################################################################

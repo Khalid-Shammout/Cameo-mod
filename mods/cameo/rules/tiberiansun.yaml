@@ -2246,16 +2246,6 @@ TSGTCNSTMUTANT:
 		Range: 14c0
 	ProvidesPrerequisite@tsoilderricksuper:
 		Prerequisite: tsoilderricksuper
-	WithBuildingBib:
-	WithIdleOverlay@TOP:
-		RequiresCondition: !build-incomplete
-		Sequence: idle-top
-	WithIdleOverlay@SIDE:
-		RequiresCondition: !build-incomplete
-		Sequence: idle-side
-	WithIdleOverlay@FRONT:
-		RequiresCondition: !build-incomplete
-		Sequence: idle-front
 	WithBuildingPlacedOverlay:
 		RequiresCondition: !build-incomplete
 	Selectable:
@@ -3021,6 +3011,56 @@ tsgtctwrsam:
 	ActorStatValues:
 		Upgrades: up_tsprojectileimprovements
 
+forgot_tower:
+	Inherits: ^Defense
+	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@exp: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@EMP: ^TurretEMP
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Machingun Tower
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~tsgtcnstmutant, tsgtpile2
+		Queue: Defence, RADefence
+		BuildDurationModifier: 40
+		Description: Basic base defense.\nDoes not require power to operate.\n  Strong vs Infantry, Light armor\n  Weak vs Aircraft
+	RequiresBuildableArea:
+		AreaTypes: building
+	Selectable:
+		Bounds: 1024, 1024
+	SelectionDecorations:
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 7c0
+	Turreted:
+		TurnSpeed: 48
+		Offset: 0,0,0
+	WithSpriteBody:
+	Armament@PRIMARY:
+		Weapon: TSVulcanGun
+		LocalOffset: 300,60,600
+		RequiresCondition: !up_sonicweaponry
+	#Armament@VULCSECONDARY:
+	#	Weapon: TurretGun
+	#	LocalOffset: 300,-60,600
+	AttackTurreted:
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	DetectCloaked:
+		Range: 3c0
+	-SpawnActorsOnSell:
+	-WithDeathAnimation:
+	Power:
+		Amount: -20
+	RenderSprites:
+		PlayerPalette: player_rgba
+
 tsgtctwrsammutant:
 	Inherits: ^Defense
 	Inherits@Template: ^AntiAirDefenseTemplate
@@ -3028,9 +3068,9 @@ tsgtctwrsammutant:
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
 	Valued:
-		Cost: 800
+		Cost: 1200
 	Tooltip:
-		Name: SAM Tower
+		Name: Juggerflak Wall
 	Buildable:
 		BuildPaletteOrder: 140
 		Prerequisites: ~tsgtcnstmutant, tsgtpile2
@@ -3051,20 +3091,171 @@ tsgtctwrsammutant:
 		Offset: 0,0,0
 	WithSpriteBody:
 	Armament:
-		Weapon: TSRedEye2
+		Weapon: TSJuggerFlakAA
 		LocalOffset: 250,0,750
 	AttackTurreted:
 	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
 	DetectCloaked:
 		Range: 4c0
 	-SpawnActorsOnSell:
 	-WithDeathAnimation:
 	Power:
-		Amount: -30
+		Amount: -40
 	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tsgtctwrsam
+		PlayerPalette: player_rgba
+		Image: forgot_juggerflak
 
+
+
+forgot_ltnk_tur:
+	Inherits: ^Defense
+	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@exp: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@EMP: ^TurretEMP
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Broken Tank Turret
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~tsgtcnstmutant, tsgtpile2
+		Queue: Defence, RADefence
+		BuildDurationModifier: 40
+		Description: Basic base defense.\nDoes not require power to operate.\n  Strong vs Infantry, Light armor\n  Weak vs Aircraft
+	RequiresBuildableArea:
+		AreaTypes: building
+	Selectable:
+		Bounds: 1024, 1024
+	SelectionDecorations:
+	Health:
+		HP: 80000
+	RevealsShroud:
+		Range: 7c0
+	Turreted:
+		TurnSpeed: 48
+		Offset: 0,0,0
+	WithSpriteBody:
+	Armament@PRIMARY:
+		Weapon: 70mm
+		LocalOffset: 300,60,600
+		RequiresCondition: !up_sonicweaponry
+	#Armament@VULCSECONDARY:
+	#	Weapon: TurretGun
+	#	LocalOffset: 300,-60,600
+	AttackTurreted:
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	DetectCloaked:
+		Range: 3c0
+	-SpawnActorsOnSell:
+	-WithDeathAnimation:
+	Power:
+		Amount: 0
+	RenderSprites:
+		PlayerPalette: player_rgba
+forgot_mtnk_tur:
+	Inherits: ^Defense
+	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@exp: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@EMP: ^TurretEMP
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Broken Tank Turret
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~tsgtcnstmutant, tsgtpile2
+		Queue: Defence, RADefence
+		BuildDurationModifier: 40
+		Description: Basic base defense.\nDoes not require power to operate.\n  Strong vs Infantry, Light armor\n  Weak vs Aircraft
+	RequiresBuildableArea:
+		AreaTypes: building
+	Selectable:
+		Bounds: 1024, 1024
+	SelectionDecorations:
+	Health:
+		HP: 125000
+	RevealsShroud:
+		Range: 7c0
+	Turreted:
+		TurnSpeed: 48
+		Offset: 0,0,0
+	WithSpriteBody:
+	Armament@PRIMARY:
+		Weapon: 120mm
+		LocalOffset: 300,60,600
+		RequiresCondition: !up_sonicweaponry
+	#Armament@VULCSECONDARY:
+	#	Weapon: TurretGun
+	#	LocalOffset: 300,-60,600
+	AttackTurreted:
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	DetectCloaked:
+		Range: 3c0
+	-SpawnActorsOnSell:
+	-WithDeathAnimation:
+	Power:
+		Amount: 0
+	RenderSprites:
+		PlayerPalette: player_rgba
+
+forgot_htnk_tur:
+	Inherits: ^Defense
+	Inherits@Template: ^BasicDefenseTemplate
+	Inherits@exp: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetAll
+	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@EMP: ^TurretEMP
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Broken Tank Turret
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~tsgtcnstmutant, tsgtpile2
+		Queue: Defence, RADefence
+		BuildDurationModifier: 40
+		Description: Basic base defense.\nDoes not require power to operate.\n  Strong vs Infantry, Light armor\n  Weak vs Aircraft
+	RequiresBuildableArea:
+		AreaTypes: building
+	Selectable:
+		Bounds: 1024, 1024
+	SelectionDecorations:
+	Health:
+		HP: 150000
+	RevealsShroud:
+		Range: 7c0
+	Turreted:
+		TurnSpeed: 48
+		Offset: 0,0,0
+	WithSpriteBody:
+	Armament@PRIMARY:
+		Weapon: 120mmDual
+		LocalOffset: 300,60,600
+		RequiresCondition: !up_sonicweaponry
+	#Armament@VULCSECONDARY:
+	#	Weapon: TurretGun
+	#	LocalOffset: 300,-60,600
+	AttackTurreted:
+	WithSpriteTurret:
+		RequiresCondition: !build-incomplete
+	DetectCloaked:
+		Range: 3c0
+	-SpawnActorsOnSell:
+	-WithDeathAnimation:
+	Power:
+		Amount: 0
+	RenderSprites:
+		PlayerPalette: player_rgba
 tsntsam:
 	Inherits: ^Defense
 	Inherits@Template: ^AntiAirDefenseTemplate
@@ -7209,6 +7400,57 @@ TSCAR2:
 		Payload: 175
 	RenderSprites:
 		PlayerPalette: player_rgba
+tsbowler:
+	Inherits: ^CivilianDriveByVehicle
+	Inherits: ^Vehicle
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^TurretEMP
+	Inherits@vo: ^AttackTurretedVoice
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Bowler
+	Buildable:
+		BuildPaletteOrder: 40
+		Prerequisites: ~tsgtweapmutant
+		Queue: Vehicle, RAVehicle
+		Description: Fast raiding vehicle.\n  Strong vs Infantry\n  Weak vs Vehicles
+	Mobile:
+		Speed: 135
+	Health:
+		HP: 45000
+	Repairable:
+		HpPerStep: 2637
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 7c0
+	Turreted:
+		TurnSpeed: 44
+		Offset: -200,0,25
+	Armament:
+		Weapon: TSAssaultCannon
+		Recoil: 128
+		RecoilRecovery: 26
+		LocalOffset: 0,121,271, 0,-121,271
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackTurreted:
+	Cargo:
+		InitialUnits: tsmutant, tsmutant, tsmutant
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	WithSpriteTurret:
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 175
+	RenderSprites:
+		PlayerPalette: player_rgba
 tsruiner:
 	Inherits: ^CivilianDriveByVehicle
 	Inherits: ^Vehicle
@@ -7311,7 +7553,8 @@ TS1TNK:
 		Payload: 325
 	RenderSprites:
 		PlayerPalette: player_rgba
-
+	SpawnActorOnDeath:
+		Actor: forgot_ltnk_tur
 TS2TNK:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
@@ -7363,6 +7606,8 @@ TS2TNK:
 		Payload: 400
 	RenderSprites:
 		PlayerPalette: player_rgba
+	SpawnActorOnDeath:
+		Actor: forgot_mtnk_tur
 TS3TNK:
 	Inherits: ^Tank
 	Inherits@Template: ^MainBattleTankTemplate
@@ -7414,6 +7659,8 @@ TS3TNK:
 		Payload: 400
 	RenderSprites:
 		PlayerPalette: player_rgba
+	SpawnActorOnDeath:
+		Actor: forgot_htnk_tur
 TSFTNK:
 	Inherits: ^Tank
 	Inherits@Template: ^LineBreakerTemplate
@@ -8689,15 +8936,18 @@ TSAPACHENOD:
 
 TSAPACHEMUTANT:
 	Inherits: ^Helicopter
+	Inherits@Template: ^HelicopterTemplate
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@AntiDef: ^PrioritizeDefence
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
 	Valued:
-		Cost: 1000
+		Cost: 1600
 	Tooltip:
-		Name: Harpy
+		Name: Cobra Copter
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -8707,7 +8957,7 @@ TSAPACHEMUTANT:
 		Description: Anti-personnel support gunship\narmed with dual chain guns.\n  Strong vs Infantry, Light armor, Aircraft\n  Weak vs Vehicles
 	Aircraft:
 		TurnSpeed: 80
-		Speed: 150
+		Speed: 220
 	Health:
 		HP: 22500
 	Armor:
@@ -8719,17 +8969,19 @@ TSAPACHEMUTANT:
 		Weapon: TSHarpyClaw
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
+	Armament:
+		Weapon: TSBikeMissile
+		LocalOffset: 0,121,271, 0,-121,271
+		PauseOnCondition: !ammo
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
 		Voice: Attack
 		PauseOnCondition: disabled
 		AttackType: Hover
-	-WithShadow:
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 1536, 1536
-	WithVoxelBody:
 	Voiced:
 		VoiceSet: TSScrin
 	AmmoPool:
@@ -8740,26 +8992,40 @@ TSAPACHEMUTANT:
 		Delay: 25
 		Count: 1
 	SpawnActorOnDeath:
-		Actor: TSAPACHE.Husk
+		Actor: TSAPACHEMUTANT.Husk
 	WithIdleOverlay@ROTORAIR:
-		Offset: 42,0,300
+		Offset: 42,0,400
 		Sequence: rotor
 		RequiresCondition: airborne
 		PauseOnCondition: disabled
 	WithIdleOverlay@ROTORGROUND:
-		Offset: 42,0,300
+		Offset: 42,0,400
 		Sequence: slow-rotor
 		RequiresCondition: !airborne
 		PauseOnCondition: disabled
-	RenderVoxels:
-		Scale: 15
-		Image: tsapache
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
 		PipCount: 4
 	RenderSprites:
-		Image: tsapache
+		Image: tsapachemutant
+		PlayerPalette: player_rgba
+	EjectOnDeath:
+		PilotActor: tsmutant
+
+TSAPACHEMUTANT.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Cobra Copter
+	Aircraft:
+		TurnSpeed: 80
+		Speed: 150
+	RevealsShroud:
+		Range: 7c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: tsapachemutant
+		PlayerPalette: player_rgba
 
 TSAPACHECABAL:
 	Inherits: ^Helicopter
@@ -8953,15 +9219,17 @@ TSHELI.Husk:
 
 TSHIND:
 	Inherits: ^Helicopter
+	Inherits@Template: ^HelicopterTemplate
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
-	Inherits@Voxel: ^TSRenderVoxel
-	Inherits@reload: ^RearmableAircraft
+	Inherits@eject: ^AircraftEjectOnDeath
 	Valued:
 		Cost: 950
 	Tooltip:
-		Name: Hind
+		Name: Wasp
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -8970,10 +9238,15 @@ TSHIND:
 		Queue: Aircraft, RAAircraft
 		Description: Anti-personnel support gunship\narmed with dual chain guns.\n  Strong vs Infantry, Light armor, Aircraft\n  Weak vs Vehicles
 	Aircraft:
-		TurnSpeed: 80
-		Speed: 120
+		Speed: 145
+		TurnSpeed: 29
+		TakeoffSounds: orcaup1.aud
+		LandingSounds: orcadwn1.aud
+		AltitudeVelocity: 128
+		CanSlide: false
+		TakeOffOnResupply: true
 	Health:
-		HP: 20000
+		HP: 15000
 	Armor:
 		Type: Light
 	RevealsShroud:
@@ -8989,34 +9262,23 @@ TSHIND:
 		Voice: Attack
 		PauseOnCondition: disabled
 		AttackType: Hover
-	-WithShadow:
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 1536, 1536
-	WithVoxelBody:
 	Voiced:
 		VoiceSet: TSHeli
 	AmmoPool:
-		Ammo: 12
-		ReloadCount: 3
+		Ammo: 4
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 25
+		Delay: 8
 		Count: 1
 	SpawnActorOnDeath:
 		Actor: TSHIND.Husk
-	WithIdleOverlay@ROTORAIR:
-		Offset: 42,0,300
-		Sequence: rotor
-		RequiresCondition: airborne
-		PauseOnCondition: disabled
-	WithIdleOverlay@ROTORGROUND:
-		Offset: 42,0,300
-		Sequence: slow-rotor
-		RequiresCondition: !airborne
-		PauseOnCondition: disabled
-	RenderVoxels:
-		Scale: 15
+	EjectOnDeath:
+		PilotActor: tsmutant
+	RenderSprites:
+		PlayerPalette: player_rgba
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
@@ -9025,9 +9287,8 @@ TSHIND:
 
 TSHIND.Husk:
 	Inherits: ^HelicopterHusk
-	Inherits@Voxel: ^TSRenderVoxel
 	Tooltip:
-		Name: Hind
+		Name: Wasp
 	Aircraft:
 		TurnSpeed: 80
 		Speed: 120
@@ -9036,12 +9297,265 @@ TSHIND.Husk:
 		Type: GroundPosition
 	RenderSprites:
 		Image: tshind
-	RenderVoxels:
-		Image: tshind
-		Scale: 15
-	-WithShadow:
-	-Cloak@TDcloak:
-	-Cloak@TScloak:
+	RenderSprites:
+		PlayerPalette: player_rgba
+
+
+tscropplane:
+	Inherits: ^Helicopter
+	Inherits@Template: ^BomberTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@reload: ^RearmableAircraft
+	Inherits@MechanicalReliability: ^MechanicalReliability
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Crop Plane
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~tsgthpadmutant, tsfgttech
+		Queue: Aircraft, RAAircraft
+		Description: Heavy bomber.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
+	Aircraft:
+		CruiseAltitude: 2560
+		TurnSpeed: 35
+		Speed: 175
+		CruisingCondition: cruising
+		TakeoffSounds: oldplane_up.wav
+		LandingSounds: oldplane_down.wav
+		CanHover: false
+		CanSlide: false
+	Health:
+		HP: 60000
+	Repairable:
+		HpPerStep: 6000
+	ChangesHealth@SelfHealing:
+		Step: 48
+	RevealsShroud:
+		Range: 7c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Weapon: TSLocustBomb
+		LocalOffset: 0,0,0
+		PauseOnCondition: !ammo
+	AttackAircraft:
+		Voice: Attack
+		FacingTolerance: 80
+		PersistentTargeting: false
+		PauseOnCondition: disabled
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 1536, 1536
+	Voiced:
+		VoiceSet: TSHeli
+	AmmoPool:
+		Ammo: 6
+		ReloadCount: 3
+		AmmoCondition: ammo
+	# ReloadAmmoPool:
+	# 	Delay: 25
+	# 	Count: 1
+	SpawnActorOnDeath:
+		Actor: tscropplane.Husk
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 2
+	RenderSprites:
+		PlayerPalette: player_rgba
+
+
+tscropplane.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Crop Plane
+	Aircraft:
+		TurnSpeed: 40
+		Speed: 96
+	RevealsShroud:
+		Range: 7c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: tsflocust
+		PlayerPalette: player_rgba
+
+tsflocust:
+	Inherits: ^Helicopter
+	Inherits@Template: ^BomberTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@reload: ^RearmableAircraft
+	Inherits@MechanicalReliability: ^MechanicalReliability
+	Valued:
+		Cost: 1900
+	Tooltip:
+		Name: Locust Bomber
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~tsgthpadmutant, tsfgttech
+		Queue: Aircraft, RAAircraft
+		Description: Heavy bomber.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
+	Aircraft:
+		CruiseAltitude: 2560
+		TurnSpeed: 35
+		Speed: 175
+		CruisingCondition: cruising
+		TakeoffSounds: orcaup1.aud
+		LandingSounds: orcadwn1.aud
+		CanHover: false
+		CanSlide: false
+	Health:
+		HP: 120000
+	Repairable:
+		HpPerStep: 6000
+	ChangesHealth@SelfHealing:
+		Step: 48
+	RevealsShroud:
+		Range: 7c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Weapon: TSLocustBomb
+		LocalOffset: 0,0,0
+		PauseOnCondition: !ammo
+	AttackAircraft:
+		Voice: Attack
+		FacingTolerance: 80
+		PersistentTargeting: false
+		PauseOnCondition: disabled
+	SelectionDecorations:
+	Selectable:
+		DecorationBounds: 1536, 1536
+	Voiced:
+		VoiceSet: TSHeli
+	AmmoPool:
+		Ammo: 15
+		ReloadCount: 10
+		AmmoCondition: ammo
+	# ReloadAmmoPool:
+	# 	Delay: 25
+	# 	Count: 1
+	SpawnActorOnDeath:
+		Actor: tsflocust.Husk
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 2
+	RenderSprites:
+		PlayerPalette: player_rgba
+
+
+tsflocust.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Locust Bomber
+	Aircraft:
+		TurnSpeed: 40
+		Speed: 96
+	RevealsShroud:
+		Range: 7c0
+		Type: GroundPosition
+	RenderSprites:
+		Image: tsflocust
+		PlayerPalette: player_rgba
+
+tsfsmoker:
+	Inherits: ^AirstrikePlane
+	ParaDrop:
+		DropRange: 5c0
+		ChuteSound: chute1.aud
+	Selectable:
+		DecorationBounds: 1536, 1536
+	Health:
+		HP: 150000
+	Armor:
+		Type: Bomber
+	Aircraft:
+		CruiseAltitude: 2560
+		TurnSpeed: 20
+		Speed: 175
+		Repulsable: False
+		MaximumPitch: 56
+	Cargo:
+		MaxWeight: 10
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: Smoker
+	Contrail@1:
+		Offset: -432,560,0
+	Contrail@2:
+		Offset: -432,-560,0
+	SpawnActorOnDeath:
+		Actor: tsfsmoker.husk
+	LeavesTrails@0:
+		Offsets: -432,560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	LeavesTrails@1:
+		Offsets: -432,-560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	RejectsOrders:
+	GivesExperience:
+	DynamicSpeedMultiplier:
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	RenderSprites:
+		PlayerPalette: player_rgba
+
+tsfsmoker.bomber:
+	Inherits: tsfsmoker
+	AttackBomber:
+		FacingTolerance: 32
+	Armament:
+		Weapon: TSLocustBomb
+	RenderSprites:
+		Image: tsfsmoker
+
+tsfsmoker.husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Smoker
+	Aircraft:
+		TurnSpeed: 20
+		Speed: 149
+	LeavesTrails@0:
+		Offsets: -432,560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	LeavesTrails@1:
+		Offsets: -432,-560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RenderSprites:
+		Image: tsfsmoker
+		PlayerPalette: player_rgba
+	-RevealOnDeath:
 
 TSTRAN:
 	Inherits: ^Helicopter

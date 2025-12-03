@@ -1082,12 +1082,12 @@ ts1tnk:
 	idle:
 		Filename: forgot_ltnk.png
 		Facings: 64
-		Scale: 0.5
+		Scale: 0.45
 	turret:
 		Filename: forgot_ltnk.png
 		Start: 64
 		Facings: 64
-		Scale: 0.5
+		Scale: 0.45
 	muzzle:
 		Filename: gunfire2.shp
 		Length: 5
@@ -1169,6 +1169,21 @@ tscar2:
 		Length: 5
 	icon:
 		Filename: forgot_car_icon.png
+tsbowler:
+	idle:
+		Filename: forgot_bowler.png
+		Facings: 64
+		Scale: 0.6
+	turret:
+		Filename: forgot_bowler.png
+		Start: 64
+		Facings: 64
+		Scale: 0.6
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	icon:
+		Filename: forgot_bowler_icon.png
 tsruiner:
 	idle:
 		Filename: forgot_ruiner.png
@@ -3674,6 +3689,21 @@ tsapache:
 		Start: 4
 		Length: 8
 
+tsapachemutant:
+	idle:
+		Filename: forgot_cobracopter.png
+		Facings: 64
+		Scale: 0.9
+	icon:
+		Filename: forgot_cobracopter_icon.png
+	rotor:
+		Filename: lrotor.shp
+		Length: 4
+	slow-rotor:
+		Filename: lrotor.shp
+		Start: 4
+		Length: 8
+
 tsheli:
 	idle:
 		Filename: invisibleitem.shp
@@ -3689,16 +3719,35 @@ tsheli:
 
 tshind:
 	idle:
-		Filename: invisibleitem.shp
+		Filename: forgot_wasp.png
+		Facings: 64
+		Scale: 0.9
 	icon:
-		Filename: tsharpyicon.shp
-	rotor:
-		Filename: lrotor.shp
-		Length: 4
-	slow-rotor:
-		Filename: lrotor.shp
-		Start: 4
-		Length: 8
+		Filename: forgot_wasp_icon.png
+
+tsflocust:
+	idle:
+		Filename: forgot_locust.png
+		Facings: 64
+		Scale: 1
+	icon:
+		Filename: forgot_locust_icon.png
+tsfsmoker:
+	idle:
+		Filename: forgot_smoker.png
+		Facings: 64
+		Scale: 1
+	icon:
+		Filename: forgot_smoker_icon.png
+
+tscropplane:
+	idle:
+		Filename: forgot_cropplane.png
+		Facings: 64
+		Scale: 1
+	icon:
+		Filename: forgot_cropplaneicon.png
+
 
 tstran:
 	idle:
@@ -4316,6 +4365,149 @@ tsntsam:
 		Filename: tssam2icon.shp
 		Offset: 0,0
 
+
+forgot_tower:
+	Defaults:
+		Filename: invisibleitem.shp
+	idle:
+		Filename: invisibleitem.shp
+	damaged-idle:
+		Filename: invisibleitem.shp
+	critical-idle:
+		Filename: invisibleitem.shp
+	turret:
+		Filename: forgot_tower.png
+		Facings: 64
+		Start: 64
+		Offset: 0,0
+	make:
+		Filename: forgot_tower.png
+		Length: 64
+	dead:
+		Filename: invisibleitem.shp
+	muzzle:
+		Filename: gunfire2.shp
+		Tick: 80
+		Length: *
+	icon:
+		Filename: forgot_tower_icon.png
+		Offset: 0,0
+
+forgot_juggerflak:
+	Defaults:
+		Filename: invisibleitem.shp
+	idle:
+		Filename: invisibleitem.shp
+	damaged-idle:
+		Filename: invisibleitem.shp
+	critical-idle:
+		Filename: invisibleitem.shp
+	turret:
+		Filename: forgot_juggerflak.png
+		Facings: 64
+		Start: 64
+		Offset: 0,0
+	make:
+		Filename: forgot_juggerflak.png
+		Length: 64
+	dead:
+		Filename: invisibleitem.shp
+	muzzle:
+		Filename: gunfire2.shp
+		Tick: 80
+		Length: *
+	icon:
+		Filename: forgot_juggerflak_icon.png
+		Offset: 0,0
+
+forgot_mtnk_tur:
+	Defaults:
+		Filename: forgot_mtnk_tur.png
+	idle:
+		Filename: forgot_mtnk_tur.png
+		Start: 63
+	damaged-idle:
+		Filename: forgot_mtnk_tur.png
+		Start: 63
+	critical-idle:
+		Filename: forgot_mtnk_tur.png
+		Start: 63
+	turret:
+		Filename: forgot_mtnk.png
+		Start: 64
+		Facings: 64
+		Scale: 0.5
+	make:
+		Filename: forgot_mtnk_tur.png
+		Length: 64
+	dead:
+		Filename: invisibleitem.shp
+	muzzle:
+		Filename: gunfire2.shp
+		Tick: 80
+		Length: *
+	icon:
+		Filename: forgot_mtnk_tur_icon.png
+		Offset: 0,0
+
+forgot_ltnk_tur:
+	Defaults:
+		Filename: forgot_ltnk_turret.png
+	idle:
+		Filename: forgot_ltnk_turret.png
+		Start: 63
+	damaged-idle:
+		Filename: forgot_ltnk_turret.png
+		Start: 63
+	critical-idle:
+		Filename: forgot_ltnk_turret.png
+		Start: 63
+	turret:
+		Filename: forgot_ltnk.png
+		Start: 64
+		Facings: 64
+		Scale: 0.45
+	make:
+		Filename: forgot_ltnk_turret.png
+		Length: 64
+	dead:
+		Filename: invisibleitem.shp
+	muzzle:
+		Filename: gunfire2.shp
+		Tick: 80
+		Length: *
+	icon:
+		Filename: forgot_ltnk_tur_icon.png
+		Offset: 0,0
+forgot_htnk_tur:
+	Defaults:
+		Filename: forgot_mtnk_tur.png
+	idle:
+		Filename: forgot_mtnk_tur.png
+		Start: 63
+	damaged-idle:
+		Filename: forgot_mtnk_tur.png
+		Start: 63
+	critical-idle:
+		Filename: forgot_mtnk_tur.png
+		Start: 63
+	turret:
+		Filename: forgot_htnk.png
+		Start: 64
+		Facings: 64
+		Scale: 0.5
+	make:
+		Filename: forgot_mtnk_tur.png
+		Length: 64
+	dead:
+		Filename: invisibleitem.shp
+	muzzle:
+		Filename: gunfire2.shp
+		Tick: 80
+		Length: *
+	icon:
+		Filename: forgot_htnk_tur_icon.png
+		Offset: 0,0
 # tstacticalmissile:
 # 	Defaults:
 # 		ZOffset: 1023

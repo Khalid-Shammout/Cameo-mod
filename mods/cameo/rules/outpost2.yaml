@@ -293,7 +293,7 @@ op2_commonore_beacon_3bar:
 
 ^op2base_agridome:
 	Inherits: ^BaseBuilding
-	Inherits@shape: ^2x2Shape
+	Inherits@shape: ^3x2Shape
 	Inherits@STATUS: ^OP2Building
 	Valued:
 		Cost: 300
@@ -387,7 +387,7 @@ op2_commonore_beacon_3bar:
 	Inherits@CPQWP: ^CPQConditionWithPrimary
 	Inherits@shape: ^3x3Shape
 	Inherits@repair: ^RepairsUnits
-	Inherits@repair: ^RepairFacility
+	#Inherits@repair2: ^FIX
 	Inherits@STATUS: ^OP2Building
 	Valued:
 		Cost: 800
@@ -432,8 +432,8 @@ op2_commonore_beacon_3bar:
 	Valued:
 		Cost: 500
 	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
+		Footprint: xx xx ==
+		Dimensions: 2,3
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 55000
@@ -453,8 +453,8 @@ op2_commonore_beacon_3bar:
 	Valued:
 		Cost: 500
 	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
+		Footprint: xx xx ==
+		Dimensions: 2,3
 		LocalCenterOffset: 0,-512,0
 	Health:
 		HP: 55000
@@ -787,6 +787,8 @@ EDEN_TOKAMAK:
 	Inherits: ^op2base_tokamak
 	Tooltip:
 		Name: Eden Tokamak
+	ProvidesPrerequisite:
+		Prerequisite: EDEN_TOKAMAK
 	Valued:
 		Cost: 800
 	Health:
@@ -807,6 +809,8 @@ EDEN_SMELTER_COMMON:
 	Inherits: ^op2base_smelter_common
 	Tooltip:
 		Name: Eden Common Ore Smelter
+	ProvidesPrerequisite:
+		Prerequisite: EDEN_SMELTER_COMMON
 	Buildable:
 		BuildPaletteOrder: 20
 		Queue: Building, RABuilding
@@ -821,204 +825,204 @@ EDEN_SMELTER_COMMON:
 		Sequence: idle-anim2
 		Palette: placelinesegment
 
-# EDEN_AGRIDOME:
-# 	Inherits: ^op2base_agridome
-# 	Tooltip:
-# 		Name: Eden Agridome
-# 	ProvidesPrerequisite:
-# 		Prerequisite: EDEN_AGRIDOME
-# 	Buildable:
-# 		BuildPaletteOrder: 30
-# 		Queue: Building, RABuilding
-# 		Prerequisites: EDEN_TOKAMAK
-# 		BuildDuration: 100
-# 		Description: Needed with Residence for Vehicle Factory
+EDEN_AGRIDOME:
+	Inherits: ^op2base_agridome
+	Tooltip:
+		Name: Eden Agridome
+	ProvidesPrerequisite:
+		Prerequisite: EDEN_AGRIDOME
+	Buildable:
+		BuildPaletteOrder: 30
+		Queue: Building, RABuilding
+		Prerequisites: EDEN_TOKAMAK
+		BuildDuration: 100
+		Description: Needed with Residence for Vehicle Factory
 
-# EDEN_RESIDENCE:
-# 	Inherits: ^op2base_residence
-# 	Tooltip:
-# 		Name: Eden Residence
-# 	ProvidesPrerequisite:
-# 		Prerequisite: EDEN_RESIDENCE
-# 	Buildable:
-# 		BuildPaletteOrder: 40
-# 		Queue: Building, RABuilding
-# 		Prerequisites: EDEN_TOKAMAK
-# 		BuildDuration: 100
-# 		Description: Needed with Agridome for Vehicle Factory\nProvides Radar
+EDEN_RESIDENCE:
+	Inherits: ^op2base_residence
+	Tooltip:
+		Name: Eden Residence
+	ProvidesPrerequisite:
+		Prerequisite: EDEN_RESIDENCE
+	Buildable:
+		BuildPaletteOrder: 40
+		Queue: Building, RABuilding
+		Prerequisites: EDEN_TOKAMAK
+		BuildDuration: 100
+		Description: Needed with Agridome for Vehicle Factory\nProvides Radar
 
-# EDEN_LAB_BASIC:
-# 	Inherits: ^op2base_basic_lab
-# 	Tooltip:
-# 		Name: Eden Basic Lab
-# 	ProvidesPrerequisite:
-# 		Prerequisite: EDEN_BASIC_LAB
-# 	Buildable:
-# 		BuildPaletteOrder: 45
-# 		Queue: Building, RABuilding
-# 		Prerequisites: EDEN_TOKAMAK
-# 		BuildDuration: 25
-# 		Description: Needed with Nursery and University for Standard Lab
+EDEN_LAB_BASIC:
+	Inherits: ^op2base_basic_lab
+	Tooltip:
+		Name: Eden Basic Lab
+	ProvidesPrerequisite:
+		Prerequisite: EDEN_BASIC_LAB
+	Buildable:
+		BuildPaletteOrder: 45
+		Queue: Building, RABuilding
+		Prerequisites: EDEN_TOKAMAK
+		BuildDuration: 25
+		Description: Needed with Nursery and University for Standard Lab
 
-# EDEN_FACTORY_VEHICLE:
-# 	Inherits: ^op2base_factory_vehicle
-# 	Tooltip:
-# 		Name: Eden Vehicle Factory
-# 	ProvidesPrerequisite:
-# 		Prerequisite: EDEN_FACTORY_VEHICLE
-# 	Buildable:
-# 		BuildPaletteOrder: 50
-# 		Queue: Building, RABuilding
-# 		Prerequisites: EDEN_RESIDENCE, EDEN_AGRIDOME
-# 		Description: Constructs Vehicles
+EDEN_FACTORY_VEHICLE:
+	Inherits: ^op2base_factory_vehicle
+	Tooltip:
+		Name: Eden Vehicle Factory
+	ProvidesPrerequisite:
+		Prerequisite: EDEN_FACTORY_VEHICLE
+	Buildable:
+		BuildPaletteOrder: 50
+		Queue: Building, RABuilding
+		Prerequisites: EDEN_RESIDENCE, EDEN_AGRIDOME
+		Description: Constructs Vehicles
 
-# EDEN_GARAGE:
-# 	Inherits: ^op2base_garage
-# 	Buildable:
-# 		Queue: Building, RABuilding
-# 		Prerequisites: EDEN_FACTORY_VEHICLE
-# 		BuildPaletteOrder: 55
-# 		BuildDuration: 375
-# 		Description: Repairs vehicles.\n Allows construction of MCVs
+EDEN_GARAGE:
+	Inherits: ^op2base_garage
+	Buildable:
+		Queue: Building, RABuilding
+		Prerequisites: EDEN_FACTORY_VEHICLE
+		BuildPaletteOrder: 55
+		BuildDuration: 375
+		Description: Repairs vehicles.\n Allows construction of MCVs
 
-# EDEN_NURSERY:
-# 	Inherits: ^op2base_nursery
-# 	Tooltip:
-# 		Name: Eden Nursery
-# 	ProvidesPrerequisite:
-# 		Prerequisite: EDEN_NURSERY
-# 	Buildable:
-# 		BuildPaletteOrder: 60
-# 		Queue: Building, RABuilding
-# 		Prerequisites: EDEN_RESIDENCE
-# 		BuildDuration: 200
-# 		Description: Needed with University and Basic Lab for Standard Lab
+EDEN_NURSERY:
+	Inherits: ^op2base_nursery
+	Tooltip:
+		Name: Eden Nursery
+	ProvidesPrerequisite:
+		Prerequisite: EDEN_NURSERY
+	Buildable:
+		BuildPaletteOrder: 60
+		Queue: Building, RABuilding
+		Prerequisites: EDEN_RESIDENCE
+		BuildDuration: 200
+		Description: Needed with University and Basic Lab for Standard Lab
 
-# EDEN_UNIVERSITY:
-# 	Inherits: ^op2base_university
-# 	Tooltip:
-# 		Name: Eden University
-# 	ProvidesPrerequisite:
-# 		Prerequisite: EDEN_UNIVERSITY
-# 	Buildable:
-# 		BuildPaletteOrder: 70
-# 		Queue: Building, RABuilding
-# 		Prerequisites: EDEN_RESIDENCE
-# 		BuildDuration: 200
-# 		Description: Needed with Nursery and Basic Lab for Standard Lab
+EDEN_UNIVERSITY:
+	Inherits: ^op2base_university
+	Tooltip:
+		Name: Eden University
+	ProvidesPrerequisite:
+		Prerequisite: EDEN_UNIVERSITY
+	Buildable:
+		BuildPaletteOrder: 70
+		Queue: Building, RABuilding
+		Prerequisites: EDEN_RESIDENCE
+		BuildDuration: 200
+		Description: Needed with Nursery and Basic Lab for Standard Lab
 
-# EDEN_LAB_STANDARD:
-# 	Inherits: ^op2base_lab_standard
-# 	Tooltip:
-# 		Name: Eden Standard Lab
-# 	ProvidesPrerequisite:
-# 		Prerequisite: EDEN_LAB_STANDARD
-# 	Buildable:
-# 		BuildPaletteOrder: 80
-# 		Queue: Building, RABuilding
-# 		Prerequisites: EDEN_BASIC_LAB,EDEN_NURSERY,EDEN_UNIVERSITY
-# 		Description: Needed for DIRT, Consumer Factory, GORF, and Advanced Lab
+EDEN_LAB_STANDARD:
+	Inherits: ^op2base_lab_standard
+	Tooltip:
+		Name: Eden Standard Lab
+	ProvidesPrerequisite:
+		Prerequisite: EDEN_LAB_STANDARD
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Building, RABuilding
+		Prerequisites: EDEN_BASIC_LAB,EDEN_NURSERY,EDEN_UNIVERSITY
+		Description: Needed for DIRT, Consumer Factory, GORF, and Advanced Lab
 
-# EDEN_DIRT:
-# 	Inherits: ^op2base_dirt
-# 	Tooltip:
-# 		Name: Eden Dirt
-# 	ProvidesPrerequisite:
-# 		Prerequisite:
-# 	Buildable:
-# 		BuildPaletteOrder: 90
-# 		Queue: Building, RABuilding
-# 		Prerequisites: EDEN_LAB_STANDARD
-# 		Description: Provides Force Shield
+EDEN_DIRT:
+	Inherits: ^op2base_dirt
+	Tooltip:
+		Name: Eden Dirt
+	ProvidesPrerequisite:
+		Prerequisite:
+	Buildable:
+		BuildPaletteOrder: 90
+		Queue: Building, RABuilding
+		Prerequisites: EDEN_LAB_STANDARD
+		Description: Provides Force Shield
 
-# EDEN_RCC:
-# 	Inherits: ^op2base_rcc
-# 	Tooltip:
-# 		Name: Eden Robot Command Center
-# 	ProvidesPrerequisite:
-# 		Prerequisite: EDEN_RCC
-# 	Buildable:
-# 		BuildPaletteOrder: 95
-# 		Queue: Building, RABuilding
-# 		Prerequisites: EDEN_LAB_STANDARD
-# 		BuildDuration: 125
-# 		Description: Needed for Consumer Factory
+EDEN_RCC:
+	Inherits: ^op2base_rcc
+	Tooltip:
+		Name: Eden Robot Command Center
+	ProvidesPrerequisite:
+		Prerequisite: EDEN_RCC
+	Buildable:
+		BuildPaletteOrder: 95
+		Queue: Building, RABuilding
+		Prerequisites: EDEN_LAB_STANDARD
+		BuildDuration: 125
+		Description: Needed for Consumer Factory
 
-# EDEN_FACTORY_CONSUMER:
-# 	Inherits: ^BaseBuilding
-# 	Inherits@CPQWP: ^CPQConditionWithPrimary
-# 	Inherits@shape: ^2x2Shape
-# 	Inherits@STATUS: ^OP2Building
-# 	Selectable:
-# 		Bounds: 64,64
-# 	HitShape:
-# 		TargetableOffsets: 630,299,0
-# 	Valued:
-# 		Cost: 1200
-# 	Tooltip:
-# 		Name: Eden Consumer Factory
-# 	#ProvidesPrerequisite:
-# 	#	Prerequisite:
-# 	Buildable:
-# 		BuildPaletteOrder: 100
-# 		Queue: Building, RABuilding
-# 		Prerequisites: EDEN_RCC
-# 		Description: Manufactures Consumer Goods
-# 	Building:
-# 		Footprint: xx xx ==
-# 		Dimensions: 2,3
-# 		LocalCenterOffset: 0,-512,0
-# 	Health:
-# 		HP: 55000
-# 	RevealsShroud:
-# 		Range: 4c0
-# 	Power:
-# 		Amount: -20
-# 	Voiced:
-# 		VoiceSet: factoryConsumer
-# 	#WithBuildingBib:
-# 	RallyPoint:
-# 	Exit@1:
-# 		SpawnOffset: -426,85,0
-# 		ExitCell: 1,2
-# 	Exit@2:
-# 		SpawnOffset: 298,298,0
-# 		ExitCell: 2,2
-# 	Production@NORMAL:
-# 		Produces: Infantry
-# 		RequiresCondition: !classicproductionqueues
-# 	Production@CLASSICPRODUCTIONQUEUES:
-# 		Produces: RAInfantry
-# 		RequiresCondition: classicproductionqueues
-# 	ProductionQueue:
-# 		Type: Infantry
-# 		DisplayOrder: 2
-# 		Group: Infantry
-# 		LowPowerModifier: 300
-# 		ReadyAudio: UnitReady
-# 		BlockedAudio: NoBuild
-# 		LimitedAudio: BuildingInProgress
-# 		QueuedAudio: Training
-# 		OnHoldAudio: OnHold
-# 		CancelledAudio: Cancelled
-# 	ProductionBar@INFANTRYEDENL:
-# 		ProductionType: Infantry
-# 		RequiresCondition: !classicproductionqueues
-# 	ProductionBar@RAINFANTRYEDENL:
-# 		ProductionType: RAInfantry
-# 		RequiresCondition: classicproductionqueues
-# 	WithIdleOverlay@SMOKE1:
-# 		RequiresCondition: !build-incomplete
-# 		Sequence: idle-anim2
-# 		Palette: placelinesegment
-# 	WithIdleOverlay@SMOKE2:
-# 		RequiresCondition: !build-incomplete
-# 		Sequence: idle-anim3
-# 		Palette: placelinesegment
-# 	WithIdleOverlay@SMOKE3:
-# 		RequiresCondition: !build-incomplete
-# 		Sequence: idle-anim4
-# 		Palette: placelinesegment
+EDEN_FACTORY_CONSUMER:
+	Inherits: ^BaseBuilding
+	Inherits@CPQWP: ^CPQConditionWithPrimary
+	Inherits@shape: ^2x2Shape
+	Inherits@STATUS: ^OP2Building
+	Selectable:
+		Bounds: 64,64
+	HitShape:
+		TargetableOffsets: 3000,3000,0
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Eden Consumer Factory
+	#ProvidesPrerequisite:
+	#	Prerequisite:
+	Buildable:
+		BuildPaletteOrder: 100
+		Queue: Building, RABuilding
+		Prerequisites: EDEN_RCC
+		Description: Manufactures Consumer Goods
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 55000
+	RevealsShroud:
+		Range: 4c0
+	Power:
+		Amount: -20
+	Voiced:
+		VoiceSet: factoryConsumer
+	#WithBuildingBib:
+	RallyPoint:
+	Exit@1:
+		SpawnOffset: -426,85,0
+		ExitCell: 1,2
+	Exit@2:
+		SpawnOffset: 298,298,0
+		ExitCell: 2,2
+	Production@NORMAL:
+		Produces: Infantry
+		RequiresCondition: !classicproductionqueues
+	Production@CLASSICPRODUCTIONQUEUES:
+		Produces: RAInfantry
+		RequiresCondition: classicproductionqueues
+	ProductionQueue:
+		Type: Infantry
+		DisplayOrder: 2
+		Group: Infantry
+		LowPowerModifier: 300
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+	ProductionBar@INFANTRYEDENL:
+		ProductionType: Infantry
+		RequiresCondition: !classicproductionqueues
+	ProductionBar@RAINFANTRYEDENL:
+		ProductionType: RAInfantry
+		RequiresCondition: classicproductionqueues
+	WithIdleOverlay@SMOKE1:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-anim2
+		Palette: placelinesegment
+	WithIdleOverlay@SMOKE2:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-anim3
+		Palette: placelinesegment
+	WithIdleOverlay@SMOKE3:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-anim4
+		Palette: placelinesegment
 
 # EDEN_GORF:
 # 	Inherits: ^op2base_gorf
@@ -1945,18 +1949,18 @@ PLYMOUTH_SMELTER_COMMON:
 		SpawnOffset: 1,2
 		Facing: 64
 
-# PLYMOUTH_AGRIDOME:
-# 	Inherits: ^op2base_agridome
-# 	Tooltip:
-# 		Name: Plymouth Agridome
-# 	ProvidesPrerequisite:
-# 		Prerequisite: PLYMOUTH_AGRIDOME
-# 	Buildable:
-# 		BuildPaletteOrder: 30
-# 		Queue: Building, RABuilding
-# 		Prerequisites: PLYMOUTH_TOKAMAK
-# 		BuildDuration: 100
-# 		Description: Needed with Residence for Vehicle Factory
+PLYMOUTH_AGRIDOME:
+	Inherits: ^op2base_agridome
+	Tooltip:
+		Name: Plymouth Agridome
+	ProvidesPrerequisite:
+		Prerequisite: PLYMOUTH_AGRIDOME
+	Buildable:
+		BuildPaletteOrder: 30
+		Queue: Building, RABuilding
+		Prerequisites: PLYMOUTH_TOKAMAK
+		BuildDuration: 100
+		Description: Needed with Residence for Vehicle Factory
 
 # PLYMOUTH_RESIDENCE:
 # 	Inherits: ^op2base_residence
