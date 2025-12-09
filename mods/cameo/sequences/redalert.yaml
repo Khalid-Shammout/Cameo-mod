@@ -3960,9 +3960,13 @@ oilb2:
 		Length: *
 		Tick: 100
 	dead:
+		Filename: oilb2_broken.png
+		Length: 1
+		Tick: 100
 	damaged-idle:
-		Start: 1
+		Filename: oilb2_broken.png
 		Length: *
+		Tick: 100
 	make:
 	bib:
 		Filename: bib3.tem

@@ -1427,12 +1427,11 @@ tkmsniper:
 
 tkmvon:
 	Inherits: ^Soldier
-	Inherits@Template: ^SniperInfantryTemplate
-	Inherits@EXPERIENCE: ^GainsExperienceRA2
-	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@Template: ^HeroInfantryTemplate
-	Inherits@COMMANDOSKULL: ^CommandoSkull
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@cloak: ^CloakedVehicle
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -1456,8 +1455,8 @@ tkmvon:
 	Armament@lockdown:
 		Weapon: VonSniperLockdown
 		LocalOffset: 128,0,256
-		AmmoUsage: 6
-		PauseOnCondition: ammo < 12
+		AmmoUsage: 3
+		PauseOnCondition: ammo < 6
 	Armament@PRIMARY:
 		Weapon: VonSniper
 		LocalOffset: 500,0,400
@@ -1482,10 +1481,10 @@ tkmvon:
 		Condition: uptkmapbullets
 		Prerequisites: uptkmapbullets
 	AmmoPool:
-		Ammo: 12
+		Ammo: 6
 		AmmoCondition: ammo
 	ReloadAmmoPool:
-		Delay: 44
+		Delay: 100
 		Count: 1
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
@@ -1507,7 +1506,6 @@ tkmvon:
 		FacingTolerance: 0
 	ActorStatValues:
 		Upgrades: uptkmapbullets, tkminfantryupgrade
-	Cloak:
 	Voiced:
 		VoiceSet: TSInfantry
 	RenderSprites:

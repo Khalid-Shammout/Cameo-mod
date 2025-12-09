@@ -2997,12 +2997,29 @@ IdolCannon:
 
 GladiusCannon:
 	Inherits: PhotonCannon
-	ReloadDelay: 40
+	ReloadDelay: 80
 	Range: 10000
 	Projectile: Missile
-		Speed: 1000
-		CloseEnough: 1000
+		Speed: 500
+		CloseEnough: 500
 		AllowSnapping: true
+		Image: waveforcebullet
+	Warhead@FlakWeapon: SpreadDamage
+		Damage: 20000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@HeavyCannon: SpreadDamage
+		Damage: 20000
+	Warhead@HeavyCannonPercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@MediumCannon: SpreadDamage
+		Damage: 20000
+	Warhead@MediumCannonPercentage: HealthPercentageDamage
+		Damage: 10
+	Warhead@TankDestroyerCannon: SpreadDamage
+		Damage: 20000
+	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
+		Damage: 10
 
 ArbiterCannon:
 	Inherits: PhotonCannon

@@ -4500,7 +4500,7 @@ white_rabbit:
 steel_stalker:
 	Defaults:
 		Filename: steel_stalker.png
-		Offset: 0,0
+		Offset: 0,4
 	idle:
 		Filename: invisibleitem.shp
 	stand:
