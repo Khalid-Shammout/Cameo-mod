@@ -2759,6 +2759,80 @@ BTRMachineGunAA:
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Air
 
+BTRTeslaMachineGun:
+	Inherits: ^LightMissile
+	Inherits: ^TeslaWeapon
+	ValidTargets: Ground, Water, Trees
+	ReloadDelay: 20
+	Burst: 4
+	BurstDelays: 4
+	Range: 5454
+	Report: shktrop1.aud
+	Projectile: TeslaZap
+		-Image: DRAGON
+		-TrailImage: smokey
+	Warhead@LightMissile: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@LightMissilePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 1000
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
+	Warhead@EffectAir: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
+
+BTRTeslaMachineGunArc:
+	Inherits: BTRTeslaMachineGun
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: BTRTeslaMachineGunArcFragment1
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+BTRTeslaMachineGunArcFragment1:
+	Inherits: BTRTeslaMachineGunArc
+	Range: 2727
+	-Warhead@TeslaArc: FireShrapnel
+
+BTRTeslaMachineGunAA:
+	Inherits: BTRTeslaMachineGun
+	Range: 8181
+	ValidTargets: Air
+
+BTRTeslaMachineGunArcAA:
+	Inherits: BTRTeslaMachineGunAA
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: BTRTeslaMachineGunArcFragment1AA
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+BTRTeslaMachineGunArcFragment1AA:
+	Inherits: BTRTeslaMachineGunArcAA
+	Range: 4090
+	-Warhead@TeslaArc: FireShrapnel
+
 RAVulcan:
 	Inherits: ^SmallArms
 	Inherits: ^Chaingun
@@ -7964,6 +8038,66 @@ IncendiaryRAGatlingTankCannonAA:
 		ValidTargets: Air
 	Warhead@ChaingunPercentage: HealthPercentageDamage
 		ValidTargets: Air
+
+TeslaRAGatlingTankCannon:
+	Inherits: ^TeslaWeapon
+	ValidTargets: Ground, Water, Trees
+	ReloadDelay: 10
+	Range: 5000
+	Report: shktrop1.aud
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 2000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1000
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Trees, Air
+		Damage: 1
+		DamageTypes: Prone100Percent, TriggerProne, ElectricityDeath, Tesla
+	Warhead@EMPUnit: AffectsIntegrity
+		Damage: 1000
+	Warhead@Effect: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
+	Warhead@EffectAir: CreateEffect
+		Explosions: ra2_tesla_impact
+		ExplosionPalette: ra2effect
+
+TeslaRAGatlingTankCannonArc:
+	Inherits: TeslaRAGatlingTankCannon
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: TeslaRAGatlingTankCannonArcFragment1
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+TeslaRAGatlingTankCannonArcFragment1:
+	Inherits: TeslaRAGatlingTankCannonArc
+	Range: 2500
+	-Warhead@TeslaArc: FireShrapnel
+
+TeslaRAGatlingTankCannonAA:
+	Inherits: TeslaRAGatlingTankCannon
+	Range: 7500
+	ValidTargets: Air
+
+TeslaRAGatlingTankCannonArcAA:
+	Inherits: TeslaRAGatlingTankCannonAA
+	Warhead@TeslaArc: FireShrapnel
+		Weapon: TeslaRAGatlingTankCannonArcFragment1AA
+		Amount: 1
+		AimChance: 100
+		AllowDirectHit: true
+		AimTargetStances: Enemy, Neutral
+
+TeslaRAGatlingTankCannonArcFragment1AA:
+	Inherits: TeslaRAGatlingTankCannonArcAA
+	Range: 3750
+	-Warhead@TeslaArc: FireShrapnel
 
 HeavyAATankCannonAG:
 	Inherits: ^LightMissile

@@ -3974,8 +3974,10 @@ MODBTR:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@botmicro: ^BotAutoDeployTransport
 	Inherits@ConscriptionDoctrineRA1: ^ConscriptionDoctrineRA1
+	Inherits@TeslaExperimentalTechDoctrineRA1: ^TeslaExperimentalTechDoctrineRA1
 	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
+	Inherits@TeslaArcingUpgradeRA1: ^TeslaArcingUpgradeRA1
 	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
 	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
@@ -3988,6 +3990,10 @@ MODBTR:
 		Cost: 1600
 	Tooltip:
 		Name: BTR-80
+		RequiresCondition: !upgtnk
+	Tooltip@Gatling:
+		Name: Gatling BTR
+		RequiresCondition: upgtnk
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -4006,12 +4012,41 @@ MODBTR:
 	AttackTurreted:
 	Armament:
 		Weapon: BTRMachineGun
+		Recoil: 85
 		LocalOffset: 85,0,171
 		MuzzleSequence: muzzle
 	Armament@AA:
 		Weapon: BTRMachineGunAA
+		Recoil: 85
 		LocalOffset: 85,0,171
 		MuzzleSequence: muzzle
+	Armament@TeslaUpgrade1:
+		Weapon: BTRTeslaMachineGun
+		Recoil: 85
+		LocalOffset: 85,0,171
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_doctrine_teslatech && !ra_upgrade_teslaarcing
+	Armament@TeslaUpgrade2:
+		Weapon: BTRTeslaMachineGunArc
+		Recoil: 85
+		LocalOffset: 85,0,171
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_upgrade_teslaarcing
+	Armament@TeslaUpgrade1AA:
+		Weapon: BTRTeslaMachineGunAA
+		Recoil: 85
+		LocalOffset: 85,0,171
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_doctrine_teslatech && !ra_upgrade_teslaarcing
+	Armament@TeslaUpgrade2AA:
+		Weapon: BTRTeslaMachineGunArcAA
+		Recoil: 85
+		LocalOffset: 85,0,171
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_upgrade_teslaarcing
+	ReloadDelayMultiplier@Gatling:
+		Modifier: 200
+		RequiresCondition: ra_doctrine_teslatech
 	WithMuzzleOverlay:
 	Cargo:
 		Types: Infantry, Hacker, Fremen
@@ -4027,8 +4062,36 @@ MODBTR:
 		DecorationBounds: 1280, 1280
 	-DamagedByTintedCells@rad:
 	-DamagedByTintedCells@genrad:
+	AmmoPool:
+		Ammo: 16
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 16
+		Count: 1
+		ResetOnFire: True
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: ammo < 10 && upgtnk
+		Modifier: 80
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: ammo < 6 && upgtnk
+		Modifier: 80
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: ammo <= 1 && upgtnk
+		Modifier: 80
+	RangeMultiplier@GattlingSpeed1:
+		RequiresCondition: ammo < 10 && upgtnk
+		Modifier: 105
+	RangeMultiplier@GattlingSpeed2:
+		RequiresCondition: ammo < 6 && upgtnk
+		Modifier: 105
+	RangeMultiplier@GattlingSpeed3:
+		RequiresCondition: ammo <= 1 && upgtnk
+		Modifier: 105
+	GrantConditionOnPrerequisite@upgtnk:
+		Condition: upgtnk
+		Prerequisites: upgtnk
 	ActorStatValues:
-		Upgrades: ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_doctrine_conscription, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_conscription, ra_doctrine_teslatech, ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, upgtnk, ra_upgrade_teslaarcing, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_stalinium
 
 DTRK:
 	Inherits: ^Vehicle
@@ -4477,8 +4540,9 @@ yaktesla:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
-	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@TeslaExperimentalTechDoctrineRA1: ^TeslaExperimentalTechDoctrineRA1
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@TeslaArcingUpgradeRA1: ^TeslaArcingUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
 	Buildable:
@@ -4586,7 +4650,7 @@ yaktesla:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_incendiarybullets, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_teslatech, ra_upgrade_incendiarybullets, ra_upgrade_teslaarcing, ra_upgrade_stalinium
 
 yakarmored:
 	Inherits: ^RANeutralPlane
@@ -4694,7 +4758,7 @@ yaknuclear:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
-	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
+	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
 	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
 	Inherits@eject: ^AircraftEjectOnDeath
@@ -4789,7 +4853,7 @@ yaknuclear:
 	RenderSprites:
 		PlayerPalette: raplayer
 	ActorStatValues:
-		Upgrades: ra_doctrine_heavyarmor, ra_upgrade_incendiarybullets, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_nuclearwar, ra_upgrade_incendiarybullets, ra_upgrade_stalinium
 
 MODKAMI:
 	Inherits: ^RANeutralPlane
@@ -12099,7 +12163,7 @@ upgtnk:
 	Buildable:
 		BuildPaletteOrder: 38
 		Queue: Promotions
-		Description: Allows construction of the Gatling Tank.
+		Description: Allows construction of the Gatling Tank. Upgrades BTR.
 		Prerequisites: ~rafact.soviet, !upgtnk, rank1
 	RenderSprites:
 		Image: modgtnk
@@ -12425,21 +12489,29 @@ MODGTNK:
 	Inherits@EMP: ^TurretEMP
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
-	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@TeslaExperimentalTechDoctrineRA1: ^TeslaExperimentalTechDoctrineRA1
 	Inherits@HeavyArmorDoctrineRA1: ^HeavyArmorDoctrineRA1
 	Inherits@NuclearWarDoctrineRA1: ^NuclearWarDoctrineRA1
+	Inherits@IncendiaryBulletsUpgradeRA1: ^IncendiaryBulletsUpgradeRA1
+	Inherits@TeslaArcingUpgradeRA1: ^TeslaArcingUpgradeRA1
 	Inherits@AutoloadersUpgradeRA1: ^AutoloadersUpgradeRA1
 	Inherits@UnstableIsotopesUpgradeRA1: ^UnstableIsotopesUpgradeRA1
 	Inherits@StaliniumTeamUpgradeRA1: ^StaliniumTeamUpgradeRA1
+	Tooltip:
+		Name: Gatling Tank
+	Valued:
+		Cost: 1100
+	ProductionCostMultiplier@ra_doctrine_industrialefficiency:
+		Prerequisites: ra_doctrine_industrialefficiency
+		Multiplier: 75
+	ProductionTimeMultiplier@ra_doctrine_industrialefficiency:
+		Prerequisites: ra_doctrine_industrialefficiency
+		Multiplier: 75
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 60
-		Prerequisites: ~raweap, ~upgtnk
+		Prerequisites: ~raweap, ~upgtnk, ~!ra_doctrine_conscription
 		Description: actor-gtnk.description
-	Valued:
-		Cost: 1100
-	Tooltip:
-		Name: Gatling Tank
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -12480,6 +12552,33 @@ MODGTNK:
 		LocalOffset: 500,100,450, 500,-100,450
 		MuzzleSequence: muzzle
 		RequiresCondition: ra_upgrade_incendiarybullets
+	Armament@TeslaUpgrade1:
+		Weapon: TeslaRAGatlingTankCannon
+		Recoil: 85
+		LocalOffset: 500,100,450, 500,-100,450
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_doctrine_teslatech && !ra_upgrade_teslaarcing
+	Armament@TeslaUpgrade2:
+		Weapon: TeslaRAGatlingTankCannonArc
+		Recoil: 85
+		LocalOffset: 500,100,450, 500,-100,450
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_upgrade_teslaarcing
+	Armament@TeslaUpgrade1AA:
+		Weapon: TeslaRAGatlingTankCannonAA
+		Recoil: 85
+		LocalOffset: 500,100,450, 500,-100,450
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_doctrine_teslatech && !ra_upgrade_teslaarcing
+	Armament@TeslaUpgrade2AA:
+		Weapon: TeslaRAGatlingTankCannonArcAA
+		Recoil: 85
+		LocalOffset: 500,100,450, 500,-100,450
+		MuzzleSequence: muzzle
+		RequiresCondition: ra_upgrade_teslaarcing
+	ReloadDelayMultiplier@Gatling:
+		Modifier: 200
+		RequiresCondition: ra_doctrine_teslatech
 	AttackTurreted:
 	WithMuzzleOverlay:
 	WithSpriteTurret:
@@ -12511,10 +12610,10 @@ MODGTNK:
 		Modifier: 150
 	ReloadDelayMultiplier@GattlingSpeed1:
 		RequiresCondition: ammo == 3
-		Modifier: 90
+		Modifier: 85
 	ReloadDelayMultiplier@GattlingSpeed2:
 		RequiresCondition: ammo == 2
-		Modifier: 70
+		Modifier: 65
 	ReloadDelayMultiplier@GattlingSpeed3:
 		RequiresCondition: ammo <= 1
 		Modifier: 50
@@ -12528,7 +12627,7 @@ MODGTNK:
 		RequiresCondition: ammo <= 1
 		Modifier: 115
 	ActorStatValues:
-		Upgrades: ra_upgrade_incendiarybullets, ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_stalinium
+		Upgrades: ra_doctrine_industrialefficiency, ra_doctrine_teslatech, ra_doctrine_heavyarmor, ra_doctrine_nuclearwar, upgtnk, ra_upgrade_incendiarybullets, ra_upgrade_teslaarcing, ra_upgrade_autoloaders, ra_upgrade_unstableisotopes, ra_upgrade_stalinium
 
 MonsterTank:
 	Inherits: ^Tank

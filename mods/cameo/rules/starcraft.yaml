@@ -7143,9 +7143,11 @@ SCEPIGRAPH:
 	Armament@PRIMARY:
 		Weapon: EpigraphMG
 		LocalOffset: 600,200,0
+		PauseOnCondition: !ammo
 	Armament@SECONDARY:
 		Weapon: EpigraphMG
 		LocalOffset: 600,-200,0
+		PauseOnCondition: !ammo
 	AttackAircraft:
 		FacingTolerance: 20
 		AttackType: Hover
@@ -7155,6 +7157,16 @@ SCEPIGRAPH:
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 1280, 1024
+	AmmoPool:
+		Ammo: 6
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 56
+		Count: 1
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 6
 	ActorStatValues:
 		Upgrades: upairweapons, upairweapons2, upairarmor, upairarmor2, upplasmashield, upairspeed
 	Voiced:
@@ -7236,9 +7248,9 @@ SCGLADIUS:
 	Tooltip:
 		Name: Gladius
 	Valued:
-		Cost: 2200
+		Cost: 1800
 	Power:
-		Amount: -110
+		Amount: -90
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -7247,9 +7259,9 @@ SCGLADIUS:
 		Queue: Aircraft, RAAircraft
 		Description: Protoss artillery aircraft.\n Strong vs everything
 	Aircraft:
-		Speed: 125
-		TurnSpeed: 25
-		RepulsionSpeed: 25
+		Speed: 50
+		TurnSpeed: 10
+		RepulsionSpeed: 10
 	Health:
 		HP: 100000
 	Repairable:

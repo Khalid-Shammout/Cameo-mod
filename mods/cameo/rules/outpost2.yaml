@@ -1,6 +1,6 @@
 World:
 	FactionCA@plymouthl:
-		Name: Plymouth
+		Name: Plymouth (WIP)
 		InternalName: plymouthl
 		Game: Outpost 2
 		Side: Outpost 2
@@ -28,7 +28,7 @@ World:
 		SupportActors: PLYMOUTH_SCOUT,PLMICROWAVE,PLMICROWAVE,PLMICROWAVE,PLYMOUTH_LYNX_RPG,PLYMOUTH_LYNX_RPG,PLYMOUTH_LYNX_RPG
 
 	FactionCA@edenl:
-		Name: Eden
+		Name: Eden (WIP)
 		InternalName: edenl
 		Game: Outpost 2
 		Side: Outpost 2
@@ -834,7 +834,7 @@ EDEN_AGRIDOME:
 	Buildable:
 		BuildPaletteOrder: 30
 		Queue: Building, RABuilding
-		Prerequisites: EDEN_TOKAMAK
+		Prerequisites: ~eden_factory_structure, EDEN_TOKAMAK
 		BuildDuration: 100
 		Description: Needed with Residence for Vehicle Factory
 
@@ -847,7 +847,7 @@ EDEN_RESIDENCE:
 	Buildable:
 		BuildPaletteOrder: 40
 		Queue: Building, RABuilding
-		Prerequisites: EDEN_TOKAMAK
+		Prerequisites: ~eden_factory_structure, EDEN_TOKAMAK
 		BuildDuration: 100
 		Description: Needed with Agridome for Vehicle Factory\nProvides Radar
 
@@ -860,7 +860,7 @@ EDEN_LAB_BASIC:
 	Buildable:
 		BuildPaletteOrder: 45
 		Queue: Building, RABuilding
-		Prerequisites: EDEN_TOKAMAK
+		Prerequisites: ~eden_factory_structure, EDEN_TOKAMAK
 		BuildDuration: 25
 		Description: Needed with Nursery and University for Standard Lab
 
@@ -873,14 +873,14 @@ EDEN_FACTORY_VEHICLE:
 	Buildable:
 		BuildPaletteOrder: 50
 		Queue: Building, RABuilding
-		Prerequisites: EDEN_RESIDENCE, EDEN_AGRIDOME
+		Prerequisites: ~eden_factory_structure, EDEN_RESIDENCE, EDEN_AGRIDOME
 		Description: Constructs Vehicles
 
 EDEN_GARAGE:
 	Inherits: ^op2base_garage
 	Buildable:
 		Queue: Building, RABuilding
-		Prerequisites: EDEN_FACTORY_VEHICLE
+		Prerequisites: ~eden_factory_structure, EDEN_FACTORY_VEHICLE
 		BuildPaletteOrder: 55
 		BuildDuration: 375
 		Description: Repairs vehicles.\n Allows construction of MCVs
@@ -894,7 +894,7 @@ EDEN_NURSERY:
 	Buildable:
 		BuildPaletteOrder: 60
 		Queue: Building, RABuilding
-		Prerequisites: EDEN_RESIDENCE
+		Prerequisites: ~eden_factory_structure, EDEN_RESIDENCE
 		BuildDuration: 200
 		Description: Needed with University and Basic Lab for Standard Lab
 
@@ -907,7 +907,7 @@ EDEN_UNIVERSITY:
 	Buildable:
 		BuildPaletteOrder: 70
 		Queue: Building, RABuilding
-		Prerequisites: EDEN_RESIDENCE
+		Prerequisites: ~eden_factory_structure, EDEN_RESIDENCE
 		BuildDuration: 200
 		Description: Needed with Nursery and Basic Lab for Standard Lab
 
@@ -920,7 +920,7 @@ EDEN_LAB_STANDARD:
 	Buildable:
 		BuildPaletteOrder: 80
 		Queue: Building, RABuilding
-		Prerequisites: EDEN_BASIC_LAB,EDEN_NURSERY,EDEN_UNIVERSITY
+		Prerequisites: ~eden_factory_structure, EDEN_BASIC_LAB,EDEN_NURSERY,EDEN_UNIVERSITY
 		Description: Needed for DIRT, Consumer Factory, GORF, and Advanced Lab
 
 EDEN_DIRT:
@@ -932,7 +932,7 @@ EDEN_DIRT:
 	Buildable:
 		BuildPaletteOrder: 90
 		Queue: Building, RABuilding
-		Prerequisites: EDEN_LAB_STANDARD
+		Prerequisites: ~eden_factory_structure, EDEN_LAB_STANDARD
 		Description: Provides Force Shield
 
 EDEN_RCC:
@@ -944,7 +944,7 @@ EDEN_RCC:
 	Buildable:
 		BuildPaletteOrder: 95
 		Queue: Building, RABuilding
-		Prerequisites: EDEN_LAB_STANDARD
+		Prerequisites: ~eden_factory_structure, EDEN_LAB_STANDARD
 		BuildDuration: 125
 		Description: Needed for Consumer Factory
 
@@ -966,7 +966,7 @@ EDEN_FACTORY_CONSUMER:
 	Buildable:
 		BuildPaletteOrder: 100
 		Queue: Building, RABuilding
-		Prerequisites: EDEN_RCC
+		Prerequisites: ~eden_factory_structure, EDEN_RCC
 		Description: Manufactures Consumer Goods
 	Building:
 		Footprint: xx xx ==
@@ -1958,7 +1958,7 @@ PLYMOUTH_AGRIDOME:
 	Buildable:
 		BuildPaletteOrder: 30
 		Queue: Building, RABuilding
-		Prerequisites: PLYMOUTH_TOKAMAK
+		Prerequisites: ~pcc, PLYMOUTH_TOKAMAK
 		BuildDuration: 100
 		Description: Needed with Residence for Vehicle Factory
 
