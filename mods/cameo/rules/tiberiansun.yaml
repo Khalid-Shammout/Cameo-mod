@@ -770,7 +770,7 @@ tsntwast:
 	Buildable:
 		BuildPaletteOrder: 200
 		BuildLimit: 1
-		Prerequisites: ~tsgtcnstnod, tsnttech
+		Prerequisites: ~tsgtcnstnod, tsnttech, up_advancedtiberiumrefinement
 		Queue: Building, RABuilding
 		Description: Increases income from minerals by 25%.\nUnlocks Chemical Missile
 	Building:
@@ -1788,42 +1788,42 @@ tscabaltech:
 		Image: tsnttech
 		PlayerPalette: playerra2
 
-tsnttmpl:
-	Inherits: ^BaseBuilding
-	Inherits@sell: ^TSSpawnActorsOnSell
-	Inherits@tech: ^IsTechnoBuilding
-	Inherits@shape: ^3x2Shape
-	# Inherits@hunterseeker: ^HunterSeekersPower
-	Selectable:
-		Bounds: 131072, 87381
-	HitShape:
-		TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
-	Buildable:
-		Queue: Building, RABuilding
-		BuildPaletteOrder: 150
-		Prerequisites: ~tsgtcnstnod, tsntradr, tsnttech
-		Description: Provides Nod advanced technologies.\nProvides Hunter-Seeker support power.
-	Tooltip:
-		Name: Nod Temple
-	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
-		LocalCenterOffset: 0,-512,0
-	Selectable:
-		Bounds: 2048, 2048
-	Armor:
-		Type: Wood
-	RevealsShroud:
-		Range: 5c0
-	Power:
-		Amount: -100
-	ProvidesPrerequisite@buildingname:
-	WithIdleOverlay@LIGHTS:
-		RequiresCondition: !build-incomplete && !disabled
-		Sequence: idle-lights
-	SupportPowerChargeBar:
-	RenderSprites:
-		PlayerPalette: playerra2
+# tsnttmpl:
+# 	Inherits: ^BaseBuilding
+# 	Inherits@sell: ^TSSpawnActorsOnSell
+# 	Inherits@tech: ^IsTechnoBuilding
+# 	Inherits@shape: ^3x2Shape
+# 	# Inherits@hunterseeker: ^HunterSeekersPower
+# 	Selectable:
+# 		Bounds: 131072, 87381
+# 	HitShape:
+# 		TargetableOffsets: 420,-768,0, 420,768,0, -770,-768,0, -770,768,0
+# 	Buildable:
+# 		Queue: Building, RABuilding
+# 		BuildPaletteOrder: 150
+# 		Prerequisites: ~tsgtcnstnod, tsntradr, tsnttech
+# 		Description: Provides Nod advanced technologies.\nProvides Hunter-Seeker support power.
+# 	Tooltip:
+# 		Name: Nod Temple
+# 	Building:
+# 		Footprint: xxx xxx ===
+# 		Dimensions: 3,3
+# 		LocalCenterOffset: 0,-512,0
+# 	Selectable:
+# 		Bounds: 2048, 2048
+# 	Armor:
+# 		Type: Wood
+# 	RevealsShroud:
+# 		Range: 5c0
+# 	Power:
+# 		Amount: -100
+# 	ProvidesPrerequisite@buildingname:
+# 	WithIdleOverlay@LIGHTS:
+# 		RequiresCondition: !build-incomplete && !disabled
+# 		Sequence: idle-lights
+# 	SupportPowerChargeBar:
+# 	RenderSprites:
+# 		PlayerPalette: playerra2
 
 tscore:
 	Inherits: ^BaseBuilding
@@ -2799,6 +2799,7 @@ tsntlasr:
 	Inherits@RenderVoxel: ^TSRenderVoxel
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@TiberiumLenses: ^TiberiumLenses
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
@@ -2824,13 +2825,15 @@ tsntlasr:
 		InitialFacing: 896
 		Offset: 160,5,3
 	AttackTurreted:
-	Armament:
+	Armament@PRIMARY:
 		Weapon: TSTurretLaser
+		RequiresCondition: !up_tiberiumlenses
+	Armament@UPGRADE:
+		Weapon: TSLaserTurretLaser
+		RequiresCondition: up_tiberiumlenses
 	BodyOrientation:
 		QuantizedFacings: 16
 	WithVoxelTurret:
-	WithRangeCircle:
-		Range: 6c0
 	AutoTarget:
 	DetectCloaked:
 		Range: 3c0
@@ -2838,6 +2841,8 @@ tsntlasr:
 	-Cloak@TDcloak:
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tiberiumlenses
 
 tsntlasrcabal:
 	Inherits: tsntlasr
@@ -2996,7 +3001,7 @@ tsgtctwrsam:
 		Offset: 0,0,0
 	WithSpriteBody:
 	Armament:
-		Weapon: TSRedEye2
+		Weapon: TSGDIRedEye
 		LocalOffset: 250,0,750
 	AttackTurreted:
 	WithSpriteTurret:
@@ -3262,6 +3267,7 @@ tsntsam:
 	Inherits@AUTOTARGET: ^AutoTargetAll
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
+	Inherits@TiberiumCoreMissiles: ^TiberiumCoreMissiles
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -3280,14 +3286,19 @@ tsntsam:
 	Health:
 		HP: 100000
 	RevealsShroud:
-		Range: 7c0
+		Range: 13176
 	Turreted:
 		TurnSpeed: 48
-		Offset: -100,0,0
+		Offset: -100,0,150
 	WithSpriteBody:
-	Armament:
-		Weapon: TSRedEye2
+	Armament@PRIMARY:
+		Weapon: TSNODRedEye
 		LocalOffset: 250,0,750
+		RequiresCondition: !up_tiberiumcoremissiles
+	Armament@UPGRADE:
+		Weapon: TSNODTibRedEye
+		LocalOffset: 250,0,750
+		RequiresCondition: up_tiberiumcoremissiles
 	AttackTurreted:
 	WithSpriteTurret:
 	DetectCloaked:
@@ -3298,6 +3309,8 @@ tsntsam:
 		Amount: -30
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tiberiumcoremissiles
 
 tsntsamcabal:
 	Inherits: tsntsam
@@ -3311,22 +3324,25 @@ tsntstlh:
 	Inherits: ^BaseBuilding
 	Inherits@sell: ^TSSpawnActorsOnSell
 	Inherits@SHAPE: ^3x2Shape
+	Inherits@cloak: ^CloakedVehicle
+	Inherits@StealthFieldsImprovements: ^StealthFieldsImprovements
 	Valued:
-		Cost: 1500
+		Cost: 2500
 	Tooltip:
 		Name: Stealth Generator
 	Buildable:
+		BuildLimit: 1
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 170
 		Prerequisites: ~tsgtcnstnod, tsnttech
-		Description: Generates a cloaking field\nto hide your forces from the enemy.\nCan not be cloaked.
+		Description: Generates a cloaking field\nto hide your forces from the enemy.
 	Building:
-		Footprint: xxx XXX
+		Footprint: xxx xxx
 		Dimensions: 3,2
 	Health:
 		HP: 100000
 	Armor:
-		Type: Wood
+		Type: Concrete
 	RevealsShroud:
 		Range: 6c0
 	Power:
@@ -3334,18 +3350,29 @@ tsntstlh:
 	WithIdleOverlay@pulse:
 		RequiresCondition: !disabled && !lowpower
 		Sequence: pulse
-	WithRangeCircle:
-		Range: 12c0
-	ProximityExternalCondition@StealGen:
+	ProximityExternalCondition@StealthGen:
 		Range: 12c0
 		Condition: tscloak
 		EnableSound: cloak5.aud
 		DisableSound: cloak5.aud
-		RequiresCondition: !disabled && !lowpower
-	-ExternalCondition@TSCLOAK:
+		RequiresCondition: !disabled && !lowpower && !up_stealthfieldsimprovements
+	ProximityExternalCondition@StealthGenUpgraded:
+		Range: 15c0
+		Condition: tscloak
+		EnableSound: cloak5.aud
+		DisableSound: cloak5.aud
+		RequiresCondition: !disabled && !lowpower && up_stealthfieldsimprovements
 	ProvidesPrerequisite@buildingname:
+	WithRangeCircle@GenRange:
+		Range: 12c0
+		RequiresCondition: !up_stealthfieldsimprovements
+	WithRangeCircle@GenRangeUpgraded:
+		Range: 15c0
+		RequiresCondition: up_stealthfieldsimprovements
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_stealthfieldsimprovements
 
 tsntstlhcabal:
 	Inherits: tsntstlh
@@ -3380,7 +3407,7 @@ tsntpulsgdi:
 	Health:
 		HP: 100000
 	Armor:
-		Type: Wood
+		Type: Concrete
 	RevealsShroud:
 		Range: 7c0
 	Power:
@@ -3435,6 +3462,7 @@ tsntobel:
 	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@TiberiumLenses: ^TiberiumLenses
 	Valued:
 		Cost: 2200
 	Tooltip:
@@ -3459,9 +3487,14 @@ tsntobel:
 	-WithSpriteBody:
 	WithChargeSpriteBody:
 		Sequence: idle
-	Armament:
+	Armament@PRIMARY:
 		Weapon: TSObeliskLaserFire
 		LocalOffset: 0,180,1600
+		RequiresCondition: !up_tiberiumlenses
+	Armament@UPGRADE:
+		Weapon: TSLaserObeliskLaserFire
+		LocalOffset: 0,180,1600
+		RequiresCondition: up_tiberiumlenses
 	AttackCharges:
 		RequiresCondition: !build-incomplete
 		PauseOnCondition: lowpower || disabled
@@ -3486,6 +3519,8 @@ tsntobel:
 		Amount: -100
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tiberiumlenses
 
 tsntobelcabal:
 	Inherits: tsntobel
@@ -3592,10 +3627,11 @@ TSE1:
 		Step: 16
 	Armament@PRIMARY:
 		Weapon: TSMinigun
-		RequiresCondition: !rank-elite
-	Armament@ELITE:
-		Weapon: TSMinigun
-		RequiresCondition: rank-elite
+		LocalOffset: 128,0,256
+		# RequiresCondition: !rank-elite
+	# Armament@ELITE:
+	# 	Weapon: TSMinigun
+	# 	RequiresCondition: rank-elite
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: TSMinigun
@@ -3626,12 +3662,41 @@ TSE1.GDI:
 
 TSE1.NOD:
 	Inherits: TSE1
+	Inherits@TiberiumLenses: ^TiberiumLenses
+	Inherits@InfiltrationKit: ^InfiltrationKit
 	Buildable:
 		Queue: Infantry, RAInfantry
 		Prerequisites: ~tsnthand
+	Armament@PRIMARY:
+		Weapon: TSMinigun
+		RequiresCondition: !up_tiberiumlenses
+		LocalOffset: 128,0,256
+	Armament@UPGRADE:
+		Weapon: TSLasergun
+		RequiresCondition: up_tiberiumlenses
+		LocalOffset: 128,0,256
+	Armament@GARRISONED: ##########
+		Name: garrisoned
+		Weapon: TSMinigun
+		RequiresCondition: !up_tiberiumlenses
+	Armament@UPGRADEGARRISONED: ##########
+		Name: garrisoned
+		Weapon: TSLasergun
+		RequiresCondition: up_tiberiumlenses
+	Cloak@up_infiltrationkit:
+		DetectionTypes: GroundCloak
+		InitialDelay: 125
+		CloakDelay: 75
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		PauseOnCondition: cloak-force-disabled || base-reveal || disabled
+		IsPlayerPalette: true
+		RequiresCondition: up_infiltrationkit
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tse1.nod
+	ActorStatValues:
+		Upgrades: up_tiberiumlenses, up_infiltrationkit
 
 TSE1PARA:
 	Inherits: TSE1
@@ -3696,6 +3761,8 @@ TSENGINEER:
 	Armament@PRIMARY:
 		Weapon: TSEngineerPistol
 		LocalOffset: 128,0,256
+	Armament@GARRISONED:
+		Weapon: TSEngineerPistol
 	DeliversCash:
 		Payload: 300
 	RenderSprites:
@@ -3910,7 +3977,7 @@ TSRIOTT:
 		HP: 54000
 	ChangesHealth@SelfHealing:
 		Step: 8
-	Armament:
+	Armament@PRIMARY:
 		Weapon: TSShotgun
 		LocalOffset: 0,0,427
 	Armament@GARRISONED: ##########
@@ -3931,7 +3998,7 @@ TSRIOTT:
 
 TSJUMPJET:
 	Inherits: ^Soldier
-	Inherits@Template: ^ScoutInfantryTemplate
+	Inherits@Template: ^HeavyInfantryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -4125,6 +4192,7 @@ TSE3:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@TiberiumCoreMissiles: ^TiberiumCoreMissiles
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -4146,9 +4214,20 @@ TSE3:
 		Weapon: TSBazooka
 		LocalOffset: 256,43,341
 		FireDelay: 5
+		RequiresCondition: !up_tiberiumcoremissiles
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: TSBazooka
+		RequiresCondition: !up_tiberiumcoremissiles
+	Armament@UPGRADE: ##########
+		Weapon: TSTibBazooka
+		LocalOffset: 256,43,341
+		FireDelay: 5
+		RequiresCondition: up_tiberiumcoremissiles
+	Armament@GARRISONEDUPGRADE: ##########
+		Name: garrisoned
+		Weapon: TSTibBazooka
+		RequiresCondition: up_tiberiumcoremissiles
 	TakeCover:
 		ProneOffset: 180,0,-200
 	# Inherits@EXT: ^ExternalConditions ##########
@@ -4164,6 +4243,8 @@ TSE3:
 	# 	Weapon: TSBazookaG
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tiberiumcoremissiles
 
 tse3.mutant:
 	Inherits: TSE3
@@ -4183,6 +4264,8 @@ elitcadre:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^TSInfantry
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@TiberiumLenses: ^TiberiumLenses
+	Inherits@AuxiliaryWeapon: ^AuxiliaryWeapon
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -4190,23 +4273,40 @@ elitcadre:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-		BuildPaletteOrder: 50
+		BuildPaletteOsrder: 50
 		Prerequisites: ~tsnthand, tsntradr
 		Queue: Infantry, RAInfantry
 		Description: Elite Infantry of NOD used to fight high technology enemies \n  Strong vs Infantry, Air, Vehicles\n  Weak vs Siege, Heavy armor
-		BuildDuration: 425
-		BuildDurationModifier: 100
 	Mobile:
 		Speed: 55
 	Health:
 		HP: 20000
-	# ChangesHealth@SelfHealing:
-	# 	Step: 20
+	ChangesHealth@SelfHealing:
+		Step: 20
 	Armament@PRIMARY:
 		Weapon: elitecadregun
+		RequiresCondition: !up_tiberiumlenses
+		LocalOffset: 128,0,256
+	Armament@UPGRADE:
+		Weapon: laserelitecadregun
+		RequiresCondition: up_tiberiumlenses
+		LocalOffset: 128,0,256
 	Armament@GARRISONED: ##########
 		Name: garrisoned
 		Weapon: elitecadregun
+		RequiresCondition: !up_tiberiumlenses
+	Armament@GARRISONEDUPGRADE: ##########
+		Name: garrisoned
+		Weapon: laserelitecadregun
+		RequiresCondition: up_tiberiumlenses
+	Armament@SECONDARY:
+		Weapon: TSCadreGrenade
+		RequiresCondition: up_auxiliaryweapon
+		LocalOffset: 128,0,256
+	Armament@GARRISONEDSECONDARY: ##########
+		Name: garrisoned
+		Weapon: TSCadreGrenade
+		RequiresCondition: up_auxiliaryweapon
 	TakeCover:
 		ProneOffset: 180,0,-200
 	Inherits@EXT: ^ExternalConditions ##########
@@ -4232,6 +4332,106 @@ elitcadre:
 		CrushedSequencePalette: ra2effect
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tiberiumlenses, up_auxiliaryweapon
+
+TSTOXINTROOP:
+	Inherits: ^Soldier
+	Inherits@Template: ^HeavyInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^TSInfantry
+	Inherits@vo: ^AttackFrontalVoice
+	Valued:
+		Cost: 850
+	Tooltip:
+		Name: Toxin Trooper
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOsrder: 80
+		Prerequisites: ~tsnthand, tsnttech
+		Queue: Infantry, RAInfantry
+		Description: Elite Infantry of NOD used to fight high technology enemies \n  Strong vs Infantry, Vehicles\n  Weak vs Siege, Heavy armor
+	Mobile:
+		Speed: 55
+	Health:
+		HP: 30000
+	ChangesHealth@SelfHealing:
+		Step: 30
+	Armament@PRIMARY:
+		Weapon: TSToxinRifle
+		LocalOffset: 128,0,256
+	Armament@GARRISONED:
+		Weapon: TSToxinRifle
+	TakeCover:
+		ProneOffset: 180,0,-200
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: infantry ##########
+	Voiced:
+		VoiceSet: TSRocket
+	RenderSprites:
+		PlayerPalette: playerra2
+
+
+TSSHOTGUNCOM:
+	Inherits: ^Soldier
+	Inherits@Template: ^HeroInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@COMMANDOSKULL: ^CommandoSkull
+	# Inherits@announce: ^AnnounceGlobal
+	Inherits@anim: ^TSInfantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@InfiltrationKit: ^InfiltrationKit
+	Valued:
+		Cost: 4000
+	Tooltip:
+		Name: Shotgun Commando
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+		BuildPaletteOsrder: 100
+		Prerequisites: ~tsnthand, tsnttech
+		Queue: Infantry, RAInfantry
+		Description: Elite Infantry of NOD used to fight high technology enemies \n  Strong vs Infantry, Vehicles\n  Weak vs Siege, Heavy armor
+		BuildLimit: 1
+	Mobile:
+		Speed: 70
+	Health:
+		HP: 100000
+	ChangesHealth@SelfHealing:
+		Step: 100
+	Armament@PRIMARY:
+		Weapon: TSCommandoShotgun
+		LocalOffset: 128,0,256
+	Armament@GARRISONED:
+		Weapon: TSCommandoShotgun
+	TakeCover:
+		ProneOffset: 180,0,-200
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: infantry ##########
+	Voiced:
+		VoiceSet: TSRocket
+	Cloak@up_infiltrationkit:
+		DetectionTypes: GroundCloak
+		InitialDelay: 125
+		CloakDelay: 75
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		PauseOnCondition: cloak-force-disabled || base-reveal || disabled
+		IsPlayerPalette: true
+		RequiresCondition: up_infiltrationkit
+	RenderSprites:
+		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_infiltrationkit
 
 TSCYBORG:
 	Inherits: ^Soldier
@@ -4330,20 +4530,21 @@ TSCHAMSPY:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@cloak: ^CloakedVehicle
 	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@InfiltrationKit: ^InfiltrationKit
 	Buildable:
 		Queue: Infantry, RAInfantry
 		BuildPaletteOrder: 90
-		Prerequisites: ~tsnthand, tsnttech
+		Prerequisites: ~tsnthand, tsntradr
 		Description: Cloaked spy that can infiltrate structures.
 	Valued:
-		Cost: 350
+		Cost: 500
 	Tooltip:
 		Name: Chameleon Spy
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	-Guard:
 	Health:
-		HP: 20000
+		HP: 30000
 	Mobile:
 		Speed: 90
 		Voice: Move
@@ -4364,6 +4565,7 @@ TSCHAMSPY:
 		Types: SpyInfiltrate
 		Notification: BuildingInfiltrated
 		PlayerExperience: 50
+		RequiresCondition: up_infiltrationkit
 	IgnoresDisguise:
 	AttackMove:
 		Voice: Move
@@ -4374,6 +4576,8 @@ TSCHAMSPY:
 	WithDeathAnimation:
 		DeathSequencePalette: ra2player
 		CrushedSequencePalette: ra2effect
+	ActorStatValues:
+		Upgrades: up_infiltrationkit
 
 TSMHIJACK:
 	Inherits: ^Soldier
@@ -5503,6 +5707,7 @@ TSHARV:
 TSHARVNOD:
 	Inherits: ^TDHARV
 	Inherits@Voxel: ^TSRenderVoxel
+	Inherits@StealthFieldsImprovements: ^StealthFieldsImprovements
 	Health:
 		HP: 150000
 	Harvester:
@@ -5526,6 +5731,23 @@ TSHARVNOD:
 	WithHarvestOverlay@harvesting:
 		Sequence: harvesting
 		Palette: ra2effect
+	GrantConditionOnPrerequisite@up_advancedtiberiumrefinement:
+		Condition: up_advancedtiberiumrefinement
+		Prerequisites: up_advancedtiberiumrefinement
+	SpeedMultiplier@up_advancedtiberiumrefinement:
+		RequiresCondition: up_advancedtiberiumrefinement
+		Modifier: 150
+	Cloak@up_stealthfieldsimprovements:
+		DetectionTypes: GroundCloak
+		InitialDelay: 125
+		CloakDelay: 75
+		CloakSound: cloak5.aud
+		UncloakSound: cloak5.aud
+		PauseOnCondition: cloak-force-disabled || base-reveal || disabled
+		IsPlayerPalette: true
+		RequiresCondition: up_stealthfieldsimprovements
+	ActorStatValues:
+		Upgrades: up_advancedtiberiumrefinement, up_stealthfieldsimprovements
 
 TSHARVMUTANT:
 	Inherits: ^TDHARV
@@ -6572,6 +6794,7 @@ TSSAPC:
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@sub: ^SubterraneanVoxelVehicle
 	Inherits@cargo: ^CargoVehicle
+	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -6617,6 +6840,8 @@ TSSAPC:
 	WithCargoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
+	ActorStatValues:
+		Upgrades: up_advancedtiberiumrefinement
 
 TSBGGY:
 	Inherits: ^Vehicle
@@ -6628,6 +6853,9 @@ TSBGGY:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@MobilitySpecialization: ^MobilitySpecialization
+	Inherits@TiberiumLenses: ^TiberiumLenses
+	Inherits@AuxiliaryWeapon: ^AuxiliaryWeapon
+	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
 		Cost: 450
 	Tooltip:
@@ -6647,12 +6875,27 @@ TSBGGY:
 		HpPerStep: 1500
 	ChangesHealth@SelfHealing:
 		Step: 12
-	Armament:
+	Armament@PRIMARY:
 		Weapon: TSRaiderCannon
 		LocalOffset: 0,-30,250, 0,30,250
 		Recoil: 128
 		RecoilRecovery: 26
 		MuzzleSequence: muzzle
+		RequiresCondition: !up_tiberiumlenses
+	Armament@UPGRADE:
+		Weapon: TSLaserRaiderCannon
+		LocalOffset: 0,-30,250, 0,30,250
+		Recoil: 128
+		RecoilRecovery: 24
+		MuzzleSequence: muzzle
+		RequiresCondition: up_tiberiumlenses
+	Armament@SECONDARY:
+		Weapon: TSRaiderGrenade
+		LocalOffset: 0,-30,250, 0,30,250
+		Recoil: 128
+		RecoilRecovery: 26
+		MuzzleSequence: muzzle
+		RequiresCondition: up_auxiliaryweapon
 	WithMuzzleOverlay:
 	AttackFollowFrontal:
 		FacingTolerance: 512
@@ -6668,7 +6911,7 @@ TSBGGY:
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: up_mobilityspecialization
+		Upgrades: up_mobilityspecialization, up_tiberiumlenses, up_auxiliaryweapon, up_advancedtiberiumrefinement
 
 TSBIKE:
 	Inherits: ^Vehicle
@@ -6682,6 +6925,8 @@ TSBIKE:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@MobilitySpecialization: ^MobilitySpecialization
+	Inherits@TiberiumCoreMissiles: ^TiberiumCoreMissiles
+	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -6703,12 +6948,12 @@ TSBIKE:
 		Step: 8
 	Armament@PRIMARY:
 		Weapon: TSBikeMissile
-		# RequiresCondition: !rank-elite
+		RequiresCondition: !up_tiberiumcoremissiles
 		LocalOffset: -153,-204,509, -153,204,509
-	# Armament@ELITE:
-	# 	Weapon: TSHoverMissile
-	# 	RequiresCondition: rank-elite
-	# 	LocalOffset: -153,-204,509, -153,204,509
+	Armament@UPGRADE:
+		Weapon: TSBikeTibMissile
+		RequiresCondition: up_tiberiumcoremissiles
+		LocalOffset: -153,-204,509, -153,204,509
 	AttackFollowFrontal:
 		FacingTolerance: 512
 	SelectionDecorations:
@@ -6723,7 +6968,7 @@ TSBIKE:
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: up_mobilityspecialization
+		Upgrades: up_mobilityspecialization, up_tiberiumcoremissiles, up_advancedtiberiumrefinement
 
 TSBIKECABAL:
 	Inherits: TSBIKE
@@ -6748,6 +6993,9 @@ TSSTNK:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@cloak: ^CloakedVehicle
+	Inherits@TiberiumCoreMissiles: ^TiberiumCoreMissiles
+	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
+	Inherits@StealthFieldsImprovements: ^StealthFieldsImprovements
 	Valued:
 		Cost: 1750
 	Tooltip:
@@ -6774,8 +7022,13 @@ TSSTNK:
 	Armament@PRIMARY:
 		Weapon: TSStankTusk
 		LocalOffset: -153,-204,509, -153,204,509
+		RequiresCondition: !up_tiberiumcoremissiles
+	Armament@UPGRADE:
+		Weapon: TSStankTibTusk
+		LocalOffset: -153,-204,509, -153,204,509
+		RequiresCondition: up_tiberiumcoremissiles
 	AttackFrontal:
-		FacingTolerance: 512
+		FacingTolerance: 256
 	AutoTarget:
 		InitialStance: HoldFire
 	SelectionDecorations:
@@ -6788,6 +7041,15 @@ TSSTNK:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 250
+	WithRangeCircle@GenRangeUpgraded:
+		Range: 1512
+		RequiresCondition: up_stealthfieldsimprovements
+	ProximityExternalCondition@StealthGen:
+		Range: 1512
+		Condition: tscloak
+		EnableSound: cloak5.aud
+		DisableSound: cloak5.aud
+		RequiresCondition: !disabled && up_stealthfieldsimprovements
 	# Cloak:
 	# 	InitialDelay: 90
 	# 	CloakDelay: 90
@@ -6801,6 +7063,8 @@ TSSTNK:
 	# 	ValidDamageStates: Critical
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tiberiumcoremissiles, up_advancedtiberiumrefinement, up_stealthfieldsimprovements
 
 TSSTNKCABAL:
 	Inherits: TSSTNK
@@ -6819,6 +7083,7 @@ TSREPAIR:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@snipe: ^DriverKillImmune
+	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -6860,6 +7125,8 @@ TSREPAIR:
 		ValidTargets: Vehicles
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_advancedtiberiumrefinement
 
 TSREPAIRCABAL:
 	Inherits: TSREPAIR
@@ -6881,6 +7148,9 @@ TSTTNK:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@detect: ^EliteDetector
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@TiberiumLenses: ^TiberiumLenses
+	Inherits@AuxiliaryWeapon: ^AuxiliaryWeapon
+	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -6918,7 +7188,12 @@ TSTTNK:
 	Armament@PRIMARY:
 		Weapon: TS90mm
 		LocalOffset: 407,0,362
-		RequiresCondition: undeployed
+		RequiresCondition: undeployed && !up_tiberiumlenses
+		MuzzleSequence: muzzle
+	Armament@UPGRADE:
+		Weapon: TSLaser90mm
+		LocalOffset: 407,0,362
+		RequiresCondition: undeployed && up_tiberiumlenses
 		MuzzleSequence: muzzle
 	# Armament@ELITE:
 	# 	Weapon: TS120mmx
@@ -6929,8 +7204,15 @@ TSTTNK:
 		Name: deployed
 		Turret: deployed
 		Weapon: TS90mmDep
-		LocalOffset: 543,0,362
-		RequiresCondition: deployed
+		LocalOffset: 543,75,362
+		RequiresCondition: deployed && !up_tiberiumlenses
+		MuzzleSequence: muzzle
+	Armament@UPGRADEdeployed:
+		Name: deployed
+		Turret: deployed
+		Weapon: TSLaser90mmDep
+		LocalOffset: 543,75,362
+		RequiresCondition: deployed && up_tiberiumlenses
 		MuzzleSequence: muzzle
 	# Armament@elitedeployed:
 	# 	Name: deployed
@@ -6939,6 +7221,20 @@ TSTTNK:
 	# 	LocalOffset: 543,0,362
 	# 	RequiresCondition: rank-elite && deployed
 	# 	MuzzleSequence: muzzle
+	Armament@SECONDARY:
+		Name: deployed
+		Turret: deployed
+		Weapon: TS25mmDep
+		LocalOffset: 543,-75,362
+		RequiresCondition: deployed && up_auxiliaryweapon && !up_tiberiumlenses
+		MuzzleSequence: muzzle
+	Armament@UPGRADESECONDARY:
+		Name: deployed
+		Turret: deployed
+		Weapon: TSLaser25mmDep
+		LocalOffset: 543,-75,362
+		RequiresCondition: deployed && up_auxiliaryweapon && up_tiberiumlenses
+		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
 	AttackFrontal:
 		RequiresCondition: undeployed
@@ -6987,12 +7283,16 @@ TSTTNK:
 		DeployChance: 75
 		DeployTicks: 300
 		UndeployTicks: 1000
+	RejectsMoveToAttack:
+		RequiresCondition: !botmicro && deployed
 	Voiced:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 350
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_tiberiumlenses, up_auxiliaryweapon, up_advancedtiberiumrefinement
 
 TSTTNKCABAL:
 	Inherits: TSTTNK
@@ -7003,6 +7303,8 @@ TSTTNKCABAL:
 		Image: tsttnk
 	RenderVoxels:
 		Image: tsttnk
+	ActorStatValues:
+		Upgrades: up_tiberiumlenses
 
 TSART2:
 	Inherits: ^Tank
@@ -7014,6 +7316,8 @@ TSART2:
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@MobilitySpecialization: ^MobilitySpecialization
+	Inherits@AuxiliaryWeapon: ^AuxiliaryWeapon
+	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
 		Cost: 1300
 	Tooltip:
@@ -7042,6 +7346,11 @@ TSART2:
 	Armament@PRIMARY:
 		Weapon: TS155mm
 		LocalOffset: 407,0,362
+		RequiresCondition: !up_auxiliaryweapon
+	Armament@UPGRADE:
+		Weapon: TSAux155mm
+		LocalOffset: 407,0,362
+		RequiresCondition: up_auxiliaryweapon
 	AttackTurreted:
 	SelectionDecorations:
 	Selectable:
@@ -7057,15 +7366,9 @@ TSART2:
 		VoiceSet: TSVehicle
 	DeliversCash:
 		Payload: 350
-	# AmmoPool:
-	# 	Ammo: 1
-	# 	AmmoCondition: ammo
-	# ReloadAmmoPool:
-	# 	Delay: 200
-	# 	Count: 1
 	GrantConditionOnAttack@DEPLOY:
 		Condition: immobile
-		RevokeDelay: 50
+		RevokeDelay: 20
 	SpeedMultiplier@DEPLOY:
 		Modifier: 0
 		RequiresCondition: immobile
@@ -7073,13 +7376,10 @@ TSART2:
 		Sequence: deploy
 		RequiresCondition: immobile
 		Name: body2
-	# WithAmmoPipsDecoration:
-	# 	Position: BottomLeft
-	# 	RequiresSelection: True
 	RenderSprites:
 		PlayerPalette: playerra2
 	ActorStatValues:
-		Upgrades: up_mobilityspecialization
+		Upgrades: up_mobilityspecialization, up_auxiliaryweapon, up_advancedtiberiumrefinement
 
 TSART2CABAL:
 	Inherits: TSART2
@@ -7101,6 +7401,7 @@ TSSUBTANK:
 	Inherits@sub: ^SubterraneanVoxelVehicle
 	Inherits@EMP: ^FrontalEMP
 	Inherits@vo: ^AttackFrontalVoice
+	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
 		Cost: 1150
 	Tooltip:
@@ -7142,6 +7443,8 @@ TSSUBTANK:
 		Scale: 15
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_advancedtiberiumrefinement
 
 TSSUBTANKCABAL:
 	Inherits: TSSUBTANK
@@ -7157,6 +7460,10 @@ tssgen:
 	Inherits: ^Tank
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@detect: ^GenericGroundDetector
+	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
+	Inherits@StealthFieldsImprovements: ^StealthFieldsImprovements
+	ActorStatValues:
+		Upgrades:
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -7187,21 +7494,33 @@ tssgen:
 	RenderVoxels:
 		Scale: 15
 	ProximityExternalCondition@StealGen:
+		Range: 5c0
+		Condition: tscloak
+		EnableSound: cloak5.aud
+		DisableSound: cloak5.aud
+		RequiresCondition: !disabled && !up_stealthfieldsimprovements
+	ProximityExternalCondition@StealGenUpgraded:
 		Range: 7c0
 		Condition: tscloak
 		EnableSound: cloak5.aud
 		DisableSound: cloak5.aud
-		RequiresCondition: !disabled
+		RequiresCondition: !disabled && up_stealthfieldsimprovements
 	-ExternalCondition@CLOAK:
 	-ExternalCondition@TSCLOAK:
 	-Cloak@TDcloak:
 	-Cloak@TScloak:
-	DetectCloaked:
+	# DetectCloaked:
+	# 	Range: 7c0
+	WithRangeCircle@GenRange:
+		Range: 5c0
+		RequiresCondition: !up_stealthfieldsimprovements
+	WithRangeCircle@GenRangeUpgraded:
 		Range: 7c0
-	WithRangeCircle:
-		Range: 7c0
+		RequiresCondition: up_stealthfieldsimprovements
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: up_advancedtiberiumrefinement, up_stealthfieldsimprovements
 
 tssgencabal:
 	Inherits: tssgen
@@ -7265,11 +7584,12 @@ tslpstcabal:
 
 tslpstnod:
 	Inherits: tslpst
+	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Tooltip:
 		Name: Mobile Sensor Array
 	Buildable:
 		BuildPaletteOrder: 110
-		Prerequisites: ~tsntweap, tsntpulsnod, tsntradr
+		Prerequisites: ~tsntweap, tsntradr
 		Queue: Vehicle, RAVehicle
 		Description: Shuts down vehicles with an EMP blast.\n  Strong vs Vehicles, Cyborgs
 	RenderSprites:
@@ -7277,6 +7597,8 @@ tslpstnod:
 		PlayerPalette: playerra2
 	RenderVoxels:
 		Image: tslpst
+	ActorStatValues:
+		Upgrades: up_advancedtiberiumrefinement
 
 
 #######################################
@@ -8762,6 +9084,7 @@ TSSCRIN:
 	Inherits@Voxel: ^TSRenderVoxel
 	Inherits@reload: ^RearmableAircraft
 	Inherits@MobilitySpecialization: ^MobilitySpecialization
+	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
 		Cost: 2400
 	Tooltip:
@@ -8804,12 +9127,11 @@ TSSCRIN:
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 1536, 1536
-	WithVoxelBody:
 	Voiced:
 		VoiceSet: TSScrin
 	AmmoPool:
 		Ammo: 4
-		ReloadCount: 1
+		ReloadCount: 4
 		AmmoCondition: ammo
 	# ReloadAmmoPool:
 	# 	Delay: 25
@@ -8823,7 +9145,7 @@ TSSCRIN:
 		RequiresSelection: True
 		PipCount: 4
 	ActorStatValues:
-		Upgrades: up_mobilityspecialization
+		Upgrades: up_mobilityspecialization, up_advancedtiberiumrefinement
 
 TSSCRINCABAL:
 	Inherits: TSSCRIN
@@ -8856,13 +9178,15 @@ TSSCRIN.Husk:
 
 TSAPACHENOD:
 	Inherits: ^Helicopter
-	Inherits@Template: ^BomberTemplate
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
-	Inherits@reload: ^RearmableAircraft
 	Inherits@MobilitySpecialization: ^MobilitySpecialization
+	Inherits@TiberiumLenses: ^TiberiumLenses
+	Inherits@AuxiliaryWeapon: ^AuxiliaryWeapon
+	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
 		Cost: 1800
 	Tooltip:
@@ -8889,7 +9213,23 @@ TSAPACHENOD:
 	Armament@PRIMARY:
 		Weapon: TSHarpyClaw
 		LocalOffset: 0,0,0
-		PauseOnCondition: !ammo
+		# PauseOnCondition: !ammo
+		RequiresCondition: !up_tiberiumlenses
+	Armament@SECONDARY:
+		Weapon: TSHarpyMultiClaw
+		LocalOffset: 0,0,0
+		# PauseOnCondition: !ammo
+		RequiresCondition: !up_tiberiumlenses && up_auxiliaryweapon
+	Armament@UPGRADE:
+		Weapon: TSLaserHarpyClaw
+		LocalOffset: 0,0,0
+		# PauseOnCondition: !ammo
+		RequiresCondition: up_tiberiumlenses
+	Armament@SECONDARYUPGRADE:
+		Weapon: TSLaserHarpyMultiClaw
+		LocalOffset: 0,0,0
+		# PauseOnCondition: !ammo
+		RequiresCondition: up_tiberiumlenses && up_auxiliaryweapon
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false
@@ -8903,13 +9243,12 @@ TSAPACHENOD:
 	WithVoxelBody:
 	Voiced:
 		VoiceSet: TSScrin
-	AmmoPool:
-		Ammo: 12
-		AmmoCondition: ammo
-		ReloadCount: 3
-	ReloadAmmoPool:
-		Delay: 25
-		Count: 1
+	# AmmoPool:
+	# 	Ammo: 32
+	# 	AmmoCondition: ammo
+	# ReloadAmmoPool:
+	# 	Delay: 32
+	# 	Count: 4
 	SpawnActorOnDeath:
 		Actor: TSAPACHE.Husk
 	WithIdleOverlay@ROTORAIR:
@@ -8925,14 +9264,14 @@ TSAPACHENOD:
 	RenderVoxels:
 		Scale: 15
 		Image: tsapache
-	WithAmmoPipsDecoration:
-		Position: BottomLeft
-		RequiresSelection: True
-		PipCount: 4
+	# WithAmmoPipsDecoration:
+	# 	Position: BottomLeft
+	# 	RequiresSelection: True
+	# 	PipCount: 4
 	RenderSprites:
 		Image: tsapache
 	ActorStatValues:
-		Upgrades: up_mobilityspecialization
+		Upgrades: up_mobilityspecialization, up_tiberiumlenses, up_auxiliaryweapon, up_advancedtiberiumrefinement
 
 TSAPACHEMUTANT:
 	Inherits: ^Helicopter
@@ -10132,6 +10471,31 @@ team_upgrade.up_modernfirecontrolsystems:
 
 ############ Radar
 
+up_infiltrationkit:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Infiltration Kit
+	Valued:
+		Cost: 2500
+	Buildable:
+		BuildPaletteOrder: 90
+		Queue: Addons
+		Description: Adds portable stealth suits to Light Infantry and Shotgun Commando, making them invisible. Allows Chameleon Spies to infiltrate buildings.
+		Prerequisites: ~tsntradr, !up_infiltrationkit
+	RenderSprites:
+		Image: infiltrationkiticon
+	ProvidesPrerequisite:
+
+^InfiltrationKit:
+	GrantConditionOnPrerequisite@up_infiltrationkit:
+		Condition: up_infiltrationkit
+		Prerequisites: up_infiltrationkit
+	SpeedMultiplier@up_infiltrationkit:
+		RequiresCondition: up_infiltrationkit
+		Modifier: 125
+	ActorStatValues:
+		Upgrades: up_infiltrationkit
+
 up_mobilityspecialization:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
@@ -10139,9 +10503,9 @@ up_mobilityspecialization:
 	Valued:
 		Cost: 3500
 	Buildable:
-		BuildPaletteOrder: 110
+		BuildPaletteOrder: 100
 		Queue: Addons
-		Description: Increaces light vehicles and aircraft armor, accuracy, speed, vision, detection and attack range by 10%
+		Description: Increaces light vehicles and aircraft armor, accuracy, speed, vision, detection and attack range by 10%.
 		Prerequisites: ~tsntradr, !up_mobilityspecialization
 	RenderSprites:
 		Image: mobilityspecializationicon
@@ -10171,3 +10535,185 @@ up_mobilityspecialization:
 		Modifier: 90
 	ActorStatValues:
 		Upgrades: up_mobilityspecialization
+
+up_auxiliaryweapon:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Auxiliary Weapon
+	Valued:
+		Cost: 4000
+	Buildable:
+		BuildPaletteOrder: 110
+		Queue: Addons
+		Description: Adds Secondary Weapons or improves existing ones for a lot of units.
+		Prerequisites: ~tsntradr, !up_auxiliaryweapon
+	RenderSprites:
+		Image: tsauxiliaryweaponicon
+	ProvidesPrerequisite:
+
+^AuxiliaryWeapon:
+	GrantConditionOnPrerequisite@up_auxiliaryweapon:
+		Condition: up_auxiliaryweapon
+		Prerequisites: up_auxiliaryweapon
+	ReloadDelayMultiplier@up_auxiliaryweapon:
+		RequiresCondition: up_auxiliaryweapon
+		Modifier: 90
+	FirepowerMultiplier@up_auxiliaryweapon:
+		RequiresCondition: up_auxiliaryweapon
+		Modifier: 110
+	ActorStatValues:
+		Upgrades: up_auxiliaryweapon
+
+############### Lab
+
+up_stealthfieldsimprovements:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Stealth Fields Improvements
+	Valued:
+		Cost: 5000
+	Buildable:
+		BuildPaletteOrder: 80
+		Queue: Upgrades
+		Description: Adds portable stealth generators to harvesters. Increases effectiveness of Stealth Generators and Stealth Tanks.
+		Prerequisites: ~tsnttech, !up_stealthfieldsimprovements
+	RenderSprites:
+		Image: stealthfieldsimprovementsicon
+	ProvidesPrerequisite:
+
+^StealthFieldsImprovements:
+	GrantConditionOnPrerequisite@up_stealthfieldsimprovements:
+		Condition: up_stealthfieldsimprovements
+		Prerequisites: up_stealthfieldsimprovements
+	DamageMultiplier@up_stealthfieldsimprovements:
+		RequiresCondition: up_stealthfieldsimprovements
+		Modifier: 80
+	ActorStatValues:
+		Upgrades: up_stealthfieldsimprovements
+
+up_tiberiumlenses:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Tiberium Lenses
+	Valued:
+		Cost: 10000
+	Buildable:
+		BuildPaletteOrder: 90
+		Queue: Upgrades
+		Description: Many units recieve laser weapons. Increases effectivenes of already existing laser=based weapons.
+		Prerequisites: ~tsnttech, !up_tiberiumlenses
+	RenderSprites:
+		Image: tstiberiumlensesicon
+	ProvidesPrerequisite:
+
+^TiberiumLenses:
+	GrantConditionOnPrerequisite@up_tiberiumlenses:
+		Condition: up_tiberiumlenses
+		Prerequisites: up_tiberiumlenses
+	ActorStatValues:
+		Upgrades: up_tiberiumlenses
+
+up_tiberiumcoremissiles:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Tiberium Core Missiles
+	Valued:
+		Cost: 10000
+	Buildable:
+		BuildPaletteOrder: 100
+		Queue: Upgrades
+		Description: Adds Tiberium Missiles to Rocket Soldier, SAM site, Attack Cycle and Stealth tank, increasing their firepower.
+		Prerequisites: ~tsnttech, !up_tiberiumcoremissiles
+	RenderSprites:
+		Image: tstiberiumcoremissilesicon
+	ProvidesPrerequisite:
+
+^TiberiumCoreMissiles:
+	GrantConditionOnPrerequisite@up_tiberiumcoremissiles:
+		Condition: up_tiberiumcoremissiles
+		Prerequisites: up_tiberiumcoremissiles
+	ActorStatValues:
+		Upgrades: up_tiberiumcoremissiles
+
+up_advancedtiberiumrefinement:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Advanced Tiberium Refinement
+	Valued:
+		Cost: 10000
+	Buildable:
+		BuildPaletteOrder: 110
+		Queue: Upgrades
+		Description: Unlocks Waste Facility. Increases all vehicles speed by 25%. Harvesters gets twice the bonus.
+		Prerequisites: ~tsnttech, !up_advancedtiberiumrefinement
+	RenderSprites:
+		Image: advancedtiberiumrefinementicon
+	ProvidesPrerequisite:
+
+^AdvancedTiberiumRefinement:
+	GrantConditionOnPrerequisite@up_advancedtiberiumrefinement:
+		Condition: up_advancedtiberiumrefinement
+		Prerequisites: up_advancedtiberiumrefinement
+	SpeedMultiplier@up_advancedtiberiumrefinement:
+		RequiresCondition: up_advancedtiberiumrefinement
+		Modifier: 125
+	ActorStatValues:
+		Upgrades: up_advancedtiberiumrefinement
+
+^WillOfKane:
+	GrantConditionOnPrerequisite@up_willofkane:
+		Condition: up_willofkane
+		Prerequisites: up_willofkane
+	GrantConditionOnDamageState@Light:
+		Condition: damagedlight
+		ValidDamageStates: Light
+	GrantConditionOnDamageState@Medium:
+		Condition: damagedmedium
+		ValidDamageStates: Medium
+	GrantConditionOnDamageState@Heavy:
+		Condition: damagedheavy
+		ValidDamageStates: Heavy
+	GrantConditionOnDamageState@Critical:
+		Condition: damagedcritical
+		ValidDamageStates: Critical
+	FirepowerMultiplier@Light:
+		Modifier: 110
+		RequiresCondition: damagedlight
+	FirepowerMultiplier@Medium:
+		Modifier: 120
+		RequiresCondition: damagedmedium
+	FirepowerMultiplier@Heavy:
+		Modifier: 130
+		RequiresCondition: damagedheavy
+	FirepowerMultiplier@Cryticcal:
+		Modifier: 140
+		RequiresCondition: damagedcritical
+	ActorStatValues:
+		Upgrades: up_willofkane
+
+team_upgrade.up_willofkane:
+	Inherits: ^researched_upgrade.template
+	ProvidesPrerequisite:
+		Prerequisite: up_willofkane
+	RenderSprites:
+		Image: willofkaneicon
+	Tooltip:
+		Name: Will of Kane
+	Buildable:
+		Description: All infantry get Firepower bonus based on missing health.
+	PlayerDisplayUpgrade:
+
+up_willofkane:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: willofkane
+	Valued:
+		Cost: 8000
+	Buildable:
+		BuildPaletteOrder: 120
+		Queue: Upgrades
+		Description: All infantry get Firepower bonus based on missing health.
+		Prerequisites: ~tsnttech, !up_willofkane
+	RenderSprites:
+		Image: willofkaneicon
+	ProvidesPrerequisite:

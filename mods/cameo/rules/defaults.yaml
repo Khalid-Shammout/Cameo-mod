@@ -875,6 +875,7 @@
 	Inherits@GlobalBuffs: ^GlobalBuffs
 	Inherits@ConscriptionDoctrineRA1: ^ConscriptionDoctrineRA1
 	Inherits@MenOfSteelTeamUpgradeRA1: ^MenOfSteelTeamUpgradeRA1
+	Inherits@WillOfKane: ^WillOfKane
 	Inherits@upgrade: ^AdvancedGuerillaTactics
 	ChangesHealth@SelfHealing:
 		Step: 10

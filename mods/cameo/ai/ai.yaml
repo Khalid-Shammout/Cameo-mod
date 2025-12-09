@@ -4265,7 +4265,8 @@ Player:
 			tsnthpad: 15
 			tsntradr: 1
 			tsnttech: 5
-			tsnttmpl: 1
+			tsgtdeptnod: 1
+			# tsnttmpl: 1
 			tsntpuls: 1
 			tsntlasr: 15
 			tsntobel: 15
@@ -4273,7 +4274,7 @@ Player:
 			tsntwast: 1
 			tsntmisl: 1
 			tsntstlh: 1
-			tsntpulsnod: 1
+			# tsntpulsnod: 1
 			#################### BuildingFractions TS Forgotten
 			tsprocmutant: 20
 			tsgtpile2: 5
@@ -5055,6 +5056,16 @@ Player:
 			tsscrin: 3
 			tssgen: 1
 			elitcadre: 10
+			tstoxintroop: 1
+			tsshotguncom: 1
+			up_infiltrationkit: 1
+			up_mobilityspecialization: 1
+			up_auxiliaryweapon: 1
+			up_stealthfieldsimprovements: 1
+			up_tiberiumlenses: 1
+			up_tiberiumcoremissiles: 1
+			up_advancedtiberiumrefinement: 1
+			up_willofkane: 1
 			#################### UnitsToBuild TS Forgotten
 			tssapc.mut: 1
 			tsmutant: 7
@@ -5586,8 +5597,14 @@ Player:
 			upnax_shrek: 1
 			up_nax_horten: 1
 			########### Naxis Upgrades
-			upnax_resurrection: 1
+			# upnax_resurrection: 1
 			nax_upgrade_me262: 1
+			up_ostfrontexperience: 1
+			up_atlantikwall: 1
+			up_tankarsenalrenovation: 1
+			up_massopticsintegration: 1
+			up_wunderwaffe: 1
+			up_blitzkrieg: 1
 			########### Units Future Tech
 			futu_harv: 10
 			futu_harv2: 10

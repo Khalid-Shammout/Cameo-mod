@@ -711,6 +711,23 @@ elitcadre:
 		Filename: elitcadreicon.shp
 		AddExtension: False
 
+tstoxintroop:
+	Inherits: ^TSBasicInfantry
+	Defaults:
+		Filename: tstoxintroop.shp
+	icon:
+		Filename: tstoxintroopicon.png
+		AddExtension: False
+
+tsshotguncom:
+	Inherits: ^TSBasicInfantry
+	Defaults:
+		Filename: tsshotguncom.shp
+		Scale: 1.1
+	icon:
+		Filename: tsshotguncomicon.png
+		AddExtension: False
+
 tscyc2:
 	Inherits: ^TSBasicInfantry
 	Defaults:
@@ -1828,6 +1845,14 @@ drplasma2:
 	idle:
 		Facings: 16
 		ZOffset: 1023
+
+tstorpedo:
+	Defaults:
+		Filename: tstorpedo.png
+		Scale: 1.6
+	idle:
+		Length: 3
+		Tick: 2
 
 # tsgtpowrup:
 # 	Inherits: tsgtpowr
@@ -5050,3 +5075,31 @@ ts_wini:
 mobilityspecializationicon:
 	icon:
 		Filename: mobilityspecializationicon.png
+
+tstiberiumlensesicon:
+	icon:
+		Filename: tstiberiumlensesicon.png
+
+tstiberiumcoremissilesicon:
+	icon:
+		Filename: tstiberiumcoremissilesicon.png
+
+tsauxiliaryweaponicon:
+	icon:
+		Filename: tsauxiliaryweaponicon.png
+
+infiltrationkiticon:
+	icon:
+		Filename: infiltrationkiticon.png
+
+stealthfieldsimprovementsicon:
+	icon:
+		Filename: stealthfieldsimprovementsicon.png
+
+advancedtiberiumrefinementicon:
+	icon:
+		Filename: advancedtiberiumrefinementicon.png
+
+willofkaneicon:
+	icon:
+		Filename: willofkaneicon.png
