@@ -968,6 +968,8 @@ Player:
 ####################################################################################################
 
 ^wc2_farm:
+	Inherits@power: ^PowerPlant
+	Inherits@storage: ^StoresResources
 	Inherits@shape: ^2x2Shape
 	Buildable:
 		BuildPaletteOrder: 11
@@ -1920,6 +1922,23 @@ wc2_human_townhall:
 	Tooltip@3:
 		Name: Castle
 		RequiresCondition: wc2_human_castle
+	Production@INFANTRY:
+		Produces: Infantry
+		PauseOnCondition: disabled
+	ProductionQueue@INFANTRY:
+		Type: Infantry
+		DisplayOrder: 2
+		Group: Infantry
+		LowPowerModifier: 300
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		InfiniteBuildLimit: 10
+	ProductionBar@INFANTRY:
+		ProductionType: Infantry
 	# Production@NORMAL:
 	# 	-RequiresCondition:
 	# -Production@CLASSICPRODUCTIONQUEUES:
@@ -3663,7 +3682,6 @@ wc2_orc_greathall:
 	Inherits@ref: ^Refinery
 	Inherits@shape: ^3x2Shape
 	Inherits@bot: ^BotMicromanageable
-	Inherits@breedfaster: ^SCBREEDFASTER
 	Inherits@conyard: ^Conyard
 	Tooltip:
 		Name: Great Hall
@@ -3674,6 +3692,23 @@ wc2_orc_greathall:
 	Tooltip@3:
 		Name: Fortress
 		RequiresCondition: wc2_orc_fortress
+	Production@INFANTRY:
+		Produces: Infantry
+		PauseOnCondition: disabled
+	ProductionQueue@INFANTRY:
+		Type: Infantry
+		DisplayOrder: 2
+		Group: Infantry
+		LowPowerModifier: 300
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		InfiniteBuildLimit: 10
+	ProductionBar@INFANTRY:
+		ProductionType: Infantry
 	# Production@NORMAL:
 	# 	-RequiresCondition:
 	# -Production@CLASSICPRODUCTIONQUEUES:

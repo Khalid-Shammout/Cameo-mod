@@ -7273,6 +7273,7 @@ SCGLADIUS:
 	Armament:
 		Weapon: GladiusCannon
 		LocalOffset: 400,0,0
+	AttackFrontalCharged:
 	AttackAircraft:
 		FacingTolerance: 20
 	-SpawnActorOnDeath:

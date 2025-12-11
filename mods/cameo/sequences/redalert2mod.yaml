@@ -4448,55 +4448,6 @@ steel_mega:
 		Filename: steel_mega_icon.shp
 		Offset: 0,0
 
-white_rabbit:
-	Defaults:
-		Filename: white_rabbit.shp
-		Offset: 0,0
-	idle:
-		Filename: invisibleitem.shp
-	stand:
-		Facings: 16
-	run:
-		Start: 16
-		Length: 10
-		Facings: 8
-		Tick: 80
-	shoot:
-		Start: 256
-		Length: 10
-		Facings: 16
-		Tick: 32
-	idle1:
-		Start: 96
-		Length: 20
-		Tick: 120
-	idle2:
-		Start: 116
-		Length: 20
-		Tick: 120
-	idle3:
-		Start: 136
-		Length: 20
-		Tick: 120
-	die1:
-		Start: 156
-		Length: 20
-	die2:
-		Start: 176
-		Length: 20
-	die3:
-		Start: 196
-		Length: 20
-	die4:
-		Start: 216
-		Length: 20
-	die5:
-		Start: 236
-		Length: 20
-	icon:
-		Filename: steel_mega_icon.shp
-		Offset: 0,0
-
 steel_stalker:
 	Defaults:
 		Filename: steel_stalker.png
@@ -4547,6 +4498,55 @@ steel_beholder:
 		ShadowStart: 680
 	icon:
 		Filename: steel_beholder_icon.shp
+		Offset: 0,0
+
+white_rabbit:
+	Defaults:
+		Filename: white_rabbit.shp
+		Offset: 0,36
+	idle:
+		Filename: invisibleitem.shp
+	stand:
+		Facings: 16
+	run:
+		Start: 16
+		Length: 10
+		Facings: 8
+		Tick: 80
+	shoot:
+		Start: 256
+		Length: 10
+		Facings: 16
+		Tick: 32
+	idle1:
+		Start: 96
+		Length: 20
+		Tick: 120
+	idle2:
+		Start: 116
+		Length: 20
+		Tick: 120
+	idle3:
+		Start: 136
+		Length: 20
+		Tick: 120
+	die1:
+		Start: 156
+		Length: 20
+	die2:
+		Start: 176
+		Length: 20
+	die3:
+		Start: 196
+		Length: 20
+	die4:
+		Start: 216
+		Length: 20
+	die5:
+		Start: 236
+		Length: 20
+	icon:
+		Filename: white_rabbit_icon.png
 		Offset: 0,0
 
 steel_potnk:

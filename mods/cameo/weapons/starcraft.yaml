@@ -3004,6 +3004,7 @@ GladiusCannon:
 		CloseEnough: 500
 		AllowSnapping: true
 		Image: waveforcebullet
+		TrailImage: blue_small_napalm
 	Warhead@FlakWeapon: SpreadDamage
 		Damage: 20000
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
@@ -3020,6 +3021,10 @@ GladiusCannon:
 		Damage: 20000
 	Warhead@TankDestroyerCannonPercentage: HealthPercentageDamage
 		Damage: 10
+	Warhead@Effect: CreateEffect
+		Explosions: steel_blueexp
+		ExplosionPalette: ra2effect
+		ImpactSounds: makoexplose.wav
 
 ArbiterCannon:
 	Inherits: PhotonCannon
