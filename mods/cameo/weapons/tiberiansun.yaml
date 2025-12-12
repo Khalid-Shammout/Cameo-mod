@@ -303,13 +303,13 @@ TS155mm:
 	ReloadDelay: 135
 	Range: 13083
 	MinRange: 3500
+	MinRange: 2616
 	TargetActorCenter: true
 	Projectile: Bullet
 		Speed: 512
 		LaunchAngle: 165
 		ContrailLength: 30
 		ContrailWidth: 0c32
-	MinRange: 5c0
 	Warhead@ShrapnelWeapon: SpreadDamage
 		Damage: 30000
 	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
@@ -1502,30 +1502,30 @@ TSMammothTusk_elite:
 TSBikeMissile:
 	Inherits: ^LightMissile
 	Inherits: ^MediumMissile
-	Range: 6392
+	Range: 6205
 	Burst: 2
 	BurstDelays: 2
-	ReloadDelay: 62
+	ReloadDelay: 64
 	Report: misl1.aud
 	Projectile: Missile
 		LaunchAngle: 75
 	Warhead@LightMissile: SpreadDamage
-		Damage: 16000
+		Damage: 12000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@LightMissileFriendlyFire: SpreadDamage
-		Damage: 8000
+		Damage: 6000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@LightMissilePercentage: HealthPercentageDamage
-		Damage: 8
+		Damage: 6
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumMissile: SpreadDamage
-		Damage: 16000
+		Damage: 12000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumMissileFriendlyFire: SpreadDamage
-		Damage: 8000
+		Damage: 6000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		Damage: 8
+		Damage: 6
 		ValidTargets: Ground, Water, Trees, Air
 
 TSBikeTibMissile:
@@ -1533,49 +1533,49 @@ TSBikeTibMissile:
 	Inherits: ^MediumChemicalWeapon
 	Inherits: ^LightMissile
 	Inherits: ^MediumMissile
-	Range: 6392
+	Range: 6445
 	Burst: 2
 	BurstDelays: 2
-	ReloadDelay: 62
+	ReloadDelay: 50
 	Report: misl1.aud
 	Projectile: Missile
 		LaunchAngle: 75
 		TrailImage: spittrail
 	Warhead@LightChemicalWeapon: SpreadDamage
-		Damage: 12000
+		Damage: 8000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@LightChemicalWeaponFriendlyFire: SpreadDamage
-		Damage: 6000
+		Damage: 4000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@LightChemicalWeaponPercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 4
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumChemicalWeapon: SpreadDamage
-		Damage: 12000
+		Damage: 8000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumChemicalWeaponFriendlyFire: SpreadDamage
-		Damage: 6000
+		Damage: 4000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumChemicalWeaponPercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 4
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@LightMissile: SpreadDamage
-		Damage: 12000
+		Damage: 8000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@LightMissileFriendlyFire: SpreadDamage
-		Damage: 6000
+		Damage: 4000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@LightMissilePercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 4
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumMissile: SpreadDamage
-		Damage: 12000
+		Damage: 8000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumMissileFriendlyFire: SpreadDamage
-		Damage: 6000
+		Damage: 4000
 		ValidTargets: Ground, Water, Trees, Air
 	Warhead@MediumMissilePercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 4
 		ValidTargets: Ground, Water, Trees, Air
 
 TSDragon:
@@ -2325,10 +2325,8 @@ TSCommandoShotgun:
 	Inherits: ^MediumCannon
 	Inherits: ^SmallArms
 	Inherits: ^Chaingun
-	ReloadDelay: 76
-	Range: 4364
-	Burst: 6
-	BurstDelays: 2
+	ReloadDelay: 20
+	Range: 4146
 	Report: DSDSHTGN.wav
 	ValidTargets: Ground, Water, Trees
 	Warhead@Grenade: SpreadDamage
@@ -2666,6 +2664,7 @@ TSHarpyClaw:
 	BurstDelays: 0
 	Range: 4882
 	Report: cygun1.aud
+	SoundVolume: 0.25
 	ValidTargets: Ground, Air
 	Warhead@Chaingun: SpreadDamage
 		Damage: 4000
@@ -2695,6 +2694,7 @@ TSLaserHarpyClaw:
 	BurstDelays: 0
 	Range: 4969
 	Report: cygun1.aud
+	SoundVolume: 0.25
 	ValidTargets: Ground, Air
 	Warhead@Chaingun: SpreadDamage
 		Damage: 4000
