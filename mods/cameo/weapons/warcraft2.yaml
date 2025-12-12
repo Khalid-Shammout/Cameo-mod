@@ -28,8 +28,8 @@ wc2peasantsmack:
 # 3-9 WC2 damage. 3 Base, 6 Pierce.
 wc2arrowFire:
 	Inherits: ^ArrowWeapon
-	ReloadDelay: 22
-	Range: 7760
+	ReloadDelay: 25
+	Range: 7365
 	Report: wc2_bowfire.aud
 	ValidTargets: Ground, Water, Air
 	Projectile: Missile
@@ -42,10 +42,10 @@ wc2arrowFire:
 		CloseEnough: 600
 	Warhead@ArrowWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 12000
+		Damage: 20000
 	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 6
+		Damage: 10
 	Warhead@Effect: CreateEffect
 		ImpactSounds: wc2_bowhit.aud
 		ValidTargets: Ground, Water, Air
@@ -53,16 +53,16 @@ wc2arrowFire:
 # 2-12 WC2 damage. 8 Base, 4 Pierce.
 wc2knightslice:
 	Inherits: ^SwordWeapon
-	ReloadDelay: 18
-	Range: 1545
+	ReloadDelay: 12
+	Range: 1420
 	Report: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
 	Projectile: InstantHit
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 12000
+		Damage: 16000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 6000
+		Damage: 8000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 8
 	Warhead@Effect: CreateEffect
 		ImpactSounds: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
 
@@ -959,7 +959,7 @@ wc2_tower_arrow:
 
 wc2gruntslice:
 	Inherits: ^SwordWeapon
-	ReloadDelay: 22
+	ReloadDelay: 18
 	Range: 1555
 	Report: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
 	Projectile: InstantHit
@@ -975,29 +975,29 @@ wc2gruntslice:
 wc2axeFire:
 	Inherits: wc2arrowFire
 	ReloadDelay: 35
-	Range: 7290
+	Range: 6985
 	Report: wc2_axe.aud
 	Projectile:
 		Image: wc2_orc_trollaxethrower_axe
 	Warhead@ArrowWeapon: SpreadDamage
-		Damage: 16000
+		Damage: 24000
 	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
-		Damage: 8
+		Damage: 12
 	Warhead@Effect: CreateEffect
 		ImpactSounds: wc2_axe.aud
 
 wc2ogrepunch:
 	Inherits: ^SwordWeapon
-	ReloadDelay: 24
-	Range: 1646
+	ReloadDelay: 20
+	Range: 1660
 	Report: wc2_punch.aud
 	Projectile: InstantHit
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 20000
+		Damage: 30000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 10000
+		Damage: 15000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 10
+		Damage: 15
 	Warhead@Effect: CreateEffect
 		ImpactSounds: wc2_punch.aud
 

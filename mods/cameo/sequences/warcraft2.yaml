@@ -755,7 +755,7 @@ wc2_human_scout_tower:
 wc2_human_guard_tower:
 	Defaults:
 		Filename: wc2_human_guard_tower.shp
-	Inherits: ^WC2HumanBuilding
+	Inherits: wc2_human_scout_tower
 	Defaults:
 	icon:
 		Start: 6
@@ -763,7 +763,7 @@ wc2_human_guard_tower:
 wc2_human_cannon_tower:
 	Defaults:
 		Filename: wc2_human_cannon_tower.shp
-	Inherits: ^WC2HumanBuilding
+	Inherits: wc2_human_scout_tower
 	Defaults:
 	icon:
 		Start: 7
@@ -1899,14 +1899,14 @@ wc2_orc_watch_tower:
 wc2_orc_guard_tower:
 	Defaults:
 		Filename: wc2_orc_guard_tower.shp
-	Inherits: ^WC2OrcBuilding
+	Inherits: wc2_orc_watch_tower
 	icon:
 		Start: 6
 
 wc2_orc_cannon_tower:
 	Defaults:
 		Filename: wc2_orc_cannon_tower.shp
-	Inherits: ^WC2OrcBuilding
+	Inherits: wc2_orc_watch_tower
 	icon:
 		Filename: wc2_cameos_orc_buildings.png
 		Start: 7

@@ -302,7 +302,6 @@ TS155mm:
 	Inherits: ^HeavyBomb
 	ReloadDelay: 135
 	Range: 13083
-	MinRange: 3500
 	MinRange: 2616
 	TargetActorCenter: true
 	Projectile: Bullet
@@ -353,7 +352,7 @@ TSJugg90mm:
 	Inherits: ^ShrapnelWeapon
 	ReloadDelay: 69
 	Range: 12834
-	MinRange: 3500
+	MinRange: 2566
 	Burst: 3
 	BurstDelays: 3
 	Report: jugger1.aud

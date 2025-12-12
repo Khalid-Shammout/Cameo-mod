@@ -2646,7 +2646,7 @@ wchumancannontowerupgrade:
 	Buildable:
 		Queue: BuildingAddons
 		Prerequisites: ~wc2_human_elven_lumber_mill, scouttowerupgradeavailable
-		Description: Ground base defense.
+		Description: Guard tower, attacks land, sea, and air with fast arrows.
 	Plug:
 		Type: wcscouttower
 	RenderSprites:
@@ -2661,9 +2661,45 @@ wchumanguardtowerupgrade:
 	Buildable:
 		Queue: BuildingAddons
 		Prerequisites: ~wc2_human_blacksmith, scouttowerupgradeavailable
-		Description: Anti-aircraft base defense.
+		Description: Cannon tower, attacks land. Has huge splash damage.
 	Plug:
 		Type: wcscouttower2
+	RenderSprites:
+		Image: wc2_human_cannon_tower
+
+wc2_human_guard_tower:
+	Inherits: wc2_human_scout_tower
+	-ProductionCostMultiplier@guardtower:
+	-ProductionTimeMultiplier@guardtower:
+	Tooltip:
+		Name: Guard Tower
+	Valued:
+		Cost: 1600
+	Buildable:
+		Prerequisites: ~wc2_human_elven_lumber_mill
+		Description: Guard tower, attacks land, sea, and air with fast arrows.
+	GrantCondition:
+		Condition: guard
+	Selectable:
+		Class: wc2_human_scout_tower
+	RenderSprites:
+		Image: wc2_human_guard_tower
+
+wc2_human_cannon_tower:
+	Inherits: wc2_human_scout_tower
+	-ProductionCostMultiplier@guardtower:
+	-ProductionTimeMultiplier@guardtower:
+	Tooltip:
+		Name: Cannon Tower
+	Valued:
+		Cost: 1600
+	Buildable:
+		Prerequisites: ~wc2_human_blacksmith
+		Description: Cannon tower, attacks land. Has huge splash damage.
+	GrantCondition:
+		Condition: cannon
+	Selectable:
+		Class: wc2_human_scout_tower
 	RenderSprites:
 		Image: wc2_human_cannon_tower
 
@@ -2911,6 +2947,14 @@ wc2_human_footman:
 		TargetTypes: DogImmune
 	Voiced:
 		VoiceSet: wc2voicehumanfootman
+	FirepowerMultiplier@WC2SwordUpg:
+		Modifier: 130
+	FirepowerMultiplier@WC2SwordUpg2:
+		Modifier: 170
+	DamageMultiplier@WC2HShieldUpg:
+		Modifier: 85
+	DamageMultiplier@WC2HShieldUpg2:
+		Modifier: 70
 	ActorStatValues:
 		Upgrades: wc2_h_str_sword, wc2_h_str_sword2, wc2_h_str_shield, wc2_h_str_shield2
 
@@ -2929,15 +2973,15 @@ wc2_human_elven_archer:
 	Tooltip:
 		Name: Elven Archer
 	Valued:
-		Cost: 400
+		Cost: 600
 	Power:
-		Amount: -20
+		Amount: -30
 	Health:
-		HP: 12000
+		HP: 25000
 	ChangesHealth@SelfHealing:
-		Step: 12
+		Step: 25
 	Mobile:
-		Speed: 70
+		Speed: 75
 	Buildable:
 		BuildPaletteOrder: 20
 		Prerequisites: ~wc2_human_elven_lumber_mill, ~!wc2_h_rangerupg
@@ -2997,18 +3041,18 @@ wc2_human_knight:
 	Tooltip:
 		Name: Knight
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Power:
-		Amount: -75
+		Amount: -80
 	Health:
-		HP: 300000
+		HP: 167500
 	ChangesHealth@SelfHealing:
-		Step: 120
+		Step: 67
 	Armor:
 		Type: Medium
 	Mobile:
-		Speed: 110
-		TurnSpeed: 88
+		Speed: 115
+		TurnSpeed: 92
 		Locomotor: tracked
 	Buildable:
 		BuildPaletteOrder: 30
@@ -3077,7 +3121,8 @@ wc2_human_paladin:
 	AutoTargetPriority@ATTACKANYTHING:
 		RequiresCondition: (stance-attackanything || assault-move) && !FSD_cond_2
 	AutoTarget:
-		ScanRadius: 7
+		ScanRadius: 10
+		InitialStance: AttackAnything
 	Armament:
 		Weapon: wc2knightslice
 		FireDelay: 7
@@ -4386,6 +4431,42 @@ wcorccannontowerupgrade:
 	RenderSprites:
 		Image: wc2_orc_cannon_tower
 
+wc2_orc_guard_tower:
+	Inherits: wc2_orc_watch_tower
+	-ProductionCostMultiplier@guardtower:
+	-ProductionTimeMultiplier@guardtower:
+	Tooltip:
+		Name: Guard Tower
+	Valued:
+		Cost: 1600
+	Buildable:
+		Prerequisites: ~wc2_orc_troll_lumber_mill
+		Description: Guard tower, attacks land, sea, and air with fast arrows.
+	GrantCondition:
+		Condition: guard
+	Selectable:
+		Class: wc2_orc_watch_tower
+	RenderSprites:
+		Image: wc2_orc_guard_tower
+
+wc2_orc_cannon_tower:
+	Inherits: wc2_orc_watch_tower
+	-ProductionCostMultiplier@guardtower:
+	-ProductionTimeMultiplier@guardtower:
+	Tooltip:
+		Name: Cannon Tower
+	Valued:
+		Cost: 1600
+	Buildable:
+		Prerequisites: ~wc2_orc_blacksmith
+		Description: Cannon tower, attacks land. Has huge splash damage.
+	GrantCondition:
+		Condition: cannon
+	Selectable:
+		Class: wc2_orc_watch_tower
+	RenderSprites:
+		Image: wc2_orc_cannon_tower
+
 # wc2_orc_watch_tower:
 # 	Inherits@WC2BUILDING: ^WC2OrcDefense
 # 	Inherits@wc2_watch_tower: ^wc2_watch_tower
@@ -4582,13 +4663,13 @@ wc2_orc_grunt:
 	Tooltip:
 		Name: Grunt
 	Valued:
-		Cost: 500
+		Cost: 600
 	Power:
-		Amount: -25
+		Amount: -30
 	Health:
-		HP: 60000
+		HP: 65000
 	ChangesHealth@SelfHealing:
-		Step: 60
+		Step: 65
 	Mobile:
 		Speed: 65
 	Buildable:
@@ -4603,6 +4684,14 @@ wc2_orc_grunt:
 		TargetTypes: DogImmune
 	Voiced:
 		VoiceSet: wc2voiceorcpeongrunt
+	FirepowerMultiplier@WC2AxeUpg:
+		Modifier: 130
+	FirepowerMultiplier@WC2AxeUpg2:
+		Modifier: 170
+	DamageMultiplier@WC2OShieldUpg:
+		Modifier: 85
+	DamageMultiplier@WC2OShieldUpg2:
+		Modifier: 70
 	ActorStatValues:
 		Upgrades: wc2_o_str_axe, wc2_o_str_axe2, wc2_o_str_shield, wc2_o_str_shield2
 
@@ -4621,13 +4710,13 @@ wc2_orc_troll_axethrower:
 	Tooltip:
 		Name: Troll Axethrower
 	Valued:
-		Cost: 400
+		Cost: 500
 	Power:
-		Amount: -20
+		Amount: -25
 	Health:
-		HP: 16000
+		HP: 30000
 	ChangesHealth@SelfHealing:
-		Step: 16
+		Step: 30
 	Mobile:
 		Speed: 60
 	Buildable:
@@ -4693,12 +4782,12 @@ wc2_orc_ogre:
 	Power:
 		Amount: -90
 	Health:
-		HP: 360000
+		HP: 200000
 	ChangesHealth@SelfHealing:
-		Step: 144
+		Step: 80
 	Mobile:
-		Speed: 90
-		TurnSpeed: 72
+		Speed: 85
+		TurnSpeed: 68
 		Locomotor: tracked
 	Buildable:
 		BuildPaletteOrder: 30
@@ -4773,7 +4862,8 @@ wc2_orc_ogremage:
 		Armaments: primary, eyeofkilrogg, bloodlust, runes
 		FacingTolerance: 0
 	AutoTarget:
-		ScanRadius: 7
+		ScanRadius: 10
+		InitialStance: AttackAnything
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything && !assault-move && !FSD_cond_3
 	AutoTargetPriority@ATTACKANYTHING:
@@ -5594,7 +5684,7 @@ wc2_h_str_sword:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases melee damage by 15%.
+		Description: Increases melee damage by 15%. Double Effect for Footmen.
 		Prerequisites: ~!wc2_h_str_sword, ~wc2_human_blacksmith
 	Valued:
 		Cost: 2500
@@ -5609,7 +5699,7 @@ wc2_h_str_sword2:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases melee damage by further 15%.
+		Description: Increases melee damage by 35%. Double Effect for Footmen.
 		Prerequisites: !wc2_h_str_sword2, ~wc2_h_str_sword, ~wc2_human_blacksmith, wc2_human_castle
 	Valued:
 		Cost: 5000
@@ -5624,7 +5714,7 @@ wc2_h_str_shield:
 	Buildable:
 		BuildPaletteOrder: 2
 		Queue: Addons
-		Description: Increases damage resistance of all land units by 10%.
+		Description: Increases damage resistance of all land units by 10%. Footmen have 15% damage resistance instead.
 		Prerequisites: ~!wc2_h_str_shield, ~wc2_human_blacksmith
 	Valued:
 		Cost: 2500
@@ -5639,7 +5729,7 @@ wc2_h_str_shield2:
 	Buildable:
 		BuildPaletteOrder: 2
 		Queue: Addons
-		Description: Increases damage resistance of all land units by further 10%.
+		Description: Increases damage resistance of all land units by 20%. Footmen have 30% damage resistance instead.
 		Prerequisites: !wc2_h_str_shield2, ~wc2_h_str_shield, ~wc2_human_blacksmith, wc2_human_castle
 	Valued:
 		Cost: 5000
@@ -5669,7 +5759,7 @@ wc2_h_str_arrow2:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases arrow damage by Archers and Guard Towers by further 15%.
+		Description: Increases arrow damage by Archers and Guard Towers by 35%.
 		Prerequisites: !wc2_h_str_arrow2, ~wc2_h_str_arrow, ~wc2_human_blacksmith, wc2_human_castle
 	Valued:
 		Cost: 5000
@@ -5759,7 +5849,7 @@ wc2_h_str_ballista2:
 	Buildable:
 		BuildPaletteOrder: 3
 		Queue: Addons
-		Description: Increases ballista damage dealt by Ballista by further 15%
+		Description: Increases ballista damage dealt by Ballista by 35%
 		Prerequisites: !wc2_h_str_ballista2, ~wc2_h_str_ballista, ~wc2_human_blacksmith, wc2_human_castle
 	Valued:
 		Cost: 5000
@@ -5789,7 +5879,7 @@ wc2_h_str_cannon2:
 	Buildable:
 		BuildPaletteOrder: 4
 		Queue: Addons
-		Description: Increases Cannon Damage dealt by Naval Vessels and Cannon Towers by further 15%
+		Description: Increases Cannon Damage dealt by Naval Vessels and Cannon Towers by 35%
 		Prerequisites: !wc2_h_str_cannon2, ~wc2_h_str_cannon, ~wc2_human_blacksmith, wc2_human_castle
 	Valued:
 		Cost: 5000
@@ -5819,7 +5909,7 @@ wc2_h_str_navyshield2:
 	Buildable:
 		BuildPaletteOrder: 5
 		Queue: Addons
-		Description: Increases damage resistance of all Naval Vessels by further 10%
+		Description: Increases damage resistance of all Naval Vessels by 20%
 		Prerequisites: !wc2_h_str_navyshield2, ~wc2_h_str_navyshield, ~wc2_human_blacksmith, ~wc2_human_shipyard, wc2_human_castle
 	Valued:
 		Cost: 5000
@@ -5928,7 +6018,7 @@ wc2_o_str_axe:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases melee damage by 15%.
+		Description: Increases melee damage by 15%. Double Effect for Grunts.
 		Prerequisites: ~!wc2_o_str_axe, ~wc2_orc_blacksmith
 	Valued:
 		Cost: 2500
@@ -5943,7 +6033,7 @@ wc2_o_str_axe2:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases melee damage by further 15%.
+		Description: Increases melee damage by 35%. Double Effect for Grunts.
 		Prerequisites: !wc2_o_str_axe2, ~wc2_o_str_axe, ~wc2_orc_blacksmith, wc2_orc_fortress
 	Valued:
 		Cost: 5000
@@ -5958,7 +6048,7 @@ wc2_o_str_shield:
 	Buildable:
 		BuildPaletteOrder: 2
 		Queue: Addons
-		Description: Increases damage resistance of all land units by 10%.
+		Description: Increases damage resistance of all land units by 10%. Grunts have 15% damage resistance instead.
 		Prerequisites: ~!wc2_o_str_shield, ~wc2_orc_blacksmith
 	Valued:
 		Cost: 2500
@@ -5973,7 +6063,7 @@ wc2_o_str_shield2:
 	Buildable:
 		BuildPaletteOrder: 2
 		Queue: Addons
-		Description: Increases damage resistance of all land units by further 10%.
+		Description: Increases damage resistance of all land units by 20%. Grunts have 30% damage resistance instead.
 		Prerequisites: !wc2_o_str_shield2, ~wc2_o_str_shield, ~wc2_orc_blacksmith, wc2_orc_fortress
 	Valued:
 		Cost: 5000
@@ -6003,7 +6093,7 @@ wc2_o_str_throwaxe2:
 	Buildable:
 		BuildPaletteOrder: 1
 		Queue: Addons
-		Description: Increases ranged damage by Axethrowers and Guard Towers by further 15%
+		Description: Increases ranged damage by Axethrowers and Guard Towers by 35%
 		Prerequisites: !wc2_o_str_throwaxe2, ~wc2_o_str_throwaxe, ~wc2_orc_blacksmith, wc2_orc_fortress
 	Valued:
 		Cost: 5000
@@ -6093,7 +6183,7 @@ wc2_o_str_catapult2:
 	Buildable:
 		BuildPaletteOrder: 3
 		Queue: Addons
-		Description: Increases Catapult damage by further 15%
+		Description: Increases Catapult damage by 35%
 		Prerequisites: !wc2_o_str_catapult2, ~wc2_o_str_catapult, ~wc2_orc_blacksmith, wc2_orc_fortress
 	Valued:
 		Cost: 5000
@@ -6124,7 +6214,7 @@ wc2_o_str_cannon2:
 	Buildable:
 		BuildPaletteOrder: 4
 		Queue: Addons
-		Description: Increases cannon damage dealt by Naval Vessels and Cannon Towers by further 15%
+		Description: Increases cannon damage dealt by Naval Vessels and Cannon Towers by 35%
 		Prerequisites: !wc2_o_str_cannon2, ~wc2_o_str_cannon, ~wc2_orc_blacksmith, wc2_orc_fortress
 	Valued:
 		Cost: 5000
@@ -6154,7 +6244,7 @@ wc2_o_str_navyshield2:
 	Buildable:
 		BuildPaletteOrder: 5
 		Queue: Addons
-		Description: Increases damage resistance of all Naval Vessels by further 10%.
+		Description: Increases damage resistance of all Naval Vessels by 20%.
 		Prerequisites: !wc2_o_str_navyshield2, ~wc2_o_str_navyshield, ~wc2_orc_blacksmith, ~wc2_orc_shipyard, wc2_orc_fortress
 	Valued:
 		Cost: 5000

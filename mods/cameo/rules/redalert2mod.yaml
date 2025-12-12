@@ -10539,7 +10539,7 @@ white_rabbit:
 		Name: White Rabbit
 	Buildable:
 		BuildPaletteOrder: 75
-		Prerequisites: steel_qatech
+		Prerequisites: ~steel_qatech
 		Queue: Vehicle, RAVehicle
 		Description: actor-steel_beholder.description
 	Mobile:
