@@ -668,8 +668,6 @@ tsprocgdi:
 		Type: Rectangle
 			TopLeft: -512, -1450
 			BottomRight: 896, -512
-	Valued:
-		Cost: 1500
 	Tooltip:
 		Name: Tiberium Refinery
 	Buildable:
@@ -4366,6 +4364,7 @@ TSTOXINTROOP:
 		Weapon: TSToxinRifle
 		LocalOffset: 128,0,256
 	Armament@GARRISONED:
+		Name: garrisoned
 		Weapon: TSToxinRifle
 	TakeCover:
 		ProneOffset: 180,0,-200
@@ -6411,6 +6410,7 @@ TSJUGG:
 	Voiced:
 		VoiceSet: TSVehicle
 	RejectsMoveToAttack:
+		Reject: AttackMove, AssaultMove
 		RequiresCondition: !botmicro && deployed
 	AutoDeployer:
 		DeployChance: 85
@@ -7170,7 +7170,8 @@ TSTTNK:
 		Locomotor: tracked
 		TurnSpeed: 32
 		Speed: 90
-		RequireForceMoveCondition: deployed
+		RequireForceMoveCondition: !undeployed
+		ImmovableCondition: !undeployed
 	Health:
 		HP: 100000
 	Repairable:
@@ -7289,6 +7290,7 @@ TSTTNK:
 		DeployTicks: 300
 		UndeployTicks: 1000
 	RejectsMoveToAttack:
+		Reject: AttackMove, AssaultMove
 		RequiresCondition: !botmicro && deployed
 	Voiced:
 		VoiceSet: TSVehicle
@@ -10726,3 +10728,5 @@ up_willofkane:
 	RenderSprites:
 		Image: willofkaneicon
 	ProvidesPrerequisite:
+	ProvidesTeamProxyActor:
+		Actor: team_upgrade.up_willofkane

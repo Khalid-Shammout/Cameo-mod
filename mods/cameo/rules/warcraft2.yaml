@@ -2234,6 +2234,59 @@ wc2_human_blacksmith:
 	Voiced:
 		VoiceSet: humanblacksmithvoice
 
+wc2_human_sunwell:
+	Inherits@shape: ^2x2Shape
+	Inherits: ^BaseBuilding
+	# Inherits@WC2BUILDING: ^WC2HumanBuilding
+	Tooltip:
+		Name: Sunwell
+	Buildable:
+		Prerequisites: ~wc2_human_barracks
+		Queue: Building, RABuilding
+		Description: Enables Ballista and upgrading Scout Towers to Cannon Towers.\nEnables upgrades to units.
+	ProximityExternalCondition@PropagandaEffect:
+		Range: 9999
+		ValidRelationships: Ally
+		Condition: PropagandaEffect
+	WithRangeCircle@propaganda:
+		Range: 9999
+		Type: propaganda
+		Color: 55BBFF
+		RequiresCondition: !disabled
+	Building:
+		Footprint: XX XX
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 1024, 1024
+		DecorationBounds: 2048, 2048, 0, -512
+	SpawnActorsOnSell:
+		ActorTypes: wc2_human_footman
+	Voiced:
+		VoiceSet: humanchurchvoice
+	SoundOnDamageTransition:
+		DestroyedSounds: wc2_bldexpl1.aud, wc2_bldexpl2.aud, wc2_bldexpl3.aud
+	FireWarheadsOnDeath:
+		Type: CenterPosition
+		Weapon: wc2buildingexplode
+		EmptyWeapon: wc2buildingexplode
+	ActorPreviewPlaceBuildingPreview:
+		Palette: player
+	Building:
+		BuildSounds: wc2_constrct.aud
+	GrantTimedCondition:
+		Condition: wc2cond_playsound
+		Duration: 50
+		RequiresCondition: !build-incomplete
+	AmbientSound:
+		SoundFiles:
+		Interval: 100
+		RequiresCondition: wc2cond_playsound
+	WithIdleOverlay@water:
+		Sequence: water
+		RequiresCondition: !build-incomplete
+	RenderSprites:
+		PlayerPalette: player
+
 wc2_human_gnomish_inventor:
 	Inherits@WC2BUILDING: ^WC2HumanBuilding
 	Inherits@wc2_inventor: ^wc2_inventor
@@ -2958,6 +3011,94 @@ wc2_human_footman:
 	ActorStatValues:
 		Upgrades: wc2_h_str_sword, wc2_h_str_sword2, wc2_h_str_shield, wc2_h_str_shield2
 
+wc2_human_footman2:
+	Inherits@WC2INFANTRY: ^WC2Infantry
+	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@WC2SwordUpg: ^wc2_h_str_sword
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
+	Tooltip:
+		Name: Footman2
+	Valued:
+		Cost: 650
+	Power:
+		Amount: -25
+	Health:
+		HP: 80000
+	ChangesHealth@SelfHealing:
+		Step: 50
+	Mobile:
+		Speed: 85
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~wc2_human_barracks
+		Queue: Infantry, RAInfantry
+		Description: Basic melee infantry. Slow but can take some damage.
+	Armament:
+		Weapon: wc2footmanslice2
+		FireDelay: 5
+	Targetable@dog:
+		TargetTypes: DogImmune
+	Voiced:
+		VoiceSet: wc2voicehumanfootman2
+		Mobile:
+			voice: move
+		Attack:
+			voice: attack
+		Guard:
+			voice: move
+		Attackmove:
+			voice: move
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
+	RenderSprites:
+		PlayerPalette: player_rgba
+
+wc2_human_militia2:
+	Inherits@WC2INFANTRY: ^WC2Infantry
+	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@WC2SwordUpg: ^wc2_h_str_sword
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
+	Inherits@WC2Template: ^wc2_peasant
+	Tooltip:
+		Name: Militia peasant
+	Valued:
+		Cost: 350
+	Power:
+		Amount: -15
+	Health:
+		HP: 20000
+	ChangesHealth@SelfHealing:
+		Step: 50
+	Mobile:
+		Speed: 85
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~wc2_human_barracks
+		Queue: Infantry, RAInfantry
+		Description: Basic melee infantry. Slow but can take some damage.
+	Armament:
+		Weapon: wc2footmanslice
+		FireDelay: 5
+	Targetable@dog:
+		TargetTypes: DogImmune
+	Voiced:
+		VoiceSet: wc2peasantsmack
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
+	RenderSprites:
+		PlayerPalette: player_rgba
+	-WithInfantryBody:
+	WithHarvesterSpriteBody:
+		ImageByFullness: wc2_human_militia2, wc2_human_militia2
+	WithMoveAnimation:
+		MoveSequence: run
+	Voiced:
+		VoiceSet: wc2voicehumanpeasant
+	-DamagedByTerrain:
+
+
 # Arhcer also has built-in ranger stuff so that ranger's upgrades and spells will be applied to already-built archers, just as in WC2.
 wc2_human_elven_archer:
 	Inherits@WC2INFANTRY: ^WC2Infantry
@@ -3025,6 +3166,95 @@ wc2_human_elven_ranger:
 	# Ranger should always be considered to have the ranger upgrade researched.
 	GrantCondition@Ranger:
 		Condition: ranger_upg
+
+wc2_human_high_elf_archer:
+	Inherits@WC2INFANTRY: ^WC2Infantry
+	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
+	Inherits@WC2ArrowUpg: ^wc2_h_str_arrow
+	Inherits@RLongBowUpg: ^wc2_h_ranger_longbow
+	Inherits@RScoutUpg: ^wc2_h_ranger_scouting
+	Inherits@RMarksmanUpg: ^wc2_h_ranger_marksman
+	Inherits@RangerUpg: ^wc2_h_rangerupg
+	Tooltip:
+		Name: High Elven Archer
+	Valued:
+		Cost: 500
+	Power:
+		Amount: -20
+	Health:
+		HP: 22000
+	ChangesHealth@SelfHealing:
+		Step: 12
+	Mobile:
+		Speed: 95
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~wc2_human_elven_lumber_mill
+		Queue: Infantry, RAInfantry
+		Description: Basic ranged infantry. Not as durable as Footman.\nCan attack air.
+	Armament:
+		Weapon: wc2higharrowFire
+		FireDelay: 7
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: wc2higharrowFire
+	Voiced:
+		VoiceSet: wc2voicehighelfarcher
+		Mobile:
+			voice: move
+		Attack:
+			voice: attack
+		Guard:
+			voice: move
+		Attackmove:
+			voice: move
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
+	RenderSprites:
+		PlayerPalette: player_rgba
+
+wc2_human_rifelman:
+	Inherits@WC2INFANTRY: ^WC2Infantry
+	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
+	Inherits@WC2ArrowUpg: ^wc2_h_str_arrow
+	Inherits@RLongBowUpg: ^wc2_h_ranger_longbow
+	Inherits@RScoutUpg: ^wc2_h_ranger_scouting
+	Inherits@RMarksmanUpg: ^wc2_h_ranger_marksman
+	Tooltip:
+		Name: Dwarf rifleman
+	Valued:
+		Cost: 500
+	Power:
+		Amount: -20
+	Health:
+		HP: 22000
+	ChangesHealth@SelfHealing:
+		Step: 12
+	Mobile:
+		Speed: 95
+	Buildable:
+		BuildPaletteOrder: 20
+		Prerequisites: ~wc2_human_elven_lumber_mill
+		Queue: Infantry, RAInfantry
+		Description: Basic ranged infantry. Not as durable as Footman.\nCan attack air.
+	Armament:
+		Weapon: wc2_dwarf_Rifle
+		FireDelay: 7
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: wc2_dwarf_Rifle
+	Voiced:
+		VoiceSet: wc2voicehumanelvenarcher
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
+	RenderSprites:
+		PlayerPalette: player_rgba
 
 # Knight also has built-in paladin stuff so that paladin's upgrades and spells will be applied to already-built knights, just as in WC2.
 wc2_human_knight:
@@ -3106,6 +3336,49 @@ wc2_human_paladin:
 	# Paladin should always be considered to have the paladin upgrade researched.
 	GrantCondition@Paladin:
 		Condition: paladin_upg
+	#Weapons
+	Inherits@attacks_and_spells: ^wc2_knight_paladin_attacks_spells
+
+wc2_human_knight2:
+	Inherits@WC2VEHICLE: ^WC2Vehicle
+	Inherits@Template: ^LineBreakerTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@WC2SwordUpg: ^wc2_h_str_sword
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
+	Inherits@FOURSTATEDEPLOY: ^WC2FourStateDeploy
+	Inherits@PalUpg: ^wc2_h_paladinupg
+	Inherits@paladin_healing_upgrade: ^wc2_h_paladin_healing
+	Inherits@paladin_exorcism_upgrade: ^wc2_h_paladin_exorcism
+	Tooltip:
+		Name: Knight
+	Valued:
+		Cost: 1500
+	Power:
+		Amount: -75
+	Health:
+		HP: 300000
+	ChangesHealth@SelfHealing:
+		Step: 120
+	Armor:
+		Type: Medium
+	Mobile:
+		Speed: 110
+		TurnSpeed: 88
+		Locomotor: tracked
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~wc2_human_stables
+		Queue: Infantry, RAInfantry
+		Description: Mounted infantry. Fast and durable.
+	Voiced:
+		VoiceSet: wc2voicehumanknight
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
+	RenderSprites:
+		PlayerPalette: player_rgba
+	Targetable:
+		TargetTypes: Ground, Vehicle, Monster
 	#Weapons
 	Inherits@attacks_and_spells: ^wc2_knight_paladin_attacks_spells
 
@@ -3359,6 +3632,42 @@ wc2_human_demolitionsquad:
 	ActorStatValues:
 		Upgrades: wc2_h_str_ballista, wc2_h_str_ballista2, wc2_h_str_shield, wc2_h_str_shield2
 
+wc2_human_mortarteam2:
+	Inherits@WC2INFANTRY: ^WC2Infantry
+	Inherits@Template: ^MeleeInfantryTemplate
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@WC2SwordUpg: ^wc2_h_str_sword
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
+	Tooltip:
+		Name: Mortar team
+	Valued:
+		Cost: 850
+	Power:
+		Amount: -25
+	Health:
+		HP: 80000
+	ChangesHealth@SelfHealing:
+		Step: 50
+	Mobile:
+		Speed: 85
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~wc2_human_barracks
+		Queue: Infantry, RAInfantry
+		Description: Basic melee infantry. Slow but can take some damage.
+	Armament:
+		Weapon: SiegeTankSiegeCannon
+		FireDelay: 25
+	Targetable@dog:
+		TargetTypes: DogImmune
+	Voiced:
+		VoiceSet: wc2voicehumanfootman
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
+	RenderSprites:
+		PlayerPalette: player_rgba
+
 wc2_human_mage:
 	Inherits@WC2Infantry: ^WC2Infantry
 	Inherits@WC2Template: ^wc2_mage
@@ -3497,12 +3806,360 @@ wc2_human_mage:
 		Position: BottomRight
 		RequiresCondition: FSD_cond_4 && !mageblizzard_upg
 
+
+wc2_human_arhmage:
+	Inherits@WC2Infantry: ^WC2Infantry
+	Inherits@WC2Template: ^wc2_mage
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
+	Inherits@wc2_h_mage_slow: ^wc2_h_mage_slow
+	Inherits@wc2_h_mage_polymorph: ^wc2_h_mage_polymorph
+	Inherits@wc2_h_mage_blizzard: ^wc2_h_mage_blizzard
+	Tooltip:
+		Name: Archmage
+	Buildable:
+		Prerequisites: ~wc2_human_mage_tower
+		Queue: Infantry, RAInfantry
+		Description: Wise, old, grumpy spell caster.\nCan attack air.\nDetector.
+	Voiced:
+		VoiceSet: wc2voicehumanmage
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
+	RenderSprites:
+		PlayerPalette: player_rgba
+	#Weapons
+	AttackFrontal:
+		Armaments: primary, fireball, slow, polymorph, blizzard
+		FacingTolerance: 0
+	Armament:
+		Weapon: wc2mageFire
+		FireDelay: 7
+		RequiresCondition: (FSD_cond_1 && !wc2_cond_bot_owner) || (FSD_cond_1_AI && wc2_cond_bot_owner) || (FSD_cond_2 && !mageslow_upg) || (FSD_cond_3 && !magepolymorph_upg) || (FSD_cond_4 && !mageblizzard_upg)
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: wc2mageFire
+	Armament@FIREBALL_VISIBLE:
+		Name: fireball
+		Weapon: wc2mageFireballVisible
+		LocalOffset: 400,0,0
+		FireDelay: 7
+		RequiresCondition: (FSD_cond_1 && !wc2_cond_bot_owner) || (FSD_cond_1_AI && wc2_cond_bot_owner)
+		PauseOnCondition: mana < 100
+	Armament@FIREBALL_EXPLOSIONS:
+		Weapon: wc2mageFireballExplosion
+		LocalOffset: 400,0,0
+		FireDelay: 7
+		RequiresCondition: (FSD_cond_1 && !wc2_cond_bot_owner) || (FSD_cond_1_AI && wc2_cond_bot_owner)
+		PauseOnCondition: mana < 100
+	Armament@SLOW:
+		Name: slow
+		Weapon: wc2mageSlow
+		LocalOffset: 400,0,0
+		FireDelay: 7
+		RequiresCondition: FSD_cond_2 && mageslow_upg
+		PauseOnCondition: mana < 50
+	Armament@POLYMORPH:
+		Name: polymorph
+		Weapon: wc2magePolymorph
+		LocalOffset: 400,0,0
+		FireDelay: 7
+		RequiresCondition: FSD_cond_3 && magepolymorph_upg
+		PauseOnCondition: mana < 200
+	Armament@BLIZZARD:
+		Name: blizzard
+		Weapon: wc2mageBlizzard
+		LocalOffset: 400,0,0
+		FireDelay: 7
+		RequiresCondition: FSD_cond_4 && mageblizzard_upg
+		PauseOnCondition: mana < 25
+	# "Mana" (ammopool)
+	GrantConditionOnAttack@FIREBALL:
+		Condition: cond_fireball_drain
+		ArmamentNames: fireball
+		MaximumInstances: 1
+		RevokeDelay: 2
+	GrantConditionOnAttack@SLOW:
+		Condition: cond_slow_drain
+		ArmamentNames: slow
+		MaximumInstances: 1
+		RevokeDelay: 2
+	GrantConditionOnAttack@POLYMORPH:
+		Condition: cond_polymorph_drain
+		ArmamentNames: polymorph
+		MaximumInstances: 1
+		RevokeDelay: 2
+	GrantConditionOnAttack@BLIZZARD:
+		Condition: cond_blizzard_drain
+		ArmamentNames: blizzard
+		MaximumInstances: 1
+		RevokeDelay: 2
+	AmmoPool:
+		Armaments:
+		Ammo: 255
+		AmmoCondition: mana
+	ReloadAmmoPoolCA@PassiveRegen:
+		Delay: 10
+		Count: 1
+		ShowSelectionBar: false
+	ReloadAmmoPoolCA@Fireball:
+		Delay: 1
+		Count: -100
+		RequiresCondition: cond_fireball_drain
+	ReloadAmmoPoolCA@Slow:
+		Delay: 1
+		Count: -50
+		RequiresCondition: cond_slow_drain
+	ReloadAmmoPoolCA@Polymorph:
+		Delay: 1
+		Count: -200
+		RequiresCondition: cond_polymorph_drain
+	ReloadAmmoPoolCA@Blizzard:
+		Delay: 1
+		Count: -25
+		RequiresCondition: cond_blizzard_drain
+
+	### Visual indicator of mode ###
+	WithDecoration@Mode_Fireball:
+		Sequence: fireball_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_1
+	WithDecoration@Mode_Slow:
+		Sequence: slow_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_2 && mageslow_upg
+	WithDecoration@Mode_Slow_Locked:
+		Sequence: locked_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_2 && !mageslow_upg
+	WithDecoration@Mode_Polymorph:
+		Sequence: polymorph_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_3 && magepolymorph_upg
+	WithDecoration@Mode_Polymorph_Locked:
+		Sequence: locked_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_3 && !magepolymorph_upg
+	WithDecoration@Mode_Blizzard:
+		Sequence: blizzard_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_4 && mageblizzard_upg
+	WithDecoration@Mode_Blizzard_Locked:
+		Sequence: locked_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_4 && !mageblizzard_upg
+
+wc2_human_high_elf_priest:
+	Inherits@WC2Infantry: ^WC2Infantry
+	Inherits@WC2Template: ^wc2_mage
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
+	Inherits@wc2_h_mage_slow: ^wc2_h_mage_slow
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@paladin_healing_upgrade: ^wc2_h_paladin_healing
+	Inherits@paladin_exorcism_upgrade: ^wc2_h_paladin_exorcism
+	Tooltip:
+		Name: High Elf priest
+	Buildable:
+		Prerequisites: ~wc2_human_mage_tower
+		Queue: Infantry, RAInfantry
+		Description: Wise, old, grumpy spell caster.\nCan attack air.\nDetector.
+	Voiced:
+		VoiceSet: wc2voicehumanmage
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
+	RenderSprites:
+		PlayerPalette: player_rgba
+	GrantConditionOnDeploy@Clock:
+	AttackFrontal:
+		Armaments: primary, healing, exorcism
+		FacingTolerance: 0
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything && !assault-move && !FSD_cond_2
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: (stance-attackanything || assault-move) && !FSD_cond_2
+	AutoTarget:
+		ScanRadius: 7
+	Armament:
+		Weapon: wc2mageFire
+		FireDelay: 7
+		RequiresCondition: (FSD_cond_1 && !wc2_cond_bot_owner) || (FSD_cond_1_AI && wc2_cond_bot_owner) || (FSD_cond_3 && !paladinhealing_upg) || (FSD_cond_4 && !paladinexorcism_upg)
+	Armament@HEAL:
+		Name: healing
+		Weapon: wc2priesthealing
+		FireDelay: 5
+		TargetRelationships: Ally
+		RequiresCondition: FSD_cond_3 && paladinhealing_upg
+		PauseOnCondition: mana < 20
+	Armament@EXORCISM:
+		Name: exorcism
+		Weapon: wc2paladinexorcism
+		FireDelay: 7
+		RequiresCondition: FSD_cond_4 && paladinexorcism_upg
+		PauseOnCondition: mana < 40
+	# "Mana" (ammopool)
+	GrantConditionOnAttack@HEALING:
+		Condition: cond_healing_drain
+		ArmamentNames: healing
+		MaximumInstances: 1
+		RevokeDelay: 2
+	GrantConditionOnAttack@EXORCISM:
+		Condition: cond_exorcism_drain
+		ArmamentNames: exorcism
+		MaximumInstances: 1
+		RevokeDelay: 2
+	AmmoPool:
+		Armaments: healing, exorcism
+		Ammo: 350
+		AmmoCondition: mana
+	ReloadAmmoPoolCA@PassiveRegen:
+		Delay: 10
+		Count: 5
+		ShowSelectionBar: false
+	ReloadAmmoPoolCA@Healing:
+		Delay: 1
+		Count: -20
+		RequiresCondition: cond_healing_drain
+	ReloadAmmoPoolCA@Exorcism:
+		Delay: 1
+		Count: -40
+		RequiresCondition: cond_exorcism_drain
+
+	### Visual indicator of mode for four state deploy ###
+	WithDecoration@Mode_Healing:
+		Sequence: healing_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_3 && paladinhealing_upg
+	WithDecoration@Mode_Healing_Locked:
+		Sequence: locked_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_3 && !paladinhealing_upg
+	WithDecoration@Mode_Exorcism:
+		Sequence: exorcism_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_4 && paladinexorcism_upg
+	WithDecoration@Mode_Exorcism_Locked:
+		Sequence: locked_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_4 && !paladinexorcism_upg
+
 	### Starting spell randomizer for AI.
 	GrantConditionOnBotOwner@wc2magebotcontrol:
 		Condition: wc2_cond_bot_owner
 		Bots: easiest, easy, medium, hard, brutal, challenger, unbeatable, cameogod, airforce, defenseai
 	GrantRandomCondition@wc2magebotcontrol:
 		Conditions: FSD_cond_1_AI, FSD_cond_2_AI, FSD_cond_3_AI, FSD_cond_4_AI
+	# FSD_Cond_1 is always granted at start due to the four state deploy.
+	GrantCondition@Cond2AI:
+		Condition: FSD_cond_2
+		RequiresCondition: wc2_cond_bot_owner && FSD_cond_2_AI
+	GrantCondition@Cond3AI:
+		Condition: FSD_cond_3
+		RequiresCondition: wc2_cond_bot_owner && FSD_cond_3_AI
+	GrantCondition@Cond4AI:
+		Condition: FSD_cond_4
+		RequiresCondition: wc2_cond_bot_owner && FSD_cond_4_AI
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 10
+
+wc2_human_high_elf_sorceress:
+	Inherits@WC2Infantry: ^WC2Infantry
+	Inherits@WC2Template: ^wc2_mage
+	Inherits@WC2HShieldUpg: ^wc2_h_str_shield
+	Inherits@wc2_h_mage_slow: ^wc2_h_mage_slow
+	Inherits@EXP: ^GainsExperienceTD
+	Inherits@paladin_healing_upgrade: ^wc2_h_paladin_healing
+	Inherits@paladin_exorcism_upgrade: ^wc2_h_paladin_exorcism
+	Tooltip:
+		Name: High Elf Sorceress
+	Buildable:
+		Prerequisites: ~wc2_human_mage_tower
+		Queue: Infantry, RAInfantry
+		Description: Wise, old, grumpy spell caster.\nCan attack air.\nDetector.
+	Voiced:
+		VoiceSet: wc2voicehumanmage
+	WithDeathAnimation:
+		DeathSequencePalette: player_rgba
+	RenderSprites:
+		PlayerPalette: player_rgba
+	GrantConditionOnDeploy@Clock:
+	AttackFrontal:
+		Armaments: primary, healing, exorcism
+		FacingTolerance: 0
+	AutoTargetPriority@DEFAULT:
+		RequiresCondition: !stance-attackanything && !assault-move && !FSD_cond_2
+	AutoTargetPriority@ATTACKANYTHING:
+		RequiresCondition: (stance-attackanything || assault-move) && !FSD_cond_2
+	AutoTarget:
+		ScanRadius: 7
+	Armament:
+		Weapon: wc2mageFire
+		FireDelay: 7
+		RequiresCondition: (FSD_cond_1 && !wc2_cond_bot_owner) || (FSD_cond_1_AI && wc2_cond_bot_owner) || (FSD_cond_3 && !paladinhealing_upg) || (FSD_cond_4 && !paladinexorcism_upg)
+	Armament@HEAL:
+		Name: healing
+		Weapon: wc2paladinhealing
+		FireDelay: 5
+		TargetRelationships: Ally
+		RequiresCondition: FSD_cond_3 && paladinhealing_upg
+		PauseOnCondition: mana < 20
+	Armament@EXORCISM:
+		Name: exorcism
+		Weapon: wc2paladinexorcism
+		FireDelay: 7
+		RequiresCondition: FSD_cond_4 && paladinexorcism_upg
+		PauseOnCondition: mana < 40
+	# "Mana" (ammopool)
+	GrantConditionOnAttack@HEALING:
+		Condition: cond_healing_drain
+		ArmamentNames: healing
+		MaximumInstances: 1
+		RevokeDelay: 2
+	GrantConditionOnAttack@EXORCISM:
+		Condition: cond_exorcism_drain
+		ArmamentNames: exorcism
+		MaximumInstances: 1
+		RevokeDelay: 2
+	AmmoPool:
+		Armaments: healing, exorcism
+		Ammo: 350
+		AmmoCondition: mana
+	ReloadAmmoPoolCA@PassiveRegen:
+		Delay: 10
+		Count: 5
+		ShowSelectionBar: false
+	ReloadAmmoPoolCA@Healing:
+		Delay: 1
+		Count: -20
+		RequiresCondition: cond_healing_drain
+	ReloadAmmoPoolCA@Exorcism:
+		Delay: 1
+		Count: -40
+		RequiresCondition: cond_exorcism_drain
+
+	### Visual indicator of mode for four state deploy ###
+	WithDecoration@Mode_Healing:
+		Sequence: healing_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_3 && paladinhealing_upg
+	WithDecoration@Mode_Healing_Locked:
+		Sequence: locked_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_3 && !paladinhealing_upg
+	WithDecoration@Mode_Exorcism:
+		Sequence: exorcism_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_4 && paladinexorcism_upg
+	WithDecoration@Mode_Exorcism_Locked:
+		Sequence: locked_status_icon
+		Position: BottomRight
+		RequiresCondition: FSD_cond_4 && !paladinexorcism_upg
+
+	### Starting spell randomizer for AI.
+	GrantConditionOnBotOwner@wc2magebotcontrol:
+		Condition: wc2_cond_bot_owner
+		Bots: easiest, easy, medium, hard, brutal, challenger, unbeatable, cameogod, airforce, defenseai
+	GrantRandomCondition@wc2magebotcontrol:
+		Conditions: FSD_cond_1_AI, FSD_cond_1_AI, FSD_cond_1_AI, FSD_cond_1_AI, FSD_cond_1_AI, FSD_cond_1_AI, FSD_cond_2_AI, FSD_cond_3_AI, FSD_cond_3_AI, FSD_cond_4_AI
 	# FSD_Cond_1 is always granted at start due to the four state deploy.
 	GrantCondition@Cond2AI:
 		Condition: FSD_cond_2
@@ -3651,6 +4308,19 @@ wc2_human_gnomish_flying_machine:
 		VoiceSet: wc2voicehumanflyingmachine
 	ActorStatValues:
 		Upgrades: wc2_h_str_shield, wc2_h_str_shield2
+
+wc2_human_gyrocopter2:
+	Inherits@WC2AirUnit: ^WC2AirUnit
+	Inherits@WC2Template: ^wc2_airscout
+	Tooltip:
+		Name: Gyrocopter Machine
+	Buildable:
+		Prerequisites: ~wc2_human_gnomish_inventor
+		Queue: Vehicle, RAVehicle
+		Description: Flying scout unit. He's got a flying machine!\nDetector.
+	Voiced:
+		VoiceSet: wc2voicehumanflyingmachine
+
 
 wc2_human_gryphon_rider:
 	Inherits@WC2AirUnit: ^WC2AirUnit
