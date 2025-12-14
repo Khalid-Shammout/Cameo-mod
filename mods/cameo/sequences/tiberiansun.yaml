@@ -1716,6 +1716,77 @@ tsapctruck:
 		Filename: forgot_truck_icon.png
 		AddExtension: False
 
+tslasspid:
+	idle:
+		Filename: cabal_laser_spider.png
+		Facings: 64
+		Start: 64
+		Scale: 0.6
+	icon:
+		Filename: tstitanicon.shp
+		AddExtension: False
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	stand:
+		Filename: cabal_laser_spider.png
+		Facings: 64
+		Start: 64
+		Scale: 0.6
+	walk:
+		Filename: cabal_laser_spider.png
+		Length: 8
+		Facings: 8
+		Tick: 60
+		Scale: 0.6
+
+tsartspid:
+	idle:
+		Filename: cabal_arty_spider.png
+		Facings: 64
+		Start: 64
+	icon:
+		Filename: tstitanicon.shp
+		AddExtension: False
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	stand:
+		Filename: cabal_arty_spider.png
+		Facings: 64
+		Start: 64
+	walk:
+		Filename: cabal_arty_spider.png
+		Length: 8
+		Facings: 8
+		Tick: 60
+
+tstnkspid:
+	idle:
+		Filename: cabal_tank_spider.png
+		Facings: 64
+		Start: 64
+	icon:
+		Filename: tstitanicon.shp
+		AddExtension: False
+	muzzle:
+		Filename: gunfire2.shp
+		Length: 5
+	stand:
+		Filename: cabal_tank_spider.png
+		Facings: 64
+		Start: 64
+	walk:
+		Filename: cabal_tank_spider.png
+		Length: 8
+		Facings: 8
+		Tick: 60
+	turret:
+		Filename: cabal_tank_spider.png
+		Start: 128
+		Facings: 64
+		Offset: 0, 0, 12
+
 tsgtcnst:
 	Inherits: ^WithBuildingBib2
 	Defaults:

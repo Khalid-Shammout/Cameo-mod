@@ -14329,6 +14329,110 @@ nax_undead:
 	ActorStatValues:
 		Upgrades: up_ostfrontexperience, up_massopticsintegration
 
+nax_conehead:
+	Inherits: ^Soldier
+	Inherits@Template: ^ScoutInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^RA2Infantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@undead: ^NaxiUndeadRevive
+	Inherits@OstfrontExperience: ^OstfrontExperience
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Coneheads Knights
+	Buildable:
+		BuildPaletteOrder: 100
+		Prerequisites: ~nax_barr, nax_tek
+		Queue: Infantry, RAInfantry
+		AdditionalActors: nax_conehead, nax_conehead, nax_conehead, nax_conehead, nax_conehead2
+		Description: template-scout-infantry.description
+	Mobile:
+		Speed: 90
+	Health:
+		HP: 20000
+	ChangesHealth@SelfHealing:
+		Step: 10
+	Armament:
+		Weapon: wc2gruntslice
+		FireDelay: 5
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: NaxiRifleCons
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: NaxiRifleConsE
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	Voiced:
+		VoiceSet: NaxiEngVoice
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience, up_massopticsintegration
+	RenderSprites:
+		PlayerPalette: player_rgba
+nax_conehead2:
+	Inherits: ^Soldier
+	Inherits@Template: ^ScoutInfantryTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
+	Inherits@anim: ^RA2Infantry
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@undead: ^NaxiUndeadRevive
+	Inherits@OstfrontExperience: ^OstfrontExperience
+	Inherits@MassOpticsIntegration: ^MassOpticsIntegration
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Conehead Leader
+	Buildable:
+		BuildPaletteOrder: 10
+		Prerequisites: ~nax_barr, ~disabled
+		Queue: Infantry, RAInfantry
+		Description: template-scout-infantry.description
+	Mobile:
+		Speed: 90
+	Health:
+		HP: 40000
+	ChangesHealth@SelfHealing:
+		Step: 10
+	Armament@PRIMARY:
+		Weapon: RA2PortaTesla
+		LocalOffset: 500,0,400
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: RA2PortaTesla
+		LocalOffset: 500,0,400
+		RequiresCondition: rank-elite
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: RA2PortaTesla
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: !rank-elite
+	Armament@GARRISONEDELITE:
+		Name: garrisoned
+		Weapon: RA2PortaTesla
+		MuzzleSequence: muzzle
+		MuzzlePalette: ra2effect
+		RequiresCondition: rank-elite
+	AttackFrontal:
+		FacingTolerance: 0
+	Voiced:
+		VoiceSet: NaxiEngVoice
+	ActorStatValues:
+		Upgrades: up_ostfrontexperience, up_massopticsintegration
+	RenderSprites:
+		PlayerPalette: player_rgba
 ####################################################################################################
 #		Red Alert 2 Moon Naxis Infantry
 ####################################################################################################

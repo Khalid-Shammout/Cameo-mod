@@ -5544,6 +5544,7 @@ Player:
 			nax_slavemaster: 10
 			nax_rifle: 1
 			nax_cons: 3
+			nax_conehead: 3
 			nax_tcons: 3
 			nax_merc: 1
 			nax_frank: 2

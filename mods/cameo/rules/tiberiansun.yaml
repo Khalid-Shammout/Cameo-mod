@@ -7294,18 +7294,6 @@ TSTTNK:
 	ActorStatValues:
 		Upgrades: up_tiberiumlenses, up_auxiliaryweapon, up_advancedtiberiumrefinement
 
-TSTTNKCABAL:
-	Inherits: TSTTNK
-	Buildable:
-		Prerequisites: ~tsntweapcabal
-	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tsttnk
-	RenderVoxels:
-		Image: tsttnk
-	ActorStatValues:
-		Upgrades: up_tiberiumlenses
-
 TSART2:
 	Inherits: ^Tank
 	Inherits@Template: ^ArtilleryTemplate
@@ -7380,16 +7368,6 @@ TSART2:
 		PlayerPalette: playerra2
 	ActorStatValues:
 		Upgrades: up_mobilityspecialization, up_auxiliaryweapon, up_advancedtiberiumrefinement
-
-TSART2CABAL:
-	Inherits: TSART2
-	Buildable:
-		Prerequisites: ~tsntweapcabal, tsntradrcabal
-	RenderSprites:
-		PlayerPalette: playerra2
-		Image: tsart2
-	RenderVoxels:
-		Image: tsart2
 
 TSSUBTANK:
 	Inherits: ^Tank
@@ -8393,7 +8371,7 @@ tsmlrs:
 		LocalOffset: 0,-121,271, 0,121,271
 		MuzzleSequence: muzzle
 	Turreted:
-		Offset: -400,1,1
+		Offset: -500,1,1
 	WithMuzzleOverlay:
 	AttackTurreted:
 	SelectionDecorations:
@@ -8569,6 +8547,185 @@ tsclosh:
 #######################################
 # TS CABAL Vehicles
 #######################################
+TSLASSPID:
+	Inherits: ^Vehicle
+	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@vo: ^AttackFrontalVoice
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Laser Spider
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~tsntweapcabal
+		Queue: Vehicle, RAVehicle
+		Description: Fast scout and anti-infantry vehicle.\n  Strong vs Infantry, Light armor\n  Weak vs Vehicles, Aircraft
+	Mobile:
+		Locomotor: wheeled
+		TurnSpeed: 64
+		Speed: 160
+	Health:
+		HP: 40000
+	Repairable:
+		HpPerStep: 1500
+	ChangesHealth@SelfHealing:
+		Step: 12
+	Armament@PRIMARY:
+		Weapon: TSLaserRaiderCannon
+		LocalOffset: 350,-30,250, 350,30,250
+		Recoil: 128
+		RecoilRecovery: 26
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackFollowFrontal:
+		FacingTolerance: 512
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 250
+	RenderSprites:
+		PlayerPalette: player_rgba
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithMoveAnimation:
+		MoveSequence: walk
+		ValidMovementTypes: Horizontal, Turn
+
+
+TSART2CABAL:
+	Inherits: ^Vehicle
+	Inherits@Template: ^ScoutVehicleTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^FrontalEMP
+	Inherits@AntiInf: ^PrioritizeInfantry
+	Inherits@vo: ^AttackFrontalVoice
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Artillery Spider
+	Buildable:
+		BuildPaletteOrder: 30
+		Prerequisites: ~tsntweapcabal, tsntradrcabal
+		Queue: Vehicle, RAVehicle
+		Description: Fast scout and anti-infantry vehicle.\n  Strong vs Infantry, Light armor\n  Weak vs Vehicles, Aircraft
+	Mobile:
+		Locomotor: tracked
+		Speed: 60
+		TurnSpeed: 24
+	Health:
+		HP: 100000
+	Repairable:
+		HpPerStep: 1500
+	ChangesHealth@SelfHealing:
+		Step: 12
+	Armament@PRIMARY:
+		Weapon: TS155mm
+		LocalOffset: -125,1,250, -125,1,250
+		Recoil: 128
+		RecoilRecovery: 26
+		MuzzleSequence: muzzle
+	WithMuzzleOverlay:
+	AttackFollowFrontal:
+		FacingTolerance: 512
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 250
+	RenderSprites:
+		PlayerPalette: player_rgba
+		Image: tsartspid
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithMoveAnimation:
+		MoveSequence: walk
+		ValidMovementTypes: Horizontal, Turn
+
+TSTTNKCABAL:
+	Inherits: ^Tank
+	Inherits@Template: ^MainBattleTankTemplate
+	Inherits@EXPERIENCE: ^GainsExperienceTD
+	Inherits@decoration: ^GDIRankDecoration
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@EMP: ^TurretEMP
+	Inherits@detect: ^EliteDetector
+	Inherits@vo: ^AttackTurretedVoice
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Tarantula
+	Buildable:
+		BuildPaletteOrder: 50
+		Queue: Vehicle, RAVehicle
+		Prerequisites: ~tsntweapcabal
+		BuildDurationModifier: 100
+		BuildDuration: 375
+		Description: General purpose mechanized walker.\n  Strong vs Vehicles\n  Weak vs Infantry, Aircraft
+	Mobile:
+		Locomotor: tracked
+		Speed: 75
+		TurnSpeed: 15
+	Health:
+		HP: 250000
+	Repairable:
+		HpPerStep: 5000
+	ChangesHealth@SelfHealing:
+		Step: 40
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 6c0
+	Turreted:
+		TurnSpeed: 15 #3
+		Offset: -500,1,1
+	Armament@PRIMARY:
+		Weapon: TS120mm
+		Recoil: 128
+		RecoilRecovery: 32
+		LocalOffset: 800, 300, 700
+		MuzzleSequence: muzzle
+	AttackTurreted:
+	WithMuzzleOverlay:
+	SelectionDecorations:
+	Selectable:
+	Inherits@EXT: ^ExternalConditions ##########
+	AcceptsDeliveredExperience: ##########
+		ValidTypes: vehicle ##########
+	Voiced:
+		VoiceSet: TSVehicle
+	DeliversCash:
+		Payload: 400
+	WithSpriteTurret:
+		Recoils: false
+	BodyOrientation:
+		QuantizedFacings: 32
+		UseClassicPerspectiveFudge: False
+	WithFacingSpriteBody:
+		Sequence: stand
+	WithMoveAnimation:
+		MoveSequence: walk
+		ValidMovementTypes: Horizontal, Turn
+	RenderVoxels:
+		Scale: 10
+	RenderSprites:
+		PlayerPalette: player_rgba
+		Image: tstnkspid
 
 TSSAPCCABAL:
 	Inherits: TSSAPC
