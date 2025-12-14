@@ -863,7 +863,7 @@ eden_lynx_emp:
 		Start: 0
 		Facings: 16
 	icon:
-		Filename: edenUILynxEmp.png
+		Filename: edenUILynxEMP.png
 
 eden_tiger_emp:
 	idle:
@@ -883,7 +883,7 @@ eden_tiger_emp:
 		Start: 0
 		Facings: 16
 	icon:
-		Filename: edenUITigerEmp.png
+		Filename: edenUITigerEMP.png
 
 eden_lynx_acidcloud:
 	idle:

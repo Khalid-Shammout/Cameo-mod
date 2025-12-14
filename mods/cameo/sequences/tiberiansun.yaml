@@ -2132,7 +2132,6 @@ tsntpowrmutant:
 		UseTilesetCode: false
 
 tsntapwr:
-	Inherits: ^WithBuildingBib3
 	Defaults:
 		Scale: 1.5
 		Offset: 12, -15, 30

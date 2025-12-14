@@ -668,8 +668,6 @@ tsprocgdi:
 		Type: Rectangle
 			TopLeft: -512, -1450
 			BottomRight: 896, -512
-	Valued:
-		Cost: 1500
 	Tooltip:
 		Name: Tiberium Refinery
 	Buildable:
@@ -3261,6 +3259,7 @@ forgot_htnk_tur:
 		Amount: 0
 	RenderSprites:
 		PlayerPalette: player_rgba
+
 tsntsam:
 	Inherits: ^Defense
 	Inherits@Template: ^AntiAirDefenseTemplate
@@ -4365,6 +4364,7 @@ TSTOXINTROOP:
 		Weapon: TSToxinRifle
 		LocalOffset: 128,0,256
 	Armament@GARRISONED:
+		Name: garrisoned
 		Weapon: TSToxinRifle
 	TakeCover:
 		ProneOffset: 180,0,-200
@@ -4390,7 +4390,7 @@ TSSHOTGUNCOM:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@InfiltrationKit: ^InfiltrationKit
 	Valued:
-		Cost: 4000
+		Cost: 3000
 	Tooltip:
 		Name: Shotgun Commando
 	UpdatesPlayerStatistics:
@@ -4402,7 +4402,7 @@ TSSHOTGUNCOM:
 		Description: Elite Infantry of NOD used to fight high technology enemies \n  Strong vs Infantry, Vehicles\n  Weak vs Siege, Heavy armor
 		BuildLimit: 1
 	Mobile:
-		Speed: 70
+		Speed: 80
 	Health:
 		HP: 100000
 	ChangesHealth@SelfHealing:
@@ -4549,7 +4549,10 @@ TSCHAMSPY:
 		Speed: 90
 		Voice: Move
 	RevealsShroud:
-		Range: 4c0
+		Range: 8000
+	DetectCloaked:
+		Range: 4000
+	RenderDetectionCircle:
 	Armament@PRIMARY:
 		Weapon: ChamBlade
 	Passenger:
@@ -4595,7 +4598,7 @@ TSMHIJACK:
 		AddToArmyValue: true
 	Buildable:
 		BuildPaletteOrder: 100
-		Prerequisites: ~tsnthand, tsntweap, tsntradr
+		Prerequisites: ~tsnthand, tsntweap, tsntradr, disabled
 		Queue: Infantry, RAInfantry
 		BuildLimit: 1
 		Description: Hijacks vehicles.
@@ -6407,6 +6410,7 @@ TSJUGG:
 	Voiced:
 		VoiceSet: TSVehicle
 	RejectsMoveToAttack:
+		Reject: AttackMove, AssaultMove
 		RequiresCondition: !botmicro && deployed
 	AutoDeployer:
 		DeployChance: 85
@@ -6928,7 +6932,7 @@ TSBIKE:
 	Inherits@TiberiumCoreMissiles: ^TiberiumCoreMissiles
 	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
-		Cost: 600
+		Cost: 450
 	Tooltip:
 		Name: Attack Cycle
 	Buildable:
@@ -7166,7 +7170,8 @@ TSTTNK:
 		Locomotor: tracked
 		TurnSpeed: 32
 		Speed: 90
-		RequireForceMoveCondition: deployed
+		RequireForceMoveCondition: !undeployed
+		ImmovableCondition: !undeployed
 	Health:
 		HP: 100000
 	Repairable:
@@ -7185,6 +7190,7 @@ TSTTNK:
 	Turreted:
 		TurnSpeed: 32
 		Turret: deployed
+		Offset: 220,-20,296
 	Armament@PRIMARY:
 		Weapon: TS90mm
 		LocalOffset: 407,0,362
@@ -7284,6 +7290,7 @@ TSTTNK:
 		DeployTicks: 300
 		UndeployTicks: 1000
 	RejectsMoveToAttack:
+		Reject: AttackMove, AssaultMove
 		RequiresCondition: !botmicro && deployed
 	Voiced:
 		VoiceSet: TSVehicle
@@ -9370,22 +9377,26 @@ TSAPACHENOD:
 	Armament@PRIMARY:
 		Weapon: TSHarpyClaw
 		LocalOffset: 0,0,0
-		# PauseOnCondition: !ammo
+		PauseOnCondition: !ammo
+		AmmoUsage: 5
 		RequiresCondition: !up_tiberiumlenses
 	Armament@SECONDARY:
 		Weapon: TSHarpyMultiClaw
 		LocalOffset: 0,0,0
-		# PauseOnCondition: !ammo
+		PauseOnCondition: !ammo
+		AmmoUsage: 0
 		RequiresCondition: !up_tiberiumlenses && up_auxiliaryweapon
 	Armament@UPGRADE:
 		Weapon: TSLaserHarpyClaw
 		LocalOffset: 0,0,0
-		# PauseOnCondition: !ammo
+		PauseOnCondition: !ammo
+		AmmoUsage: 4
 		RequiresCondition: up_tiberiumlenses
 	Armament@SECONDARYUPGRADE:
 		Weapon: TSLaserHarpyMultiClaw
 		LocalOffset: 0,0,0
-		# PauseOnCondition: !ammo
+		PauseOnCondition: !ammo
+		AmmoUsage: 0
 		RequiresCondition: up_tiberiumlenses && up_auxiliaryweapon
 	AttackAircraft:
 		FacingTolerance: 80
@@ -9400,12 +9411,12 @@ TSAPACHENOD:
 	WithVoxelBody:
 	Voiced:
 		VoiceSet: TSScrin
-	# AmmoPool:
-	# 	Ammo: 32
-	# 	AmmoCondition: ammo
-	# ReloadAmmoPool:
-	# 	Delay: 32
-	# 	Count: 4
+	AmmoPool:
+		Ammo: 80
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 32
+		Count: 20
 	SpawnActorOnDeath:
 		Actor: TSAPACHE.Husk
 	WithIdleOverlay@ROTORAIR:
@@ -9421,10 +9432,10 @@ TSAPACHENOD:
 	RenderVoxels:
 		Scale: 15
 		Image: tsapache
-	# WithAmmoPipsDecoration:
-	# 	Position: BottomLeft
-	# 	RequiresSelection: True
-	# 	PipCount: 4
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		RequiresSelection: True
+		PipCount: 4
 	RenderSprites:
 		Image: tsapache
 	ActorStatValues:
@@ -10775,7 +10786,7 @@ up_tiberiumcoremissiles:
 	Tooltip:
 		Name: Tiberium Core Missiles
 	Valued:
-		Cost: 10000
+		Cost: 5000
 	Buildable:
 		BuildPaletteOrder: 100
 		Queue: Upgrades
@@ -10797,7 +10808,7 @@ up_advancedtiberiumrefinement:
 	Tooltip:
 		Name: Advanced Tiberium Refinement
 	Valued:
-		Cost: 10000
+		Cost: 7500
 	Buildable:
 		BuildPaletteOrder: 110
 		Queue: Upgrades
@@ -10863,7 +10874,7 @@ team_upgrade.up_willofkane:
 up_willofkane:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
-		Name: willofkane
+		Name: Will of Kane
 	Valued:
 		Cost: 8000
 	Buildable:
@@ -10874,3 +10885,5 @@ up_willofkane:
 	RenderSprites:
 		Image: willofkaneicon
 	ProvidesPrerequisite:
+	ProvidesTeamProxyActor:
+		Actor: team_upgrade.up_willofkane

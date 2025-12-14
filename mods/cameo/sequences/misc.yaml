@@ -3841,6 +3841,12 @@ purple_fb4:
 		Length: *
 		ZOffset: 1023
 
+blue_small_napalm:
+	idle:
+		Filename: blue_napalm1.shp
+		Length: *
+		ZOffset: 1023
+
 minp:
 	idle:
 		Filename: minp.shp

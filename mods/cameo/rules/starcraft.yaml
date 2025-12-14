@@ -525,6 +525,23 @@ SCCOMMANDCENTER:
 		IntoActor: sccommandcenterm
 		Offset: 1,1
 		Facing: 432
+	Production@INFANTRY:
+		Produces: Infantry
+		PauseOnCondition: disabled
+	ProductionQueue@INFANTRY:
+		Type: Infantry
+		DisplayOrder: 2
+		Group: Infantry
+		LowPowerModifier: 300
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		InfiniteBuildLimit: 10
+	ProductionBar@INFANTRY:
+		ProductionType: Infantry
 	# Production@NORMAL:
 	# 	-RequiresCondition:
 	# -Production@CLASSICPRODUCTIONQUEUES:
@@ -1334,6 +1351,23 @@ SCNEXUS:
 		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
 		BuildSounds: pshbld03.aud
+	Production@INFANTRY:
+		Produces: Infantry
+		PauseOnCondition: disabled
+	ProductionQueue@INFANTRY:
+		Type: Infantry
+		DisplayOrder: 2
+		Group: Infantry
+		LowPowerModifier: 300
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		LimitedAudio: BuildingInProgress
+		QueuedAudio: Training
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		InfiniteBuildLimit: 10
+	ProductionBar@INFANTRY:
+		ProductionType: Infantry
 	# Production@NORMAL:
 	# 	-RequiresCondition:
 	# -Production@CLASSICPRODUCTIONQUEUES:
@@ -7273,6 +7307,7 @@ SCGLADIUS:
 	Armament:
 		Weapon: GladiusCannon
 		LocalOffset: 400,0,0
+	AttackFrontalCharged:
 	AttackAircraft:
 		FacingTolerance: 20
 	-SpawnActorOnDeath:

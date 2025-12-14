@@ -3019,8 +3019,8 @@ aa_mecha:
 		FacingTolerance: 20
 	WithInfantryBody:
 		IdleSequences: idle1, idle2
-		MinIdleDelay: 90
-		MaxIdleDelay: 270
+		MinIdleDelay: 25
+		MaxIdleDelay: 75
 		DefaultAttackSequence: shoot
 	BodyOrientation:
 		QuantizedFacings: 32
@@ -9837,7 +9837,7 @@ steel_manta_hunt:
 	Valued:
 		Cost: 1000
 	Tooltip:
-		Name: Manta Hunter
+		Name: Barracuda
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: ~upsteel_manta_hunt
@@ -9928,7 +9928,7 @@ steel_mega:
 	Valued:
 		Cost: 2000
 	Tooltip:
-		Name: Mega
+		Name: Megalodon
 	Buildable:
 		BuildPaletteOrder: 50
 		Prerequisites: ~steel_qtradr
@@ -9979,7 +9979,7 @@ steel_arty:
 	Valued:
 		Cost: 800
 	Tooltip:
-		Name: Artillery Tank
+		Name: Hammerhead Artillery Tank
 	Buildable:
 		BuildPaletteOrder: 50
 		Prerequisites: ~steel_qtradr
@@ -10514,6 +10514,200 @@ steel_stalker:
 	RenderSprites:
 		PlayerPalette: player_rgba
 	DeathSounds:
+	WithIdleOverlay@shield1:
+		Sequence: shield-complete-big
+		StartSequence: shield-starts-big
+	WithIdleOverlay@shield_damage:
+		Sequence: shield-complete-big
+	ActorStatValues:
+		Upgrades: upsteel_shielresistance
+
+white_rabbit:
+	Inherits: ^Tank
+	Inherits@Template: ^HeroInfantryTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
+	Inherits@anim: ^RA2Vehicle
+	Inherits@EXPERIENCE: ^GainsExperienceRA2
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@vo: ^AttackFrontalVoice
+	Inherits@EMP: ^FrontalEMP
+	Inherits@MC: ^MCImmune
+	Inherits@UpGat: ^YuriGatlingUpgrade
+	Valued:
+		Cost: 4500
+	Tooltip:
+		Name: White Rabbit
+	Buildable:
+		BuildPaletteOrder: 75
+		Prerequisites: ~steel_qatech
+		Queue: Vehicle, RAVehicle
+		Description: actor-steel_beholder.description
+	Mobile:
+		Locomotor: hover
+		Speed: 50
+		TurnSpeed: 20
+	Targetable@Hover:
+		TargetTypes: Water, Ship
+	Health:
+		HP: 150000
+	Repairable:
+		HpPerStep: 7500
+	ChangesHealth@SelfHealing:
+		Step: 60
+	Armament@1:
+		Weapon: WhiteRabbitGatling
+		LocalOffset: 750,250,250
+	ReloadDelayMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	ReloadDelayMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	RangeMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 102
+	RangeMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 102
+	SpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	SpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed1:
+		RequiresCondition: gatling >= 1
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed2:
+		RequiresCondition: gatling >= 2
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed3:
+		RequiresCondition: gatling >= 3
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed4:
+		RequiresCondition: gatling >= 4
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed5:
+		RequiresCondition: gatling >= 5
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed6:
+		RequiresCondition: gatling >= 6
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed7:
+		RequiresCondition: gatling >= 7
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed8:
+		RequiresCondition: gatling >= 8
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed9:
+		RequiresCondition: gatling >= 9
+		Modifier: 90
+	TurnSpeedMultiplier@GattlingSpeed10:
+		RequiresCondition: gatling >= 10
+		Modifier: 90
+	GrantConditionOnAttack@gatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
+		RevokeDelay: 20
+		MaximumInstances: 10
+	GrantConditionOnAttack@elitegatling:
+		Condition: gatling
+		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
+		RevokeDelay: 10
+		MaximumInstances: 10
+	AttackFrontal:
+		FacingTolerance: 10
+	WithInfantryBody:
+		IdleSequences: idle1, idle2, idle3
+		MinIdleDelay: 25
+		MaxIdleDelay: 75
+		DefaultAttackSequence: shoot
+	BodyOrientation:
+		QuantizedFacings: 32
+	-QuantizeFacingsFromSequence:
+	Passenger:
+		Weight: 4
+	Selectable:
+		Bounds: 1536, 1536
+		DecorationBounds: 1280, 1920, 0, 256
+	Voiced:
+		VoiceSet: SteelTCUVoice
+	RenderSprites:
+		PlayerPalette: playerra
+	DeathSounds:
+	WithDeathAnimation:
 	WithIdleOverlay@shield1:
 		Sequence: shield-complete-big
 		StartSequence: shield-starts-big

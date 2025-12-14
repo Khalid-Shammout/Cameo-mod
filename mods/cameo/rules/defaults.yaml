@@ -1222,6 +1222,7 @@
 	Crushable:
 		CrushClasses: vehicle
 	Buildable:
+		BuildLimit: 1
 		BuildDurationModifier: 25
 	Cloneable:
 		Types: Hero
@@ -1421,6 +1422,7 @@
 	RenderRangeCircle:
 		RangeCircleType: vehicle
 	Buildable:
+		BuildLimit: 1
 		BuildDurationModifier: 25
 	TooltipExtras@Epic:
 		Description: Epic
@@ -1554,6 +1556,7 @@
 	Integrity:
 		MaxPercentageStrength: 200
 	Buildable:
+		BuildLimit: 1
 		BuildDurationModifier: 25
 	TooltipExtras@Epic:
 		Description: Epic

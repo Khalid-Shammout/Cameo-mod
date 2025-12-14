@@ -20,6 +20,21 @@ wc2footmanslice:
 	Warhead@Effect: CreateEffect
 		ImpactSounds: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
 
+wc2footmanslice2:
+	Inherits: ^SwordWeapon
+	ReloadDelay: 15
+	Range: 1333
+	Report: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
+	Projectile: InstantHit
+	Warhead@SwordWeapon: SpreadDamage
+		Damage: 15500
+	Warhead@SwordWeaponFriendlyFire: SpreadDamage
+		Damage: 6000
+	Warhead@SwordWeaponPercentage: HealthPercentageDamage
+		Damage: 6
+	Warhead@Effect: CreateEffect
+		ImpactSounds: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
+
 # 1-5 WC2 damage. 3 Base, 2 Pierce.
 wc2peasantsmack:
 	Inherits: wc2footmanslice
@@ -28,8 +43,8 @@ wc2peasantsmack:
 # 3-9 WC2 damage. 3 Base, 6 Pierce.
 wc2arrowFire:
 	Inherits: ^ArrowWeapon
-	ReloadDelay: 22
-	Range: 7760
+	ReloadDelay: 25
+	Range: 7365
 	Report: wc2_bowfire.aud
 	ValidTargets: Ground, Water, Air
 	Projectile: Missile
@@ -42,27 +57,101 @@ wc2arrowFire:
 		CloseEnough: 600
 	Warhead@ArrowWeapon: SpreadDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 12000
+		Damage: 20000
 	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Air
-		Damage: 6
+		Damage: 10
 	Warhead@Effect: CreateEffect
 		ImpactSounds: wc2_bowhit.aud
 		ValidTargets: Ground, Water, Air
 
+wc2higharrowFire:
+	Inherits: ^ArrowWeapon
+	ReloadDelay: 18
+	Range: 8650
+	Report: wc2_bowfire.aud
+	ValidTargets: Ground, Water, Air
+	Projectile: Missile
+		Image: arrow
+		Speed: 800
+		HorizontalRateOfTurn: 60
+		VerticalRateOfTurn: 60
+		RangeLimit: 12000
+		AllowSnapping: True
+		CloseEnough: 600
+	Warhead@ArrowWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 15000
+	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air
+		Damage: 7
+	Warhead@Effect: CreateEffect
+		ImpactSounds: wc2_bowhit.aud
+		ValidTargets: Ground, Water, Air
+
+wc2_dwarf_Rifle:
+	Inherits: ^SmallArms
+	Inherits: ^Grenade
+	Inherits: ^FlakWeapon
+	Inherits: ^Chaingun
+	ReloadDelay: 45
+	Range: 8655
+	Report: silencer.aud
+	ValidTargets: Ground, Water, Air, Trees
+	Projectile: Bullet
+		Image: 50CAL
+		ContrailStartColor: FF9933
+		ContrailEndColor: FFFFFF
+		ContrailEndColorUsePlayerColor: true
+		ContrailWidth: 250
+		ContrailLength: 25
+		Speed: 2500
+		Width: 100
+		-LaunchAngle:
+	Warhead@SmallArms: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 8000
+	Warhead@SmallArmsPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4
+	Warhead@Grenade: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 8000
+	Warhead@GrenadeFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4000
+	Warhead@GrenadePercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4
+	Warhead@FlakWeapon: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 8000
+	Warhead@FlakWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4
+	Warhead@Chaingun: SpreadDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 8000
+	Warhead@ChaingunPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Water, Air, Trees
+		Damage: 4
+	Warhead@Effect: CreateEffect
+		Explosions: small_poof
+		ImpactSounds: xplos.aud
+
 # 2-12 WC2 damage. 8 Base, 4 Pierce.
 wc2knightslice:
 	Inherits: ^SwordWeapon
-	ReloadDelay: 18
-	Range: 1545
+	ReloadDelay: 12
+	Range: 1420
 	Report: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
 	Projectile: InstantHit
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 12000
+		Damage: 16000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 6000
+		Damage: 8000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 6
+		Damage: 8
 	Warhead@Effect: CreateEffect
 		ImpactSounds: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
 
@@ -173,6 +262,32 @@ wc2paladinhealing:
 	Warhead@1Dam: SpreadDamage
 		Spread: 128
 		Damage: -4025
+		Versus:
+			None: 100
+			Wood: 0
+			Light: 100
+			Medium: 100
+			Heavy: 100
+			Concrete: 0
+		DamageTypes: Prone50Percent, TriggerProne, DefaultDeath
+		ValidTargets: Heal, Healing
+		# InvalidTargets: wc2_ballista
+		ValidRelationships: Ally
+	Warhead@2Eff: CreateEffect
+		Image: wc2_effect_heal
+		Explosions: idle
+		ValidTargets: Ground, Water, Air
+
+wc2priesthealing:
+	ReloadDelay: 40
+	Range: 5c0
+	Report: wc2_heal.aud
+	ValidTargets: Heal, Healing
+	# InvalidTargets: wc2_ballista
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: -5000
 		Versus:
 			None: 100
 			Wood: 0
@@ -959,7 +1074,7 @@ wc2_tower_arrow:
 
 wc2gruntslice:
 	Inherits: ^SwordWeapon
-	ReloadDelay: 22
+	ReloadDelay: 18
 	Range: 1555
 	Report: wc2_sword1.aud,wc2_sword2.aud,wc2_sword3.aud
 	Projectile: InstantHit
@@ -975,29 +1090,29 @@ wc2gruntslice:
 wc2axeFire:
 	Inherits: wc2arrowFire
 	ReloadDelay: 35
-	Range: 7290
+	Range: 6985
 	Report: wc2_axe.aud
 	Projectile:
 		Image: wc2_orc_trollaxethrower_axe
 	Warhead@ArrowWeapon: SpreadDamage
-		Damage: 16000
+		Damage: 24000
 	Warhead@ArrowWeaponPercentage: HealthPercentageDamage
-		Damage: 8
+		Damage: 12
 	Warhead@Effect: CreateEffect
 		ImpactSounds: wc2_axe.aud
 
 wc2ogrepunch:
 	Inherits: ^SwordWeapon
-	ReloadDelay: 24
-	Range: 1646
+	ReloadDelay: 20
+	Range: 1660
 	Report: wc2_punch.aud
 	Projectile: InstantHit
 	Warhead@SwordWeapon: SpreadDamage
-		Damage: 20000
+		Damage: 30000
 	Warhead@SwordWeaponFriendlyFire: SpreadDamage
-		Damage: 10000
+		Damage: 15000
 	Warhead@SwordWeaponPercentage: HealthPercentageDamage
-		Damage: 10
+		Damage: 15
 	Warhead@Effect: CreateEffect
 		ImpactSounds: wc2_punch.aud
 
