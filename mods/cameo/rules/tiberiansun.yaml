@@ -998,7 +998,6 @@ TSNTAPWR:
 	SelectionDecorations:
 	RevealsShroud:
 		Range: 5c0
-	WithBuildingBib:
 	ScalePowerWithHealth:
 	AcceptsDeliveredExperience: ##########
 		ValidTypes: building ##########
@@ -2942,12 +2941,12 @@ tsgtctwrrpg:
 	WithSpriteBody:
 	Armament@PRIMARY:
 		Weapon: TSRPGTower
-		LocalOffset: 130,-45,700
+		LocalOffset: 130,-45,500
 		MuzzleSequence: muzzle
 		RequiresCondition: !up_railgunweaponry
 	Armament@Upgrade:
 		Weapon: TSRPGTowerRail
-		LocalOffset: 130,-45,700
+		LocalOffset: 130,-45,500
 		MuzzleSequence: muzzle
 		RequiresCondition: up_railgunweaponry
 	WithMuzzleOverlay:
@@ -3382,10 +3381,11 @@ tsntstlhcabal:
 		Image: tsntstlh
 
 tsntpulsgdi:
-	Inherits: ^BaseBuilding
+	Inherits: ^Defense
 	Inherits@Template: ^AdvancedDefenseTemplate
 	Inherits@shape: ^2x2Shape
 	Inherits@sell: ^TSSpawnActorsOnSell
+	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@EMP: ^TurretEMP
 	Selectable:
 		Bounds: 2048, 2048
@@ -3395,16 +3395,16 @@ tsntpulsgdi:
 		Queue: Defence, RADefence
 		BuildDurationModifier: 40
 		Description: Disables mechanical units in an area.\nRequires power to operate.
+		BuildLimit: 1
 	Valued:
-		Cost: 1000
+		Cost: 2000
 	Tooltip:
 		Name: E.M. Pulse Cannon
 	Building:
-		Footprint: == xx ==
-		Dimensions: 2,3
-		LocalCenterOffset: 0,-512,0
+		Footprint: xx xx
+		Dimensions: 2,2
 	Health:
-		HP: 100000
+		HP: 250000
 	Armor:
 		Type: Concrete
 	RevealsShroud:
@@ -3412,6 +3412,9 @@ tsntpulsgdi:
 	Power:
 		Amount: -100
 	ProvidesPrerequisite@buildingname:
+	Armament@PRIMARY:
+		Weapon: TSEMPZapWeapon
+		LocalOffset: 100,0,600
 	Turreted:
 	WithSpriteTurret:
 		RequiresCondition: !build-incomplete
@@ -3419,22 +3422,52 @@ tsntpulsgdi:
 	AttackTurreted:
 		OpportunityFire: false
 		PersistentTargeting: false
-	Armament:
-		Weapon: TSEMPulseCannon
-		LocalOffset: 212,0,1768
-		LocalYaw: 0,100
-	AttackOrderPower:
-		OrderName: EMPPower
-		PauseOnCondition: disabled || lowpower
-		Cursor: attackmove
-		Icon: emp
-		ChargeInterval: 3000
-		Name: E.M. Pulse
-		Description: Fires a pulse blast which disables\nall mechanical units in the area.
-		EndChargeSpeechNotification: EmPulseCannonReady
+	DetonateWeaponPower@Emp:
+		AllowMultiple: false
+		OrderName: SteelEmpCannon
+		PauseOnCondition: disabled
+		Prerequisites:
+			1: tsntpulsgdi
+		IconImage: tsntpuls
+		Icons:
+			1: icon2
+		Cursor: ioncannon
+		ChargeInterval: 6000
+		ActivationDelay: 50
+		ActivationSequence:
+		Names:
+			1: Emp Disable
+		Weapons:
+			1: SteelEmpBomb
+		Descriptions:
+			1: power-ioncannon.description
+		BeginChargeSpeechNotification: IonCannonCharging
+		EndChargeSpeechNotification: IonCannonReady
+		EndChargeSound:
 		SelectTargetSpeechNotification: SelectTarget
-	RenderRangeCircle:
+		InsufficientPowerSpeechNotification: InsufficientPower
+		DisplayRadarPing: True
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		CameraActor: camera.small
+		CameraRange: 6000
+		CameraRemoveDelay: 125
+		TargetCircleRanges:
+			1: 6000
+		TargetCircleColor: ff000080
+		LaunchSound:
+		IncomingSound:
 	SupportPowerChargeBar:
+	# AttackOrderPower:
+	# 	OrderName: EMPPower
+	# 	PauseOnCondition: disabled || lowpower
+	# 	Cursor: attackmove
+	# 	Icon: emp
+	# 	ChargeInterval: 3000
+	# 	Name: E.M. Pulse
+	# 	Description: Fires a pulse blast which disables\nall mechanical units in the area.
+	# 	EndChargeSpeechNotification: EmPulseCannonReady
+	# 	SelectTargetSpeechNotification: SelectTarget
+	RenderRangeCircle:
 	RenderSprites:
 		PlayerPalette: playerra2
 		Image: tsntpuls
@@ -4411,6 +4444,7 @@ TSSHOTGUNCOM:
 		Weapon: TSCommandoShotgun
 		LocalOffset: 128,0,256
 	Armament@GARRISONED:
+		Name: garrisoned
 		Weapon: TSCommandoShotgun
 	TakeCover:
 		ProneOffset: 180,0,-200
@@ -7115,6 +7149,14 @@ TSREPAIR:
 		Weapon: TSRepair
 		TargetRelationships: Ally
 		ForceTargetRelationships: None
+		PauseOnCondition: !ammo
+	AmmoPool:
+		Ammo: 10
+		AmmoCondition: ammo
+	ReloadAmmoPool:
+		Delay: 10
+		Count: 1
+		ResetOnFire: true
 	AttackFrontal:
 		FacingTolerance: 0
 	SelectionDecorations:
@@ -9379,24 +9421,36 @@ TSAPACHENOD:
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
 		AmmoUsage: 5
-		RequiresCondition: !up_tiberiumlenses
+		RequiresCondition: !up_tiberiumlenses && !up_auxiliaryweapon
 	Armament@SECONDARY:
 		Weapon: TSHarpyMultiClaw
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
 		AmmoUsage: 0
 		RequiresCondition: !up_tiberiumlenses && up_auxiliaryweapon
+	Armament@PRIMARYAOE:
+		Weapon: TSHarpyAOEClaw
+		LocalOffset: 0,0,0
+		PauseOnCondition: !ammo
+		AmmoUsage: 5
+		RequiresCondition: !up_tiberiumlenses && up_auxiliaryweapon
 	Armament@UPGRADE:
 		Weapon: TSLaserHarpyClaw
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
 		AmmoUsage: 4
-		RequiresCondition: up_tiberiumlenses
+		RequiresCondition: up_tiberiumlenses && !up_auxiliaryweapon
 	Armament@SECONDARYUPGRADE:
 		Weapon: TSLaserHarpyMultiClaw
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
 		AmmoUsage: 0
+		RequiresCondition: up_tiberiumlenses && up_auxiliaryweapon
+	Armament@UPGRADEAOE:
+		Weapon: TSLaserHarpyAOEClaw
+		LocalOffset: 0,0,0
+		PauseOnCondition: !ammo
+		AmmoUsage: 4
 		RequiresCondition: up_tiberiumlenses && up_auxiliaryweapon
 	AttackAircraft:
 		FacingTolerance: 80
