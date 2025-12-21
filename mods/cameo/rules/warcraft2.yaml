@@ -3292,7 +3292,7 @@ wc2_human_rifleman:
 	AttackFrontalCharged:
 		PauseOnCondition: disabled
 		FacingTolerance: 20
-		ChargeLevel: 0, 5
+		ChargeLevel: 5
 		ChargingCondition: cond_catapult_cooldown
 		ShowSelectionBar: true
 		LosesChargeWhileTurning: true
@@ -3643,7 +3643,7 @@ wc2_human_siege_engine:
 	AttackFrontalCharged:
 		PauseOnCondition: disabled
 		FacingTolerance: 20
-		ChargeLevel: 0, 40
+		ChargeLevel: 40
 		ChargingCondition: cond_catapult_cooldown
 		ShowSelectionBar: true
 		LosesChargeWhileTurning: true
@@ -5899,7 +5899,7 @@ wc2_orc_siege_engine:
 	AttackFrontalCharged:
 		PauseOnCondition: disabled
 		FacingTolerance: 20
-		ChargeLevel: 0, 40
+		ChargeLevel: 40
 		ChargingCondition: cond_catapult_cooldown
 		ShowSelectionBar: true
 		LosesChargeWhileTurning: true

@@ -10906,16 +10906,16 @@ up_advancedtiberiumrefinement:
 		ValidDamageStates: Critical
 	FirepowerMultiplier@Light:
 		Modifier: 110
-		RequiresCondition: damagedlight
+		RequiresCondition: damagedlight && up_willofkane
 	FirepowerMultiplier@Medium:
 		Modifier: 120
-		RequiresCondition: damagedmedium
+		RequiresCondition: damagedmedium && up_willofkane
 	FirepowerMultiplier@Heavy:
 		Modifier: 130
-		RequiresCondition: damagedheavy
+		RequiresCondition: damagedheavy && up_willofkane
 	FirepowerMultiplier@Cryticcal:
 		Modifier: 140
-		RequiresCondition: damagedcritical
+		RequiresCondition: damagedcritical && up_willofkane
 	ActorStatValues:
 		Upgrades: up_willofkane
 
