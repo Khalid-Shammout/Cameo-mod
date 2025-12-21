@@ -1930,36 +1930,86 @@ TSFireballLauncher2:
 		Damage: 4
 
 TSBomb:
+	Inherits: ^ShrapnelWeapon
 	Inherits: ^HeavyBomb
 	ReloadDelay: 38
 	Burst: 5
 	BurstDelays: 3
-	Range: 1250
+	Range: 1500
 	TargetActorCenter: true
 	Projectile: GravityBomb
-		Velocity: 72, 0, -90
-		Acceleration: 0, 0, -8
+		Velocity: 100, 0, -100
+		Acceleration: 0, 0, -10
 		Image: 120mm
 		Shadow: true
+	Warhead@ShrapnelWeapon: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 10000
+	Warhead@ShrapnelWeaponFriendlyFire: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5000
+	Warhead@ShrapnelWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5
 	Warhead@HeavyBomb: SpreadDamage
 		ValidTargets: Ground, Ship, Trees
-		Damage: 20000
-		Spread: 2000
+		Damage: 10000
 	Warhead@HeavyBombPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Ship, Trees
-		Damage: 10
-		Spread: 2000
-	Warhead@2Eff: CreateEffect
+		Damage: 5
+	Warhead@Effect: CreateEffect
 		Explosions: small_frag
 		ImpactSounds: expnew09.aud
 		ValidTargets: Ground, Air
-	Warhead@3EffWater: CreateEffect
+	Warhead@EffectWater: CreateEffect
 		Explosions: small_splash
 		ImpactSounds: ssplash3.aud
 		ValidTargets: Water
 		InvalidTargets: Vehicle
-	Warhead@4Smu: LeaveSmudge
-		SmudgeType: Crater
+
+TSBombSonic:
+	Inherits: ^HeavyBomb
+	Inherits: ^TeslaWeapon
+	Inherits: ^MagicWeapon
+	Inherits: ^TSSonicGrenade
+	ReloadDelay: 38
+	Burst: 5
+	BurstDelays: 3
+	Range: 1500
+	TargetActorCenter: true
+	# Projectile: GravityBomb
+	# 	Velocity: 100, 0, -100
+	# 	Acceleration: 0, 0, -10
+	# 	Image: 120mm
+	# 	Shadow: true
+	Warhead@HeavyBomb: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 10000
+	Warhead@HeavyBombPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5
+	Warhead@TeslaWeapon: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 10000
+	Warhead@TeslaExtraDamage: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5000
+	Warhead@TeslaWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5
+	Warhead@MagicWeapon: SpreadDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 10000
+	Warhead@MagicWeaponPercentage: HealthPercentageDamage
+		ValidTargets: Ground, Ship, Trees
+		Damage: 5
+	-Warhead@Effect1:
+	-Warhead@Effect2:
+	Warhead@EffectWater: CreateEffect
+		Explosions: small_splash
+		ImpactSounds: ssplash3.aud
+		ValidTargets: Water
+		InvalidTargets: Vehicle
 
 TSFiendShard:
 	ReloadDelay: 33

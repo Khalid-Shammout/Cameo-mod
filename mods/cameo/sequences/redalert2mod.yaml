@@ -3476,7 +3476,7 @@ steel_qacst:
 	dead:
 		Filename: invisibleitem.shp
 	icon:
-		Filename: ra2radaricon.shp
+		Filename: steelconyardicon.png
 		Offset: 0,0
 	iconw:
 		Filename: steelconyardicon.png

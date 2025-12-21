@@ -2625,6 +2625,7 @@ autogun_turret:
 	Inherits@shape: ^1x1Shape
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
+	Inherits@gat: ^GatlingSpeedUpTurretBehavior
 	Inherits@ContrabandUpgradeOrdos: ^ContrabandUpgradeOrdos
 	Tooltip:
 		Name: Autogun Turret
@@ -2675,71 +2676,6 @@ autogun_turret:
 		Range: 1c512, 2c768
 	SpawnActorOnDeath@death1:
 		Actor: light_inf
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 102
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 55
-		MaximumInstances: 10
 	Power:
 		Amount: -55
 	RevealsShroud:
@@ -9610,12 +9546,13 @@ d2k_autogun_tank_small:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@D2KSprite: ^D2KPaletteRender
 	Inherits@EMP: ^TurretEMP
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Inherits@VehicleShieldsUpgradeOrdos: ^VehicleShieldsUpgradeOrdos
 	Inherits@ContrabandUpgradeOrdos: ^ContrabandUpgradeOrdos
 	Tooltip:
 		Name: Combat Autogun Tank
 	Valued:
-		Cost: 850
+		Cost: 1500
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 40
@@ -9630,11 +9567,11 @@ d2k_autogun_tank_small:
 	FirepowerMultiplier@MultiWeapon:
 		Modifier: 50
 	Health:
-		HP: 60000
+		HP: 95000
 	Repairable:
-		HpPerStep: 3000
+		HpPerStep: 4750
 	ChangesHealth@SelfHealing:
-		Step: 24
+		Step: 38
 	Shielded:
 		RegenAmount: 48
 	Armor:
@@ -9654,161 +9591,6 @@ d2k_autogun_tank_small:
 		EmptyWeapon: D2KUnitExplodeMed
 	Voiced:
 		VoiceSet: D2KAutoGunTank
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 102
-	SpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 55
-		MaximumInstances: 10
 	ActorStatValues:
 		Upgrades: ordos_upgrade_shield, ordos_upgrade_contraband
 
@@ -9819,12 +9601,13 @@ d2k_autogun_tank:
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Inherits@VehicleShieldsUpgradeOrdos: ^VehicleShieldsUpgradeOrdos
 	Inherits@ContrabandUpgradeOrdos: ^ContrabandUpgradeOrdos
 	Tooltip:
 		Name: Heavy Autogun Tank
 	Valued:
-		Cost: 1200
+		Cost: 2800
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		Prerequisites: ~d2k_heavy_autogun_tank_upgrade
@@ -9833,18 +9616,18 @@ d2k_autogun_tank:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 120000
+		HP: 160000
 	Repairable:
-		HpPerStep: 6000
+		HpPerStep: 8000
 	ChangesHealth@SelfHealing:
-		Step: 48
+		Step: 64
 	Shielded:
 		RegenAmount: 96
 	Armor:
 		Type: Heavy
 	Mobile:
-		Speed: 60
-		TurnSpeed: 24
+		Speed: 75
+		TurnSpeed: 30
 	Turreted:
 		Offset: 32,16,0
 		TurnSpeed: 12
@@ -9856,7 +9639,7 @@ d2k_autogun_tank:
 		MuzzleSequence: muzzle
 		MuzzlePalette: d2keffect
 	FirepowerMultiplier@MultiWeapon:
-		Modifier: 50
+		Modifier: 40
 	WithMuzzleOverlay:
 	RenderSprites:
 	FireWarheadsOnDeath:
@@ -9870,131 +9653,6 @@ d2k_autogun_tank:
 		Palette: cloak
 	Voiced:
 		VoiceSet: D2KAutoGunTank
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 102
-	SpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 55
-		MaximumInstances: 10
 	ActorStatValues:
 		Upgrades: ordos_upgrade_shield, ordos_upgrade_contraband
 

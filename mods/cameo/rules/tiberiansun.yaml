@@ -9072,14 +9072,15 @@ TSORCA.Husk:
 
 TSORCAB:
 	Inherits: ^Helicopter
+	Inherits@reload: ^RearmableAircraft
 	Inherits@Template: ^BomberTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
-	Inherits@reload: ^RearmableAircraft
 	Inherits@CeramicArmor: ^CeramicArmor
 	Inherits@MechanicalReliability: ^MechanicalReliability
+	Inherits@SonicWeaponry: ^SonicWeaponry
 	Valued:
 		Cost: 1900
 	Tooltip:
@@ -9093,26 +9094,31 @@ TSORCAB:
 		Description: Heavy bomber.\n  Strong vs Buildings, Vehicles\n  Weak vs Infantry, Aircraft
 	Aircraft:
 		CruiseAltitude: 2560
-		TurnSpeed: 35
-		Speed: 175
+		TurnSpeed: 11
+		Speed: 160
 		CruisingCondition: cruising
 		TakeoffSounds: orcaup1.aud
 		LandingSounds: orcadwn1.aud
 		CanHover: false
 		CanSlide: false
 	Health:
-		HP: 120000
+		HP: 152500
 	Repairable:
-		HpPerStep: 6000
+		HpPerStep: 7625
 	ChangesHealth@SelfHealing:
-		Step: 48
-	RevealsShroud:
-		Range: 7c0
-		Type: GroundPosition
+		Step: 61
 	Armament@PRIMARY:
 		Weapon: TSBomb
 		LocalOffset: 0,0,0
 		PauseOnCondition: !ammo
+		RequiresCondition: !up_sonicweaponry
+	Armament@Upgrade:
+		Weapon: TSBombSonic
+		LocalOffset: 0,0,0
+		PauseOnCondition: !ammo
+		RequiresCondition: up_sonicweaponry
+	FirepowerMultiplier@AmmoCompensation:
+		Modifier: 25
 	AttackAircraft:
 		Voice: Attack
 		FacingTolerance: 80
@@ -9127,7 +9133,7 @@ TSORCAB:
 		VoiceSet: TSHeli
 	AmmoPool:
 		Ammo: 20
-		ReloadCount: 10
+		ReloadDelay: 10
 		AmmoCondition: ammo
 	# ReloadAmmoPool:
 	# 	Delay: 25
@@ -9139,9 +9145,9 @@ TSORCAB:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: True
-		PipCount: 2
+		PipCount: 10
 	ActorStatValues:
-		Upgrades: up_ceramicarmor, up_mechanicalreliability
+		Upgrades: up_ceramicarmor, up_mechanicalreliability, up_sonicweaponry
 
 
 TSORCAB.Husk:
@@ -9283,12 +9289,12 @@ TSTRNSPORTMUTANT:
 
 TSSCRIN:
 	Inherits: ^Helicopter
+	Inherits@reload: ^RearmableAircraft
 	Inherits@Template: ^BomberTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceTD
 	Inherits@decoration: ^GDIRankDecoration
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@Voxel: ^TSRenderVoxel
-	Inherits@reload: ^RearmableAircraft
 	Inherits@MobilitySpecialization: ^MobilitySpecialization
 	Inherits@AdvancedTiberiumRefinement: ^AdvancedTiberiumRefinement
 	Valued:
@@ -10458,28 +10464,6 @@ up_seretraining:
 	ActorStatValues:
 		Upgrades: up_seretraining
 
-up_sonicweaponry:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Sonic Weaponry
-	Valued:
-		Cost: 7500
-	Buildable:
-		BuildPaletteOrder: 90
-		Queue: Addons
-		Description: upgrade-sonicweaponry.description
-		Prerequisites: ~tsgtradr, !up_sonicweaponry
-	RenderSprites:
-		Image: sonicweaponryicon
-	ProvidesPrerequisite:
-
-^SonicWeaponry:
-	GrantConditionOnPrerequisite@up_sonicweaponry:
-		Condition: up_sonicweaponry
-		Prerequisites: up_sonicweaponry
-	ActorStatValues:
-		Upgrades: up_sonicweaponry
-
 up_tsprojectileimprovements:
 	Inherits: ^researched_upgrade.template
 	Tooltip:
@@ -10508,7 +10492,75 @@ up_tsprojectileimprovements:
 	ActorStatValues:
 		Upgrades: up_tsprojectileimprovements
 
+up_mechanicalreliability:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Mechanical Reliability
+	Valued:
+		Cost: 5000
+	Buildable:
+		BuildPaletteOrder: 100
+		Queue: Addons
+		Description: upgrade-mechanicalreliability.description
+		Prerequisites: ~tsgtradr, !up_mechanicalreliability
+	RenderSprites:
+		Image: mechanicalreliabilityicon
+	ProvidesPrerequisite:
+
+^MechanicalReliability:
+	GrantConditionOnPrerequisite@up_mechanicalreliability:
+		Condition: up_mechanicalreliability
+		Prerequisites: up_mechanicalreliability
+	ChangesHealth@up_mechanicalreliability:
+		PercentageStep: 1
+		Delay: 40
+		StartIfBelow: 100
+		DamageCooldown: 50
+		RequiresCondition: up_mechanicalreliability
+	ChangesHealth@up_mechanicalreliability2:
+		Step: 50
+		Delay: 1
+		StartIfBelow: 100
+		DamageCooldown: 50
+		RequiresCondition: up_mechanicalreliability
+	DamageMultiplier@up_mechanicalreliability:
+		RequiresCondition: up_mechanicalreliability
+		Modifier: 90
+	SpeedMultiplier@up_mechanicalreliability:
+		RequiresCondition: up_mechanicalreliability
+		Modifier: 110
+	ActorStatValues:
+		Upgrades: up_mechanicalreliability
+
 ########## LAB ##########
+
+up_ceramicarmor:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Ceramic Armor
+	Valued:
+		Cost: 7500
+	Buildable:
+		BuildPaletteOrder: 110
+		Queue: Upgrades
+		Description: upgrade-ceramicarmor.description
+		Prerequisites: ~tsgttech, !up_ceramicarmor
+	RenderSprites:
+		Image: ceramicarmoricon
+	ProvidesPrerequisite:
+
+^CeramicArmor:
+	GrantConditionOnPrerequisite@up_ceramicarmor:
+		Condition: up_ceramicarmor
+		Prerequisites: up_ceramicarmor
+	DamageMultiplier@up_ceramicarmor:
+		RequiresCondition: up_ceramicarmor
+		Modifier: 75
+	SpeedMultiplier@up_ceramicarmor:
+		RequiresCondition: up_ceramicarmor
+		Modifier: 110
+	ActorStatValues:
+		Upgrades: up_ceramicarmor
 
 up_mechengineering:
 	Inherits: ^researched_upgrade.template
@@ -10537,6 +10589,28 @@ up_mechengineering:
 		Modifier: 125
 	ActorStatValues:
 		Upgrades: up_mechengineering
+
+up_sonicweaponry:
+	Inherits: ^researched_upgrade.template
+	Tooltip:
+		Name: Sonic Weaponry
+	Valued:
+		Cost: 7500
+	Buildable:
+		BuildPaletteOrder: 90
+		Queue: Upgrades
+		Description: upgrade-sonicweaponry.description
+		Prerequisites: ~tsgttech, !up_sonicweaponry
+	RenderSprites:
+		Image: sonicweaponryicon
+	ProvidesPrerequisite:
+
+^SonicWeaponry:
+	GrantConditionOnPrerequisite@up_sonicweaponry:
+		Condition: up_sonicweaponry
+		Prerequisites: up_sonicweaponry
+	ActorStatValues:
+		Upgrades: up_sonicweaponry
 
 up_railgunweaponry:
 	Inherits: ^researched_upgrade.template
@@ -10568,74 +10642,6 @@ up_railgunweaponry:
 		Prerequisites: up_railgunweaponry
 	ActorStatValues:
 		Upgrades: up_railgunweaponry
-
-up_mechanicalreliability:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Mechanical Reliability
-	Valued:
-		Cost: 7500
-	Buildable:
-		BuildPaletteOrder: 100
-		Queue: Upgrades
-		Description: upgrade-mechanicalreliability.description
-		Prerequisites: ~tsgttech, !up_mechanicalreliability
-	RenderSprites:
-		Image: mechanicalreliabilityicon
-	ProvidesPrerequisite:
-
-^MechanicalReliability:
-	GrantConditionOnPrerequisite@up_mechanicalreliability:
-		Condition: up_mechanicalreliability
-		Prerequisites: up_mechanicalreliability
-	ChangesHealth@up_mechanicalreliability:
-		PercentageStep: 1
-		Delay: 25
-		StartIfBelow: 100
-		DamageCooldown: 25
-		RequiresCondition: up_mechanicalreliability
-	ChangesHealth@up_mechanicalreliability2:
-		Step: 25
-		Delay: 1
-		StartIfBelow: 100
-		DamageCooldown: 25
-		RequiresCondition: up_mechanicalreliability
-	DamageMultiplier@up_mechanicalreliability:
-		RequiresCondition: up_mechanicalreliability
-		Modifier: 90
-	SpeedMultiplier@up_mechanicalreliability:
-		RequiresCondition: up_mechanicalreliability
-		Modifier: 110
-	ActorStatValues:
-		Upgrades: up_mechanicalreliability
-
-up_ceramicarmor:
-	Inherits: ^researched_upgrade.template
-	Tooltip:
-		Name: Ceramic Armor
-	Valued:
-		Cost: 7500
-	Buildable:
-		BuildPaletteOrder: 110
-		Queue: Upgrades
-		Description: upgrade-ceramicarmor.description
-		Prerequisites: ~tsgttech, !up_ceramicarmor
-	RenderSprites:
-		Image: ceramicarmoricon
-	ProvidesPrerequisite:
-
-^CeramicArmor:
-	GrantConditionOnPrerequisite@up_ceramicarmor:
-		Condition: up_ceramicarmor
-		Prerequisites: up_ceramicarmor
-	DamageMultiplier@up_ceramicarmor:
-		RequiresCondition: up_ceramicarmor
-		Modifier: 75
-	SpeedMultiplier@up_ceramicarmor:
-		RequiresCondition: up_ceramicarmor
-		Modifier: 110
-	ActorStatValues:
-		Upgrades: up_ceramicarmor
 
 up_modernfirecontrolsystems:
 	Inherits: ^researched_upgrade.template

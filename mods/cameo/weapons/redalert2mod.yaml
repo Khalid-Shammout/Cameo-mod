@@ -6740,6 +6740,7 @@ RA2GrenadePack:
 	Inherits: ^MediumFlameWeapon
 	Inherits: ^RA2FlakWeapon
 	Report: vflaat1a.wav, vflaat1b.wav
+	ValidTargets: blindable
 	ReloadDelay: 82
 	Range: 6000
 	Burst: 4
@@ -6779,6 +6780,11 @@ RA2GrenadePack:
 	Warhead@FlakWeaponPercentage: HealthPercentageDamage
 		ValidTargets: Ground, Water, Trees, Air
 		Damage: 1
+	Warhead@Condition: GrantExternalCondition
+		Condition: blinded
+		Duration: 40
+		Range: 1200
+		ValidTargets: Ground, Water, Trees, Air
 
 RA2GrenadePackE:
 	Inherits: RA2GrenadePack

@@ -2202,7 +2202,7 @@ aa_pulv:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
-	Inherits@UpGat: ^YuriGatlingUpgrade
+	Inherits@UpGat: ^GatlingSpeedUpUnitBehavior
 	Valued:
 		Cost: 1400
 	Tooltip:
@@ -2230,166 +2230,6 @@ aa_pulv:
 		LocalOffset: 800,0,400
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 102
-	SpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 30
-		MaximumInstances: 10
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 15
-		MaximumInstances: 10
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -2517,7 +2357,7 @@ aa_mlrs:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^TurretEMP
 	Inherits@vo: ^AttackTurretedVoice
-	Inherits@UpGat: ^YuriGatlingUpgrade
+	Inherits@UpGat: ^GatlingSpeedUpUnitBehavior
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -2556,166 +2396,6 @@ aa_mlrs:
 		PlayerPalette: playerra2
 	WithTurretAimAnimation:
 		Sequence: aim
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 102
-	SpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 40
-		MaximumInstances: 10
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 20
-		MaximumInstances: 10
 	Voiced:
 		VoiceSet: AsianAllianceVehicleVoice
 
@@ -2857,7 +2537,7 @@ aa_mecha:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@MC: ^MCImmune
-	Inherits@UpGat: ^YuriGatlingUpgrade
+	Inherits@UpGat: ^GatlingSpeedUpUnitBehavior
 	Selectable:
 		Bounds: 1250, 1750, 0, -250
 	Valued:
@@ -2885,136 +2565,6 @@ aa_mecha:
 		LocalOffset: 800,300,600, 800,-300,600
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 102
-	SpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 24
-		MaximumInstances: 10
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 12
-		MaximumInstances: 10
 	AttackFrontal:
 		FacingTolerance: 20
 	WithInfantryBody:
@@ -4832,7 +4382,7 @@ latin_ngdshktur:
 	Inherits@AUTOTARGET: ^AutoTargetGround
 	Inherits@sell: ^SyndicateSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
-	Inherits@gat: ^YuriGatlingUpgrade
+	Inherits@gat: ^GatlingSpeedUpTurretBehavior
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 20
@@ -4874,77 +4424,9 @@ latin_ngdshktur:
 	WithSpriteTurret:
 		RequiresCondition: !build-incomplete
 	AutoTarget:
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 102
 	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 30
-		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 15
-		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
 		Condition: latin_up_chaingun
@@ -5079,7 +4561,7 @@ latin_aatur:
 	Inherits@AUTOTARGET: ^AutoTargetAir
 	Inherits@sell: ^SyndicateSpawnActorsOnSell
 	Inherits@EMP: ^TurretEMP
-	Inherits@gat: ^YuriGatlingUpgrade
+	Inherits@gat: ^GatlingSpeedUpTurretBehavior
 	Buildable:
 		Queue: Defence, RADefence
 		BuildPaletteOrder: 50
@@ -5111,77 +4593,15 @@ latin_aatur:
 		Weapon: LatinAADefenderCannon
 		LocalOffset: 700,-350,750, 700,350,750
 		MuzzleSequence: muzzle
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 102
 	GrantConditionOnAttack@gatling:
 		Condition: gatling
 		RequiredShotsPerInstance: 4,8,12,16,20,24,28,32,36,40
-		RevokeDelay: 50
-		MaximumInstances: 40
+		RevokeDelay: 40
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
 		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 25
-		MaximumInstances: 10
+		RequiredShotsPerInstance: 2,4,6,8,10,12,14,16,18,20
+		RevokeDelay: 20
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
 		Condition: latin_up_chaingun
@@ -5415,7 +4835,7 @@ latin_mili:
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
-	Inherits@gat: ^YuriGatlingUpgrade
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Inherits@EliteGuerillas: ^LatinEliteGuerillas
 	Tooltip:
 		Name: Latin Militia
@@ -5486,51 +4906,13 @@ latin_mili:
 		RequiresCondition: uplatin_mili
 	ActorStatValues:
 		Upgrades: uplatin_mili, latin_up_chaingun
+	GrantConditionOnAttack@gatling:
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
 		Condition: latin_up_chaingun
 		Prerequisites: latin_up_chaingun
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 80
-		MaximumInstances: 10
-		RequiresCondition: !rank-elite && latin_up_chaingun
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 40
-		MaximumInstances: 10
-		RequiresCondition: rank-elite && latin_up_chaingun
 
 latin_tkiller:
 	Inherits: ^Soldier
@@ -5891,7 +5273,7 @@ latin_buggy:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@uprecover: ^LatinCashrecover
-	Inherits@gat: ^YuriGatlingUpgrade
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Tooltip:
 		Name: Raider Buggy
 	Valued:
@@ -5960,167 +5342,9 @@ latin_buggy:
 		VoiceSet: LatinSoldierVoice
 	RenderSprites:
 		PlayerPalette: playerra2
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 102
-	SpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
 	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 16
-		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 8
-		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
 		Condition: latin_up_chaingun
@@ -6190,11 +5414,14 @@ latin_ltnk:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
+	Inherits@cargo: ^CargoVehicle
+	Inherits@bot: ^BotAutoDeployTransport
 	Inherits@uprecover: ^LatinCashrecover
 	Tooltip:
 		Name: Rusher Tank
 	Valued:
-		Cost: 700
+		Cost: 850
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~latin_cgweap, ~!uplatin_mtnk
@@ -6204,11 +5431,11 @@ latin_ltnk:
 		Speed: 115
 		TurnSpeed: 23
 	Health:
-		HP: 67500
+		HP: 75000
 	Repairable:
-		HpPerStep: 3375
+		HpPerStep: 3750
 	ChangesHealth@SelfHealing:
-		Step: 27
+		Step: 30
 	Armor:
 		Type: Medium
 	Turreted:
@@ -6249,18 +5476,29 @@ latin_ltnk:
 	GrantConditionOnPrerequisite@Missile:
 		Condition: uplatin_alliedstolentech
 		Prerequisites: uplatin_alliedstolentech
-	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 1280, 1280
 	WithSpriteTurret:
+	Cargo:
+		InitialUnits: latin_mili, latin_tkiller, latin_monkey
+		Types: Infantry, Hacker, Fremen
+		MaxWeight: 3
 	Voiced:
 		VoiceSet: LatinTankVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	GrantConditionOnAttack@gatling:
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
 
 latin_mtnk:
 	Inherits: ^Tank
@@ -6271,11 +5509,14 @@ latin_mtnk:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
+	Inherits@cargo: ^CargoVehicle
+	Inherits@bot: ^BotAutoDeployTransport
 	Inherits@uprecover: ^LatinCashrecover
 	Tooltip:
 		Name: Smoker Tank
 	Valued:
-		Cost: 1000
+		Cost: 1800
 	Buildable:
 		BuildPaletteOrder: 60
 		Prerequisites: ~uplatin_mtnk
@@ -6285,11 +5526,11 @@ latin_mtnk:
 		Speed: 95
 		TurnSpeed: 19
 	Health:
-		HP: 140000
+		HP: 260000
 	Repairable:
-		HpPerStep: 7000
+		HpPerStep: 13000
 	ChangesHealth@SelfHealing:
-		Step: 56
+		Step: 104
 	Armor:
 		Type: Heavy
 	Turreted:
@@ -6348,18 +5589,29 @@ latin_mtnk:
 	GrantConditionOnPrerequisite@Missile:
 		Condition: uplatin_alliedstolentech
 		Prerequisites: uplatin_alliedstolentech
-	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
 	Selectable:
 		DecorationBounds: 1280, 1280
 	WithSpriteTurret:
+	Cargo:
+		InitialUnits: latin_narco, latin_fftr, latin_monkey
+		Types: Infantry, Hacker, Fremen
+		MaxWeight: 3
 	Voiced:
 		VoiceSet: LatinHeavyTankVoice
 	RenderSprites:
 		PlayerPalette: playerra2
+	GrantConditionOnAttack@gatling:
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
 
 latin_diablo:
 	Inherits: ^Tank
@@ -6370,7 +5622,7 @@ latin_diablo:
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
 	Inherits@uprecover: ^LatinCashrecover
-	Inherits@gat: ^YuriGatlingUpgrade
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Tooltip:
 		Name: Diablo
 	Valued:
@@ -6425,173 +5677,13 @@ latin_diablo:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 102
-	SpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	TurretTurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
 	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 40
-		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 20
-		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
 		Condition: latin_up_chaingun
 		Prerequisites: latin_up_chaingun
-	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
 	AttackTurreted:
 	RenderRangeCircleCA:
 		Armaments: primary
@@ -6628,6 +5720,8 @@ latin_diablo:
 		RequiresCondition: !tree
 	WithFacingSpriteBody:
 		RequiresCondition: !tree
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
 
 latin_apc:
 	Inherits: ^Tank
@@ -6638,6 +5732,7 @@ latin_apc:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackTurretedVoice
 	Inherits@EMP: ^TurretEMP
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Inherits@cargo: ^CargoVehicle
 	Inherits@bot: ^BotAutoDeployTransport
 	Inherits@uprecover: ^LatinCashrecover
@@ -6693,8 +5788,13 @@ latin_apc:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: uplatin_alliedstolentech && rank-elite
-	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech
+	GrantConditionOnAttack@gatling:
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
 	WithMuzzleOverlay:
 	AttackTurreted:
 	Selectable:
@@ -6718,6 +5818,8 @@ latin_apc:
 	WithSpriteTurret@up:
 		Sequence: turret-up
 		RequiresCondition: uplatin_alliedstolentech
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, uplatin_alliedstolentech, latin_up_chaingun
 
 latin_humvee:
 	Inherits: ^Tank
@@ -6727,6 +5829,7 @@ latin_humvee:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@cargo: ^OpenToppedVehicle
 	Inherits@uprecover: ^LatinCashrecover
@@ -6768,8 +5871,13 @@ latin_humvee:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
-	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial
+	GrantConditionOnAttack@gatling:
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
 	RenderRangeCircle:
 	WithMuzzleOverlay:
 	AttackFrontal:
@@ -6793,6 +5901,8 @@ latin_humvee:
 		PauseOnCondition: chronobeamed
 	WithSpriteTurret:
 		Sequence: turret
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_chaingun
 
 latin_cartel:
 	Inherits: ^Tank
@@ -6803,6 +5913,7 @@ latin_cartel:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Inherits@cargo: ^OpenToppedVehicle
 	Inherits@bot: ^BotAutoDeployEvacuateCargo
 	Inherits@uprecover: ^LatinCashrecover
@@ -6844,8 +5955,13 @@ latin_cartel:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
-	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial
+	GrantConditionOnAttack@gatling:
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
 	RenderRangeCircle:
 	WithMuzzleOverlay:
 	AttackFrontal:
@@ -6868,6 +5984,8 @@ latin_cartel:
 		PauseOnCondition: chronobeamed
 	WithSpriteTurret:
 		Sequence: turret
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_chaingun
 
 latin_rtruck:
 	Inherits: ^Vehicle
@@ -6934,10 +6052,10 @@ latin_rtruck:
 		RequiresCondition: firing
 		Sequence: empty-idle
 		Name: reloading
-	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
 
 latin_burrito:
 	Inherits: ^Vehicle
@@ -7003,10 +6121,10 @@ latin_burrito:
 		RequiresCondition: firing
 		Sequence: empty-idle
 		Name: reloading
-	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
 
 latin_lars:
 	Inherits: ^Vehicle
@@ -7017,7 +6135,9 @@ latin_lars:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Inherits@uprecover: ^LatinCashrecover
+	Inherits@flamerup: ^LatinFlameUpgrades
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 80
@@ -7045,6 +6165,13 @@ latin_lars:
 		Weapon: RA2LarsRocket
 		LocalOffset: -500,-250,250, -500,0,250, -500,250,250, -500,-250,500, -500,0,500, -500,250,500
 		RequiresCondition: rank-elite
+	GrantConditionOnAttack@gatling:
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
 	RenderRangeCircle:
 	FirepowerMultiplier@RANK-1:
 		Modifier: 125
@@ -7076,6 +6203,8 @@ latin_lars:
 		Name: reloading
 	RenderSprites:
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire, latin_up_chaingun
 
 latin_harv:
 	Inherits: ^Tank
@@ -7125,6 +6254,8 @@ ra2hind:
 	Inherits@cargo: ^CargoAircraft
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
+	Inherits@uprecover: ^LatinCashrecover
 	Valued:
 		Cost: 2500
 	Tooltip:
@@ -7152,6 +6283,13 @@ ra2hind:
 		LocalOffset: 128,-213,-85, 128,213,-85
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
+	GrantConditionOnAttack@gatling:
+		RequiresCondition: !rank-elite && latin_up_chaingun
+	GrantConditionOnAttack@elitegatling:
+		RequiresCondition: rank-elite && latin_up_chaingun
+	GrantConditionOnPrerequisite@latin_up_chaingun:
+		Condition: latin_up_chaingun
+		Prerequisites: latin_up_chaingun
 	WithMuzzleOverlay:
 	AttackAircraft:
 		FacingTolerance: 80
@@ -7178,6 +6316,8 @@ ra2hind:
 		PlayerPalette: playerra2
 	FirepowerMultiplier@FirerateCompensation:
 		Modifier: 75
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_chaingun
 
 ra2hind.husk:
 	Inherits: ^LargeHelicopterHusk
@@ -7197,7 +6337,7 @@ latin_yakolev:
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	# Inherits@turnanimation: ^RA2PlanewithTurnAnimation
 	Inherits@uprecover: ^LatinCashrecover
-	Inherits@gat: ^YuriGatlingUpgrade
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Selectable:
 	Tooltip:
 		Name: Yakovlev
@@ -7247,107 +6387,9 @@ latin_yakolev:
 		LocalYaw: 50, -50, 25, -25
 		PauseOnCondition: !ammo
 		RequiresCondition: latin_up_chaingun
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 102
-	SpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9 && latin_up_chaingun
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10 && latin_up_chaingun
-		Modifier: 90
 	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 50
-		MaximumInstances: 10
 		RequiresCondition: !rank-elite && latin_up_chaingun
 	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 25
-		MaximumInstances: 10
 		RequiresCondition: rank-elite && latin_up_chaingun
 	GrantConditionOnPrerequisite@latin_up_chaingun:
 		Condition: latin_up_chaingun
@@ -7483,11 +6525,11 @@ latin_mig:
 		TrailLength: 15
 	SpawnActorOnDeath:
 		Actor: latin_mig.husk
-	ActorStatValues:
-		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
 	RenderSprites:
 		Image: latin_mig
 		PlayerPalette: playerra2
+	ActorStatValues:
+		Upgrades: uplatin_cashrecover, latin_up_industrial, latin_up_hotfire
 
 latin_mig.husk:
 	Inherits: ^PlaneHusk
@@ -7530,7 +6572,7 @@ latin_triton:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@EMP: ^FrontalEMP
 	Inherits@uprecover: ^LatinCashrecover
-	Inherits@gat: ^YuriGatlingUpgrade
+	Inherits@gat: ^GatlingSpeedUpUnitBehavior
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -8673,7 +7715,7 @@ steel_fedturret:
 	Armament:
 		Name: primary
 		Weapon: SteelVulcan
-		LocalOffset: 400,125,100, 400,-125,100
+		LocalOffset: 400,0,100
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 	-RenderRangeCircle:
@@ -10466,6 +9508,7 @@ steel_stalker:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@MC: ^MCImmune
+	Inherits@shield: ^HasShieldGenerator
 	Valued:
 		Cost: 4000
 	Tooltip:
@@ -10480,11 +9523,20 @@ steel_stalker:
 		Speed: 80
 		TurnSpeed: 32
 	Health:
-		HP: 137500
-	Repairable:
-		HpPerStep: 6875
+		HP: 140000
+	# Repairable:
+	# 	HpPerStep: 6875
 	ChangesHealth@SelfHealing:
-		Step: 55
+		Step: 140
+	Shielded:
+		MaxPercentageStrength: 200
+		InitialPercentageStrength: 200
+		DamageRegenDelay: 125
+		RegenAmount: 280
+		RegenInterval: 1
+		ShieldsUpCondition: shielded
+		RequiresCondition: !disabled
+		SelectionBarColor: 8888FFFF
 	Armament:
 		Weapon: SteelStalkerRailgun
 		LocalOffset: 900,300,500
@@ -10532,7 +9584,8 @@ white_rabbit:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
 	Inherits@MC: ^MCImmune
-	Inherits@UpGat: ^YuriGatlingUpgrade
+	Inherits@UpGat: ^GatlingSpeedUpUnitBehavior
+	Inherits@shield: ^HasShieldGenerator
 	Valued:
 		Cost: 4500
 	Tooltip:
@@ -10550,143 +9603,22 @@ white_rabbit:
 		TargetTypes: Water, Ship
 	Health:
 		HP: 150000
-	Repairable:
-		HpPerStep: 7500
+	# Repairable:
+	# 	HpPerStep: 7500
 	ChangesHealth@SelfHealing:
-		Step: 60
+		Step: 150
+	Shielded:
+		MaxPercentageStrength: 200
+		InitialPercentageStrength: 200
+		DamageRegenDelay: 125
+		RegenAmount: 300
+		RegenInterval: 1
+		ShieldsUpCondition: shielded
+		RequiresCondition: !disabled
+		SelectionBarColor: 8888FFFF
 	Armament@1:
 		Weapon: WhiteRabbitGatling
 		LocalOffset: 750,250,250
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 102
-	SpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 20
-		MaximumInstances: 10
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 10
-		MaximumInstances: 10
 	AttackFrontal:
 		FacingTolerance: 10
 	WithInfantryBody:
@@ -16031,18 +14963,18 @@ up_ostfrontexperience:
 ^Atlantikwall:
 	DamageMultiplier@up_atlantikwall:
 		RequiresCondition: up_atlantikwall
-		Modifier: 75
+		Modifier: 80
 	ChangesHealth@up_atlantikwall:
 		PercentageStep: 1
-		Delay: 25
+		Delay: 40
 		StartIfBelow: 100
-		DamageCooldown: 25
+		DamageCooldown: 50
 		RequiresCondition: up_atlantikwall
 	ChangesHealth@up_atlantikwall2:
-		Step: 25
+		Step: 50
 		Delay: 1
 		StartIfBelow: 100
-		DamageCooldown: 25
+		DamageCooldown: 50
 		RequiresCondition: up_atlantikwall
 	GrantConditionOnPrerequisite@up_atlantikwall:
 		Condition: up_atlantikwall
@@ -16059,7 +14991,7 @@ up_atlantikwall:
 	Buildable:
 		BuildPaletteOrder: 90
 		Queue: Addons
-		Description: Defenses get 25% armor and health regeneration
+		Description: Defenses get 20% armor and automatic repair.
 		Prerequisites: ~nax_radar, !up_atlantikwall
 	RenderSprites:
 		Image: atlantikwallicon
@@ -20476,7 +19408,7 @@ future_mech_machinegun:
 	Inherits@detect: ^GenericGroundDetector
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@EMP: ^FrontalEMP
-	Inherits@UpGat: ^YuriGatlingUpgrade
+	Inherits@UpGat: ^GatlingSpeedUpUnitBehavior
 	Inherits@RobotControllable: ^RobotControllable
 	Tooltip:
 		Name: Gatling Super Mech
@@ -20506,136 +19438,6 @@ future_mech_machinegun:
 		LocalOffset: 200,300,500, 200,-300,500
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-	ReloadDelayMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	ReloadDelayMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	RangeMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 102
-	RangeMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 102
-	SpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	SpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed1:
-		RequiresCondition: gatling >= 1
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed2:
-		RequiresCondition: gatling >= 2
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed3:
-		RequiresCondition: gatling >= 3
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed4:
-		RequiresCondition: gatling >= 4
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed5:
-		RequiresCondition: gatling >= 5
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed6:
-		RequiresCondition: gatling >= 6
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed7:
-		RequiresCondition: gatling >= 7
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed8:
-		RequiresCondition: gatling >= 8
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed9:
-		RequiresCondition: gatling >= 9
-		Modifier: 90
-	TurnSpeedMultiplier@GattlingSpeed10:
-		RequiresCondition: gatling >= 10
-		Modifier: 90
-	GrantConditionOnAttack@gatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,2,3,4,5,6,7,8,9,10
-		RevokeDelay: 24
-		MaximumInstances: 10
-	GrantConditionOnAttack@elitegatling:
-		Condition: gatling
-		RequiredShotsPerInstance: 1,1,1,1,1,1,1,1,1,1
-		RevokeDelay: 12
-		MaximumInstances: 10
 	AttackFrontal:
 		FacingTolerance: 20
 		PauseOnCondition: !robotcontrol || disabled
