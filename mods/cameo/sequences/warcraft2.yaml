@@ -2507,6 +2507,29 @@ wc2_orc_grunt:
 	icon:
 		Start: 1
 
+wc2_orc_grunt2:
+	Inherits: ^WC2OrcInfantry
+	icon:
+		Filename: HordeGruntIcon.png
+	Defaults:
+		Filename: HordePromoGrunt-135.png
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+	idle1:
+		Start: 120
+		Length: 8
+	die:
+		Start: 128
+		Length: 7
+	shoot:
+		Start: 56
+		Length: 8
+		Facings: 8
+
 wc2_orc_troll_axethrower:
 	Defaults:
 		Filename: wc2_orc_troll_axethrower.shp
@@ -2641,6 +2664,30 @@ wc2_orc_troll_berserker:
 				Frames: 36, 37, 7, 38, 39, 7
 	icon:
 		Start: 3
+
+wc2_orc_troll_spearthrower:
+	Inherits: ^WC2OrcInfantry
+	icon:
+		Filename: HordeHeadhunterIcon.png
+	Defaults:
+		Filename: HordeHeadhunter-136.png
+		Scale: 1
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+	idle1:
+		Start: 120
+		Length: 10
+	die:
+		Start: 130
+		Length: 6
+	shoot:
+		Start: 56
+		Length: 8
+		Facings: 8
 
 wc2_orc_kodo_beast:
 	Inherits: ^wc2_status_icons

@@ -4584,13 +4584,13 @@ YRSLAV:
 		AllowOwnerChange: true
 	DamageMultiplier@Freed:
 		RequiresCondition: freed
-		Modifier: 25
+		Modifier: 50
 	FirepowerMultiplier@Freed:
 		RequiresCondition: freed
 		Modifier: 200
 	ReloadDelayMultiplier@Freed:
 		RequiresCondition: freed
-		Modifier: 20
+		Modifier: 50
 	SpeedMultiplier@Freed:
 		RequiresCondition: freed
 		Modifier: 200

@@ -2617,6 +2617,7 @@ scsunkencolony:
 	Valued:
 		Cost: 1250
 	Buildable:
+		Queue: Defence, RADefence
 		Prerequisites: ~schatchery
 		Description: Zerg Ground Base Defense.
 	GrantCondition:
@@ -2634,6 +2635,7 @@ scsporecolony:
 	Valued:
 		Cost: 1250
 	Buildable:
+		Queue: Defence, RADefence
 		Prerequisites: ~schatchery
 		Description: Zerg Anti Air Base Defense.
 	GrantCondition:
@@ -4615,8 +4617,8 @@ scwarhound:
 
 SCWRAITH:
 	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -4698,8 +4700,8 @@ SCWRAITH:
 
 SCSUNDOG:
 	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AntiInf: ^PrioritizeInfantry
@@ -4784,8 +4786,8 @@ SCSUNDOG:
 
 SCVALKYRIE:
 	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@announce: ^AnnounceOnBuild
@@ -4844,8 +4846,8 @@ SCVALKYRIE:
 
 SCWYVERN:
 	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -4903,8 +4905,8 @@ SCWYVERN:
 
 SCRAVEN:
 	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@AutoRepair: ^PrioritizeRepair
@@ -4982,8 +4984,8 @@ SCRAVEN:
 
 SCDROPSHIP:
 	Inherits: ^Helicopter
-	Inherits@Template: ^UnarmedTransportHelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^UnarmedTransportHelicopterTemplate
 	Inherits@cargo: ^CargoAircraft
 	Inherits@bot: ^BotAutoDeployUnarmedAirTransport
 	Inherits@eject: ^AircraftEjectOnDeath
@@ -5048,11 +5050,11 @@ SCDROPSHIP:
 
 SCPYTHEAN:
 	Inherits: ^Helicopter
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^SpaceshipTemplate
 	Inherits@Epic: ^EpicAirUnitTemplate
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@exp: ^GainsExperienceTD
-	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@cargo: ^CargoAircraft
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@eject: ^AircraftEjectOnDeath
@@ -5152,8 +5154,8 @@ SCPYTHEAN.Husk:
 
 SCMEDIVAC:
 	Inherits: ^Helicopter
-	Inherits@Template: ^UnarmedTransportHelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^UnarmedTransportHelicopterTemplate
 	Inherits@cargo: ^CargoAircraft
 	Inherits@bot: ^BotAutoDeployUnarmedAirTransport
 	Inherits@eject: ^AircraftEjectOnDeath
@@ -5228,8 +5230,8 @@ SCMEDIVAC:
 
 SCBATTLECRUISER:
 	Inherits: ^Helicopter
-	Inherits@Template: ^SpaceshipTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^SpaceshipTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@announce: ^AnnounceGlobal
@@ -5355,9 +5357,9 @@ SCBATTLECRUISER:
 
 SCPHOBOS:
 	Inherits: ^Helicopter
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^SpaceshipTemplate
 	Inherits@Epic: ^EpicAirUnitTemplate
-	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -5576,8 +5578,8 @@ scphobos.Husk:
 
 SCSCIENCEVESSEL:
 	Inherits: ^Helicopter
-	Inherits@Template: ^HelicopterTemplate
 	Inherits@speedup: ^SCUnitProductionSpeedBoost
+	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXP: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@explode: ^HeliExplodeLarge
@@ -6281,6 +6283,7 @@ SCPROBE:
 
 SCZEALOT:
 	Inherits@protoss: ^BasicProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
@@ -6736,6 +6739,7 @@ SCHIGHTEMPLAR:
 
 SCDARKTEMPLAR:
 	Inherits@protoss: ^BasicProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
@@ -6929,6 +6933,7 @@ SCREAVER:
 
 SCOBSERVER:
 	Inherits: ^AirProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^HelicopterTemplate
 	Inherits@explode: ^HeliExplodeProtoss
 	Inherits@announce: ^AnnounceOnBuild
@@ -7406,6 +7411,7 @@ SCCORSAIR:
 
 SCCARRIER:
 	Inherits: ^AirProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^SpaceshipTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -7466,6 +7472,7 @@ SCCARRIER:
 
 SCSTARSHIPSOVEREIGN:
 	Inherits: ^AirProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^SpaceshipTemplate
 	Inherits@Epic: ^EpicAirUnitTemplate
 	Inherits@exp: ^GainsExperienceTD
@@ -7598,6 +7605,7 @@ SCINTERCEPTOR:
 
 SCARBITER:
 	Inherits: ^AirProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^HelicopterTemplate
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -7698,6 +7706,7 @@ SCPMCV:
 
 SCZERATUL:
 	Inherits@protoss: ^BasicProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^HeroInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -7744,6 +7753,7 @@ SCZERATUL:
 
 SCAMARANTH:
 	Inherits@protoss: ^BasicProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
@@ -7929,6 +7939,7 @@ SCPOSITRON:
 
 SCLEGIONNAIRE:
 	Inherits@protoss: ^BasicProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^MeleeInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMoveMelee
@@ -7972,6 +7983,7 @@ SCLEGIONNAIRE:
 
 SCPATRIARCH:
 	Inherits@protoss: ^BasicProtoss
+	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@Template: ^HeroInfantryTemplate
 	Inherits@exp: ^GainsExperienceTD
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -8461,7 +8473,6 @@ SCOVERLORD:
 SCBROODWEAVER:
 	Inherits: ^AirZerg
 	Inherits@Template: ^UnarmedTransportHelicopterTemplate
-	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@cargo: ^CargoAircraft
 	Inherits@bot: ^BotAutoDeployUnarmedAirTransport
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -10116,7 +10127,6 @@ SCBEHEMOTH:
 	Inherits@Template: ^SpaceshipTemplate
 	Inherits@Epic: ^EpicAirUnitTemplate
 	Inherits@exp: ^GainsExperienceTD
-	Inherits@speedup: ^SCUnitProductionSpeedBoost
 	Inherits@cargo: ^CargoAircraft
 	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove

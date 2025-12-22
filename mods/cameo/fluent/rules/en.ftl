@@ -1860,8 +1860,8 @@ upgrade-personal_shield =
 upgrade-d2k_siege_range_upgrade =
    .description = All Tanks, Gun Turrets and Artillery gain increased range and damage.
    Gun Turret, Ix Combat Tanks and Duelist Tanks: 10% higher range and 25% more damage.
-   Ix Combat Siege: 25% higher range and 50% more damage.
-   Ix Siege Tank: 50% higher range and 100% more damage.
+   Ix Siege Tank: 25% higher range and 50% more damage.
+   Ix Combat Siege: 50% higher range and 100% more damage.
 
 upgrade-d2k_heavy_missile_upgrade =
    .description = All missile based weapons deal 20% more damage and have 20% more range.

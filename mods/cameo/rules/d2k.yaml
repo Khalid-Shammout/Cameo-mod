@@ -8092,6 +8092,7 @@ ordos_python:
 siege_tank_ixian:
 	Inherits@D2KT: ^D2KTank
 	Inherits@Template: ^ArtilleryTemplate
+	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@D2KSprite: ^D2KPaletteRender
@@ -8104,7 +8105,7 @@ siege_tank_ixian:
 	Buildable:
 		Queue: Vehicle, RAVehicle
 		BuildPaletteOrder: 50
-		Prerequisites: ~outpost.ixian
+		Prerequisites: ~upixians_siegetank, outpost.ixian
 		Description: actor-siege_tank.description
 		IconPalette: ra2
 	Health:
@@ -8154,10 +8155,10 @@ siege_tank_ixian:
 	AttractsWorms:
 		Intensity: 600
 	FirepowerMultiplier@d2k_siege_range_upgrade:
-		Modifier: 200
+		Modifier: 150
 		RequiresCondition: d2k_siege_range_upgrade
 	RangeMultiplier@d2k_siege_range_upgrade:
-		Modifier: 150
+		Modifier: 125
 		RequiresCondition: d2k_siege_range_upgrade
 	Voiced:
 		VoiceSet: D2KSiegeTank
@@ -12471,18 +12472,19 @@ upixians_ixraider:
 		Image: shock_raider
 	ProvidesPrerequisite:
 
-upixians_combatsiege:
+upixians_siegetank:
 	Inherits: ^promotion_upgrade.template
 	Tooltip:
-		Name: Unlock Ix Combat Siege
+		Name: Unlock Ix Siege Tank
 	Buildable:
 		BuildPaletteOrder: 113
 		Queue: Promotions
 		IconPalette: d2kunit
-		Description: Enables construction of Ix Combat Siege Tanks.
-		Prerequisites: ~construction_yard.ixian, upixians_ixraider, !upixians_combatsiege, rank1
+		Description: Enables construction of Ix Siege Tanks.
+		Prerequisites: ~construction_yard.ixian, upixians_ixraider, !upixians_siegetank, rank1
 	RenderSprites:
-		Image: combat_siege_tank
+		Image: ix_siege_tank
+		PlayerPalette: player
 	ProvidesPrerequisite:
 
 upixians_neocymek:
@@ -12494,7 +12496,7 @@ upixians_neocymek:
 		Queue: Promotions
 		IconPalette: d2kunit
 		Description: Enables construction of Neo Cymeks.
-		Prerequisites: ~construction_yard.ixian, upixians_combatsiege, !upixians_neocymek, rank1
+		Prerequisites: ~construction_yard.ixian, upixians_siegetank, !upixians_neocymek, rank1
 	RenderSprites:
 		Image: d2k_neocymek
 	ProvidesPrerequisite:
@@ -13141,7 +13143,6 @@ heavy_rocket_raider_ixian:
 combat_siege_tank:
 	Inherits@D2KT: ^D2KTank
 	Inherits@Template: ^FireSupportTemplate
-	Inherits@PromotionUnitBuff: ^PromotionUnitBuff
 	Inherits@exp: ^GainsExperienceRA
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@D2KSprite: ^D2KPaletteRender
@@ -13155,7 +13156,7 @@ combat_siege_tank:
 		BuildPaletteOrder: 40
 		IconPalette: d2kunit
 		Description: actor-siege_tank.description
-		Prerequisites: ~upixians_combatsiege, outpost.ixian
+		Prerequisites: ~outpost.ixian
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -13186,10 +13187,10 @@ combat_siege_tank:
 		MuzzleSequence: muzzle
 		MuzzlePalette: d2keffect
 	FirepowerMultiplier@d2k_siege_range_upgrade:
-		Modifier: 150
+		Modifier: 200
 		RequiresCondition: d2k_siege_range_upgrade
 	RangeMultiplier@d2k_siege_range_upgrade:
-		Modifier: 125
+		Modifier: 150
 		RequiresCondition: d2k_siege_range_upgrade
 	ActorStatValues:
 		Upgrades: d2k_siege_range_upgrade

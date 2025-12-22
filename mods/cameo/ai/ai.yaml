@@ -5698,7 +5698,7 @@ Player:
 			upixians_stormraider: 1
 			upixians_stormlasher: 1
 			upixians_ixraider: 1
-			upixians_combatsiege: 1
+			upixians_siegetank: 1
 			upixians_neocymek: 1
 			upixians_projector: 1
 			upixians_ixdrone: 1
@@ -6084,8 +6084,8 @@ Player:
 			wc2_h_str_shield2: 1
 			wc2_h_str_arrow: 1
 			wc2_h_str_arrow2: 1
-			wc2_h_rangerupg: 1
 			wc2_upgrade_footman: 1
+			wc2_h_rangerupg: 1
 			wc2_upgrade_high_elf_archer: 1
 			wc2_h_ranger_longbow: 1
 			wc2_h_ranger_scouting: 1
@@ -6106,8 +6106,10 @@ Player:
 			##################### UnitsToBuild Warcraft 2 Orcs
 			wc2_orc_peon: 10
 			wc2_orc_grunt: 5
+			wc2_orc_grunt2: 5
 			wc2_orc_troll_axethrower: 3
 			wc2_orc_troll_berserker: 5
+			wc2_orc_troll_spearthrower: 5
 			wc2_orc_ogre: 3
 			wc2_orc_ogremage: 5
 			wc2_orc_catapult: 1
@@ -6132,7 +6134,9 @@ Player:
 			wc2_o_str_shield2: 1
 			wc2_o_str_throwaxe: 1
 			wc2_o_str_throwaxe2: 1
+			wc2_upgrade_grunt: 1
 			wc2_o_berserkerupg: 1
+			wc2_upgrade_troll_spearthrower: 1
 			wc2_o_berserker_lighteraxes: 1
 			wc2_o_berserker_scouting: 1
 			wc2_o_berserker_regen: 1

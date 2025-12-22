@@ -5596,7 +5596,7 @@ latin_mtnk:
 		DecorationBounds: 1280, 1280
 	WithSpriteTurret:
 	Cargo:
-		InitialUnits: latin_narco, latin_fftr, latin_monkey
+		InitialUnits: latin_narco, latin_fthrow, latin_monkey
 		Types: Infantry, Hacker, Fremen
 		MaxWeight: 3
 	Voiced:
@@ -5685,10 +5685,10 @@ latin_diablo:
 		Condition: latin_up_chaingun
 		Prerequisites: latin_up_chaingun
 	AttackTurreted:
-	RenderRangeCircleCA:
-		Armaments: primary
-	RenderRangeCircleCA@SECONDARY:
-		Armaments: secondary
+	# RenderRangeCircleCA:
+	# 	Armaments: primary
+	# RenderRangeCircleCA@SECONDARY:
+	# 	Armaments: secondary
 	WithMuzzleOverlay:
 	SelectionDecorations:
 	Selectable:
@@ -8190,14 +8190,14 @@ steel_scalpelAA:
 	Tooltip:
 		Name: Anti Air Scalpel
 	Armament@PRIMARY:
-		Weapon: SteelInfRailgunAAE
+		Weapon: SteelScalpelRailgunAA
 		LocalOffset: 200,-100,0, 200,100,0, 200,-200,0, 200,200,0
 		LocalYaw: 50, -50, 25, -25
 		MuzzleSequence: muzzle2
 		MuzzlePalette: ra2effect
 		RequiresCondition: !upsteel_empquantumweapons
 	Armament@Upgrade:
-		Weapon: SteelInfRailgunAAEMPE
+		Weapon: SteelScalpelRailgunAAEMP
 		LocalOffset: 200,-100,0, 200,100,0, 200,-200,0, 200,200,0
 		LocalYaw: 50, -50, 25, -25
 		MuzzleSequence: muzzle2
@@ -8306,7 +8306,7 @@ steel_qmin:
 
 steel_fedinf:
 	Inherits: ^Soldier
-	Inherits@Template: ^GrenadierInfantryTemplate
+	Inherits@Template: ^AntiTankAntiAirInfantryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
@@ -8314,7 +8314,7 @@ steel_fedinf:
 	Inherits@vo: ^AttackFrontalVoice
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Valued:
-		Cost: 150
+		Cost: 200
 	Tooltip:
 		Name: Clone Trooper
 	Buildable:
@@ -8323,9 +8323,11 @@ steel_fedinf:
 		Queue: Infantry, RAInfantry
 		Description: template-scout-infantry.description
 	Mobile:
-		Speed: 54
+		Speed: 57
 	Health:
-		HP: 12500
+		HP: 17000
+	ChangesHealth@SelfHealing:
+		Step: 17
 	Armament@PRIMARY:
 		Weapon: SteelCloneGun
 		RequiresCondition: !rank-elite
@@ -8355,14 +8357,14 @@ steel_fedinf:
 
 steel_board_inf:
 	Inherits: ^Soldier
-	Inherits@Template: ^ScoutInfantryTemplate
+	Inherits@Template: ^GrenadierInfantryTemplate
 	Inherits@EXPERIENCE: ^GainsExperienceRA2
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@DECORATIONS: ^InfantryExperienceHospitalHazmatOverrides
 	Inherits@anim: ^RA2Infantry
 	Inherits@vo: ^AttackFrontalVoice
 	Valued:
-		Cost: 500
+		Cost: 650
 	Tooltip:
 		Name: Hover Board Grenadier
 	Buildable:
@@ -8372,12 +8374,14 @@ steel_board_inf:
 		Description: actor-steel_board_inf.description
 	Mobile:
 		Locomotor: hover
-		Speed: 125
+		Speed: 130
 	Hovers:
 	Targetable@Hover:
 		TargetTypes: Water, Ship
 	Health:
-		HP: 22500
+		HP: 22000
+	ChangesHealth@SelfHealing:
+		Step: 22
 	Armament@PRIMARY:
 		Weapon: SteelMakoGun
 		LocalOffset: 300,200,800
@@ -8398,6 +8402,10 @@ steel_board_inf:
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: rank-elite
+	FirepowerMultiplier@Freed:
+		Modifier: 550
+	ReloadDelayMultiplier@Freed:
+		Modifier: 200
 	AttackFrontal:
 		FacingTolerance: 0
 	-TakeCover:
@@ -8425,7 +8433,7 @@ steel_qinf:
 	Inherits@AntiAir: ^PrioritizeAir
 	Inherits@quantum: ^QuantumWeaponsEMP
 	Valued:
-		Cost: 700
+		Cost: 1150
 	Tooltip:
 		Name: Quantum Missile Trooper
 	Buildable:
@@ -8434,15 +8442,15 @@ steel_qinf:
 		Queue: Infantry, RAInfantry
 		Description: actor-ggi.description
 	Mobile:
-		Speed: 50
+		Speed: 48
 		RequireForceMoveCondition: !undeployed
 		ImmovableCondition: !undeployed
 	Passenger:
 		RequireForceMoveCondition: !undeployed
 	Health:
-		HP: 40000
+		HP: 64000
 	ChangesHealth@SelfHealing:
-		Step: 16
+		Step: 64
 	RangeMultiplier@deployed:
 		Modifier: 125
 		RequiresCondition: deployed
@@ -8459,32 +8467,16 @@ steel_qinf:
 		Weapon: SteelInfRailgun
 		LocalOffset: 384,64,384
 		RequiresCondition: !deployed && !rank-elite && !upsteel_empquantumweapons
-	Armament@SECONDARY:
-		Weapon: SteelInfRailgunAA
-		LocalOffset: 384,64,384
-		RequiresCondition: !deployed && !rank-elite && !upsteel_empquantumweapons
 	Armament@PRIMARYELITE:
 		Weapon: SteelInfRailgunE
-		LocalOffset: 384,64,384
-		RequiresCondition: !deployed && rank-elite && !upsteel_empquantumweapons
-	Armament@SECONDARYELITE:
-		Weapon: SteelInfRailgunAAE
 		LocalOffset: 384,64,384
 		RequiresCondition: !deployed && rank-elite && !upsteel_empquantumweapons
 	Armament@UpgradePRIMARY:
 		Weapon: SteelInfRailgunEMP
 		LocalOffset: 384,64,384
 		RequiresCondition: !deployed && !rank-elite && upsteel_empquantumweapons
-	Armament@UpgradeSECONDARY:
-		Weapon: SteelInfRailgunAAEMP
-		LocalOffset: 384,64,384
-		RequiresCondition: !deployed && !rank-elite && upsteel_empquantumweapons
 	Armament@UpgradePRIMARYELITE:
 		Weapon: SteelInfRailgunEMPE
-		LocalOffset: 384,64,384
-		RequiresCondition: !deployed && rank-elite && upsteel_empquantumweapons
-	Armament@UpgradeSECONDARYELITE:
-		Weapon: SteelInfRailgunAAEMPE
 		LocalOffset: 384,64,384
 		RequiresCondition: !deployed && rank-elite && upsteel_empquantumweapons
 	Armament@BOTAA:
@@ -8497,21 +8489,9 @@ steel_qinf:
 		Turret: deploy
 		LocalOffset: 384,64,384
 		RequiresCondition: deployed && !rank-elite && !upsteel_empquantumweapons
-	Armament@DEPLOYEDAA:
-		Name: deployed
-		Weapon: SteelInfRailgunAA
-		Turret: deploy
-		LocalOffset: 384,64,384
-		RequiresCondition: deployed && !rank-elite && !upsteel_empquantumweapons
 	Armament@DEPLOYEDELITE:
 		Name: deployed
 		Weapon: SteelInfRailgunE
-		Turret: deploy
-		LocalOffset: 384,64,384
-		RequiresCondition: deployed && rank-elite && !upsteel_empquantumweapons
-	Armament@DEPLOYEDAAELITE:
-		Name: deployed
-		Weapon: SteelInfRailgunAAE
 		Turret: deploy
 		LocalOffset: 384,64,384
 		RequiresCondition: deployed && rank-elite && !upsteel_empquantumweapons
@@ -8521,21 +8501,9 @@ steel_qinf:
 		Turret: deploy
 		LocalOffset: 384,64,384
 		RequiresCondition: deployed && !rank-elite && upsteel_empquantumweapons
-	Armament@UpgradeDEPLOYEDAA:
-		Name: deployed
-		Weapon: SteelInfRailgunAAEMP
-		Turret: deploy
-		LocalOffset: 384,64,384
-		RequiresCondition: deployed && !rank-elite && upsteel_empquantumweapons
 	Armament@UpgradeDEPLOYEDELITE:
 		Name: deployed
 		Weapon: SteelInfRailgunEMPE
-		Turret: deploy
-		LocalOffset: 384,64,384
-		RequiresCondition: deployed && rank-elite && upsteel_empquantumweapons
-	Armament@UpgradeDEPLOYEDAAELITE:
-		Name: deployed
-		Weapon: SteelInfRailgunAAEMPE
 		Turret: deploy
 		LocalOffset: 384,64,384
 		RequiresCondition: deployed && rank-elite && upsteel_empquantumweapons
@@ -8543,33 +8511,17 @@ steel_qinf:
 		Name: garrisoned
 		Weapon: SteelInfRailgun
 		RequiresCondition: !rank-elite && !upsteel_empquantumweapons
-	Armament@GARRISONEDAA:
-		Name: garrisoned
-		Weapon: SteelInfRailgunAA
-		RequiresCondition: !rank-elite && !upsteel_empquantumweapons
 	Armament@GARRISONEDELITE:
 		Name: garrisoned
 		Weapon: SteelInfRailgunE
-		RequiresCondition: rank-elite && !upsteel_empquantumweapons
-	Armament@GARRISONEDAAELITE:
-		Name: garrisoned
-		Weapon: SteelInfRailgunAAE
 		RequiresCondition: rank-elite && !upsteel_empquantumweapons
 	Armament@UpgradeGARRISONED:
 		Name: garrisoned
 		Weapon: SteelInfRailgunEMP
 		RequiresCondition: !rank-elite && upsteel_empquantumweapons
-	Armament@UpgradeGARRISONEDAA:
-		Name: garrisoned
-		Weapon: SteelInfRailgunAAEMP
-		RequiresCondition: !rank-elite && upsteel_empquantumweapons
 	Armament@UpgradeGARRISONEDELITE:
 		Name: garrisoned
 		Weapon: SteelInfRailgunEMPE
-		RequiresCondition: rank-elite && upsteel_empquantumweapons
-	Armament@UpgradeGARRISONEDAAELITE:
-		Name: garrisoned
-		Weapon: SteelInfRailgunAAEMPE
 		RequiresCondition: rank-elite && upsteel_empquantumweapons
 	AttackFrontal:
 		Armaments: primary, targeting
@@ -8804,7 +8756,7 @@ steel_manta:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
 	Valued:
-		Cost: 700
+		Cost: 850
 	Tooltip:
 		Name: Manta
 	Buildable:
@@ -8817,9 +8769,11 @@ steel_manta:
 		Speed: 115
 		TurnSpeed: 46
 	Health:
-		HP: 32500
+		HP: 27500
 	Repairable:
-		HpPerStep: 1625
+		HpPerStep: 1375
+	ChangesHealth@SelfHealing:
+		Step: 11
 	Armor:
 		Type: Light
 	Armament@AG1:
@@ -8842,7 +8796,7 @@ steel_manta:
 		LocalOffset: 300,-100,0
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-	FirepowerMultiplier@Manta:
+	FirepowerMultiplier@DualWeapon:
 		Modifier: 50
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 50
@@ -8877,7 +8831,7 @@ steel_manta_hunt:
 	Inherits@AntiInf: ^PrioritizeInfantry
 	Inherits@AntiAir: ^PrioritizeAir
 	Valued:
-		Cost: 1000
+		Cost: 1250
 	Tooltip:
 		Name: Barracuda
 	Buildable:
@@ -8931,14 +8885,14 @@ steel_manta_hunt:
 		LocalOffset: 500,-200,-150
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
-	FirepowerMultiplier@Hunter:
+	FirepowerMultiplier@DualWeapon:
 		Modifier: 50
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 50
 		RequiresCondition: rank-elite
 	RenderRangeCircle:
-	WithRangeCircle:
-		Range: 8000
+	# WithRangeCircle:
+	# 	Range: 8000
 	AttackTurreted:
 	WithMuzzleOverlay:
 	SelectionDecorations:
@@ -8968,12 +8922,12 @@ steel_mega:
 	Selectable:
 		Bounds: 1250, 1750, 0, -250
 	Valued:
-		Cost: 2000
+		Cost: 4400
 	Tooltip:
 		Name: Megalodon
 	Buildable:
 		BuildPaletteOrder: 50
-		Prerequisites: ~steel_qtradr
+		Prerequisites: ~steel_qatech
 		Queue: Vehicle, RAVehicle
 		Description: actor-steel_mega.description
 	Mobile:
@@ -8981,15 +8935,19 @@ steel_mega:
 		Speed: 65
 		TurnSpeed: 26
 	Health:
-		HP: 165000
+		HP: 425000
 	Repairable:
-		HpPerStep: 8250
+		HpPerStep: 21250
 	ChangesHealth@SelfHealing:
-		Step: 66
+		Step: 170
 	Armor:
-		Type: Heavy
-	Armament@1:
+		Type: Superheavy
+	Armament@PRIMARY:
 		Weapon: SteelMegaSword
+		RequiresCondition: !rank-elite
+	Armament@ELITE:
+		Weapon: SteelMegaSwordE
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		FacingTolerance: 10
 	WithInfantryBody:
@@ -9019,7 +8977,7 @@ steel_arty:
 	Inherits@EMP: ^FrontalEMP
 	Inherits@bot: ^BotAutoDeploySwitchMode
 	Valued:
-		Cost: 800
+		Cost: 1000
 	Tooltip:
 		Name: Hammerhead Artillery Tank
 	Buildable:
@@ -9032,19 +8990,21 @@ steel_arty:
 		Speed: 100
 		TurnSpeed: 20
 	Health:
-		HP: 42500
+		HP: 52500
+	Repairable:
+		HpPerStep: 2625
+	ChangesHealth@SelfHealing:
+		Step: 21
 	Armor:
 		Type: Medium
-	Repairable:
-		HpPerStep: 2000
 	Armament@Undeployed:
-		Weapon: RA2105mm
+		Weapon: HammerheadTankCannon
 		LocalOffset: 200,0,100
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
 		RequiresCondition: undeployed
 	Armament@Deployed:
-		Weapon: SteelQtnkArtillery
+		Weapon: HammerheadArtillery
 		LocalOffset: -200,0,400
 		MuzzleSequence: muzzle
 		MuzzlePalette: ra2effect
@@ -9069,9 +9029,9 @@ steel_arty:
 	WithMakeAnimation:
 		Sequence: deploy
 		BodyNames: dot
-	FirepowerMultiplier@undeployed:
-		Modifier: 333
-		RequiresCondition: !deployed
+	FirepowerMultiplier@deployed:
+		Modifier: 200
+		RequiresCondition: deployed
 	SpeedMultiplier@deployed:
 		Modifier: 66
 		RequiresCondition: deployed
@@ -9225,24 +9185,24 @@ steel_potnk:
 		Bounds: 1250, 1250
 		DecorationBounds: 1250, 1250
 	Valued:
-		Cost: 3000
+		Cost: 4000
 	Tooltip:
 		Name: Poseidon Tank
 	Buildable:
 		BuildPaletteOrder: 75
-		Prerequisites: ~steel_qatech
+		Prerequisites: ~steel_qtradr
 		Queue: Vehicle, RAVehicle
 		Description: template-opentopped.description
 	Mobile:
 		Locomotor: amphibius
-		Speed: 55
-		TurnSpeed: 11
+		Speed: 50
+		TurnSpeed: 10
 	Health:
-		HP: 185000
+		HP: 125000
 	Repairable:
-		HpPerStep: 9250
+		HpPerStep: 6250
 	ChangesHealth@SelfHealing:
-		Step: 74
+		Step: 50
 	Armor:
 		Type: Heavy
 	Armament@1:
@@ -9299,7 +9259,7 @@ steel_dagger:
 		Name: Dagger
 	Buildable:
 		BuildPaletteOrder: 60
-		Prerequisites: ~steel_qaweap, steel_qatech, ~upsteel_dagger
+		Prerequisites: ~upsteel_dagger, steel_qatech
 		Queue: Vehicle, RAVehicle
 		Description: actor-aahowi.description
 	Mobile:
@@ -9374,16 +9334,8 @@ steel_defender:
 		Weapon: SteelInfRailgun
 		LocalOffset: 300,200,1000, 300,-200,1000
 		RequiresCondition: !upsteel_empquantumweapons
-	Armament@Secondary:
-		Weapon: SteelInfRailgunAA
-		LocalOffset: 300,200,1000, 300,-200,1000
-		RequiresCondition: !upsteel_empquantumweapons
 	Armament@Upgrade1:
 		Weapon: SteelInfRailgunEMP
-		LocalOffset: 300,200,1000, 300,-200,1000
-		RequiresCondition: upsteel_empquantumweapons
-	Armament@Upgrade2:
-		Weapon: SteelInfRailgunAAEMP
 		LocalOffset: 300,200,1000, 300,-200,1000
 		RequiresCondition: upsteel_empquantumweapons
 	AttackFrontal:
@@ -10251,7 +10203,7 @@ steel_cargoship:
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@bot: ^BotAutoDeployTransport
 	Valued:
-		Cost: 3000
+		Cost: 4000
 	Tooltip:
 		Name: Cargo Ship
 	UpdatesPlayerStatistics:
@@ -10267,9 +10219,11 @@ steel_cargoship:
 		AltitudeVelocity: 100
 		RepulsionSpeed: 50
 	Health:
-		HP: 100000
+		HP: 125000
+	Repairable:
+		HpPerStep: 6250
 	ChangesHealth@SelfHealing:
-		Step: 40
+		Step: 50
 	Armament@PRIMARY:
 		Weapon: SteelCargoshipCannons
 		LocalOffset: -150,-400,-25, -150,400,-25
@@ -10277,9 +10231,9 @@ steel_cargoship:
 		MuzzlePalette: ra2effect
 	WithMuzzleOverlay:
 	Cargo:
-		InitialUnits: steel_fedinf, steel_board_inf, steel_qinf, steel_fedinf, steel_board_inf, steel_qinf, steel_fedinf, steel_board_inf, steel_qinf, steel_fedinf, steel_board_inf, steel_qinf
+		InitialUnits: steel_fedinf, steel_board_inf, steel_qinf, steel_fedinf, steel_board_inf, steel_qinf
 		Types: Infantry, Hacker, Fremen, Vehicle
-		MaxWeight: 12
+		MaxWeight: 6
 		AfterLoadDelay: 0
 		BeforeUnloadDelay: 0
 		AfterUnloadDelay: 0
